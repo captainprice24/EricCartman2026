@@ -1,0 +1,194 @@
+/*
+ * Pure logic shared by the app and the unit tests (no DOM access).
+ * Browser: window.EPSO_CORE. Node: module.exports.
+ */
+(function (root, factory) {
+  var api = factory();
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  else root.EPSO_CORE = api;
+})(typeof self !== "undefined" ? self : this, function () {
+  "use strict";
+
+  var SECTIONS = {
+    verbal: { key: "verbal", name: "Verbal reasoning", examCount: 20, examMinutes: 35, perQ: 105 },
+    numerical: { key: "numerical", name: "Numerical reasoning", examCount: 10, examMinutes: 20, perQ: 120 },
+    abstract: { key: "abstract", name: "Abstract reasoning", examCount: 10, examMinutes: 10, perQ: 60 }
+  };
+  var ORDER = ["verbal", "numerical", "abstract"];
+  // Difficulty mix for exam draws: 25% easier, 50% medium, 25% harder.
+  var DIFFICULTY_MIX = { 1: 0.25, 2: 0.5, 3: 0.25 };
+
+  /* ---------- calculator ---------- */
+  // Supports + − × ÷ ( ) and %, where % divides the number before it by 100 (so 200×15% = 30).
+  function calcEval(expr) {
+    var src = String(expr).replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-").replace(/\s+/g, "");
+    if (!src) throw new Error("empty");
+    var toks = src.match(/\d+\.?\d*|\.\d+|[-+*/()%]/g);
+    if (!toks || toks.join("") !== src) throw new Error("bad");
+    var out = [], ops = [], prec = { "+": 1, "-": 1, "*": 2, "/": 2, "u": 3 };
+    var prev = null;
+    toks.forEach(function (t) {
+      if (/^[\d.]/.test(t)) out.push(parseFloat(t));
+      else if (t === "%") out.push("%");
+      else if (t === "(") ops.push(t);
+      else if (t === ")") {
+        while (ops.length && ops[ops.length - 1] !== "(") out.push(ops.pop());
+        if (!ops.length) throw new Error("paren");
+        ops.pop();
+      } else {
+        var op = t === "-" && (prev === null || /^[-+*/(]$/.test(prev)) ? "u" : t;
+        while (ops.length && ops[ops.length - 1] !== "(" && op !== "u" && prec[ops[ops.length - 1]] >= prec[op]) out.push(ops.pop());
+        ops.push(op);
+      }
+      prev = t;
+    });
+    while (ops.length) { var o = ops.pop(); if (o === "(") throw new Error("paren"); out.push(o); }
+    var st = [];
+    out.forEach(function (t) {
+      if (typeof t === "number") st.push(t);
+      else if (t === "%") { if (!st.length) throw new Error("bad"); st.push(st.pop() / 100); }
+      else if (t === "u") { if (!st.length) throw new Error("bad"); st.push(-st.pop()); }
+      else {
+        var b = st.pop(), a = st.pop();
+        if (a === undefined || b === undefined) throw new Error("bad");
+        st.push(t === "+" ? a + b : t === "-" ? a - b : t === "*" ? a * b : a / b);
+      }
+    });
+    if (st.length !== 1 || !isFinite(st[0])) throw new Error("bad");
+    return +st[0].toPrecision(12);
+  }
+
+  /* ---------- scoring ---------- */
+  // Exam: every answer counts. Practice/coach: only answers the user checked count.
+  function sectionScore(sec, mode) {
+    var correct = 0, answered = 0, counted = 0;
+    sec.items.forEach(function (it) {
+      var id = it.q.id, a = sec.answers[id];
+      if (a !== undefined) answered++;
+      var counts = mode === "exam" || sec.checked[id];
+      if (counts) counted++;
+      if (counts && a === it.q.answer) correct++;
+    });
+    return { correct: correct, total: sec.items.length, answered: answered, counted: counted };
+  }
+
+  // scores: { verbal: {correct,total}, numerical: {...}, abstract: {...} } (any subset)
+  function examVerdict(scores) {
+    var out = [];
+    if (scores.verbal) {
+      var need = Math.ceil(scores.verbal.total / 2);
+      out.push({ key: "verbal", label: "Verbal reasoning", correct: scores.verbal.correct, total: scores.verbal.total, need: need, pass: scores.verbal.correct >= need });
+    }
+    if (scores.numerical || scores.abstract) {
+      var c = (scores.numerical ? scores.numerical.correct : 0) + (scores.abstract ? scores.abstract.correct : 0);
+      var t = (scores.numerical ? scores.numerical.total : 0) + (scores.abstract ? scores.abstract.total : 0);
+      var n2 = Math.ceil(t / 2);
+      var lbl = scores.numerical && scores.abstract ? "Numerical + abstract (combined)" : scores.numerical ? "Numerical reasoning" : "Abstract reasoning";
+      out.push({ key: "na", label: lbl, correct: c, total: t, need: n2, pass: c >= n2 });
+    }
+    return out;
+  }
+
+  /* ---------- exposure-controlled, difficulty-stratified draw ---------- */
+  function shuffle(a, rng) {
+    var arr = a.slice(), r = rng || Math.random;
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(r() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  // Returns { items, repeats }: unseen items first, then a difficulty mix as close to DIFFICULTY_MIX as the pool allows.
+  function drawExam(pool, count, stats, rng) {
+    stats = stats || {};
+    var seen = function (q) { return !!(stats[q.id] && stats[q.id].seen); };
+    var byD = { 1: [], 2: [], 3: [] };
+    pool.forEach(function (q) { (byD[q.difficulty] || byD[2]).push(q); });
+    // Within each difficulty: unseen (shuffled) before seen (least recently seen first).
+    Object.keys(byD).forEach(function (d) {
+      var un = shuffle(byD[d].filter(function (q) { return !seen(q); }), rng);
+      var se = byD[d].filter(seen).sort(function (a, b) { return (stats[a.id].at || 0) - (stats[b.id].at || 0); });
+      byD[d] = un.concat(se);
+    });
+    var want = { 1: Math.round(count * DIFFICULTY_MIX[1]), 3: Math.round(count * DIFFICULTY_MIX[3]) };
+    want[2] = count - want[1] - want[3];
+    var picked = [];
+    [1, 2, 3].forEach(function (d) {
+      var take = byD[d].filter(function (q) { return !seen(q); }).slice(0, want[d]);
+      picked = picked.concat(take);
+      byD[d] = byD[d].filter(function (q) { return take.indexOf(q) === -1; });
+    });
+    // Fill any gap with remaining unseen items of any difficulty, then with the least recently seen.
+    var rest = [1, 2, 3].reduce(function (acc, d) { return acc.concat(byD[d]); }, []);
+    var restUnseen = shuffle(rest.filter(function (q) { return !seen(q); }), rng);
+    var restSeen = rest.filter(seen).sort(function (a, b) { return (stats[a.id].at || 0) - (stats[b.id].at || 0); });
+    var fill = restUnseen.concat(restSeen);
+    while (picked.length < count && fill.length) picked.push(fill.shift());
+    var repeats = picked.filter(seen).length;
+    return { items: shuffle(picked, rng), repeats: repeats };
+  }
+
+  function freshSimulationsLeft(bySection, stats, keys) {
+    stats = stats || {};
+    var left = Infinity;
+    (keys || ORDER).forEach(function (k) {
+      var unseen = (bySection[k] || []).filter(function (q) { return !(stats[q.id] && stats[q.id].seen); }).length;
+      left = Math.min(left, Math.floor(unseen / SECTIONS[k].examCount));
+    });
+    return left === Infinity ? 0 : left;
+  }
+
+  /* ---------- timing (wall-clock based, survives background tabs and sleep) ---------- */
+  function remainingMs(sec, now) {
+    if (!sec.deadline) return null;
+    return Math.max(0, sec.deadline - now);
+  }
+  function elapsedMs(sec, now) {
+    if (sec.usedMs != null) return sec.usedMs;
+    if (!sec.startedAt) return 0;
+    var e = now - sec.startedAt;
+    return sec.limitMs ? Math.min(e, sec.limitMs) : e;
+  }
+
+  /* ---------- highlighter: ranges stored as { p, s, e } character offsets per paragraph ---------- */
+  function addRange(list, p, s, e) {
+    if (e <= s) return list.slice();
+    var all = list.concat([{ p: p, s: s, e: e }]).sort(function (a, b) { return a.p - b.p || a.s - b.s; });
+    var out = [];
+    all.forEach(function (r) {
+      var last = out[out.length - 1];
+      if (last && last.p === r.p && r.s <= last.e) last.e = Math.max(last.e, r.e);
+      else out.push({ p: r.p, s: r.s, e: r.e });
+    });
+    return out;
+  }
+  // Split a paragraph's text into [{ text, mark }] segments.
+  function segments(text, ranges, p) {
+    var rs = ranges.filter(function (r) { return r.p === p; });
+    var out = [], pos = 0;
+    rs.forEach(function (r) {
+      var s = Math.max(pos, Math.min(r.s, text.length)), e = Math.min(r.e, text.length);
+      if (s > pos) out.push({ text: text.slice(pos, s), mark: false });
+      if (e > s) out.push({ text: text.slice(s, e), mark: true });
+      pos = Math.max(pos, e);
+    });
+    if (pos < text.length) out.push({ text: text.slice(pos), mark: false });
+    return out;
+  }
+
+  /* ---------- localisation of item text: string or { en, fr, de, … } ---------- */
+  function tr(value, lang) {
+    if (value == null || typeof value === "string" || Array.isArray(value)) return value;
+    if (typeof value === "object" && !value.t) return value[lang] != null ? value[lang] : value.en;
+    return value;
+  }
+
+  return {
+    SECTIONS: SECTIONS, ORDER: ORDER, DIFFICULTY_MIX: DIFFICULTY_MIX,
+    calcEval: calcEval, sectionScore: sectionScore, examVerdict: examVerdict,
+    shuffle: shuffle, drawExam: drawExam, freshSimulationsLeft: freshSimulationsLeft,
+    remainingMs: remainingMs, elapsedMs: elapsedMs,
+    addRange: addRange, segments: segments, tr: tr
+  };
+});
