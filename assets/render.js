@@ -116,22 +116,108 @@
       series.forEach(function (s, si) {
         var v = s.values[ci];
         var bx = gx + si * barW;
-        out += '<rect class="bar s' + (si % 3) + '" x="' + (bx + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + (barW - 2).toFixed(1) + '" height="' + (T + plotH - y(v)).toFixed(1) + '"/>';
-        out += '<text class="val" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + esc(v) + "</text>";
+        out += '<rect class="bar s' + (si % 4) + '" x="' + (bx + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + (barW - 2).toFixed(1) + '" height="' + (T + plotH - y(v)).toFixed(1) + '"/>';
+        out += '<text class="val" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(v) + "</text>";
       });
       out += '<text class="cat" x="' + (L + ci * groupW + groupW / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
     });
     out += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/>';
     out += "</svg>";
-    var legend = series.length > 1 ? '<div class="legend">' + series.map(function (s, si) {
-      return '<span><i class="sw s' + (si % 3) + '"></i>' + esc(s.name) + "</span>";
+    return '<div class="chart-wrap">' + legendHTML(series) + out + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
+  function fmtVal(v) {
+    return typeof v === "number" ? String(+v.toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : esc(v);
+  }
+
+  function legendHTML(series) {
+    return series.length > 1 ? '<div class="legend">' + series.map(function (s, si) {
+      return '<span><i class="sw s' + (si % 4) + '"></i>' + esc(s.name) + "</span>";
     }).join("") + "</div>" : "";
-    return '<div class="chart-wrap">' + legend + out + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
+  function axisHTML(scale, y, L, Rr, W) {
+    var out = "";
+    for (var g = 0; g <= scale.max + 1e-9; g += scale.step) {
+      out += '<line class="grid" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + y(g).toFixed(1) + '" y2="' + y(g).toFixed(1) + '"/>';
+      out += '<text class="tick" x="' + (L - 6) + '" y="' + (y(g) + 4).toFixed(1) + '" text-anchor="end">' + fmtVal(+g.toFixed(2)) + "</text>";
+    }
+    return out;
+  }
+
+  function stackedHTML(ex) {
+    var cats = ex.categories, series = ex.series;
+    var totals = cats.map(function (c, ci) { return series.reduce(function (t, s) { return t + s.values[ci]; }, 0); });
+    var scale = niceMax(Math.max.apply(null, totals) * 1.1);
+    var W = 560, H = 290, L = 48, Rr = 12, T = 18, B = 34;
+    var plotW = W - L - Rr, plotH = H - T - B;
+    var groupW = plotW / cats.length, barW = Math.min(54, groupW * 0.6);
+    var y = function (v) { return T + plotH - (v / scale.max) * plotH; };
+    var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Stacked bar chart") + '">' + axisHTML(scale, y, L, Rr, W);
+    cats.forEach(function (c, ci) {
+      var x = L + ci * groupW + (groupW - barW) / 2, acc = 0;
+      series.forEach(function (s, si) {
+        var v = s.values[ci], y0 = y(acc), y1 = y(acc + v);
+        out += '<rect class="bar s' + (si % 4) + '" x="' + x.toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + (y0 - y1).toFixed(1) + '"/>';
+        if (y0 - y1 >= 13) out += '<text class="seg" x="' + (x + barW / 2).toFixed(1) + '" y="' + ((y0 + y1) / 2 + 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(v) + "</text>";
+        acc += v;
+      });
+      out += '<text class="val" x="' + (x + barW / 2).toFixed(1) + '" y="' + (y(acc) - 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(+acc.toFixed(2)) + "</text>";
+      out += '<text class="cat" x="' + (x + barW / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
+    });
+    out += '<line class="axis" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
+    var hidden = series.some(function (s) { return s.values.some(function (v, ci) { return (v / scale.max) * plotH < 13; }); });
+    return '<div class="chart-wrap">' + legendHTML(series) + out + (hidden ? dataTableHTML(ex) : "") + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + " · totals shown above bars</div>" : "") + "</div>";
+  }
+
+  function lineHTML(ex) {
+    var cats = ex.categories, series = ex.series, all = [];
+    series.forEach(function (s) { all = all.concat(s.values); });
+    var scale = niceMax(Math.max.apply(null, all) * 1.12);
+    var W = 560, H = 290, L = 48, Rr = 24, T = 18, B = 34;
+    var plotW = W - L - Rr, plotH = H - T - B;
+    var x = function (i) { return L + 16 + (i * (plotW - 32)) / (cats.length - 1); };
+    var y = function (v) { return T + plotH - (v / scale.max) * plotH; };
+    var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Line chart") + '">' + axisHTML(scale, y, L, Rr, W);
+    series.forEach(function (s, si) {
+      out += '<path class="ln s' + (si % 4) + '" d="' + s.values.map(function (v, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1); }).join(" ") + '"/>';
+      s.values.forEach(function (v, i) {
+        out += '<circle class="pt s' + (si % 4) + '" cx="' + x(i).toFixed(1) + '" cy="' + y(v).toFixed(1) + '" r="3.5"/>';
+      });
+    });
+    cats.forEach(function (c, i) { out += '<text class="cat" x="' + x(i).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>"; });
+    out += '<line class="axis" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
+    // Exact values in a compact table under the chart, as candidates cannot read precise values off a line.
+    return '<div class="chart-wrap">' + legendHTML(series) + out + dataTableHTML(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
+  function dataTableHTML(ex) {
+    return '<div class="table-wrap"><table class="exhibit-table compact"><thead><tr><th scope="col"></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
+      "</tr></thead><tbody>" + ex.series.map(function (s) {
+        return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(v) + "</td>"; }).join("") + "</tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+
+  function pieHTML(ex) {
+    var total = ex.slices.reduce(function (t, s) { return t + s.value; }, 0);
+    var cx = 110, cy = 110, r = 96, a0 = -Math.PI / 2, out = "";
+    ex.slices.forEach(function (s, i) {
+      var a1 = a0 + (s.value / total) * Math.PI * 2;
+      var large = a1 - a0 > Math.PI ? 1 : 0;
+      var p0 = [cx + r * Math.cos(a0), cy + r * Math.sin(a0)], p1 = [cx + r * Math.cos(a1), cy + r * Math.sin(a1)];
+      out += '<path class="slice p' + (i % 6) + '" d="M' + cx + "," + cy + " L" + p0[0].toFixed(1) + "," + p0[1].toFixed(1) + " A" + r + "," + r + " 0 " + large + " 1 " + p1[0].toFixed(1) + "," + p1[1].toFixed(1) + ' Z"/>';
+      a0 = a1;
+    });
+    var legend = '<ul class="pie-legend">' + ex.slices.map(function (s, i) {
+      return '<li><i class="sw p' + (i % 6) + '"></i><span>' + esc(s.label) + "</span><b>" + fmtVal(s.value) + (ex.unit === "%" ? "%" : "") + "</b></li>";
+    }).join("") + "</ul>";
+    return '<div class="pie-wrap"><svg class="pie" viewBox="0 0 220 220" role="img" aria-label="' + esc(ex.title || "Pie chart") + '">' + out + "</svg>" + legend + "</div>" +
+      (ex.unit && ex.unit !== "%" ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "");
   }
 
   function exhibitHTML(ex) {
     if (!ex) return "";
-    var inner = ex.type === "bar" ? barHTML(ex) : tableHTML(ex);
+    var inner = ex.type === "bar" ? barHTML(ex) : ex.type === "stacked" ? stackedHTML(ex) : ex.type === "line" ? lineHTML(ex) : ex.type === "pie" ? pieHTML(ex) : tableHTML(ex);
     return '<figure class="exhibit">' +
       (ex.title ? "<figcaption>" + esc(ex.title) + "</figcaption>" : "") + inner +
       (ex.note ? '<p class="exhibit-note">' + esc(ex.note) + "</p>" : "") + "</figure>";

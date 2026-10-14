@@ -21,6 +21,9 @@
   --s1: #1d3fa6;
   --s2: #d9a400;
   --s3: #2f8f83;
+  --s4: #b5527a;
+  --s5: #7a6a3a;
+  --s6: #6b7f99;
   /* System fonts only: no third-party font requests (privacy) and fully offline. */
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-read: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
@@ -32,14 +35,14 @@
     --paper: #0d1322; --surface: #151d31; --sunken: #1b2440; --ink: #e5e9f4; --muted: #9aa3ba; --line: #2a3452;
     --accent: #8ea6ff; --accent-ink: #0d1322; --accent-soft: #1f2a4f; --gold: #f2c94c; --gold-soft: #3a3214;
     --good: #5cc98f; --good-soft: #17352a; --bad: #ff8a80; --bad-soft: #3d1d1d; --mark: #6b5a12; --fig-grey: #7a849c;
-    --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; color-scheme: dark;
+    --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; --s4: #e88fb3; --s5: #c8b27a; --s6: #a3b4cc; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0d1322; --surface: #151d31; --sunken: #1b2440; --ink: #e5e9f4; --muted: #9aa3ba; --line: #2a3452;
   --accent: #8ea6ff; --accent-ink: #0d1322; --accent-soft: #1f2a4f; --gold: #f2c94c; --gold-soft: #3a3214;
   --good: #5cc98f; --good-soft: #17352a; --bad: #ff8a80; --bad-soft: #3d1d1d; --mark: #6b5a12; --fig-grey: #7a849c;
-  --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; color-scheme: dark;
+  --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; --s4: #e88fb3; --s5: #c8b27a; --s6: #a3b4cc; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -255,6 +258,29 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .bar.s0, .sw.s0 { fill: var(--s1); background: var(--s1); }
 .bar.s1, .sw.s1 { fill: var(--s2); background: var(--s2); }
 .bar.s2, .sw.s2 { fill: var(--s3); background: var(--s3); }
+.bar.s3, .sw.s3 { fill: var(--s4); background: var(--s4); }
+.chart .ln { fill: none; stroke-width: 2.5; }
+.chart .ln.s0, .chart .pt.s0 { stroke: var(--s1); } .chart .pt.s0 { fill: var(--s1); }
+.chart .ln.s1, .chart .pt.s1 { stroke: var(--s2); } .chart .pt.s1 { fill: var(--s2); }
+.chart .ln.s2, .chart .pt.s2 { stroke: var(--s3); } .chart .pt.s2 { fill: var(--s3); }
+.chart .ln.s3, .chart .pt.s3 { stroke: var(--s4); } .chart .pt.s3 { fill: var(--s4); }
+.chart .ln.s1 { stroke-dasharray: 7 4; } .chart .ln.s2 { stroke-dasharray: 2 3; }
+.chart .seg { fill: #fff; font-size: 10.5px; font-weight: 600; }
+.exhibit-table.compact { font-size: 0.82rem; margin-top: 6px; }
+.exhibit-table.compact th, .exhibit-table.compact td { padding: 4px 8px; }
+.pie-wrap { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.pie { width: 200px; max-width: 100%; height: auto; flex: 0 0 auto; }
+.pie .slice { stroke: var(--surface); stroke-width: 1.5; }
+.pie-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.9rem; min-width: 0; }
+.pie-legend li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.pie-legend b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.slice.p0, .sw.p0 { fill: var(--s1); background: var(--s1); }
+.slice.p1, .sw.p1 { fill: var(--s2); background: var(--s2); }
+.slice.p2, .sw.p2 { fill: var(--s3); background: var(--s3); }
+.slice.p3, .sw.p3 { fill: var(--s4); background: var(--s4); }
+.slice.p4, .sw.p4 { fill: var(--s5); background: var(--s5); }
+.slice.p5, .sw.p5 { fill: var(--s6); background: var(--s6); }
+.exhibit + .exhibit { margin-top: 18px; }
 .legend { display: flex; gap: 16px; font-size: 0.85rem; flex-wrap: wrap; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }

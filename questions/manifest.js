@@ -10,6 +10,7 @@ window.EPSO_SET_FILES = [
   "numerical/numerical-set-01.js",
   "numerical/numerical-set-02.js",
   "numerical/numerical-set-03.js",
+  "numerical/numerical-set-04.js",
   "abstract/abstract-set-01.js",
   "abstract/abstract-set-02.js",
   "abstract/abstract-set-03.js"
