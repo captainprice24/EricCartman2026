@@ -1,4 +1,4 @@
-name: Validate and publish
+name: Check and publish
 
 on:
   push:
@@ -8,24 +8,35 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
-  validate:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node scripts/validate-questions.mjs
-      - run: node scripts/build.mjs
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Validate question bank (schema, difficulty rules, duplicates)
+        run: npm run validate
+      - name: Unit tests
+        run: npm test
+      - name: Build single-file app
+        run: npm run build
+      - name: The committed bundle must be up to date
+        run: git diff --exit-code -- dist/ad5-reasoning-trainer.html || (echo "dist/ is stale. Run 'npm run build' and commit the result." && exit 1)
+      - name: Install browsers
+        run: npx playwright install --with-deps chromium webkit
+      - name: End-to-end tests (Chromium and WebKit)
+        run: npm run test:e2e
+        env:
+          BROWSERS: chromium,webkit
       - name: Prepare site
+        if: github.event_name != 'pull_request'
         run: |
           mkdir -p _site
           cp -r index.html assets questions dist _site/
@@ -36,8 +47,15 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: validate
+    needs: check
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    # Only deployments share a concurrency group, so a pull-request run can never cancel a deploy.
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

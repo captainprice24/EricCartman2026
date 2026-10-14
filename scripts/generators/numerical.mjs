@@ -47,7 +47,7 @@ function shownValues(exhibits) {
   return out;
 }
 
-function assembleNumeric(t, targetPos) {
+function assembleNumeric(t) {
   const f = t.fmt;
   const key = t.correct;
   if (!(key > 0)) throw new Error("non-positive key: " + t.stem);
@@ -951,7 +951,7 @@ const items = ordered.map(([name, c], i) => {
   for (let attempt = 0; attempt < 50; attempt++) {
     try {
       t = name === "ratioCategory" || name === "surplusCategory" || name === "shareCategory" ? T[name](c, target) : T[name](c);
-      pool = t.options ? null : assembleNumeric(t, target);
+      pool = t.options ? null : assembleNumeric(t);
       lastErr = null;
       break;
     } catch (e) { lastErr = e; }

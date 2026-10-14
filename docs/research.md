@@ -14,12 +14,26 @@ computer-based reasoning tests, and only candidates who pass them go on to Stage
 | Numerical reasoning | 10 | 20 min | 10/20 combined with abstract |
 | Abstract reasoning | 10 | 10 min | 10/20 combined with numerical |
 
-- Verbal items: a short text, then "Which of the following statements is correct?" with four options (A–D).
+**Scoring and ranking (official).** EPSO's assessment page for EPSO/AD/427/26 confirms the pass
+marks and states that the verbal reasoning score also counts towards the ranking: **40% of the
+preliminary score and 35% of the final score**. Numerical and abstract reasoning are pass/fail
+gates only. In Stage 2, EU knowledge has a pass mark of 15/30 (30% preliminary, 25% final), digital
+skills 20/40 (30% preliminary, 25% final) and the EUFTE 5/10 (15% of the final score).
+An earlier version of this file gave the digital skills pass mark as 15/30; the official page says
+20/40. EPSO does not publish cut-off scores, so candidates should aim well above the verbal pass mark.
+
+**Language.** Candidates sit the tests in the two languages chosen in their application (EPSO
+FAQ). Secondary guides state that the reasoning tests are taken in Language 1. This trainer is
+English-only for now; the data format supports translations.
+
+- Verbal items: a dense text, then "Which of the following statements is correct?" with four options (A–D).
 - Numerical items: a table or chart with five options. An on-screen calculator and scratchpad are provided.
 - Abstract items: a series of five figures; choose the next one from five options.
 - Delivery: remote, on the TAO (Testing Assisté par Ordinateur) platform.
 
-Sources: [EU Training AD5 2026 guide](https://eutraining.eu/content/your-complete-guide-2026-epso-ad5-graduates-exam),
+Sources: [EPSO, AD5 graduates: how you are assessed](https://selection.eu-careers.europa.eu/en/ad5-graduates-selection-process-how-you-are-assessed),
+[EPSO, AD5 FAQ](https://selection.eu-careers.europa.eu/en/help/faq/graduate-administrators-ad5),
+[EU Training AD5 2026 guide](https://eutraining.eu/content/your-complete-guide-2026-epso-ad5-graduates-exam),
 [EU Training reasoning test overview](https://eutraining.eu/content/what-are-epso-reasoning-tests-verbal-numerical-and-abstract-reasoning),
 [EU Careers (EPSO)](https://eu-careers.europa.eu/).
 

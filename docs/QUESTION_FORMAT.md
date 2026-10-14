@@ -1,157 +1,139 @@
-# Question set format
+# Question set format and authoring rules
 
 Every question set is one JavaScript file in `questions/<section>/` that calls
-`EPSO_BANK.registerSet({...})` once. Sets are plain data: no functions and no imports.
-They are plain `.js` rather than `.json` so the app still works when `index.html` is
-opened straight from disk (browsers block `fetch` of local JSON files).
+`EPSO_BANK.registerSet({...})` once. Sets are plain data: no functions, no imports.
+They are `.js` rather than `.json` so the app still works when `index.html` is opened
+straight from disk, because browsers block `fetch` of local files.
 
-## Adding a set (checklist)
+`node scripts/validate-questions.mjs` enforces everything marked **(enforced)** below.
+The rules exist because practice items easier than the real test give false confidence.
+They come from the audit in October 2026.
 
-1. Copy an existing set in the same section as your starting point, e.g.
-   `questions/verbal/verbal-set-01.js` → `questions/verbal/verbal-set-02.js`.
-2. Give the set a new `id` (`verbal-02`) and every question a globally unique `id`
-   (`v02-01`, `v02-02`, …). Use `n02-…` for numerical and `a02-…` for abstract.
-3. Add the file path to `questions/manifest.js`.
-4. Run `node scripts/validate-questions.mjs` and fix every reported problem. Besides the schema it
-   rejects duplicates across the whole bank: repeated ids, identical stems and options, identical or
-   near-identical verbal passages (shared phrasing), identical numerical exhibit data and identical
-   abstract figure series.
-5. Run `node scripts/build.mjs` to refresh the single-file builds in `dist/`.
-6. Commit the set file, the manifest change and `dist/`.
+## Workflow
 
-## Set object
-
-| Field | Required | Notes |
-|---|---|---|
-| `id` | yes | Unique across all sets, e.g. `numerical-02` |
-| `section` | yes | `verbal`, `numerical` or `abstract` (must match the folder) |
-| `title` | yes | Shown in the set picker, e.g. `Numerical Reasoning · Set 2` |
-| `description` | no | One line |
-| `version` | no | Integer; bump when you edit questions |
-| `questions` | yes | Non-empty array |
+1. **Verbal:** write the set by hand (see below).
+   **Numerical and abstract:** extend the generators, `scripts/generators/numerical.mjs` and
+   `scripts/generators/abstract.mjs`, by adding templates or plan entries. Never hand-edit
+   generated files.
+2. List any new file in `questions/manifest.js`.
+3. Run `node scripts/format-set.mjs <file> --letters ABCD…` to balance the answer letters of a
+   hand-written set. Options and their notes move together.
+4. Run `npm run validate` and fix every problem. Run `npm run validate -- --verbose` to see verbal
+   passages whose subjects overlap with existing ones.
+5. Run `npm run build` and commit the set, the manifest and `dist/ad5-reasoning-trainer.html`.
+   CI fails if the bundle is stale.
 
 ## Fields common to every question
 
-| Field | Required | Notes |
-|---|---|---|
-| `id` | yes | Globally unique |
-| `stem` | recommended | The question line. Verbal default: "Which of the following statements is correct?" |
-| `options` | yes | Verbal: exactly 4 strings. Numerical: 4–5 strings. Abstract: 4–5 figures |
-| `answer` | yes | **0-based** index of the correct option (0 = A) |
-| `hints` | yes | 1–3 progressive hints for Coach mode. Hint 1 points to the method; the last hint nearly gives it away, without stating the answer |
-| `optionNotes` | yes | One string per option explaining why it is right or wrong. Start with "Correct." / "False." / "Not supported." for verbal items |
-| `explanation` | yes | The key takeaway shown after answering: the general lesson, not just the answer |
-| `topic` | recommended | Short label used in the results breakdown, e.g. "Percentage change" |
-| `difficulty` | recommended | 1 (easier), 2 (medium) or 3 (harder) |
-| `shuffle` | no | `true` to shuffle option order per attempt. Default is the authored order, so explanations may refer to letters (A–E) |
+| Field | Notes |
+|---|---|
+| `id` | Globally unique, never reused: `v04-01`, `n05-01`, `a05-01` **(enforced)** |
+| `difficulty` | 1 easier, 2 medium, 3 harder, following the rubric below **(enforced)** |
+| `stem` | The question line |
+| `options` | Verbal: exactly 4 strings. Numerical: exactly 5. Abstract: exactly 5 figures **(enforced)** |
+| `answer` | 0-based index of the correct option |
+| `hints` | 1–3 progressive hints for Coach mode **(enforced)** |
+| `optionNotes` | One note per option explaining why it is right or wrong **(enforced)** |
+| `explanation` | The general lesson, shown after answering **(enforced)** |
+| `topic` | Short label. Shown in practice and review only, never in the exam |
 
-Spread correct answers across letters within a set. Avoid always using C.
+Explanations and hints must never refer to options by letter ("D is wrong because…"), since option
+order can change. Describe the option instead ("the 'always' option…") **(enforced)**.
 
-## Verbal reasoning
+### Difficulty rubric
+
+| Level | Verbal | Numerical | Abstract |
+|---|---|---|---|
+| 1 easier | Key paraphrases one sentence; traps are visible on a careful read | 1–2 steps, one exhibit | 2 rules |
+| 2 medium | Key needs a one-step inference or a careful paraphrase; at least one subtle distractor | 2–3 steps, distracting rows or columns | 3 rules |
+| 3 harder | Key combines two sentences or applies a rule to a new case; distractors include an outside-knowledge trap or a fine over-reach | 3–4 steps, unit traps, or two exhibits | 4 rules |
+
+Recalibrate from users' accuracy when data is available. Items that most users get right are not "harder".
+
+## Verbal reasoning (hand-written)
 
 ```js
 {
-  id: "v02-01",
+  id: "v04-01",
   topic: "EU institutions",
   difficulty: 2,
-  passage: "First paragraph…\n\nSecond paragraph…",   // blank line separates paragraphs
+  keyType: "inference",               // paraphrase | combination | inference
+  passage: "Paragraph one…\n\nParagraph two…",
   stem: "Which of the following statements is correct?",
   options: ["…", "…", "…", "…"],
-  answer: 2,
+  answer: 1,
   hints: ["…", "…"],
-  optionNotes: ["False. …", "Not supported. …", "Correct. …", "False. …"],
+  optionNotes: ["False. …", "Correct. …", "Not supported. …", "Overstated. …"],
   explanation: "…"
 }
 ```
 
-Writing rules (EPSO style):
+- **Passage:** 170–260 words **(enforced)**, dense, with qualifiers ("mainly", "in principle"),
+  exceptions ("unless", "however"), two related figures, a contrast or a disagreement. Write
+  it yourself, keep facts accurate, and choose a subject not already in the bank.
+- **Key:** never copy 7 or more consecutive words from the passage **(enforced)**. At least 40%
+  of keys in a set must be `combination` or `inference` **(enforced)**.
+- **Distractors:** each note starts with its type **(enforced)**:
+  - `False.` contradicts the text. At most one per item.
+  - `Not supported.` is something the text never says. At least one per item, ideally true in the real
+    world but absent from the text (the outside-knowledge trap).
+  - `Overstated.` is partly right but stronger than the text ("often" becomes "always", "advises"
+    becomes "decides"). At least one per item.
+- **Option length:** the key may be the longest option in at most 30% of a set's items, and should be
+  within ±25% of the mean option length in at least 80% **(enforced)**. Test-wise candidates pick
+  the longest option.
 
-- 100–250 word passage on EU affairs, policy, science, economics or history (real EPSO texts
-  sit towards the longer end). Write it yourself; never copy EPSO or commercial material.
-- Pick a subject not already covered in the bank: run `node scripts/validate-questions.mjs --verbose`
-  to list passages with similar subjects.
-- Exactly **one** statement must follow from the text. The other three must be false
-  according to the text or unsupported by it. Judge only against the passage, not outside knowledge.
-- Build the distractors from common traps: absolute words (only, always, never),
-  swapped numbers or dates, reversed cause and effect, scope changes (some → all), and
-  plausible facts that the text never states.
-- Facts in the passage should be accurate. Phrase anything uncertain as "around" or leave it out.
+## Numerical reasoning (generated)
 
-## Numerical reasoning
+Generated by `scripts/generators/numerical.mjs`, with 25 templates and 150 items.
 
-```js
-{
-  id: "n02-01",
-  topic: "Percentage change",
-  difficulty: 2,
-  exhibit: {
-    type: "table",                       // or "bar"
-    title: "…",
-    columns: ["Country", "2022", "2023"],
-    rows: [["A", "120", "138"], ["B", "80", "86"]],   // every row has columns.length cells (strings)
-    note: "Optional footnote"
-  },
-  stem: "…?",
-  options: ["8%", "9%", "10%", "11%", "12.5%"],
-  answer: 2,
-  hints: ["…", "…"],
-  solution: ["Step 1 …", "Step 2 …", "Result …"],   // worked solution, shown after answering
-  optionNotes: ["…", "…", "Correct.", "…", "…"],
-  explanation: "…"
-}
-```
+- **Exhibits:** `exhibits: [ … ]`, one or two of `table`, `bar` (grouped), `stacked`, `line` or `pie`.
+  At least 12 data values in total **(enforced)**. Include rows, columns or years that the
+  question does not need.
+- **Steps:** medium and harder items need at least 2 solution steps **(enforced)**. Use unit traps
+  (thousands vs millions, TWh vs kWh, percentage points vs per cent).
+- **Options:** exactly 5, in ascending order, all within 0.7–1.4 × the key, and never repeating a
+  value printed in the exhibit **(enforced)**. Distractors should be named mistakes (wrong base,
+  wrong row or year, added instead of compounded…). Use generic fillers only when no realistic
+  mistake falls within range.
+- **Categorical items** (answer is a country or a year) set `answerType: "category"` and still have
+  5 options.
 
-Bar chart exhibit:
+Exhibit shapes:
 
 ```js
-exhibit: {
-  type: "bar",
-  title: "Exports by quarter (EUR billion)",
-  unit: "EUR bn",
-  categories: ["Q1", "Q2", "Q3", "Q4"],
-  series: [ { name: "Machinery", values: [42, 45, 39, 48] },   // up to 3 series
-            { name: "Chemicals", values: [30, 36, 26, 40] } ]
-}
+{ type: "table", title, columns: [...], rows: [[...], ...], note? }
+{ type: "bar" | "stacked" | "line", title, unit, categories: [...], series: [{ name, values: [...] }] }
+{ type: "pie", title, unit: "%", slices: [{ label, value }] }
 ```
 
-Rules: verify every number with a calculation before committing. Sets 2 and 3 are generated by
-`scripts/generators/numerical-sets-02-03.mjs`, which computes every answer and distractor. Extend that
-generator (new templates or a new `plan` entry) rather than hand-typing figures where you can. Make the distractors
-the results of typical mistakes (wrong base, dividing by the new value, stopping one step
-early, averaging rates), and say so in `optionNotes`. Keep options in ascending order
-where they are numeric.
+## Abstract reasoning (generated)
 
-## Abstract reasoning
+Generated by `scripts/generators/abstract.mjs`, with 150 items. Every frame holds an outer shape,
+a corner dot and a row of dots, and optionally an arrow and a top bar. Two to four independent rules
+run at once (shape cycle, fill cycle, rotation, corner movement, counting, bar movement).
+Elements without a rule stay constant.
 
-Figures are drawn on a 100 × 100 canvas. A figure is an array of shapes:
+- `rules`: 2–4, and `difficulty` must equal `rules − 1` **(enforced)**.
+- Every frame has at least 3 shapes **(enforced)**.
+- Each wrong option breaks exactly one rule. No option may differ from the key only by size
+  **(enforced)**. No two items may share a figure series **(enforced)**.
+- After generating, render a contact sheet and check a sample by eye.
 
-| Shape | Fields |
-|---|---|
-| `{ t: "circle", x, y, r, fill }` | centre and radius |
-| `{ t: "rect", x, y, w, h, fill, rot? }` | top-left corner, size |
-| `{ t: "poly", x, y, r, n, rot, fill }` | regular polygon with `n` sides; `rot` in degrees, first vertex at top |
-| `{ t: "star", x, y, r, rot, fill }` | five-pointed star |
-| `{ t: "arrow", x, y, r, rot, fill }` | arrow pointing up at `rot: 0`, clockwise rotation |
-| `{ t: "line", x1, y1, x2, y2 }` | straight line |
+Figure shapes (100 × 100 canvas; `fill` is `black`, `grey`, `white` or `none`):
+`circle {x,y,r}`, `rect {x,y,w,h}`, `poly {x,y,r,n,rot}`, `star {x,y,r,rot}`, `arrow {x,y,r,rot}`
+(points up at `rot: 0`, turns clockwise), `line {x1,y1,x2,y2}`.
 
-`fill` is `black`, `grey`, `white` or `none` (outline only). Coordinates stay within 0–100.
+## Translations
 
-```js
-{
-  id: "a02-01",
-  topic: "Rotation",
-  difficulty: 1,
-  stem: "Which figure comes next in the series?",
-  sequence: [ [shape…], [shape…], [shape…], [shape…], [shape…] ],   // 5 figures (3–6 allowed)
-  options:  [ [shape…], [shape…], [shape…], [shape…], [shape…] ],   // 5 candidate figures
-  answer: 0,
-  hints: ["…", "…"],
-  optionNotes: ["Correct: …", "Right shape, wrong rotation.", …],
-  explanation: "…"
-}
-```
+Any text field (`passage`, `stem`, `options[i]`, `hints[i]`, `optionNotes[i]`, `explanation`,
+`solution[i]`) may be either a string or an object such as `{ en: "…", fr: "…", de: "…" }`. The app
+falls back to English, and the validator checks the English text. EPSO reasoning tests are taken in
+the candidate's chosen languages, so French and German versions of the verbal sets are the
+most valuable next step.
 
-Rules: the rule set must lead to exactly one option. Make each distractor break exactly one rule
-so `optionNotes` can name it. For large sets, generate the figures with a script, as
-`scripts/generators/abstract-set-01.mjs` and `abstract-sets-02-03.mjs` do, then render a contact sheet
-and check every series by eye before committing.
+## Duplicate checks (enforced)
+
+The validator rejects, across the whole bank: reused ids, identical stems and options, identical
+or near-identical verbal passages (shared 5-word phrasing), identical numerical exhibit data and
+identical abstract figure series.

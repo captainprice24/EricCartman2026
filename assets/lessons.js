@@ -5,18 +5,20 @@
 window.EPSO_LESSONS = {
   verbal: {
     title: "Verbal reasoning method",
-    format: "20 questions · 35 minutes (≈1 min 45 s each) · pass mark 10/20. Each item is a short text followed by four statements; exactly one is correct.",
+    format: "20 questions · 35 minutes (≈1 min 45 s each) · pass mark 10/20, and the score counts towards the EPSO ranking. Each item is a dense text of about 200 words followed by four statements; exactly one is correct.",
     steps: [
-      { name: "Read the stem first", text: "Check whether the question asks which statement is correct or which is incorrect. Misreading the stem is the most expensive mistake." },
+      { name: "Know what 'correct' means", text: "The question asks which statement is correct: the one the text supports, directly or by clear logic. A statement can be true in the real world and still be wrong because the text does not say it." },
       { name: "Skim the passage for structure", text: "Spend about 30 seconds finding what each paragraph is about: definitions, numbers, exceptions, dates." },
       { name: "Test each statement against one sentence", text: "For every option, find the exact sentence it relies on. If you cannot find one, the statement is probably unsupported." },
-      { name: "Classify each option as true, false or not supported", text: "Only a statement the text confirms, directly or by clear logic, is correct. Plausible but unstated claims count as incorrect." },
+      { name: "Classify each option", text: "Label each option: supported, false (the text contradicts it), not supported (the text is silent) or overstated (partly right but stronger than the text). Only 'supported' can be the answer." },
       { name: "Eliminate, then confirm", text: "Strike out options you have disproved. Before moving on, reread the surviving option against the text once." }
     ],
     traps: [
+      "Overstatement: the text says 'often', 'much of' or 'some', and the option says 'always', 'entirely' or 'all'.",
       "Absolute words: always, never, only, solely, all. The text often contains an exception.",
       "Swapped details: dates, percentages or institutions exchanged between two facts.",
-      "Outside knowledge: a statement can be true in real life but not supported by the text.",
+      "Outside knowledge: a statement can be true in real life but not supported by the text. EU topics make this trap especially tempting.",
+      "Proposals presented as decisions, and expectations presented as results.",
       "Scope creep: the text says 'some' or 'mainly', and the option says 'all' or 'exclusively'.",
       "Reversed cause and effect, or an old policy presented as the new one."
     ],
@@ -43,10 +45,10 @@ window.EPSO_LESSONS = {
   },
   abstract: {
     title: "Abstract reasoning method",
-    format: "10 questions · 10 minutes (1 min each) · pass mark 10/20 combined with numerical. Five figures in a series; pick the next one from five options.",
+    format: "10 questions · 10 minutes (1 min each) · pass mark 10/20 combined with numerical. Five figures in a series, each with several elements; pick the next one from five options.",
     steps: [
       { name: "Inventory the elements", text: "List what is in each frame: shapes, count, colour or fill, position, size, rotation." },
-      { name: "Find one rule at a time", text: "Compare frame 1 → 2 → 3 for a single attribute. Typical rules are rotation by a fixed angle, movement by a fixed step, alternation and counting." },
+      { name: "Find one rule at a time", text: "Compare frame 1 → 2 → 3 for a single element. Typical rules: rotation by a fixed angle, movement around corners, a colour or shape cycle, counting. Expect two to four rules at once, and some elements that never change." },
       { name: "Check the cycle length", text: "Some attributes alternate (period 2), others cycle every 3 or 4 steps. Write the cycle down." },
       { name: "Predict frame 6 before looking at the options", text: "Form your own answer first, so you are not drawn to an option that is almost right." },
       { name: "Eliminate by rule", text: "Discard every option that breaks a rule. Usually only one option satisfies all of them." }

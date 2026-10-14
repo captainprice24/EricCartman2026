@@ -166,7 +166,7 @@
       out += '<text class="cat" x="' + (x + barW / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
     });
     out += '<line class="axis" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
-    var hidden = series.some(function (s) { return s.values.some(function (v, ci) { return (v / scale.max) * plotH < 13; }); });
+    var hidden = series.some(function (s) { return s.values.some(function (v) { return (v / scale.max) * plotH < 13; }); });
     return '<div class="chart-wrap">' + legendHTML(series) + out + (hidden ? dataTableHTML(ex) : "") + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + " · totals shown above bars</div>" : "") + "</div>";
   }
 
@@ -192,7 +192,7 @@
   }
 
   function dataTableHTML(ex) {
-    return '<div class="table-wrap"><table class="exhibit-table compact"><thead><tr><th scope="col"></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
+    return '<div class="table-wrap"><table class="exhibit-table compact"><thead><tr><th scope="col"><span class="sr-only">Series</span></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
       "</tr></thead><tbody>" + ex.series.map(function (s) {
         return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(v) + "</td>"; }).join("") + "</tr>";
       }).join("") + "</tbody></table></div>";
