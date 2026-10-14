@@ -98,6 +98,18 @@ test("freshSimulationsLeft counts complete unseen draws", () => {
   assert.equal(C.freshSimulationsLeft(by, {}), 2);
 });
 
+test("items only displayed (never answered) count as seen (N6)", () => {
+  const p = pool(20);
+  const stats = {};
+  p.slice(0, 10).forEach((q) => (stats[q.id] = { seen: 0, correct: 0, shown: 5, at: 5 }));
+  assert.equal(C.isSeen(stats.p0), true);
+  assert.equal(C.isSeen({ seen: 0, correct: 0 }), false);
+  const r = C.drawExam(p, 10, stats, rng());
+  assert.equal(r.repeats, 0);
+  assert.ok(r.items.every((q) => !stats[q.id]), "displayed items are not served as fresh");
+  assert.equal(C.freshSimulationsLeft({ verbal: pool(40), numerical: p, abstract: p }, stats), 1);
+});
+
 test("timer: remaining time comes from the deadline, not from ticks (W2)", () => {
   const s = { startedAt: 1000, deadline: 1000 + 35 * 60000, limitMs: 35 * 60000, usedMs: null };
   assert.equal(C.remainingMs(s, 1000 + 60000), 34 * 60000);

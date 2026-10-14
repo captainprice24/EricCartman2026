@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Bundles the app and every question set into single HTML files:
-//   dist/ad5-reasoning-trainer.html  standalone page (double-click to open, works offline except fonts)
+//   dist/ad5-reasoning-trainer.html  standalone page (double-click to open, works fully offline)
 //   dist/artifact.html               same page without the <html>/<head> wrapper, for publishing as a claude.ai
 //                                    Artifact (not committed; see .gitignore)
 import fs from "node:fs";
@@ -24,7 +24,13 @@ const srcs = [...block.matchAll(/<script src="([^"]+)"><\/script>/g)].map((m) =>
 const parts = [];
 for (const src of srcs) {
   if (src === "questions/manifest.js") {
-    parts.push("window.EPSO_BUNDLED = true;", ...setFiles.map((f) => read("questions/" + f)));
+    // N13: question data is re-serialised without indentation (it is most of the bundle).
+    parts.push("window.EPSO_BUNDLED = true;", ...setFiles.map((f) => {
+      const box = { EPSO_BANK: { sets: [], registerSet(s) { this.sets.push(s); } } };
+      vm.createContext(box);
+      vm.runInContext(read("questions/" + f), box);
+      return box.EPSO_BANK.sets.map((set) => "EPSO_BANK.registerSet(" + JSON.stringify(set) + ");").join("\n");
+    }));
   } else parts.push(read(src));
 }
 const scripts = parts.map((js) => "<script>\n" + safe(js) + "\n</script>").join("\n");

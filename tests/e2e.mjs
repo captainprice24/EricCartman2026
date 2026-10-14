@@ -234,6 +234,108 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("N3: abstract practice shows no rule names before the answer is checked", async () => {
+    const p = await newPage(desktop);
+    await p.locator('[data-act="practice"][data-k="abstract"]').click();
+    assert.equal(await p.locator("#q-topic").count(), 0, "topic labels are off by default");
+    await p.locator('[data-act="home"]').first().click().catch(() => {});
+    await p.goto(URL); await p.waitForSelector(".home");
+    await p.locator("#opt-topics").check();
+    await p.locator('[data-act="practice"][data-k="abstract"]').click();
+    assert.equal(await p.locator("#q-topic").textContent(), "Figure series");
+    const k = await answerKey(p);
+    await p.locator('[data-act="choose"]').nth(k.pos).click();
+    await p.locator('[data-act="check"]').click();
+    assert.notEqual(await p.locator("#q-topic").textContent(), "Figure series", "the real topic appears after checking");
+    await p.context().close();
+  });
+
+  await check("N4: options follow the radio-group keyboard pattern", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption("#exam-scope", "verbal");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    assert.equal(await p.locator('.opts [tabindex="0"]').count(), 1, "one tab stop in the option group");
+    await p.locator("#opt-0").focus();
+    await p.keyboard.press("ArrowDown");
+    assert.equal(await p.evaluate(() => document.activeElement.id), "opt-1");
+    assert.equal(await p.locator("#opt-1").getAttribute("aria-checked"), "true");
+    assert.match(await p.locator(".qnum").textContent(), /Question 1 of/, "the question did not change");
+    await p.keyboard.press("ArrowUp");
+    await p.keyboard.press("ArrowUp");
+    assert.equal(await p.evaluate(() => document.activeElement.id), "opt-3", "wraps around");
+    await p.keyboard.press("x");
+    assert.equal(await p.locator(".opts li").nth(3).evaluate((li) => li.classList.contains("struck")), true, "X strikes out the focused option");
+    await p.locator("#q-stem").focus();
+    await p.keyboard.press("ArrowRight");
+    assert.match(await p.locator(".qnum").textContent(), /Question 2 of/, "outside the group, arrows change question");
+    await p.context().close();
+  });
+
+  await check("N5: with the calculator open, Enter on a focused button activates that button", async () => {
+    const p = await newPage(desktop);
+    await p.locator('[data-act="practice"][data-k="numerical"]').click();
+    await p.locator('[data-act="tool-calc"]').click();
+    await p.locator('.calc-keys [data-k="7"]').click();
+    await p.keyboard.press("Enter");
+    assert.equal(await p.locator("#calc-out").textContent(), "= 7", "Enter inside the calculator evaluates");
+    await p.locator('[data-act="choose"]').first().click();
+    await p.locator('[data-act="check"]').focus();
+    await p.keyboard.press("Enter");
+    await p.waitForSelector("#feedback");
+    await p.context().close();
+  });
+
+  await check("N6: discarding an exam still records its displayed questions as seen", async () => {
+    const p = await newPage(desktop);
+    const freshAbstract = () => p.evaluate(() => window.EPSO_CORE.freshSimulationsLeft(window.EPSO_APP.bank.bySection, JSON.parse(localStorage.getItem("ad5trainer.qstats.v1") || "{}"), ["abstract"]));
+    const fresh0 = await freshAbstract();
+    await p.selectOption("#exam-scope", "abstract");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    const ids = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map((it) => it.q.id));
+    for (let i = 1; i < ids.length; i++) await p.locator('[data-act="next"]').click();
+    p.on("dialog", (d) => d.accept());
+    await p.reload();
+    await p.waitForSelector(".resume");
+    await p.locator('[data-act="discard"]').click();
+    const shown = await p.evaluate((ids) => { const st = JSON.parse(localStorage.getItem("ad5trainer.qstats.v1") || "{}"); return ids.filter((id) => st[id] && st[id].shown).length; }, ids);
+    assert.equal(shown, ids.length);
+    assert.equal(await freshAbstract(), fresh0 - 1, "fresh abstract simulations drop by one");
+    await p.locator('[data-act="exam"]').click();
+    const next = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map((it) => it.q.id));
+    assert.equal(next.filter((id) => ids.includes(id)).length, 0, "the next draw excludes them");
+    await p.context().close();
+  });
+
+  await check("N7/N9: chart values are available as a table; on phones the table replaces the chart", async () => {
+    const ex = { type: "bar", title: "Test chart", unit: "EUR m", categories: ["2021", "2022", "2023"], series: [{ name: "North", values: [12, 15, 18] }, { name: "South", values: [9, 11, 14] }] };
+    for (const [vp, chartShown] of [[desktop, true], [{ width: 360, height: 760 }, false]]) {
+      const p = await newPage(vp);
+      const r = await p.evaluate((ex) => {
+        const box = document.createElement("div"); box.innerHTML = window.EPSO_RENDER.exhibitHTML(ex); document.body.appendChild(box);
+        const vis = (sel) => { const el = box.querySelector(sel); return !!el && getComputedStyle(el).display !== "none"; };
+        return { table: box.querySelector("details table") !== null, values: box.querySelector("details table").textContent, chart: vis(".chart"), small: vis(".chart-table-sm") };
+      }, ex);
+      assert.ok(r.table && /18/.test(r.values) && /South/.test(r.values));
+      assert.equal(r.chart, chartShown);
+      assert.equal(r.small, !chartShown);
+      await p.context().close();
+    }
+  });
+
+  await check("N13: a second tab writing the same session triggers a warning", async () => {
+    const ctx = await browser.newContext({ viewport: desktop });
+    const a = await ctx.newPage(), b = await ctx.newPage();
+    for (const p of [a, b]) { await p.goto(URL); await p.waitForSelector(".home"); }
+    await a.locator('[data-act="exam"]').click();
+    await a.locator('[data-act="begin"]').click();
+    await b.locator('[data-act="exam"]').click();
+    await a.waitForSelector("#toast", { timeout: 4000 });
+    assert.match(await a.locator("#toast").textContent(), /another tab/);
+    await ctx.close();
+  });
+
   await browser.close();
 }
 

@@ -20,7 +20,8 @@ window.EPSO_LESSONS = {
       "Outside knowledge: a statement can be true in real life but not supported by the text. EU topics make this trap especially tempting.",
       "Proposals presented as decisions, and expectations presented as results.",
       "Scope creep: the text says 'some' or 'mainly', and the option says 'all' or 'exclusively'.",
-      "Reversed cause and effect, or an old policy presented as the new one."
+      "Reversed cause and effect, or an old policy presented as the new one.",
+      "Do not judge by form. An absolute statement ('only', 'never', 'all') is correct when the text is absolute too, and a cautious one ('may', 'can') is wrong when the text does not support it. Check the wording against the text every time."
     ],
     pacing: "Aim for 1 min 30 s per item and bank the extra time for the hardest ones. If you are stuck after 2 minutes, flag the question, pick your best guess and move on. There is no negative marking."
   },

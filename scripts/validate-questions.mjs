@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { abstractBlind, verbalSetStats, VERBAL_LIMITS } from "./lib/blind.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const qdir = path.join(root, "questions");
@@ -15,7 +16,12 @@ const run = (file) => vm.runInContext(`(function(window){var EPSO_BANK=window.EP
 
 run(path.join(qdir, "registry.js"));
 run(path.join(qdir, "manifest.js"));
-const files = ctx.window.EPSO_SET_FILES || [];
+// --only <section/file.js>: validate one set (listed in the manifest or not) against the whole bank,
+// reporting only its own problems. Used while writing a new set before it is added to the manifest.
+const onlyArg = process.argv.indexOf("--only");
+const only = onlyArg > -1 ? process.argv[onlyArg + 1].replace(/^questions\//, "") : null;
+const files = (ctx.window.EPSO_SET_FILES || []).slice();
+if (only && !files.includes(only)) files.push(only);
 const errors = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 
@@ -24,7 +30,7 @@ for (const sub of ["verbal", "numerical", "abstract"]) {
   const d = path.join(qdir, sub);
   if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".js")) onDisk.push(`${sub}/${f}`);
 }
-for (const f of onDisk) if (!files.includes(f)) err(f, "file exists but is not listed in questions/manifest.js");
+if (!only) for (const f of onDisk) if (!files.includes(f)) err(f, "file exists but is not listed in questions/manifest.js");
 
 for (const f of files) {
   const p = path.join(qdir, f);
@@ -35,7 +41,7 @@ for (const f of files) {
   else ctx.window.EPSO_BANK.sets[before]._file = f;
 }
 
-const SHAPES = new Set(["circle", "rect", "poly", "star", "arrow", "line"]);
+const SHAPES = new Set(["circle", "rect", "poly", "star", "arrow", "line", "wedge"]);
 const FILLS = new Set(["black", "grey", "white", "none", undefined]);
 const isStr = (s) => typeof s === "string" && s.trim().length > 0;
 // Item text may be a string or { en, fr, … }; checks run on the English text.
@@ -113,9 +119,8 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       const kinds = notes.map((t, i) => (i === q.answer ? "key" : /^False\./.test(t) ? "false" : /^Not supported\./.test(t) ? "unsupported" : /^Overstated\./.test(t) ? "overstated" : "other"));
       if (notes[q.answer] && !/^Correct\./.test(notes[q.answer])) err(where, "the keyed option's note must start with 'Correct.'");
       kinds.forEach((k, i) => { if (k === "other") err(where, `distractor ${"ABCD"[i]} note must start with 'False.', 'Not supported.' or 'Overstated.'`); });
-      if (kinds.filter((k) => k === "false").length > 1) err(where, "at most one distractor may be a flat contradiction ('False.')");
-      if (!kinds.includes("unsupported")) err(where, "at least one distractor must be 'Not supported.' by the text");
-      if (!kinds.includes("overstated")) err(where, "at least one distractor must be 'Overstated.' (partly true, over-generalised or over-reaching)");
+      for (const k of ["false", "unsupported", "overstated"]) if (kinds.filter((x) => x === k).length > 2) err(where, `at most two distractors of one type ('${k}'); vary the structure`);
+      if (kinds.filter((k) => k === "false").length === 3) err(where, "not every distractor may be a flat contradiction");
       if (!["paraphrase", "combination", "inference"].includes(q.keyType)) err(where, "keyType is required: paraphrase | combination | inference");
       if (["combination", "inference"].includes(q.keyType)) setStats.deepKeys++;
       if (isStr(passage) && isStr(en(q.options[q.answer]))) {
@@ -201,6 +206,22 @@ for (const set of ctx.window.EPSO_BANK.sets) {
     if (setStats.longest / setStats.n > 0.3) err(w, `the keyed option is the longest in ${setStats.longest}/${setStats.n} items; at most 30% allowed (E2)`);
     if (setStats.nearMean / setStats.n < 0.8) err(w, `the keyed option is within ±25% of the mean option length in only ${setStats.nearMean}/${setStats.n} items; at least 80% required`);
     if (setStats.deepKeys / setStats.n < 0.4) err(w, `only ${setStats.deepKeys}/${setStats.n} keys need combination or inference; at least 40% required`);
+    // N2: the key must not be findable by form alone (scripts/lib/blind.mjs).
+    const v = verbalSetStats(set.questions), L = VERBAL_LIMITS, pc = (x) => Math.round(x * 100) + "%";
+    if (v.heuristic > L.heuristic) err(w, `blind heuristic (prefer hedged, avoid absolute, lowest overlap) finds the key in ${pc(v.heuristic)} of items; at most ${pc(L.heuristic)}`);
+    if (v.lowOverlap > L.lowOverlap) err(w, `the option with the least wording from the passage is the key in ${pc(v.lowOverlap)} of items; at most ${pc(L.lowOverlap)}`);
+    if (v.highOverlap > L.highOverlap || v.highOverlap < 0.1) err(w, `the option with the most wording from the passage is the key in ${pc(v.highOverlap)} of items; keep it within 10–${pc(L.highOverlap)}`);
+    if (v.shortest > L.shortest || v.shortest < 0.1) err(w, `the shortest option is the key in ${pc(v.shortest)} of items; keep it within 10–${pc(L.shortest)}`);
+    if (Math.abs(v.keyHedge - v.disHedge) > L.hedgeGap) err(w, `hedging words (may, can, likely, mainly…) appear in ${pc(v.keyHedge)} of keys but ${pc(v.disHedge)} of distractors; keep the gap within ${pc(L.hedgeGap)}`);
+    if (Math.abs(v.keyAbs - v.disAbs) > L.absoluteGap) err(w, `absolute words (only, all, never, every…) appear in ${pc(v.keyAbs)} of keys but ${pc(v.disAbs)} of distractors; keep the gap within ${pc(L.absoluteGap)}`);
+    if (v.patternShare > L.pattern) err(w, `distractor-type pattern '${v.topPattern[0]}' is used in ${pc(v.patternShare)} of items; at most ${pc(L.pattern)}`);
+  }
+  if (set.section === "abstract") {
+    // N1: no blind strategy (consensus, odd one out, element majority) may beat 30% (chance is 20%).
+    const sums = { medoid: 0, outlier: 0, majority: 0 };
+    set.questions.forEach((q) => { if (Array.isArray(q.options) && q.options.length === 5) { const b = abstractBlind(q.options, q.answer); for (const k in sums) sums[k] += b[k]; } });
+    const names = { medoid: "the option most similar to the others", outlier: "the odd one out", majority: "the per-element majority vote" };
+    for (const k in sums) if (sums[k] / set.questions.length > 0.3) err(w, `blind strategy '${names[k]}' finds the key in ${Math.round((sums[k] / set.questions.length) * 100)}% of items without looking at the series; at most 30%`);
   }
 }
 
@@ -245,9 +266,21 @@ for (let i = 0; i < verbal.length; i++) {
   }
 }
 
+if (only) {
+  const mine = ctx.window.EPSO_BANK.sets.find((st) => st._file === only);
+  errors.splice(0, errors.length, ...errors.filter((e) => e.startsWith(only)));
+  const ids = new Set(mine ? mine.questions.map((q) => q.id) : []);
+  const near = warnings.filter((x) => ids.has(x.split(" ")[0]));
+  if (near.length) console.warn("Similar subjects already in the bank (choose another subject unless the angle is clearly different):\n" + near.map((x) => "  - " + x).join("\n"));
+  if (mine && mine.section === "verbal") {
+    const v = verbalSetStats(mine.questions), pc = (x) => Math.round(x * 100) + "%";
+    console.log(`${only}: ${v.n} items · blind heuristic ${pc(v.heuristic)} · least-overlap ${pc(v.lowOverlap)} · most-overlap ${pc(v.highOverlap)} · shortest ${pc(v.shortest)} · hedged keys/distractors ${pc(v.keyHedge)}/${pc(v.disHedge)} · absolute keys/distractors ${pc(v.keyAbs)}/${pc(v.disAbs)} · top pattern ${v.topPattern[0]} ${pc(v.patternShare)}`);
+  }
+}
 if (warnings.length && process.argv.includes("--verbose")) console.warn("Similar subjects (review manually):\n" + warnings.map((w) => "  - " + w).join("\n"));
 if (errors.length) {
   console.error(`✗ ${errors.length} problem(s) found:\n` + errors.map((e) => "  - " + e).join("\n"));
   process.exit(1);
 }
+if (only) { console.log(`✓ ${only} is valid against the bank.`); process.exit(0); }
 console.log(`✓ ${ctx.window.EPSO_BANK.sets.length} sets, ${total} questions valid (verbal ${counts.verbal}, numerical ${counts.numerical}, abstract ${counts.abstract}).`);

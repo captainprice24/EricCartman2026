@@ -64,7 +64,7 @@
     setId: prefs.setId || "all",
     mistakesOnly: !!prefs.mistakesOnly,
     examScope: ["full", "verbal", "numerical", "abstract"].indexOf(prefs.examScope) > -1 ? prefs.examScope : "full",
-    showTopics: prefs.showTopics !== false,
+    showTopics: prefs.showTopics === true, // N3: off by default; labels can hint at the rule
     theme: ["system", "light", "dark"].indexOf(prefs.theme) > -1 ? prefs.theme : "system",
     lang: prefs.lang || "en"
   };
@@ -79,7 +79,7 @@
   var state = { view: "home", session: null, ui: freshUI(), notice: null, focus: null };
   var lastView = null;
   function freshUI() {
-    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false };
+    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null };
   }
 
   function range(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
@@ -156,9 +156,10 @@
   }
 
   /* ---------- session persistence (W3) ---------- */
+  var TAB_ID = String(Date.now()) + Math.random().toString(36).slice(2, 8);
   function serialize(s) {
     return {
-      v: 1, mode: s.mode, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view,
+      v: 1, tab: TAB_ID, mode: s.mode, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view,
       sections: s.sections.map(function (sec) {
         return {
           key: sec.key, ids: sec.items.map(function (it) { return it.q.id; }), orders: sec.items.map(function (it) { return it.order; }),
@@ -206,6 +207,16 @@
     var st = load(KEY_STATS, {});
     var e = st[q.id] || { seen: 0, correct: 0 };
     e.seen++; if (correct) e.correct++; e.last = !!correct; e.at = Date.now();
+    st[q.id] = e;
+    save(KEY_STATS, st);
+  }
+
+  // N6: an item counts as seen once it has been on screen, even if the session is later discarded.
+  function markShown(q) {
+    var st = load(KEY_STATS, {});
+    var e = st[q.id] || { seen: 0, correct: 0 };
+    if (e.shown) return;
+    e.shown = Date.now(); if (!e.at) e.at = e.shown;
     st[q.id] = e;
     save(KEY_STATS, st);
   }
@@ -376,6 +387,8 @@
     var elim = sec.elim[id] || {};
     var isFig = q.section === "abstract";
     var showAllNotes = mode === "coach" || state.session.review;
+    // N4: one tab stop for the group (roving tabindex): the focused, else the chosen, else the first option.
+    var rove = state.ui.optPos != null ? state.ui.optPos : chosen !== undefined && item.order.indexOf(chosen) > -1 ? item.order.indexOf(chosen) : 0;
     var list = item.order.map(function (orig, pos) {
       var cls = ["opt"], status = "";
       if (chosen === orig) cls.push("chosen");
@@ -391,12 +404,13 @@
         note = '<p class="opt-note">' + esc(T(notes[orig])) + "</p>";
       }
       return '<li class="' + cls.join(" ") + '" role="none">' +
-        '<button class="opt-main" role="radio" data-act="choose" data-opt="' + orig + '"' + (checked ? ' aria-disabled="true"' : "") + ' aria-checked="' + (chosen === orig) + '">' +
+        '<button class="opt-main" id="opt-' + pos + '" role="radio" tabindex="' + (pos === rove ? 0 : -1) + '" data-act="choose" data-opt="' + orig + '"' + (checked ? ' aria-disabled="true"' : ' aria-keyshortcuts="X"') + ' aria-checked="' + (chosen === orig) + '">' +
         '<span class="letter">' + LETTERS[pos] + "</span>" + '<span class="opt-body">' + content + note + "</span>" + status + "</button>" +
-        (checked ? "" : '<button class="strike" data-act="strike" data-opt="' + orig + '" aria-pressed="' + !!elim[orig] + '" aria-label="Strike out option ' + LETTERS[pos] + '">✕</button>') +
+        (checked ? "" : '<button class="strike" tabindex="-1" data-act="strike" data-opt="' + orig + '" aria-pressed="' + !!elim[orig] + '" aria-label="Strike out option ' + LETTERS[pos] + ' (key X)">✕</button>') +
         "</li>";
     }).join("");
-    return '<ol class="opts' + (isFig ? " opts-fig" : "") + '" role="radiogroup" aria-labelledby="q-stem">' + list + "</ol>";
+    return '<ol class="opts' + (isFig ? " opts-fig" : "") + '" role="radiogroup" aria-labelledby="q-stem" aria-describedby="opts-help">' + list + "</ol>" +
+      '<p id="opts-help" class="sr-only">Use the arrow keys to move between options' + (checked ? "." : " and X to strike out the focused option.") + "</p>";
   }
 
   function coachPanelHTML(item, sec) {
@@ -574,6 +588,7 @@
       '<ul class="rules"><li>Each test has its own timer, which keeps running if you switch tabs or close the page. When it runs out, the test is submitted automatically.</li>' +
       "<li>If the page is closed by accident, reopen it and choose Resume.</li>" +
       "<li>You can move freely between questions in a test and flag them to come back to.</li>" +
+      "<li>Keyboard: A–E or 1–5 to answer, the arrow keys to move between options, X to strike out the focused option, F to flag. Outside the options, ← and → change question.</li>" +
       "<li>There is no negative marking, so answer every question.</li>" +
       "<li>Pass marks: verbal 10/20; numerical and abstract 10/20 combined. Your verbal score also counts towards the EPSO ranking, so aim well above the pass mark.</li>" +
       "<li>Shortcuts: <kbd>A</kbd>–<kbd>E</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move, <kbd>F</kbd> to flag.</li></ul>" +
@@ -602,6 +617,10 @@
     var answered = Object.keys(sec.answers).length;
     // E4: topic and difficulty would give away the rule, so they are hidden in the exam and optional elsewhere.
     var showTopic = review || (mode !== "exam" && prefs.showTopics);
+    // N3: for abstract items the topic and difficulty (rules − 1) would name the rules, so they wait until the answer is checked.
+    var topicText = q.topic + (q.difficulty ? " · " + ["", "easier", "medium", "harder"][q.difficulty] : "");
+    if (q.section === "abstract" && !checked) topicText = "Figure series";
+    if (!review) markShown(q);
 
     var head = '<header class="exam-bar"><div class="bar-left"><h1 class="chip" id="main-heading" tabindex="-1">' + esc(SECTIONS[sec.key].name) + "</h1>" +
       '<span class="pill">' + (review ? "Review" : modeLabel(mode)) + "</span>" +
@@ -625,7 +644,7 @@
     }
 
     var right = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
-      (showTopic && q.topic ? '<span class="muted small">' + esc(q.topic) + (q.difficulty ? " · " + ["", "easier", "medium", "harder"][q.difficulty] : "") + "</span>" : "") + "</div>" +
+      (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>" +
       '<h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
       optionsHTML(item, sec, mode) +
       (mode === "coach" && !checked ? coachPanelHTML(item, sec) : "") +
@@ -771,7 +790,7 @@
   }
   function gotoQ(n) {
     var s = state.session;
-    s.qi = n; state.ui.hl = false; state.ui.showMethod = false;
+    s.qi = n; state.ui.hl = false; state.ui.showMethod = false; state.ui.optPos = null;
     state.focus = "q-stem";
     render();
     if (window.innerWidth < 900) { var el = document.querySelector(".session"); if (el) el.scrollIntoView({ block: "start" }); }
@@ -957,8 +976,13 @@
     var c = cur(); if (!c) return;
     var k = e.key;
 
+    var onControl = e.target.closest && e.target.closest("button, a, summary");
+    var inCalc = e.target === document.body || (e.target.closest && e.target.closest(".tool-panel.calc"));
+
     // W1: while the calculator is open, the keyboard drives the calculator, never the answers.
-    if (state.ui.calc) {
+    // N5: Enter goes to the calculator only from the calculator itself (or nowhere in particular);
+    // on any other focused button it keeps its normal meaning.
+    if (state.ui.calc && !(k === "Enter" && onControl && !inCalc)) {
       if (/^[0-9]$/.test(k)) { calcPress(k); e.preventDefault(); return; }
       if (CALC_KEYS[k]) { calcPress(CALC_KEYS[k]); e.preventDefault(); return; }
       if (k === "Escape") { state.ui.calc = false; render(); e.preventDefault(); return; }
@@ -967,12 +991,33 @@
     if (e.target.closest && e.target.closest(".tool-panel")) return;
 
     // W7: Enter and Space keep their normal meaning on focused controls.
-    var onControl = e.target.closest && e.target.closest("button, a, summary");
     if ((k === "Enter" || k === " ") && onControl) return;
+
+    // N4: WAI-ARIA radio group. Arrows move (and select) within the options; X strikes out the focused option.
+    var group = e.target.closest && e.target.closest(".opts");
+    if (group) {
+      var lis = Array.prototype.slice.call(group.children), p = lis.indexOf(e.target.closest("li")), n = lis.length;
+      var locked = !!c.sec.checked[c.item.q.id] || c.s.review;
+      var np = k === "Home" ? 0 : k === "End" ? n - 1 : k === "ArrowDown" || k === "ArrowRight" ? (p + 1) % n : k === "ArrowUp" || k === "ArrowLeft" ? (p - 1 + n) % n : -1;
+      if (np > -1 && p > -1) {
+        state.ui.optPos = np; state.focus = "opt-" + np;
+        if (locked) render(); else choose(c.item.order[np]);
+        e.preventDefault(); return;
+      }
+      if ((k === "x" || k === "X") && p > -1 && !locked) {
+        var orig = c.item.order[p], el = c.sec.elim[c.item.q.id] = c.sec.elim[c.item.q.id] || {};
+        el[orig] = !el[orig];
+        if (el[orig] && c.sec.answers[c.item.q.id] === orig) delete c.sec.answers[c.item.q.id];
+        state.focus = "opt-" + p; render(); e.preventDefault(); return;
+      }
+    }
 
     var idx = "abcde".indexOf(k.toLowerCase());
     if (idx === -1 && /^[1-5]$/.test(k)) idx = +k - 1;
-    if (idx > -1 && idx < c.item.order.length && k.length === 1) { choose(c.item.order[idx]); e.preventDefault(); return; }
+    if (idx > -1 && idx < c.item.order.length && k.length === 1) {
+      if (group) { state.ui.optPos = idx; state.focus = "opt-" + idx; }
+      choose(c.item.order[idx]); e.preventDefault(); return;
+    }
     if (k === "ArrowRight") { move(1); e.preventDefault(); }
     else if (k === "ArrowLeft") { move(-1); e.preventDefault(); }
     else if ((k === "f" || k === "F") && c.s.mode === "exam" && !c.s.review) toggleFlag();
@@ -994,6 +1039,15 @@
     root.addEventListener("touchend", onSelectionEnd);
     root.addEventListener("keyup", function (e) { if (e.key && e.key.indexOf("Arrow") === 0 && e.shiftKey) onSelectionEnd(); });
     document.addEventListener("keydown", onKey);
+    // N13: the same saved session written from another tab would overwrite this one's progress.
+    window.addEventListener("storage", function (e) {
+      if (e.key !== KEY_SESSION || !e.newValue || !state.session || state.session.finished || state.session.review) return;
+      var other = null; try { other = JSON.parse(e.newValue); } catch (err) { return; }
+      if (other && other.tab && other.tab !== TAB_ID && !state.otherTab) {
+        state.otherTab = true;
+        flash("This trainer is also open in another tab. Continue in one tab only: each tab saves over the other's unfinished session.");
+      }
+    });
     render();
   }
 

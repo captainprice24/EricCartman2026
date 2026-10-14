@@ -100,9 +100,12 @@
   }
 
   // Returns { items, repeats }: unseen items first, then a difficulty mix as close to DIFFICULTY_MIX as the pool allows.
+  // An item is seen once it was answered or merely displayed (N6: a discarded exam still exposes its items).
+  function isSeen(e) { return !!(e && (e.seen || e.shown)); }
+
   function drawExam(pool, count, stats, rng) {
     stats = stats || {};
-    var seen = function (q) { return !!(stats[q.id] && stats[q.id].seen); };
+    var seen = function (q) { return isSeen(stats[q.id]); };
     var byD = { 1: [], 2: [], 3: [] };
     pool.forEach(function (q) { (byD[q.difficulty] || byD[2]).push(q); });
     // Within each difficulty: unseen (shuffled) before seen (least recently seen first).
@@ -133,7 +136,7 @@
     stats = stats || {};
     var left = Infinity;
     (keys || ORDER).forEach(function (k) {
-      var unseen = (bySection[k] || []).filter(function (q) { return !(stats[q.id] && stats[q.id].seen); }).length;
+      var unseen = (bySection[k] || []).filter(function (q) { return !isSeen(stats[q.id]); }).length;
       left = Math.min(left, Math.floor(unseen / SECTIONS[k].examCount));
     });
     return left === Infinity ? 0 : left;
@@ -187,7 +190,7 @@
   return {
     SECTIONS: SECTIONS, ORDER: ORDER, DIFFICULTY_MIX: DIFFICULTY_MIX,
     calcEval: calcEval, sectionScore: sectionScore, examVerdict: examVerdict,
-    shuffle: shuffle, drawExam: drawExam, freshSimulationsLeft: freshSimulationsLeft,
+    shuffle: shuffle, isSeen: isSeen, drawExam: drawExam, freshSimulationsLeft: freshSimulationsLeft,
     remainingMs: remainingMs, elapsedMs: elapsedMs,
     addRange: addRange, segments: segments, tr: tr
   };

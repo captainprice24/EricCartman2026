@@ -60,6 +60,13 @@
         ].map(function (q) { return (x + q[0]).toFixed(2) + "," + (y + q[1]).toFixed(2); }).join(" ");
         return '<polygon class="' + cls + '" points="' + p + '" transform="rotate(' + rot + " " + x + " " + y + ')"/>';
       }
+      case "wedge": {
+        // A sector of a divided circle; angles in degrees, clockwise from 12 o'clock.
+        var a0 = ((num(s.a0, 0) - 90) * Math.PI) / 180, a1 = ((num(s.a1, 90) - 90) * Math.PI) / 180;
+        var large = num(s.a1, 90) - num(s.a0, 0) > 180 ? 1 : 0;
+        return '<path class="' + cls + '" d="M' + x + "," + y + " L" + (x + r * Math.cos(a0)).toFixed(2) + "," + (y + r * Math.sin(a0)).toFixed(2) +
+          " A" + r + "," + r + " 0 " + large + " 1 " + (x + r * Math.cos(a1)).toFixed(2) + "," + (y + r * Math.sin(a1)).toFixed(2) + ' Z"/>';
+      }
       case "line":
         return '<line class="f-line" x1="' + num(s.x1, 10) + '" y1="' + num(s.y1, 10) + '" x2="' + num(s.x2, 90) + '" y2="' + num(s.y2, 90) + '"/>';
       default:
@@ -123,7 +130,15 @@
     });
     out += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/>';
     out += "</svg>";
-    return '<div class="chart-wrap">' + legendHTML(series) + out + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+    return '<div class="chart-wrap">' + legendHTML(series) + out + chartTables(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
+  // N7: chart values are also available as a table (screen readers, keyboard), behind a toggle so the
+  // visual task is unchanged. N9: on narrow phones the table replaces the chart (see styles.css).
+  function chartTables(ex, totals) {
+    var t = dataTableHTML(ex, totals);
+    return '<details class="data-details"><summary>Show the values as a table</summary>' + t + "</details>" +
+      '<div class="chart-table-sm">' + t + "</div>";
   }
 
   function fmtVal(v) {
@@ -166,8 +181,9 @@
       out += '<text class="cat" x="' + (x + barW / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
     });
     out += '<line class="axis" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
+    // Segments too small to label are listed in a visible table, as before; every chart also gets the toggle.
     var hidden = series.some(function (s) { return s.values.some(function (v) { return (v / scale.max) * plotH < 13; }); });
-    return '<div class="chart-wrap">' + legendHTML(series) + out + (hidden ? dataTableHTML(ex) : "") + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + " · totals shown above bars</div>" : "") + "</div>";
+    return '<div class="chart-wrap">' + legendHTML(series) + out + (hidden ? '<div class="small-values">' + dataTableHTML(ex, totals) + "</div>" : "") + chartTables(ex, totals) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + " · totals shown above bars</div>" : "") + "</div>";
   }
 
   function lineHTML(ex) {
@@ -185,16 +201,25 @@
         out += '<circle class="pt s' + (si % 4) + '" cx="' + x(i).toFixed(1) + '" cy="' + y(v).toFixed(1) + '" r="3.5"/>';
       });
     });
+    // Value labels above each point, pushed apart vertically where series run close together.
+    cats.forEach(function (c, i) {
+      var pts = series.map(function (s, si) { return { si: si, v: s.values[i], ly: y(s.values[i]) - 7 }; }).sort(function (a, b) { return b.ly - a.ly; });
+      for (var k = 1; k < pts.length; k++) if (pts[k - 1].ly - pts[k].ly < 12) pts[k].ly = pts[k - 1].ly - 12;
+      pts.forEach(function (pt) {
+        out += '<text class="val lv s' + (pt.si % 4) + '" x="' + x(i).toFixed(1) + '" y="' + Math.max(10, pt.ly).toFixed(1) + '" text-anchor="middle">' + fmtVal(pt.v) + "</text>";
+      });
+    });
     cats.forEach(function (c, i) { out += '<text class="cat" x="' + x(i).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>"; });
     out += '<line class="axis" x1="' + L + '" x2="' + (W - Rr) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
-    // Exact values in a compact table under the chart, as candidates cannot read precise values off a line.
-    return '<div class="chart-wrap">' + legendHTML(series) + out + dataTableHTML(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+    return '<div class="chart-wrap">' + legendHTML(series) + out + chartTables(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
   }
 
-  function dataTableHTML(ex) {
+  function dataTableHTML(ex, totals) {
+    var rows = ex.series.map(function (s) { return { name: s.name, values: s.values }; });
+    if (totals) rows.push({ name: "Total", values: totals });
     return '<div class="table-wrap"><table class="exhibit-table compact"><thead><tr><th scope="col"><span class="sr-only">Series</span></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
-      "</tr></thead><tbody>" + ex.series.map(function (s) {
-        return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(v) + "</td>"; }).join("") + "</tr>";
+      "</tr></thead><tbody>" + rows.map(function (s) {
+        return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(+(+v).toFixed(2)) + "</td>"; }).join("") + "</tr>";
       }).join("") + "</tbody></table></div>";
   }
 
