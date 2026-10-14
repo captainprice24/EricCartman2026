@@ -5,6 +5,12 @@
  */
 window.EPSO_SET_FILES = [
   "verbal/verbal-set-01.js",
+  "verbal/verbal-set-02.js",
+  "verbal/verbal-set-03.js",
   "numerical/numerical-set-01.js",
-  "abstract/abstract-set-01.js"
+  "numerical/numerical-set-02.js",
+  "numerical/numerical-set-03.js",
+  "abstract/abstract-set-01.js",
+  "abstract/abstract-set-02.js",
+  "abstract/abstract-set-03.js"
 ];

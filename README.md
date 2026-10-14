@@ -41,13 +41,18 @@ docs/QUESTION_FORMAT.md    question schema and authoring rules
 docs/research.md           exam format, platform research, REA analysis
 ```
 
+## Question bank
+
+190 original questions: verbal 70 (sets 1–3), numerical 60 (sets 1–3), abstract 60 (sets 1–3).
+An exam simulation draws a fresh random selection of 20 / 10 / 10 from the bank each time.
+
 ## Adding question sets
 
 See [`docs/QUESTION_FORMAT.md`](docs/QUESTION_FORMAT.md). In short: add a file under
 `questions/<section>/`, list it in `questions/manifest.js`, then run:
 
 ```bash
-node scripts/validate-questions.mjs
+node scripts/validate-questions.mjs   # schema + duplicate checks across the whole bank
 node scripts/build.mjs
 ```
 

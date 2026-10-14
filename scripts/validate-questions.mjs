@@ -51,6 +51,7 @@ const checkFigure = (where, fig) => {
 
 const setIds = new Set(), qIds = new Set();
 let total = 0;
+const all = [];
 const counts = { verbal: 0, numerical: 0, abstract: 0 };
 for (const set of ctx.window.EPSO_BANK.sets) {
   const w = set._file || set.id;
@@ -105,9 +106,52 @@ for (const set of ctx.window.EPSO_BANK.sets) {
     }
     total++;
     counts[set.section]++;
+    all.push({ where, section: set.section, q });
   });
 }
 
+// ---- duplicate detection across the whole bank ----
+const warnings = [];
+const norm = (s) => String(s).toLowerCase().replace(/[^a-z0-9%€.]+/g, " ").trim();
+const STOP = new Set("the a an of and or to in on for by with is are was were be been it its this that these those as at from which who whom than then their there not no but can may must has have had also into such more most less only all any some each other per".split(" "));
+const shingles = (text, k = 5) => {
+  const w = norm(text).split(" ");
+  const out = new Set();
+  for (let i = 0; i + k <= w.length; i++) out.add(w.slice(i, i + k).join(" "));
+  return out;
+};
+const keywords = (text) => new Set(norm(text).split(" ").filter((t) => t.length > 3 && !STOP.has(t) && !/^\d/.test(t)));
+const jaccard = (a, b) => {
+  if (!a.size || !b.size) return 0;
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  return inter / (a.size + b.size - inter);
+};
+const seen = new Map();
+const once = (key, item, msg) => {
+  if (seen.has(key)) err(item.where, `${msg} (duplicates ${seen.get(key)})`);
+  else seen.set(key, item.q.id);
+};
+for (const it of all) {
+  const q = it.q;
+  once("opts:" + norm(q.stem || "") + JSON.stringify(q.options), it, "identical stem and options");
+  if (it.section === "verbal") once("pass:" + norm(q.passage), it, "identical passage");
+  if (it.section === "numerical") {
+    once("ex:" + JSON.stringify(q.exhibit && (q.exhibit.rows || q.exhibit.series)), it, "identical exhibit data");
+  }
+  if (it.section === "abstract") once("seq:" + JSON.stringify(q.sequence), it, "identical figure series");
+}
+const verbal = all.filter((it) => it.section === "verbal").map((it) => ({ ...it, sh: shingles(it.q.passage), kw: keywords(it.q.passage) }));
+for (let i = 0; i < verbal.length; i++) {
+  for (let j = i + 1; j < verbal.length; j++) {
+    const textSim = jaccard(verbal[i].sh, verbal[j].sh);
+    if (textSim >= 0.15) err(verbal[j].where, `passage is a near-duplicate of ${verbal[i].q.id} (${Math.round(textSim * 100)}% shared phrasing)`);
+    const topicSim = jaccard(verbal[i].kw, verbal[j].kw);
+    if (topicSim >= 0.3) warnings.push(`${verbal[j].q.id} covers a very similar subject to ${verbal[i].q.id} (${Math.round(topicSim * 100)}% shared keywords)`);
+  }
+}
+
+if (warnings.length && process.argv.includes("--verbose")) console.warn("Similar subjects (review manually):\n" + warnings.map((w) => "  - " + w).join("\n"));
 if (errors.length) {
   console.error(`✗ ${errors.length} problem(s) found:\n` + errors.map((e) => "  - " + e).join("\n"));
   process.exit(1);
