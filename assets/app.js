@@ -1098,7 +1098,7 @@
       if (i >= files.length) return done();
       var f = files[i++];
       var el = document.createElement("script");
-      el.src = "questions/" + f;
+      el.src = "questions/" + f + (window.EPSO_VERSION ? "?v=" + encodeURIComponent(window.EPSO_VERSION) : "");
       el.onload = next;
       el.onerror = function () { bank.errors.push("Could not load questions/" + f + "."); next(); };
       document.body.appendChild(el);

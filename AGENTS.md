@@ -12,7 +12,8 @@ This repository is a dependency-free static web app for practising the EPSO AD5 
 3. Add any new file to `questions/manifest.js`. Never reuse or edit existing question ids.
 4. For hand-written sets, run `node scripts/format-set.mjs <file> --letters …` to balance answer letters.
 5. Run `npm run validate`. It must print ✓. Then run `npm run build` and commit the regenerated
-   `dist/ad5-reasoning-trainer.html`; CI fails on a stale bundle.
+   `dist/ad5-reasoning-trainer.html` and `version.js`; CI fails if either is stale. `version.js` makes
+   every visitor's browser load the new files straight away instead of a cached copy.
 
 Quality bar (most of it is enforced by the validator):
 

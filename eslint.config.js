@@ -7,7 +7,7 @@ module.exports = [
   js.configs.recommended,
   { rules: { "no-unused-vars": ["error", { caughtErrors: "none" }] } },
   {
-    files: ["assets/**/*.js", "questions/**/*.js"],
+    files: ["assets/**/*.js", "questions/**/*.js", "version.js"],
     languageOptions: {
       ecmaVersion: 5,
       sourceType: "script",

@@ -74,6 +74,11 @@ async function run(engineName) {
     const p = await newPage(desktop, { url: SRC_URL });
     const n = await p.evaluate(() => window.EPSO_APP.bank.sets.length);
     assert.ok(n >= 3, "sets loaded: " + n);
+    // Cache busting: every file carries the current version code, and version.js itself a fresh URL.
+    const urls = await p.evaluate(() => ({ v: window.EPSO_VERSION, files: [...document.scripts].map((x) => x.src).filter(Boolean).concat([...document.querySelectorAll('link[rel="stylesheet"]')].map((x) => x.href)) }));
+    assert.match(urls.v, /^[0-9a-f]{12}$/);
+    const stale = urls.files.filter((u) => !/version\.js\?t=\d+$/.test(u) && !u.endsWith("?v=" + urls.v));
+    assert.deepEqual(stale, [], "files loaded without the version code");
     assert.deepEqual(p.errors, []);
     await p.context().close();
   });

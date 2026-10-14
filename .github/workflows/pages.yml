@@ -28,7 +28,7 @@ jobs:
       - name: Build single-file app
         run: npm run build
       - name: The committed bundle must be up to date
-        run: git diff --exit-code -- dist/ad5-reasoning-trainer.html || (echo "dist/ is stale. Run 'npm run build' and commit the result." && exit 1)
+        run: git diff --exit-code -- dist/ad5-reasoning-trainer.html version.js || (echo "dist/ or version.js is stale. Run 'npm run build' and commit the result." && exit 1)
       - name: Install browsers
         run: npx playwright install --with-deps chromium webkit
       - name: End-to-end tests (Chromium and WebKit)

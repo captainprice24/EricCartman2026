@@ -12,12 +12,28 @@
 <main id="app" class="app"><p style="padding:24px 0">Loading the trainer…</p></main>
 <noscript><p>This trainer needs JavaScript enabled.</p></noscript>
 <!-- build:inline -->
-<script src="questions/registry.js"></script>
-<script src="questions/manifest.js"></script>
-<script src="assets/core.js"></script>
-<script src="assets/lessons.js"></script>
-<script src="assets/render.js"></script>
-<script src="assets/app.js"></script>
+<script>
+  // Always load the newest files. version.js gets a new URL on every visit, so no browser or
+  // GitHub Pages cache can serve an old copy of it; its version code (updated by `npm run build`)
+  // is then added to every other file, so an update never mixes old and new files.
+  window.EPSO_FILES = ["questions/registry.js", "questions/manifest.js", "assets/core.js", "assets/lessons.js", "assets/render.js", "assets/app.js"];
+  (function () {
+    function load(src, next) {
+      var el = document.createElement("script");
+      el.src = src;
+      el.onload = next;
+      el.onerror = next;
+      document.body.appendChild(el);
+    }
+    load("version.js?t=" + Date.now(), function () {
+      var v = window.EPSO_VERSION ? "?v=" + encodeURIComponent(window.EPSO_VERSION) : "";
+      var css = document.querySelector('link[href="assets/styles.css"]');
+      if (css && v) css.href = "assets/styles.css" + v;
+      var files = window.EPSO_FILES.slice();
+      (function next() { if (files.length) load(files.shift() + v, next); })();
+    });
+  })();
+</script>
 <!-- /build:inline -->
 </body>
 </html>
