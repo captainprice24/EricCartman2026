@@ -79,7 +79,7 @@
   var state = { view: "home", session: null, ui: freshUI(), notice: null, focus: null };
   var lastView = null;
   function freshUI() {
-    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null };
+    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null, tip: null };
   }
 
   function range(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
@@ -464,10 +464,19 @@
   function toolsHTML(sec) {
     var ui = state.ui, k = sec.key, out = "";
     if (state.session.review) return "";
-    if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '">' + ICON.mark + "<span>Highlight</span></button>";
-    out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '">' + ICON.note + "<span>Scratchpad</span></button>";
-    if (k === "numerical") out += '<button class="tool' + (ui.calc ? " on" : "") + '" data-act="tool-calc" aria-pressed="' + ui.calc + '">' + ICON.calc + "<span>Calculator</span></button>";
+    if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '" title="Select words in the text to highlight them; click a highlight to remove it">' + ICON.mark + "<span>Highlight</span></button>";
+    out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '" title="Notes for this test, kept while you move between questions">' + ICON.note + "<span>Scratchpad</span></button>";
+    if (k === "numerical") out += '<button class="tool' + (ui.calc ? " on" : "") + '" data-act="tool-calc" aria-pressed="' + ui.calc + '" title="On-screen calculator; you can also type on the keyboard">' + ICON.calc + "<span>Calculator</span></button>";
     return '<div class="tools" role="group" aria-label="Tools">' + out + "</div>";
+  }
+
+  // Small "i" button with a tip: shown on hover, on keyboard focus, and on tap (phones). Never inside a <label>,
+  // because a click there would also toggle the labelled control.
+  function info(id, about, text, align) {
+    var open = state.ui.tip === id;
+    return '<span class="info-wrap' + (align === "right" ? " tip-r" : "") + '"><button type="button" class="info-btn" data-act="tip" data-k="' + id + '" aria-label="More about ' + esc(about) +
+      '" aria-describedby="tip-' + id + '" aria-expanded="' + open + '"><span aria-hidden="true">i</span></button>' +
+      '<span role="tooltip" id="tip-' + id + '" class="tip' + (open ? " open" : "") + '">' + text + "</span></span>";
   }
 
   function themeButton() {
@@ -545,27 +554,45 @@
       '<header class="masthead"><div class="mast-text"><p class="eyebrow">EPSO AD5 · Stage 1 reasoning tests</p><h1 id="main-heading" tabindex="-1">AD5 Reasoning Trainer</h1>' +
       '<p class="lede">Learn the method with the coach, drill with instant feedback, then sit a full timed simulation in the EPSO format.</p></div>' +
       '<dl class="format">' +
-      '<div><dt>Verbal</dt><dd><b>20</b> q · <b>35</b> min</dd><dd class="muted small">pass 10/20 · counts in ranking</dd></div>' +
-      '<div><dt>Numerical</dt><dd><b>10</b> q · <b>20</b> min</dd><dd class="muted small">pass 10/20 combined</dd></div>' +
+      '<div><dt>Verbal</dt><dd><b>20</b> q · <b>35</b> min</dd><dd class="muted small">pass 10/20 · counts in ranking ' + info("rank", "the verbal ranking", "Verbal reasoning is the only reasoning test that counts towards your place in the ranking: 40% of the preliminary score and 35% of the final score. Numerical and abstract only need to be passed.") + "</dd></div>" +
+      '<div><dt>Numerical</dt><dd><b>10</b> q · <b>20</b> min</dd><dd class="muted small">pass 10/20 combined ' + info("combined", "the combined pass mark", "Numerical and abstract share one pass mark: at least 10 correct out of the 20 questions of both tests together. A strong abstract score can make up for a weaker numerical one.") + "</dd></div>" +
       '<div><dt>Abstract</dt><dd><b>10</b> q · <b>10</b> min</dd><dd class="muted small">with numerical</dd></div>' +
       "</dl></header>" +
 
-      '<section class="exam-card"><div><h2>Exam simulation</h2><p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
-      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + "</p></div>" +
-      '<div class="exam-start"><label for="exam-scope" class="small">Tests</label><select id="exam-scope">' +
+      '<section class="howto" aria-labelledby="howto-h"><h2 id="howto-h">How to use this trainer</h2><ol>' +
+      "<li><b>Learn with Coach.</b> Pick a test below and press <b>Coach</b>: a short lesson, then questions with hints and an explanation of every option.</li>" +
+      "<li><b>Drill with Practice.</b> Press <b>Practice</b> to answer questions and check each one straight away.</li>" +
+      "<li><b>Test yourself.</b> Choose a test type in <b>Exam simulation</b> and start it. It is timed like the real exam, with results at the end.</li>" +
+      "</ol><p class=\"small muted\">Your progress is saved in this browser only. " + info("saved", "saved progress", "Results, mistakes and an unfinished exam are stored on this device, in this browser. Another browser or device starts fresh, and private browsing may not keep them.") + "</p></section>" +
+
+      '<section class="exam-card"><div><h2>Exam simulation ' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</h2>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
+      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
+      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
+      '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
+      info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
+      '<select id="exam-scope">' +
       [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
         return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
-      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button><span class="small muted">Step 3: when you feel ready</span></div></section>' +
 
-      '<section class="train"><div class="train-head"><div><h2>Train by test</h2><p class="muted"><b>Coach</b> teaches the method, gives step-by-step hints and explains every option. <b>Practice</b> checks each answer straight away.</p></div>' +
+      '<section class="train"><div class="train-head"><div><h2>Train by test</h2><p class="muted"><b>Coach</b> ' +
+      info("coach", "Coach mode", "Start here for each test type. A short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong.") +
+      " teaches the method, gives step-by-step hints and explains every option. <b>Practice</b> " +
+      info("practice", "Practice mode", "Answer, then press Check answer to see whether you were right. Only questions you check count towards your score. Turn on Timed practice to work at exam pace.") +
+      " checks each answer straight away. Set the options here, then press <b>Coach</b> or <b>Practice</b> next to a test.</p></div>" +
       '<div class="train-opts">' +
-      '<label class="field"><span class="small muted">Questions</span><select id="opt-count">' + COUNTS.map(function (v) {
+      '<div class="field"><span class="field-label small muted"><label for="opt-count">Questions per round</label>' + info("count", "questions per round", "How many questions each Coach or Practice round has. Choose All to work through every question that matches your settings.", "right") + "</span>" +
+      '<select id="opt-count">' + COUNTS.map(function (v) {
         return '<option value="' + v + '"' + (prefs.count === v ? " selected" : "") + ">" + (v === "all" ? "All" : v) + "</option>";
-      }).join("") + "</select></label>" +
-      '<label class="field"><span class="small muted">Question set</span><select id="opt-set">' + setOpts + "</select></label>" +
-      '<label class="check"><input type="checkbox" id="opt-timed"' + (prefs.timed ? " checked" : "") + "> Timed practice at exam pace</label>" +
-      '<label class="check"><input type="checkbox" id="opt-mistakes"' + (prefs.mistakesOnly ? " checked" : "") + "> Only questions I got wrong</label>" +
-      '<label class="check"><input type="checkbox" id="opt-topics"' + (prefs.showTopics ? " checked" : "") + "> Show topic labels</label>" +
+      }).join("") + "</select></div>" +
+      '<div class="field"><span class="field-label small muted"><label for="opt-set">Question set</label>' + info("set", "question sets", "Practise one set or mix all of them. Each set covers one test type; the number of questions is in brackets.", "right") + "</span>" +
+      '<select id="opt-set">' + setOpts + "</select></div>" +
+      '<div class="check-row"><label class="check"><input type="checkbox" id="opt-timed"' + (prefs.timed ? " checked" : "") + "> Timed practice at exam pace</label>" +
+      info("timed", "timed practice", "Adds a timer set to exam pace: 1 min 45 s per verbal question, 2 min per numerical question, 1 min per abstract question.", "right") + "</div>" +
+      '<div class="check-row"><label class="check"><input type="checkbox" id="opt-mistakes"' + (prefs.mistakesOnly ? " checked" : "") + "> Only questions I got wrong</label>" +
+      info("mistakes", "practising mistakes", "Uses only questions you answered wrongly the last time you saw them. If there are none, all questions are used.", "right") + "</div>" +
+      '<div class="check-row"><label class="check"><input type="checkbox" id="opt-topics"' + (prefs.showTopics ? " checked" : "") + "> Show topic labels</label>" +
+      info("topics", "topic labels", "Shows each question's topic and difficulty during Coach and Practice. Off by default because a label can hint at the answer; never shown in the exam.", "right") + "</div>" +
       "</div></div>" +
       '<div class="ttable">' + sectionRows + "</div></section>" +
 
@@ -843,6 +870,12 @@
 
   function onClick(e) {
     var t = e.target.closest("[data-act]");
+    if (t && t.getAttribute("data-act") === "tip") {
+      var tipId = t.getAttribute("data-k");
+      state.ui.tip = state.ui.tip === tipId ? null : tipId;
+      render(); return;
+    }
+    if (state.ui.tip) { state.ui.tip = null; if (!t) { render(); return; } }
     if (!t || !root.contains(t)) {
       // Click on a highlight while the highlighter is on removes it.
       var m = e.target.closest("mark");
@@ -972,6 +1005,7 @@
       if (e.key === "Escape") { state.ui.confirm = null; render(); }
       return;
     }
+    if (state.ui.tip && e.key === "Escape") { state.ui.tip = null; render(); return; }
     if (state.view !== "session") return;
     var c = cur(); if (!c) return;
     var k = e.key;

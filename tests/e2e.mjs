@@ -234,6 +234,35 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("guidance: labelled controls and info tips work by hover, keyboard and tap; axe clean", async () => {
+    const p = await newPage(desktop);
+    assert.equal(await p.locator('label[for="exam-scope"]').textContent(), "Choose test type");
+    assert.ok(await p.locator(".howto li").count() === 3, "three-step how-to");
+    const tip = p.locator("#tip-scope");
+    assert.equal(await tip.isVisible(), false);
+    await p.locator('[data-act="tip"][data-k="scope"]').hover();
+    assert.equal(await tip.isVisible(), true, "hover shows the tip");
+    await p.mouse.move(5, 5);
+    await p.locator('[data-act="tip"][data-k="timed"]').focus();
+    await p.keyboard.press("Tab"); await p.keyboard.press("Shift+Tab");
+    assert.equal(await p.locator("#tip-timed").isVisible(), true, "keyboard focus shows the tip");
+    await p.locator('[data-act="tip"][data-k="timed"]').click();
+    assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "true");
+    await axe(p, "home with a tip open");
+    await p.keyboard.press("Escape");
+    assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "false", "Escape closes");
+    assert.equal(await p.locator("#opt-timed").isChecked(), false, "the info button does not toggle the checkbox");
+    await p.context().close();
+    const m = await newPage(phone);
+    await m.locator('[data-act="tip"][data-k="scope"]').click();
+    const box = await m.locator("#tip-scope").boundingBox();
+    assert.ok(box && box.x >= 0 && box.x + box.width <= phone.width, "tip fits on a phone screen");
+    await m.locator("h1").click();
+    assert.equal(await m.locator("#tip-scope").isVisible(), false, "tapping elsewhere closes");
+    assert.equal(await m.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no horizontal scroll");
+    await m.context().close();
+  });
+
   await check("N3: abstract practice shows no rule names before the answer is checked", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="practice"][data-k="abstract"]').click();
