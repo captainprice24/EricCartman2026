@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-09",
   section: "verbal",
-  title: "Verbal Reasoning · Set 9",
+  title: "Verbal reasoning · Set 9",
   description: "21 EPSO-level passages on the history of European integration, digital and technology policy, and general science.",
   version: 1,
   questions: [

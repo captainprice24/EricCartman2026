@@ -141,7 +141,13 @@
 
   function startTraining(mode, key) {
     var qs = pickPractice(key);
-    if (!qs.length) { flash("No " + SECTIONS[key].name.toLowerCase() + " questions match these settings."); return; }
+    if (!qs.length) {
+      var chosen = bank.sets.filter(function (st) { return st.id === prefs.setId; })[0];
+      flash(chosen && chosen.section !== key
+        ? "The question set you chose (" + chosen.title + ") is for " + SECTIONS[chosen.section].name.toLowerCase() + ". Choose All sets or a " + SECTIONS[key].name.toLowerCase() + " set."
+        : "No " + SECTIONS[key].name.toLowerCase() + " questions match these settings.");
+      return;
+    }
     var timed = mode === "practice" && prefs.timed;
     var sec = makeSection(key, qs, timed ? qs.length * SECTIONS[key].perQ : null);
     state.session = { mode: mode, sections: [sec], si: 0, qi: 0, started: Date.now(), notes: [], review: false };
@@ -516,14 +522,17 @@
       var S = SECTIONS[k];
       return '<div class="trow">' +
         '<div class="tcell tname"><h3>' + esc(S.name) + '</h3><span class="muted small">Exam: ' + S.examCount + " questions · " + S.examMinutes + " min</span></div>" +
-        '<div class="tcell tstat"><span class="big-num">' + qs.length + '</span><span class="muted small">in bank · ' + unseen + " unseen</span></div>" +
-        '<div class="tcell tstat"><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? "accuracy · " + wrongNow + " to revisit" : "not started") + "</span></div>" +
-        '<div class="tcell tact"><button class="btn btn-primary" data-act="coach" data-k="' + k + '">Coach</button><button class="btn" data-act="practice" data-k="' + k + '">Practice</button></div>' +
+        '<div class="tcell tstat"><span class="big-num">' + qs.length + '</span><span class="muted small">questions · ' + unseen + " not seen yet</span></div>" +
+        '<div class="tcell tstat"><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? "your accuracy · " + wrongNow + " to revisit" : "your accuracy · not started") + "</span></div>" +
+        '<div class="tcell tact"><button class="btn btn-primary" data-act="coach" data-k="' + k + '" aria-label="Coach: ' + esc(S.name) + '">Coach</button><button class="btn" data-act="practice" data-k="' + k + '" aria-label="Practice: ' + esc(S.name) + '">Practice</button></div>' +
         "</div>";
     }).join("");
 
-    var setOpts = '<option value="all">All sets</option>' + bank.sets.map(function (s) {
-      return '<option value="' + esc(s.id) + '"' + (prefs.setId === s.id ? " selected" : "") + ">" + esc(s.title) + " (" + s.count + ")</option>";
+    var setOpts = '<option value="all">All sets</option>' + ORDER.map(function (k) {
+      return '<optgroup label="' + esc(SECTIONS[k].name) + '">' + bank.sets.filter(function (s) { return s.section === k; }).map(function (s) {
+        var short = s.title.indexOf("·") > -1 ? s.title.split("·").pop().trim() : s.title;
+        return '<option value="' + esc(s.id) + '"' + (prefs.setId === s.id ? " selected" : "") + ">" + esc(short) + " (" + s.count + " questions)</option>";
+      }).join("") + "</optgroup>";
     }).join("");
 
     var histHTML = hist.length ? '<ul class="hist">' + hist.slice(0, 8).map(function (h) {
@@ -554,38 +563,26 @@
       '<header class="masthead"><div class="mast-text"><p class="eyebrow">EPSO AD5 · Stage 1 reasoning tests</p><h1 id="main-heading" tabindex="-1">AD5 Reasoning Trainer</h1>' +
       '<p class="lede">Learn the method with the coach, drill with instant feedback, then sit a full timed simulation in the EPSO format.</p></div>' +
       '<dl class="format">' +
-      '<div><dt>Verbal</dt><dd><b>20</b> q · <b>35</b> min</dd><dd class="muted small">pass 10/20 · counts in ranking ' + info("rank", "the verbal ranking", "Verbal reasoning is the only reasoning test that counts towards your place in the ranking: 40% of the preliminary score and 35% of the final score. Numerical and abstract only need to be passed.") + "</dd></div>" +
-      '<div><dt>Numerical</dt><dd><b>10</b> q · <b>20</b> min</dd><dd class="muted small">pass 10/20 combined ' + info("combined", "the combined pass mark", "Numerical and abstract share one pass mark: at least 10 correct out of the 20 questions of both tests together. A strong abstract score can make up for a weaker numerical one.") + "</dd></div>" +
-      '<div><dt>Abstract</dt><dd><b>10</b> q · <b>10</b> min</dd><dd class="muted small">with numerical</dd></div>' +
+      '<div><dt>Verbal</dt><dd><b>20</b> questions · <b>35</b> min</dd><dd class="muted small">Pass mark 10/20; also counts for your ranking ' + info("rank", "the verbal ranking", "Verbal reasoning is the only reasoning test that counts towards your place in the ranking: 40% of the preliminary score and 35% of the final score. Numerical and abstract only need to be passed.") + "</dd></div>" +
+      '<div><dt>Numerical</dt><dd><b>10</b> questions · <b>20</b> min</dd><dd class="muted small">Pass mark 10/20, with abstract ' + info("combined", "the combined pass mark", "Numerical and abstract share one pass mark: at least 10 correct out of the 20 questions of both tests together. A strong abstract score can make up for a weaker numerical one.") + "</dd></div>" +
+      '<div><dt>Abstract</dt><dd><b>10</b> questions · <b>10</b> min</dd><dd class="muted small">Pass mark 10/20, with numerical ' + info("combined2", "the combined pass mark", "Abstract and numerical share one pass mark: at least 10 correct out of the 20 questions of both tests together.", "right") + "</dd></div>" +
       "</dl></header>" +
 
       '<section class="howto" aria-labelledby="howto-h"><h2 id="howto-h">How to use this trainer</h2><ol>' +
-      "<li><b>Learn with Coach.</b> Pick a test below and press <b>Coach</b>: a short lesson, then questions with hints and an explanation of every option.</li>" +
-      "<li><b>Drill with Practice.</b> Press <b>Practice</b> to answer questions and check each one straight away.</li>" +
-      "<li><b>Test yourself.</b> Choose a test type in <b>Exam simulation</b> and start it. It is timed like the real exam, with results at the end.</li>" +
+      "<li><b>Learn with Coach.</b> Under <b>Train one test at a time</b>, press <b>Coach</b> next to a test: a short lesson, then questions with hints and an explanation of every option.</li>" +
+      "<li><b>Drill with Practice.</b> Press <b>Practice</b> next to the same test to answer questions and check each one straight away.</li>" +
+      "<li><b>Test yourself.</b> In <b>Exam simulation</b>, choose a test type and start it. It is timed like the real exam, with your results at the end.</li>" +
       "</ol><p class=\"small muted\">Your progress is saved in this browser only. " + info("saved", "saved progress", "Results, mistakes and an unfinished exam are stored on this device, in this browser. Another browser or device starts fresh, and private browsing may not keep them.") + "</p></section>" +
 
-      '<section class="exam-card"><div><h2>Exam simulation ' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</h2>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
-      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
-      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
-      '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
-      info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
-      '<select id="exam-scope">' +
-      [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
-        return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
-      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button><span class="small muted">Step 3: when you feel ready</span></div></section>' +
-
-      '<section class="train"><div class="train-head"><div><h2>Train by test</h2><p class="muted"><b>Coach</b> ' +
-      info("coach", "Coach mode", "Start here for each test type. A short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong.") +
-      " teaches the method, gives step-by-step hints and explains every option. <b>Practice</b> " +
-      info("practice", "Practice mode", "Answer, then press Check answer to see whether you were right. Only questions you check count towards your score. Turn on Timed practice to work at exam pace.") +
-      " checks each answer straight away. Set the options here, then press <b>Coach</b> or <b>Practice</b> next to a test.</p></div>" +
+      '<section class="train"><div class="train-head"><div><p class="step-tag">Steps 1 and 2</p><h2>Train one test at a time</h2>' +
+      '<p class="muted">Set the options, then press a button next to the test: <b>Coach</b> first ' + info("coach", "Coach mode", "Start here for each test type. A short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong.") +
+      ", then <b>Practice</b> " + info("practice", "Practice mode", "Answer, then press Check answer to see whether you were right. Only questions you check count towards your score. Turn on Timed practice to work at exam pace.") + ".</p></div>" +
       '<div class="train-opts">' +
       '<div class="field"><span class="field-label small muted"><label for="opt-count">Questions per round</label>' + info("count", "questions per round", "How many questions each Coach or Practice round has. Choose All to work through every question that matches your settings.", "right") + "</span>" +
       '<select id="opt-count">' + COUNTS.map(function (v) {
         return '<option value="' + v + '"' + (prefs.count === v ? " selected" : "") + ">" + (v === "all" ? "All" : v) + "</option>";
       }).join("") + "</select></div>" +
-      '<div class="field"><span class="field-label small muted"><label for="opt-set">Question set</label>' + info("set", "question sets", "Practise one set or mix all of them. Each set covers one test type; the number of questions is in brackets.", "right") + "</span>" +
+      '<div class="field"><span class="field-label small muted"><label for="opt-set">Question set</label>' + info("set", "question sets", "Leave All sets to mix every set, or pick one set. A set belongs to one test type, so pick it before pressing Coach or Practice next to that test.", "right") + "</span>" +
       '<select id="opt-set">' + setOpts + "</select></div>" +
       '<div class="check-row"><label class="check"><input type="checkbox" id="opt-timed"' + (prefs.timed ? " checked" : "") + "> Timed practice at exam pace</label>" +
       info("timed", "timed practice", "Adds a timer set to exam pace: 1 min 45 s per verbal question, 2 min per numerical question, 1 min per abstract question.", "right") + "</div>" +
@@ -595,6 +592,16 @@
       info("topics", "topic labels", "Shows each question's topic and difficulty during Coach and Practice. Off by default because a label can hint at the answer; never shown in the exam.", "right") + "</div>" +
       "</div></div>" +
       '<div class="ttable">' + sectionRows + "</div></section>" +
+
+      '<section class="exam-card"><div><p class="step-tag">Step 3</p><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
+      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
+      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
+      '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
+      info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
+      '<select id="exam-scope">' +
+      [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
+        return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
 
       '<section class="history"><h2>Recent attempts</h2>' + histHTML + verbalTrend(hist) + "</section>" +
 

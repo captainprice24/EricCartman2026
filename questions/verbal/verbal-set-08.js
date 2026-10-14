@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-08",
   section: "verbal",
-  title: "Verbal Reasoning · Set 8",
+  title: "Verbal reasoning · Set 8",
   description: "21 EPSO-level passages on social policy, employment, health, education and culture, plus psychology, medicine, linguistics and demography.",
   version: 1,
   questions: [

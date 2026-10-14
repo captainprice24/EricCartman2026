@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-04",
   section: "verbal",
-  title: "Verbal Reasoning · Set 4",
+  title: "Verbal reasoning · Set 4",
   description: "22 EPSO-level passages on EU external action, trade and security, with some general topics.",
   version: 1,
   questions: [

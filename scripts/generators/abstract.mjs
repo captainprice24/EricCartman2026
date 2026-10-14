@@ -440,7 +440,7 @@ sizes.forEach((size, si) => {
     sequence: q.sequence, options: q.options, answer: q.answer, hints: q.hints, optionNotes: q.optionNotes, explanation: q.explanation
   }));
   start += size;
-  const set = { id: "abstract-" + id, section: "abstract", title: `Abstract Reasoning · Set ${n}`, description: `${size} figure series in five layouts, combining 2–4 rules (generated).`, version: 3 };
+  const set = { id: "abstract-" + id, section: "abstract", title: `Abstract reasoning · Set ${n}`, description: `${size} figure series in five layouts, combining 2–4 rules (generated).`, version: 3 };
   const body = JSON.stringify({ ...set, questions: [] }, null, 2).replace('"questions": []', '"questions": [\n' +
     qs.map((q) => "    {\n" + Object.entries(q).map(([k, v]) =>
       k === "sequence" || k === "options"

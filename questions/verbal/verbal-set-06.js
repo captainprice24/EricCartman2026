@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-06",
   section: "verbal",
-  title: "Verbal Reasoning · Set 6",
+  title: "Verbal reasoning · Set 6",
   description: "22 EPSO-level passages on competition, the single market, EU economic policy and economics.",
   version: 1,
   questions: [

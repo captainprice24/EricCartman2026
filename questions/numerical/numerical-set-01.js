@@ -2,7 +2,7 @@
 EPSO_BANK.registerSet({
   "id": "numerical-01",
   "section": "numerical",
-  "title": "Numerical Reasoning · Set 1",
+  "title": "Numerical reasoning · Set 1",
   "description": "10 data-interpretation items with worked solutions (generated).",
   "version": 3,
   "questions": [

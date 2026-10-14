@@ -454,3 +454,11 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .exam-card .info-btn { color: var(--accent-ink); opacity: 0.85; }
 .exam-card .info-btn:hover, .exam-card .info-btn:focus-visible, .exam-card .info-btn[aria-expanded="true"] { color: var(--accent-ink); opacity: 1; }
 .exam-card .info-btn:focus-visible { outline-color: var(--accent-ink); }
+.step-tag { margin: 0 0 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.exam-card .step-tag { color: var(--accent-ink); opacity: 0.85; }
+.h-row { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+.h-row h2 { margin: 0; }
+@media (max-width: 560px) {
+  .trow { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .trow .tname, .trow .tact { grid-column: 1 / -1; }
+}

@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-07",
   section: "verbal",
-  title: "Verbal Reasoning · Set 7",
+  title: "Verbal reasoning · Set 7",
   description: "22 EPSO-level passages on EU energy, transport and environment law, with earth science, ecology and the history of technology.",
   version: 1,
   questions: [

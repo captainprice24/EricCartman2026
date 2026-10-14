@@ -2,7 +2,7 @@
 EPSO_BANK.registerSet({
   "id": "abstract-03",
   "section": "abstract",
-  "title": "Abstract Reasoning · Set 3",
+  "title": "Abstract reasoning · Set 3",
   "description": "50 figure series in five layouts, combining 2–4 rules (generated).",
   "version": 3,
   "questions": [

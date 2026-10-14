@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-01",
   section: "verbal",
-  title: "Verbal Reasoning · Set 1",
+  title: "Verbal reasoning · Set 1",
   description: "20 EPSO-level passages on EU institutions, policy, science and history.",
   version: 3,
   questions: [

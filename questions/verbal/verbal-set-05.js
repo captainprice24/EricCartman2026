@@ -1,7 +1,7 @@
 EPSO_BANK.registerSet({
   id: "verbal-05",
   section: "verbal",
-  title: "Verbal Reasoning · Set 5",
+  title: "Verbal reasoning · Set 5",
   description: "22 EPSO-level passages on justice, home affairs, citizenship and fundamental rights, with some law, ethics and philosophy of science.",
   version: 1,
   questions: [
