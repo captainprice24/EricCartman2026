@@ -249,6 +249,18 @@ async function run(engineName) {
     await p.locator('[data-act="tip"][data-k="timed"]').click();
     assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "true");
     await axe(p, "home with a tip open");
+    // Every tip must be visible when its button is hovered, not clipped by its container.
+    for (const id of await p.$$eval('[data-act="tip"]', (els) => els.map((e) => e.getAttribute("data-k")))) {
+      await p.locator(`[data-act="tip"][data-k="${id}"]`).hover();
+      const onTop = await p.evaluate((id) => {
+        const t = document.getElementById("tip-" + id), r = t.getBoundingClientRect();
+        if (!r.width) return "hidden";
+        const hit = document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(10, r.height / 2));
+        return t.contains(hit) ? "ok" : "covered or clipped";
+      }, id);
+      assert.equal(onTop, "ok", `tip "${id}" on hover`);
+    }
+    await p.mouse.move(5, 5);
     await p.keyboard.press("Escape");
     assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "false", "Escape closes");
     assert.equal(await p.locator("#opt-timed").isChecked(), false, "the info button does not toggle the checkbox");

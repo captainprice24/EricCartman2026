@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AD5 Reasoning Trainer</title>
 <meta name="description" content="Practise the EPSO AD5 verbal, numerical and abstract reasoning tests: coach mode, practice and timed exam simulation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%231d3fa6%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Arial%22 font-size=%2214%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22white%22%3EAD5%3C/text%3E%3C/svg%3E">
 <style>
 /* Layout concept: a calm exam console. The home page is a briefing sheet; the session is a two-pane
    reading desk (stimulus left, answers right) under a TAO-style toolbar strip. */
@@ -109,9 +110,9 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 
 /* home */
 .home { display: grid; gap: 28px; }
-.masthead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: end; padding: 12px 0 8px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
+.masthead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 28px; align-items: end; padding: 12px 0 8px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
 .mast-text { display: grid; gap: 10px; min-width: 0; }
-.format { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.format { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .format > div { padding: 12px 14px; border-left: 1px solid var(--line); }
 .format > div:first-child { border-left: 0; }
 .format dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
@@ -462,14 +463,16 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .exam-card .info-btn { color: var(--accent-ink); opacity: 0.85; }
 .exam-card .info-btn:hover, .exam-card .info-btn:focus-visible, .exam-card .info-btn[aria-expanded="true"] { color: var(--accent-ink); opacity: 1; }
 .exam-card .info-btn:focus-visible { outline-color: var(--accent-ink); }
-.step-tag { margin: 0 0 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-.exam-card .step-tag { color: var(--accent-ink); opacity: 0.85; }
 .h-row { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
 .h-row h2 { margin: 0; }
 @media (max-width: 560px) {
   .trow { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .trow .tname, .trow .tact { grid-column: 1 / -1; }
 }
+/* Headings receive focus from script (so screen readers start in the right place); they are not
+   controls, so no focus box is drawn around them. */
+h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
+.stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
 </style>
 </head>
@@ -1600,8 +1603,8 @@ window.EPSO_LESSONS = {
       var S = SECTIONS[k];
       return '<div class="trow">' +
         '<div class="tcell tname"><h3>' + esc(S.name) + '</h3><span class="muted small">Exam: ' + S.examCount + " questions · " + S.examMinutes + " min</span></div>" +
-        '<div class="tcell tstat"><span class="big-num">' + qs.length + '</span><span class="muted small">questions · ' + unseen + " not seen yet</span></div>" +
-        '<div class="tcell tstat"><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? "your accuracy · " + wrongNow + " to revisit" : "your accuracy · not started") + "</span></div>" +
+        '<div class="tcell tstat"><span class="stat-label">Questions</span><span class="big-num">' + qs.length + '</span><span class="muted small">' + unseen + " not seen yet</span></div>" +
+        '<div class="tcell tstat"><span class="stat-label">Your accuracy</span><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? wrongNow + " to revisit" : "Not started yet") + "</span></div>" +
         '<div class="tcell tact"><button class="btn btn-primary" data-act="coach" data-k="' + k + '" aria-label="Coach: ' + esc(S.name) + '">Coach</button><button class="btn" data-act="practice" data-k="' + k + '" aria-label="Practice: ' + esc(S.name) + '">Practice</button></div>' +
         "</div>";
     }).join("");
@@ -1641,9 +1644,9 @@ window.EPSO_LESSONS = {
       '<header class="masthead"><div class="mast-text"><p class="eyebrow">EPSO AD5 · Stage 1 reasoning tests</p><h1 id="main-heading" tabindex="-1">AD5 Reasoning Trainer</h1>' +
       '<p class="lede">Learn the method with the coach, drill with instant feedback, then sit a full timed simulation in the EPSO format.</p></div>' +
       '<dl class="format">' +
-      '<div><dt>Verbal</dt><dd><b>20</b> questions · <b>35</b> min</dd><dd class="muted small">Pass mark 10/20; also counts for your ranking ' + info("rank", "the verbal ranking", "Verbal reasoning is the only reasoning test that counts towards your place in the ranking: 40% of the preliminary score and 35% of the final score. Numerical and abstract only need to be passed.") + "</dd></div>" +
-      '<div><dt>Numerical</dt><dd><b>10</b> questions · <b>20</b> min</dd><dd class="muted small">Pass mark 10/20, with abstract ' + info("combined", "the combined pass mark", "Numerical and abstract share one pass mark: at least 10 correct out of the 20 questions of both tests together. A strong abstract score can make up for a weaker numerical one.") + "</dd></div>" +
-      '<div><dt>Abstract</dt><dd><b>10</b> questions · <b>10</b> min</dd><dd class="muted small">Pass mark 10/20, with numerical ' + info("combined2", "the combined pass mark", "Abstract and numerical share one pass mark: at least 10 correct out of the 20 questions of both tests together.", "right") + "</dd></div>" +
+      '<div><dt>Verbal</dt><dd><b>20</b> questions · <b>35</b> min</dd><dd class="muted small">Pass mark: 10 of 20. Also counts for your ranking ' + info("rank", "the verbal ranking", "Verbal reasoning is the only reasoning test that counts towards your place in the ranking: 40% of the preliminary score and 35% of the final score. Numerical and abstract only need to be passed.") + "</dd></div>" +
+      '<div><dt>Numerical</dt><dd><b>10</b> questions · <b>20</b> min</dd><dd class="muted small">Pass mark: 10 of 20, shared with abstract ' + info("combined", "the combined pass mark", "Numerical and abstract share one pass mark: at least 10 correct out of the 20 questions of both tests together. A strong abstract score can make up for a weaker numerical one.") + "</dd></div>" +
+      '<div><dt>Abstract</dt><dd><b>10</b> questions · <b>10</b> min</dd><dd class="muted small">Pass mark: shared with numerical ' + info("combined2", "the combined pass mark", "Abstract and numerical share one pass mark: at least 10 correct out of the 20 questions of both tests together.", "right") + "</dd></div>" +
       "</dl></header>" +
 
       '<section class="howto" aria-labelledby="howto-h"><h2 id="howto-h">How to use this trainer</h2><ol>' +
@@ -1652,9 +1655,18 @@ window.EPSO_LESSONS = {
       "<li><b>Test yourself.</b> In <b>Exam simulation</b>, choose a test type and start it. It is timed like the real exam, with your results at the end.</li>" +
       "</ol><p class=\"small muted\">Your progress is saved in this browser only. " + info("saved", "saved progress", "Results, mistakes and an unfinished exam are stored on this device, in this browser. Another browser or device starts fresh, and private browsing may not keep them.") + "</p></section>" +
 
-      '<section class="train"><div class="train-head"><div><p class="step-tag">Steps 1 and 2</p><h2>Train one test at a time</h2>' +
-      '<p class="muted">Set the options, then press a button next to the test: <b>Coach</b> first ' + info("coach", "Coach mode", "Start here for each test type. A short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong.") +
-      ", then <b>Practice</b> " + info("practice", "Practice mode", "Answer, then press Check answer to see whether you were right. Only questions you check count towards your score. Turn on Timed practice to work at exam pace.") + ".</p></div>" +
+      '<section class="exam-card"><div><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
+      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
+      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
+      '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
+      info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
+      '<select id="exam-scope">' +
+      [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
+        return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+
+      '<section class="train"><div class="train-head"><div><div class="h-row"><h2>Train one test at a time</h2>' + info("coach", "Coach and Practice", "<b>Coach</b>: a short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong. <b>Practice</b>: answer, then press Check answer to see whether you were right; only checked questions count towards your score.") + "</div>" +
+      '<p class="muted">Set the options, then press <b>Coach</b> next to a test. When the method feels familiar, press <b>Practice</b>.</p></div>' +
       '<div class="train-opts">' +
       '<div class="field"><span class="field-label small muted"><label for="opt-count">Questions per round</label>' + info("count", "questions per round", "How many questions each Coach or Practice round has. Choose All to work through every question that matches your settings.", "right") + "</span>" +
       '<select id="opt-count">' + COUNTS.map(function (v) {
@@ -1670,16 +1682,6 @@ window.EPSO_LESSONS = {
       info("topics", "topic labels", "Shows each question's topic and difficulty during Coach and Practice. Off by default because a label can hint at the answer; never shown in the exam.", "right") + "</div>" +
       "</div></div>" +
       '<div class="ttable">' + sectionRows + "</div></section>" +
-
-      '<section class="exam-card"><div><p class="step-tag">Step 3</p><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
-      '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
-      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
-      '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
-      info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
-      '<select id="exam-scope">' +
-      [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
-        return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
-      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
 
       '<section class="history"><h2>Recent attempts</h2>' + histHTML + verbalTrend(hist) + "</section>" +
 

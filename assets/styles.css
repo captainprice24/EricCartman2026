@@ -101,9 +101,9 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 
 /* home */
 .home { display: grid; gap: 28px; }
-.masthead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: end; padding: 12px 0 8px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
+.masthead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 28px; align-items: end; padding: 12px 0 8px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
 .mast-text { display: grid; gap: 10px; min-width: 0; }
-.format { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.format { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .format > div { padding: 12px 14px; border-left: 1px solid var(--line); }
 .format > div:first-child { border-left: 0; }
 .format dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
@@ -454,11 +454,13 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .exam-card .info-btn { color: var(--accent-ink); opacity: 0.85; }
 .exam-card .info-btn:hover, .exam-card .info-btn:focus-visible, .exam-card .info-btn[aria-expanded="true"] { color: var(--accent-ink); opacity: 1; }
 .exam-card .info-btn:focus-visible { outline-color: var(--accent-ink); }
-.step-tag { margin: 0 0 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-.exam-card .step-tag { color: var(--accent-ink); opacity: 0.85; }
 .h-row { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
 .h-row h2 { margin: 0; }
 @media (max-width: 560px) {
   .trow { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .trow .tname, .trow .tact { grid-column: 1 / -1; }
 }
+/* Headings receive focus from script (so screen readers start in the right place); they are not
+   controls, so no focus box is drawn around them. */
+h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
+.stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
