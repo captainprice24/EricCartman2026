@@ -28,27 +28,34 @@ as in the real exam.
   pass-mark gates separately from your verbal score, which EPSO uses for ranking (40% of the
   preliminary and 35% of the final score), followed by a full review and a "Coach me on my mistakes" round.
 
-Keyboard: `A`–`E` or `1`–`5` to answer, `←` `→` to move, `F` to flag (exam), `Enter` to check (practice and coach).
-While the calculator is open, the keyboard types into the calculator.
+Keyboard: `A`–`E` or `1`–`5` to answer; in the option list, arrow keys move between options and `X`
+strikes one out; elsewhere `←` `→` change question; `F` flags (exam); `Enter` checks (practice and coach).
+While the calculator is open, the keyboard types into the calculator. The calculator copies the basic
+TAO calculator (parentheses, power, square root, no % key).
+
+Topic labels are off by default (they can hint at the answer); turn them on under the training options.
 
 ## Question bank
 
-370 original questions: verbal 70, numerical 150, abstract 150.
+500 original questions: verbal 200, numerical 150, abstract 150.
 
-- **Verbal:** hand-written passages of about 200 words, with paraphrased keys and "not supported" and
-  "overstated" distractors.
-- **Numerical:** generated from 25 templates, with large exhibits, multi-step calculations and mistake-based distractors.
-- **Abstract:** generated series that combine 2–4 rules across several elements.
-
-Audit target for a full simulator: at least 300 verbal and 150 each of numerical and abstract.
-Verbal is the gap.
+- **Verbal (9 sets):** hand-written passages of about 200 words on EU institutions, law, policy,
+  economics, science and history. Every key was confirmed by a blind second reviewer, and the
+  validator checks each set for answer cues: hedged or absolute wording, length, and wording reused
+  from the passage.
+- **Numerical:** generated from 38 templates (at most 4 items each), with large exhibits, multi-step
+  calculations and mistake-based distractors. Difficulty follows from the worked solution. Every key is
+  re-solved independently by `tests/numerical-oracle.test.mjs`.
+- **Abstract:** generated series in five layouts (single figure, grid movement, overlapping shapes,
+  divided circle, rotating hands) that combine 2–4 rules. Blind strategies such as "pick the option
+  most like the others" score at chance level.
 
 ## Development
 
 ```bash
 npm ci                    # dev tools only: ESLint, Playwright, axe-core
-npm run validate          # schema, difficulty rules and duplicate checks across the bank
-npm test                  # unit tests for assets/core.js
+npm run validate          # schema, difficulty, answer-cue and duplicate checks across the bank
+npm test                  # unit tests for assets/core.js and the independent numerical answer check
 npm run build             # dist/ad5-reasoning-trainer.html (commit it; CI checks it is fresh)
 npm run test:e2e          # Playwright regression and axe tests (BROWSERS=chromium,webkit)
 npm run lint
@@ -65,8 +72,10 @@ assets/lessons.js          coach lessons
 questions/manifest.js      list of question set files
 questions/<section>/*.js   question sets (plain data)
 scripts/generators/        numerical.mjs, abstract.mjs (generate those sections)
-scripts/validate-questions.mjs, scripts/format-set.mjs, scripts/build.mjs
+scripts/lib/               blind solvers / answer-cue checks, numerical difficulty rubric
+scripts/validate-questions.mjs, scripts/format-set.mjs, scripts/blind-review.mjs, scripts/build.mjs
 docs/QUESTION_FORMAT.md    schema, authoring rules, difficulty rubric
+docs/VERBAL_AUTHORING_BRIEF.md  how to write verbal items without answer cues
 docs/research.md           exam format (official EPSO sources), platform research, REA analysis
 ```
 

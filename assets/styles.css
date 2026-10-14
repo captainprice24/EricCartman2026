@@ -329,7 +329,7 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .calc-keys button { font: 600 1rem var(--font-mono); padding: 10px 0; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
 .calc-keys button:hover { border-color: var(--accent); }
-.calc-keys .calc-eq { grid-column: span 4; background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.calc-keys .calc-eq { grid-column: span 3; background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
 /* results */
 .results { display: grid; gap: 20px; }

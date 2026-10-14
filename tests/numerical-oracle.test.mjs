@@ -1,0 +1,195 @@
+// Independent answer check for the numerical bank (audit finding N13).
+// Each item is re-solved from what the candidate sees: the exhibit text and the stem. The code shares
+// nothing with scripts/generators/numerical.mjs, so a generator bug cannot confirm its own answer.
+// Run: node --test tests/
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import vm from "node:vm";
+import { fileURLToPath } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const ctx = { window: {} };
+ctx.window.window = ctx.window;
+vm.createContext(ctx);
+const run = (f) => vm.runInContext(`(function(window){var EPSO_BANK=window.EPSO_BANK;${fs.readFileSync(f, "utf8")}\n})(window);`, ctx);
+run(path.join(root, "questions/registry.js"));
+run(path.join(root, "questions/manifest.js"));
+ctx.window.EPSO_SET_FILES.filter((f) => f.startsWith("numerical/")).forEach((f) => run(path.join(root, "questions", f)));
+const items = ctx.window.EPSO_BANK.sets.flatMap((s) => s.questions);
+
+/* ---------- reading what is on screen ---------- */
+const num = (s) => {
+  if (typeof s === "number") return s;
+  const m = String(s).replace(/[−–]/g, "-").replace(/,/g, "").match(/-?\d+(\.\d+)?/);
+  return m ? parseFloat(m[0]) : NaN;
+};
+const lc = (s) => String(s).toLowerCase();
+const sumOf = (a) => a.reduce((t, x) => t + x, 0);
+const table = (q, k = 0) => q.exhibits.filter((e) => e.type === "table")[k];
+const chart = (q) => q.exhibits.find((e) => e.type !== "table");
+const colIdx = (ex, test) => ex.columns.findIndex((c) => (typeof test === "string" ? c.includes(test) : test.test(c)));
+const col = (ex, test) => { const j = colIdx(ex, test); assert.ok(j > 0, "column " + test); return ex.rows.map((r) => num(r[j])); };
+// Row labels mentioned in the stem, in the order they appear (longest label first wins at a position).
+const named = (stem, labels) => labels.map((l, i) => ({ i, at: lc(stem).indexOf(lc(l)), len: l.length }))
+  .filter((x) => x.at > -1 && !labels.some((o) => o !== labels[x.i] && o.length > x.len && lc(o).includes(lc(labels[x.i])) && lc(stem).includes(lc(o))))
+  .sort((a, b) => a.at - b.at).map((x) => x.i);
+const rowNamed = (q, ex) => { const n = named(q.stem, ex.rows.map((r) => r[0])); assert.ok(n.length >= 1, "row named in stem"); return n[0]; };
+const catIdx = (ex, label) => ex.categories.findIndex((c) => c === label);
+const yearsIn = (stem) => (stem.match(/\b(19|20)\d\d\b/g) || []);
+const pieTotal = (ex) => num(ex.title.replace(/^[^(]*\(/, ""));
+const slice = (ex, label) => ex.slices.find((s) => lc(s.label) === lc(label)).value;
+
+/* ---------- solvers by topic ---------- */
+const S = {
+  "Percentage change of a total": (q) => { const ex = table(q); const [a, b] = yearsIn(q.stem); const A = sumOf(col(ex, a)), B = sumOf(col(ex, b)); return ((B - A) / A) * 100; },
+  "Share of a total": (q) => {
+    const ex = table(q), what = q.stem.match(/combined (\w+)/)[1];
+    const v = col(ex, { GDP: "GDP", population: "Population", area: "Area" }[what]);
+    const [x, y] = named(q.stem, ex.rows.map((r) => r[0]));
+    return ((v[x] + v[y]) / sumOf(v)) * 100;
+  },
+  "Per-capita change": (q) => {
+    const ex = table(q), x = rowNamed(q, ex);
+    const g0 = col(ex, "GDP 2020")[x], g1 = col(ex, "GDP 2023")[x], p0 = col(ex, "Population 2020")[x], p1 = col(ex, "Population 2023")[x];
+    return ((g1 / p1) / (g0 / p0) - 1) * 100;
+  },
+  "Percentage points": (q) => { const ex = chart(q), s = ex.series.find((x) => q.stem.includes(x.name)).values, [a, b] = yearsIn(q.stem); return s[catIdx(ex, b)] - s[catIdx(ex, a)]; },
+  "Relative change": (q) => { const ex = chart(q), s = ex.series.find((x) => q.stem.includes(x.name)).values, [a, b] = yearsIn(q.stem); return (s[catIdx(ex, b)] / s[catIdx(ex, a)] - 1) * 100; },
+  "Ratios from a chart": (q) => {
+    const ex = chart(q), [A, B] = ex.series.map((s) => s.values), low = /lowest/.test(q.stem);
+    const ratio = (lab) => { const i = catIdx(ex, lab); return A[i] / B[i]; };
+    return q.options.slice().sort((p, r) => (low ? ratio(p) - ratio(r) : ratio(r) - ratio(p)))[0];
+  },
+  "Currency conversion": (q) => {
+    const ex = table(q), m = q.stem.match(/On (1 \w+), a company converted (\w+) ([\d,]+) into (\w+)/);
+    const j = ex.columns.indexOf(m[1]), rate = (code) => num(ex.rows.find((r) => r[0] === code)[j]);
+    return (num(m[3]) / rate(m[2])) * rate(m[4]);
+  },
+  "Weighted average": (q) => {
+    const ex = table(q), idx = named(q.stem, ex.rows.map((r) => r[0]));
+    const w = ex.rows.map((r) => num(r[1])), v = ex.rows.map((r) => num(r[2]));
+    return sumOf(idx.map((i) => w[i] * v[i])) / sumOf(idx.map((i) => w[i]));
+  },
+  "Removing VAT": (q) => {
+    const ex = table(q), country = ex.rows.map((r) => r[1]).find((c) => q.stem.includes(c));
+    return sumOf(ex.rows.filter((r) => r[1] === country).map((r) => num(r[2]) / (1 + num(r[3]) / 100)));
+  },
+  "Budget reallocation": (q) => {
+    const pie = chart(q), m = q.stem.match(/If (\d+)% of the (.+?) budget is moved to (.+?), what/);
+    return (pieTotal(pie) * (slice(pie, m[3]) + (slice(pie, m[2]) * num(m[1])) / 100)) / 100;
+  },
+  "Shares in a stacked chart": (q) => {
+    const ex = chart(q), y = catIdx(ex, yearsIn(q.stem)[0]), part = ex.series.find((s) => lc(q.stem).includes(lc(s.name)));
+    return (part.values[y] / sumOf(ex.series.map((s) => s.values[y]))) * 100;
+  },
+  "Rates with changing base": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num);
+    const n2 = (r[1] * r[2]) / 100 + r[4], b2 = r[1] * (1 + r[3] / 100);
+    return (n2 / b2) * 100;
+  },
+  "Growth projection": (q) => {
+    const ex = chart(q), s = ex.series.find((x) => lc(q.stem).includes(lc(x.name))).values;
+    const ys = yearsIn(q.stem), last = ex.categories.length - 1, ahead = num(ys[2]) - num(ex.categories[last]);
+    return s[last] * (s[last] / s[last - 1]) ** ahead;
+  },
+  "Units and per-capita values": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), total = num(ex.rows[x][1]), pop = num(ex.rows[x][2]) * 1e6;
+    const unit = ex.columns[1].match(/\(([^)]+)\)/)[1], out = q.options[0].replace(/^[\d.,\s]+/, "");
+    const base = { TWh: 1e9, "million m³": 1e6, "thousand tonnes": 1e6, thousand: 1e3, billion: 1e9 }[unit]; // in kWh, m³, kg, loans, km
+    assert.ok(base, "unit " + unit + " → " + out);
+    return (total * base) / pop;
+  },
+  "Rates of work": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), add = num(q.stem.match(/given (\d+) extra/)[1]), r = ex.rows[x].map(num);
+    return r[3] / ((r[1] + add) * r[2]);
+  },
+  "Average speed": (q) => { const ex = table(q); return (sumOf(col(ex, "Distance")) / (sumOf(col(ex, "Travel time")) + sumOf(col(ex, "Stop")))) * 60; },
+  "Successive percentage changes": (q) => { const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num); return r[1] * (1 + r[2] / 100) * (1 + r[3] / 100) * (1 + r[4] / 100); },
+  "Percentages of percentages": (q) => { const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num); return (r[1] * r[2] * r[3]) / 10000; },
+  "Per-capita comparison": (q) => {
+    const ex = table(q), v = (name) => { const r = ex.rows.find((x) => x[0] === name).map(num); return (r[1] - r[2]) / r[3]; };
+    return q.options.slice().sort((a, b) => v(b) - v(a))[0];
+  },
+  "Undoing a percentage change": (q) => { const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num); return r[1] / (1 + r[2] / 100); },
+  "Multi-step: unit cost": (q) => { const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num); return (r[1] * 1e6 * (1 - r[3] / 100)) / (r[2] * 1e3); },
+  "Shares to amounts": (q) => { const pie = chart(q), v = pie.slices.map((s) => s.value).sort((a, b) => b - a); return (pieTotal(pie) * (v[0] - v[1])) / 100; },
+  "Averaging rates": (q) => {
+    const ex = table(q), idx = named(q.stem, ex.rows.map((r) => r[0])), n = col(ex, "Candidates"), p = col(ex, "Pass rate");
+    return (sumOf(idx.map((i) => (n[i] * p[i]) / 100)) / sumOf(idx.map((i) => n[i]))) * 100;
+  },
+  "Compound growth": (q) => { const ex = table(q), x = rowNamed(q, ex), r = ex.rows[x].map(num); return r[1] * (1 + r[2] / 100) ** r[3]; },
+  "Highest share in a stacked chart": (q) => {
+    const ex = chart(q), part = ex.series.find((s) => lc(q.stem).includes(lc(s.name)));
+    const share = (name) => { const i = catIdx(ex, name); return part.values[i] / sumOf(ex.series.map((s) => s.values[i])); };
+    return q.options.slice().sort((a, b) => share(b) - share(a))[0];
+  },
+  "Combining two exhibits": (q) => {
+    const pie = chart(q), ex = table(q), x = rowNamed(q, ex), region = ex.rows[x][0];
+    return (pieTotal(pie) * 1e6 * slice(pie, region)) / 100 / (num(ex.rows[x][1]) * 1000);
+  },
+  "Index numbers: values": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), y = yearsIn(q.stem)[0];
+    return (num(ex.rows[x][ex.columns.length - 1]) * num(ex.rows[x][ex.columns.indexOf(y)])) / 100;
+  },
+  "Index numbers: percentage change": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), [a, b] = yearsIn(q.stem);
+    return (num(ex.rows[x][ex.columns.indexOf(b)]) / num(ex.rows[x][ex.columns.indexOf(a)]) - 1) * 100;
+  },
+  "Market share in percentage points": (q) => {
+    const ex = table(q), x = rowNamed(q, ex), [a, b] = yearsIn(q.stem), A = col(ex, a), B = col(ex, b);
+    return (B[x] / sumOf(B) - A[x] / sumOf(A)) * 100;
+  },
+  "Required growth rate": (q) => { const ex = table(q), x = rowNamed(q, ex), [a, b] = yearsIn(q.stem), r = ex.rows[x].map(num); return ((r[2] / r[1]) ** (1 / (num(b) - num(a))) - 1) * 100; },
+  "Fixed and variable costs": (q) => { const ex = table(q), x = rowNamed(q, ex), n = num(q.stem.match(/with (\d+) participants/)[1]), r = ex.rows[x].map(num); return (r[1] + n * (r[2] + r[3])) / n; },
+  "Break-even point": (q) => {
+    const ex = table(q), [a, b] = named(q.stem, ex.rows.map((r) => r[0])), A = ex.rows[a].map(num), B = ex.rows[b].map(num);
+    return (A[1] - B[1]) / (B[2] - A[2]);
+  },
+  "Proportional allocation": (q) => { const ex = table(q), x = rowNamed(q, ex), amount = num(q.stem.match(/EUR ([\d.,]+) million/)[1]), p = col(ex, "Population"); return (amount * p[x]) / sumOf(p); },
+  "Discounts and VAT": (q) => { const ex = table(q), x = rowNamed(q, ex), n = num(q.stem.match(/orders (\d+)/)[1]), r = ex.rows[x].map(num); return n * r[1] * (1 - r[2] / 100) * (1 + r[3] / 100); },
+  "Unit price comparison": (q) => {
+    const ex = table(q), perKg = (name) => { const r = ex.rows.find((x) => x[0] === name), kg = /kg$/.test(r[1]) ? num(r[1]) : num(r[1]) / 1000; return num(r[2]) / kg; };
+    return q.options.slice().sort((a, b) => perKg(a) - perKg(b))[0];
+  },
+  "Largest gap on a line chart": (q) => { const ex = chart(q), [A, B] = ex.series.map((s) => s.values), g = (y) => A[catIdx(ex, y)] - B[catIdx(ex, y)]; return q.options.slice().sort((a, b) => g(b) - g(a))[0]; },
+  "Largest relative gap on a line chart": (q) => { const ex = chart(q), [A, B] = ex.series.map((s) => s.values), g = (y) => A[catIdx(ex, y)] / B[catIdx(ex, y)]; return q.options.slice().sort((a, b) => g(b) - g(a))[0]; },
+  "Combined work rates": (q) => {
+    const ex = table(q), [a, b] = named(q.stem, ex.rows.map((r) => r[0])), n = num(q.stem.match(/need for ([\d,]+)/)[1]);
+    return (n / (num(ex.rows[a][1]) + num(ex.rows[b][1]))) * 60;
+  },
+  "Percentage difference between two items": (q) => {
+    const ex = table(q), [x, y] = named(q.stem, ex.rows.map((r) => r[0])), pc = (i) => num(ex.rows[i][1]) / num(ex.rows[i][2]);
+    return (pc(x) / pc(y) - 1) * 100;
+  },
+  "Averages over part of a period": (q) => {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const ex = table(q), x = rowNamed(q, ex), m = q.stem.match(/from (\w+) to (\w+) inclusive/), a = months.indexOf(m[1]), b = months.indexOf(m[2]);
+    const vals = ex.rows[x].slice(1 + a, 2 + b).map(num);
+    return sumOf(vals) / vals.length;
+  }
+};
+
+test("every numerical topic has an independent solver", () => {
+  const missing = [...new Set(items.map((q) => q.topic))].filter((t) => !S[t]);
+  assert.deepEqual(missing, []);
+});
+
+test("every numerical key matches an independent re-calculation", () => {
+  const bad = [];
+  for (const q of items) {
+    let got;
+    try { got = S[q.topic](q); } catch (e) { bad.push(`${q.id} (${q.topic}): solver failed: ${e.message}`); continue; }
+    if (q.answerType === "category") {
+      if (got !== q.options[q.answer]) bad.push(`${q.id}: solver picks ${got}, key is ${q.options[q.answer]}`);
+      continue;
+    }
+    const vals = q.options.map(num);
+    const closest = vals.map((v, i) => [Math.abs(v - got), i]).sort((a, b) => a[0] - b[0])[0][1];
+    const decimals = (String(q.options[q.answer]).replace(/,/g, "").match(/\d+\.(\d+)/) || ["", ""])[1].length;
+    const tol = 0.5 * 10 ** -decimals + 1e-9 * Math.abs(got);
+    if (closest !== q.answer || Math.abs(vals[q.answer] - got) > tol) bad.push(`${q.id} (${q.topic}): re-calculated ${got}, key ${q.options[q.answer]}`);
+  }
+  assert.deepEqual(bad, []);
+});

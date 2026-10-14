@@ -4,6 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { numericalDifficulty } from "../lib/difficulty.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -31,6 +32,7 @@ const eur = (d = 0) => (v) => "EUR " + group(v, d);
 const eurM = (d = 1) => (v) => "EUR " + group(v, d) + " million";
 const unitF = (u, d = 1) => (v) => group(v, d) + " " + u;
 
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const COUNTRIES = ["Aldoria", "Brevania", "Calmora", "Dunmark", "Estoria", "Fernland", "Galvia", "Hollen", "Istrada", "Jorvik", "Kestrel", "Lunaria", "Marrow", "Norvale", "Ostland", "Pellam", "Quarta", "Rosmark", "Sundra", "Tavel"];
 const REGIONS = ["North", "South", "East", "West", "Centre", "Coast", "Islands", "Uplands"];
 const FILL = "Not derived from a typical mistake. If you got this, recheck each step of your calculation.";
@@ -99,7 +101,7 @@ const T = {};
 
 // 1. Percentage change of a total across non-adjacent years (6 rows × 4 years)
 T.growthTotal = (c) => {
-  const years = c.years, names = pickN(c.names, 6);
+  const years = c.years, names = pickN(c.names, 6).sort((p, q) => c.names.indexOf(p) - c.names.indexOf(q));
   const rows = names.map(() => { let v = ri(c.min, c.max); const out = [v]; for (let i = 1; i < 4; i++) { v = round(v * (1 + ri(-4, 9) / 100)); out.push(v); } return out; });
   const [a, b] = c.pair;
   const ta = sum(rows.map((r) => r[a])), tb = sum(rows.map((r) => r[b]));
@@ -119,7 +121,7 @@ T.growthTotal = (c) => {
       ...[[a + 1, b], [a, b - 1], [Math.max(0, a - 1), b]].filter(([p, q]) => p < q && !(p === a && q === b)).map(([p, q]) => ({ v: ((sum(rows.map((r) => r[q])) - sum(rows.map((r) => r[p]))) / sum(rows.map((r) => r[p]))) * 100, note: `This compares ${years[p]} with ${years[q]}: check the years in the question.` }))
     ],
     hints: [`Add up the ${years[a]} column and the ${years[b]} column; ignore the other years.`, "Percentage change = (new total − old total) ÷ old total × 100."],
-    solution: [`Total ${years[a]} = ${group(ta)}`, `Total ${years[b]} = ${group(tb)}`, `Change = (${group(tb)} − ${group(ta)}) ÷ ${group(ta)} × 100 = ${group(correct, 2)}%`],
+    solution: [`Total ${years[a]} = ${rows.map((r) => group(r[a])).join(" + ")} = ${group(ta)}`, `Total ${years[b]} = ${rows.map((r) => group(r[b])).join(" + ")} = ${group(tb)}`, `Change = (${group(tb)} − ${group(ta)}) ÷ ${group(ta)} × 100 = ${group(correct, 2)}%`],
     explanation: "Total first, then the percentage. Averaging row percentages and dividing by the later value are the two classic errors; extra years in the table are there to distract."
   };
 };
@@ -146,7 +148,7 @@ T.shareCombined = (c) => {
       { v: ((rows[x][c.col] + rows[y + 2][c.col]) / tot) * 100, note: `This adds the wrong country: check that you are using ${names[x]} and ${names[y]}.` }
     ],
     hints: ["Use only the column the question asks about.", "Add the two countries, then divide by the total of all six."],
-    solution: [`${names[x]} + ${names[y]} = ${group(rows[x][c.col] + rows[y][c.col], 1)}`, `Total of six = ${group(tot, 1)}`, `Share = ${group(correct, 2)}%`],
+    solution: [`${names[x]} + ${names[y]} = ${group(rows[x][c.col], 1)} + ${group(rows[y][c.col], 1)} = ${group(rows[x][c.col] + rows[y][c.col], 1)}`, `Total of six = ${rows.map((r) => group(r[c.col], 1)).join(" + ")} = ${group(tot, 1)}`, `Share = ${group(rows[x][c.col] + rows[y][c.col], 1)} ÷ ${group(tot, 1)} × 100 = ${group(correct, 2)}%`],
     explanation: "Locate the right column and the right base. Distractors use the neighbouring column or the wrong denominator."
   };
 };
@@ -202,8 +204,8 @@ T.ppOrRelative = (c) => {
       { v: ((series[(s + 2) % 3][b] - series[(s + 2) % 3][a]) / series[(s + 2) % 3][a]) * 100, note: `This is the change for ${c.series[(s + 2) % 3]}.` },
       { v: ((series[s][b - 1] - va) / va) * 100, note: `This stops at ${years[b - 1]}.` }
     ],
-    hints: [c.askPP ? "Percentage points = later share − earlier share. Do not divide." : "A percentage change is relative: (later − earlier) ÷ earlier.", "Read the exact values from the table under the chart."],
-    solution: c.askPP ? [`${years[b]}: ${vb}%; ${years[a]}: ${va}%`, `Difference = ${group(correct, 1)} percentage points`] : [`${years[a]}: ${va}%; ${years[b]}: ${vb}% (difference ${group(vb - va, 1)} points)`, `(${vb} − ${va}) ÷ ${va} × 100 = ${group(correct, 2)}%`],
+    hints: [c.askPP ? "Percentage points = later share − earlier share. Do not divide." : "A percentage change is relative: (later − earlier) ÷ earlier.", "Read the values labelled on the chart for the right series and years."],
+    solution: c.askPP ? [`${years[b]}: ${vb}%; ${years[a]}: ${va}%`, `Difference: ${vb} − ${va} = ${group(correct, 1)} percentage points`] : [`${years[a]}: ${va}%; ${years[b]}: ${vb}%`, `(${vb} − ${va}) ÷ ${va} × 100 = ${group(correct, 2)}%`],
     explanation: "Percentage points measure the gap between two percentages; a percentage change measures that gap relative to the start. Check which the question asks for."
   };
 };
@@ -279,7 +281,7 @@ T.weightedSubset = (c) => {
       ...[[0, 2], [0, 3], [2, 3], [0, 1, 2, 3], [0, 2, 3, 4]].map((sb) => ({ v: sum(sb.map((i) => rows[i][0] * rows[i][1])) / sum(sb.map((i) => rows[i][0])), note: `This uses ${sb.map((i) => names[i]).join(", ")}: check which groups the question names.` }))
     ],
     hints: ["Multiply each group's average by its size.", "Divide the sum by the total number of people in the three groups."],
-    solution: sub.map((i) => `${names[i]}: ${group(rows[i][0])} × ${group(rows[i][1])} = ${group(rows[i][0] * rows[i][1])}`).concat([`Total ÷ ${group(n)} = ${c.fmt(correct)}`]),
+    solution: sub.map((i) => `${names[i]}: ${group(rows[i][0])} × ${group(rows[i][1])} = ${group(rows[i][0] * rows[i][1])}`).concat([`Sum ÷ people: ${group(w)} ÷ (${sub.map((i) => group(rows[i][0])).join(" + ")}) = ${c.fmt(correct)}`]),
     explanation: "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
   };
 };
@@ -294,7 +296,7 @@ T.netInvoices = (c) => {
   const sel = rows.filter((r) => r[0] === target);
   const correct = sum(sel.map((r) => r[1] / (1 + r[2] / 100)));
   return {
-    topic: "Reverse percentages", difficulty: 2,
+    topic: "Removing VAT", difficulty: 2,
     exhibits: [{ type: "table", title: c.title, columns: ["Invoice", "Supplier country", "Amount including VAT (EUR)", "VAT rate (%)"], rows: rows.map((r, i) => ["No. " + (101 + i), r[0], group(r[1]), String(r[2])]) }],
     stem: `What is the total amount excluding VAT of the invoices from suppliers in ${target}?`,
     correct, fmt: eur(2), fillStep: 0.03,
@@ -307,7 +309,7 @@ T.netInvoices = (c) => {
       { v: sum(sel.map((r) => r[1] / (1 + rows[2][2] / 100))), note: "This applies another country's VAT rate." }
     ],
     hints: ["Select the invoices from that country only.", "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."],
-    solution: sel.map((r) => `${group(r[1])} ÷ ${(1 + r[2] / 100).toFixed(2)} = ${group(r[1] / (1 + r[2] / 100), 2)}`).concat([`Total = EUR ${group(correct, 2)}`]),
+    solution: sel.map((r) => `${group(r[1])} ÷ ${(1 + r[2] / 100).toFixed(2)} = ${group(r[1] / (1 + r[2] / 100), 2)}`).concat([`Total = ${sel.map((r) => group(r[1] / (1 + r[2] / 100), 2)).join(" + ")} = EUR ${group(correct, 2)}`]),
     explanation: "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
   };
 };
@@ -364,7 +366,7 @@ T.stackedShare = (c) => {
       { v: ((series[s][y] + series[(s + 1) % 3][y]) / tot) * 100 * 0.5 + (series[s][y] / tot) * 50, note: FILL }
     ],
     hints: [`Add the three segments for ${years[y]} (or read the total above the bar).`, "Divide the component by that total."],
-    solution: [`Total ${years[y]} = ${series.map((v) => v[y]).join(" + ")} = ${tot}`, `${series[s][y]} ÷ ${tot} × 100 = ${group(correct, 2)}%`],
+    solution: [`Total ${years[y]} = ${series.map((v) => v[y]).join(" + ")} = ${tot}`, `Share = ${series[s][y]} ÷ ${tot} × 100 = ${group(correct, 2)}%`],
     explanation: "In stacked charts, the base is the whole bar. Dividing by the other segments overstates the share."
   };
 };
@@ -390,7 +392,7 @@ T.changingBase = (c) => {
       { v: ((n1 - d) / b2) * 100, note: `This applies the change in ${c.countLabel} in the wrong direction.` }
     ],
     hints: [`Turn the ${c.y1} rate into a number of ${c.countLabel} first.`, "Then update both that number and the base before dividing."],
-    solution: [`${c.y1}: ${rate}% × ${group(base)} = ${group(n1, 1)} thousand`, `${c.y2} ${c.countLabel}: ${group(n1, 1)} ${d >= 0 ? "+" : "−"} ${Math.abs(d)} = ${group(n2, 1)}`, `${c.y2} base: ${group(base)} × ${(1 + g / 100).toFixed(3)} = ${group(b2, 1)}`, `Rate = ${group(correct, 3)}%`],
+    solution: [`${c.y1}: ${rate}% × ${group(base)} = ${group(n1, 1)} thousand`, `${c.y2} ${c.countLabel}: ${group(n1, 1)} ${d >= 0 ? "+" : "−"} ${Math.abs(d)} = ${group(n2, 1)}`, `${c.y2} base: ${group(base)} × ${(1 + g / 100).toFixed(3)} = ${group(b2, 1)}`, `Rate = ${group(n2, 1)} ÷ ${group(b2, 1)} × 100 = ${group(correct, 3)}%`],
     explanation: "When a rate's base moves, recompute both parts of the fraction."
   };
 };
@@ -431,7 +433,7 @@ T.unitPerCapita = (c) => {
   return {
     topic: "Units and per-capita values", difficulty: 2,
     exhibits: [{ type: "table", title: c.title, columns: ["Country", c.tLabel, "Population (million)", "Area (thousand km²)"], rows: rows.map((r, i) => [names[i], group(r[0]), r[1].toFixed(1), group(r[2])]) }],
-    stem: `What was ${c.what} per inhabitant in ${names[x]}, in ${c.outUnit}?`,
+    stem: c.stem ? c.stem.replace("{r}", names[x]) : `What was ${c.what} per inhabitant in ${names[x]}, in ${c.outUnit}?`,
     correct, fmt: unitF(c.outUnit, c.d || 0), fillStep: 0.06,
     distractors: [
       ...rows.map((r, i) => ({ v: (r[0] * c.factor) / r[1], note: `This uses the figures for ${names[i]}.` })).filter((d, i) => i !== x),
@@ -441,6 +443,7 @@ T.unitPerCapita = (c) => {
     ],
     hints: [`Convert the units first: ${c.conv}.`, "Then divide by the population (in persons, not millions)."],
     solution: [`Units: ${c.conv}.`, `${group(rows[x][0])} ${c.tShort} ÷ ${rows[x][1]} million people${c.factor !== 1 ? " × " + group(c.factor, c.factor < 1 ? 3 : 0) : ""} = ${group(correct, 2)} ${c.outUnit} per person`],
+    unitTrap: c.factor !== 1,
     explanation: `Unit traps are common: ${c.conv}. If your answer is 1,000 times too large or small, recheck the conversion before choosing.`
   };
 };
@@ -530,7 +533,7 @@ T.surveyChain = (c) => {
       ...rows.map((r, i) => ({ v: (n * r[1] * r[2]) / 10000, note: `This applies the percentages of the ${c.groups[i]} group.` })).filter((d, i) => i !== x)
     ],
     hints: [`First find how many ${c.sLabel.toLowerCase()}.`, `The second percentage applies only to those people, not to all respondents.`],
-    solution: [`${group(n)} × ${s}% = ${group((n * s) / 100, 1)}`, `× ${r}% = ${group(correct, 1)}`],
+    solution: [`${group(n)} × ${s}% = ${group((n * s) / 100, 1)}`, `${group((n * s) / 100, 1)} × ${r}% = ${group(correct, 1)}`],
     explanation: "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
   };
 };
@@ -572,7 +575,7 @@ T.reverseGrowth = (c) => {
   const [v, g] = rows[x];
   const correct = v / (1 + g / 100);
   return {
-    topic: "Reverse percentages", difficulty: 1,
+    topic: "Undoing a percentage change", difficulty: 1,
     exhibits: [{ type: "table", title: c.title, columns: ["Region", `${c.what} 2024`, "Change on 2023 (%)", "Area (km²)"], rows: rows.map((r, i) => [names[i], group(r[0]), (r[1] > 0 ? "+" : "") + r[1].toFixed(1), group(r[2])]) }],
     stem: c.ask.replace("{r}", names[x]),
     correct, fmt: (val) => group(val, 0), fillStep: 0.035,
@@ -608,7 +611,7 @@ T.costPerBeneficiary = (c) => {
       { v: (b * 1e6 - a * 1e6) / (n * 1e3), note: "This subtracts the percentage as if it were millions of euros." }
     ],
     hints: ["Remove the administrative share from the budget first.", "Watch the units: budget in millions, beneficiaries in thousands."],
-    solution: [`Programme spending = ${b} × (1 − ${a}%) = EUR ${group(b * (1 - a / 100), 2)} million`, `÷ ${n} thousand = EUR ${group(correct, 1)}`],
+    solution: [`Programme spending = ${b} × (1 − ${a}%) = EUR ${group(b * (1 - a / 100), 2)} million`, `EUR ${group(b * (1 - a / 100), 2)} million ÷ ${n} thousand = ${group(b * (1 - a / 100) * 1e6, 0)} ÷ ${group(n * 1e3)} = EUR ${group(correct, 1)}`],
     explanation: "Check what is excluded and convert millions and thousands carefully before dividing."
   };
 };
@@ -642,7 +645,7 @@ T.pieDifference = (c) => {
       { v: (c.total * (sh[p] - sh[q])) / 100 * 1.1, note: FILL }
     ],
     hints: ["Find the two largest slices.", "Subtract their shares, then apply the difference to the total."],
-    solution: [`${c.labels[p]} ${sh[p]}% − ${c.labels[q]} ${sh[q]}% = ${round(sh[p] - sh[q], 1)}%`, `× ${group(c.total)} = ${group(correct, 1)}`],
+    solution: [`${c.labels[p]} ${sh[p]}% − ${c.labels[q]} ${sh[q]}% = ${round(sh[p] - sh[q], 1)}%`, `${round(sh[p] - sh[q], 1)}% × ${group(c.total)} = ${group(correct, 1)}`],
     explanation: "Shares of the same total can be subtracted before converting into amounts."
   };
 };
@@ -664,7 +667,7 @@ T.overallRate = (c) => {
       ...[[1, 2], [1, 4], [2, 4], [0, 1, 2, 4], [1, 2, 3, 4]].map((sb) => ({ v: (sum(sb.map((i) => (rows[i][0] * rows[i][1]) / 100)) / sum(sb.map((i) => rows[i][0]))) * 100, note: `This uses ${sb.map((i) => c.centres[i]).join(", ")}: check which centres are named.` }))
     ],
     hints: ["Convert each pass rate into a number of passes.", "Total passes ÷ total candidates for the three centres."],
-    solution: sub.map((i) => `${c.centres[i]}: ${rows[i][0]} × ${rows[i][1]}% = ${group((rows[i][0] * rows[i][1]) / 100, 1)}`).concat([`${group(p, 1)} ÷ ${n} = ${group(correct, 2)}%`]),
+    solution: sub.map((i) => `${c.centres[i]}: ${rows[i][0]} × ${rows[i][1]}% = ${group((rows[i][0] * rows[i][1]) / 100, 1)}`).concat([`Passes ÷ candidates: ${group(p, 1)} ÷ (${sub.map((i) => rows[i][0]).join(" + ")}) × 100 = ${group(correct, 2)}%`]),
     explanation: "Rates from groups of different sizes must be weighted. The average score column is irrelevant."
   };
 };
@@ -707,7 +710,7 @@ T.shareCategory = (c, pos) => {
     const idx = names.map((n, i) => i).filter((i) => i !== drop);
     if (idx.indexOf(best) !== pos) continue;
     return {
-      answerType: "category", topic: "Shares in a stacked chart", difficulty: 3,
+      answerType: "category", topic: "Highest share in a stacked chart", difficulty: 3,
       exhibits: [{ type: "stacked", title: c.title, unit: c.unit, categories: names, series: c.parts.map((p, i) => ({ name: p, values: series[i] })) }],
       stem: `Which of the following countries had the highest share of ${c.parts[c.part].toLowerCase()} in its total?`,
       options: idx.map((i) => names[i]), answer: pos,
@@ -748,14 +751,353 @@ T.twoExhibits = (c) => {
       ...names.map((n, i) => ({ v: (c.total * 1e6 * sh[x]) / 100 / (pop[i] * 1000), note: `This divides by the population of ${n}.` })).filter((d, i) => i !== x && i !== y)
     ],
     hints: ["Use the pie for the region's budget and the table for its population.", "Budget (in euros) ÷ population (in persons)."],
-    solution: [`Budget = ${sh[x]}% × ${c.total} million = EUR ${group((c.total * sh[x]) / 100, 2)} million`, `Population = ${group(pop[x])} thousand`, `Per inhabitant = EUR ${group(correct, 2)}`],
+    solution: [`Budget = ${sh[x]}% × ${c.total} million = EUR ${group((c.total * sh[x]) / 100, 2)} million`, `Population = ${group(pop[x])} thousand = ${group(pop[x] * 1000)} people`, `Per inhabitant = ${group((c.total * sh[x]) / 100, 2)} million ÷ ${group(pop[x] * 1000)} = EUR ${group(correct, 2)}`],
     explanation: "Combine the exhibits row by row and keep the units consistent. The area column is irrelevant."
   };
 };
 
-/* ---------- plan: 150 items, 6 per template ---------- */
+// 26. Index numbers: value in a given year (5 sectors × 5 years, base year = 100, plus base values)
+T.indexValue = (c) => {
+  const years = c.years, names = c.names;
+  const idx = names.map(() => { let v = 100; return years.map((y, i) => { if (i === 0) return 100; v = round(v * (1 + rf(-0.04, 0.12, 3)), 1); return v; }); });
+  const base = names.map(() => ri(c.bMin, c.bMax));
+  const x = c.row, y = c.year;
+  const correct = (base[x] * idx[x][y]) / 100;
+  return {
+    topic: "Index numbers: values", difficulty: 1,
+    exhibits: [{ type: "table", title: `${c.title} (index, ${years[0]} = 100)`, columns: [c.first, ...years, `${years[0]} value (${c.unit})`], rows: names.map((n, i) => [n, ...idx[i].map((v) => v.toFixed(1)), group(base[i])]) }],
+    stem: `What was the ${c.what} of ${names[x]} in ${years[y]}, in ${c.unit}?`,
+    correct, fmt: c.unit.startsWith("EUR ") ? (v) => "EUR " + group(v, 1) + " " + c.unit.slice(4) : unitF(c.unit, 1), fillStep: 0.05,
+    distractors: [
+      { v: (base[x] * idx[x][y - 1]) / 100, note: `This uses the ${years[y - 1]} index.` },
+      ...(y + 1 < years.length ? [{ v: (base[x] * idx[x][y + 1]) / 100, note: `This uses the ${years[y + 1]} index.` }] : []),
+      ...names.map((n, i) => ({ v: (base[x] * idx[i][y]) / 100, note: `This applies the index of ${n}.` })).filter((d, i) => i !== x),
+      ...names.map((n, i) => ({ v: (base[i] * idx[x][y]) / 100, note: `This applies the index to the ${years[0]} value of ${n}.` })).filter((d, i) => i !== x),
+      { v: base[x] * (1 + (idx[x][y] - idx[x][y - 1]) / 100), note: "This adds only the last year's change in index points." }
+    ],
+    hints: [`An index of 112.0 means 12% above the ${years[0]} value.`, `Value = ${years[0]} value × index ÷ 100.`],
+    solution: [`Index ${idx[x][y].toFixed(1)} ÷ 100 = ${(idx[x][y] / 100).toFixed(3)} times the ${years[0]} value`, `${group(base[x])} × ${(idx[x][y] / 100).toFixed(3)} = ${group(correct, 2)} ${c.unit}`],
+    explanation: "An index only expresses each year relative to the base year. Multiply the base-year value by index ÷ 100."
+  };
+};
+
+// 27. Index numbers: percentage change between two later years (points vs per cent)
+T.indexChange = (c) => {
+  const years = c.years, names = c.names;
+  const idx = names.map(() => { let v = 100; return years.map((y, i) => { if (i === 0) return 100; v = round(v * (1 + rf(0.01, 0.14, 3)), 1); return v; }); });
+  const x = c.row, [a, b] = c.pair;
+  const correct = (idx[x][b] / idx[x][a] - 1) * 100;
+  return {
+    topic: "Index numbers: percentage change", difficulty: 2,
+    exhibits: [{ type: "table", title: `${c.title} (index, ${years[0]} = 100)`, columns: [c.first, ...years], rows: names.map((n, i) => [n, ...idx[i].map((v) => v.toFixed(1))]) }],
+    stem: `By what percentage did the ${c.what} of ${names[x]} rise between ${years[a]} and ${years[b]}?`,
+    correct, fmt: pct(1), fillStep: 0.06,
+    distractors: [
+      { v: idx[x][b] - idx[x][a], note: "This is the change in index points, which equals a percentage only when the starting index is 100." },
+      { v: (1 - idx[x][a] / idx[x][b]) * 100, note: `This divides by the ${years[b]} index.` },
+      { v: idx[x][b] - 100, note: `This is the change since ${years[0]}, the base year.` },
+      ...names.map((n, i) => ({ v: (idx[i][b] / idx[i][a] - 1) * 100, note: `This is the change for ${n}.` })).filter((d, i) => i !== x),
+      ...(a > 1 ? [{ v: (idx[x][b] / idx[x][a - 1] - 1) * 100, note: `This starts from ${years[a - 1]}.` }] : [])
+    ],
+    hints: ["A difference in index points is not a percentage unless the earlier index is 100.", "Divide the later index by the earlier one."],
+    solution: [`${years[a]}: ${idx[x][a].toFixed(1)}; ${years[b]}: ${idx[x][b].toFixed(1)}`, `(${idx[x][b].toFixed(1)} ÷ ${idx[x][a].toFixed(1)} − 1) × 100 = ${group(correct, 2)}%`],
+    explanation: "Between two years that are not the base year, the percentage change is the ratio of the two indices minus one, not the difference in points."
+  };
+};
+
+// 28. Market share change in percentage points (5 firms × 3 years)
+T.marketSharePP = (c) => {
+  const years = c.years;
+  for (let attempt = 0; attempt < 500; attempt++) {
+    const rows = c.firms.map(() => { const v0 = ri(c.min, c.max); return [v0, round(v0 * (1 + rf(-0.1, 0.3, 3))), round(v0 * (1 + rf(-0.15, 0.5, 3)))]; });
+    const tot = [0, 1, 2].map((j) => sum(rows.map((r) => r[j])));
+    const x = c.row;
+    const sh = (i, j) => (rows[i][j] / tot[j]) * 100;
+    const correct = sh(x, 2) - sh(x, 0);
+    if (correct < 0.8) continue;
+    return {
+      topic: "Market share in percentage points", difficulty: 3,
+      exhibits: [{ type: "table", title: c.title, columns: [c.first, ...years.map((y) => `${y} (${c.unit})`)], rows: rows.map((r, i) => [c.firms[i], ...r.map((v) => group(v))]) }],
+      stem: `By how many percentage points did the market share of ${c.firms[x]} change between ${years[0]} and ${years[2]}?`,
+      correct, fmt: unitF("percentage points", 2), fillStep: 0.07,
+      distractors: [
+        { v: sh(x, 1) - sh(x, 0), note: `This stops at ${years[1]}.` },
+        { v: sh(x, 2) - sh(x, 1), note: `This starts from ${years[1]}.` },
+        { v: (sh(x, 2) / sh(x, 0) - 1) * 100, note: "This is the relative change of the share in per cent, not in percentage points." },
+        { v: (rows[x][2] / rows[x][0] - 1) * 100, note: `This is the growth of ${c.firms[x]}'s sales, not of its share.` },
+        ...c.firms.map((f, i) => ({ v: sh(i, 2) - sh(i, 0), note: `This is the change for ${f}.` })).filter((d, i) => i !== x)
+      ],
+      hints: ["Market share = the firm's sales ÷ the total for all firms in the same year.", "Compute the share in both years, then subtract."],
+      solution: [`Total ${years[0]} = ${rows.map((r) => group(r[0])).join(" + ")} = ${group(tot[0])}`, `Total ${years[2]} = ${rows.map((r) => group(r[2])).join(" + ")} = ${group(tot[2])}`, `Shares: ${group(rows[x][0])} ÷ ${group(tot[0])} × 100 = ${group(sh(x, 0), 3)}%; ${group(rows[x][2])} ÷ ${group(tot[2])} × 100 = ${group(sh(x, 2), 3)}%`, `${group(sh(x, 2), 3)} − ${group(sh(x, 0), 3)} = ${group(correct, 2)} percentage points`],
+      explanation: "A firm can grow and still lose share if the market grows faster. Shares need each year's own total."
+    };
+  }
+  throw new Error("marketSharePP");
+};
+
+// 29. Required constant growth rate to reach a target (5 countries × 3 columns)
+T.requiredGrowth = (c) => {
+  const names = pickN(COUNTRIES, 5);
+  const rows = names.map(() => { const v = rf(c.min, c.max, 1); return [v, round(v * rf(1.15, 1.9, 2), 1), ri(10, 90)]; });
+  const x = c.row, n = c.endYear - c.startYear;
+  const [v, tgt] = rows[x];
+  const correct = ((tgt / v) ** (1 / n) - 1) * 100;
+  return {
+    topic: "Required growth rate", difficulty: 3,
+    exhibits: [{ type: "table", title: c.title, columns: ["Country", `${c.label} ${c.startYear} (${c.unit})`, `Target for ${c.endYear} (${c.unit})`, "Share of public funding (%)"], rows: rows.map((r, i) => [names[i], r[0].toFixed(1), r[1].toFixed(1), String(r[2])]) }],
+    stem: `What constant annual growth rate would ${names[x]} need from ${c.startYear} to reach its ${c.endYear} target?`,
+    correct, fmt: pct(2), fillStep: 0.05,
+    distractors: [
+      { v: ((tgt / v - 1) / n) * 100, note: "This divides the total growth by the number of years; growth compounds, so take the root instead." },
+      { v: ((tgt / v) ** (1 / (n + 1)) - 1) * 100, note: `This counts ${n + 1} years of growth; from ${c.startYear} to ${c.endYear} there are ${n}.` },
+      { v: ((tgt / v) ** (1 / (n - 1)) - 1) * 100, note: `This counts ${n - 1} years of growth; from ${c.startYear} to ${c.endYear} there are ${n}.` },
+      { v: (((tgt - v) / tgt) / n) * 100, note: "This divides the gap by the target and spreads it evenly over the years." },
+      ...rows.map((r, i) => ({ v: ((r[1] / r[0]) ** (1 / n) - 1) * 100, note: `This is the rate for ${names[i]}.` })).filter((d, i) => i !== x)
+    ],
+    hints: [`Growth factor over the period = target ÷ ${c.startYear} value.`, `The annual factor is its ${n}th root.`],
+    solution: [`Overall factor = ${tgt.toFixed(1)} ÷ ${v.toFixed(1)} = ${(tgt / v).toFixed(4)}`, `Annual factor = ${(tgt / v).toFixed(4)}^(1/${n}) = ${((tgt / v) ** (1 / n)).toFixed(5)}`, `Rate = (${((tgt / v) ** (1 / n)).toFixed(5)} − 1) × 100 = ${group(correct, 2)}%`],
+    explanation: "Required growth compounds: take the nth root of the overall factor. Dividing the total growth by the number of years overstates the rate needed."
+  };
+};
+
+// 30. Fixed and variable costs: average cost per participant (4 venues × 4 columns)
+T.fixedVariable = (c) => {
+  const rows = c.venues.map(() => [ri(8, 60) * 100, ri(18, 75), ri(3, 22), ri(80, 600)]);
+  const x = c.row, N = c.n;
+  const [F, cat, mat] = rows[x];
+  const correct = (F + N * (cat + mat)) / N;
+  return {
+    topic: "Fixed and variable costs", difficulty: 2,
+    exhibits: [{ type: "table", title: c.title, columns: ["Venue", "Room hire per day (EUR)", "Catering per person (EUR)", "Materials per person (EUR)", "Capacity"], rows: rows.map((r, i) => [c.venues[i], group(r[0]), String(r[1]), String(r[2]), String(r[3])]) }],
+    stem: `For a one-day event with ${N} participants at ${c.venues[x]}, what is the average cost per participant?`,
+    correct, fmt: eur(2), fillStep: 0.04,
+    distractors: [
+      { v: cat + mat, note: "This leaves out the room hire, a fixed cost shared by all participants." },
+      { v: F / N + cat, note: "This leaves out the materials." },
+      { v: (F + N * cat) / N + mat * 2, note: FILL },
+      ...rows.map((r, i) => ({ v: (r[0] + N * (r[1] + r[2])) / N, note: `This uses the prices of ${c.venues[i]}.` })).filter((d, i) => i !== x),
+      { v: (F * 2 + N * (cat + mat)) / N, note: "This counts the room hire twice." }
+    ],
+    hints: ["Total cost = fixed cost + participants × cost per person.", "Then divide by the number of participants."],
+    solution: [`Per person: ${cat} + ${mat} = EUR ${cat + mat}`, `Total = ${group(F)} + ${N} × ${cat + mat} = EUR ${group(F + N * (cat + mat))}`, `Per participant = ${group(F + N * (cat + mat))} ÷ ${N} = EUR ${group(correct, 2)}`],
+    explanation: "Fixed costs are spread over everyone, so the average cost per person falls as numbers rise. Variable costs are paid per person."
+  };
+};
+
+// 31. Break-even volume between two tariffs (4 offers × 3 columns)
+T.breakEven = (c) => {
+  for (let attempt = 0; attempt < 500; attempt++) {
+    const rows = c.offers.map(() => [ri(2, 40) * 50, rf(c.vMin, c.vMax, 2), ri(12, 36)]);
+    const [i, j] = c.pair;
+    const [Fa, va] = rows[i], [Fb, vb] = rows[j];
+    if (!(Fa > Fb && va < vb)) continue;
+    const correct = (Fa - Fb) / (vb - va);
+    if (correct < 50 || Math.abs(correct - Math.round(correct)) < 0.02 || Math.abs(correct - Math.round(correct)) > 0.48) continue;
+    return {
+      topic: "Break-even point", difficulty: 3,
+      exhibits: [{ type: "table", title: c.title, columns: ["Offer", "Fixed fee per year (EUR)", `Price per ${c.unit} (EUR)`, "Contract length (months)"], rows: rows.map((r, k) => [c.offers[k], group(r[0]), r[1].toFixed(2), String(r[2])]) }],
+      stem: `Above how many ${c.unit}s per year does ${c.offers[i]} become cheaper than ${c.offers[j]}?`,
+      correct, fmt: (v) => group(v, 1) + " " + c.unit + "s", fillStep: 0.05,
+      distractors: [
+        { v: (Fa + Fb) / (vb - va), note: "This adds the fixed fees; the break-even uses their difference." },
+        { v: Fa / (vb - va), note: `This ignores the fixed fee of ${c.offers[j]}.` },
+        { v: (Fa - Fb) / vb, note: "This divides by one price instead of the difference in prices." },
+        { v: (Fa - Fb) / va, note: "This divides by one price instead of the difference in prices." },
+        ...rows.map((r, k) => ({ v: (Fa - r[0]) / (r[1] - va), note: `This compares with ${c.offers[k]}.` })).filter((d, k) => k !== i && k !== j)
+      ],
+      hints: ["At the break-even point both offers cost the same: fixed fee + price × volume.", "Volume = difference in fixed fees ÷ difference in unit prices."],
+      solution: [`Fixed fees: ${group(Fa)} − ${group(Fb)} = ${group(Fa - Fb)}`, `Unit prices: ${vb.toFixed(2)} − ${va.toFixed(2)} = ${(vb - va).toFixed(2)}`, `${group(Fa - Fb)} ÷ ${(vb - va).toFixed(2)} = ${group(correct, 2)} ${c.unit}s`],
+      explanation: "Set the two total costs equal. The offer with the higher fixed fee wins only above the break-even volume. Contract length is irrelevant here."
+    };
+  }
+  throw new Error("breakEven");
+};
+
+// 32. Allocation in proportion to population (6 regions × 3 columns)
+T.proportional = (c) => {
+  const names = pickN(REGIONS, 6);
+  const rows = names.map(() => [ri(120, 2400), ri(800, 9000), rf(3, 14, 1)]);
+  const x = c.row, A = c.amount;
+  const P = sum(rows.map((r) => r[0]));
+  const correct = (A * rows[x][0]) / P;
+  return {
+    topic: "Proportional allocation", difficulty: 2,
+    exhibits: [{ type: "table", title: c.title, columns: ["Region", "Population (thousand)", "Area (km²)", "Unemployment rate (%)"], rows: rows.map((r, i) => [names[i], group(r[0]), group(r[1]), r[2].toFixed(1)]) }],
+    stem: `EUR ${group(A, A % 1 ? 1 : 0)} million is shared among the six regions in proportion to their population. How much does the ${names[x]} region receive?`,
+    correct, fmt: eurM(2), fillStep: 0.05,
+    distractors: [
+      { v: (A * rows[x][1]) / sum(rows.map((r) => r[1])), note: "This shares the money by area, not by population." },
+      { v: A / 6, note: "This splits the money equally." },
+      { v: (A * rows[x][0]) / (P - rows[x][0]), note: "This divides by the population of the other five regions only." },
+      ...rows.map((r, i) => ({ v: (A * r[0]) / P, note: `This is the amount for ${names[i]}.` })).filter((d, i) => i !== x)
+    ],
+    hints: ["Find the region's share of the total population.", "Apply that share to the amount."],
+    solution: [`Total population = ${rows.map((r) => group(r[0])).join(" + ")} = ${group(P)} thousand`, `Share = ${group(rows[x][0])} ÷ ${group(P)} = ${(rows[x][0] / P).toFixed(4)}`, `${(rows[x][0] / P).toFixed(4)} × ${group(A, A % 1 ? 1 : 0)} = EUR ${group(correct, 2)} million`],
+    explanation: "Proportional allocation: each part receives its share of the base. Area and unemployment are there to distract."
+  };
+};
+
+// 33. Discount, then VAT, on an order (5 items × 4 columns)
+T.discountVat = (c) => {
+  const rows = c.items.map(() => [ri(c.pMin, c.pMax), [5, 10, 15, 20, 25][ri(0, 4)], [6, 9, 21][ri(0, 2)]]);
+  const x = c.row, n = c.n;
+  const [p, d, v] = rows[x];
+  const correct = n * p * (1 - d / 100) * (1 + v / 100);
+  return {
+    topic: "Discounts and VAT", difficulty: 2,
+    exhibits: [{ type: "table", title: c.title, columns: ["Item", "List price excl. VAT (EUR)", "Volume discount (%)", "VAT rate (%)"], rows: rows.map((r, i) => [c.items[i], group(r[0]), String(r[1]), String(r[2])]) }],
+    stem: `A buyer orders ${n} ${c.items[x].toLowerCase()}. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included?`,
+    correct, fmt: eur(2), fillStep: 0.03,
+    distractors: [
+      { v: n * p * (1 - d / 100 + v / 100), note: "This adds and subtracts the percentages; they must be applied one after the other." },
+      { v: n * p * (1 + v / 100), note: "This leaves out the discount." },
+      { v: n * p * (1 - d / 100), note: "This leaves out the VAT." },
+      { v: n * p * (1 - d / 100) * (1 + rows[(x + 1) % 5][2] / 100), note: "This uses another item's VAT rate." },
+      { v: n * p * (1 - rows[(x + 1) % 5][1] / 100) * (1 + v / 100), note: "This uses another item's discount." }
+    ],
+    hints: ["Apply the discount to the list price first.", "Then add VAT to the discounted price, and multiply by the quantity."],
+    solution: [`Discounted price = ${group(p)} × (1 − ${d}%) = EUR ${group(p * (1 - d / 100), 2)}`, `With VAT = ${group(p * (1 - d / 100), 2)} × ${(1 + v / 100).toFixed(2)} = EUR ${group(p * (1 - d / 100) * (1 + v / 100), 2)}`, `${n} × ${group(p * (1 - d / 100) * (1 + v / 100), 2)} = EUR ${group(correct, 2)}`],
+    explanation: "Successive percentages multiply. Netting them (−discount + VAT) gives a slightly wrong total."
+  };
+};
+
+// 34. Lowest price per kilogram with mixed units (category answer; 6 offers)
+T.unitPriceCategory = (c, pos) => {
+  for (let attempt = 0; attempt < 5000; attempt++) {
+    const rows = c.suppliers.map(() => { const kg = rnd() < 0.5; const size = kg ? rf(0.5, 5, 1) : ri(2, 18) * 50; return [size, kg ? "kg" : "g", round(rf(c.pMin, c.pMax, 2) * (kg ? size : size / 1000), 2), ri(1, 10)]; });
+    const perKg = rows.map((r) => r[2] / (r[1] === "kg" ? r[0] : r[0] / 1000));
+    const order = perKg.map((v, i) => i).sort((i, j) => perKg[i] - perKg[j]);
+    const best = order[0];
+    if (perKg[order[1]] - perKg[best] < 0.04 * perKg[best]) continue;
+    const cheapestPack = rows.map((r) => r[2]).indexOf(Math.min(...rows.map((r) => r[2])));
+    if (cheapestPack === best) continue;
+    const drop = order.filter((i) => i !== best && i !== cheapestPack)[ri(0, 3)];
+    const idx = c.suppliers.map((s, i) => i).filter((i) => i !== drop);
+    if (idx.indexOf(best) !== pos) continue;
+    return {
+      answerType: "category", topic: "Unit price comparison", difficulty: 2,
+      exhibits: [{ type: "table", title: c.title, columns: ["Supplier", "Pack size", "Price per pack (EUR)", "Delivery time (days)"], rows: rows.map((r, i) => [c.suppliers[i], (r[1] === "kg" ? r[0].toFixed(1) : String(r[0])) + " " + r[1], r[2].toFixed(2), String(r[3])]) }],
+      stem: `Which of the following suppliers offers ${c.what} at the lowest price per kilogram?`,
+      options: idx.map((i) => c.suppliers[i]), answer: pos,
+      optionNotes: idx.map((i) => `${i === best ? "Correct. " : ""}${rows[i][2].toFixed(2)} ÷ ${rows[i][1] === "kg" ? rows[i][0].toFixed(1) : (rows[i][0] / 1000).toFixed(2)} kg = EUR ${perKg[i].toFixed(2)} per kg.` + (i === cheapestPack && i !== best ? " Cheapest pack, but not per kilogram." : "")),
+      hints: ["Convert every pack size to kilograms first (1 kg = 1,000 g).", "Then divide the price by the weight."],
+      solution: idx.map((i) => `${c.suppliers[i]}: ${rows[i][2].toFixed(2)} ÷ ${rows[i][1] === "kg" ? rows[i][0].toFixed(1) : (rows[i][0] / 1000).toFixed(2)} = ${perKg[i].toFixed(3)} EUR/kg`).concat([`Lowest: ${c.suppliers[best]}`]),
+      explanation: "Compare like with like: convert to one unit before dividing. The cheapest pack is the planted trap."
+    };
+  }
+  throw new Error("unitPriceCategory");
+};
+
+// 35. Year with the largest gap between two lines (category answer; 2 series × 6 years)
+T.gapCategory = (c, pos) => {
+  const years = c.years;
+  for (let attempt = 0; attempt < 5000; attempt++) {
+    const A = years.map(() => rf(c.min, c.max, 1));
+    const B = A.map((a) => round(a * rf(0.55, 0.95, 2), 1));
+    const gap = A.map((a, i) => (c.relative ? (a - B[i]) / B[i] : a - B[i]));
+    const order = gap.map((v, i) => i).sort((i, j) => gap[j] - gap[i]);
+    const best = order[0];
+    if (gap[order[0]] - gap[order[1]] < (c.relative ? 0.03 : 0.8)) continue;
+    const topA = A.indexOf(Math.max(...A));
+    if (topA === best) continue;
+    const drop = order.filter((i) => i !== best && i !== topA)[ri(0, 3)];
+    const idx = years.map((y, i) => i).filter((i) => i !== drop);
+    if (idx.indexOf(best) !== pos) continue;
+    const f = (i) => (c.relative ? `(${A[i]} − ${B[i]}) ÷ ${B[i]} × 100 = ${(gap[i] * 100).toFixed(1)}%` : `${A[i]} − ${B[i]} = ${gap[i].toFixed(1)}`);
+    return {
+      answerType: "category", topic: c.relative ? "Largest relative gap on a line chart" : "Largest gap on a line chart", difficulty: 2,
+      exhibits: [{ type: "line", title: c.title, unit: c.unit, categories: years, series: [{ name: c.a, values: A }, { name: c.b, values: B }] }],
+      stem: c.relative ? `In which year was ${c.a.toLowerCase()} highest relative to ${c.b.toLowerCase()} (as a percentage of ${c.b.toLowerCase()})?` : `In which year was the gap between ${c.a.toLowerCase()} and ${c.b.toLowerCase()} largest?`,
+      options: idx.map((i) => years[i]), answer: pos,
+      optionNotes: idx.map((i) => `${i === best ? "Correct. " : ""}${f(i)}.` + (i === topA && i !== best ? ` The highest ${c.a.toLowerCase()} value, but not the largest gap.` : "")),
+      hints: ["Compute the gap for every year offered, not just where the lines look furthest apart.", c.relative ? `Divide each gap by the ${c.b.toLowerCase()} value.` : "Subtract the lower line from the higher one."],
+      solution: idx.map((i) => `${years[i]}: ${f(i)}`).concat([`Largest: ${years[best]}`]),
+      explanation: "Visual distance on a chart can mislead, especially when both lines move. Compute the gap for each option."
+    };
+  }
+  throw new Error("gapCategory");
+};
+
+// 36. Combined work rates of two machines or teams (4 rows × 3 columns)
+T.combinedRate = (c) => {
+  const rows = c.units.map(() => [ri(c.rMin, c.rMax) * 10, ri(2, 9), ri(1, 4)]);
+  const [i, j] = c.pair, N = c.n;
+  const correct = (N / (rows[i][0] + rows[j][0])) * 60;
+  return {
+    topic: "Combined work rates", difficulty: 2,
+    exhibits: [{ type: "table", title: c.title, columns: [c.first, `${c.item} per hour`, "Years in service", "Operators needed"], rows: rows.map((r, k) => [c.units[k], group(r[0]), String(r[1]), String(r[2])]) }],
+    stem: `Working together at their usual rates, how many minutes do ${c.units[i]} and ${c.units[j]} need for ${group(N)} ${c.item.toLowerCase()}?`,
+    correct, fmt: unitF("minutes", 1), fillStep: 0.05,
+    distractors: [
+      { v: ((N / rows[i][0] + N / rows[j][0]) / 2) * 60 / 2, note: "This halves the average of the two separate times; rates add, times do not." },
+      { v: (N / ((rows[i][0] + rows[j][0]) / 2)) * 60 / 2 * 1.08, note: FILL },
+      ...c.units.map((u, k) => ({ v: (N / (rows[i][0] + rows[k][0])) * 60, note: `This pairs ${c.units[i]} with ${u}.` })).filter((d, k) => k !== i && k !== j),
+      ...c.units.map((u, k) => ({ v: (N / (rows[j][0] + rows[k][0])) * 60, note: `This pairs ${c.units[j]} with ${u}.` })).filter((d, k) => k !== i && k !== j)
+    ],
+    hints: ["When two units work together, add their hourly rates.", "Time = amount ÷ combined rate; convert hours to minutes."],
+    solution: [`Combined rate = ${group(rows[i][0])} + ${group(rows[j][0])} = ${group(rows[i][0] + rows[j][0])} per hour`, `${group(N)} ÷ ${group(rows[i][0] + rows[j][0])} × 60 = ${group(correct, 2)} minutes`],
+    explanation: "Rates add; times do not. Averaging the separate times is the classic mistake."
+  };
+};
+
+// 37. How much higher one per-capita value is than another, in per cent (5 countries × 3 columns)
+T.percentMore = (c) => {
+  const names = pickN(COUNTRIES, 5);
+  for (let attempt = 0; attempt < 500; attempt++) {
+    const rows = names.map(() => [ri(c.tMin, c.tMax), rf(1.5, 30, 1), ri(20, 300)]);
+    const [x, y] = c.pair;
+    const px = rows[x][0] / rows[x][1], py = rows[y][0] / rows[y][1];
+    if (px <= py * 1.06) continue;
+    const correct = (px / py - 1) * 100;
+    return {
+      topic: "Percentage difference between two items", difficulty: 3,
+      exhibits: [{ type: "table", title: c.title, columns: ["Country", c.tLabel, "Population (million)", "Area (thousand km²)"], rows: rows.map((r, i) => [names[i], group(r[0]), r[1].toFixed(1), group(r[2])]) }],
+      stem: `By what percentage was ${c.what} per inhabitant in ${names[x]} higher than in ${names[y]}?`,
+      correct, fmt: pct(1), fillStep: 0.06,
+      distractors: [
+        { v: (1 - py / px) * 100, note: `This divides by ${names[x]}'s value; "higher than ${names[y]}" means ${names[y]} is the base.` },
+        { v: (rows[x][0] / rows[y][0] - 1) * 100, note: "This compares the totals, not the values per inhabitant." },
+        { v: ((rows[x][0] / rows[x][2]) / (rows[y][0] / rows[y][2]) - 1) * 100, note: "This divides by area instead of population." },
+        ...rows.map((r, i) => ({ v: (px / (r[0] / r[1]) - 1) * 100, note: `This compares with ${names[i]}.` })).filter((d, i) => i !== x && i !== y && px > rows[i][0] / rows[i][1])
+      ],
+      hints: ["Compute the per-inhabitant value for both countries.", `The country after "than" is the base of the comparison.`],
+      solution: [`${names[x]}: ${group(rows[x][0])} ÷ ${rows[x][1].toFixed(1)} = ${group(px, 3)}`, `${names[y]}: ${group(rows[y][0])} ÷ ${rows[y][1].toFixed(1)} = ${group(py, 3)}`, `(${group(px, 3)} ÷ ${group(py, 3)} − 1) × 100 = ${group(correct, 2)}%`],
+      explanation: "In \"how much higher than the other country\", the country after \"than\" is the base. Reversing the base gives a smaller, wrong percentage."
+    };
+  }
+  throw new Error("percentMore");
+};
+
+// 38. Average over part of a period (3 series × 12 months)
+T.periodAverage = (c) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const rows = c.series.map(() => months.map(() => ri(c.min, c.max)));
+  const x = c.row, [m0, m1] = c.range;
+  const sel = rows[x].slice(m0, m1 + 1);
+  const correct = sum(sel) / sel.length;
+  return {
+    topic: "Averages over part of a period", difficulty: 1,
+    exhibits: [{ type: "table", title: c.title, columns: [c.first, ...months], rows: rows.map((r, i) => [c.series[i], ...r.map((v) => group(v))]) }],
+    stem: `What was the average monthly ${c.what} for ${c.series[x]} from ${MONTHS[m0]} to ${MONTHS[m1]} inclusive?`,
+    correct, fmt: (v) => group(v, 1), fillStep: 0.04,
+    distractors: [
+      { v: sum(rows[x]) / 12, note: "This averages the whole year." },
+      { v: sum(sel) / (sel.length - 1), note: "This divides by one month too few." },
+      { v: sum(sel) / (sel.length + 1), note: "This divides by one month too many." },
+      { v: sum(rows[x].slice(m0 + 1, m1 + 1)) / (sel.length - 1), note: `This leaves out ${months[m0]}.` },
+      { v: sum(rows[x].slice(m0, m1)) / (sel.length - 1), note: `This leaves out ${months[m1]}.` },
+      ...rows.map((r, i) => ({ v: sum(r.slice(m0, m1 + 1)) / sel.length, note: `This uses the row for ${c.series[i]}.` })).filter((d, i) => i !== x)
+    ],
+    hints: [`Count the months from ${MONTHS[m0]} to ${MONTHS[m1]}, including both.`, "Add them and divide by that number."],
+    solution: [`${sel.map((v) => group(v)).join(" + ")} = ${group(sum(sel))}`, `${group(sum(sel))} ÷ ${sel.length} = ${group(correct, 2)}`],
+    explanation: "\"Inclusive\" ranges are easy to miscount. Count the months before dividing."
+  };
+};
+
+/* ---------- plan: 150 items from 38 templates, at most 4 per template (N11) ---------- */
 const plan = [];
-const rep = (name, ctxs) => ctxs.forEach((c) => plan.push([name, c]));
+const PER = { currency: 3, workload: 3 };
+const rep = (name, ctxs) => ctxs.slice(0, PER[name] || 4).forEach((c) => plan.push([name, c]));
 rep("growthTotal", [
   { title: "Visitors to EU information centres (thousand)", first: "Region", names: REGIONS, years: ["2021", "2022", "2023", "2024"], pair: [0, 3], min: 120, max: 900, what: "number of visitors", unitWord: "regions" },
   { title: "Tonnes of waste recycled by city", first: "City", names: ["Avenford", "Brightwell", "Corrin", "Dunmore", "Elsby", "Fairhaven", "Glenrow", "Harwick"], years: ["2020", "2021", "2022", "2023"], pair: [1, 3], min: 1200, max: 9800, what: "tonnage recycled", unitWord: "cities" },
@@ -843,8 +1185,8 @@ rep("unitPerCapita", [
   { title: "Water use (fictional countries)", tLabel: "Water use (million m³)", tShort: "million m³", tMin: 300, tMax: 9000, what: "water use", outUnit: "m³", factor: 1, conv: "million m³ ÷ million people = m³ per person", row: 1 },
   { title: "Household waste (fictional countries)", tLabel: "Household waste (thousand tonnes)", tShort: "thousand t", tMin: 600, tMax: 14000, what: "household waste", outUnit: "kg", factor: 1, conv: "thousand tonnes ÷ million people = kg per person", row: 2 },
   { title: "Gas consumption (fictional countries)", tLabel: "Gas consumption (TWh)", tShort: "TWh", tMin: 20, tMax: 380, what: "gas consumption", outUnit: "kWh", factor: 1000, conv: "1 TWh = 1,000,000,000 kWh", row: 3 },
-  { title: "Public library loans (fictional countries)", tLabel: "Loans (thousand)", tShort: "thousand loans", tMin: 2000, tMax: 60000, what: "the number of library loans", outUnit: "loans", factor: 0.001, d: 2, conv: "thousand loans ÷ million people = loans per person × 1/1,000", row: 4 },
-  { title: "Rail passengers (fictional countries)", tLabel: "Passenger-km (billion)", tShort: "billion pkm", tMin: 4, tMax: 110, what: "rail travel", outUnit: "km", factor: 1000, conv: "1 billion km ÷ 1 million people = 1,000 km per person", row: 1 }
+  { title: "Public library loans (fictional countries)", tLabel: "Loans (thousand)", tShort: "thousand loans", tMin: 2000, tMax: 60000, what: "the number of library loans", stem: "How many library loans were there per inhabitant in {r}?", outUnit: "loans", factor: 0.001, d: 2, conv: "thousand loans ÷ million people = loans per person × 1/1,000", row: 4 },
+  { title: "Rail passengers (fictional countries)", tLabel: "Passenger-km (billion)", tShort: "billion pkm", tMin: 4, tMax: 110, what: "rail travel", stem: "How many kilometres did people in {r} travel by rail per inhabitant?", outUnit: "km", factor: 1000, conv: "1 billion km ÷ 1 million people = 1,000 km per person", row: 1 }
 ]);
 rep("workload", [
   { title: "Translation teams", teams: ["Team DE", "Team FR", "Team IT", "Team PL"], unit: "Pages", row: 0, add: 3 },
@@ -935,6 +1277,85 @@ rep("twoExhibits", [
   { title: "Sports facilities budget", total: 75, row: 4 },
   { title: "Flood protection budget", total: 180, row: 2 }
 ]);
+const SECTORS = ["Manufacturing", "Construction", "Retail", "Tourism", "Agriculture"];
+rep("indexValue", [
+  { title: "Output by sector", first: "Sector", names: SECTORS, years: ["2015", "2019", "2021", "2023", "2024"], unit: "EUR million", what: "output", bMin: 400, bMax: 4800, row: 1, year: 3 },
+  { title: "Exports by product group", first: "Product group", names: ["Machinery", "Chemicals", "Food", "Vehicles", "Textiles"], years: ["2016", "2018", "2020", "2022", "2024"], unit: "EUR million", what: "exports", bMin: 600, bMax: 9000, row: 3, year: 4 },
+  { title: "Household spending by category", first: "Category", names: ["Housing", "Food", "Transport", "Leisure", "Health"], years: ["2015", "2018", "2020", "2022", "2024"], unit: "EUR billion", what: "spending", bMin: 12, bMax: 180, row: 0, year: 2 },
+  { title: "Research staff by sector", first: "Sector", names: ["Business", "Universities", "Government", "Non-profit", "Hospitals"], years: ["2016", "2019", "2021", "2023", "2025"], unit: "thousand", what: "research staff", bMin: 8, bMax: 140, row: 2, year: 3 }
+]);
+rep("indexChange", [
+  { title: "Turnover by sector", first: "Sector", names: SECTORS, years: ["2015", "2019", "2021", "2023", "2024"], what: "turnover", row: 2, pair: [2, 4] },
+  { title: "House prices by region", first: "Region", names: REGIONS.slice(0, 5), years: ["2015", "2018", "2020", "2022", "2024"], what: "house price index", row: 0, pair: [1, 3] },
+  { title: "Energy prices by fuel", first: "Fuel", names: ["Electricity", "Natural gas", "Heating oil", "Diesel", "Petrol"], years: ["2016", "2019", "2021", "2023", "2025"], what: "price", row: 4, pair: [2, 4] },
+  { title: "Wages by occupation", first: "Occupation", names: ["Nurses", "Teachers", "Engineers", "Drivers", "Clerks"], years: ["2015", "2018", "2020", "2022", "2024"], what: "average wage", row: 1, pair: [1, 4] }
+]);
+rep("marketSharePP", [
+  { title: "Sales of electric buses by manufacturer", first: "Manufacturer", firms: ["Maker A", "Maker B", "Maker C", "Maker D", "Maker E"], years: ["2022", "2023", "2024"], unit: "units", min: 120, max: 900, row: 2 },
+  { title: "Mobile subscriptions by operator", first: "Operator", firms: ["Operator 1", "Operator 2", "Operator 3", "Operator 4", "Operator 5"], years: ["2021", "2022", "2023"], unit: "thousand", min: 400, max: 3800, row: 0 },
+  { title: "Passengers by airline", first: "Airline", firms: ["Airline P", "Airline Q", "Airline R", "Airline S", "Airline T"], years: ["2022", "2023", "2024"], unit: "thousand", min: 600, max: 5200, row: 3 },
+  { title: "Heat pump sales by brand", first: "Brand", firms: ["Brand V", "Brand W", "Brand X", "Brand Y", "Brand Z"], years: ["2022", "2023", "2024"], unit: "units", min: 900, max: 7600, row: 1 }
+]);
+rep("requiredGrowth", [
+  { title: "Renewable electricity and 2030 targets (fictional countries)", label: "Output", unit: "TWh", min: 12, max: 140, startYear: 2024, endYear: 2030, row: 0 },
+  { title: "Research spending targets (fictional countries)", label: "Spending", unit: "EUR billion", min: 4, max: 60, startYear: 2025, endYear: 2030, row: 2 },
+  { title: "Broadband connections targets (fictional countries)", label: "Connections", unit: "million", min: 1.5, max: 22, startYear: 2023, endYear: 2030, row: 4 },
+  { title: "Recycling capacity targets (fictional countries)", label: "Capacity", unit: "million t", min: 2, max: 30, startYear: 2024, endYear: 2028, row: 1 }
+]);
+rep("fixedVariable", [
+  { title: "Conference venues", venues: ["Venue A", "Venue B", "Venue C", "Venue D"], row: 1, n: 120 },
+  { title: "Training centres", venues: ["Centre North", "Centre South", "Centre East", "Centre West"], row: 3, n: 45 },
+  { title: "Meeting hotels", venues: ["Hotel 1", "Hotel 2", "Hotel 3", "Hotel 4"], row: 0, n: 80 },
+  { title: "Event halls", venues: ["Hall V", "Hall W", "Hall X", "Hall Y"], row: 2, n: 260 }
+]);
+rep("breakEven", [
+  { title: "Printing contracts", offers: ["Offer A", "Offer B", "Offer C", "Offer D"], unit: "page", vMin: 0.02, vMax: 0.12, pair: [0, 1] },
+  { title: "Car-sharing plans", offers: ["Plan 1", "Plan 2", "Plan 3", "Plan 4"], unit: "kilometre", vMin: 0.15, vMax: 0.6, pair: [2, 3] },
+  { title: "Electricity tariffs", offers: ["Tariff X", "Tariff Y", "Tariff Z", "Tariff W"], unit: "kWh", vMin: 0.12, vMax: 0.42, pair: [1, 0] },
+  { title: "Cloud storage plans", offers: ["Plan S", "Plan M", "Plan L", "Plan XL"], unit: "gigabyte", vMin: 0.01, vMax: 0.09, pair: [3, 2] }
+]);
+rep("proportional", [
+  { title: "Regional statistics (fictional regions)", amount: 48, row: 2 },
+  { title: "Population and land (fictional regions)", amount: 125, row: 0 },
+  { title: "Regional overview (fictional regions)", amount: 9.6, row: 4 },
+  { title: "Key regional data (fictional regions)", amount: 310, row: 5 }
+]);
+rep("discountVat", [
+  { title: "Price list for office equipment", items: ["Laptops", "Monitors", "Docking stations", "Headsets", "Webcams"], pMin: 40, pMax: 1400, row: 0, n: 25 },
+  { title: "Price list for laboratory supplies", items: ["Microscopes", "Centrifuges", "Pipettes", "Freezers", "Scales"], pMin: 60, pMax: 6400, row: 3, n: 4 },
+  { title: "Price list for furniture", items: ["Desks", "Chairs", "Cabinets", "Shelves", "Lamps"], pMin: 30, pMax: 900, row: 1, n: 60 },
+  { title: "Price list for school equipment", items: ["Tablets", "Projectors", "Whiteboards", "Printers", "Speakers"], pMin: 50, pMax: 1800, row: 2, n: 12 }
+]);
+rep("unitPriceCategory", [
+  { title: "Offers for coffee beans", suppliers: ["Supplier A", "Supplier B", "Supplier C", "Supplier D", "Supplier E", "Supplier F"], what: "coffee beans", pMin: 14, pMax: 26 },
+  { title: "Offers for printer toner", suppliers: ["Vendor 1", "Vendor 2", "Vendor 3", "Vendor 4", "Vendor 5", "Vendor 6"], what: "toner powder", pMin: 60, pMax: 110 },
+  { title: "Offers for de-icing salt", suppliers: ["Firm P", "Firm Q", "Firm R", "Firm S", "Firm T", "Firm U"], what: "de-icing salt", pMin: 0.3, pMax: 0.8 },
+  { title: "Offers for seed mixtures", suppliers: ["Grower 1", "Grower 2", "Grower 3", "Grower 4", "Grower 5", "Grower 6"], what: "grass seed", pMin: 6, pMax: 15 }
+]);
+rep("gapCategory", [
+  { title: "Exports and imports of services (EUR billion)", unit: "EUR bn", years: ["2019", "2020", "2021", "2022", "2023", "2024"], a: "Exports", b: "Imports", min: 40, max: 95 },
+  { title: "Job vacancies and hires (thousand)", unit: "thousand", years: ["2019", "2020", "2021", "2022", "2023", "2024"], a: "Vacancies", b: "Hires", min: 60, max: 180, relative: true },
+  { title: "Applications and places at universities (thousand)", unit: "thousand", years: ["2020", "2021", "2022", "2023", "2024", "2025"], a: "Applications", b: "Places", min: 30, max: 90 },
+  { title: "Electricity demand and domestic generation (TWh)", unit: "TWh", years: ["2019", "2020", "2021", "2022", "2023", "2024"], a: "Demand", b: "Domestic generation", min: 50, max: 120, relative: true }
+]);
+rep("combinedRate", [
+  { title: "Document scanners", first: "Scanner", item: "Pages", units: ["Scanner A", "Scanner B", "Scanner C", "Scanner D"], rMin: 30, rMax: 160, pair: [0, 2], n: 12000 },
+  { title: "Bottling lines", first: "Line", item: "Bottles", units: ["Line 1", "Line 2", "Line 3", "Line 4"], rMin: 80, rMax: 400, pair: [1, 3], n: 25000 },
+  { title: "Translation teams", first: "Team", item: "Words", units: ["Team North", "Team South", "Team East", "Team West"], rMin: 40, rMax: 120, pair: [2, 3], n: 9000 },
+  { title: "Parcel sorting machines", first: "Machine", item: "Parcels", units: ["Machine V", "Machine W", "Machine X", "Machine Y"], rMin: 60, rMax: 300, pair: [0, 1], n: 18000 }
+]);
+rep("percentMore", [
+  { title: "Health spending (fictional countries)", tLabel: "Health spending (EUR million)", tMin: 2000, tMax: 90000, what: "health spending", pair: [0, 3] },
+  { title: "Cultural spending (fictional countries)", tLabel: "Cultural spending (EUR million)", tMin: 300, tMax: 9000, what: "cultural spending", pair: [2, 1] },
+  { title: "Electricity use (fictional countries)", tLabel: "Electricity use (GWh)", tMin: 9000, tMax: 300000, what: "electricity use", pair: [4, 0] },
+  { title: "Book sales (fictional countries)", tLabel: "Books sold (thousand)", tMin: 900, tMax: 60000, what: "the number of books sold", pair: [1, 4] }
+]);
+rep("periodAverage", [
+  { title: "Visitors per month (thousand)", first: "Site", series: ["Museum", "Castle", "Gardens"], min: 12, max: 95, what: "number of visitors", row: 1, range: [5, 8] },
+  { title: "Calls to a help line per month", first: "Line", series: ["General", "Tax", "Benefits"], min: 800, max: 4800, what: "number of calls", row: 0, range: [2, 6] },
+  { title: "Rainfall per month (mm)", first: "Station", series: ["Station A", "Station B", "Station C"], min: 18, max: 140, what: "rainfall", row: 2, range: [8, 11] },
+  { title: "Applications received per month", first: "Programme", series: ["Grants", "Loans", "Guarantees"], min: 60, max: 420, what: "number of applications", row: 1, range: [0, 4] }
+]);
 if (plan.length !== 150) throw new Error("plan has " + plan.length);
 
 /* ---------- build: interleave templates so each set mixes them ---------- */
@@ -942,15 +1363,16 @@ const byTemplate = {};
 plan.forEach(([name, c]) => (byTemplate[name] = byTemplate[name] || []).push(c));
 const names = Object.keys(byTemplate);
 const ordered = [];
-for (let round_ = 0; round_ < 6; round_++) names.forEach((n) => ordered.push([n, byTemplate[n][round_]]));
+for (let round_ = 0; round_ < 4; round_++) names.forEach((n) => { if (byTemplate[n][round_]) ordered.push([n, byTemplate[n][round_]]); });
 
+const CATEGORY = new Set(["ratioCategory", "surplusCategory", "shareCategory", "unitPriceCategory", "gapCategory"]);
 const items = ordered.map(([name, c], i) => {
   const target = (i * 2 + Math.floor(i / 5)) % 5;
   let t, pool = null, lastErr;
   // Regenerate the data if an item is unusable (rounding tie, too few plausible distractors).
   for (let attempt = 0; attempt < 50; attempt++) {
     try {
-      t = name === "ratioCategory" || name === "surplusCategory" || name === "shareCategory" ? T[name](c, target) : T[name](c);
+      t = CATEGORY.has(name) ? T[name](c, target) : T[name](c);
       pool = t.options ? null : assembleNumeric(t);
       lastErr = null;
       break;
@@ -975,10 +1397,12 @@ order.forEach((i) => {
 });
 const built = items.map(({ t, pool, k }) => {
   const { options, answer, optionNotes } = pool ? finalize(pool, k) : t;
-  const q = { topic: t.topic, difficulty: t.difficulty };
+  const q = { topic: t.topic, difficulty: 0 };
   if (t.answerType) q.answerType = t.answerType;
   q.exhibits = t.exhibits;
   Object.assign(q, { stem: t.stem, options, answer, hints: t.hints, solution: t.solution, optionNotes, explanation: t.explanation });
+  // N11: difficulty follows from the worked solution (steps) and the number of exhibits, not the template.
+  q.difficulty = numericalDifficulty(q);
   return q;
 });
 
@@ -988,9 +1412,11 @@ sizes.forEach((size, si) => {
   const n = si + 1, id = String(n).padStart(2, "0");
   const qs = built.slice(start, start + size).map((q, k) => ({ id: `n${id}-${String(k + 1).padStart(2, "0")}`, ...q }));
   start += size;
-  const set = { id: "numerical-" + id, section: "numerical", title: `Numerical Reasoning · Set ${n}`, description: `${size} data-interpretation items with worked solutions (generated).`, version: 2, questions: qs };
+  const set = { id: "numerical-" + id, section: "numerical", title: `Numerical Reasoning · Set ${n}`, description: `${size} data-interpretation items with worked solutions (generated).`, version: 3, questions: qs };
   fs.writeFileSync(path.join(root, `questions/numerical/numerical-set-${id}.js`), "/* Generated by scripts/generators/numerical.mjs. Edit the generator, not this file. */\nEPSO_BANK.registerSet(" + JSON.stringify(set, null, 2) + ");\n");
 });
 const dist = [0, 0, 0, 0, 0], diff = { 1: 0, 2: 0, 3: 0 };
 built.forEach((q) => { dist[q.answer]++; diff[q.difficulty]++; });
-console.log("numerical: 150 items; answer letters A–E", dist.join("/"), "; difficulty", JSON.stringify(diff));
+const perTopic = {};
+built.forEach((q) => { perTopic[q.topic] = (perTopic[q.topic] || 0) + 1; });
+console.log("numerical: 150 items; answer letters A–E", dist.join("/"), "; difficulty", JSON.stringify(diff), "; templates", names.length, "; most items per topic", Math.max(...Object.values(perTopic)));

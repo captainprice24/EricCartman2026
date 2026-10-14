@@ -6,6 +6,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { abstractBlind, verbalSetStats, VERBAL_LIMITS } from "./lib/blind.mjs";
+import { numericalDifficulty, numericalScore } from "./lib/difficulty.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const qdir = path.join(root, "questions");
@@ -166,6 +167,8 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       if (!Array.isArray(q.solution) || !q.solution.map(en).every(isStr)) err(where, "solution (worked steps) is required");
       else if (q.difficulty >= 2 && q.solution.length < 2) err(where, "medium and harder items need at least 2 solution steps");
       if (q.answerType !== undefined && q.answerType !== "category") err(where, "answerType may only be 'category'");
+      // N11: difficulty follows from the worked steps and the data load (scripts/lib/difficulty.mjs).
+      else if (Array.isArray(q.solution) && q.difficulty !== numericalDifficulty(q)) err(where, `difficulty ${q.difficulty} does not match the worked solution (score ${numericalScore(q)} → ${numericalDifficulty(q)}); see the rubric in docs/QUESTION_FORMAT.md`);
       const key = q.answerType === "category" ? null : numberOf(en(q.options[q.answer]));
       if (key !== null) {
         q.options.forEach((o, i) => {

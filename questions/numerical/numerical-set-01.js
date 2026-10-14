@@ -4,12 +4,12 @@ EPSO_BANK.registerSet({
   "section": "numerical",
   "title": "Numerical Reasoning · Set 1",
   "description": "10 data-interpretation items with worked solutions (generated).",
-  "version": 2,
+  "version": 3,
   "questions": [
     {
       "id": "n01-01",
       "topic": "Percentage change of a total",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
@@ -30,35 +30,35 @@ EPSO_BANK.registerSet({
               "891"
             ],
             [
-              "West",
+              "East",
               "278",
               "289",
               "315",
               "328"
             ],
             [
-              "Centre",
+              "West",
               "143",
               "152",
               "154",
               "168"
             ],
             [
-              "Uplands",
+              "Centre",
               "731",
               "797",
               "773",
               "781"
             ],
             [
-              "East",
+              "Coast",
               "474",
               "479",
               "493",
               "483"
             ],
             [
-              "Coast",
+              "Uplands",
               "311",
               "305",
               "305",
@@ -69,35 +69,35 @@ EPSO_BANK.registerSet({
       ],
       "stem": "By what percentage did the combined number of visitors of the six regions change between 2021 and 2024?",
       "options": [
+        "4.8%",
         "4.9%",
         "5.1%",
         "5.3%",
-        "5.5%",
         "6.8%"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Add up the 2021 column and the 2024 column; ignore the other years.",
         "Percentage change = (new total − old total) ÷ old total × 100."
       ],
       "solution": [
-        "Total 2021 = 2,812",
-        "Total 2024 = 2,962",
+        "Total 2021 = 875 + 278 + 143 + 731 + 474 + 311 = 2,812",
+        "Total 2024 = 891 + 328 + 168 + 781 + 483 + 311 = 2,962",
         "Change = (2,962 − 2,812) ÷ 2,812 × 100 = 5.33%"
       ],
       "optionNotes": [
+        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This multiplies a one-year change by the number of years instead of comparing the two years directly.",
         "This divides the change by the 2024 total. Always divide by the starting value.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This is the change for Uplands alone, not for the total."
+        "This is the change for Centre alone, not for the total."
       ],
       "explanation": "Total first, then the percentage. Averaging row percentages and dividing by the later value are the two classic errors; extra years in the table are there to distract."
     },
     {
       "id": "n01-02",
       "topic": "Share of a total",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -162,9 +162,9 @@ EPSO_BANK.registerSet({
         "Add the two countries, then divide by the total of all six."
       ],
       "solution": [
-        "Estoria + Sundra = 441.0",
-        "Total of six = 1,501.0",
-        "Share = 29.38%"
+        "Estoria + Sundra = 151.0 + 290.0 = 441.0",
+        "Total of six = 151.0 + 73.0 + 326.0 + 290.0 + 245.0 + 416.0 = 1,501.0",
+        "Share = 441.0 ÷ 1,501.0 × 100 = 29.38%"
       ],
       "optionNotes": [
         "This adds the wrong country: check that you are using Estoria and Sundra.",
@@ -178,7 +178,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-03",
       "topic": "Per-capita change",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -259,7 +259,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-04",
       "topic": "Percentage points",
-      "difficulty": 3,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "line",
@@ -321,11 +321,11 @@ EPSO_BANK.registerSet({
       "answer": 4,
       "hints": [
         "Percentage points = later share − earlier share. Do not divide.",
-        "Read the exact values from the table under the chart."
+        "Read the values labelled on the chart for the right series and years."
       ],
       "solution": [
         "2023: 36.3%; 2018: 25.7%",
-        "Difference = 10.6 percentage points"
+        "Difference: 36.3 − 25.7 = 10.6 percentage points"
       ],
       "optionNotes": [
         "This starts from 2019 instead of 2018.",
@@ -339,7 +339,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-05",
       "topic": "Ratios from a chart",
-      "difficulty": 2,
+      "difficulty": 1,
       "answerType": "category",
       "exhibits": [
         {
@@ -487,7 +487,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-07",
       "topic": "Weighted average",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
@@ -549,7 +549,7 @@ EPSO_BANK.registerSet({
         "Dir. A: 160 × 7,800 = 1,248,000",
         "Dir. C: 257 × 5,700 = 1,464,900",
         "Dir. D: 187 × 5,700 = 1,065,900",
-        "Total ÷ 604 = EUR 6,256"
+        "Sum ÷ people: 3,778,800 ÷ (160 + 257 + 187) = EUR 6,256"
       ],
       "optionNotes": [
         "Correct.",
@@ -562,7 +562,7 @@ EPSO_BANK.registerSet({
     },
     {
       "id": "n01-08",
-      "topic": "Reverse percentages",
+      "topic": "Removing VAT",
       "difficulty": 2,
       "exhibits": [
         {
@@ -616,13 +616,13 @@ EPSO_BANK.registerSet({
       ],
       "stem": "What is the total amount excluding VAT of the invoices from suppliers in Aldoria?",
       "options": [
+        "EUR 9,359.46",
         "EUR 10,984.95",
         "EUR 11,304.88",
         "EUR 11,491.74",
-        "EUR 11,684.87",
-        "EUR 13,344.42"
+        "EUR 11,684.87"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Select the invoices from that country only.",
         "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
@@ -630,21 +630,21 @@ EPSO_BANK.registerSet({
       "solution": [
         "9,507 ÷ 1.21 = 7,857.02",
         "4,398 ÷ 1.21 = 3,634.71",
-        "Total = EUR 11,491.74"
+        "Total = 7,857.02 + 3,634.71 = EUR 11,491.74"
       ],
       "optionNotes": [
+        "This includes an invoice from another country.",
         "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
         "This applies another country's VAT rate.",
         "Correct.",
-        "This applies another country's VAT rate.",
-        "This includes an invoice from another country."
+        "This applies another country's VAT rate."
       ],
       "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
     },
     {
       "id": "n01-09",
       "topic": "Budget reallocation",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "pie",
@@ -721,13 +721,13 @@ EPSO_BANK.registerSet({
       ],
       "stem": "If 25% of the travel budget is moved to communication, what will the communication budget be?",
       "options": [
+        "EUR 5.57 million",
         "EUR 6.12 million",
         "EUR 6.70 million",
         "EUR 7.44 million",
-        "EUR 7.92 million",
-        "EUR 8.40 million"
+        "EUR 7.92 million"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Use this year's pie only; last year's table is not needed.",
         "The amount moved is 25% of the travel budget, not of the total."
@@ -738,18 +738,18 @@ EPSO_BANK.registerSet({
         "Communication: 14% × 48 + moved = EUR 7.44 million"
       ],
       "optionNotes": [
+        "This uses last year's figures instead of this year's.",
         "This uses last year's shares with this year's total.",
         "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This increases communication by 25% of its own budget."
+        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
       ],
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
       "id": "n01-10",
       "topic": "Shares in a stacked chart",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "stacked",
@@ -811,7 +811,7 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Total 2022 = 22 + 68 + 82 = 172",
-        "22 ÷ 172 × 100 = 12.79%"
+        "Share = 22 ÷ 172 × 100 = 12.79%"
       ],
       "optionNotes": [
         "Correct.",

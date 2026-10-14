@@ -15,9 +15,16 @@ test("calcEval: precedence, parentheses and unary minus", () => {
   assert.equal(C.calcEval("500÷0.85×0.96"), 564.705882353);
 });
 
-test("calcEval: percent divides the preceding number by 100", () => {
-  assert.equal(C.calcEval("200×15%"), 30);
-  assert.equal(C.calcEval("50%"), 0.5);
+test("calcEval: TAO basic keys — power and square root, no percent key", () => {
+  assert.equal(C.calcEval("2^10"), 1024);
+  assert.equal(C.calcEval("2^3^2"), 512, "power is right-associative");
+  assert.equal(C.calcEval("−2^2"), -4);
+  assert.equal(C.calcEval("1.05^3"), 1.157625);
+  assert.equal(C.calcEval("√16+2"), 6);
+  assert.equal(C.calcEval("√(9×4)"), 6);
+  assert.equal(C.calcEval("200×15÷100"), 30);
+  assert.throws(() => C.calcEval("200×15%"));
+  assert.throws(() => C.calcEval("√−4"));
 });
 
 test("calcEval: accepts a trailing decimal point and a leading one", () => {

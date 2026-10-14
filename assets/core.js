@@ -20,24 +20,28 @@
 
   /* ---------- calculator ---------- */
   // Supports + − × ÷ ( ) and %, where % divides the number before it by 100 (so 200×15% = 30).
+  // Mirrors the basic calculator of TAO, the platform EPSO uses (oat-sa/tao-core-ui-fe): digits, + − × ÷,
+  // parentheses, power (^) and square root (√). It has no percent key, so percentages are typed as ÷100.
   function calcEval(expr) {
     var src = String(expr).replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-").replace(/\s+/g, "");
     if (!src) throw new Error("empty");
-    var toks = src.match(/\d+\.?\d*|\.\d+|[-+*/()%]/g);
+    var toks = src.match(/\d+\.?\d*|\.\d+|[-+*/()^√]/g);
     if (!toks || toks.join("") !== src) throw new Error("bad");
-    var out = [], ops = [], prec = { "+": 1, "-": 1, "*": 2, "/": 2, "u": 3 };
+    // Precedence: unary minus below power (−2^2 = −4), square root binds tightest; power is right-associative.
+    var out = [], ops = [], prec = { "+": 1, "-": 1, "*": 2, "/": 2, "u": 3, "^": 4, "r": 5 };
     var prev = null;
     toks.forEach(function (t) {
       if (/^[\d.]/.test(t)) out.push(parseFloat(t));
-      else if (t === "%") out.push("%");
       else if (t === "(") ops.push(t);
       else if (t === ")") {
         while (ops.length && ops[ops.length - 1] !== "(") out.push(ops.pop());
         if (!ops.length) throw new Error("paren");
         ops.pop();
       } else {
-        var op = t === "-" && (prev === null || /^[-+*/(]$/.test(prev)) ? "u" : t;
-        while (ops.length && ops[ops.length - 1] !== "(" && op !== "u" && prec[ops[ops.length - 1]] >= prec[op]) out.push(ops.pop());
+        var op = t === "√" ? "r" : t === "-" && (prev === null || /^[-+*/(^√]$/.test(prev)) ? "u" : t;
+        var prefix = op === "u" || op === "r";
+        while (!prefix && ops.length && ops[ops.length - 1] !== "(" &&
+          (op === "^" ? prec[ops[ops.length - 1]] > prec[op] : prec[ops[ops.length - 1]] >= prec[op])) out.push(ops.pop());
         ops.push(op);
       }
       prev = t;
@@ -46,12 +50,15 @@
     var st = [];
     out.forEach(function (t) {
       if (typeof t === "number") st.push(t);
-      else if (t === "%") { if (!st.length) throw new Error("bad"); st.push(st.pop() / 100); }
-      else if (t === "u") { if (!st.length) throw new Error("bad"); st.push(-st.pop()); }
-      else {
+      else if (t === "u" || t === "r") {
+        if (!st.length) throw new Error("bad");
+        var x = st.pop();
+        if (t === "r" && x < 0) throw new Error("bad");
+        st.push(t === "u" ? -x : Math.sqrt(x));
+      } else {
         var b = st.pop(), a = st.pop();
         if (a === undefined || b === undefined) throw new Error("bad");
-        st.push(t === "+" ? a + b : t === "-" ? a - b : t === "*" ? a * b : a / b);
+        st.push(t === "+" ? a + b : t === "-" ? a - b : t === "*" ? a * b : t === "/" ? a / b : Math.pow(a, b));
       }
     });
     if (st.length !== 1 || !isFinite(st[0])) throw new Error("bad");

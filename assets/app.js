@@ -363,15 +363,15 @@
     var ui = state.ui, out = "";
     if (state.session.review || (!ui.scratch && !ui.calc)) return "";
     if (ui.calc) {
-      var keys = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "%", "+", "(", ")", "⌫", "C"];
+      var keys = ["C", "(", ")", "⌫", "7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "√", "+", "^"];
       out += '<section class="tool-panel calc" aria-label="Calculator"><div class="pop-head"><h2>Calculator</h2><button class="link-btn" data-act="tool-calc">Close</button></div>' +
         '<div class="calc-screen" aria-live="polite"><div class="calc-expr" id="calc-expr">' + esc(ui.calcExpr || "0") + '</div><div class="calc-out" id="calc-out">' + esc(ui.calcOut) + "</div></div>" +
         '<div class="calc-keys">' + keys.map(function (k) {
-          var label = { "÷": "divide", "×": "multiply", "−": "minus", "+": "plus", "⌫": "delete last character", C: "clear", "%": "percent" }[k];
+          var label = { "÷": "divide", "×": "multiply", "−": "minus", "+": "plus", "⌫": "delete last character", C: "clear", "√": "square root", "^": "to the power of" }[k];
           return '<button data-act="calc" data-k="' + esc(k) + '"' + (label ? ' aria-label="' + label + '"' : "") + ">" + esc(k) + "</button>";
         }).join("") +
         '<button class="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
-        '<p class="small muted">Keyboard works while the calculator is open. % divides the number before it by 100, so 200×15% = 30.</p></section>';
+        '<p class="small muted">The keys follow the basic calculator of TAO, the platform EPSO uses. It has no % key: type 15% as ÷100 (200×15÷100 = 30). The keyboard works while the calculator is open.</p></section>';
     }
     if (ui.scratch) {
       out += '<section class="tool-panel" aria-label="Scratchpad"><div class="pop-head"><h2><label for="scratch">Scratchpad</label></h2><button class="link-btn" data-act="tool-scratch">Close</button></div>' +
@@ -964,7 +964,7 @@
   }
 
   /* ---------- keyboard (W1, W7) ---------- */
-  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "%": "%", ".": ".", ",": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
+  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", ",": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
   function onKey(e) {
     var tag = (e.target.tagName || "").toLowerCase();
     if (tag === "textarea" || tag === "input" || tag === "select" || e.metaKey || e.ctrlKey || e.altKey) return;

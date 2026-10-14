@@ -16,9 +16,18 @@ This repository is a dependency-free static web app for practising the EPSO AD5 
 
 Quality bar (most of it is enforced by the validator):
 
-- Exactly one correct option. Check numerical answers with real calculations (the generators do this).
-- Verbal items: passages of 170–260 words, at most one 'False.' distractor, at least one 'Not supported.'
-  and one 'Overstated.' distractor, and keys that paraphrase or infer rather than copy.
+- Exactly one correct option. Numerical answers are re-solved independently by
+  `tests/numerical-oracle.test.mjs` (`npm test`); add a solver there for every new numerical topic.
+- Verbal items follow `docs/VERBAL_AUTHORING_BRIEF.md`: passages of 170–260 words, 0–2 distractors of
+  each type (False / Not supported / Overstated), and no answer cues. The validator rejects a set whose
+  key can be found by form (hedged or absolute wording, length, overlap with the passage) or whose
+  distractor structure repeats.
+- **Blind review before merge (verbal).** A second reviewer who has not seen the key answers every new
+  item: `node scripts/blind-review.mjs export <set>` gives them passages and options only; save their
+  answers as JSON and run `node scripts/blind-review.mjs compare <set> <answers.json>`. Every key must
+  match. Settle every distractor-label disagreement by relabelling or rewording before merging.
+- Abstract items come only from the generator. Blind strategies (most central option, odd one out,
+  per-element majority) must stay at or below 30% per set.
 - Original content only. Never copy questions from EPSO, EU Training, EPSOready or other providers.
 - Explanations and hints never cite option letters.
 
