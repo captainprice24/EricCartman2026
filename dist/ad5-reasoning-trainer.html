@@ -1,0 +1,2588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AD5 Reasoning Trainer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Practise the EPSO AD5 verbal, numerical and abstract reasoning tests: coach mode, practice and timed exam simulation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Public+Sans:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout concept: a calm exam console. The home page is a briefing sheet; the session is a two-pane
+   reading desk (stimulus left, answers right) under a TAO-style toolbar strip. */
+:root {
+  --paper: #f3f5fa;
+  --surface: #ffffff;
+  --sunken: #e9edf6;
+  --ink: #15203b;
+  --muted: #5a6479;
+  --line: #d6dcea;
+  --accent: #1d3fa6;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2e8fa;
+  --gold: #d9a400;
+  --gold-soft: #fff4cc;
+  --good: #1b7a4b;
+  --good-soft: #e3f4ea;
+  --bad: #b3261e;
+  --bad-soft: #fbe7e5;
+  --mark: #ffe680;
+  --fig-grey: #9aa3b6;
+  --s1: #1d3fa6;
+  --s2: #d9a400;
+  --s3: #2f8f83;
+  --font-ui: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0d1322; --surface: #151d31; --sunken: #1b2440; --ink: #e5e9f4; --muted: #9aa3ba; --line: #2a3452;
+    --accent: #8ea6ff; --accent-ink: #0d1322; --accent-soft: #1f2a4f; --gold: #f2c94c; --gold-soft: #3a3214;
+    --good: #5cc98f; --good-soft: #17352a; --bad: #ff8a80; --bad-soft: #3d1d1d; --mark: #6b5a12; --fig-grey: #7a849c;
+    --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0d1322; --surface: #151d31; --sunken: #1b2440; --ink: #e5e9f4; --muted: #9aa3ba; --line: #2a3452;
+  --accent: #8ea6ff; --accent-ink: #0d1322; --accent-soft: #1f2a4f; --gold: #f2c94c; --gold-soft: #3a3214;
+  --good: #5cc98f; --good-soft: #17352a; --bad: #ff8a80; --bad-soft: #3d1d1d; --mark: #6b5a12; --fig-grey: #7a849c;
+  --s1: #8ea6ff; --s2: #f2c94c; --s3: #5fc7b8; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { background: var(--paper); color: var(--ink); }
+body {
+  margin: 0;
+  font: 15px/1.55 var(--font-ui);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.15rem; font-weight: 700; }
+h3 { font-size: 1rem; font-weight: 700; margin-top: 20px; }
+p { margin: 0; }
+a { color: var(--accent); }
+.small { font-size: 0.82rem; }
+.muted { color: var(--muted); }
+.eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.05rem; color: var(--muted); max-width: 60ch; }
+kbd { font: 0.8rem var(--font-mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--surface); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.app { max-width: 1180px; margin: 0 auto; padding-top: 20px; }
+
+/* buttons & controls */
+.btn {
+  font: 600 0.92rem var(--font-ui); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn-primary:hover:not(:disabled) { filter: brightness(1.08); }
+.btn-lg { padding: 12px 20px; font-size: 1rem; }
+.btn-quiet { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+.btn-flag svg { width: 16px; height: 16px; fill: currentColor; }
+.btn-flag.on { background: var(--gold-soft); border-color: var(--gold); }
+.link-btn { font: 600 0.85rem var(--font-ui); background: none; border: 0; color: var(--accent); cursor: pointer; padding: 4px 2px; text-decoration: underline; text-underline-offset: 3px; }
+select, input[type="checkbox"] { font: inherit; color: var(--ink); }
+select { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-height: 40px; max-width: 100%; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.check { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.row-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; margin-top: 24px; }
+.pill { font-size: 0.75rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--sunken); color: var(--muted); white-space: nowrap; }
+.pill-ok { background: var(--good-soft); color: var(--good); }
+.pill-bad { background: var(--bad-soft); color: var(--bad); }
+.chip { font-weight: 700; font-size: 0.95rem; }
+.alert { background: var(--gold-soft); border: 1px solid var(--gold); border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; margin: 14px 0; }
+
+/* home */
+.home { display: grid; gap: 28px; }
+.masthead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: end; padding: 12px 0 8px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
+.mast-text { display: grid; gap: 10px; min-width: 0; }
+.format { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.format > div { padding: 12px 14px; border-left: 1px solid var(--line); }
+.format > div:first-child { border-left: 0; }
+.format dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.format dd { margin: 2px 0 0; font-variant-numeric: tabular-nums; }
+.format dd b { font-family: var(--font-mono); font-size: 1.05rem; }
+
+.exam-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: var(--accent); color: var(--accent-ink); border-radius: 14px; padding: 22px 24px; }
+.exam-card h2 { font-size: 1.4rem; margin-bottom: 6px; }
+.exam-card .muted { color: inherit; opacity: 0.85; max-width: 62ch; }
+.exam-start { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+.exam-start select { border-color: transparent; }
+.exam-card .btn-primary { background: var(--accent-ink); color: var(--accent); border-color: var(--accent-ink); }
+
+.train { display: grid; gap: 14px; }
+.train-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; }
+.train-head p { max-width: 60ch; margin-top: 4px; }
+.train-opts { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; justify-content: flex-end; }
+.ttable { display: grid; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.trow { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.7fr) minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 18px; border-top: 1px solid var(--line); }
+.trow:first-child { border-top: 0; }
+.tcell { display: flex; flex-direction: column; min-width: 0; }
+.tact { flex-direction: row; gap: 8px; }
+.big-num { font: 600 1.35rem var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.history h2 { margin-bottom: 10px; }
+.hist { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.hist li { display: grid; grid-template-columns: 130px 120px minmax(0, 1fr) auto; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--line); align-items: center; font-size: 0.9rem; }
+.hist li:first-child { border-top: 0; }
+.hist-date, .hist-score { font-family: var(--font-mono); font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+.hist-mode { font-weight: 600; }
+.foot { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 6px; font-size: 0.9rem; }
+
+/* cards (brief, lesson, between) */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 14px; }
+.narrow { max-width: 720px; margin: 0 auto; }
+.lesson { max-width: 820px; margin: 0 auto; }
+.lesson h2 { margin-top: 10px; }
+.brief-list { list-style: none; padding: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); }
+.brief-list li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.brief-list li:first-child { border-top: 0; }
+.rules { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.steps { counter-reset: st; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.steps li { counter-increment: st; display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 12px; }
+.steps li::before { content: counter(st); grid-row: span 2; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font: 700 0.9rem var(--font-mono); }
+.steps li span { color: var(--muted); }
+.traps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+/* session */
+.exam-bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px;
+}
+.bar-left, .bar-right { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
+.tools { display: flex; gap: 4px; background: var(--sunken); border-radius: 8px; padding: 3px; }
+.tool { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: var(--ink); font: 600 0.82rem var(--font-ui); padding: 6px 10px; border-radius: 6px; cursor: pointer; min-height: 34px; }
+.tool svg { width: 18px; height: 18px; fill: currentColor; }
+.tool.on { background: var(--surface); color: var(--accent); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
+.timer { font: 600 1rem var(--font-mono); font-variant-numeric: tabular-nums; padding: 6px 10px; border-radius: 6px; background: var(--sunken); white-space: nowrap; }
+.timer.warn { background: var(--gold-soft); color: var(--ink); }
+.timer.crit { background: var(--bad-soft); color: var(--bad); }
+
+.session { margin-top: 14px; display: grid; gap: 12px; }
+.qnav { display: flex; flex-wrap: wrap; gap: 6px; }
+.qdot { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: 600 0.85rem var(--font-mono); cursor: pointer; position: relative; }
+.qdot.answered { background: var(--accent-soft); border-color: var(--accent); }
+.qdot.current { outline: 3px solid var(--accent); outline-offset: 1px; }
+.qdot.flagged::after { content: ""; position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--surface); }
+.qdot.ok { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.qdot.bad { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.legend-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.legend-row span { display: inline-flex; align-items: center; gap: 6px; }
+.lg { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--line); display: inline-block; background: var(--surface); }
+.lg-ans { background: var(--accent-soft); border-color: var(--accent); }
+.lg-flag { background: var(--gold); border-color: var(--gold); }
+
+.q-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.q-abstract { grid-template-columns: minmax(0, 1fr); }
+.stimulus { padding: 22px 24px; border-right: 1px solid var(--line); min-width: 0; }
+.q-abstract .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
+.answer-pane { padding: 22px 24px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.stim-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+.passage { font: 1.06rem/1.7 var(--font-read); max-width: 65ch; display: grid; gap: 12px; }
+.passage.hl-on { cursor: text; }
+.passage.hl-on::before { content: "Select text to highlight it"; font: 600 0.75rem var(--font-ui); color: var(--gold); }
+.passage mark { background: var(--mark); color: inherit; border-radius: 2px; }
+.qhead { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.qnum { font: 600 0.85rem var(--font-mono); color: var(--muted); }
+.stem { font-size: 1.12rem; }
+
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: start; }
+.opt-main { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; text-align: left; width: 100%; font: inherit; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 12px 14px; cursor: pointer; }
+.opt-main:hover:not(:disabled) { border-color: var(--accent); }
+.opt-main:disabled { cursor: default; }
+.letter { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font: 700 0.85rem var(--font-mono); }
+.opt-body { display: grid; gap: 6px; min-width: 0; }
+.opt.chosen .opt-main { border-color: var(--accent); background: var(--accent-soft); }
+.opt.chosen .letter { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.opt.struck .opt-body > span { text-decoration: line-through; color: var(--muted); }
+.opt.struck .opt-body .fig { opacity: 0.3; }
+.opt.right .opt-main { border-color: var(--good); background: var(--good-soft); }
+.opt.right .letter { background: var(--good); border-color: var(--good); color: var(--surface); }
+.opt.wrong .opt-main { border-color: var(--bad); background: var(--bad-soft); }
+.opt.wrong .letter { background: var(--bad); border-color: var(--bad); color: var(--surface); }
+.opt-note { font-size: 0.86rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 6px; }
+.opt.right .opt-note, .opt.wrong .opt-note { color: var(--ink); }
+.strike { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; font-size: 0.85rem; margin-top: 8px; }
+.opt.struck .strike { background: var(--sunken); color: var(--ink); }
+
+.opts-fig { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.opts-fig .opt { grid-template-columns: minmax(0, 1fr); }
+.opts-fig .opt-main { grid-template-columns: minmax(0, 1fr); justify-items: center; padding: 10px; }
+.opts-fig .opt-body { width: 100%; }
+.opts-fig .strike { margin: 0 auto; }
+.opts-fig .opt-note { font-size: 0.78rem; }
+
+.series { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.frame { position: relative; border: 1.5px solid var(--line); border-radius: 8px; background: var(--surface); aspect-ratio: 1; max-width: 100%; display: grid; place-items: center; padding: 6px; }
+.frame-n { position: absolute; top: 4px; left: 6px; font: 600 0.7rem var(--font-mono); color: var(--muted); }
+.frame-q { border-style: dashed; background: var(--sunken); }
+.qmark { font: 700 2rem var(--font-mono); color: var(--muted); }
+.fig { width: 100%; max-width: 140px; aspect-ratio: 1; height: auto; display: block; }
+.fig * { stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; }
+.fig .f-black { fill: var(--ink); }
+.fig .f-grey { fill: var(--fig-grey); }
+.fig .f-white { fill: var(--surface); }
+.fig .f-none { fill: none; }
+.fig .f-line { fill: none; stroke-width: 3; }
+
+.exhibit { margin: 0; display: grid; gap: 10px; }
+.exhibit figcaption { font-weight: 700; }
+.exhibit-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+.table-wrap { overflow-x: auto; }
+.exhibit-table { border-collapse: collapse; width: 100%; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+.exhibit-table th, .exhibit-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+.exhibit-table thead th { background: var(--sunken); font-size: 0.8rem; }
+.exhibit-table .num { text-align: right; font-family: var(--font-mono); }
+.chart-wrap { overflow-x: auto; }
+.chart { width: 100%; min-width: 320px; height: auto; display: block; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axis { stroke: var(--muted); stroke-width: 1.2; }
+.chart text { fill: var(--muted); font: 11px var(--font-mono); }
+.chart .val { fill: var(--ink); font-size: 10.5px; }
+.chart .cat { fill: var(--ink); font: 600 11.5px var(--font-ui); }
+.bar.s0, .sw.s0 { fill: var(--s1); background: var(--s1); }
+.bar.s1, .sw.s1 { fill: var(--s2); background: var(--s2); }
+.bar.s2, .sw.s2 { fill: var(--s3); background: var(--s3); }
+.legend { display: flex; gap: 16px; font-size: 0.85rem; flex-wrap: wrap; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.unit { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+.coach { border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent-soft); padding: 14px 16px; display: grid; gap: 10px; }
+.coach-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.coach .eyebrow { color: var(--accent); }
+.method summary { cursor: pointer; font-weight: 700; font-size: 0.9rem; }
+.method ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 4px; font-size: 0.9rem; }
+.hints { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.hints li { background: var(--surface); border-radius: 8px; padding: 10px 12px; font-size: 0.93rem; }
+.hint-n { font: 700 0.72rem var(--font-mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 6px; }
+.coach-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.feedback { display: grid; gap: 12px; }
+.verdict { font-weight: 700; padding: 10px 14px; border-radius: 8px; }
+.verdict-ok { background: var(--good-soft); color: var(--good); }
+.verdict-bad, .verdict-skip { background: var(--bad-soft); color: var(--bad); }
+.solution, .takeaway { border-left: 3px solid var(--line); padding-left: 14px; display: grid; gap: 4px; }
+.solution ol { margin: 0; padding-left: 20px; font-family: var(--font-mono); font-size: 0.86rem; display: grid; gap: 2px; }
+.takeaway { border-left-color: var(--gold); }
+.q-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; }
+
+.pop { position: fixed; z-index: 40; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: min(320px, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 32px rgba(10, 20, 50, 0.22); padding: 12px; display: grid; gap: 10px; }
+.pop-scratch { right: auto; left: max(16px, env(safe-area-inset-left, 0px)); }
+.pop-head { display: flex; justify-content: space-between; align-items: center; }
+.pop textarea { width: 100%; min-height: 160px; resize: vertical; font: 0.9rem/1.5 var(--font-mono); color: var(--ink); background: var(--sunken); border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+.calc-screen { background: var(--sunken); border-radius: 8px; padding: 8px 10px; text-align: right; font-family: var(--font-mono); min-height: 58px; overflow-wrap: anywhere; }
+.calc-expr { font-size: 1.15rem; }
+.calc-out { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; }
+.calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.calc-keys button { font: 600 1rem var(--font-mono); padding: 10px 0; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.calc-keys button:hover { border-color: var(--accent); }
+.calc-keys .calc-eq { grid-column: span 4; background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* results */
+.results { display: grid; gap: 20px; }
+.verdict-box { border-radius: 14px; padding: 20px 22px; border: 2px solid; display: grid; gap: 10px; }
+.verdict-box.ok { border-color: var(--good); background: var(--good-soft); }
+.verdict-box.bad { border-color: var(--bad); background: var(--bad-soft); }
+.verdict-box ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.verdict-box li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 12px; align-items: center; font-variant-numeric: tabular-nums; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.score-tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 6px; }
+.score-big { font: 700 2.2rem var(--font-mono); font-variant-numeric: tabular-nums; }
+.score-big small { font-size: 1rem; color: var(--muted); }
+.meter { position: relative; height: 8px; border-radius: 4px; background: var(--sunken); }
+.meter i { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 4px; }
+.meter b { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+.weak ul { margin: 6px 0 0; padding-left: 20px; }
+.review-list { list-style: none; padding: 0; margin: 8px 0 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.review-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto auto; gap: 12px; align-items: center; padding: 8px 14px; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.review-list li:first-child { border-top: 0; }
+.rv-n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 600 0.78rem var(--font-mono); }
+.review-list .ok .rv-n { background: var(--good-soft); color: var(--good); }
+.review-list .bad .rv-n { background: var(--bad-soft); color: var(--bad); }
+.rv-ans { font-family: var(--font-mono); font-size: 0.82rem; white-space: nowrap; }
+
+.overlay { position: fixed; inset: 0; z-index: 60; background: rgba(8, 14, 30, 0.55); display: grid; place-items: center; padding: 16px; }
+.dialog { background: var(--surface); border-radius: 14px; padding: 22px; max-width: 440px; width: 100%; display: grid; gap: 10px; }
+.toast { position: fixed; z-index: 70; left: 50%; transform: translateX(-50%); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--paper); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; max-width: calc(100vw - 32px); }
+
+/* responsive */
+@media (max-width: 900px) {
+  .masthead { grid-template-columns: minmax(0, 1fr); }
+  .exam-card { grid-template-columns: minmax(0, 1fr); }
+  .train-head { grid-template-columns: minmax(0, 1fr); }
+  .train-opts { justify-content: flex-start; }
+  .q-layout { grid-template-columns: minmax(0, 1fr); }
+  .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
+  .trow { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .tact { grid-column: 1 / -1; }
+  .tact .btn { flex: 1; justify-content: center; }
+  .hist li { grid-template-columns: minmax(0, 1fr) auto; }
+  .hist-score { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .format { grid-template-columns: minmax(0, 1fr); }
+  .format > div { border-left: 0; border-top: 1px solid var(--line); }
+  .format > div:first-child { border-top: 0; }
+  .stimulus, .answer-pane { padding: 16px; }
+  .card { padding: 20px; }
+  .series { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .opts-fig { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tool span { display: none; }
+  .exam-bar { padding: 8px 10px; gap: 6px; }
+  .bar-left .muted { display: none; }
+  .bar-right { flex-wrap: nowrap; gap: 6px; width: 100%; justify-content: space-between; }
+  .bar-right .btn { padding: 7px 10px; min-height: 36px; }
+  .timer { font-size: 0.9rem; padding: 5px 8px; }
+  .qdot { width: 34px; height: 34px; }
+  .review-list li { grid-template-columns: 30px minmax(0, 1fr) auto; }
+  .rv-topic { display: none; }
+  .verdict-box li { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .verdict-box li .muted { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .opt-main, .btn, .qdot { transition: border-color 0.15s, background-color 0.15s; }
+}
+
+</style>
+</head>
+<body>
+<main id="app" class="app"><p style="padding:24px 0">Loading the trainer…</p></main>
+<noscript><p>This trainer needs JavaScript enabled.</p></noscript>
+<script>
+/*
+ * Question bank registry. Loaded before any question set file.
+ * Every set file calls EPSO_BANK.registerSet({...}). See docs/QUESTION_FORMAT.md.
+ */
+(function () {
+  var bank = window.EPSO_BANK || { sets: [] };
+  bank.registerSet = function (set) {
+    bank.sets.push(set);
+  };
+  window.EPSO_BANK = bank;
+})();
+
+</script>
+<script>
+window.EPSO_BUNDLED = true;
+</script>
+<script>
+EPSO_BANK.registerSet({
+  id: "verbal-01",
+  section: "verbal",
+  title: "Verbal Reasoning · Set 1",
+  description: "20 EPSO-style passages on EU institutions, policy, science and history.",
+  version: 1,
+  questions: [
+    {
+      id: "v01-01",
+      topic: "EU institutions",
+      difficulty: 1,
+      passage:
+        "The European Ombudsman investigates complaints about maladministration in the institutions, bodies, offices and agencies of the European Union. The office was created by the Maastricht Treaty, and the first Ombudsman took up duties in 1995. The Ombudsman is elected by the European Parliament.\n\nAny citizen or resident of the EU, and any business, association or other body with a registered office in the EU, may lodge a complaint. Complaints about national, regional or local administrations fall outside the Ombudsman's remit, even when those authorities are applying EU law; such complaints should be addressed to national ombudsmen. When the Ombudsman finds maladministration, the office can propose solutions and issue recommendations, but its decisions are not legally binding.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The Ombudsman can annul decisions of EU institutions found guilty of maladministration.",
+        "A complaint about a national tax authority applying EU VAT rules can be handled by the European Ombudsman.",
+        "A company with its registered office in an EU Member State may lodge a complaint with the European Ombudsman.",
+        "The European Ombudsman is appointed by the Council of the EU."
+      ],
+      answer: 2,
+      hints: [
+        "Each option tests one sentence of the text. Find who may complain, what is out of scope, and what powers the Ombudsman has.",
+        "Watch for options that exaggerate powers: 'annul' versus 'recommend'."
+      ],
+      optionNotes: [
+        "False. The text says the Ombudsman issues recommendations and that its decisions are not legally binding, so it cannot annul anything.",
+        "False. National authorities are outside the remit 'even when those authorities are applying EU law'.",
+        "Correct. 'Any business, association or other body with a registered office in the EU' may complain.",
+        "False. The text says the Ombudsman is elected by the European Parliament."
+      ],
+      explanation: "Option C restates the text almost word for word. A and D contradict it, and B is excluded by the 'even when applying EU law' clause."
+    },
+    {
+      id: "v01-02",
+      topic: "Education",
+      difficulty: 1,
+      passage:
+        "The Erasmus programme was launched in 1987 to support the mobility of students in higher education, allowing them to spend part of their studies at a university in another European country. Its name honours the Renaissance scholar Desiderius Erasmus, who studied and taught across Europe, and also works as an acronym: EuRopean Community Action Scheme for the Mobility of University Students.\n\nIn 2014 the programme was merged with other EU schemes to form Erasmus+, which covers education, training, youth and sport. Erasmus+ now funds exchanges not only for university students but also for apprentices, school pupils, teachers, adult learners and youth workers.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "When it was launched, the Erasmus programme was aimed at students in higher education.",
+        "The name 'Erasmus' was chosen solely because it formed a convenient acronym.",
+        "Sport has been covered by the programme since 1987.",
+        "University students now make up a minority of Erasmus+ participants."
+      ],
+      answer: 0,
+      hints: [
+        "Separate what the text says about 1987 from what it says about 2014.",
+        "One option is about participant shares. Does the text give any numbers?"
+      ],
+      optionNotes: [
+        "Correct. It was launched 'to support the mobility of students in higher education'.",
+        "False. The name honours Desiderius Erasmus and 'also' works as an acronym, so the acronym was not the only reason.",
+        "False. Sport was added with Erasmus+ in 2014.",
+        "Cannot be determined. The text lists the groups covered but gives no proportions. In EPSO tests an unsupported claim counts as incorrect."
+      ],
+      explanation: "Only A is fully supported. Words like 'solely' and claims about proportions the text never quantifies are classic traps."
+    },
+    {
+      id: "v01-03",
+      topic: "Economic and Monetary Union",
+      difficulty: 2,
+      passage:
+        "Before adopting the euro, an EU Member State must meet the convergence criteria set out in the Treaties. Its inflation rate must not exceed by more than 1.5 percentage points that of the three best-performing Member States in terms of price stability. Its government deficit must not exceed 3% of GDP, and its government debt must not exceed 60% of GDP, unless the ratio is diminishing sufficiently and approaching that reference value. The country must also have taken part in the Exchange Rate Mechanism (ERM II) for at least two years without severe tensions, and its long-term interest rates must not be more than 2 percentage points above those of the three best performers in price stability.\n\nDenmark negotiated an opt-out and is not obliged to adopt the euro. The other Member States outside the euro area are legally committed to joining once they meet the criteria. In 2023, Croatia became the twentieth member of the euro area.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Denmark is legally required to adopt the euro once it meets the convergence criteria.",
+        "A Member State whose government debt stands at 70% of GDP can never satisfy the debt criterion.",
+        "Croatia became the twentieth member of the euro area in 2023.",
+        "A candidate country must participate in ERM II for at least three years."
+      ],
+      answer: 2,
+      hints: [
+        "Absolute words like 'never' are risky. Check whether the text gives an exception.",
+        "Check each number in the options (two years, 60%, 1.5 points) against the text."
+      ],
+      optionNotes: [
+        "False. Denmark has an opt-out and 'is not obliged' to adopt the euro.",
+        "False. The text allows an exception if the ratio 'is diminishing sufficiently and approaching that reference value'.",
+        "Correct. This is stated in the last sentence.",
+        "False. The requirement is at least two years."
+      ],
+      explanation: "C is a direct restatement. B is the trap: the 'unless' clause means a 70% debt ratio does not automatically fail the criterion."
+    },
+    {
+      id: "v01-04",
+      topic: "Environment",
+      difficulty: 2,
+      passage:
+        "The EU Single-Use Plastics Directive, adopted in 2019, targets the plastic items most often found on European beaches. Where sustainable alternatives are readily available, certain products, including plastic cutlery, plates, straws, cotton bud sticks and expanded polystyrene food containers, were banned from the EU market from July 2021.\n\nFor products without such alternatives, the Directive takes a different approach. Plastic beverage bottles must contain at least 25% recycled plastic by 2025 (for PET bottles) and 30% by 2030 (for all plastic beverage bottles). Member States must also collect 77% of plastic bottles separately by 2025 and 90% by 2029. Caps and lids must remain attached to their containers.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The Directive bans all single-use plastic products from the EU market.",
+        "By 2030, all plastic beverage bottles must contain at least 30% recycled plastic.",
+        "Member States must collect 90% of plastic bottles separately by 2025.",
+        "Attached caps have proved unpopular with European consumers."
+      ],
+      answer: 1,
+      hints: [
+        "Match each date to its target: 2025 → 25% and 77%; 2029 → 90%; 2030 → 30%.",
+        "Is consumer opinion mentioned anywhere?"
+      ],
+      optionNotes: [
+        "False. Only certain products are banned, and only 'where sustainable alternatives are readily available'.",
+        "Correct. The text says 30% by 2030 'for all plastic beverage bottles'.",
+        "False. The 90% target is for 2029. For 2025 it is 77%.",
+        "Not supported. The text says nothing about consumer reactions."
+      ],
+      explanation: "Numeric options often swap a date and a figure. Lining each target up with its year shows that B is the only accurate pairing."
+    },
+    {
+      id: "v01-05",
+      topic: "Science",
+      difficulty: 1,
+      passage:
+        "Tardigrades, sometimes called water bears, are microscopic animals rarely longer than half a millimetre. They are famous for surviving conditions that would kill almost any other animal, including extreme cold, intense radiation and prolonged dehydration. They do this by entering a state known as cryptobiosis. Their body curls into a 'tun', loses almost all of its water and slows its metabolism to an almost undetectable level.\n\nIn a 2007 experiment, some tardigrades even survived exposure to the vacuum of space. Strictly speaking, however, tardigrades are not extremophiles. They do not thrive in extreme environments; they merely endure them. Most species live in ordinary damp habitats such as moss and leaf litter.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Tardigrades grow and reproduce best in extreme environments.",
+        "In the tun state, tardigrades retain most of their body water.",
+        "Some tardigrades have survived being exposed to the vacuum of space.",
+        "Tardigrades are the only animals capable of cryptobiosis."
+      ],
+      answer: 2,
+      hints: [
+        "The second paragraph draws a distinction between thriving and surviving.",
+        "'The only' is a strong claim. Does the text compare tardigrades with other animals that can do the same?"
+      ],
+      optionNotes: [
+        "False. The text says they 'do not thrive in extreme environments; they merely endure them'.",
+        "False. The tun 'loses almost all of its water'.",
+        "Correct. This happened in a 2007 experiment.",
+        "Not supported. The text never says that no other animal can enter cryptobiosis."
+      ],
+      explanation: "C is directly stated. D is a typical 'only' trap: the text describes tardigrades' ability but makes no claim of uniqueness."
+    },
+    {
+      id: "v01-06",
+      topic: "EU decision-making",
+      difficulty: 2,
+      passage:
+        "Most EU legislation is adopted through the ordinary legislative procedure. The European Commission submits a proposal, and the European Parliament and the Council of the EU act as co-legislators with equal standing: neither can adopt the act without the other. The procedure can involve up to three readings. If the two institutions still disagree after the second reading, a conciliation committee is convened to seek a compromise.\n\nIn practice, the large majority of files are now agreed at first reading, often after informal 'trilogue' negotiations between representatives of the three institutions. Trilogues are not provided for in the Treaties. In the Council, most decisions under the procedure are taken by qualified majority, which requires 55% of Member States representing at least 65% of the EU population.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "A conciliation committee is convened when Parliament and Council disagree after the first reading.",
+        "A qualified majority requires 65% of Member States representing at least 55% of the EU population.",
+        "Trilogues are a formal stage of the procedure set out in the Treaties.",
+        "Under the ordinary legislative procedure, the Parliament and the Council have equal standing."
+      ],
+      answer: 3,
+      hints: [
+        "Two options swap details: first versus second reading, and 55% versus 65%. Read the numbers carefully.",
+        "Is the word 'informal' attached to trilogues?"
+      ],
+      optionNotes: [
+        "False. Conciliation follows disagreement after the second reading.",
+        "False. The percentages are reversed: 55% of Member States and 65% of the population.",
+        "False. Trilogues are informal and 'not provided for in the Treaties'.",
+        "Correct. The text says they act 'as co-legislators with equal standing'."
+      ],
+      explanation: "Swapped figures and swapped stages are among the most common EPSO distractors. D is the only accurate statement."
+    },
+    {
+      id: "v01-07",
+      topic: "Biodiversity",
+      difficulty: 2,
+      passage:
+        "Around four out of five crop and wildflower species in the EU depend, at least in part, on pollination by animals. Pollinators include not only managed honeybees but also wild bees, hoverflies, butterflies, moths and some beetles. Yet many of these insects are in decline: around one in ten bee and butterfly species in Europe is threatened with extinction.\n\nThe main drivers include changes in land use, intensive agricultural practices, pesticide use, invasive alien species, pathogens and climate change. In 2018 the European Commission launched the EU Pollinators Initiative, its first dedicated framework to tackle the decline. The initiative focuses on improving knowledge, addressing the causes of decline and raising awareness.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Most crop and wildflower species in the EU depend at least partly on animal pollination.",
+        "Around half of all European bee species are threatened with extinction.",
+        "Honeybees are the only pollinators of economic importance in the EU.",
+        "The EU Pollinators Initiative banned the use of pesticides in agriculture."
+      ],
+      answer: 0,
+      hints: [
+        "Convert 'four out of five' and 'one in ten' to percentages and compare them with the options.",
+        "Does the text say what measures the initiative took, or only what it focuses on?"
+      ],
+      optionNotes: [
+        "Correct. Four out of five (80%) is 'most'.",
+        "False. The text says around one in ten bee and butterfly species, not half.",
+        "False. The text lists many other pollinators besides honeybees.",
+        "Not supported. Pesticides are named as a driver of decline, but nothing says the initiative banned them."
+      ],
+      explanation: "A paraphrases '4 out of 5' as 'most', which is a valid inference. D mixes a cause mentioned in the text with an action the text never describes."
+    },
+    {
+      id: "v01-08",
+      topic: "Schengen",
+      difficulty: 1,
+      passage:
+        "The Schengen Agreement was signed in 1985 in the Luxembourg village of Schengen by five countries: Belgium, France, Germany, Luxembourg and the Netherlands. It was followed in 1990 by a convention implementing the abolition of internal border controls, and the Schengen rules were incorporated into EU law by the Treaty of Amsterdam in 1999.\n\nThe Schengen area today includes most EU Member States as well as four non-EU countries: Iceland, Liechtenstein, Norway and Switzerland. Ireland has chosen to remain outside. Although checks at internal borders have been abolished, a member may temporarily reintroduce them in exceptional circumstances, such as a serious threat to public policy or internal security.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "All members of the Schengen area are EU Member States.",
+        "The Schengen Agreement was signed by six countries in 1985.",
+        "Ireland participates fully in the Schengen area.",
+        "Checks at internal borders may be temporarily reintroduced in exceptional circumstances."
+      ],
+      answer: 3,
+      hints: [
+        "Count the founding countries listed in the text.",
+        "Look for the word 'although' in the last sentence."
+      ],
+      optionNotes: [
+        "False. Iceland, Liechtenstein, Norway and Switzerland are members but not in the EU.",
+        "False. Five countries signed it.",
+        "False. Ireland 'has chosen to remain outside'.",
+        "Correct. This is stated in the final sentence."
+      ],
+      explanation: "This is a straightforward detail-matching item. Count lists and check membership claims carefully."
+    },
+    {
+      id: "v01-09",
+      topic: "Monetary policy",
+      difficulty: 2,
+      passage:
+        "Following its strategy review in 2021, the European Central Bank (ECB) adopted a symmetric inflation target of 2% over the medium term. Symmetric means that the ECB considers negative deviations from the target as undesirable as positive ones. The previous formulation, which aimed for inflation 'below, but close to, 2%', had been criticised for implying that inflation above 2% was a greater concern than inflation below it.\n\nThe medium-term orientation allows the ECB to look through temporary fluctuations rather than react to every monthly change in prices. Fiscal policy, such as decisions on taxation and public spending, remains the responsibility of national governments.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Since 2021 the ECB has regarded inflation above 2% as more harmful than inflation below 2%.",
+        "Before 2021 the ECB aimed for inflation below, but close to, 2%.",
+        "The ECB seeks to keep inflation at exactly 2% every month.",
+        "The ECB sets taxation levels in euro-area countries."
+      ],
+      answer: 1,
+      hints: [
+        "Pin down what 'symmetric' means as defined in the text.",
+        "'Medium term' is contrasted with something. What is it?"
+      ],
+      optionNotes: [
+        "False. That describes the criticism of the old formulation. Under the symmetric target, deviations in both directions are equally undesirable.",
+        "Correct. This was the 'previous formulation'.",
+        "False. The medium-term orientation lets the ECB 'look through' monthly changes.",
+        "False. Fiscal policy, including taxation, is a national responsibility."
+      ],
+      explanation: "A attributes the old view to the new policy, which is a common reversal trap. B accurately reports the earlier target."
+    },
+    {
+      id: "v01-10",
+      topic: "History of European integration",
+      difficulty: 2,
+      passage:
+        "On 9 May 1950, French Foreign Minister Robert Schuman proposed placing French and German coal and steel production under a common High Authority, in an organisation open to the participation of other European countries. The aim was to make war between historic rivals 'not merely unthinkable, but materially impossible'.\n\nThe Treaty of Paris, signed in 1951 by six countries, established the European Coal and Steel Community (ECSC). The Treaty was concluded for a period of fifty years and expired in 2002, when the ECSC's activities were taken over by the European Community. Today, 9 May is celebrated as Europe Day in recognition of Schuman's declaration.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The Schuman Declaration proposed a pooling of resources limited exclusively to France and Germany.",
+        "The Treaty establishing the ECSC was concluded for fifty years and expired in 2002.",
+        "Europe Day commemorates the signing of the Treaty of Paris.",
+        "The High Authority was composed of national ministers."
+      ],
+      answer: 1,
+      hints: [
+        "Check what the date 9 May refers to: a declaration or a treaty?",
+        "Does the text describe who sat on the High Authority?"
+      ],
+      optionNotes: [
+        "False. The organisation was to be 'open to the participation of other European countries'.",
+        "Correct. This is stated in the second paragraph.",
+        "False. Europe Day recognises Schuman's declaration of 9 May 1950, not the 1951 treaty.",
+        "Not supported. The composition of the High Authority is never described."
+      ],
+      explanation: "B is directly stated. C swaps two related events, and D introduces information that is not in the text."
+    },
+    {
+      id: "v01-11",
+      topic: "Digital policy",
+      difficulty: 2,
+      passage:
+        "The Digital Services Act (DSA) sets rules for online intermediaries such as marketplaces, social networks and app stores. All providers must meet basic obligations, for example offering ways to report illegal content. Platforms and search engines with at least 45 million monthly active users in the EU, roughly 10% of the population, are designated 'very large' and face additional obligations. They must assess the systemic risks their services pose, submit to independent audits and give vetted researchers access to data.\n\nThe European Commission supervises these very large services directly, while national authorities oversee other providers. Breaches can lead to fines of up to 6% of the provider's global annual turnover.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The DSA imposes identical obligations on all online platforms, whatever their size.",
+        "A platform with 40 million monthly active users in the EU is designated 'very large'.",
+        "Fines for breaching the DSA can reach 6% of a provider's global annual turnover.",
+        "Very large platforms are supervised exclusively by national authorities."
+      ],
+      answer: 2,
+      hints: [
+        "Compare the user threshold in the text with the number in option B.",
+        "Who supervises very large services, and who supervises the rest?"
+      ],
+      optionNotes: [
+        "False. Very large platforms face additional obligations.",
+        "False. The threshold is at least 45 million users, and 40 million is below it.",
+        "Correct. This is stated in the last sentence.",
+        "False. The Commission supervises very large services directly."
+      ],
+      explanation: "C matches the text exactly. B tests whether you check numerical thresholds rather than skimming."
+    },
+    {
+      id: "v01-12",
+      topic: "Multilingualism",
+      difficulty: 3,
+      passage:
+        "The European Union has 24 official languages. Under the EU's language rules, any citizen may write to an EU institution in any of these languages and is entitled to receive a reply in the same language. Legislation and documents of general application are published in all official languages.\n\nIrish became an official language in 2007, but a temporary derogation meant that not all documents had to be translated into Irish. The derogation ended on 1 January 2022, since when Irish has had full status. Within the European Commission, day-to-day internal work is carried out mainly in English, French and German.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "A citizen who writes to the European Parliament in Maltese is entitled to a reply in Maltese.",
+        "Every document produced by EU institutions is published simultaneously in all 24 languages.",
+        "Irish has enjoyed full official status since it became an official language in 2007.",
+        "The European Commission conducts all of its internal work in English."
+      ],
+      answer: 0,
+      hints: [
+        "The text says 'legislation and documents of general application', not every document. Note the scope.",
+        "What happened to Irish between 2007 and 2022?"
+      ],
+      optionNotes: [
+        "Correct. Maltese is one of the 24 official languages, and citizens are entitled to a reply in the language they used. This is a valid application of the rule.",
+        "False or unsupported. Only legislation and documents of general application are covered, and the text says nothing about simultaneity.",
+        "False. Full status only came in 2022 after the derogation ended.",
+        "False. Internal work is 'mainly' in English, French and German."
+      ],
+      explanation: "A requires a small inference: the rule applies to any official language, and Maltese is one of them. In EPSO tests a statement that follows logically from the text counts as correct, even if it is not quoted word for word."
+    },
+    {
+      id: "v01-13",
+      topic: "Public health",
+      difficulty: 2,
+      passage:
+        "Antimicrobial resistance (AMR) occurs when bacteria, viruses, fungi or parasites change over time and no longer respond to medicines. It is driven largely by the overuse and misuse of antimicrobials in both human medicine and animal husbandry. The European Centre for Disease Prevention and Control estimates that infections with antibiotic-resistant bacteria cause more than 35,000 deaths each year in the EU and EEA.\n\nAntibiotics are ineffective against viral infections such as colds and influenza, yet they are still frequently taken for them. In the farming sector, the EU banned the use of antibiotics as growth promoters in animal feed in 2006.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Antibiotics are an effective treatment for influenza.",
+        "Since 2006, using antibiotics to promote growth in farm animals has been banned in the EU.",
+        "Antimicrobial resistance results solely from the misuse of medicines in human healthcare.",
+        "The number of deaths caused by resistant infections in the EU is falling."
+      ],
+      answer: 1,
+      hints: [
+        "'Solely' is a red flag. How many sectors does the text name?",
+        "Does the text describe a trend over time for the death toll?"
+      ],
+      optionNotes: [
+        "False. The text says antibiotics are ineffective against influenza.",
+        "Correct. This is stated in the last sentence.",
+        "False. Animal husbandry is also named as a driver.",
+        "Not supported. Only a yearly estimate is given, with no trend."
+      ],
+      explanation: "B is explicit. D is a 'cannot say' item presented as a fact: one figure cannot establish a trend."
+    },
+    {
+      id: "v01-14",
+      topic: "Climate",
+      difficulty: 2,
+      passage:
+        "The European Climate Law, adopted in 2021, made the EU's objective of climate neutrality by 2050 legally binding. Climate neutrality means that any remaining greenhouse gas emissions are balanced by removals, for example by forests or carbon capture technologies, so that net emissions are zero. The objective applies to the Union as a whole.\n\nThe Law also sets an intermediate target: by 2030, net greenhouse gas emissions must be reduced by at least 55% compared with 1990 levels. Because the target is expressed in net terms, removals of carbon from the atmosphere count towards it.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The 2030 target is a reduction of at least 55% compared with 2005 levels.",
+        "Under the European Climate Law, climate neutrality by 2050 is a legally binding objective.",
+        "Carbon removals do not count towards the 2030 target.",
+        "Each Member State must individually achieve climate neutrality by 2050."
+      ],
+      answer: 1,
+      hints: [
+        "Check the base year in option A.",
+        "The text says the objective applies to 'the Union as a whole'. Which option conflicts with that?"
+      ],
+      optionNotes: [
+        "False. The base year is 1990.",
+        "Correct. This is stated in the first sentence.",
+        "False. Because the target is net, removals do count.",
+        "False. The objective applies to the Union as a whole, not to each Member State individually."
+      ],
+      explanation: "B is directly stated. Base-year swaps (1990 versus 2005) and collective-versus-individual obligations are frequent traps."
+    },
+    {
+      id: "v01-15",
+      topic: "Space",
+      difficulty: 1,
+      passage:
+        "Galileo is the European Union's global satellite navigation system. Unlike the American GPS and the Russian GLONASS, which were developed under military control, Galileo was designed from the start as a civilian system. It began offering initial services in 2016.\n\nGalileo is interoperable with GPS, so receivers can combine signals from both constellations to calculate a position more accurately. In addition to positioning and timing, it supports a search and rescue service that helps locate people in distress and can send a return message confirming that their alert has been received.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Galileo is operated under military control.",
+        "Galileo began offering initial services in 2016.",
+        "Receivers cannot combine Galileo and GPS signals.",
+        "Galileo has replaced GPS for users in Europe."
+      ],
+      answer: 1,
+      hints: [
+        "Look up the date in the first paragraph.",
+        "'Interoperable' is the key word for options C and D."
+      ],
+      optionNotes: [
+        "False. Galileo was designed as a civilian system.",
+        "Correct. This is stated in the first paragraph.",
+        "False. Interoperability means signals can be combined.",
+        "Not supported. The text says the systems can be combined, not that Galileo replaced GPS."
+      ],
+      explanation: "B restates the text. The other options either contradict it or overstate it."
+    },
+    {
+      id: "v01-16",
+      topic: "Learning science",
+      difficulty: 2,
+      passage:
+        "Research on learning consistently finds that retrieval practice, which means actively recalling information, for instance by testing oneself, leads to better long-term retention than simply rereading material. Curiously, learners often feel less confident after retrieval practice than after rereading, because recalling information is effortful and exposes gaps in knowledge.\n\nA related finding concerns timing. Spreading study sessions over days or weeks, known as spaced practice, tends to produce more durable learning than concentrating the same amount of study into one session. 'Cramming' can improve performance in a test taken shortly afterwards, but the material is forgotten more quickly.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Learners generally feel more confident after retrieval practice than after rereading.",
+        "Cramming brings no benefit whatsoever to test performance.",
+        "Testing oneself can lead to better long-term retention than rereading.",
+        "Spaced practice has been shown to work only for language learning."
+      ],
+      answer: 2,
+      hints: [
+        "Option A concerns confidence. What does the text say about how learners feel?",
+        "Does the text completely dismiss cramming?"
+      ],
+      optionNotes: [
+        "False. They often feel less confident.",
+        "False. Cramming can improve performance in a test taken shortly afterwards.",
+        "Correct. This is the main finding in the first paragraph.",
+        "Not supported. No subject restriction is mentioned."
+      ],
+      explanation: "C paraphrases the main finding. It is also the method this app uses: answering questions beats rereading notes."
+    },
+    {
+      id: "v01-17",
+      topic: "Culture",
+      difficulty: 2,
+      passage:
+        "The European Capital of Culture initiative was launched in 1985 on the initiative of Greek culture minister Melina Mercouri, and Athens was the first city to hold the title. Today, two cities in different EU Member States hold the title each year. Every third year, a third city from a candidate country, a potential candidate or a member of the European Free Trade Association that belongs to the European Economic Area is also designated.\n\nCities are not simply appointed. They must compete, and a panel of independent experts recommends the winning candidates, usually around four years before the title year.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Athens was the first city to be named European Capital of Culture.",
+        "Only cities in EU Member States can hold the title.",
+        "Exactly one city holds the title in any given year.",
+        "Title holders are appointed by the European Parliament without any competition."
+      ],
+      answer: 0,
+      hints: [
+        "How many cities hold the title each year, and how many every third year?",
+        "Who recommends the winners?"
+      ],
+      optionNotes: [
+        "Correct. This is stated in the first sentence.",
+        "False. Every third year a city from a candidate, potential candidate or EFTA/EEA country is added.",
+        "False. Two cities hold it each year, and three every third year.",
+        "False. Cities compete, and an independent panel makes recommendations."
+      ],
+      explanation: "A is explicit. The other options contradict specific details about eligibility, numbers and selection."
+    },
+    {
+      id: "v01-18",
+      topic: "Data protection",
+      difficulty: 3,
+      passage:
+        "The General Data Protection Regulation (GDPR) was adopted in 2016 and has applied since 25 May 2018. It covers organisations established in the EU and also organisations outside the EU that offer goods or services to, or monitor the behaviour of, people in the EU.\n\nWhen a personal data breach occurs, the organisation responsible must notify the competent supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it. Infringements can be punished with fines of up to €20 million or 4% of the company's total worldwide annual turnover, whichever is higher.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "The GDPR was adopted in 2018.",
+        "Fines under the GDPR can never exceed €20 million.",
+        "The GDPR applies only to organisations established in the EU.",
+        "A data breach should, where feasible, be notified to the supervisory authority within 72 hours."
+      ],
+      answer: 3,
+      hints: [
+        "Distinguish 'adopted' from 'applied'.",
+        "'Whichever is higher' tells you something about the €20 million figure."
+      ],
+      optionNotes: [
+        "False. It was adopted in 2016 and has applied since 2018.",
+        "False. The cap is €20 million or 4% of turnover, whichever is higher, so for large firms fines can exceed €20 million.",
+        "False. It also covers non-EU organisations targeting or monitoring people in the EU.",
+        "Correct. This matches the text, including the 'where feasible' qualifier."
+      ],
+      explanation: "A tests the adopted-versus-applies distinction, and B tests the 'whichever is higher' logic. D keeps the qualifier and is accurate."
+    },
+    {
+      id: "v01-19",
+      topic: "Nature protection",
+      difficulty: 2,
+      passage:
+        "Natura 2000 is a network of protected areas covering Europe's most valuable and threatened species and habitats. It is the largest coordinated network of protected areas in the world, covering around 18% of the EU's land area and more than 8% of its marine territory. The network is based on two pieces of legislation: the Birds Directive of 1979 and the Habitats Directive of 1992.\n\nNatura 2000 sites are not strict nature reserves. Human activities, including farming, forestry and tourism, are not banned, but they must be managed sustainably so that they do not harm the species and habitats the sites are designated to protect.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "All economic activity is prohibited within Natura 2000 sites.",
+        "Natura 2000 covers a larger share of the EU's marine territory than of its land area.",
+        "The Birds Directive predates the Habitats Directive.",
+        "Natura 2000 was established by a single directive."
+      ],
+      answer: 2,
+      hints: [
+        "Compare the two percentages carefully.",
+        "How many legal acts underpin the network, and in which years?"
+      ],
+      optionNotes: [
+        "False. Activities are allowed if managed sustainably.",
+        "False. The land share is about 18%, against more than 8% at sea.",
+        "Correct. The Birds Directive dates from 1979 and the Habitats Directive from 1992.",
+        "False. It is based on two directives."
+      ],
+      explanation: "C requires comparing the two dates, which is a simple inference. The others contradict the text."
+    },
+    {
+      id: "v01-20",
+      topic: "Passenger rights",
+      difficulty: 3,
+      passage:
+        "Under EU rules on air passenger rights, travellers may be entitled to fixed compensation of €250, €400 or €600, depending on flight distance, if their flight is cancelled less than 14 days before departure. The rules themselves do not expressly grant compensation for delays. However, in 2009 the Court of Justice of the EU ruled that passengers reaching their final destination three hours or more late are entitled to the same compensation as for a cancellation.\n\nNo compensation is due if the airline can prove that the disruption was caused by extraordinary circumstances, such as severe weather. The rules cover all flights departing from an EU airport, and flights arriving in the EU from a non-EU country when operated by an EU airline.",
+      stem: "Which of the following statements is correct?",
+      options: [
+        "Passengers are always entitled to compensation when a flight is cancelled.",
+        "The right to compensation for long delays stems from a ruling of the Court of Justice.",
+        "A flight from New York to Paris operated by a US airline is covered by the rules.",
+        "Compensation is a fixed €600 for every eligible flight."
+      ],
+      answer: 1,
+      hints: [
+        "Note the two conditions that remove the right to compensation: timing of the notice and extraordinary circumstances.",
+        "For option C, check both coverage conditions: where the flight departs from and which airline operates it."
+      ],
+      optionNotes: [
+        "False. There is no compensation if the cancellation is notified 14 days or more in advance, or if it was caused by extraordinary circumstances.",
+        "Correct. The rules 'do not expressly' cover delays, and the right came from the 2009 ruling.",
+        "False. The flight departs from outside the EU and is operated by a non-EU airline, so neither condition is met.",
+        "False. The amount varies (€250, €400 or €600) with distance."
+      ],
+      explanation: "B requires linking two sentences: the rules are silent on delays, and the Court filled that gap. C requires applying both coverage conditions."
+    }
+  ]
+});
+
+</script>
+<script>
+EPSO_BANK.registerSet({
+  id: "numerical-01",
+  section: "numerical",
+  title: "Numerical Reasoning · Set 1",
+  description: "10 EPSO-style data interpretation items: percentages, ratios, density, currency, speed.",
+  version: 1,
+  questions: [
+    {
+      id: "n01-01",
+      topic: "Density / ratios",
+      difficulty: 2,
+      exhibit: {
+        type: "table",
+        title: "Population and area, selected EU Member States (illustrative figures)",
+        columns: ["Country", "Population (millions)", "Area (thousand km²)"],
+        rows: [
+          ["Austria", "9.1", "83.9"],
+          ["Belgium", "11.8", "30.7"],
+          ["Czechia", "10.9", "78.9"],
+          ["Denmark", "5.9", "42.9"],
+          ["Portugal", "10.4", "92.2"]
+        ]
+      },
+      stem: "Which country has the second-highest population density?",
+      options: ["Austria", "Belgium", "Czechia", "Denmark", "Portugal"],
+      answer: 2,
+      hints: [
+        "Density = population ÷ area. The units cancel consistently, so you can compare 'millions per thousand km²' directly.",
+        "Belgium is clearly highest. Compare Czechia (10.9 ÷ 78.9) with Denmark (5.9 ÷ 42.9) carefully, because they are very close."
+      ],
+      solution: [
+        "Austria: 9.1 ÷ 83.9 ≈ 0.1085 → about 108 people per km²",
+        "Belgium: 11.8 ÷ 30.7 ≈ 0.3844 → about 384 per km² (highest)",
+        "Czechia: 10.9 ÷ 78.9 ≈ 0.1381 → about 138 per km²",
+        "Denmark: 5.9 ÷ 42.9 ≈ 0.1375 → about 138 per km² (slightly lower)",
+        "Portugal: 10.4 ÷ 92.2 ≈ 0.1128 → about 113 per km²",
+        "Second-highest: Czechia."
+      ],
+      optionNotes: [
+        "About 108 people per km², which is one of the lowest.",
+        "Highest, not second-highest. Read the question carefully.",
+        "Correct: about 138.1 people per km².",
+        "About 137.5 people per km². This is the close trap: just below Czechia.",
+        "About 112.8 people per km²."
+      ],
+      explanation: "When two values look close, calculate to at least three significant figures before choosing. Czechia's 0.1381 beats Denmark's 0.1375."
+    },
+    {
+      id: "n01-02",
+      topic: "Percentage change",
+      difficulty: 1,
+      exhibit: {
+        type: "table",
+        title: "Agency budget by programme line (EUR million)",
+        columns: ["Programme line", "2022", "2023", "2024"],
+        rows: [
+          ["Research", "120", "126", "138"],
+          ["Training", "80", "84", "86"],
+          ["Outreach", "50", "52", "51"]
+        ]
+      },
+      stem: "By what percentage did the agency's total budget increase between 2022 and 2024?",
+      options: ["9.1%", "10%", "11%", "12%", "12.5%"],
+      answer: 1,
+      hints: [
+        "Add each column first: you need the totals for 2022 and 2024. Ignore 2023.",
+        "Percentage change = (new − old) ÷ old × 100."
+      ],
+      solution: [
+        "Total 2022 = 120 + 80 + 50 = 250",
+        "Total 2024 = 138 + 86 + 51 = 275",
+        "Change = (275 − 250) ÷ 250 = 25 ÷ 250 = 0.10 → 10%"
+      ],
+      optionNotes: [
+        "This is (275 − 250) ÷ 275 ≈ 9.1%. Dividing by the new value instead of the old one is a classic error.",
+        "Correct.",
+        "Too high.",
+        "Too high.",
+        "This is not the growth of the total. Research alone grew 15%, and Outreach barely changed."
+      ],
+      explanation: "Always divide the change by the starting (old) value."
+    },
+    {
+      id: "n01-03",
+      topic: "Ratios from a chart",
+      difficulty: 2,
+      exhibit: {
+        type: "bar",
+        title: "Exports to non-EU partners by quarter (EUR billion)",
+        unit: "EUR bn",
+        categories: ["Q1", "Q2", "Q3", "Q4"],
+        series: [
+          { name: "Machinery", values: [42, 45, 39, 48] },
+          { name: "Chemicals", values: [30, 36, 26, 40] }
+        ]
+      },
+      stem: "In which quarter was the ratio of machinery exports to chemicals exports highest?",
+      options: ["Q1", "Q2", "Q3", "Q4", "Q1 and Q3 equally"],
+      answer: 2,
+      hints: [
+        "Compute machinery ÷ chemicals for each quarter.",
+        "The quarter with the highest machinery value is not necessarily the one with the highest ratio."
+      ],
+      solution: [
+        "Q1: 42 ÷ 30 = 1.40",
+        "Q2: 45 ÷ 36 = 1.25",
+        "Q3: 39 ÷ 26 = 1.50",
+        "Q4: 48 ÷ 40 = 1.20",
+        "Highest ratio: Q3."
+      ],
+      optionNotes: [
+        "1.40, which is second.",
+        "1.25.",
+        "Correct: 1.50.",
+        "Q4 has the highest absolute exports, but its ratio is the lowest (1.20).",
+        "Q1 = 1.40 and Q3 = 1.50, so they are not equal."
+      ],
+      explanation: "Ratio questions reward computing every option. The intuitive choice (the biggest bar) is often wrong."
+    },
+    {
+      id: "n01-04",
+      topic: "Currency conversion",
+      difficulty: 2,
+      exhibit: {
+        type: "table",
+        title: "Exchange rates: units of foreign currency per 1 EUR",
+        columns: ["Currency", "Rate per EUR"],
+        rows: [
+          ["US dollar (USD)", "1.08"],
+          ["Pound sterling (GBP)", "0.85"],
+          ["Swiss franc (CHF)", "0.96"],
+          ["Japanese yen (JPY)", "160.00"]
+        ],
+        note: "Assume no fees or commissions."
+      },
+      stem: "A traveller converts GBP 500 into Swiss francs at these rates (via the euro). How many francs do they receive?",
+      options: ["CHF 442.71", "CHF 510.00", "CHF 531.25", "CHF 564.71", "CHF 588.24"],
+      answer: 3,
+      hints: [
+        "First convert GBP to EUR: divide by the GBP rate, because the rate is GBP per EUR.",
+        "Then convert EUR to CHF: multiply by the CHF rate."
+      ],
+      solution: [
+        "GBP 500 ÷ 0.85 = EUR 588.235…",
+        "EUR 588.235 × 0.96 = CHF 564.71"
+      ],
+      optionNotes: [
+        "This comes from 500 × 0.85 ÷ 0.96. The rates are applied the wrong way round.",
+        "Not derived from these rates.",
+        "Not derived from these rates. Check the direction of each conversion.",
+        "Correct.",
+        "This is the euro amount. You stopped after the first step."
+      ],
+      explanation: "With rates quoted as 'foreign currency per EUR', divide to get euros and multiply to get foreign currency."
+    },
+    {
+      id: "n01-05",
+      topic: "Percentages of a subgroup",
+      difficulty: 1,
+      exhibit: {
+        type: "table",
+        title: "Staff of a Directorate-General by function group and gender",
+        columns: ["Function group", "Women", "Men"],
+        rows: [
+          ["Administrators (AD)", "132", "108"],
+          ["Assistants (AST)", "96", "64"]
+        ]
+      },
+      stem: "What percentage of AD staff are women?",
+      options: ["45%", "50%", "53%", "55%", "57%"],
+      answer: 3,
+      hints: [
+        "The base (denominator) is AD staff only, not all staff.",
+        "AD total = 132 + 108."
+      ],
+      solution: [
+        "AD total = 132 + 108 = 240",
+        "Women share = 132 ÷ 240 = 0.55 → 55%"
+      ],
+      optionNotes: [
+        "This is the share of men in AD.",
+        "Too low.",
+        "Not derived from the table.",
+        "Correct.",
+        "This is the share of women across all staff: 228 ÷ 400 = 57%. You used the wrong base."
+      ],
+      explanation: "Identify the correct base before calculating. EPSO distractors are built from the most common wrong bases."
+    },
+    {
+      id: "n01-06",
+      topic: "Relative vs absolute change",
+      difficulty: 3,
+      exhibit: {
+        type: "bar",
+        title: "Share of renewables in electricity consumption (%)",
+        unit: "%",
+        categories: ["Country A", "Country B", "Country C", "Country D", "Country E"],
+        series: [
+          { name: "2019", values: [20, 35, 25, 40, 12] },
+          { name: "2023", values: [30, 45, 36, 52, 20] }
+        ]
+      },
+      stem: "Which country recorded the largest relative (percentage) increase in its renewables share between 2019 and 2023?",
+      options: ["Country A", "Country B", "Country C", "Country D", "Country E"],
+      answer: 4,
+      hints: [
+        "'Relative increase' means the change divided by the 2019 value, not the change in percentage points.",
+        "A small starting value can produce a big relative increase."
+      ],
+      solution: [
+        "A: (30 − 20) ÷ 20 = 50%",
+        "B: (45 − 35) ÷ 35 ≈ 28.6%",
+        "C: (36 − 25) ÷ 25 = 44%",
+        "D: (52 − 40) ÷ 40 = 30%",
+        "E: (20 − 12) ÷ 12 ≈ 66.7%",
+        "Largest relative increase: Country E."
+      ],
+      optionNotes: [
+        "50%: large, but not the largest.",
+        "About 28.6%.",
+        "44%.",
+        "D has the largest increase in percentage points (+12), but only 30% in relative terms. This is the main trap.",
+        "Correct: about 66.7%, even though it has the smallest increase in percentage points (8)."
+      ],
+      explanation: "Percentage points measure absolute change in a percentage. A percentage change is relative to the starting value. EPSO frequently tests this distinction."
+    },
+    {
+      id: "n01-07",
+      topic: "Average speed",
+      difficulty: 2,
+      exhibit: {
+        type: "table",
+        title: "Rail journey legs",
+        columns: ["Leg", "Distance (km)", "Travel time"],
+        rows: [
+          ["1", "120", "48 min"],
+          ["2", "200", "1 h 12 min"],
+          ["3", "80", "40 min"]
+        ],
+        note: "Ignore time spent at intermediate stations."
+      },
+      stem: "What is the average speed over the whole journey?",
+      options: ["145 km/h", "150 km/h", "155 km/h", "160 km/h", "166 km/h"],
+      answer: 1,
+      hints: [
+        "Average speed = total distance ÷ total time. Do not average the three leg speeds.",
+        "Convert all times to minutes, add them up, then convert to hours."
+      ],
+      solution: [
+        "Total distance = 120 + 200 + 80 = 400 km",
+        "Total time = 48 + 72 + 40 = 160 min = 2.667 h",
+        "Average speed = 400 ÷ 2.667 = 150 km/h"
+      ],
+      optionNotes: [
+        "This is the simple mean of the leg speeds (150, 166.7 and 120), about 145.6. Averaging speeds ignores how long each leg takes.",
+        "Correct.",
+        "Too high.",
+        "Too high.",
+        "This is the speed on leg 2 only (200 km in 72 min ≈ 166.7 km/h)."
+      ],
+      explanation: "Never average speeds directly unless every leg lasts the same time. Use the total distance divided by the total time."
+    },
+    {
+      id: "n01-08",
+      topic: "Multi-step: rate then total",
+      difficulty: 3,
+      exhibit: {
+        type: "table",
+        title: "Grant applications by programme",
+        columns: ["Programme", "Applications received", "Applications approved", "Average grant (EUR thousand)"],
+        rows: [
+          ["P1", "400", "92", "150"],
+          ["P2", "250", "70", "120"],
+          ["P3", "320", "80", "200"],
+          ["P4", "180", "45", "90"]
+        ]
+      },
+      stem: "What was the total funding awarded under the programme with the highest approval rate?",
+      options: ["EUR 4.05 million", "EUR 8.4 million", "EUR 10.5 million", "EUR 13.8 million", "EUR 16.0 million"],
+      answer: 1,
+      hints: [
+        "Step 1: approval rate = approved ÷ received for each programme.",
+        "Step 2: total funding for that programme = approved × average grant. Watch the units (thousands)."
+      ],
+      solution: [
+        "P1: 92 ÷ 400 = 23%",
+        "P2: 70 ÷ 250 = 28% (highest)",
+        "P3: 80 ÷ 320 = 25%",
+        "P4: 45 ÷ 180 = 25%",
+        "P2 funding = 70 × EUR 120 thousand = EUR 8,400 thousand = EUR 8.4 million"
+      ],
+      optionNotes: [
+        "This is P4's total (45 × 90), and P4 is not the highest rate.",
+        "Correct.",
+        "Not derived from the table.",
+        "This is P1's total (92 × 150). P1 has the most approvals, but the lowest rate.",
+        "This is P3's total (80 × 200), the largest amount, but not the highest rate."
+      ],
+      explanation: "In multi-step questions, distractors are usually the totals for the other rows. Finish step 1 before calculating anything in step 2."
+    },
+    {
+      id: "n01-09",
+      topic: "Budget reallocation",
+      difficulty: 2,
+      exhibit: {
+        type: "table",
+        title: "Breakdown of an EU-funded project budget of EUR 2.4 million",
+        columns: ["Cost category", "Share of budget"],
+        rows: [
+          ["Staff", "45%"],
+          ["Equipment", "20%"],
+          ["Subcontracting", "18%"],
+          ["Other costs", "12%"],
+          ["Travel", "5%"]
+        ]
+      },
+      stem: "The travel budget is increased by 50%, with the extra money taken entirely from equipment. What is the new equipment budget?",
+      options: ["EUR 420,000", "EUR 432,000", "EUR 440,000", "EUR 456,000", "EUR 480,000"],
+      answer: 0,
+      hints: [
+        "Find travel and equipment in euros first.",
+        "The 50% increase applies to the travel budget, not to equipment."
+      ],
+      solution: [
+        "Travel = 5% × 2,400,000 = EUR 120,000",
+        "Increase = 50% × 120,000 = EUR 60,000",
+        "Equipment = 20% × 2,400,000 = EUR 480,000",
+        "New equipment = 480,000 − 60,000 = EUR 420,000"
+      ],
+      optionNotes: [
+        "Correct.",
+        "This cuts equipment by 10% (480,000 × 0.9). It mixes up the percentages.",
+        "This takes only 40,000 from equipment. It does not follow from the question.",
+        "This takes only 5% of equipment.",
+        "This is the original equipment budget, unchanged."
+      ],
+      explanation: "Convert the percentages into amounts first, then apply the change to the right category."
+    },
+    {
+      id: "n01-10",
+      topic: "Rates with changing base",
+      difficulty: 3,
+      exhibit: {
+        type: "table",
+        title: "Labour market, Country X",
+        columns: ["Indicator", "2023"],
+        rows: [
+          ["Labour force", "4.0 million"],
+          ["Unemployment rate", "6.5%"]
+        ],
+        note: "In 2024 the labour force grew by 2.5% and the number of unemployed people fell by 10,000."
+      },
+      stem: "What was the unemployment rate in 2024 (to one decimal place)?",
+      options: ["6.0%", "6.1%", "6.3%", "6.4%", "6.5%"],
+      answer: 1,
+      hints: [
+        "Convert the 2023 rate into a number of people first.",
+        "Both the numerator (unemployed) and the denominator (labour force) change in 2024."
+      ],
+      solution: [
+        "Unemployed 2023 = 6.5% × 4,000,000 = 260,000",
+        "Unemployed 2024 = 260,000 − 10,000 = 250,000",
+        "Labour force 2024 = 4,000,000 × 1.025 = 4,100,000",
+        "Rate 2024 = 250,000 ÷ 4,100,000 ≈ 6.10% → 6.1%"
+      ],
+      optionNotes: [
+        "This is 240,000 ÷ 4,000,000, which applies neither change correctly.",
+        "Correct.",
+        "This is 250,000 ÷ 4,000,000 ≈ 6.25%. You forgot that the labour force grew.",
+        "Not derived from the data.",
+        "This is the 2023 rate, unchanged."
+      ],
+      explanation: "When a rate's base changes, recompute both the numerator and the denominator."
+    }
+  ]
+});
+
+</script>
+<script>
+/* Figures use the shape format in docs/QUESTION_FORMAT.md (100×100 canvas). */
+EPSO_BANK.registerSet({
+  "id": "abstract-01",
+  "section": "abstract",
+  "title": "Abstract Reasoning · Set 1",
+  "description": "10 figure-series items: rotation, alternation, movement, counting and combined rules.",
+  "version": 1,
+  "questions": [
+    {
+      "id": "a01-01",
+      "topic": "Rotation",
+      "difficulty": 1,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":0,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":45,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":90,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":135,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":180,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":225,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":270,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":180,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":315,"fill":"black"}],
+        [{"t":"arrow","x":50,"y":50,"r":32,"rot":45,"fill":"black"}]
+      ],
+      "answer": 0,
+      "hints": ["Only one element is present. What changes about it from frame to frame?","Measure the angle between consecutive arrows."],
+      "optionNotes": ["Correct: 180° + 45° = 225°.","Rotated 90° from the last frame. The step is 45°.","No change from the last frame.","This would be two steps ahead.","Rotated anticlockwise. The sequence turns clockwise."],
+      "explanation": "The arrow turns 45° clockwise each step: 0°, 45°, 90°, 135°, 180°, so the next is 225° (pointing down-left)."
+    },
+    {
+      "id": "a01-02",
+      "topic": "Counting sides + alternation",
+      "difficulty": 2,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"poly","x":50,"y":52,"r":34,"n":3,"rot":0,"fill":"black"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":4,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":5,"rot":0,"fill":"black"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":6,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":7,"rot":0,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"poly","x":50,"y":52,"r":34,"n":9,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":6,"rot":0,"fill":"black"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":8,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":8,"rot":0,"fill":"black"}],
+        [{"t":"poly","x":50,"y":52,"r":34,"n":7,"rot":0,"fill":"white"}]
+      ],
+      "answer": 2,
+      "hints": ["Two things change: count the sides, and note the fill colour.","Sides: 3, 4, 5, 6, 7… Colour: black, white, black, white, black…"],
+      "optionNotes": ["Skips a step: 9 sides.","The side count goes backwards.","Correct: 8 sides, white.","Right number of sides, but the colour should alternate to white.","Right colour, but the side count must rise to 8."],
+      "explanation": "Two independent rules apply. The number of sides increases by one (3 → 7, so next 8), and the fill alternates black/white (next is white)."
+    },
+    {
+      "id": "a01-03",
+      "topic": "Movement + alternation",
+      "difficulty": 2,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":28,"y":28,"r":11,"fill":"black"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":72,"y":28,"r":11,"fill":"white"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":72,"y":72,"r":11,"fill":"black"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":28,"y":72,"r":11,"fill":"white"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":28,"y":28,"r":11,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":72,"y":28,"r":11,"fill":"black"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":72,"y":72,"r":11,"fill":"white"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":28,"y":28,"r":11,"fill":"white"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":28,"y":72,"r":11,"fill":"black"}],
+        [{"t":"rect","x":12,"y":12,"w":76,"h":76,"fill":"none"},{"t":"circle","x":72,"y":28,"r":11,"fill":"white"}]
+      ],
+      "answer": 4,
+      "hints": ["Track the position of the circle around the four corners.","Then track its colour separately."],
+      "optionNotes": ["Right position, wrong colour: it alternates.","Moved two corners instead of one.","Did not move.","Moved anticlockwise.","Correct: top-right, white."],
+      "explanation": "The circle moves one corner clockwise each step (TL → TR → BR → BL → TL → TR), and its colour alternates black/white. Next: top-right, white."
+    },
+    {
+      "id": "a01-04",
+      "topic": "Counting + alternating shapes",
+      "difficulty": 1,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"circle","x":22,"y":22,"r":9,"fill":"black"}],
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"}],
+        [{"t":"circle","x":22,"y":22,"r":9,"fill":"black"},{"t":"circle","x":50,"y":22,"r":9,"fill":"black"},{"t":"circle","x":78,"y":22,"r":9,"fill":"black"}],
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":41,"w":18,"h":18,"fill":"black"}],
+        [{"t":"circle","x":22,"y":22,"r":9,"fill":"black"},{"t":"circle","x":50,"y":22,"r":9,"fill":"black"},{"t":"circle","x":78,"y":22,"r":9,"fill":"black"},{"t":"circle","x":22,"y":50,"r":9,"fill":"black"},{"t":"circle","x":50,"y":50,"r":9,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":41,"w":18,"h":18,"fill":"black"}],
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":41,"w":18,"h":18,"fill":"black"}],
+        [{"t":"circle","x":22,"y":22,"r":9,"fill":"black"},{"t":"circle","x":50,"y":22,"r":9,"fill":"black"},{"t":"circle","x":78,"y":22,"r":9,"fill":"black"},{"t":"circle","x":22,"y":50,"r":9,"fill":"black"},{"t":"circle","x":50,"y":50,"r":9,"fill":"black"},{"t":"circle","x":78,"y":50,"r":9,"fill":"black"}],
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":41,"w":18,"h":18,"fill":"black"}],
+        [{"t":"rect","x":13,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":13,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":41,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":69,"y":41,"w":18,"h":18,"fill":"black"},{"t":"rect","x":13,"y":69,"w":18,"h":18,"fill":"black"}]
+      ],
+      "answer": 1,
+      "hints": ["Count the shapes in each frame.","Which shape type appears in odd frames, and which in even frames?"],
+      "optionNotes": ["The count goes backwards.","Correct: six squares.","Right count, but the shape should switch to squares.","The count must increase to 6.","One too many."],
+      "explanation": "The count increases by one each frame (1 → 5, next 6), and the shape alternates circle/square. Frame 6 is even, so it shows squares: six squares."
+    },
+    {
+      "id": "a01-05",
+      "topic": "Movement in a grid",
+      "difficulty": 3,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"black"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"black"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"black"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"black"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"black"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"black"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"black"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"black"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}],
+        [{"t":"rect","x":8,"y":8,"w":28,"h":28,"fill":"black"},{"t":"rect","x":36,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":8,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":36,"w":28,"h":28,"fill":"none"},{"t":"rect","x":8,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":36,"y":64,"w":28,"h":28,"fill":"none"},{"t":"rect","x":64,"y":64,"w":28,"h":28,"fill":"none"}]
+      ],
+      "answer": 3,
+      "hints": ["Number the cells 0–8 in reading order (left to right, top to bottom).","The shaded cell advances by a fixed amount. What happens after the last cell?"],
+      "optionNotes": ["Not consistent with a step of 2.","Moving backwards.","No movement.","Correct: (8 + 2) wraps around to cell 1 (second cell of the top row).","This treats the step as +1 after the last cell."],
+      "explanation": "The shaded cell advances two places in reading order: 0, 2, 4, 6, 8. Continuing wraps around the grid: 8 + 2 = 10 → cell 1 (top row, middle)."
+    },
+    {
+      "id": "a01-06",
+      "topic": "Oscillation",
+      "difficulty": 2,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"black"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"black"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"black"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"black"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"black"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}]
+      ],
+      "options": [
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"black"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"black"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"black"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"black"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"none"}],
+        [{"t":"circle","x":14,"y":50,"r":7,"fill":"none"},{"t":"circle","x":32,"y":50,"r":7,"fill":"none"},{"t":"circle","x":50,"y":50,"r":7,"fill":"none"},{"t":"circle","x":68,"y":50,"r":7,"fill":"none"},{"t":"circle","x":86,"y":50,"r":7,"fill":"black"}]
+      ],
+      "answer": 0,
+      "hints": ["Follow the black circle along the row.","It reached the right end and turned back. Which way is it moving now?"],
+      "optionNotes": ["Correct: it keeps moving left.","Jumps two places.","Reverses direction again without reaching the end.","No movement.","Jumps to the far right."],
+      "explanation": "The black circle moves one place at a time and bounces at the ends: 3rd, 4th, 5th, 4th, 3rd, so the next is the 2nd position."
+    },
+    {
+      "id": "a01-07",
+      "topic": "Two independent rules",
+      "difficulty": 2,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"rect","x":14,"y":14,"w":72,"h":72,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":0,"fill":"black"}],
+        [{"t":"circle","x":50,"y":50,"r":37,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":90,"fill":"black"}],
+        [{"t":"rect","x":14,"y":14,"w":72,"h":72,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":180,"fill":"black"}],
+        [{"t":"circle","x":50,"y":50,"r":37,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":270,"fill":"black"}],
+        [{"t":"rect","x":14,"y":14,"w":72,"h":72,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":0,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"circle","x":50,"y":50,"r":37,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":0,"fill":"black"}],
+        [{"t":"rect","x":14,"y":14,"w":72,"h":72,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":270,"fill":"black"}],
+        [{"t":"circle","x":50,"y":50,"r":37,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":90,"fill":"black"}],
+        [{"t":"rect","x":14,"y":14,"w":72,"h":72,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":90,"fill":"black"}],
+        [{"t":"circle","x":50,"y":50,"r":37,"fill":"none"},{"t":"arrow","x":50,"y":50,"r":22,"rot":180,"fill":"black"}]
+      ],
+      "answer": 2,
+      "hints": ["Separate the outer shape from the inner arrow.","The arrow turns by the same angle each step. The frame alternates."],
+      "optionNotes": ["The arrow did not turn.","Both rules are applied backwards.","Correct: circle frame, arrow pointing right.","Right arrow, but the frame should switch to a circle.","The arrow turned 180° instead of 90°."],
+      "explanation": "The arrow turns 90° clockwise each step (up, right, down, left, up → right). The frame alternates square/circle (next is circle)."
+    },
+    {
+      "id": "a01-08",
+      "topic": "Colour cycle + flip",
+      "difficulty": 3,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":0,"fill":"black"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":180,"fill":"grey"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":180,"fill":"black"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":0,"fill":"grey"}]
+      ],
+      "options": [
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":0,"fill":"white"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":180,"fill":"black"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":180,"fill":"grey"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":0,"fill":"grey"}],
+        [{"t":"poly","x":50,"y":54,"r":34,"n":3,"rot":180,"fill":"white"}]
+      ],
+      "answer": 4,
+      "hints": ["The colour follows a cycle. How long is it?","The orientation alternates up/down."],
+      "optionNotes": ["Right colour, but the orientation flips each step.","The colour cycle has period 3, not 2.","Grey would repeat the previous colour.","Identical to the last frame.","Correct: white, pointing down."],
+      "explanation": "The fill cycles black → grey → white (period 3): B, G, W, B, G → W. The triangle flips 180° each step: up, down, up, down, up → down."
+    },
+    {
+      "id": "a01-09",
+      "topic": "Number series",
+      "difficulty": 3,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":78,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":78,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":50,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":78,"r":11,"rot":0,"fill":"black"}],
+        [{"t":"star","x":22,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":22,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":50,"r":11,"rot":0,"fill":"black"},{"t":"star","x":22,"y":78,"r":11,"rot":0,"fill":"black"},{"t":"star","x":50,"y":78,"r":11,"rot":0,"fill":"black"},{"t":"star","x":78,"y":78,"r":11,"rot":0,"fill":"black"}]
+      ],
+      "answer": 1,
+      "hints": ["Count the stars: 1, 1, 2, 3, 5.","Each number is related to the two before it."],
+      "optionNotes": ["No change.","Correct: 3 + 5 = 8.","Adding one each time does not fit 1, 1, 2.","Adding two does not fit the series.","Not consistent with the series."],
+      "explanation": "The counts form the Fibonacci series: each term is the sum of the previous two (2 + 3 = 5, then 3 + 5 = 8)."
+    },
+    {
+      "id": "a01-10",
+      "topic": "Two cycles of different length",
+      "difficulty": 3,
+      "stem": "Which figure comes next in the series?",
+      "sequence": [
+        [{"t":"circle","x":50,"y":50,"r":36,"fill":"none"},{"t":"circle","x":50,"y":36,"r":6,"fill":"black"}],
+        [{"t":"poly","x":50,"y":56,"r":40,"n":3,"rot":0,"fill":"none"},{"t":"circle","x":50,"y":66,"r":6,"fill":"black"}],
+        [{"t":"rect","x":16,"y":16,"w":68,"h":68,"fill":"none"},{"t":"circle","x":50,"y":36,"r":6,"fill":"black"}],
+        [{"t":"circle","x":50,"y":50,"r":36,"fill":"none"},{"t":"circle","x":50,"y":66,"r":6,"fill":"black"}],
+        [{"t":"poly","x":50,"y":56,"r":40,"n":3,"rot":0,"fill":"none"},{"t":"circle","x":50,"y":36,"r":6,"fill":"black"}]
+      ],
+      "options": [
+        [{"t":"circle","x":50,"y":50,"r":36,"fill":"none"},{"t":"circle","x":50,"y":66,"r":6,"fill":"black"}],
+        [{"t":"poly","x":50,"y":56,"r":40,"n":3,"rot":0,"fill":"none"},{"t":"circle","x":50,"y":66,"r":6,"fill":"black"}],
+        [{"t":"rect","x":16,"y":16,"w":68,"h":68,"fill":"none"},{"t":"circle","x":50,"y":52,"r":6,"fill":"black"}],
+        [{"t":"rect","x":16,"y":16,"w":68,"h":68,"fill":"none"},{"t":"circle","x":50,"y":66,"r":6,"fill":"black"}],
+        [{"t":"rect","x":16,"y":16,"w":68,"h":68,"fill":"none"},{"t":"circle","x":50,"y":36,"r":6,"fill":"black"}]
+      ],
+      "answer": 3,
+      "hints": ["The outline shape repeats with one period, and the dot with another.","Shapes: circle, triangle, square, circle, triangle… Dot: top, bottom, top, bottom, top…"],
+      "optionNotes": ["The shape cycle is circle → triangle → square.","The triangle would repeat.","The dot is only ever at the top or bottom.","Correct: square, dot at the bottom.","Right shape, but the dot alternates top/bottom."],
+      "explanation": "The outer shape cycles circle → triangle → square (period 3), so the next is a square. The dot alternates top/bottom (period 2), so the next is bottom."
+    }
+  ]
+});
+
+</script>
+<script>
+/*
+ * Coach mode lessons: the method taught before each training round.
+ * Plain data so it can be edited without touching app logic.
+ */
+window.EPSO_LESSONS = {
+  verbal: {
+    title: "Verbal reasoning method",
+    format: "20 questions · 35 minutes (≈1 min 45 s each) · pass mark 10/20. Each item is a short text followed by four statements; exactly one is correct.",
+    steps: [
+      { name: "Read the stem first", text: "Check whether the question asks which statement is correct or which is incorrect. Misreading the stem is the most expensive mistake." },
+      { name: "Skim the passage for structure", text: "Spend about 30 seconds finding what each paragraph is about: definitions, numbers, exceptions, dates." },
+      { name: "Test each statement against one sentence", text: "For every option, find the exact sentence it relies on. If you cannot find one, the statement is probably unsupported." },
+      { name: "Classify each option as true, false or not supported", text: "Only a statement the text confirms, directly or by clear logic, is correct. Plausible but unstated claims count as incorrect." },
+      { name: "Eliminate, then confirm", text: "Strike out options you have disproved. Before moving on, reread the surviving option against the text once." }
+    ],
+    traps: [
+      "Absolute words: always, never, only, solely, all. The text often contains an exception.",
+      "Swapped details: dates, percentages or institutions exchanged between two facts.",
+      "Outside knowledge: a statement can be true in real life but not supported by the text.",
+      "Scope creep: the text says 'some' or 'mainly', and the option says 'all' or 'exclusively'.",
+      "Reversed cause and effect, or an old policy presented as the new one."
+    ],
+    pacing: "Aim for 1 min 30 s per item and bank the extra time for the hardest ones. If you are stuck after 2 minutes, flag the question, pick your best guess and move on. There is no negative marking."
+  },
+  numerical: {
+    title: "Numerical reasoning method",
+    format: "10 questions · 20 minutes (2 min each) · pass mark 10/20 combined with abstract. Tables or charts, with an on-screen calculator.",
+    steps: [
+      { name: "Decode the question first", text: "Identify exactly what is asked (a percentage, a ratio, a total or a difference) and in which unit." },
+      { name: "Locate only the data you need", text: "Exhibits contain distractor rows and columns, such as a year not mentioned. Note the 2–4 numbers you need on the scratchpad." },
+      { name: "Check the units and the base", text: "Thousands or millions? Percentage of what? Most traps hide in the denominator." },
+      { name: "Estimate before calculating", text: "Round the numbers to get a ballpark. It often eliminates 2–3 options instantly and catches calculator slips." },
+      { name: "Calculate and match", text: "Use the calculator for the exact figure, then pick the option that matches. If two options are close, recompute with more precision." }
+    ],
+    traps: [
+      "Dividing a change by the new value instead of the old value.",
+      "Confusing percentage points with percentage change.",
+      "Averaging rates (speeds, percentages) instead of using the totals.",
+      "Applying a percentage to the wrong subgroup (the wrong base).",
+      "Stopping one step early. Distractors are often intermediate results."
+    ],
+    pacing: "Spend at most 2 minutes per item. Numerical and abstract share a combined pass mark, so a fast abstract section can compensate for a slow numerical one."
+  },
+  abstract: {
+    title: "Abstract reasoning method",
+    format: "10 questions · 10 minutes (1 min each) · pass mark 10/20 combined with numerical. Five figures in a series; pick the next one from five options.",
+    steps: [
+      { name: "Inventory the elements", text: "List what is in each frame: shapes, count, colour or fill, position, size, rotation." },
+      { name: "Find one rule at a time", text: "Compare frame 1 → 2 → 3 for a single attribute. Typical rules are rotation by a fixed angle, movement by a fixed step, alternation and counting." },
+      { name: "Check the cycle length", text: "Some attributes alternate (period 2), others cycle every 3 or 4 steps. Write the cycle down." },
+      { name: "Predict frame 6 before looking at the options", text: "Form your own answer first, so you are not drawn to an option that is almost right." },
+      { name: "Eliminate by rule", text: "Discard every option that breaks a rule. Usually only one option satisfies all of them." }
+    ],
+    traps: [
+      "Options that satisfy one rule but not the other. Most series combine two rules.",
+      "Clockwise versus anticlockwise movement.",
+      "Wrapping around a grid or bouncing at the edge.",
+      "Counting series that are not +1 (for example Fibonacci, +2 or doubling).",
+      "Off-by-one: the option that matches the last frame or skips a step."
+    ],
+    pacing: "Allow 60 seconds per item. If no rule appears within 40 seconds, eliminate what you can, guess, flag it and move on."
+  }
+};
+
+</script>
+<script>
+/*
+ * Drawing helpers: abstract-reasoning figures and numerical exhibits (tables, bar charts).
+ * Colours come from CSS classes so both themes work.
+ */
+(function () {
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function fillClass(fill) {
+    var f = fill || "none";
+    if (["black", "grey", "white", "none"].indexOf(f) === -1) f = "none";
+    return "f-" + f;
+  }
+
+  function num(v, d) {
+    return typeof v === "number" && isFinite(v) ? v : d;
+  }
+
+  function polyPoints(cx, cy, r, n, rot) {
+    var pts = [];
+    for (var i = 0; i < n; i++) {
+      var a = ((-90 + rot + (i * 360) / n) * Math.PI) / 180;
+      pts.push((cx + r * Math.cos(a)).toFixed(2) + "," + (cy + r * Math.sin(a)).toFixed(2));
+    }
+    return pts.join(" ");
+  }
+
+  function starPoints(cx, cy, r, rot) {
+    var pts = [];
+    for (var i = 0; i < 10; i++) {
+      var rr = i % 2 === 0 ? r : r * 0.45;
+      var a = ((-90 + rot + i * 36) * Math.PI) / 180;
+      pts.push((cx + rr * Math.cos(a)).toFixed(2) + "," + (cy + rr * Math.sin(a)).toFixed(2));
+    }
+    return pts.join(" ");
+  }
+
+  function shapeSVG(s) {
+    var cls = fillClass(s.fill);
+    var x = num(s.x, 50), y = num(s.y, 50), r = num(s.r, 20), rot = num(s.rot, 0);
+    switch (s.t) {
+      case "circle":
+        return '<circle class="' + cls + '" cx="' + x + '" cy="' + y + '" r="' + r + '"/>';
+      case "rect":
+        return '<rect class="' + cls + '" x="' + x + '" y="' + y + '" width="' + num(s.w, 20) + '" height="' + num(s.h, 20) + '"' +
+          (rot ? ' transform="rotate(' + rot + " " + (x + num(s.w, 20) / 2) + " " + (y + num(s.h, 20) / 2) + ')"' : "") + "/>";
+      case "poly":
+        return '<polygon class="' + cls + '" points="' + polyPoints(x, y, r, Math.max(3, Math.round(num(s.n, 3))), rot) + '"/>';
+      case "star":
+        return '<polygon class="' + cls + '" points="' + starPoints(x, y, r, rot) + '"/>';
+      case "arrow": {
+        var p = [
+          [0, -r], [0.55 * r, -0.1 * r], [0.2 * r, -0.1 * r], [0.2 * r, r],
+          [-0.2 * r, r], [-0.2 * r, -0.1 * r], [-0.55 * r, -0.1 * r]
+        ].map(function (q) { return (x + q[0]).toFixed(2) + "," + (y + q[1]).toFixed(2); }).join(" ");
+        return '<polygon class="' + cls + '" points="' + p + '" transform="rotate(' + rot + " " + x + " " + y + ')"/>';
+      }
+      case "line":
+        return '<line class="f-line" x1="' + num(s.x1, 10) + '" y1="' + num(s.y1, 10) + '" x2="' + num(s.x2, 90) + '" y2="' + num(s.y2, 90) + '"/>';
+      default:
+        return "";
+    }
+  }
+
+  function figureSVG(items, label) {
+    var body = (items || []).map(shapeSVG).join("");
+    return '<svg class="fig" viewBox="0 0 100 100" role="img" aria-label="' + esc(label || "Figure") + '">' + body + "</svg>";
+  }
+
+  function tableHTML(ex) {
+    var head = "<tr>" + ex.columns.map(function (c, i) {
+      return '<th scope="col"' + (i > 0 ? ' class="num"' : "") + ">" + esc(c) + "</th>";
+    }).join("") + "</tr>";
+    var rows = ex.rows.map(function (r) {
+      return "<tr>" + r.map(function (c, i) {
+        return i === 0 ? '<th scope="row">' + esc(c) + "</th>" : '<td class="num">' + esc(c) + "</td>";
+      }).join("") + "</tr>";
+    }).join("");
+    return '<div class="table-wrap"><table class="exhibit-table"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>";
+  }
+
+  function niceMax(v) {
+    if (v <= 0) return { max: 10, step: 2 };
+    var pow = Math.pow(10, Math.floor(Math.log10(v)));
+    var steps = [1, 2, 2.5, 5, 10];
+    for (var i = 0; i < steps.length; i++) {
+      var step = (steps[i] * pow) / 2;
+      var m = Math.ceil(v / step) * step;
+      if (m / step <= 6) return { max: m, step: step };
+    }
+    return { max: Math.ceil(v / pow) * pow, step: pow };
+  }
+
+  function barHTML(ex) {
+    var cats = ex.categories, series = ex.series;
+    var all = [];
+    series.forEach(function (s) { all = all.concat(s.values); });
+    var scale = niceMax(Math.max.apply(null, all) * 1.08);
+    var W = 560, H = 280, L = 44, R = 12, T = 16, B = 34;
+    var plotW = W - L - R, plotH = H - T - B;
+    var groupW = plotW / cats.length;
+    var barW = Math.min(36, (groupW * 0.72) / series.length);
+    var y = function (v) { return T + plotH - (v / scale.max) * plotH; };
+    var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Bar chart") + '">';
+    for (var g = 0; g <= scale.max + 1e-9; g += scale.step) {
+      out += '<line class="grid" x1="' + L + '" x2="' + (W - R) + '" y1="' + y(g).toFixed(1) + '" y2="' + y(g).toFixed(1) + '"/>';
+      out += '<text class="tick" x="' + (L - 6) + '" y="' + (y(g) + 4).toFixed(1) + '" text-anchor="end">' + +g.toFixed(2) + "</text>";
+    }
+    cats.forEach(function (c, ci) {
+      var gx = L + ci * groupW + (groupW - barW * series.length) / 2;
+      series.forEach(function (s, si) {
+        var v = s.values[ci];
+        var bx = gx + si * barW;
+        out += '<rect class="bar s' + (si % 3) + '" x="' + (bx + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + (barW - 2).toFixed(1) + '" height="' + (T + plotH - y(v)).toFixed(1) + '"/>';
+        out += '<text class="val" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + esc(v) + "</text>";
+      });
+      out += '<text class="cat" x="' + (L + ci * groupW + groupW / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
+    });
+    out += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/>';
+    out += "</svg>";
+    var legend = series.length > 1 ? '<div class="legend">' + series.map(function (s, si) {
+      return '<span><i class="sw s' + (si % 3) + '"></i>' + esc(s.name) + "</span>";
+    }).join("") + "</div>" : "";
+    return '<div class="chart-wrap">' + legend + out + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
+  function exhibitHTML(ex) {
+    if (!ex) return "";
+    var inner = ex.type === "bar" ? barHTML(ex) : tableHTML(ex);
+    return '<figure class="exhibit">' +
+      (ex.title ? "<figcaption>" + esc(ex.title) + "</figcaption>" : "") + inner +
+      (ex.note ? '<p class="exhibit-note">' + esc(ex.note) + "</p>" : "") + "</figure>";
+  }
+
+  window.EPSO_RENDER = { esc: esc, figureSVG: figureSVG, exhibitHTML: exhibitHTML };
+})();
+
+</script>
+<script>
+/*
+ * AD5 Reasoning Trainer: single-page app, no build step, no dependencies.
+ * Views: home → (lesson) → session → (between) → results → review.
+ */
+(function () {
+  "use strict";
+
+  var R = window.EPSO_RENDER;
+  var esc = R.esc;
+  var LETTERS = ["A", "B", "C", "D", "E", "F"];
+
+  var SECTIONS = {
+    verbal: { key: "verbal", name: "Verbal reasoning", examCount: 20, examMinutes: 35, perQ: 105 },
+    numerical: { key: "numerical", name: "Numerical reasoning", examCount: 10, examMinutes: 20, perQ: 120 },
+    abstract: { key: "abstract", name: "Abstract reasoning", examCount: 10, examMinutes: 10, perQ: 60 }
+  };
+  var ORDER = ["verbal", "numerical", "abstract"];
+
+  /* ---------- storage (best effort) ---------- */
+  var KEY_HIST = "ad5trainer.history.v1";
+  var KEY_STATS = "ad5trainer.qstats.v1";
+  var KEY_PREFS = "ad5trainer.prefs.v1";
+  function load(k, d) {
+    try { var v = window.localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; }
+  }
+  function save(k, v) {
+    try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ }
+  }
+
+  /* ---------- question bank ---------- */
+  var bank = { all: [], byId: {}, bySection: { verbal: [], numerical: [], abstract: [] }, sets: [], errors: [] };
+
+  function buildBank() {
+    var sets = (window.EPSO_BANK && window.EPSO_BANK.sets) || [];
+    sets.forEach(function (set) {
+      if (!SECTIONS[set.section]) { bank.errors.push("Set " + set.id + " has unknown section '" + set.section + "'."); return; }
+      var added = 0;
+      (set.questions || []).forEach(function (q) {
+        if (!q || !q.id || bank.byId[q.id]) { bank.errors.push("Skipped a question in " + set.id + " (missing or duplicate id " + (q && q.id) + ")."); return; }
+        if (!Array.isArray(q.options) || typeof q.answer !== "number" || q.answer < 0 || q.answer >= q.options.length) {
+          bank.errors.push("Skipped " + q.id + ": options/answer invalid."); return;
+        }
+        q.section = set.section;
+        q.setId = set.id;
+        q.setTitle = set.title;
+        bank.all.push(q);
+        bank.byId[q.id] = q;
+        bank.bySection[set.section].push(q);
+        added++;
+      });
+      bank.sets.push({ id: set.id, title: set.title, section: set.section, description: set.description || "", count: added });
+    });
+  }
+
+  /* ---------- state ---------- */
+  var prefs = load(KEY_PREFS, { count: 10, timed: false, setId: "all", mistakesOnly: false, examScope: "full" });
+  var state = { view: "home", session: null, ui: freshUI(), notice: null };
+  function freshUI() {
+    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false };
+  }
+
+  function shuffle(a) {
+    var arr = a.slice();
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  function range(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
+
+  function makeSection(key, questions, timeLimit) {
+    return {
+      key: key,
+      items: questions.map(function (q) {
+        return { q: q, order: q.shuffle ? shuffle(range(q.options.length)) : range(q.options.length) };
+      }),
+      answers: {}, flags: {}, elim: {}, hints: {}, checked: {}, passage: {},
+      scratch: "", timeLimit: timeLimit, elapsed: 0, done: false, timedOut: false
+    };
+  }
+
+  function pickQuestions(key, opts) {
+    var pool = bank.bySection[key].slice();
+    if (opts.setId && opts.setId !== "all") pool = pool.filter(function (q) { return q.setId === opts.setId; });
+    if (opts.mistakesOnly) {
+      var stats = load(KEY_STATS, {});
+      var wrong = pool.filter(function (q) { return stats[q.id] && stats[q.id].last === false; });
+      if (wrong.length) pool = wrong;
+    }
+    pool = shuffle(pool);
+    return opts.count ? pool.slice(0, opts.count) : pool;
+  }
+
+  function startExam(scope) {
+    var keys = scope === "full" ? ORDER : [scope];
+    var notes = [];
+    var sections = keys.map(function (k) {
+      var S = SECTIONS[k];
+      var qs = pickQuestions(k, { count: S.examCount });
+      var limit = S.examMinutes * 60;
+      if (qs.length < S.examCount) {
+        limit = Math.round((S.examMinutes * 60 * qs.length) / S.examCount);
+        notes.push(S.name + ": the bank has " + qs.length + " of " + S.examCount + " questions, so the time is scaled to " + fmtTime(limit) + ".");
+      }
+      return makeSection(k, qs, limit);
+    }).filter(function (s) { return s.items.length > 0; });
+    if (!sections.length) { flash("No questions are available for this test yet."); return; }
+    state.session = { mode: "exam", sections: sections, si: 0, qi: 0, started: Date.now(), notes: notes, review: false };
+    state.ui = freshUI();
+    state.view = "brief";
+    render();
+  }
+
+  function startTraining(mode, key) {
+    var qs = pickQuestions(key, { count: prefs.count === "all" ? 0 : +prefs.count, setId: prefs.setId, mistakesOnly: prefs.mistakesOnly });
+    if (!qs.length) { flash("No " + SECTIONS[key].name.toLowerCase() + " questions match these settings."); return; }
+    var timed = mode === "practice" && prefs.timed;
+    var sec = makeSection(key, qs, timed ? qs.length * SECTIONS[key].perQ : null);
+    state.session = { mode: mode, sections: [sec], si: 0, qi: 0, started: Date.now(), notes: [], review: false };
+    state.ui = freshUI();
+    state.view = mode === "coach" ? "lesson" : "session";
+    render();
+  }
+
+  function cur() {
+    var s = state.session; if (!s) return null;
+    var sec = s.sections[s.si];
+    return { s: s, sec: sec, item: sec.items[s.qi], S: SECTIONS[sec.key] };
+  }
+
+  /* ---------- scoring & stats ---------- */
+  function sectionScore(sec) {
+    var c = 0;
+    sec.items.forEach(function (it) { if (sec.answers[it.q.id] === it.q.answer) c++; });
+    return { correct: c, total: sec.items.length, answered: Object.keys(sec.answers).length };
+  }
+
+  function recordQuestion(q, correct) {
+    var st = load(KEY_STATS, {});
+    var e = st[q.id] || { seen: 0, correct: 0 };
+    e.seen++; if (correct) e.correct++; e.last = !!correct; e.at = Date.now();
+    st[q.id] = e;
+    save(KEY_STATS, st);
+  }
+
+  function examVerdict(s) {
+    var by = {};
+    s.sections.forEach(function (sec) { by[sec.key] = sectionScore(sec); });
+    var out = [];
+    if (by.verbal) {
+      var need = Math.ceil(by.verbal.total / 2);
+      out.push({ label: "Verbal reasoning", detail: by.verbal.correct + " / " + by.verbal.total, need: need + " needed", pass: by.verbal.correct >= need });
+    }
+    if (by.numerical || by.abstract) {
+      var c = (by.numerical ? by.numerical.correct : 0) + (by.abstract ? by.abstract.correct : 0);
+      var t = (by.numerical ? by.numerical.total : 0) + (by.abstract ? by.abstract.total : 0);
+      var n2 = Math.ceil(t / 2);
+      var lbl = by.numerical && by.abstract ? "Numerical + abstract (combined)" : by.numerical ? "Numerical reasoning" : "Abstract reasoning";
+      out.push({ label: lbl, detail: c + " / " + t, need: n2 + " needed", pass: c >= n2 });
+    }
+    return out;
+  }
+
+  function finishSession() {
+    var s = state.session;
+    // Coach rounds that span several tests move on to the next test first.
+    if (s.mode === "coach" && s.si < s.sections.length - 1) {
+      s.sections[s.si].done = true; s.si++; s.qi = 0; go("session"); return;
+    }
+    s.finished = Date.now();
+    if (s.mode === "exam") {
+      s.sections.forEach(function (sec) {
+        sec.items.forEach(function (it) { recordQuestion(it.q, sec.answers[it.q.id] === it.q.answer); });
+      });
+    }
+    var hist = load(KEY_HIST, []);
+    var verdict = s.mode === "exam" ? examVerdict(s) : null;
+    hist.unshift({
+      at: Date.now(), mode: s.mode,
+      sections: s.sections.map(function (sec) {
+        var sc = sectionScore(sec);
+        return { key: sec.key, correct: sc.correct, total: sc.total, hints: countHints(sec) };
+      }),
+      pass: verdict ? verdict.every(function (v) { return v.pass; }) : null
+    });
+    save(KEY_HIST, hist.slice(0, 60));
+    state.view = "results";
+    state.ui = freshUI();
+    render();
+  }
+
+  function countHints(sec) {
+    var n = 0; Object.keys(sec.hints).forEach(function (k) { n += sec.hints[k]; }); return n;
+  }
+
+  function submitSection(timedOut) {
+    var s = state.session, sec = s.sections[s.si];
+    sec.done = true; sec.timedOut = !!timedOut;
+    state.ui = freshUI();
+    if (s.si < s.sections.length - 1) { state.view = "between"; render(); }
+    else finishSession();
+  }
+
+  /* ---------- timer ---------- */
+  setInterval(function () {
+    if (state.view !== "session" || !state.session || state.session.review) return;
+    if (state.ui.confirm && state.session.mode !== "exam") return;
+    var c = cur(); if (!c || c.sec.done) return;
+    c.sec.elapsed++;
+    var el = document.getElementById("timer");
+    if (el) {
+      el.textContent = timerText(c.sec);
+      el.className = "timer" + timerClass(c.sec);
+    }
+    if (c.sec.timeLimit && c.sec.elapsed >= c.sec.timeLimit) {
+      state.ui.confirm = null;
+      if (state.session.mode === "exam") submitSection(true);
+      else { finishSession(); }
+      flash("Time is up. Your answers so far have been submitted.");
+    }
+  }, 1000);
+
+  function fmtTime(sec) {
+    sec = Math.max(0, Math.round(sec));
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+  function timerText(sec) {
+    return sec.timeLimit ? fmtTime(sec.timeLimit - sec.elapsed) + " left" : fmtTime(sec.elapsed);
+  }
+  function timerClass(sec) {
+    if (!sec.timeLimit) return "";
+    var left = sec.timeLimit - sec.elapsed;
+    return left <= 60 ? " crit" : left <= 300 ? " warn" : "";
+  }
+
+  /* ---------- calculator ---------- */
+  function calcEval(expr) {
+    var src = expr.replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-");
+    var toks = src.match(/\d*\.?\d+|[-+*/()%]/g);
+    if (!toks || toks.join("") !== src.replace(/\s+/g, "")) throw new Error("bad");
+    var out = [], ops = [], prec = { "+": 1, "-": 1, "*": 2, "/": 2, "u": 3 };
+    var prev = null;
+    toks.forEach(function (t) {
+      if (/^[\d.]/.test(t)) out.push(parseFloat(t));
+      else if (t === "%") out.push("%");
+      else if (t === "(") ops.push(t);
+      else if (t === ")") {
+        while (ops.length && ops[ops.length - 1] !== "(") out.push(ops.pop());
+        if (!ops.length) throw new Error("paren");
+        ops.pop();
+      } else {
+        var op = t === "-" && (prev === null || /[-+*/(]/.test(prev)) ? "u" : t;
+        while (ops.length && ops[ops.length - 1] !== "(" && op !== "u" && prec[ops[ops.length - 1]] >= prec[op]) out.push(ops.pop());
+        ops.push(op);
+      }
+      prev = t;
+    });
+    while (ops.length) { var o = ops.pop(); if (o === "(") throw new Error("paren"); out.push(o); }
+    var st = [];
+    out.forEach(function (t) {
+      if (typeof t === "number") st.push(t);
+      else if (t === "%") { if (!st.length) throw new Error("bad"); st.push(st.pop() / 100); }
+      else if (t === "u") { if (!st.length) throw new Error("bad"); st.push(-st.pop()); }
+      else {
+        var b = st.pop(), a = st.pop();
+        if (a === undefined || b === undefined) throw new Error("bad");
+        st.push(t === "+" ? a + b : t === "-" ? a - b : t === "*" ? a * b : a / b);
+      }
+    });
+    if (st.length !== 1 || !isFinite(st[0])) throw new Error("bad");
+    return +st[0].toPrecision(12);
+  }
+
+  /* ---------- rendering helpers ---------- */
+  var ICON = {
+    flag: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-1.5 4L16 12H7v9z"/></svg>',
+    calc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v4h10V5zm0 6v2h2v-2zm4 0v2h2v-2zm4 0v6h2v-6zm-8 4v2h2v-2zm4 0v2h2v-2z"/></svg>',
+    note: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5zm9 1v4h4M8 12h8M8 15h8M8 18h5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    mark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5l6 6-9 9H5.5v-6zM4 21h16" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'
+  };
+
+  function sectionChip(key) {
+    return '<span class="chip chip-' + key + '">' + esc(SECTIONS[key].name) + "</span>";
+  }
+  function modeLabel(m) { return m === "exam" ? "Exam simulation" : m === "coach" ? "Coach" : "Practice"; }
+
+  function stimulusHTML(item, sec) {
+    var q = item.q;
+    if (q.section === "verbal") {
+      var html = sec.passage[q.id] || (q.passage || "").split(/\n\s*\n/).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+      return '<div class="stim-head"><span class="eyebrow">Reading passage</span>' +
+        (state.session.review ? "" : '<button class="link-btn" data-act="clear-hl">Clear highlights</button>') + "</div>" +
+        '<div class="passage' + (state.ui.hl ? " hl-on" : "") + '" id="passage">' + html + "</div>";
+    }
+    if (q.section === "numerical") {
+      return '<div class="stim-head"><span class="eyebrow">Data</span></div>' + R.exhibitHTML(q.exhibit);
+    }
+    var seq = (q.sequence || []).map(function (f, i) {
+      return '<div class="frame"><span class="frame-n">' + (i + 1) + "</span>" + R.figureSVG(f, "Series figure " + (i + 1)) + "</div>";
+    }).join("");
+    return '<div class="stim-head"><span class="eyebrow">Series</span></div><div class="series">' + seq +
+      '<div class="frame frame-q"><span class="frame-n">?</span><span class="qmark">?</span></div></div>';
+  }
+
+  function optionsHTML(item, sec, mode) {
+    var q = item.q, id = q.id;
+    var chosen = sec.answers[id];
+    var checked = !!sec.checked[id] || state.session.review;
+    var elim = sec.elim[id] || {};
+    var isFig = q.section === "abstract";
+    var showAllNotes = mode === "coach" || state.session.review;
+    var list = item.order.map(function (orig, pos) {
+      var cls = ["opt"];
+      if (chosen === orig) cls.push("chosen");
+      if (elim[orig]) cls.push("struck");
+      if (checked) {
+        if (orig === q.answer) cls.push("right");
+        else if (chosen === orig) cls.push("wrong");
+      }
+      var content = isFig ? R.figureSVG(q.options[orig], "Option " + LETTERS[pos]) : "<span>" + esc(q.options[orig]) + "</span>";
+      var note = "";
+      if (checked && q.optionNotes && q.optionNotes[orig] && (showAllNotes || orig === chosen || orig === q.answer)) {
+        note = '<p class="opt-note">' + esc(q.optionNotes[orig]) + "</p>";
+      }
+      return '<li class="' + cls.join(" ") + '">' +
+        '<button class="opt-main" data-act="choose" data-opt="' + orig + '"' + (checked ? " disabled" : "") + ' aria-pressed="' + (chosen === orig) + '">' +
+        '<span class="letter">' + LETTERS[pos] + "</span>" + '<span class="opt-body">' + content + note + "</span></button>" +
+        (checked ? "" : '<button class="strike" data-act="strike" data-opt="' + orig + '" title="Strike out this option" aria-label="Strike out option ' + LETTERS[pos] + '">✕</button>') +
+        "</li>";
+    }).join("");
+    return '<ol class="opts' + (isFig ? " opts-fig" : "") + '">' + list + "</ol>";
+  }
+
+  function coachPanelHTML(item, sec) {
+    var q = item.q, used = sec.hints[q.id] || 0, hints = q.hints || [];
+    var lesson = (window.EPSO_LESSONS || {})[q.section];
+    var method = lesson ? '<details class="method"' + (state.ui.showMethod ? " open" : "") + '><summary data-act="toggle-method">Method checklist</summary><ol>' +
+      lesson.steps.map(function (st) { return "<li><b>" + esc(st.name) + ".</b> " + esc(st.text) + "</li>"; }).join("") + "</ol></details>" : "";
+    var shown = hints.slice(0, used).map(function (h, i) {
+      return '<li><span class="hint-n">Hint ' + (i + 1) + "</span> " + esc(h) + "</li>";
+    }).join("");
+    var btn = used < hints.length
+      ? '<button class="btn btn-quiet" data-act="hint">' + (used ? "Show next hint" : "Show a hint") + " (" + (used + 1) + " of " + hints.length + ")</button>"
+      : hints.length ? '<span class="muted small">All hints shown. Now choose your answer.</span>' : "";
+    return '<div class="coach"><div class="coach-head"><span class="eyebrow">Coach</span><span class="muted small">Target pace: ' +
+      fmtTime(SECTIONS[q.section].perQ) + " per question</span></div>" + method +
+      (shown ? '<ol class="hints">' + shown + "</ol>" : "") + '<div class="coach-actions">' + btn + "</div></div>";
+  }
+
+  function feedbackHTML(item, sec) {
+    var q = item.q, chosen = sec.answers[q.id];
+    var ok = chosen === q.answer;
+    var pos = item.order.indexOf(q.answer);
+    var head = chosen === undefined
+      ? '<p class="verdict verdict-skip">Not answered. The correct answer is <b>' + LETTERS[pos] + "</b>.</p>"
+      : ok ? '<p class="verdict verdict-ok">Correct.</p>'
+        : '<p class="verdict verdict-bad">Not quite. The correct answer is <b>' + LETTERS[pos] + "</b>.</p>";
+    var sol = q.solution && q.solution.length
+      ? '<div class="solution"><span class="eyebrow">Worked solution</span><ol>' + q.solution.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol></div>" : "";
+    var exp = q.explanation ? '<div class="takeaway"><span class="eyebrow">Key takeaway</span><p>' + esc(q.explanation) + "</p></div>" : "";
+    return '<div class="feedback">' + head + sol + exp + "</div>";
+  }
+
+  function navHTML(sec) {
+    var s = state.session;
+    return '<nav class="qnav" aria-label="Questions">' + sec.items.map(function (it, i) {
+      var id = it.q.id, cls = ["qdot"];
+      if (i === s.qi) cls.push("current");
+      if (sec.answers[id] !== undefined) cls.push("answered");
+      if (sec.flags[id]) cls.push("flagged");
+      if (sec.checked[id] || s.review) cls.push(sec.answers[id] === it.q.answer ? "ok" : "bad");
+      return '<button class="' + cls.join(" ") + '" data-act="goto" data-i="' + i + '" aria-label="Question ' + (i + 1) + '">' + (i + 1) + "</button>";
+    }).join("") + '</nav><div class="legend-row small muted"><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg"></i>Not answered</span><span><i class="lg lg-flag"></i>Flagged</span></div>';
+  }
+
+  function toolsHTML(sec) {
+    var ui = state.ui, k = sec.key, out = "";
+    if (state.session.review) return "";
+    if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '">' + ICON.mark + "<span>Highlight</span></button>";
+    out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '">' + ICON.note + "<span>Scratchpad</span></button>";
+    if (k === "numerical") out += '<button class="tool' + (ui.calc ? " on" : "") + '" data-act="tool-calc" aria-pressed="' + ui.calc + '">' + ICON.calc + "<span>Calculator</span></button>";
+    return '<div class="tools">' + out + "</div>";
+  }
+
+  function popoversHTML(sec) {
+    var ui = state.ui, out = "";
+    if (ui.scratch) {
+      out += '<div class="pop pop-scratch" role="dialog" aria-label="Scratchpad"><div class="pop-head"><b>Scratchpad</b><button class="link-btn" data-act="tool-scratch">Close</button></div>' +
+        '<textarea id="scratch" spellcheck="false" placeholder="Notes and working…">' + esc(sec.scratch) + "</textarea></div>";
+    }
+    if (ui.calc) {
+      var keys = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "%", "+", "(", ")", "⌫", "C"];
+      out += '<div class="pop pop-calc" role="dialog" aria-label="Calculator"><div class="pop-head"><b>Calculator</b><button class="link-btn" data-act="tool-calc">Close</button></div>' +
+        '<div class="calc-screen"><div class="calc-expr" id="calc-expr">' + esc(ui.calcExpr || "0") + '</div><div class="calc-out" id="calc-out">' + esc(ui.calcOut) + "</div></div>" +
+        '<div class="calc-keys">' + keys.map(function (k) { return '<button data-act="calc" data-k="' + esc(k) + '">' + esc(k) + "</button>"; }).join("") +
+        '<button class="calc-eq" data-act="calc" data-k="=">=</button></div></div>';
+    }
+    return out;
+  }
+
+  /* ---------- views ---------- */
+  function viewHome() {
+    var hist = load(KEY_HIST, []);
+    var stats = load(KEY_STATS, {});
+    var sectionRows = ORDER.map(function (k) {
+      var qs = bank.bySection[k], seen = 0, correct = 0, wrongNow = 0;
+      qs.forEach(function (q) { var e = stats[q.id]; if (e) { seen += e.seen; correct += e.correct; if (e.last === false) wrongNow++; } });
+      var acc = seen ? Math.round((correct / seen) * 100) : null;
+      var S = SECTIONS[k];
+      return '<div class="trow">' +
+        '<div class="tcell tname"><b>' + esc(S.name) + '</b><span class="muted small">Exam: ' + S.examCount + " questions · " + S.examMinutes + " min</span></div>" +
+        '<div class="tcell tstat"><span class="big-num">' + qs.length + '</span><span class="muted small">in bank</span></div>' +
+        '<div class="tcell tstat"><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? "accuracy · " + wrongNow + " to revisit" : "not started") + "</span></div>" +
+        '<div class="tcell tact"><button class="btn btn-primary" data-act="coach" data-k="' + k + '">Coach</button><button class="btn" data-act="practice" data-k="' + k + '">Practice</button></div>' +
+        "</div>";
+    }).join("");
+
+    var setOpts = '<option value="all">All sets</option>' + bank.sets.map(function (s) {
+      return '<option value="' + esc(s.id) + '"' + (prefs.setId === s.id ? " selected" : "") + ">" + esc(s.title) + " (" + s.count + ")</option>";
+    }).join("");
+
+    var histHTML = hist.length ? '<ul class="hist">' + hist.slice(0, 8).map(function (h) {
+      var d = new Date(h.at);
+      var parts = h.sections.map(function (s) { return SECTIONS[s.key] ? SECTIONS[s.key].name.split(" ")[0] + " " + s.correct + "/" + s.total : ""; }).join(" · ");
+      var badge = h.pass === null ? "" : h.pass ? '<span class="pill pill-ok">Pass</span>' : '<span class="pill pill-bad">Below pass mark</span>';
+      return "<li><span class=\"hist-date\">" + d.toLocaleDateString(undefined, { day: "numeric", month: "short" }) + " " + d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) +
+        '</span><span class="hist-mode">' + modeLabel(h.mode) + '</span><span class="hist-score">' + esc(parts) + "</span>" + badge + "</li>";
+    }).join("") + "</ul>" : '<p class="muted">No attempts yet. Your coach rounds, practice sessions and exam simulations will be listed here.</p>';
+
+    var warn = bank.errors.length ? '<div class="alert">' + bank.errors.map(esc).join("<br>") + "</div>" : "";
+
+    return '<div class="home">' + warn +
+      '<header class="masthead"><div class="mast-text"><p class="eyebrow">EPSO AD5 · Stage 1 reasoning tests</p><h1>AD5 Reasoning Trainer</h1>' +
+      '<p class="lede">Learn the method with the coach, drill with instant feedback, then sit a full timed simulation in the EPSO format.</p></div>' +
+      '<dl class="format">' +
+      '<div><dt>Verbal</dt><dd><b>20</b> q · <b>35</b> min</dd><dd class="muted small">pass 10/20</dd></div>' +
+      '<div><dt>Numerical</dt><dd><b>10</b> q · <b>20</b> min</dd><dd class="muted small">pass 10/20 combined</dd></div>' +
+      '<div><dt>Abstract</dt><dd><b>10</b> q · <b>10</b> min</dd><dd class="muted small">with numerical</dd></div>' +
+      "</dl></header>" +
+
+      '<section class="exam-card"><div><h2>Exam simulation</h2><p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No feedback until the end, then a pass-mark check and a full review.</p></div>' +
+      '<div class="exam-start"><label for="exam-scope" class="small muted">Tests</label><select id="exam-scope">' +
+      [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
+        return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+
+      '<section class="train"><div class="train-head"><div><h2>Train by test</h2><p class="muted"><b>Coach</b> teaches the method, gives step-by-step hints and explains every option. <b>Practice</b> checks each answer straight away.</p></div>' +
+      '<div class="train-opts">' +
+      '<label class="field"><span class="small muted">Questions</span><select id="opt-count">' + ["5", "10", "20", "all"].map(function (v) {
+        return '<option value="' + v + '"' + (String(prefs.count) === v ? " selected" : "") + ">" + (v === "all" ? "All" : v) + "</option>";
+      }).join("") + "</select></label>" +
+      '<label class="field"><span class="small muted">Question set</span><select id="opt-set">' + setOpts + "</select></label>" +
+      '<label class="check"><input type="checkbox" id="opt-timed"' + (prefs.timed ? " checked" : "") + '> Timed practice at exam pace</label>' +
+      '<label class="check"><input type="checkbox" id="opt-mistakes"' + (prefs.mistakesOnly ? " checked" : "") + "> Only questions I got wrong</label>" +
+      "</div></div>" +
+      '<div class="ttable">' + sectionRows + "</div></section>" +
+
+      '<section class="history"><h2>Recent attempts</h2>' + histHTML + "</section>" +
+
+      '<footer class="foot"><p><b>Unofficial training tool.</b> The questions are original practice material written for this app, not EPSO items. Always check the format in your Notice of Competition.</p>' +
+      '<p class="small muted">Format sources: <a href="https://eu-careers.europa.eu/" target="_blank" rel="noopener">EPSO / EU Careers</a> · ' +
+      '<a href="https://eutraining.eu/content/your-complete-guide-2026-epso-ad5-graduates-exam" target="_blank" rel="noopener">EU Training AD5 2026 guide</a> · ' +
+      '<a href="https://epsoready.eu/" target="_blank" rel="noopener">EPSOready</a> · ' +
+      '<a href="https://www.euphorum.org/en/demo/testmodus" target="_blank" rel="noopener">European Careers Portal</a>. Question sets loaded: ' + bank.sets.length + ".</p></footer></div>";
+  }
+
+  function viewBrief() {
+    var s = state.session;
+    var rows = s.sections.map(function (sec, i) {
+      return "<li><b>" + (i + 1) + ". " + esc(SECTIONS[sec.key].name) + "</b><span>" + sec.items.length + " questions · " + fmtTime(sec.timeLimit) + "</span></li>";
+    }).join("");
+    return '<div class="card narrow"><p class="eyebrow">Exam simulation</p><h1>Before you start</h1>' +
+      '<ol class="brief-list">' + rows + "</ol>" +
+      (s.notes.length ? '<div class="alert">' + s.notes.map(esc).join("<br>") + "</div>" : "") +
+      '<ul class="rules"><li>Each test has its own timer. When it runs out, the test is submitted automatically.</li>' +
+      "<li>You can move freely between questions in a test and flag them to come back to.</li>" +
+      "<li>There is no negative marking, so answer every question.</li>" +
+      "<li>Pass marks: verbal 50%; numerical and abstract 50% combined.</li>" +
+      "<li>Shortcuts: <kbd>A</kbd>–<kbd>E</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move, <kbd>F</kbd> to flag.</li></ul>" +
+      '<div class="row-actions"><button class="btn" data-act="home">Cancel</button><button class="btn btn-primary btn-lg" data-act="begin">Start ' +
+      esc(SECTIONS[s.sections[0].key].name.toLowerCase()) + "</button></div></div>";
+  }
+
+  function viewLesson() {
+    var key = state.session.sections[0].key, L = window.EPSO_LESSONS[key];
+    return '<div class="card lesson"><p class="eyebrow">Coach · lesson</p><h1>' + esc(L.title) + "</h1>" +
+      '<p class="lede">' + esc(L.format) + "</p>" +
+      '<h2>The method</h2><ol class="steps">' + L.steps.map(function (st) {
+        return "<li><b>" + esc(st.name) + "</b><span>" + esc(st.text) + "</span></li>";
+      }).join("") + "</ol>" +
+      '<h2>Common traps</h2><ul class="traps">' + L.traps.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" +
+      '<h2>Pacing</h2><p>' + esc(L.pacing) + "</p>" +
+      '<div class="row-actions"><button class="btn" data-act="home">Back</button><button class="btn btn-primary btn-lg" data-act="begin-coach">Start training round (' +
+      state.session.sections[0].items.length + " questions)</button></div></div>";
+  }
+
+  function viewSession() {
+    var c = cur(), s = c.s, sec = c.sec, item = c.item, q = item.q;
+    var mode = s.mode, review = s.review;
+    var checked = !!sec.checked[q.id] || review;
+    var last = s.qi === sec.items.length - 1;
+    var answered = Object.keys(sec.answers).length;
+
+    var head = '<header class="exam-bar"><div class="bar-left">' + sectionChip(sec.key) +
+      '<span class="pill">' + (review ? "Review" : modeLabel(mode)) + "</span>" +
+      (s.sections.length > 1 ? '<span class="muted small">Test ' + (s.si + 1) + " of " + s.sections.length + "</span>" : "") + "</div>" +
+      '<div class="bar-right">' + toolsHTML(sec) +
+      (review ? "" : '<span id="timer" class="timer' + timerClass(sec) + '">' + timerText(sec) + "</span>") +
+      (review ? '<button class="btn btn-primary" data-act="results">Back to results</button>'
+        : mode === "exam" ? '<button class="btn btn-primary" data-act="submit">Submit test</button>'
+          : '<button class="btn" data-act="end">End round</button>') +
+      "</div></header>";
+
+    var actions = [];
+    actions.push('<button class="btn" data-act="prev"' + (s.qi === 0 ? " disabled" : "") + ">← Previous</button>");
+    if (!review && mode === "exam") actions.push('<button class="btn btn-flag' + (sec.flags[q.id] ? " on" : "") + '" data-act="flag" aria-pressed="' + !!sec.flags[q.id] + '">' + ICON.flag + (sec.flags[q.id] ? "Flagged" : "Flag") + "</button>");
+    if (!review && mode !== "exam" && !checked) actions.push('<button class="btn btn-primary" data-act="check"' + (sec.answers[q.id] === undefined ? " disabled" : "") + ">Check answer</button>");
+    if (last) {
+      if (!review && mode === "exam") actions.push('<button class="btn btn-primary" data-act="submit">Submit test</button>');
+      if (!review && mode !== "exam" && checked) actions.push('<button class="btn btn-primary" data-act="end">See results</button>');
+    } else {
+      actions.push('<button class="btn' + ((checked && !review && mode !== "exam") || mode === "exam" ? " btn-primary" : "") + '" data-act="next">Next →</button>');
+    }
+
+    var right = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
+      (q.topic ? '<span class="muted small">' + esc(q.topic) + (q.difficulty ? " · " + ["", "easier", "medium", "harder"][q.difficulty] : "") + "</span>" : "") + "</div>" +
+      '<h2 class="stem">' + esc(q.stem || "Which of the following statements is correct?") + "</h2>" +
+      optionsHTML(item, sec, mode) +
+      (mode === "coach" && !checked ? coachPanelHTML(item, sec) : "") +
+      (checked ? feedbackHTML(item, sec) : "") +
+      '<div class="q-actions">' + actions.join("") + "</div>" +
+      (mode === "exam" && !review ? '<p class="muted small">' + answered + " of " + sec.items.length + " answered</p>" : "");
+
+    return head + '<div class="session">' + navHTML(sec) +
+      '<div class="q-layout q-' + q.section + '"><section class="stimulus">' + stimulusHTML(item, sec) + '</section><section class="answer-pane">' + right + "</section></div></div>" +
+      popoversHTML(sec);
+  }
+
+  function viewBetween() {
+    var s = state.session, done = s.sections[s.si], next = s.sections[s.si + 1];
+    var sc = sectionScore(done);
+    return '<div class="card narrow"><p class="eyebrow">Test ' + (s.si + 1) + " of " + s.sections.length + " complete</p><h1>" + esc(SECTIONS[done.key].name) + " submitted</h1>" +
+      "<p>" + (done.timedOut ? "Time ran out. " : "") + "You answered " + sc.answered + " of " + sc.total + " questions in " + fmtTime(Math.min(done.elapsed, done.timeLimit || done.elapsed)) + ". Scores are shown at the end, as in the real exam.</p>" +
+      "<p>Next: <b>" + esc(SECTIONS[next.key].name) + "</b>, " + next.items.length + " questions in " + fmtTime(next.timeLimit) + ".</p>" +
+      '<div class="row-actions"><button class="btn btn-primary btn-lg" data-act="next-section">Start ' + esc(SECTIONS[next.key].name.toLowerCase()) + "</button></div></div>";
+  }
+
+  function viewResults() {
+    var s = state.session;
+    var verdict = s.mode === "exam" ? examVerdict(s) : null;
+    var overall = verdict ? verdict.every(function (v) { return v.pass; }) : null;
+    var summary = s.sections.map(function (sec) {
+      var sc = sectionScore(sec), pct = sc.total ? Math.round((sc.correct / sc.total) * 100) : 0;
+      return '<div class="score-tile"><span class="small muted">' + esc(SECTIONS[sec.key].name) + '</span><span class="score-big">' + sc.correct + "<small>/" + sc.total + "</small></span>" +
+        '<div class="meter" role="img" aria-label="' + pct + '% correct"><i style="width:' + pct + '%"></i><b style="left:50%"></b></div>' +
+        '<span class="small muted">' + pct + "% · " + fmtTime(sec.elapsed) + (sec.timeLimit ? " of " + fmtTime(sec.timeLimit) : "") + (s.mode === "coach" ? " · " + countHints(sec) + " hints" : "") + "</span></div>";
+    }).join("");
+
+    var verdictHTML = verdict ? '<div class="verdict-box ' + (overall ? "ok" : "bad") + '"><h2>' + (overall ? "You would pass the reasoning stage" : "Below the pass mark") + "</h2><ul>" +
+      verdict.map(function (v) { return "<li><span>" + esc(v.label) + "</span><b>" + v.detail + '</b><span class="muted small">' + v.need + "</span>" + (v.pass ? '<span class="pill pill-ok">Pass</span>' : '<span class="pill pill-bad">Fail</span>') + "</li>"; }).join("") +
+      "</ul><p class=\"small muted\">Reaching the pass mark is necessary but may not be enough: EPSO can also rank candidates on their verbal reasoning score.</p></div>" : "";
+
+    var topics = {};
+    s.sections.forEach(function (sec) {
+      sec.items.forEach(function (it) {
+        var t = (SECTIONS[sec.key].name.split(" ")[0]) + " · " + (it.q.topic || "General");
+        topics[t] = topics[t] || { c: 0, n: 0 };
+        topics[t].n++; if (sec.answers[it.q.id] === it.q.answer) topics[t].c++;
+      });
+    });
+    var weak = Object.keys(topics).filter(function (t) { return topics[t].c < topics[t].n; });
+
+    var rows = s.sections.map(function (sec, si) {
+      return '<h3>' + esc(SECTIONS[sec.key].name) + '</h3><ol class="review-list">' + sec.items.map(function (it, i) {
+        var a = sec.answers[it.q.id], ok = a === it.q.answer;
+        var yours = a === undefined ? "–" : LETTERS[it.order.indexOf(a)];
+        return '<li class="' + (ok ? "ok" : "bad") + '"><span class="rv-n">' + (i + 1) + '</span><span class="rv-topic">' + esc(it.q.topic || "") + "</span>" +
+          '<span class="rv-ans">You: <b>' + yours + "</b> · Correct: <b>" + LETTERS[it.order.indexOf(it.q.answer)] + "</b></span>" +
+          '<button class="link-btn" data-act="review" data-si="' + si + '" data-i="' + i + '">Review</button></li>';
+      }).join("") + "</ol>";
+    }).join("");
+
+    var wrongCount = 0;
+    s.sections.forEach(function (sec) { sec.items.forEach(function (it) { if (sec.answers[it.q.id] !== it.q.answer) wrongCount++; }); });
+
+    return '<div class="results"><p class="eyebrow">' + modeLabel(s.mode) + " · results</p><h1>" + (s.mode === "exam" ? "Your simulation result" : "Round complete") + "</h1>" +
+      verdictHTML + '<div class="tiles">' + summary + "</div>" +
+      (weak.length ? '<div class="weak"><h2>Topics to revisit</h2><ul>' + weak.slice(0, 8).map(function (t) { return "<li>" + esc(t) + " <span class=\"muted\">(" + topics[t].c + "/" + topics[t].n + ")</span></li>"; }).join("") +
+        (weak.length > 8 ? '<li class="muted">and ' + (weak.length - 8) + " more. See the question review below.</li>" : "") + "</ul></div>" : "") +
+      '<div class="row-actions">' +
+      (wrongCount ? '<button class="btn btn-primary" data-act="retry-coach">Coach me on my ' + wrongCount + " mistake" + (wrongCount > 1 ? "s" : "") + "</button>" : "") +
+      '<button class="btn" data-act="home">Back to start</button></div>' +
+      '<section class="review"><h2>Question review</h2>' + rows + "</section></div>";
+  }
+
+  function confirmHTML() {
+    var c = state.ui.confirm; if (!c) return "";
+    return '<div class="overlay" role="dialog" aria-modal="true" aria-labelledby="cf-title"><div class="dialog"><h2 id="cf-title">' + esc(c.title) + "</h2><p>" + esc(c.text) + "</p>" +
+      '<div class="row-actions"><button class="btn" data-act="cf-no">' + esc(c.no || "Cancel") + '</button><button class="btn btn-primary" data-act="cf-yes">' + esc(c.yes) + "</button></div></div></div>";
+  }
+
+  var flashTimer = null;
+  function flash(msg) {
+    state.notice = msg;
+    render();
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(function () { state.notice = null; var n = document.getElementById("toast"); if (n) n.remove(); }, 4000);
+  }
+
+  var root;
+  function render() {
+    var html;
+    switch (state.view) {
+      case "brief": html = viewBrief(); break;
+      case "lesson": html = viewLesson(); break;
+      case "session": html = viewSession(); break;
+      case "between": html = viewBetween(); break;
+      case "results": html = viewResults(); break;
+      default: html = viewHome();
+    }
+    root.className = "app view-" + state.view;
+    root.innerHTML = html + confirmHTML() + (state.notice ? '<div id="toast" class="toast" role="status">' + esc(state.notice) + "</div>" : "");
+  }
+
+  function go(view) { state.view = view; state.ui = freshUI(); render(); window.scrollTo(0, 0); }
+
+  /* ---------- actions ---------- */
+  function savePassage() {
+    var c = cur(), el = document.getElementById("passage");
+    if (c && el) c.sec.passage[c.item.q.id] = el.innerHTML;
+  }
+
+  function move(delta) {
+    var s = state.session, sec = s.sections[s.si];
+    var n = s.qi + delta;
+    if (n < 0 || n >= sec.items.length) return;
+    s.qi = n; state.ui.hl = false; state.ui.showMethod = false;
+    render();
+    var a = document.querySelector(".answer-pane");
+    if (window.innerWidth < 900 && a) document.querySelector(".session").scrollIntoView({ block: "start" });
+  }
+
+  function choose(orig) {
+    var c = cur(); if (!c || c.sec.checked[c.item.q.id] || c.s.review) return;
+    c.sec.answers[c.item.q.id] = orig;
+    if (c.sec.elim[c.item.q.id]) delete c.sec.elim[c.item.q.id][orig];
+    render();
+  }
+
+  function check() {
+    var c = cur(), id = c.item.q.id;
+    if (c.sec.answers[id] === undefined || c.sec.checked[id]) return;
+    c.sec.checked[id] = true;
+    recordQuestion(c.item.q, c.sec.answers[id] === c.item.q.answer);
+    render();
+  }
+
+  function calcPress(k) {
+    var ui = state.ui;
+    if (k === "C") { ui.calcExpr = ""; ui.calcOut = ""; }
+    else if (k === "⌫") ui.calcExpr = ui.calcExpr.slice(0, -1);
+    else if (k === "=") {
+      try { var v = calcEval(ui.calcExpr); ui.calcOut = "= " + v; ui.calcExpr = String(v); }
+      catch (e) { ui.calcOut = "Check the expression"; }
+    } else {
+      if (ui.calcExpr.length < 40) ui.calcExpr += k;
+      ui.calcOut = "";
+    }
+    var e1 = document.getElementById("calc-expr"), e2 = document.getElementById("calc-out");
+    if (e1) e1.textContent = ui.calcExpr || "0";
+    if (e2) e2.textContent = ui.calcOut;
+  }
+
+  function onClick(e) {
+    var t = e.target.closest("[data-act]"); if (!t || !root.contains(t)) return;
+    var act = t.getAttribute("data-act");
+    var s = state.session;
+    switch (act) {
+      case "home": state.session = null; go("home"); break;
+      case "exam": startExam(prefs.examScope); break;
+      case "coach": startTraining("coach", t.getAttribute("data-k")); break;
+      case "practice": startTraining("practice", t.getAttribute("data-k")); break;
+      case "begin": case "begin-coach": go("session"); break;
+      case "next-section": s.si++; s.qi = 0; go("session"); break;
+      case "choose": choose(+t.getAttribute("data-opt")); break;
+      case "strike": {
+        var c = cur(), id = c.item.q.id, o = +t.getAttribute("data-opt");
+        c.sec.elim[id] = c.sec.elim[id] || {};
+        c.sec.elim[id][o] = !c.sec.elim[id][o];
+        if (c.sec.elim[id][o] && c.sec.answers[id] === o) delete c.sec.answers[id];
+        render(); break;
+      }
+      case "prev": move(-1); break;
+      case "next": move(1); break;
+      case "goto": s.qi = +t.getAttribute("data-i"); state.ui.hl = false; render(); break;
+      case "flag": { var cf = cur(); cf.sec.flags[cf.item.q.id] = !cf.sec.flags[cf.item.q.id]; render(); break; }
+      case "check": check(); break;
+      case "hint": { var ch = cur(); ch.sec.hints[ch.item.q.id] = (ch.sec.hints[ch.item.q.id] || 0) + 1; render(); break; }
+      case "toggle-method": e.preventDefault(); state.ui.showMethod = !state.ui.showMethod; render(); break;
+      case "tool-hl": state.ui.hl = !state.ui.hl; render(); break;
+      case "tool-scratch": state.ui.scratch = !state.ui.scratch; render(); break;
+      case "tool-calc": state.ui.calc = !state.ui.calc; render(); break;
+      case "calc": calcPress(t.getAttribute("data-k")); break;
+      case "clear-hl": { var cc = cur(); delete cc.sec.passage[cc.item.q.id]; render(); break; }
+      case "submit": {
+        var sec = cur().sec, sc = sectionScore(sec), un = sc.total - sc.answered, fl = Object.keys(sec.flags).filter(function (k) { return sec.flags[k]; }).length;
+        state.ui.confirm = {
+          title: "Submit " + SECTIONS[sec.key].name.toLowerCase() + "?",
+          text: (un ? un + " question" + (un > 1 ? "s are" : " is") + " unanswered. " : "All questions are answered. ") + (fl ? fl + " flagged. " : "") + "You cannot return to this test after submitting.",
+          yes: "Submit test", act: "submit"
+        };
+        render(); break;
+      }
+      case "end": {
+        var secE = cur().sec, open = secE.items.filter(function (it) { return !secE.checked[it.q.id]; }).length;
+        if (open && s.mode !== "exam") {
+          state.ui.confirm = { title: "End this round?", text: open + " question" + (open > 1 ? "s have" : " has") + " not been checked yet. They will count as unanswered.", yes: "End round", act: "end" };
+          render();
+        } else finishSession();
+        break;
+      }
+      case "cf-no": state.ui.confirm = null; render(); break;
+      case "cf-yes": {
+        var a = state.ui.confirm && state.ui.confirm.act; state.ui.confirm = null;
+        if (a === "submit") submitSection(false); else if (a === "end") finishSession();
+        break;
+      }
+      case "review": s.review = true; s.si = +t.getAttribute("data-si"); s.qi = +t.getAttribute("data-i"); go("session"); break;
+      case "results": s.review = false; go("results"); break;
+      case "retry-coach": {
+        var wrong = [];
+        s.sections.forEach(function (sec2) { sec2.items.forEach(function (it) { if (sec2.answers[it.q.id] !== it.q.answer) wrong.push(it.q); }); });
+        var bySec = {};
+        wrong.forEach(function (q) { (bySec[q.section] = bySec[q.section] || []).push(q); });
+        var sections = ORDER.filter(function (k) { return bySec[k]; }).map(function (k) { return makeSection(k, bySec[k], null); });
+        state.session = { mode: "coach", sections: sections, si: 0, qi: 0, started: Date.now(), notes: [], review: false };
+        // Coach on several tests: run them back to back without a lesson.
+        if (sections.length === 1) { state.ui = freshUI(); state.view = "lesson"; render(); }
+        else go("session");
+        break;
+      }
+    }
+  }
+
+  function onChange(e) {
+    var id = e.target.id;
+    if (id === "exam-scope") prefs.examScope = e.target.value;
+    else if (id === "opt-count") prefs.count = e.target.value;
+    else if (id === "opt-set") prefs.setId = e.target.value;
+    else if (id === "opt-timed") prefs.timed = e.target.checked;
+    else if (id === "opt-mistakes") prefs.mistakesOnly = e.target.checked;
+    else return;
+    save(KEY_PREFS, prefs);
+  }
+
+  function onInput(e) {
+    if (e.target.id === "scratch") { var c = cur(); if (c) c.sec.scratch = e.target.value; }
+  }
+
+  function onPointerUp() {
+    if (!state.ui.hl) return;
+    var p = document.getElementById("passage"); if (!p) return;
+    var sel = window.getSelection(); if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+    var r = sel.getRangeAt(0);
+    if (!p.contains(r.commonAncestorContainer)) return;
+    try {
+      var mark = document.createElement("mark");
+      mark.appendChild(r.extractContents());
+      r.insertNode(mark);
+      sel.removeAllRanges();
+      savePassage();
+    } catch (err) { /* selection spans structure that cannot be wrapped */ }
+  }
+
+  function onKey(e) {
+    var tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "textarea" || tag === "input" || tag === "select" || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (state.ui.confirm) { if (e.key === "Escape") { state.ui.confirm = null; render(); } return; }
+    if (state.view !== "session") return;
+    var c = cur(); if (!c) return;
+    var k = e.key;
+    var idx = "abcde".indexOf(k.toLowerCase());
+    if (idx === -1 && /^[1-5]$/.test(k)) idx = +k - 1;
+    if (idx > -1 && idx < c.item.order.length && k.length === 1) { choose(c.item.order[idx]); e.preventDefault(); return; }
+    if (k === "ArrowRight") { move(1); e.preventDefault(); }
+    else if (k === "ArrowLeft") { move(-1); e.preventDefault(); }
+    else if ((k === "f" || k === "F") && c.s.mode === "exam") { c.sec.flags[c.item.q.id] = !c.sec.flags[c.item.q.id]; render(); }
+    else if (k === "Enter" && c.s.mode !== "exam" && !c.s.review) {
+      if (!c.sec.checked[c.item.q.id]) check(); else move(1);
+      e.preventDefault();
+    }
+  }
+
+  /* ---------- boot ---------- */
+  function boot() {
+    root = document.getElementById("app");
+    buildBank();
+    root.addEventListener("click", onClick);
+    root.addEventListener("change", onChange);
+    root.addEventListener("input", onInput);
+    root.addEventListener("mouseup", onPointerUp);
+    root.addEventListener("touchend", onPointerUp);
+    document.addEventListener("keydown", onKey);
+    render();
+  }
+
+  function loadSets(done) {
+    var files = window.EPSO_BUNDLED ? [] : (window.EPSO_SET_FILES || []);
+    var i = 0;
+    (function next() {
+      if (i >= files.length) return done();
+      var f = files[i++];
+      var el = document.createElement("script");
+      el.src = "questions/" + f;
+      el.onload = next;
+      el.onerror = function () { bank.errors.push("Could not load questions/" + f + "."); next(); };
+      document.body.appendChild(el);
+    })();
+  }
+
+  window.EPSO_APP = { calcEval: calcEval, examVerdict: examVerdict };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { loadSets(boot); });
+  else loadSets(boot);
+})();
+
+</script>
+</body>
+</html>
