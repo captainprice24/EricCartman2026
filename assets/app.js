@@ -864,6 +864,7 @@
     state.focus = null;
     lastView = state.view;
     if (target && target.focus) { try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); } }
+    positionTips();
   }
 
   function go(view) { state.view = view; state.ui = freshUI(); render(); window.scrollTo(0, 0); }
@@ -957,7 +958,7 @@
       case "practice": startTraining("practice", t.getAttribute("data-k")); break;
       case "begin": case "begin-coach": startClock(s.sections[s.si]); go("session"); break;
       case "next-section": s.si++; s.qi = 0; startClock(s.sections[s.si]); go("session"); break;
-      case "choose": choose(+t.getAttribute("data-opt")); break;
+      case "choose": state.ui.optPos = +t.id.slice(4); state.focus = t.id; choose(+t.getAttribute("data-opt")); break;
       case "strike": {
         var c = cur(), id = c.item.q.id, o = +t.getAttribute("data-opt");
         c.sec.elim[id] = c.sec.elim[id] || {};
@@ -1074,12 +1075,31 @@
     });
     state.ui.tip = null;
   }
+  function positionTip(tip) {
+    // Phone/touch help uses the bottom card defined in CSS. Desktop help follows its trigger.
+    if (window.matchMedia("(max-width: 560px), (hover: none)").matches) { tip.removeAttribute("style"); return; }
+    var anchor = tip.parentNode.querySelector("button").getBoundingClientRect();
+    tip.style.position = "fixed"; tip.style.left = "0px"; tip.style.top = "0px"; tip.style.right = "auto"; tip.style.bottom = "auto";
+    var box = tip.getBoundingClientRect();
+    var left = tip.parentNode.classList.contains("tip-r") ? anchor.right - box.width : anchor.left - 6;
+    var top = anchor.bottom + 6;
+    if (top + box.height > window.innerHeight - 8) top = anchor.top - box.height - 6;
+    tip.style.left = Math.max(8, Math.min(left, window.innerWidth - box.width - 8)) + "px";
+    tip.style.top = Math.max(8, Math.min(top, window.innerHeight - box.height - 8)) + "px";
+  }
+  function positionTips() {
+    if (root) root.querySelectorAll(".tip.open").forEach(positionTip);
+  }
   function tipEnter(e) {
     var wrap = e.target.closest && e.target.closest(".info-wrap");
     if (!wrap || (e.relatedTarget && wrap.contains(e.relatedTarget))) return;
     var btn = wrap.querySelector("button"), id = btn.getAttribute("data-k");
     if (dismissedTip === id) return;
-    wrap.querySelector(".tip").classList.add("open"); btn.setAttribute("aria-expanded", "true");
+    root.querySelectorAll(".tip.open").forEach(function (tip) {
+      if (tip.parentNode !== wrap) { tip.classList.remove("open"); tip.parentNode.querySelector("button").setAttribute("aria-expanded", "false"); }
+    });
+    if (state.ui.tip && state.ui.tip !== id) state.ui.tip = null;
+    var tip = wrap.querySelector(".tip"); tip.classList.add("open"); btn.setAttribute("aria-expanded", "true"); positionTip(tip);
   }
   function tipLeave(e) {
     var wrap = e.target.closest && e.target.closest(".info-wrap");
@@ -1172,6 +1192,8 @@
     root.addEventListener("touchend", onSelectionEnd);
     root.addEventListener("keyup", function (e) { if (e.key && e.key.indexOf("Arrow") === 0 && e.shiftKey) onSelectionEnd(); });
     document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", positionTips);
+    window.addEventListener("scroll", positionTips, true);
     // N13: the same saved session written from another tab would overwrite this one's progress.
     window.addEventListener("storage", function (e) {
       if (e.key !== KEY_SESSION || !e.newValue || !state.session || state.session.finished || state.session.review) return;

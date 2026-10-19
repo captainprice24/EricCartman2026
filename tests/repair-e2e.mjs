@@ -50,11 +50,34 @@ for(const name of (process.env.BROWSERS||'chromium').split(',')){
   await p.evaluate(()=>document.querySelector('[data-act="next"]').click());assert.equal(await p.evaluate(()=>window.EPSO_APP.state.session.qi),0);
   await p.keyboard.press('Escape');assert.equal(await p.locator('.dialog').count(),0);assert.equal(await p.evaluate(()=>document.activeElement.getAttribute('data-act')),'end');assert.equal(await p.locator('[inert]').count(),0);await p.context().close();
  });
+ await check('answer clicks set focus and the roving tab stop even without native button focus',async()=>{
+  const p=await page();
+  await p.evaluate(()=>document.addEventListener('mousedown',e=>{if(e.target.closest('button'))e.preventDefault()}));
+  await p.locator('[data-act="practice"][data-k="verbal"]').click();
+  await p.locator('[data-act="choose"]').first().click();
+  assert.equal(await p.evaluate(()=>document.activeElement.id),'opt-0');
+  await p.keyboard.press('ArrowRight');
+  await p.locator('[data-act="choose"]').nth(3).click();
+  assert.equal(await p.evaluate(()=>document.activeElement.id),'opt-3');
+  assert.equal(await p.locator('#opt-3').getAttribute('tabindex'),'0');
+  assert.equal(await p.locator('.opts [tabindex="0"]').count(),1);
+  await p.context().close();
+ });
  await check('Escape dismisses focused, hovered and clicked tooltips until re-entry',async()=>{
   const p=await page();const btn=p.locator('[data-act="tip"][data-k="scope"]'),tip=p.locator('#tip-scope');
   await btn.focus();assert.equal(await tip.isVisible(),true);await p.keyboard.press('Escape');assert.equal(await tip.isVisible(),false);assert.equal(await btn.getAttribute('aria-expanded'),'false');assert.equal(await btn.evaluate(el=>el===document.activeElement),true);
   await p.locator('#opt-count').focus();await p.mouse.move(1,1);await btn.hover();assert.equal(await tip.isVisible(),true);await p.keyboard.press('Escape');assert.equal(await tip.isVisible(),false);
   await p.mouse.move(1,1);await btn.hover();assert.equal(await tip.isVisible(),true);await btn.click();await p.keyboard.press('Escape');assert.equal(await tip.isVisible(),false);await p.context().close();
+ });
+ await check('help stays visible above a trigger at the bottom of the window',async()=>{
+  const p=await page({viewport:{width:1366,height:650}});
+  const btn=p.locator('[data-act="tip"][data-k="mistakes"]');
+  await btn.evaluate(el=>el.scrollIntoView({block:'end'}));await btn.hover();
+  const bounds=await p.locator('#tip-mistakes').evaluate(el=>{
+    const r=el.getBoundingClientRect(),hit=document.elementFromPoint(r.left+r.width/2,r.top+10);
+    return {inside:r.top>=0&&r.bottom<=innerHeight&&r.left>=0&&r.right<=innerWidth,onTop:el.contains(hit)};
+  });
+  assert.deepEqual(bounds,{inside:true,onTop:true});await p.context().close();
  });
  await check('unchecked answers remain neutral in score, history, topics, retry and review',async()=>{
   const p=await page({viewport:{width:320,height:700}});await p.selectOption('#opt-count','5');await p.locator('[data-act="practice"][data-k="verbal"]').click();

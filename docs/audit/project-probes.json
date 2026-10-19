@@ -1,7 +1,7 @@
 {
-  "baseCommit": "68f72609b1be9c1d56559c2c9f9ae202779247af",
+  "baseCommit": "622f3ef5e233b4dcc89f4c89983b4cea3ed5480b",
   "verifiedWorkingTree": true,
-  "applicationVersion": "9b4d97ecbcc2",
+  "applicationVersion": "2605e960d67e",
   "browser": "Chromium",
   "base": "http://127.0.0.1:8000",
   "observations": [
@@ -30,7 +30,7 @@
       "name": "unchecked-practice-result-consistency",
       "result": {
         "score": "0/0",
-        "firstReview": "–\n1. Security strategy\nNot checked.\nYou: B · Correct: B\nReview",
+        "firstReview": "–\n1. Community-energy benefit boundaries\nNot checked.\nYou: D · Correct: D\nReview",
         "retry": null,
         "errors": []
       }
@@ -89,7 +89,7 @@
       "result": {
         "before": {
           "scrollLeft": 0,
-          "scrollWidth": 346,
+          "scrollWidth": 392,
           "clientWidth": 324,
           "qi": 0
         },
@@ -138,7 +138,7 @@
         "versionFileIncluded": true,
         "failed": [],
         "homeLoaded": true,
-        "version": "9b4d97ecbcc2",
+        "version": "2605e960d67e",
         "questions": 620,
         "versionedScripts": 35
       }

@@ -19,17 +19,19 @@
 | A11: numerical filler distractors | Templates use explicit mistakes and reject/regenerate unusable layouts. All 150 foundation items regenerated under new IDs with immutable revision fingerprints. | Zero fillers in all 190 questions; every key independently recalculated; option range, rounding, display-value exclusions and key balance pass. |
 | A12: verbal taxonomy and scope | Independent blind review of all 200 foundation keys and 600 distractor labels. Corrected 58 original labels and clarified eight items under new IDs. | All final keys/labels match archived reviews and passage/option hashes; zero unresolved reviewer issues; original cue limits retained. |
 
-`tests/repair-e2e.mjs` adds nine browser regression checks to the standard `npm run test:e2e` command. It starts its own local server from the same prepared artifact used for deployment. The existing end-to-end checks continue to cover complete desktop/phone simulations, training, reload/resume, accessibility scans, difficulty controls and challenge rendering.
+`tests/repair-e2e.mjs` adds eleven browser regression checks to the standard `npm run test:e2e` command. It starts its own local server from the same prepared artifact used for deployment. The existing end-to-end checks continue to cover complete desktop/phone simulations, training, reload/resume, accessibility scans, difficulty controls and challenge rendering.
 
 ## Final checks
 
 - ESLint, schema/cue/duplicate validation and deterministic numerical generation pass.
 - **31 unit/content tests pass**, including independent numerical calculation for all 190 items and archived verbal review for all 240 items / 720 labels.
-- **37 Chromium browser checks pass**: 28 existing checks plus nine audit regressions. Included axe scans pass.
+- **39 Chromium browser checks pass**: 28 existing checks plus eleven audit regressions. Included axe scans pass.
 - All **29 sets / 620 questions** validate. Difficulty counts remain verbal 38/105/97, numerical 56/82/52, abstract 29/121/40 (Easy/Medium/Hard).
 - Standalone build and `version.js` are rebuilt. The prepared source artifact includes cache versioning and the standalone includes the complete bank.
 - Refreshed numerical/verbal inventories, browser probes and whole-bank evidence are saved. The original evidence remains in the `*-before-repair.json` snapshots.
 - The full abstract raster check still finds no duplicate option images across 190 questions / 1,940 figures. Twenty-seven foundation answers repeat an earlier stimulus image, which is compatible with cyclic rules.
+
+GitHub CI exposed a help tooltip clipped at the bottom of a desktop window. Desktop help now follows its trigger, flips above it when space is limited, stays inside the viewport and repositions on scroll/resize. A shorter-window regression reproduces the original clipping. An additional regression exposed browser-dependent button focus. Answer selection now explicitly focuses the selected radio and updates its roving tab stop, including browsers that do not focus buttons on mouse clicks. A regression simulates that native behaviour rather than depending on Chromium defaults.
 
 ## Compatibility and remaining verification limits
 
@@ -39,6 +41,6 @@ Independent verbal review was performed by AI reviewers working from passages/op
 
 The forty abstract challenge keys have independent visible-figure inference coverage. The 150 older abstract keys have structural, rendering and raster coverage but have not all been independently re-solved in a fresh semantic review. This is a disclosed coverage limit, not a confirmed incorrect-key finding from the original audit.
 
-Local execution uses Node 24 and system Chromium. CI requests Node 20, Chromium and WebKit; WebKit/Firefox binaries are absent locally. Managed Chromium blocks `file://` with `ERR_BLOCKED_BY_ADMINISTRATOR`, so local browser verification uses HTTP. The code remains dependency-free, uses ES5 browser scripts and makes no runtime third-party requests. Official EPSO pages and the production Pages host are outside the environment's network allowlist; current official competition details and live deployment were not independently verified here.
+Local execution uses Node 24 and system Chromium. CI now pins Ubuntu 24.04 and Node 24, with Node 24 checkout/setup actions, Chromium and WebKit; WebKit/Firefox binaries are absent locally. Managed Chromium blocks `file://` with `ERR_BLOCKED_BY_ADMINISTRATOR`, so local browser verification uses HTTP. The code remains dependency-free, uses ES5 browser scripts and makes no runtime third-party requests. Official EPSO pages and the production Pages host are outside the environment's network allowlist; current official competition details and live deployment were not independently verified here.
 
 See [evidence and reproduction commands](audit/README.md), [numerical audit](NUMERICAL_AUDIT.md), [verbal audit](VERBAL_AUDIT.md), and [foundation verbal review archive](research/verbal/blind-review/legacy/README.md).
