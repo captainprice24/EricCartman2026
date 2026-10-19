@@ -354,6 +354,7 @@ async function run(engineName) {
     await p.mouse.move(5, 5);
     await p.keyboard.press("Escape");
     assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "false", "Escape closes the pinned tip");
+    await p.locator("#opt-count").focus(); // End the preceding keyboard-focus tooltip check.
     // Every tip must be visible when its button is hovered, not clipped by its container.
     for (const id of await p.$$eval('[data-act="tip"]', (els) => els.map((e) => e.getAttribute("data-k")))) {
       await p.mouse.move(5, 5);
