@@ -29,5 +29,9 @@ window.EPSO_SET_FILES = [
   "abstract/abstract-set-01.js",
   "abstract/abstract-set-02.js",
   "abstract/abstract-set-03.js",
-  "abstract/abstract-set-04.js"
+  "abstract/abstract-set-04.js",
+  "abstract/abstract-set-05.js",
+  "abstract/abstract-set-06.js",
+  "abstract/abstract-set-07.js",
+  "abstract/abstract-set-08.js"
 ];

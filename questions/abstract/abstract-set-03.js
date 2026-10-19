@@ -9,7 +9,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-01",
       "topic": "Single figure",
-      "difficulty": 1,
+      "difficulty": 2,
       "rules": 2,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -84,7 +84,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-04",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -184,7 +184,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-08",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -284,7 +284,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-12",
       "topic": "Grid movement",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -384,7 +384,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-16",
       "topic": "Single figure",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -484,7 +484,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-20",
       "topic": "Rotating hands",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -584,7 +584,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-24",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -684,7 +684,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-28",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -784,7 +784,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-32",
       "topic": "Grid movement",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -884,7 +884,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-36",
       "topic": "Single figure",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -984,7 +984,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-40",
       "topic": "Rotating hands",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1084,7 +1084,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-44",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1184,7 +1184,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a03-48",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [

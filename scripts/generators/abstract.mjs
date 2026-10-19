@@ -1,7 +1,7 @@
-// Generates every abstract reasoning set (questions/abstract/abstract-set-01…04.js, 150 items).
+// Generates every abstract reasoning set (questions/abstract/abstract-set-01…04.js, 150 foundation items plus 40 challenge items).
 //
 // Five layouts, 30 items each: single figure, grid movement, overlapping shapes, divided circle and
-// rotating hands. Each item runs 2–4 independent rules (difficulty = rules − 1); all other elements
+// rotating hands. Foundation items run 2–4 independent rules; difficulty follows abstract-difficulty.mjs. Other elements
 // stay constant.
 //
 // Distractors mix one-rule and two-rule breaks, plausible wrong readings of the series (no step,
@@ -11,9 +11,11 @@
 // similarity to the other options is balanced across ranks 1–5 within every five items.
 //
 // Usage: node scripts/generators/abstract.mjs
+import { generateHardAbstract } from "./abstract-hard.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { abstractRubric } from "../lib/abstract-difficulty.mjs";
 import { abstractBlind } from "../lib/blind.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -391,7 +393,7 @@ function buildItem(layoutKey, nRules, target) {
 
     const names = keys.map((k) => L.tracks[k].name);
     return {
-      topic: L.topic, difficulty: nRules - 1, rules: nRules,
+      topic: L.topic, rules: nRules,
       stem: "Which figure comes next in the series?",
       sequence: [0, 1, 2, 3, 4].map((i) => draw(state(i))),
       options: [{ fig: keyFig, note: "Correct: it follows every rule, and the elements without a rule are unchanged." }]
@@ -426,7 +428,7 @@ const items = range(N).map((i) => {
     const pos = (i * 2 + Math.floor(i / 5)) % 5;
     const opts = it.options.slice(1);
     opts.splice(pos, 0, it.options[0]);
-    return { ...it, layout, options: opts.map((o) => o.fig), answer: pos, optionNotes: opts.map((o) => o.note) };
+    return { ...it, difficulty: abstractRubric(it).level, layout, options: opts.map((o) => o.fig), answer: pos, optionNotes: opts.map((o) => o.note) };
   }
   throw new Error(`could not build item ${i} (${layout}, ${n} rules, key rank ${targets[i]})`);
 });
@@ -458,3 +460,5 @@ items.forEach((q) => {
 const pc = (x) => Math.round((x / N) * 100) + "%";
 console.log(`abstract: ${N} items; letters A–E ${letters.join("/")}; rules ${JSON.stringify(rulesCount)}; layouts ${JSON.stringify(layouts)}`);
 console.log(`blind solvers: most central ${pc(medoid)}, odd one out ${pc(outlier)}, majority ${pc(majority)} (chance 20%); rejected drafts ${retries}`);
+
+generateHardAbstract(root);

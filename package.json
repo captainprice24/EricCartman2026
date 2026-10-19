@@ -5,10 +5,11 @@
   "scripts": {
     "validate": "node scripts/validate-questions.mjs",
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/core.test.mjs tests/numerical-oracle.test.mjs tests/verbal-bank.test.mjs",
+    "test": "node --test tests/core.test.mjs tests/numerical-oracle.test.mjs tests/verbal-bank.test.mjs tests/abstract-oracle.test.mjs",
     "test:e2e": "node tests/e2e.mjs",
     "lint": "eslint .",
     "audit:numerical": "node scripts/audit-numerical.mjs",
+    "audit:abstract": "node scripts/audit-abstract.mjs",
     "audit:reasoning": "node scripts/audit-reasoning.mjs"
   },
   "devDependencies": {

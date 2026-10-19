@@ -63,6 +63,7 @@
     timed: !!prefs.timed,
     setId: prefs.setId || "all",
     mistakesOnly: !!prefs.mistakesOnly,
+    abstractLevel: ["all", "1", "2", "3"].indexOf(String(prefs.abstractLevel)) > -1 ? String(prefs.abstractLevel) : "all",
     verbalLevel: ["all", "1", "2", "3"].indexOf(String(prefs.verbalLevel)) > -1 ? String(prefs.verbalLevel) : "all",
     numericalLevel: ["all", "1", "2", "3"].indexOf(String(prefs.numericalLevel)) > -1 ? String(prefs.numericalLevel) : "all",
     examScope: ["full", "verbal", "numerical", "abstract"].indexOf(prefs.examScope) > -1 ? prefs.examScope : "full",
@@ -110,7 +111,7 @@
   function pickPractice(key) {
     var pool = bank.bySection[key].slice();
     if (prefs.setId !== "all") pool = pool.filter(function (q) { return q.setId === prefs.setId; });
-    if (key !== "abstract" && prefs[key + "Level"] !== "all") pool = pool.filter(function (q) { return q.difficulty === +prefs[key + "Level"]; });
+    if (prefs[key + "Level"] !== "all") pool = pool.filter(function (q) { return q.difficulty === +prefs[key + "Level"]; });
     if (prefs.mistakesOnly) {
       var stats = load(KEY_STATS, {});
       var wrong = pool.filter(function (q) { return stats[q.id] && stats[q.id].last === false; });
@@ -523,12 +524,12 @@
       qs.forEach(function (q) { var e = stats[q.id]; if (e) { seen += e.seen; correct += e.correct; if (e.last === false) wrongNow++; } else unseen++; });
       var acc = seen ? Math.round((correct / seen) * 100) : null;
       var S = SECTIONS[k];
-      var numericalCounts = k === "abstract" ? "" : '<span class="muted small">' + [1, 2, 3].map(function (d) {
+      var levelCounts = '<span class="muted small">' + [1, 2, 3].map(function (d) {
         return qs.filter(function (q) { return q.difficulty === d; }).length + " " + ["", "easy", "medium", "hard"][d];
       }).join(" · ") + "</span>";
       return '<div class="trow">' +
         '<div class="tcell tname"><h3>' + esc(S.name) + '</h3><span class="muted small">Exam: ' + S.examCount + " questions · " + S.examMinutes + " min</span></div>" +
-        '<div class="tcell tstat"><span class="stat-label">Questions</span><span class="big-num">' + qs.length + '</span><span class="muted small">' + unseen + " not seen yet</span>" + numericalCounts + "</div>" +
+        '<div class="tcell tstat"><span class="stat-label">Questions</span><span class="big-num">' + qs.length + '</span><span class="muted small">' + unseen + " not seen yet</span>" + levelCounts + "</div>" +
         '<div class="tcell tstat"><span class="stat-label">Your accuracy</span><span class="big-num">' + (acc === null ? "–" : acc + "%") + '</span><span class="muted small">' + (seen ? wrongNow + " to revisit" : "Not started yet") + "</span></div>" +
         '<div class="tcell tact"><button class="btn btn-primary" data-act="coach" data-k="' + k + '" aria-label="Coach: ' + esc(S.name) + '">Coach</button><button class="btn" data-act="practice" data-k="' + k + '" aria-label="Practice: ' + esc(S.name) + '">Practice</button></div>' +
         "</div>";
@@ -599,9 +600,9 @@
       }).join("") + "</select></div>" +
       '<div class="field"><span class="field-label small muted"><label for="opt-set">Question set</label>' + info("set", "question sets", "Leave All sets to mix every set, or pick one set. A set belongs to one test type, so pick it before pressing Coach or Practice next to that test.", "right") + "</span>" +
       '<select id="opt-set">' + setOpts + "</select></div>" +
-      ORDER.filter(function (k) { return k !== "abstract"; }).map(function (k) {
+      ORDER.map(function (k) {
         var label = SECTIONS[k].name.split(" ")[0];
-        var rounds = k === "verbal" ? "Sets 10–13; 10 questions in 17 min 30 sec" : "Sets 5–8; 10 questions in 20 min";
+        var rounds = k === "verbal" ? "Sets 10–13; 10 questions in 17 min 30 sec" : k === "numerical" ? "Sets 5–8; 10 questions in 20 min" : "Sets 5–8; 10 questions in 10 min";
         return '<div class="field"><span class="field-label small muted"><label for="opt-' + k + '-level">' + label + ' difficulty</label>' +
           info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose Easy, Medium or Hard. Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice.", "right") + "</span>" +
           '<select id="opt-' + k + '-level">' + [["all", "All levels"], ["1", "Easy"], ["2", "Medium"], ["3", "Hard"]].map(function (o) {
@@ -665,8 +666,8 @@
     var answered = Object.keys(sec.answers).length;
     // E4: topic and difficulty would give away the rule, so they are hidden in the exam and optional elsewhere.
     var showTopic = review || (mode !== "exam" && prefs.showTopics);
-    // N3: for abstract items the topic and difficulty (rules − 1) would name the rules, so they wait until the answer is checked.
-    var topicText = q.topic + (q.difficulty ? " · " + (q.section === "abstract" ? ["", "easier", "medium", "harder"] : ["", "easy", "medium", "hard"])[q.difficulty] : "");
+    // N3: for abstract items the topic and difficulty would name the rules, so they wait until the answer is checked.
+    var topicText = q.topic + (q.difficulty ? " · " + ["", "easy", "medium", "hard"][q.difficulty] : "");
     if (q.section === "abstract" && !checked) topicText = "Figure series";
     if (!review) markShown(q);
 
@@ -970,7 +971,7 @@
     if (id === "exam-scope") prefs.examScope = e.target.value;
     else if (id === "opt-count") prefs.count = e.target.value;
     else if (id === "opt-set") prefs.setId = e.target.value;
-    else if (/^opt-(verbal|numerical)-level$/.test(id)) prefs[id.split("-")[1] + "Level"] = e.target.value;
+    else if (/^opt-(verbal|numerical|abstract)-level$/.test(id)) prefs[id.split("-")[1] + "Level"] = e.target.value;
     else if (id === "opt-timed") prefs.timed = e.target.checked;
     else if (id === "opt-mistakes") prefs.mistakesOnly = e.target.checked;
     else if (id === "opt-topics") prefs.showTopics = e.target.checked;

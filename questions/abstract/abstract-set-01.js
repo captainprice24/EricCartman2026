@@ -84,7 +84,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a01-04",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -184,7 +184,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a01-08",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [

@@ -114,7 +114,7 @@ async function run(engineName) {
     for (const section of ['verbal', 'abstract']) {
       await p.locator('[data-act="practice"][data-k="' + section + '"]').click();
       const n = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.length);
-      assert.equal(n, section === 'verbal' ? 240 : 150);
+      assert.equal(n, section === 'verbal' ? 240 : 190);
       await p.goto(URL); await p.waitForSelector('.home');
     }
     assert.deepEqual(p.errors, []);
@@ -185,6 +185,49 @@ async function run(engineName) {
     assert.deepEqual(p.errors, []);
     await p.context().close();
   });
+
+  for (const [label, vp, dark] of [['desktop', desktop, false], ['phone dark', phone, true]]) {
+    await check(`abstract difficulty and all four challenge rounds work at ${label} width`, async () => {
+      const p = await newPage(vp, { dark });
+      await p.selectOption('#opt-abstract-level', '1');
+      await p.selectOption('#opt-count', 'all');
+      await p.reload(); await p.waitForSelector('.home');
+      assert.equal(await p.inputValue('#opt-abstract-level'), '1');
+      await p.locator('[data-act="practice"][data-k="abstract"]').click();
+      const easy = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
+      assert.ok(easy.length > 0); assert.ok(easy.every(d => d === 1));
+      await p.goto(URL); await p.waitForSelector('.home');
+      await p.selectOption('#opt-set', 'abstract-05');
+      await p.locator('[data-act="practice"][data-k="abstract"]').click();
+      assert.match(await p.locator('#toast').textContent(), /No abstract reasoning questions match/);
+      for (const id of ['05', '06', '07', '08']) {
+        await p.selectOption('#opt-set', 'abstract-' + id);
+        await p.selectOption('#opt-abstract-level', '3');
+        await p.selectOption('#opt-count', '10');
+        await p.check('#opt-timed');
+        await p.locator('[data-act="practice"][data-k="abstract"]').click();
+        const round = await p.evaluate(() => {
+          const s = window.EPSO_APP.state.session.sections[0];
+          return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => it.q.difficulty === 3 && it.q.challenge) };
+        });
+        assert.deepEqual(round, { n: 10, limit: 600000, hard: true });
+        for (let i = 0; i < 10; i++) {
+          assert.equal(await p.locator('.series .fig').count(), 6);
+          assert.equal(await p.locator('[role="radio"]').count(), 5);
+          assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no horizontal page overflow');
+          const key = await answerKey(p);
+          await p.locator('[data-act="choose"]').nth(key.pos).click();
+          await p.locator('[data-act="check"]').click();
+          assert.ok(await p.locator('#feedback').isVisible());
+          if (i === 0 && id === '05') await axe(p, label + ' abstract challenge feedback');
+          if (i < 9) await p.locator('[data-act="next"]').click();
+        }
+        await p.goto(URL); await p.waitForSelector('.home');
+      }
+      assert.deepEqual(p.errors, []);
+      await p.context().close();
+    });
+  }
 
   await check("W1: number keys go to the open calculator, not to the answers", async () => {
     const p = await newPage(desktop);

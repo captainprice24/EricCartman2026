@@ -34,7 +34,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-02",
       "topic": "Grid movement",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -134,7 +134,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-06",
       "topic": "Single figure",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -159,7 +159,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-07",
       "topic": "Grid movement",
-      "difficulty": 1,
+      "difficulty": 2,
       "rules": 2,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -234,7 +234,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-10",
       "topic": "Rotating hands",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -334,7 +334,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-14",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -434,7 +434,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-18",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -534,7 +534,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-22",
       "topic": "Grid movement",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -634,7 +634,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-26",
       "topic": "Single figure",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -659,7 +659,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-27",
       "topic": "Grid movement",
-      "difficulty": 1,
+      "difficulty": 2,
       "rules": 2,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -734,7 +734,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-30",
       "topic": "Rotating hands",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -759,7 +759,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-31",
       "topic": "Single figure",
-      "difficulty": 1,
+      "difficulty": 2,
       "rules": 2,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -834,7 +834,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-34",
       "topic": "Divided circle",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -934,7 +934,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-38",
       "topic": "Overlapping shapes",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1034,7 +1034,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-42",
       "topic": "Grid movement",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1134,7 +1134,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-46",
       "topic": "Single figure",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1159,7 +1159,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-47",
       "topic": "Grid movement",
-      "difficulty": 1,
+      "difficulty": 2,
       "rules": 2,
       "stem": "Which figure comes next in the series?",
       "sequence": [
@@ -1234,7 +1234,7 @@ EPSO_BANK.registerSet({
     {
       "id": "a02-50",
       "topic": "Rotating hands",
-      "difficulty": 3,
+      "difficulty": 2,
       "rules": 4,
       "stem": "Which figure comes next in the series?",
       "sequence": [

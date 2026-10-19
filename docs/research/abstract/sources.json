@@ -1,0 +1,559 @@
+{
+  "checked": "2026-10-19",
+  "scope": "Bounded research, not exhaustive. README access is not dataset inspection or proof of rights. No third-party app questions.",
+  "sources": [
+    {
+      "name": "RAVEN",
+      "url": "https://github.com/WellyZhang/RAVEN",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/WellyZhang/RAVEN/master/README.md",
+      "readme_sha256": "1d006a87e46d453bb59190bbac7cfd23ea4d32bbef190fb1ee02cd6cbd015dd9",
+      "use": "Structured visual grammars and multiple attributes",
+      "evidence": [
+        "[RAVEN: A Dataset for <u>R</u>elational and <u>A</u>nalogical <u>V</u>isual r<u>E</u>aso<u>N</u>ing](http://wellyzhang.github.io/attach/cvpr19zhang.pdf)  ",
+        "Dramatic progress has been witnessed in basic vision tasks involving low-level perception, such as object recognition, detection, and tracking. Unfortunately, there is still an enormous performance gap between artificial vision systems and human intelligence in terms of higher-level vision problems, especially ones involving reasoning. Earlier attempts in equipping machines with high-level reasoning have hovered around Visual Question Answering (VQA), one typical task associating vision and language understanding. In this work, we propose a new dataset, built in the context of Raven's Progressive Matrices (RPM) and aimed at lifting machine intelligence by associating vision with structural, relational, and analogical reasoning in a hierarchical representation. Unlike previous works in measuring abstract reasoning using RPM, we establish a semantic link between vision and reasoning by pro",
+        "# Dataset",
+        "The dataset is generated using the attributed stochastic image grammar. An example is shown below.",
+        "The grammatical design makes the dataset flexible and extendable. In total, we come up with 7 different figural configurations. ",
+        "The dataset formatting document is in ```assets/README.md```. To download the dataset, please check [our project page](http://wellyzhang.github.io/project/raven.html#dataset).",
+        "## Dataset Generation",
+        "Code to generate the dataset resides in the ```src/dataset``` folder. To generate a dataset, run",
+        "python src/dataset/main.py --num-samples <number of samples per configuration> --save-dir <directory to save the dataset>",
+        "Code to benchmark the dataset resides in ```src/model```. To run the code, first put ```assets/embedding.npy``` in the dataset folder as specified in the ```src/model/utility/dataset_utility.py```. Then run",
+        "python src/model/main.py --model <model name> --path <path to the dataset>",
+        "    title={RAVEN: A Dataset for Relational and Analogical Visual rEasoNing}, "
+      ],
+      "license_url": "https://raw.githubusercontent.com/WellyZhang/RAVEN/master/LICENSE",
+      "license_excerpt": "                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License is intended to guarantee your freedom to\nshare and change all versions of a program--to make sure it remains free\nsoftware for all its users.  We, the Free Software Foundation, use the\nGNU General Public License for most of our software; it applies also to\nany other work released this way by its authors.  You can apply it to\nyour programs, too.\n\n  When we speak of free software, we are referring to freedom, not\nprice.  Our General Public Licenses are designed to make sure that you\nhave the freedom to distribute copies of free software (and charge for\nthem if you wish), that you receive source code or can get it if you\nwant it, that you can change the software or use pieces of it in new\nfree programs, and that you know you can do these things.\n\n  To protect your rights, we need to prevent others from denying you\nthese rights or asking you to surrender the rights.  Therefore, you have\ncertain responsibilities if you distribute copies of the software, or if\nyou modify it: responsibilities to respect the freedom of others.\n\n  For example, if you distribute copies of such a program, whether\ngratis or for a fee, you must pass on to the recipients the same\nfreedoms that you received.  You must make sure that they, too, receive\nor can get the source code.  And you must show them these terms so they\nknow their rights.\n\n  Developers that use the GNU GPL protect your rights with two steps:\n(1) assert copyright on the software, and (2) offer you this License\ngiving you legal permission to copy, distribute and/or modify it.\n\n  For the developers' and authors' protection, the GPL clearly",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "PGM",
+      "url": "https://github.com/google-deepmind/abstract-reasoning-matrices",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/google-deepmind/abstract-reasoning-matrices/master/README.md",
+      "readme_sha256": "dac6ca50f09a904c685257bea76d4c39b5e4b00d3bba1b20b4fcde1364ea1cee",
+      "use": "Progression, XOR/OR/AND, systematic generalisation; explicitly non-commercial data",
+      "evidence": [
+        "### This repo points to data from the papers [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225); Barrett, Hill, Santoro et al. (2018) and [Learning to Make Analogies by Contrasting Abstract Relational Structures](https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al. (2019). The data can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) ",
+        "This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.",
+        "From the paper [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225), Barrett, Hill, Santoro et al. 2018.",
+        "The parent data folder contains 8 archived directories, corresponding to a particular generalisation regime:",
+        "'XOR' : 8",
+        "$R$ denotes the set of relation types (progression, XOR, OR, AND, consistent union), $O$ denotes the object types (shape, line), and $A$ denotes the attribute types (size, colour, position, number). The structure of a matrix, $S$, is the set of triples $S=\\{[r, o, a]\\}$ that determine the challenge posed by a particular matrix. ",
+        "## Generalisation split details",
+        "The generalisation splits are as follows:",
+        "- **interpolation**: As in the neutral split, $S$ consisted of any triples $[r, o, a]$. For interpolation, in the training set, when the attribute was \"colour\" or \"size\" (i.e., the ordered attributes), the values of the attributes were restricted to even-indexed members of a discrete set, whereas in the test set only odd-indexed values were permitted. Note that all $S$ contained some triple $[r, o, a]$ with the colour or size attribute . Thus, generalisation is required for every question in the test set.",
+        "- **attr.rels**: In our dataset, there are 29 possible unique triples $[r,o,a]$. We allocated seven of these for the test set, at random, but such that each of the attributes was represented exactly once in this set. These held-out triples never occurred in questions in the training set, and every $S$ in the test set contained at least one of them."
+      ],
+      "license_url": "https://raw.githubusercontent.com/google-deepmind/abstract-reasoning-matrices/master/LICENSE",
+      "license_excerpt": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "Bongard-LOGO",
+      "url": "https://github.com/NVlabs/Bongard-LOGO",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/NVlabs/Bongard-LOGO/master/README.md",
+      "readme_sha256": "58790b658c17e29ce3a5fb08c8f91819d917e8f8597c030a9c6466f93f5055e3",
+      "use": "Concept learning and nuisance variation; not a series test",
+      "evidence": [
+        "`Bongard-LOGO` is a Python code repository with the purpose of generating synthetic [Bongard problems](https://en.wikipedia.org/wiki/Bongard_problem) on a large scale with little human intervention. It mainly consists of a `Bongard-LOGO` dataset that has 12,000 synthetic Bongard problems, and a `bongard` Python library that is used for the synthesis of the Bongard problems. The user could use the `Bongard-LOGO` dataset for concept learning and symbolic learning, or use the `bongard` library for custom Bongard problem synthesis.",
+        "## The `Bongard-LOGO` Dataset",
+        "The `Bongard-LOGO` dataset contains 12,000 Bongard problems solely based on the `shape concept`, by considering as nuisances shape positions, orientations and sizes, etc. It is divided into three types of problems: 3,600 `Freeform Shape Problem`s, 4,000 `Basic Shape Problem`s and 4,400 `Abstract Shape Problem`s.",
+        "The `Bongard-LOGO` dataset could be directly downloaded from [Google Drive](https://drive.google.com/file/d/1-1j7EBriRpxI-xIVqE6UEXt-SzoWvwLx/view?usp=sharing).",
+        "For more details of how to generate the `Bongard-LOGO` dataset, please refer to the [Bongard-LOGO](examples/02-bongard_logo) example.",
+        "These are the scripts for generating the Bongard-LOGO dataset. Advanced Bongard problem samplers were implemented.",
+        "  title = {Bongard-LOGO: A New Benchmark for Human-Level Concept Learning and Reasoning},"
+      ],
+      "license_url": "https://raw.githubusercontent.com/NVlabs/Bongard-LOGO/master/LICENSE",
+      "license_excerpt": "The MIT License (MIT)\n\nCopyright (c) 2020 NVIDIA\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "ARC-AGI-1",
+      "url": "https://github.com/fchollet/ARC-AGI",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/fchollet/ARC-AGI/master/README.md",
+      "readme_sha256": "04a82cb5f8693fc79cda4324b1ad4aeb0d78b40a93b40e0647251c70b00b4f18",
+      "use": "Compositional grid transformations and exact output checking",
+      "evidence": [
+        "# Abstraction and Reasoning Corpus for Artificial General Intelligence v1 (ARC-AGI-1)",
+        "A complete description of the dataset, its goals, and its underlying logic, can be found in: [On the Measure of Intelligence](https://arxiv.org/abs/1911.01547)."
+      ],
+      "license_url": "https://raw.githubusercontent.com/fchollet/ARC-AGI/master/LICENSE",
+      "license_excerpt": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "ARC-AGI-2",
+      "url": "https://github.com/arcprize/ARC-AGI-2",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": "HTTP Error 404: Not Found",
+      "readme_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-2/master/README.md",
+      "readme_sha256": null,
+      "use": "Harder compositional transformations; different task format",
+      "evidence": [],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "ALANS",
+      "url": "https://github.com/WellyZhang/ALANS",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/WellyZhang/ALANS/main/README.md",
+      "readme_sha256": "6bac754d7ccc758fd4917bbbabf6197e4dc624ec2036cc73ea934df5eecda90a",
+      "use": "Algebraic representations and systematic generalisation",
+      "evidence": [
+        "[Learning Algebraic Representation for Systematic Generalization in Abstract Reasoning](http://wellyzhang.github.io/attach/eccv22zhang_alans.pdf)  ",
+        "Is intelligence realized by connectionist or classicist? While connectionist approaches have achieved superhuman performance, there has been growing evidence that such task-specific superiority is particularly fragile in *systematic generalization*. This observation lies in the central debate between connectionist and classicist, wherein the latter continually advocates an *algebraic* treatment in cognitive architectures. In this work, we follow the classicist's call and propose a hybrid approach to improve systematic generalization in reasoning. Specifically, we showcase a prototype with algebraic representation for the abstract spatial-temporal reasoning task of Raven\u2019s Progressive Matrices (RPM) and present the ALgebra-Aware Neuro-Semi-Symbolic (ALANS) learner. The ALANS learner is motivated by abstract algebra and the representation theory. It consists of a neural visual perception f",
+        "The following table shows the performance of various methods on systematic generalization splits generated from the RAVEN method (upper half) and the I-RAVEN method (lower half). For details, please check our [paper](http://wellyzhang.github.io/attach/eccv22zhang_alans.pdf).",
+        "To train the ALANS learner, one needs to first extract rule annotations for the training configuration. We provide a simple script in ```src/auxiliary``` for doing this. Properly set ```path``` in the ```main()``` function, and your dataset folder will be populated with rule annotations in npz files.",
+        "python src/main.py train --dataset <path to dataset>",
+        "In the codebase, window sliding and image preprocessing are delegated to the dataset loader and the code only supports training on configurations with a single component. ",
+        "python src/main.py test --dataset <path to dataset> --config <new config> --model-path <path to a trained model>",
+        "    title={Learning Algebraic Representation for Systematic Generalization in Abstract Reasoning},",
+        "* [LEN](https://github.com/zkcys001/distracting_feature)"
+      ],
+      "license_url": "https://raw.githubusercontent.com/WellyZhang/ALANS/main/LICENSE",
+      "license_excerpt": "                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License is intended to guarantee your freedom to\nshare and change all versions of a program--to make sure it remains free\nsoftware for all its users.  We, the Free Software Foundation, use the\nGNU General Public License for most of our software; it applies also to\nany other work released this way by its authors.  You can apply it to\nyour programs, too.\n\n  When we speak of free software, we are referring to freedom, not\nprice.  Our General Public Licenses are designed to make sure that you\nhave the freedom to distribute copies of free software (and charge for\nthem if you wish), that you receive source code or can get it if you\nwant it, that you can change the software or use pieces of it in new\nfree programs, and that you know you can do these things.\n\n  To protect your rights, we need to prevent others from denying you\nthese rights or asking you to surrender the rights.  Therefore, you have\ncertain responsibilities if you distribute copies of the software, or if\nyou modify it: responsibilities to respect the freedom of others.\n\n  For example, if you distribute copies of such a program, whether\ngratis or for a fee, you must pass on to the recipients the same\nfreedoms that you received.  You must make sure that they, too, receive\nor can get the source code.  And you must show them these terms so they\nknow their rights.\n\n  Developers that use the GNU GPL protect your rights with two steps:\n(1) assert copyright on the software, and (2) offer you this License\ngiving you legal permission to copy, distribute and/or modify it.\n\n  For the developers' and authors' protection, the GPL clearly",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "PrAE",
+      "url": "https://github.com/WellyZhang/PrAE",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/WellyZhang/PrAE/main/README.md",
+      "readme_sha256": "e2f632c365d8d19da141bdfe0140a5803772e599ce5aa007d6199da573cf2eea",
+      "use": "Separate perception, rule inference and execution",
+      "evidence": [
+        "[Abstract Spatial-Temporal Reasoning via Probabilistic Abduction and Execution](http://wellyzhang.github.io/attach/cvpr21zhang_prae.pdf)  ",
+        "Spatial-temporal reasoning is a challenging task in Artificial Intelligence (AI) due to its demanding but unique nature: a theoretic requirement on *representing* and *reasoning* based on spatial-temporal knowledge in mind, and an applied requirement on a high-level cognitive system capable of *navigating* and *acting* in space and time. Recent works have focused on an abstract reasoning task of this kind -- Raven\u2019s Progressive Matrices (RPM). Despite the encouraging progress on RPM that achieves human-level performance in terms of accuracy, modern approaches have neither a treatment of human-like reasoning on generalization, nor a potential to generate answers. To fill in this gap, we propose a neuro-symbolic **Probabilistic Abduction and Execution (PrAE)** learner; central to the PrAE learner is the process of probabilistic abduction and execution on a probabilistic scene representatio",
+        "The following table shows the performance of various methods on the RAVEN and I-RAVEN datasets. For details, please check our [paper](http://wellyzhang.github.io/attach/cvpr21zhang_prae.pdf).",
+        "To train the PrAE learner, one needs to first extract rule annotations for the training configuration. We provide a simple script in ```src/auxiliary``` for doing this. Properly set ```path``` in the ```main()``` function, and your dataset folder will be populated with rule annotations in npz files.",
+        "python src/main.py train --dataset <path to dataset>",
+        "In the codebase, window sliding and image preprocessing are delegated to the dataset loader and the code only supports training on configurations with a single component. ",
+        "python src/main.py test --dataset <path to dataset> --config <new config> --model-path <path to a trained model>",
+        "    title={Abstract Spatial-Temporal Reasoning via Probabilistic Abduction and Execution},",
+        "* [LEN](https://github.com/zkcys001/distracting_feature)"
+      ],
+      "license_url": "https://raw.githubusercontent.com/WellyZhang/PrAE/main/LICENSE",
+      "license_excerpt": "                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License is intended to guarantee your freedom to\nshare and change all versions of a program--to make sure it remains free\nsoftware for all its users.  We, the Free Software Foundation, use the\nGNU General Public License for most of our software; it applies also to\nany other work released this way by its authors.  You can apply it to\nyour programs, too.\n\n  When we speak of free software, we are referring to freedom, not\nprice.  Our General Public Licenses are designed to make sure that you\nhave the freedom to distribute copies of free software (and charge for\nthem if you wish), that you receive source code or can get it if you\nwant it, that you can change the software or use pieces of it in new\nfree programs, and that you know you can do these things.\n\n  To protect your rights, we need to prevent others from denying you\nthese rights or asking you to surrender the rights.  Therefore, you have\ncertain responsibilities if you distribute copies of the software, or if\nyou modify it: responsibilities to respect the freedom of others.\n\n  For example, if you distribute copies of such a program, whether\ngratis or for a fee, you must pass on to the recipients the same\nfreedoms that you received.  You must make sure that they, too, receive\nor can get the source code.  And you must show them these terms so they\nknow their rights.\n\n  Developers that use the GNU GPL protect your rights with two steps:\n(1) assert copyright on the software, and (2) offer you this License\ngiving you legal permission to copy, distribute and/or modify it.\n\n  For the developers' and authors' protection, the GPL clearly",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "CoPINet",
+      "url": "https://github.com/WellyZhang/CoPINet",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/WellyZhang/CoPINet/master/README.md",
+      "readme_sha256": "d900bf43c6cf016457bec176010e8f637fbc01825daad7ab4bc38b948a714f8d",
+      "use": "Contrastive reasoning and option comparison",
+      "evidence": [
+        "\"Thinking in pictures,\" *i.e.*, spatial-temporal reasoning, effortless and instantaneous for humans, is believed to be a significant ability to perform logical induction and a crucial factor in the intellectual history of technology development. Modern Artificial Intelligence (AI), fueled by massive datasets, deeper models, and mighty computation, has come to a stage where (super-)human-level performances are observed in certain specific tasks. However, current AI's ability in \"thinking in pictures\" is still far lacking behind. In this work, we study how to improve machines' reasoning ability on one challenging task of this kind: Raven's Progressive Matrices (RPM). Specifically, we borrow the very idea of \"contrast effects\" from the field of psychology, cognition, and education to design and train a permutation-invariant model. Inspired by cognitive studies, we equip our model with a sim",
+        "The following two tables show the performance of various methods on the RAVEN dataset and the PGM dataset. For details, please check our [paper](http://wellyzhang.github.io/attach/neurips19zhang.pdf).",
+        "python src/main.py train --dataset <path to dataset>"
+      ],
+      "license_url": "https://raw.githubusercontent.com/WellyZhang/CoPINet/master/LICENSE",
+      "license_excerpt": "                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License is intended to guarantee your freedom to\nshare and change all versions of a program--to make sure it remains free\nsoftware for all its users.  We, the Free Software Foundation, use the\nGNU General Public License for most of our software; it applies also to\nany other work released this way by its authors.  You can apply it to\nyour programs, too.\n\n  When we speak of free software, we are referring to freedom, not\nprice.  Our General Public Licenses are designed to make sure that you\nhave the freedom to distribute copies of free software (and charge for\nthem if you wish), that you receive source code or can get it if you\nwant it, that you can change the software or use pieces of it in new\nfree programs, and that you know you can do these things.\n\n  To protect your rights, we need to prevent others from denying you\nthese rights or asking you to surrender the rights.  Therefore, you have\ncertain responsibilities if you distribute copies of the software, or if\nyou modify it: responsibilities to respect the freedom of others.\n\n  For example, if you distribute copies of such a program, whether\ngratis or for a fee, you must pass on to the recipients the same\nfreedoms that you received.  You must make sure that they, too, receive\nor can get the source code.  And you must show them these terms so they\nknow their rights.\n\n  Developers that use the GNU GPL protect your rights with two steps:\n(1) assert copyright on the software, and (2) offer you this License\ngiving you legal permission to copy, distribute and/or modify it.\n\n  For the developers' and authors' protection, the GPL clearly",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "WReN",
+      "url": "https://github.com/Fen9/WReN",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/Fen9/WReN/master/README.md",
+      "readme_sha256": "98b16ee9f09da40f3938a09e784cda60c1de0f8778573dac9ec552d63fcb16c7",
+      "use": "Relational reasoning over matrix panels",
+      "evidence": [
+        "The repo is a PyTorch implementation of Wild Relational Network (WReN) introduced in DeepMind's [Measuring abstract reasoning in neural networks (ICML 2018)](http://proceedings.mlr.press/v80/santoro18a/santoro18a.pdf).",
+        "python main.py --model <WReN/CNN_MLP/Resnet50_MLP/LSTM> --img_size <input image size> --path <path to your dataset>"
+      ],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "Distracting feature",
+      "url": "https://github.com/zkcys001/distracting_feature",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/zkcys001/distracting_feature/master/README.md",
+      "readme_sha256": "d8a4529a4412bb4f077dc9948ad66e73a49b0bfadcd02e8561ac64379543259c",
+      "use": "Inspect attribute distractions and shortcut risk",
+      "evidence": [
+        "# Abstract Reasoning with Distracting Features",
+        "[Abstract Reasoning with Distracting Features](http://arxiv.org/abs/1912.00569)",
+        "   <img src=\"https://github.com/zkcys001/distracting_feature/blob/master/git_images/LEN.png\"><br><br>",
+        "# Dataset",
+        "To download the dataset, please check [chizhang's project page](http://wellyzhang.github.io/project/raven.html#dataset).",
+        "python main.py --net <model name> --datapath <path to the dataset> --rl False --typeloss False",
+        "1. The code for PGM dataset",
+        "    title={Abstract Reasoning with Distracting Features},",
+        "### License ",
+        "[Apache License 2.0](./LICENSE)"
+      ],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "MXGNet",
+      "url": "https://github.com/thematrixduo/MXGNet",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/thematrixduo/MXGNet/master/README.md",
+      "readme_sha256": "d249617ada25619ca38806185c709fad4883aa66991a92187d94e09e2a150edd",
+      "use": "Multiplex relationships among visual components",
+      "evidence": [
+        "Implementation for MXGNet  [Abstract Diagrammatic Reasoning with Multiplex Graph Networks](https://openreview.net/forum?id=ByxQB1BKwH)",
+        "For model trained on PGM dataset run: ",
+        "For model trained on RAVEN dataset run: ",
+        "To train on PGM dataset:",
+        "To train on RAVEN dataset:",
+        "The default data loader downsample image to size 80 * 80 on the fly. This can be quite slow. Optionally you can preprocess all data with downsampling to avoid downsampling on the fly, and save multiple data samples in the same '.npz' file to making loading faster. You use 'dataset_8s' class in 'data_utility.py' to load such preprocessed '.npz' files (This loader assume each '.npz' file contain 8 data samples, but you can modify the code for abitrary number of samples)."
+      ],
+      "license_url": "https://raw.githubusercontent.com/thematrixduo/MXGNet/master/LICENSE",
+      "license_excerpt": "MIT License\n\nCopyright (c) 2020 Wang Duo\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "SRAN",
+      "url": "https://github.com/husheng12345/SRAN",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/husheng12345/SRAN/master/README.md",
+      "readme_sha256": "9826645b59fc2e984178251e412e20064455ad9e19435d3de4e763af1193d812",
+      "use": "Located I-RAVEN improved answer-set generation and rule-aware representations",
+      "evidence": [
+        "# Stratified Rule-Aware Network for Abstract Visual Reasoning",
+        "[Stratified Rule-Aware Network for Abstract Visual Reasoning](https://arxiv.org/abs/2002.06838)  ",
+        "# I-RAVEN Dataset",
+        "To fix the defacts of RAVEN dataset, we generate an alternative answer set for each RPM question in RAVEN, forming an improved dataset named Impartial-RAVEN (I-RAVEN for short). The comparison between the two datasets is shown below. For more details, please refer to our paper.  ",
+        "## Dataset Generation",
+        "Code to generate the dataset resides in the ```I-RAVEN``` folder. The dependencies are consistent with [the original RAVEN](https://github.com/WellyZhang/RAVEN).",
+        "To generate a dataset, run",
+        "python I-RAVEN/main.py --num-samples <number of samples per configuration> --save-dir <directory to save the dataset>",
+        "python SRAN/main.py --dataset <I-RAVEN or PGM> --dataset_path <path to the dataset> --save <directory to save the checkpoint>",
+        "| LEN [[code](https://github.com/zkcys001/distracting_feature)]\t| 41.4%      | 56.4%      | 31.7%      | 29.7%      | 52.1%      | 31.7%      | 44.2%      | 44.2%      |",
+        "     title={Stratified Rule-Aware Network for Abstract Visual Reasoning},"
+      ],
+      "license_url": "https://raw.githubusercontent.com/husheng12345/SRAN/master/LICENSE",
+      "license_excerpt": "                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n                            Preamble\n\n  The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works.\n\n  The licenses for most software and other practical works are designed\nto take away your freedom to share and change the works.  By contrast,\nthe GNU General Public License is intended to guarantee your freedom to\nshare and change all versions of a program--to make sure it remains free\nsoftware for all its users.  We, the Free Software Foundation, use the\nGNU General Public License for most of our software; it applies also to\nany other work released this way by its authors.  You can apply it to\nyour programs, too.\n\n  When we speak of free software, we are referring to freedom, not\nprice.  Our General Public Licenses are designed to make sure that you\nhave the freedom to distribute copies of free software (and charge for\nthem if you wish), that you receive source code or can get it if you\nwant it, that you can change the software or use pieces of it in new\nfree programs, and that you know you can do these things.\n\n  To protect your rights, we need to prevent others from denying you\nthese rights or asking you to surrender the rights.  Therefore, you have\ncertain responsibilities if you distribute copies of the software, or if\nyou modify it: responsibilities to respect the freedom of others.\n\n  For example, if you distribute copies of such a program, whether\ngratis or for a fee, you must pass on to the recipients the same\nfreedoms that you received.  You must make sure that they, too, receive\nor can get the source code.  And you must show them these terms so they\nknow their rights.\n\n  Developers that use the GNU GPL protect your rights with two steps:\n(1) assert copyright on the software, and (2) offer you this License\ngiving you legal permission to copy, distribute and/or modify it.\n\n  For the developers' and authors' protection, the GPL clearly",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "SCL",
+      "url": "https://github.com/dhh1995/SCL",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/dhh1995/SCL/master/README.md",
+      "readme_sha256": "aa09c562b99e8948dc454bba0b88a08e4bb869e9cb2dbef7ca5c941a38fc0dcf",
+      "use": "Object/attribute/relation decomposition and answer shortcuts",
+      "evidence": [
+        "# The Scattering Compositional Learner: Discovering Objects, Attributes, Relationships in Analogical Reasoning",
+        "SCL is a neural architecture for discovering the underlying compositional structure of the data. We applied the proposed method to an analogical reasoning task, Raven\u2019s Progressive Matrices, which exhibits strong compositional structures. SCL achieved state-of-the-art performance in two datasets, with a 48.7% relative improvement on Balanced-RAVEN and 26.4% on PGM. We validated the learned compositional structure by showing that the neural representation matches the symbolic representation of attribute concepts up to a linear transformation, and well-separated relationship clusters in a t-SNE plot.",
+        "**[The Scattering Compositional Learner: Discovering Objects, Attributes, Relationships in Analogical Reasoning](https://arxiv.org/abs/2007.04212)**",
+        "## Dataset",
+        "First prepare the RAVEN dataset following the instruction of the [repo](https://github.com/WellyZhang/RAVEN).",
+        "Assume the dataset dir is `~/data/RAVEN-10000`.",
+        "# prepare dataset:",
+        "# prepare dataset:",
+        "- `--test, -test` & `--use-test-as-val, -tv`: test on test dataset."
+      ],
+      "license_url": "https://raw.githubusercontent.com/dhh1995/SCL/master/LICENSE",
+      "license_excerpt": "MIT License\n\nCopyright (c) 2019 Anonymous\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "I-RAVEN candidate",
+      "url": "https://github.com/Spratley/iraven",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": "HTTP Error 404: Not Found",
+      "readme_url": "https://raw.githubusercontent.com/Spratley/iraven/master/README.md",
+      "readme_sha256": null,
+      "use": "Candidate path for balanced alternatives; verify before citing",
+      "evidence": [],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app.",
+      "resolved_via": "https://github.com/husheng12345/SRAN/tree/master/I-RAVEN"
+    },
+    {
+      "name": "I-RAVEN candidate 2",
+      "url": "https://github.com/hahmyung/iraven",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": "HTTP Error 404: Not Found",
+      "readme_url": "https://raw.githubusercontent.com/hahmyung/iraven/master/README.md",
+      "readme_sha256": null,
+      "use": "Candidate path; unresolved is not reviewed",
+      "evidence": [],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app.",
+      "resolved_via": "https://github.com/husheng12345/SRAN/tree/master/I-RAVEN"
+    },
+    {
+      "name": "Bongard-HOI",
+      "url": "https://github.com/NVlabs/Bongard-HOI",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/NVlabs/Bongard-HOI/master/README.md",
+      "readme_sha256": "335e464125dee14e967d700562917482b2589829ce14eebd65c2d0e444f81114",
+      "use": "Concept induction; photographic interaction task, low direct relevance",
+      "evidence": [
+        "[Bongard-HOI: Benchmarking Few-Shot Visual Reasoning for Human-Object Interactions (CVPR 2022, oral)](https://web.cs.ucla.edu/~xm/file/bongardhoi_cvpr22.pdf)",
+        "[\ud83d\udd25Submit your result to PwC!](https://paperswithcode.com/dataset/bongard-hoi) | [arXiv](http://arxiv.org/abs/2205.13803) | [Poster](https://web.cs.ucla.edu/~xm/file/bongardhoi_cvpr22_poster.pdf) | [Slides](https://web.cs.ucla.edu/~xm/file/bongardhoi_cvpr22_slides.pdf)",
+        "- **09/14/2022**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7079175.svg)](https://doi.org/10.5281/zenodo.7079175) is now the new home of Bongard-HOI dataset.",
+        "A significant gap remains between today's visual pattern recognition models and human-level visual cognition especially when it comes to few-shot learning and compositional reasoning of novel concepts. We introduce **Bongard-HOI**, a new visual reasoning benchmark that focuses on compositional learning of human-object interactions (HOIs) from natural images. It is inspired by two desirable characteristics from the classical Bongard problems (BPs): 1) few-shot concept learning, and 2) context-dependent reasoning. We carefully curate the few-shot instances with hard negatives, where positive and negative images only disagree on action labels, making mere recognition of object categories insufficient to complete our benchmarks. We also design multiple test sets to systematically study the generalization of visual learning models, where we vary the overlap of the HOI concepts between the tra",
+        "Please refer to [data preparation](assets/dataset.md)",
+        "<p align=\"center\"><img src=\"./assets/generalization_test.png\"></p>",
+        "## License",
+        "Please check the LICENSE file. This work may be used non-commercially, meaning for research or evaluation purposes only. For business inquiries, please contact researchinquiries@nvidia.com.",
+        "  title={Bongard-HOI: Benchmarking Few-Shot Visual Reasoning for Human-Object Interactions},"
+      ],
+      "license_url": "https://raw.githubusercontent.com/NVlabs/Bongard-HOI/master/LICENSE",
+      "license_excerpt": "NVIDIA Source Code License for Bongard-HOI\n\n1. Definitions\n\n\u201cLicensor\u201d means any person or entity that distributes its Work.\n\n\u201cSoftware\u201d means the original work of authorship made available under this License.\n\n\u201cWork\u201d means the Software and any additions to or derivative works of the Software that are made\navailable under this License.\n\nThe terms \u201creproduce,\u201d \u201creproduction,\u201d \u201cderivative works,\u201d and \u201cdistribution\u201d have the meaning as\nprovided under U.S. copyright law; provided, however, that for the purposes of this License,\nderivative works shall not include works that remain separable from, or merely link (or bind by name)\nto the interfaces of, the Work.\n\nWorks, including the Software, are \u201cmade available\u201d under this License by including in or with the\nWork either (a) a copyright notice referencing the applicability of this License to the Work, or (b) a\ncopy of this License.\n\n2. License Grant\n\n2.1 Copyright Grant.\u00a0Subject to the terms and conditions of this License, each Licensor grants\nto you a perpetual, worldwide, non-exclusive, royalty-free, copyright license to reproduce,\nprepare derivative works of, publicly display, publicly perform, sublicense and distribute its\nWork and any resulting derivative works in any form.\n\n3. Limitations\n\n3.1 Redistribution.\u00a0You may reproduce or distribute the Work only if (a) you do so under this\nLicense, (b) you include a complete copy of this License with your distribution, and (c) you\nretain without modification any copyright, patent, trademark, or attribution notices that are\npresent in the Work.\n\n3.2 Derivative Works.\u00a0You may specify that additional or different terms apply to the use,\nreproduction, and distribution of your derivative works of the Work (\u201cYour Terms\u201d) only if (a)\nYour Terms provide that the use limitation in Section 3.3 applies to your derivative works, and\n(b) you identify the specific derivative works that are subject to Your Terms. Notwithstanding\nYour Terms, this License (including the redistribution requirements in Section 3.1) will\ncontinue to apply to the Work itself.\n\n3.3 Use Limitation. The Work and any derivative works thereof only may be used or intended\nfor use non-commercially. Notwithstanding",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "CLEVR",
+      "url": "https://github.com/facebookresearch/clevr-dataset-gen",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/facebookresearch/clevr-dataset-gen/main/README.md",
+      "readme_sha256": "4b6c2b0c684179ab16ae29e818dfff310647390f1530647a3d58a0a22aef8e63",
+      "use": "Scene generation, relational programs and controlled visual confounds",
+      "evidence": [
+        "# CLEVR Dataset Generation",
+        "This is the code used to generate the [CLEVR dataset](http://cs.stanford.edu/people/jcjohns/clevr/) as described in the paper:",
+        "**[CLEVR: A Diagnostic Dataset for Compositional Language and Elementary Visual Reasoning](http://cs.stanford.edu/people/jcjohns/clevr/)**",
+        "  title={CLEVR: A Diagnostic Dataset for Compositional Language and Elementary Visual Reasoning},"
+      ],
+      "license_url": "https://raw.githubusercontent.com/facebookresearch/clevr-dataset-gen/main/LICENSE",
+      "license_excerpt": "BSD License\n\nFor clevr-dataset-gen software\n\nCopyright (c) 2017-present, Facebook, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n\n * Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n * Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n * Neither the name Facebook nor the names of its contributors may be used to\n   endorse or promote products derived from this software without specific\n   prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\nANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\nANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\nANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "CLEVRER",
+      "url": "https://github.com/chuangg/CLEVRER",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/chuangg/CLEVRER/master/README.md",
+      "readme_sha256": "99bd3b91cf257e0b11f1473822e5bd84090e1e7feb4eb0bf18a296179996b6d4",
+      "use": "Temporal and counterfactual visual relationships",
+      "evidence": [
+        "**CLEVRER: Collision Events for Video Representation and Reasoning**,",
+        "- *dynamics predictor*: we provide the implementation of the model in folder `temporal-reasoning`.",
+        "Please organize the files with the same structure as (or you can modify the frame path in `./temporal-reasoning/data.py` and `./temporal-reasoning/eval.py`.):",
+        "The training scripts can be found in `temporal-reasoning/scripts/`, and the main arguments in the scripts including:",
+        "More details about arguments can be found in `./temporal-reasoning/train.py`. Please check the argument values before starting training.",
+        "cd ./temporal-reasoning ",
+        "The models and log will be save in a folder with a name like *files_CLEVR_pn_pstep2* in `temporal-reasoning` folder.",
+        "The tesing scripts can also be found in `temporal-reasoning/scripts`. One training script corresponds to one testing script. The testing script contains serveral main arguments:",
+        "More details about arguments can be found in `./temporal-reasoning/eval.py`. Please check the argument values before starting testing.",
+        "cd ./temporal-reasoning",
+        "  title     = {{CLEVRER:} Collision Events for Video Representation and Reasoning},"
+      ],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "Sort-of-CLEVR",
+      "url": "https://github.com/kimhc6028/relational-networks",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/kimhc6028/relational-networks/master/README.md",
+      "readme_sha256": "47ca7fee12e40df7d4658e466c084c9997d61e37a0914063251bee5d1461334e",
+      "use": "Relational versus non-relational controls",
+      "evidence": [
+        "Pytorch implementation of Relational Networks - [A simple neural network module for relational reasoning](https://arxiv.org/pdf/1706.01427.pdf)",
+        "to generate sort-of-clevr dataset"
+      ],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "ARC DSL",
+      "url": "https://github.com/michaelhodel/arc-dsl",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/michaelhodel/arc-dsl/main/README.md",
+      "readme_sha256": "383b55e8dd0ae30370fc7f851801280e5abef0d68b39527d681f2028e51dcd87",
+      "use": "Interpretable transformations; solution code is not licensed EPSO content",
+      "evidence": [
+        "# Domain Specific Language for the Abstraction and Reasoning Corpus (ARC-DSL)"
+      ],
+      "license_url": "https://raw.githubusercontent.com/michaelhodel/arc-dsl/main/LICENSE",
+      "license_excerpt": "MIT License\n\nCopyright (c) 2023 Michael Hodel\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "ARC synthetic tasks",
+      "url": "https://github.com/michaelhodel/re-arc",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": 200,
+      "readme_url": "https://raw.githubusercontent.com/michaelhodel/re-arc/main/README.md",
+      "readme_sha256": "161af204c8a56aead5e440e77a2ce67fa0e0258f7901e6facc3012d873f19ea7",
+      "use": "Programmatic variation and avoiding memorised pixel arrangements",
+      "evidence": [
+        "# RE-ARC: Reverse-Engineering the Abstraction and Reasoning Corpus",
+        "This repository presents code to procedurally generate examples for the [ARC](https://github.com/fchollet/ARC) training tasks. For each of the 400 tasks, an example generator is provided. See the [demo notebook](demo.ipynb) for example usage of the code and a visualization of the data. The primary entry point is the `generate_dataset` function defined in [main.py](main.py). The file [re_arc.zip](re_arc.zip) contains 1000 verified generated examples for each of the 400 training tasks (re_arc/tasks contains a json file for each ARC task containing an array of json objects each with keys \"input\" and \"output\") alongside two difficulty metrics for each example and some task-level metadata about runtime and sample-efficiency, the result of running the notebook, which calls `generate_dataset` with the default parameter values. The only major dependency is the [ARC-DSL](https://github.com/michae"
+      ],
+      "license_url": "https://raw.githubusercontent.com/michaelhodel/re-arc/main/LICENSE",
+      "license_excerpt": "MIT License\n\nCopyright (c) 2024 Michael Hodel\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "Abstraction and reasoning",
+      "url": "https://github.com/lab42/arc",
+      "kind": "repository / dataset",
+      "checked": "2026-10-19",
+      "access": "HTTP Error 404: Not Found",
+      "readme_url": "https://raw.githubusercontent.com/lab42/arc/master/README.md",
+      "readme_sha256": null,
+      "use": "Candidate tooling; verify availability and terms",
+      "evidence": [],
+      "license_url": null,
+      "license_excerpt": null,
+      "reuse_decision": "Methods reference only; code licensing does not establish dataset rights. No source questions registered in the app."
+    },
+    {
+      "name": "EPSO sample tests",
+      "url": "https://eu-careers.europa.eu/en/sample-tests",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "EU Training",
+      "url": "https://eutraining.eu/",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "SHL practice tests",
+      "url": "https://www.shl.com/shldirect/en/practice-tests/",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "AssessmentDay abstract",
+      "url": "https://www.assessmentday.co.uk/abstract-reasoning.htm",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "123test abstract",
+      "url": "https://www.123test.com/abstract-reasoning-test/",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "Practice Aptitude Tests",
+      "url": "https://www.practiceaptitudetests.com/abstract-reasoning-tests/",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "RAVEN project",
+      "url": "https://wellyzhang.github.io/project/raven.html",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "PGM paper",
+      "url": "https://arxiv.org/abs/1807.04225",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "Impartial RAVEN paper",
+      "url": "https://arxiv.org/abs/1911.00577",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    },
+    {
+      "name": "ARC Prize",
+      "url": "https://arcprize.org/",
+      "kind": "website",
+      "checked": "2026-10-19",
+      "access": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "reuse_decision": "No content imported. An access failure is not a source review."
+    }
+  ],
+  "searches": [
+    {
+      "query": "I-RAVEN",
+      "url": "https://github.com/search?q=I-RAVEN&type=repositories",
+      "access": 200,
+      "note": "Search HTML only; no repository results extracted. Named references and project links form the catalogue."
+    },
+    {
+      "query": "abstract reasoning matrices",
+      "url": "https://github.com/search?q=abstract+reasoning+matrices&type=repositories",
+      "access": 200,
+      "note": "Search HTML only; no repository results extracted. Named references and project links form the catalogue."
+    },
+    {
+      "query": "Bongard LOGO",
+      "url": "https://github.com/search?q=Bongard+LOGO&type=repositories",
+      "access": 200,
+      "note": "Search HTML only; no repository results extracted. Named references and project links form the catalogue."
+    },
+    {
+      "query": "raven progressive matrices dataset",
+      "url": "https://github.com/search?q=raven+progressive+matrices+dataset&type=repositories",
+      "access": 200,
+      "note": "Search HTML only; no repository results extracted. Named references and project links form the catalogue."
+    }
+  ]
+}

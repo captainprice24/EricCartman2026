@@ -6,6 +6,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { abstractBlind, verbalSetStats, VERBAL_LIMITS } from "./lib/blind.mjs";
+import { abstractRubric } from "./lib/abstract-difficulty.mjs";
 import { numericalDifficulty, numericalRubric } from "./lib/difficulty.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -199,7 +200,7 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       const sigs = new Set(q.options.map((f) => JSON.stringify(f)));
       if (sigs.size !== n) err(where, "two options are identical figures");
       if (![2, 3, 4].includes(q.rules)) err(where, "rules (number of rules combined: 2–4) is required");
-      else if (q.difficulty && q.difficulty !== q.rules - 1) err(where, `difficulty must be rules − 1 (${q.rules - 1}) for abstract items`);
+      else if (q.difficulty && q.difficulty !== abstractRubric(q).level) err(where, `difficulty must follow the abstract reasoning rubric (${abstractRubric(q).level}: ${abstractRubric(q).reason})`);
       const shapeKey = (f) => JSON.stringify((f || []).map((sh) => { const c = { ...sh }; delete c.r; delete c.w; delete c.h; return c; }));
       q.options.forEach((f, oi) => {
         if (oi !== q.answer && shapeKey(f) === shapeKey(q.options[q.answer])) err(where, `option ${"ABCDE"[oi]} differs from the key only by size; use a rule-based difference`);
@@ -229,6 +230,11 @@ for (const set of ctx.window.EPSO_BANK.sets) {
     if ([0, 1, 2, 3, 4].some(i => set.questions.filter(q => q.answer === i).length !== 2)) err(w, "challenge answer positions must be balanced at two each");
   }
   if (set.section === "abstract") {
+    if (set.challenge) {
+      if (set.questions.length !== 10 || new Set(set.questions.map(q => q.reasoning?.model)).size !== 10) err(w, "abstract challenge sets need 10 different reviewed models");
+      if ([0, 1, 2, 3, 4].some(i => set.questions.filter(q => q.answer === i).length !== 2)) err(w, "abstract challenge keys must be balanced at two each");
+      if (set.questions.some(q => !q.challenge || q.rules !== 4 || q.sequence.length !== 6)) err(w, "abstract challenge items need four relationships and six displayed frames");
+    }
     // N1: no blind strategy (consensus, odd one out, element majority) may beat 30% (chance is 20%).
     const sums = { medoid: 0, outlier: 0, majority: 0 };
     set.questions.forEach((q) => { if (Array.isArray(q.options) && q.options.length === 5) { const b = abstractBlind(q.options, q.answer); for (const k in sums) sums[k] += b[k]; } });

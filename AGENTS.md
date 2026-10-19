@@ -12,6 +12,10 @@ This repository is a dependency-free static web app for practising the EPSO AD5 
    adding explanation lines or irrelevant exhibit values. Run `npm run audit:numerical` after changes.
    For verbal work, also read `docs/research/verbal/README.md` and `docs/VERBAL_AUDIT.md`.
    Preserve blind-review traceability and run `npm run audit:reasoning` after changes.
+   For abstract work, also read `docs/research/abstract/README.md` and `docs/ABSTRACT_AUDIT.md`.
+   Use `scripts/lib/abstract-difficulty.mjs`; rule count alone does not determine difficulty.
+   Add independent visible-figure solver coverage and regenerate visual contact sheets.
+   Run `npm run audit:abstract` after changes.
 2. **Verbal:** write a new file such as `questions/verbal/verbal-set-04.js` by hand.
    **Numerical and abstract:** extend `scripts/generators/numerical.mjs` or `abstract.mjs` with new
    templates or plan entries and rerun them. Never hand-edit generated files.

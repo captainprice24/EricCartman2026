@@ -37,7 +37,7 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 
 ## Question bank
 
-580 original questions: verbal 240, numerical 190, abstract 150.
+620 original questions: verbal 240, numerical 190, abstract 190.
 
 - **Verbal (13 sets):** 200 existing items plus **four challenge sets of 10** (Sets 10–13).
   Choose **Verbal difficulty: Easy / Medium / Hard** in Coach or Practice; a timed ten-question
@@ -56,18 +56,24 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
   re-solved by `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records
   every item; the [research library](docs/research/numerical/README.md) saves sources, rights evidence,
   licensed examples and an authoring checklist for future work.
-- **Abstract:** generated series in five layouts (single figure, grid movement, overlapping shapes,
-  divided circle, rotating hands) that combine 2–4 rules. Blind strategies such as "pick the option
-  most like the others" score at chance level.
+- **Abstract (8 sets):** 150 foundation items plus **four challenge sets of 10** (Sets 5–8).
+  The new series combine alternating, accelerating, conditional, delayed and compositional rules.
+  Choose **Abstract difficulty: Easy / Medium / Hard** in Coach or Practice; a timed round takes
+  ten minutes. The revised bank has 29 easy, 121 medium and 40 hard items. Forty-six existing
+  difficulty labels changed; the original figures and answers are preserved. All forty new keys
+  are independently inferred from visible shapes. Difficulty remains editorial pending learner
+  testing. See the [abstract audit](docs/ABSTRACT_AUDIT.md) and
+  [saved research library](docs/research/abstract/README.md).
 
 ## Development
 
 ```bash
 npm ci                    # dev tools only: ESLint, Playwright, axe-core
+npm run audit:abstract    # rebuild abstract inventory and difficulty audit
 npm run audit:reasoning   # rebuild verbal item inventory and audit
 npm run audit:numerical   # rebuild numerical item inventory and difficulty audit
 npm run validate          # schema, difficulty, answer-cue and duplicate checks across the bank
-npm test                  # core, independent numerical answers and verbal blind-review trace
+npm test                  # core, independent numerical/abstract answers and verbal review trace
 npm run build             # dist/ad5-reasoning-trainer.html (commit it; CI checks it is fresh)
 npm run test:e2e          # Playwright regression and axe tests (BROWSERS=chromium,webkit)
 npm run lint
