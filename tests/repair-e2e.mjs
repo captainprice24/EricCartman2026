@@ -20,7 +20,7 @@ let failures=0,passed=0;
 try{
 for(const name of (process.env.BROWSERS||'chromium').split(',')){
  const browser=await ({chromium,webkit,firefox}[name]).launch(name==='chromium'&&process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{});
- async function check(label,fn){try{await fn();passed++;console.log('  ✓ '+name+': '+label);}catch(e){failures++;console.error('  ✗ '+name+': '+label+'\n'+e.stack);}}
+ async function check(label,fn){try{await fn();passed++;console.log('  ✓ '+name+': '+label);}catch(e){if(process.env.GITHUB_ACTIONS){const escape=v=>String(v).replace(/%/g,'%25').replace(/\r/g,'%0D').replace(/\n/g,'%0A');console.error('::error title='+escape(name+': '+label).replace(/,/g,'%2C')+'::'+escape(e.stack||e));}failures++;console.error('  ✗ '+name+': '+label+'\n'+e.stack);}}
  async function page({seed={},blocked=false,viewport={width:1366,height:860},source=false}={}){
   const ctx=await browser.newContext({viewport});ctx.setDefaultTimeout(7000);const p=await ctx.newPage();p.errors=[];
   p.on('pageerror',e=>p.errors.push(e.message));p.on('response',r=>{if(r.status()>=400)p.errors.push('HTTP '+r.status()+': '+r.url())});

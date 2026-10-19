@@ -9,6 +9,7 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -19,12 +20,18 @@ const AXE = require.resolve("axe-core/axe.min.js");
 const engines = { chromium, webkit, firefox };
 const names = (process.env.BROWSERS || "chromium").split(",").map((s) => s.trim());
 
-let failures = 0;
+let failures = 0, currentEngine = "browser";
 const results = [];
 async function check(name, fn) {
   try { await fn(); results.push("  ✓ " + name); }
-  catch (e) { failures++; results.push("  ✗ " + name + "\n      " + String(e.message || e).split("\n").join("\n      ")); }
+  catch (e) {
+    if (process.env.GITHUB_ACTIONS) {
+      const escape = v => String(v).replace(/%/g, "%25").replace(/\r/g, "%0D").replace(/\n/g, "%0A");
+      console.error("::error title=" + escape(currentEngine + ": " + name).replace(/,/g, "%2C") + "::" + escape(e.stack || e));
+    }
+    failures++; results.push("  ✗ " + name + "\n      " + String(e.message || e).split("\n").join("\n      ")); }
   console.log(results[results.length - 1]);
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, "```text\n" + currentEngine + ": " + results[results.length - 1] + "\n```\n");
 }
 
 async function axe(page, label) {
@@ -53,6 +60,7 @@ async function finishCurrentSectionByKeyboard(page) {
 }
 
 async function run(engineName) {
+  currentEngine = engineName;
   const engine = engines[engineName];
   const launchOpts = engineName === "chromium" && process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {};
   const browser = await engine.launch(launchOpts);
