@@ -1,0 +1,23 @@
+{
+  "verifiedAtUTC": "2026-10-19T16:10:38.362145+00:00",
+  "applicationCommit": "a6f13def929f4a9a7128bbae6b9374873fc2eed9",
+  "applicationVersion": "2605e960d67e",
+  "workflowRun": "https://github.com/captainprice24/EricCartman2026/actions/runs/39270920327",
+  "checkJob": {
+    "id": "118122669333",
+    "conclusion": "success"
+  },
+  "deployJob": {
+    "id": "118124457313",
+    "conclusion": "success"
+  },
+  "unitTests": 31,
+  "browserChecksPerEngine": 39,
+  "browserEngines": [
+    "Chromium",
+    "WebKit"
+  ],
+  "validatedQuestions": 620,
+  "productionHTTPVersionInspected": false,
+  "method": "Read public GitHub run and job pages; check, end-to-end, artifact preparation/upload and deploy-pages steps all reported success."
+}
