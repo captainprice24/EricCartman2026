@@ -648,9 +648,11 @@
       '<select id="exam-scope">' +
       [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
         return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
-      }).join("") + '</select><label for="exam-form">Full test library</label><select id="exam-form"' + (prefs.examScope !== "full" ? " disabled" : "") + '><option value="random">Fresh random simulation</option>' + (window.EPSO_EXAMS || []).map(function (f) {
+      }).join("") + '</select><label for="exam-form">Full test library</label><select id="exam-form" aria-describedby="exam-form-note"' + (prefs.examScope !== "full" ? " disabled" : "") + '><option value="random">Fresh random simulation</option>' + (window.EPSO_EXAMS || []).map(function (f) {
         return '<option value="' + f.id + '"' + (prefs.examForm === f.id ? " selected" : "") + '>' + esc(f.title + " · " + f.band + (f.newContent ? " · New" : "")) + '</option>';
-      }).join("") + '</select><p class="small muted">15 complete tests · 40 questions each · no repeats between fixed tests. Tests 13–15 contain the new challenge questions.</p><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+      }).join("") + '</select><p class="small muted" id="exam-form-note">' + (prefs.examScope === "full"
+        ? "15 complete tests · 40 questions each · no repeats between fixed tests. Tests 13–15 contain the new challenge questions."
+        : "The full tests cover all three tests, so they can only be chosen with <b>All three tests</b>. A single test always uses a fresh random simulation.") + "</p>" + '<button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
 
       '<section class="train"><div class="train-head"><div><div class="h-row"><h2>Train one test at a time</h2>' + info("coach", "Coach and Practice", "<b>Coach</b>: a short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong. <b>Practice</b>: answer, then press Check answer to see whether you were right; only checked questions count towards your score.") + "</div>" +
       '<p class="muted">Set the options, then press <b>Coach</b> next to a test. When the method feels familiar, press <b>Practice</b>.</p></div>' +
@@ -762,7 +764,11 @@
       '<div class="q-actions">' + actions.join("") + "</div>" +
       (mode === "exam" && !review ? '<p class="muted small">' + answered + " of " + sec.items.length + " answered</p>" : "");
 
-    return head + '<div class="session">' + navHTML(sec) + overviewHTML(sec) + instructionsHTML() +
+    // Overview and instructions open beside the question (side panel), so the question stays in view.
+    var panels = overviewHTML(sec) + instructionsHTML();
+    var panelOpen = !review && (state.ui.overview || state.ui.instructions);
+    return head + '<div class="session' + (panelOpen ? " with-panel" : "") + '">' + navHTML(sec) +
+      (panelOpen ? '<aside class="side-panels" aria-label="Test overview and instructions">' + panels + "</aside>" : panels) +
       '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>";
   }
 
@@ -1158,6 +1164,10 @@
     if (state.view !== "session") return;
     var c = cur(); if (!c) return;
     var k = e.key;
+    // Escape closes the overview and instructions panels (the calculator handles its own Escape first).
+    if (k === "Escape" && !state.ui.calc && (state.ui.overview || state.ui.instructions)) {
+      state.ui.overview = false; state.ui.instructions = false; state.focus = "q-stem"; render(); e.preventDefault(); return;
+    }
 
     var onControl = e.target.closest && e.target.closest("button, a, summary");
     var inCalc = e.target === document.body || (e.target.closest && e.target.closest(".tool-panel.calc"));

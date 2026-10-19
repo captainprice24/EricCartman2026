@@ -471,6 +471,31 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("overview opens beside the question (question stays in view) and Escape closes it", async () => {
+    const p = await newPage(desktop);
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    const before = (await p.locator("#q-stem").boundingBox()).y;
+    await p.locator('[data-act="overview"]').click();
+    assert.ok(await p.locator("#test-overview").isVisible(), "overview shown");
+    const after = (await p.locator("#q-stem").boundingBox()).y;
+    assert.ok(Math.abs(after - before) < 5, `question moved from ${before} to ${after}`);
+    await p.keyboard.press("Escape");
+    assert.equal(await p.locator("#test-overview").isVisible(), false, "Escape closes the overview");
+    await p.context().close();
+  });
+
+  await check("full-test library explains why it is unavailable for a single test", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption("#exam-scope", "verbal");
+    assert.equal(await p.locator("#exam-form").isDisabled(), true);
+    assert.match(await p.locator("#exam-form-note").textContent(), /only be chosen with All three tests/);
+    await p.selectOption("#exam-scope", "full");
+    assert.equal(await p.locator("#exam-form").isDisabled(), false);
+    assert.match(await p.locator("#exam-form-note").textContent(), /15 complete tests/);
+    await p.context().close();
+  });
+
   await check("calculator opened from the toolbar: typing then Enter evaluates (and keeps it open)", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="practice"][data-k="numerical"]').click();

@@ -488,3 +488,15 @@ h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
   .bar-right { flex-wrap: wrap; }
   .bar-right .tools { flex-basis: 100%; flex-wrap: wrap; min-width: 0; max-width: 100%; }
 }
+
+/* Overview and instructions: a side panel beside the question on wide screens, so opening them never
+   pushes the passage and answers out of view. */
+.side-panels { display: grid; gap: 12px; align-content: start; }
+.side-panels .tool-panel { max-width: none; }
+.session.with-panel .side-panels { max-height: 42vh; overflow: auto; }
+@media (min-width: 1100px) {
+  .session.with-panel { grid-template-columns: minmax(260px, 300px) minmax(0, 1fr); align-items: start; }
+  .session.with-panel > .qnav, .session.with-panel > .legend-row { grid-column: 1 / -1; }
+  .session.with-panel .side-panels { position: sticky; top: 12px; max-height: calc(100vh - 24px); }
+  .session.with-panel .overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
