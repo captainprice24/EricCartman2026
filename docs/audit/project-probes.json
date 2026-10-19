@@ -1,0 +1,154 @@
+{
+  "auditedCommit": "ef17a7f3e96da78a40817dfc17ecc7b6dd4a962c",
+  "browser": "Chromium",
+  "base": "http://127.0.0.1:8000",
+  "observations": [
+    {
+      "name": "confirmation-dialog-keyboard-isolation",
+      "result": {
+        "focus": {
+          "insideDialog": false,
+          "action": "next",
+          "qi": 0
+        },
+        "after": {
+          "qi": 1,
+          "modal": true
+        }
+      }
+    },
+    {
+      "name": "tooltip-escape-dismissal",
+      "result": {
+        "visibleBeforeEscape": true,
+        "visibleAfterEscape": true
+      }
+    },
+    {
+      "name": "unchecked-practice-result-consistency",
+      "result": {
+        "score": "0/5",
+        "firstReview": "✓\nCorrect.\n1. History of European integration\nYou: B · Correct: B\nReview",
+        "retry": "Coach me on my 4 mistakes",
+        "errors": []
+      }
+    },
+    {
+      "name": "calculator-scientific-result-chaining",
+      "result": {
+        "first": "= 1e-7",
+        "second": "Check the expression",
+        "expectedSecond": "= 2e-7"
+      }
+    },
+    {
+      "name": "saved-state-malformed-json",
+      "result": {
+        "homeLoaded": true,
+        "errors": []
+      }
+    },
+    {
+      "name": "saved-state-null-preferences",
+      "result": {
+        "homeLoaded": false,
+        "errors": [
+          "Cannot read properties of null (reading 'count')"
+        ]
+      }
+    },
+    {
+      "name": "saved-state-null-question-stats",
+      "result": {
+        "homeLoaded": false,
+        "errors": [
+          "Cannot read properties of null (reading 'v01-01')"
+        ]
+      }
+    },
+    {
+      "name": "saved-state-invalid-saved-session-shape",
+      "result": {
+        "homeLoaded": false,
+        "errors": [
+          "Cannot read properties of undefined (reading 'map')"
+        ]
+      }
+    },
+    {
+      "name": "storage-write-failure-warning",
+      "result": {
+        "before": {
+          "sessionSaved": false,
+          "warning": [],
+          "errors": []
+        },
+        "resumeAfterReload": 0
+      }
+    },
+    {
+      "name": "wide-table-keyboard-scroll",
+      "result": {
+        "before": {
+          "scrollLeft": 0,
+          "scrollWidth": 413,
+          "clientWidth": 324,
+          "qi": 0
+        },
+        "after": {
+          "scrollLeft": 0,
+          "qi": 1
+        }
+      }
+    },
+    {
+      "name": "abstract-coach-frame-number",
+      "result": {
+        "lessonStep": "Predict frame 6 before looking at the optionsForm your own answer first, so you are not drawn to an option that is almost right.",
+        "displayedFrames": 6,
+        "nextFrame": 7
+      }
+    },
+    {
+      "name": "phone-320px-layout",
+      "result": {
+        "verbal": {
+          "viewport": 320,
+          "pageWidth": 320
+        },
+        "numerical": {
+          "viewport": 320,
+          "pageWidth": 320
+        },
+        "abstract": {
+          "viewport": 320,
+          "pageWidth": 320
+        }
+      }
+    },
+    {
+      "name": "direct-file-access",
+      "result": {
+        "homeLoaded": false,
+        "environmentBlocked": true,
+        "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/EricCartman2026/dist/ad5-reasoning-trainer.html"
+      }
+    },
+    {
+      "name": "published-site-packaging",
+      "result": {
+        "versionFileIncluded": false,
+        "failed": [
+          {
+            "url": "/version.js",
+            "status": 404
+          }
+        ],
+        "homeLoaded": true,
+        "version": null,
+        "questions": 620,
+        "versionedScripts": 0
+      }
+    }
+  ]
+}

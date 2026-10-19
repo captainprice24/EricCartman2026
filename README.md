@@ -65,6 +65,9 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
   testing. See the [abstract audit](docs/ABSTRACT_AUDIT.md) and
   [saved research library](docs/research/abstract/README.md).
 
+The [full project audit](docs/PROJECT_AUDIT.md) records release, reliability, accessibility and
+question-quality findings, with reproducible evidence and repair priorities.
+
 ## Development
 
 ```bash
