@@ -3,7 +3,7 @@ const globals = require("globals");
 const js = require("@eslint/js");
 
 module.exports = [
-  { ignores: ["node_modules/", "dist/", "test-results/"] },
+  { ignores: ["node_modules/", "dist/", "test-results/", "_site/"] },
   js.configs.recommended,
   { rules: { "no-unused-vars": ["error", { caughtErrors: "none" }] } },
   {

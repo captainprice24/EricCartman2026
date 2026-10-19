@@ -1,0 +1,22 @@
+{
+  "v02-23-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The passage now explicitly says the initially improving patient died because supplies ran out before treatment was completed, establishing C's causal explanation. A strengthens much US development into entirely US development. B invents doctors' response to the resistance warning. D extends sufficient supplies for Allied troops to everyone who needed treatment. No other option is entailed.",
+    "issues": []
+  },
+  "v03-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False"
+    },
+    "reason": "For purchases carrying the described withdrawal right, a shopper never informed retains it for twelve months after the original fourteen-day period, so it remains available at ten months. A invents the distribution of cancellation timing. B extends the stated general first-year presumption to every defect throughout the two-year guarantee. C conflicts with the expressly excluded products. No other option is entailed.",
+    "issues": []
+  }
+}

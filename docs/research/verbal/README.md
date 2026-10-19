@@ -55,7 +55,7 @@ No paid or leaked provider sets were imported. Public access, an academic code l
 
 Sets 10–13 contain 10 questions each: **40 original questions**, timed at 17 minutes 30 seconds per round. Forty items were independently reviewed in two source batches, repaired, and then partitioned into four sets meeting the unchanged cue limits and balanced keys (two or three of each letter). Only IDs and set composition changed at partition; passages and option order stayed unchanged. The final `review-mapping.json` records source IDs and passage/option hashes. All four final comparisons agree on 40/40 keys and 120/120 distractor labels. The source reviews retain the reviewer’s actual difficulty judgments rather than claiming blanket agreement with a Very hard label.
 
-The earlier abandoned draft and unused author drafts are not part of the bank. No existing question ID, passage or answer was changed. The complete 240-item inventory and structural audit are in `inventory.csv`, `inventory.json` and `docs/VERBAL_AUDIT.md`. Existing 200 editorial levels were retained; they did not receive a new full blind semantic review.
+The earlier abandoned draft and unused author drafts are not part of the bank. During initial challenge authoring, existing question content was preserved. The complete 240-item inventory and structural audit are in `inventory.csv`, `inventory.json` and `docs/VERBAL_AUDIT.md`. The subsequent project repair independently reviewed all 200 foundation keys and 600 distractor labels. Eight items were clarified under new IDs and 58 original labels corrected. Initial blind exports, reviewer evidence, reconciled answers and final content hashes are archived in `blind-review/legacy/`. Editorial difficulty labels remain unchanged.
 
 ## Reuse later
 

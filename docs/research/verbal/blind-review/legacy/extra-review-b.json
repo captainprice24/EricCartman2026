@@ -1,0 +1,22 @@
+{
+  "v05-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Europol officers explicitly cannot arrest suspects, so arrests require other officers. The passage does not identify the budgetary use of threat assessments or permission to send experts outside the EU. D contradicts the stated requirement for the Member State's agreement.",
+    "issues": []
+  },
+  "v05-15-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "The executing authority may sometimes substitute a less intrusive measure achieving the same result, establishing C. The distribution of order purposes and identities of nonparticipating states are unstated. D contradicts the express restriction to refusal grounds listed in the directive.",
+    "issues": []
+  }
+}

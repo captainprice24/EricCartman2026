@@ -8,160 +8,160 @@
   },
   "byDifficulty": {
     "easy": [
-      "n01-01",
-      "n01-02",
-      "n01-04",
-      "n01-05",
-      "n01-10",
-      "n02-09",
-      "n02-11",
-      "n02-14",
-      "n02-16",
-      "n02-17",
-      "n02-22",
-      "n02-24",
-      "n02-25",
-      "n02-28",
-      "n02-29",
-      "n02-30",
-      "n02-32",
-      "n02-33",
-      "n02-38",
-      "n02-47",
-      "n02-49",
-      "n03-02",
-      "n03-04",
-      "n03-05",
-      "n03-10",
-      "n03-12",
-      "n03-13",
-      "n03-16",
-      "n03-17",
-      "n03-18",
-      "n03-20",
-      "n03-21",
-      "n03-26",
-      "n03-35",
-      "n03-37",
-      "n03-40",
-      "n03-42",
-      "n03-43",
-      "n03-48",
-      "n03-50",
-      "n04-01",
-      "n04-04",
-      "n04-05",
-      "n04-06",
-      "n04-08",
-      "n04-09",
-      "n04-13",
-      "n04-21",
-      "n04-23",
-      "n04-26",
-      "n04-28",
-      "n04-29",
-      "n04-34",
-      "n04-36",
-      "n04-37",
-      "n04-40"
+      "n01-01-r2",
+      "n01-02-r2",
+      "n01-04-r2",
+      "n01-05-r2",
+      "n01-10-r2",
+      "n02-09-r2",
+      "n02-11-r2",
+      "n02-14-r2",
+      "n02-16-r2",
+      "n02-17-r2",
+      "n02-22-r2",
+      "n02-24-r2",
+      "n02-25-r2",
+      "n02-28-r2",
+      "n02-29-r2",
+      "n02-30-r2",
+      "n02-32-r2",
+      "n02-33-r2",
+      "n02-38-r2",
+      "n02-47-r2",
+      "n02-49-r2",
+      "n03-02-r2",
+      "n03-04-r2",
+      "n03-05-r2",
+      "n03-10-r2",
+      "n03-12-r2",
+      "n03-13-r2",
+      "n03-16-r2",
+      "n03-17-r2",
+      "n03-18-r2",
+      "n03-20-r2",
+      "n03-21-r2",
+      "n03-26-r2",
+      "n03-35-r2",
+      "n03-37-r2",
+      "n03-40-r2",
+      "n03-42-r2",
+      "n03-43-r2",
+      "n03-48-r2",
+      "n03-50-r2",
+      "n04-01-r2",
+      "n04-04-r2",
+      "n04-05-r2",
+      "n04-06-r2",
+      "n04-08-r2",
+      "n04-09-r2",
+      "n04-13-r2",
+      "n04-21-r2",
+      "n04-23-r2",
+      "n04-26-r2",
+      "n04-28-r2",
+      "n04-29-r2",
+      "n04-34-r2",
+      "n04-36-r2",
+      "n04-37-r2",
+      "n04-40-r2"
     ],
     "medium": [
-      "n01-06",
-      "n01-07",
-      "n01-08",
-      "n01-09",
-      "n02-02",
-      "n02-03",
-      "n02-04",
-      "n02-05",
-      "n02-06",
-      "n02-07",
-      "n02-08",
-      "n02-10",
-      "n02-12",
-      "n02-13",
-      "n02-15",
-      "n02-19",
-      "n02-20",
-      "n02-21",
-      "n02-23",
-      "n02-26",
-      "n02-27",
-      "n02-34",
-      "n02-35",
-      "n02-36",
-      "n02-37",
-      "n02-40",
-      "n02-41",
-      "n02-42",
-      "n02-43",
-      "n02-44",
-      "n02-45",
-      "n02-46",
-      "n02-48",
-      "n02-50",
-      "n03-01",
-      "n03-03",
-      "n03-07",
-      "n03-08",
-      "n03-09",
-      "n03-11",
-      "n03-14",
-      "n03-15",
-      "n03-22",
-      "n03-23",
-      "n03-24",
-      "n03-25",
-      "n03-28",
-      "n03-29",
-      "n03-30",
-      "n03-31",
-      "n03-32",
-      "n03-33",
-      "n03-34",
-      "n03-36",
-      "n03-38",
-      "n03-39",
-      "n03-41",
-      "n03-45",
-      "n03-46",
-      "n03-47",
-      "n03-49",
-      "n04-02",
-      "n04-03",
-      "n04-10",
-      "n04-11",
-      "n04-12",
-      "n04-15",
-      "n04-16",
-      "n04-17",
-      "n04-18",
-      "n04-19",
-      "n04-20",
-      "n04-22",
-      "n04-24",
-      "n04-25",
-      "n04-27",
-      "n04-31",
-      "n04-32",
-      "n04-33",
-      "n04-35",
-      "n04-38",
-      "n04-39"
+      "n01-06-r2",
+      "n01-07-r2",
+      "n01-08-r2",
+      "n01-09-r2",
+      "n02-02-r2",
+      "n02-03-r2",
+      "n02-04-r2",
+      "n02-05-r2",
+      "n02-06-r2",
+      "n02-07-r2",
+      "n02-08-r2",
+      "n02-10-r2",
+      "n02-12-r2",
+      "n02-13-r2",
+      "n02-15-r2",
+      "n02-19-r2",
+      "n02-20-r2",
+      "n02-21-r2",
+      "n02-23-r2",
+      "n02-26-r2",
+      "n02-27-r2",
+      "n02-34-r2",
+      "n02-35-r2",
+      "n02-36-r2",
+      "n02-37-r2",
+      "n02-40-r2",
+      "n02-41-r2",
+      "n02-42-r2",
+      "n02-43-r2",
+      "n02-44-r2",
+      "n02-45-r2",
+      "n02-46-r2",
+      "n02-48-r2",
+      "n02-50-r2",
+      "n03-01-r2",
+      "n03-03-r2",
+      "n03-07-r2",
+      "n03-08-r2",
+      "n03-09-r2",
+      "n03-11-r2",
+      "n03-14-r2",
+      "n03-15-r2",
+      "n03-22-r2",
+      "n03-23-r2",
+      "n03-24-r2",
+      "n03-25-r2",
+      "n03-28-r2",
+      "n03-29-r2",
+      "n03-30-r2",
+      "n03-31-r2",
+      "n03-32-r2",
+      "n03-33-r2",
+      "n03-34-r2",
+      "n03-36-r2",
+      "n03-38-r2",
+      "n03-39-r2",
+      "n03-41-r2",
+      "n03-45-r2",
+      "n03-46-r2",
+      "n03-47-r2",
+      "n03-49-r2",
+      "n04-02-r2",
+      "n04-03-r2",
+      "n04-10-r2",
+      "n04-11-r2",
+      "n04-12-r2",
+      "n04-15-r2",
+      "n04-16-r2",
+      "n04-17-r2",
+      "n04-18-r2",
+      "n04-19-r2",
+      "n04-20-r2",
+      "n04-22-r2",
+      "n04-24-r2",
+      "n04-25-r2",
+      "n04-27-r2",
+      "n04-31-r2",
+      "n04-32-r2",
+      "n04-33-r2",
+      "n04-35-r2",
+      "n04-38-r2",
+      "n04-39-r2"
     ],
     "hard": [
-      "n01-03",
-      "n02-01",
-      "n02-18",
-      "n02-31",
-      "n02-39",
-      "n03-06",
-      "n03-19",
-      "n03-27",
-      "n03-44",
-      "n04-07",
-      "n04-14",
-      "n04-30",
+      "n01-03-r2",
+      "n02-01-r2",
+      "n02-18-r2",
+      "n02-31-r2",
+      "n02-39-r2",
+      "n03-06-r2",
+      "n03-19-r2",
+      "n03-27-r2",
+      "n03-44-r2",
+      "n04-07-r2",
+      "n04-14-r2",
+      "n04-30-r2",
       "n05-01",
       "n05-02",
       "n05-03",
@@ -206,7 +206,7 @@
   },
   "items": [
     {
-      "id": "n01-01",
+      "id": "n01-01-r2",
       "set": "numerical-01",
       "level": "Easy",
       "challenge": false,
@@ -215,10 +215,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-02",
+      "id": "n01-02-r2",
       "set": "numerical-01",
       "level": "Easy",
       "challenge": false,
@@ -230,7 +230,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n01-03",
+      "id": "n01-03-r2",
       "set": "numerical-01",
       "level": "Hard",
       "challenge": false,
@@ -239,10 +239,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-04",
+      "id": "n01-04-r2",
       "set": "numerical-01",
       "level": "Easy",
       "challenge": false,
@@ -251,10 +251,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 1,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-05",
+      "id": "n01-05-r2",
       "set": "numerical-01",
       "level": "Easy",
       "challenge": false,
@@ -266,7 +266,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n01-06",
+      "id": "n01-06-r2",
       "set": "numerical-01",
       "level": "Medium",
       "challenge": false,
@@ -275,10 +275,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-07",
+      "id": "n01-07-r2",
       "set": "numerical-01",
       "level": "Medium",
       "challenge": false,
@@ -287,10 +287,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-08",
+      "id": "n01-08-r2",
       "set": "numerical-01",
       "level": "Medium",
       "challenge": false,
@@ -302,7 +302,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n01-09",
+      "id": "n01-09-r2",
       "set": "numerical-01",
       "level": "Medium",
       "challenge": false,
@@ -311,10 +311,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n01-10",
+      "id": "n01-10-r2",
       "set": "numerical-01",
       "level": "Easy",
       "challenge": false,
@@ -323,10 +323,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-01",
+      "id": "n02-01-r2",
       "set": "numerical-02",
       "level": "Hard",
       "challenge": false,
@@ -335,10 +335,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-02",
+      "id": "n02-02-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -347,10 +347,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-03",
+      "id": "n02-03-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -359,10 +359,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-04",
+      "id": "n02-04-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -374,7 +374,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-05",
+      "id": "n02-05-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -383,10 +383,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-06",
+      "id": "n02-06-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -395,10 +395,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-07",
+      "id": "n02-07-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -407,10 +407,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-08",
+      "id": "n02-08-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -422,7 +422,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-09",
+      "id": "n02-09-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -431,10 +431,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-10",
+      "id": "n02-10-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -443,10 +443,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-11",
+      "id": "n02-11-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -455,10 +455,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-12",
+      "id": "n02-12-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -470,7 +470,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-13",
+      "id": "n02-13-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -479,10 +479,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-14",
+      "id": "n02-14-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -494,7 +494,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-15",
+      "id": "n02-15-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -503,10 +503,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-16",
+      "id": "n02-16-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -518,7 +518,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-17",
+      "id": "n02-17-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -530,7 +530,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-18",
+      "id": "n02-18-r2",
       "set": "numerical-02",
       "level": "Hard",
       "challenge": false,
@@ -539,10 +539,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-19",
+      "id": "n02-19-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -554,7 +554,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-20",
+      "id": "n02-20-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -563,10 +563,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-21",
+      "id": "n02-21-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -575,10 +575,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-22",
+      "id": "n02-22-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -590,7 +590,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-23",
+      "id": "n02-23-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -602,7 +602,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-24",
+      "id": "n02-24-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -614,7 +614,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-25",
+      "id": "n02-25-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -626,7 +626,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-26",
+      "id": "n02-26-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -635,10 +635,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-27",
+      "id": "n02-27-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -647,10 +647,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-28",
+      "id": "n02-28-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -662,7 +662,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-29",
+      "id": "n02-29-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -674,7 +674,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-30",
+      "id": "n02-30-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -683,10 +683,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-31",
+      "id": "n02-31-r2",
       "set": "numerical-02",
       "level": "Hard",
       "challenge": false,
@@ -698,7 +698,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-32",
+      "id": "n02-32-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -710,7 +710,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-33",
+      "id": "n02-33-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -722,7 +722,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-34",
+      "id": "n02-34-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -731,10 +731,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-35",
+      "id": "n02-35-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -746,7 +746,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-36",
+      "id": "n02-36-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -755,10 +755,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-37",
+      "id": "n02-37-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -767,10 +767,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-38",
+      "id": "n02-38-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -779,10 +779,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-39",
+      "id": "n02-39-r2",
       "set": "numerical-02",
       "level": "Hard",
       "challenge": false,
@@ -791,10 +791,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-40",
+      "id": "n02-40-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -806,7 +806,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-41",
+      "id": "n02-41-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -818,7 +818,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-42",
+      "id": "n02-42-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -827,10 +827,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-43",
+      "id": "n02-43-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -839,10 +839,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-44",
+      "id": "n02-44-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -851,10 +851,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-45",
+      "id": "n02-45-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -863,10 +863,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-46",
+      "id": "n02-46-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -878,7 +878,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n02-47",
+      "id": "n02-47-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -887,10 +887,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-48",
+      "id": "n02-48-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -899,10 +899,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-49",
+      "id": "n02-49-r2",
       "set": "numerical-02",
       "level": "Easy",
       "challenge": false,
@@ -911,10 +911,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n02-50",
+      "id": "n02-50-r2",
       "set": "numerical-02",
       "level": "Medium",
       "challenge": false,
@@ -926,7 +926,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-01",
+      "id": "n03-01-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -935,10 +935,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-02",
+      "id": "n03-02-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -950,7 +950,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-03",
+      "id": "n03-03-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -959,10 +959,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-04",
+      "id": "n03-04-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -974,7 +974,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-05",
+      "id": "n03-05-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -983,10 +983,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-06",
+      "id": "n03-06-r2",
       "set": "numerical-03",
       "level": "Hard",
       "challenge": false,
@@ -995,10 +995,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-07",
+      "id": "n03-07-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1010,7 +1010,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-08",
+      "id": "n03-08-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1019,10 +1019,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-09",
+      "id": "n03-09-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1031,10 +1031,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-10",
+      "id": "n03-10-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1043,10 +1043,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-11",
+      "id": "n03-11-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1058,7 +1058,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-12",
+      "id": "n03-12-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1070,7 +1070,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-13",
+      "id": "n03-13-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1082,7 +1082,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-14",
+      "id": "n03-14-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1091,10 +1091,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-15",
+      "id": "n03-15-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1103,10 +1103,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-16",
+      "id": "n03-16-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1118,7 +1118,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-17",
+      "id": "n03-17-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1127,10 +1127,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-18",
+      "id": "n03-18-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1142,7 +1142,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-19",
+      "id": "n03-19-r2",
       "set": "numerical-03",
       "level": "Hard",
       "challenge": false,
@@ -1151,10 +1151,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-20",
+      "id": "n03-20-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1163,10 +1163,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-21",
+      "id": "n03-21-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1178,7 +1178,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-22",
+      "id": "n03-22-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1187,10 +1187,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-23",
+      "id": "n03-23-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1199,10 +1199,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-24",
+      "id": "n03-24-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1214,7 +1214,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-25",
+      "id": "n03-25-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1223,10 +1223,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-26",
+      "id": "n03-26-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1235,10 +1235,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-27",
+      "id": "n03-27-r2",
       "set": "numerical-03",
       "level": "Hard",
       "challenge": false,
@@ -1247,10 +1247,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-28",
+      "id": "n03-28-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1259,10 +1259,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-29",
+      "id": "n03-29-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1271,10 +1271,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-30",
+      "id": "n03-30-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1286,7 +1286,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-31",
+      "id": "n03-31-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1295,10 +1295,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-32",
+      "id": "n03-32-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1307,10 +1307,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-33",
+      "id": "n03-33-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1319,10 +1319,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-34",
+      "id": "n03-34-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1334,7 +1334,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-35",
+      "id": "n03-35-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1343,10 +1343,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-36",
+      "id": "n03-36-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1355,10 +1355,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-37",
+      "id": "n03-37-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1367,10 +1367,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-38",
+      "id": "n03-38-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1382,7 +1382,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-39",
+      "id": "n03-39-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1391,10 +1391,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-40",
+      "id": "n03-40-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1406,7 +1406,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-41",
+      "id": "n03-41-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1415,10 +1415,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-42",
+      "id": "n03-42-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1427,10 +1427,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-43",
+      "id": "n03-43-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1442,7 +1442,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-44",
+      "id": "n03-44-r2",
       "set": "numerical-03",
       "level": "Hard",
       "challenge": false,
@@ -1451,10 +1451,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-45",
+      "id": "n03-45-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1466,7 +1466,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-46",
+      "id": "n03-46-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1475,10 +1475,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-47",
+      "id": "n03-47-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1487,10 +1487,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-48",
+      "id": "n03-48-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1499,10 +1499,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n03-49",
+      "id": "n03-49-r2",
       "set": "numerical-03",
       "level": "Medium",
       "challenge": false,
@@ -1514,7 +1514,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n03-50",
+      "id": "n03-50-r2",
       "set": "numerical-03",
       "level": "Easy",
       "challenge": false,
@@ -1526,7 +1526,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-01",
+      "id": "n04-01-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1538,7 +1538,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-02",
+      "id": "n04-02-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1547,10 +1547,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-03",
+      "id": "n04-03-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1559,10 +1559,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-04",
+      "id": "n04-04-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1574,7 +1574,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-05",
+      "id": "n04-05-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1583,10 +1583,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-06",
+      "id": "n04-06-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1595,10 +1595,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-07",
+      "id": "n04-07-r2",
       "set": "numerical-04",
       "level": "Hard",
       "challenge": false,
@@ -1607,10 +1607,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-08",
+      "id": "n04-08-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1619,10 +1619,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 1,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-09",
+      "id": "n04-09-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1634,7 +1634,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-10",
+      "id": "n04-10-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1646,7 +1646,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-11",
+      "id": "n04-11-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1655,10 +1655,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-12",
+      "id": "n04-12-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1667,10 +1667,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-13",
+      "id": "n04-13-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1679,10 +1679,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-14",
+      "id": "n04-14-r2",
       "set": "numerical-04",
       "level": "Hard",
       "challenge": false,
@@ -1694,7 +1694,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-15",
+      "id": "n04-15-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1706,7 +1706,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-16",
+      "id": "n04-16-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1715,10 +1715,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-17",
+      "id": "n04-17-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1727,10 +1727,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-18",
+      "id": "n04-18-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1739,10 +1739,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-19",
+      "id": "n04-19-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1751,10 +1751,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-20",
+      "id": "n04-20-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1766,7 +1766,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-21",
+      "id": "n04-21-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1775,10 +1775,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-22",
+      "id": "n04-22-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1787,10 +1787,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-23",
+      "id": "n04-23-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1799,10 +1799,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-24",
+      "id": "n04-24-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1814,7 +1814,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-25",
+      "id": "n04-25-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1823,10 +1823,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 2,
       "oldMechanicalLevel": "Easy",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-26",
+      "id": "n04-26-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1838,7 +1838,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-27",
+      "id": "n04-27-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1850,7 +1850,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-28",
+      "id": "n04-28-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1862,7 +1862,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-29",
+      "id": "n04-29-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1871,10 +1871,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-30",
+      "id": "n04-30-r2",
       "set": "numerical-04",
       "level": "Hard",
       "challenge": false,
@@ -1883,10 +1883,10 @@
       "rationale": "Construct and compare ratios with changing bases; the denominator must be rebuilt.",
       "workloadScore": 5,
       "oldMechanicalLevel": "Hard",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-31",
+      "id": "n04-31-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1898,7 +1898,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-32",
+      "id": "n04-32-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1907,10 +1907,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-33",
+      "id": "n04-33-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1919,10 +1919,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-34",
+      "id": "n04-34-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1931,10 +1931,10 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 3
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-35",
+      "id": "n04-35-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1943,10 +1943,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 2
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-36",
+      "id": "n04-36-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1958,7 +1958,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-37",
+      "id": "n04-37-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -1970,7 +1970,7 @@
       "fillerDistractors": 0
     },
     {
-      "id": "n04-38",
+      "id": "n04-38-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1979,10 +1979,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-39",
+      "id": "n04-39-r2",
       "set": "numerical-04",
       "level": "Medium",
       "challenge": false,
@@ -1991,10 +1991,10 @@
       "rationale": "A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments.",
       "workloadScore": 4,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 4
+      "fillerDistractors": 0
     },
     {
-      "id": "n04-40",
+      "id": "n04-40-r2",
       "set": "numerical-04",
       "level": "Easy",
       "challenge": false,
@@ -2003,7 +2003,7 @@
       "rationale": "One direct difference, ratio, sum or mean; extra rows do not add conceptual demand.",
       "workloadScore": 3,
       "oldMechanicalLevel": "Medium",
-      "fillerDistractors": 1
+      "fillerDistractors": 0
     },
     {
       "id": "n05-01",

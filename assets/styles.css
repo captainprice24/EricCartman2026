@@ -445,10 +445,10 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 }
 .tip b { color: inherit; }
 .tip-r .tip { left: auto; right: -6px; }
-.info-wrap:hover .tip, .info-btn:focus-visible + .tip, .tip.open { display: block; }
+.tip.open { display: block; }
 /* Phones: no reliable hover and little room, so an open tip becomes a card at the bottom of the screen. */
 @media (max-width: 560px), (hover: none) {
-  .tip.open, .info-btn:focus-visible + .tip { display: block; }
+  .tip.open { display: block; }
   .tip, .tip-r .tip { position: fixed; left: 16px; right: 16px; top: auto; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: auto; max-width: none; font-size: 0.92rem; padding: 14px 16px; }
 }
 .exam-card .info-btn { color: var(--accent-ink); opacity: 0.85; }

@@ -294,7 +294,7 @@ async function run(engineName) {
     await p.locator('.exam-bar [data-act="end"]').click();
     await p.locator("#cf-yes").click();
     await p.waitForSelector(".results");
-    assert.match(await p.locator(".score-big").first().textContent(), /^0\/5/);
+    assert.match(await p.locator(".score-big").first().textContent(), /^0\/0/);
     await p.context().close();
   });
 

@@ -1,603 +1,584 @@
 EPSO_BANK.registerSet({
-  id: "verbal-05",
-  section: "verbal",
-  title: "Verbal reasoning · Set 5",
-  description: "22 EPSO-level passages on justice, home affairs, citizenship and fundamental rights, with some law, ethics and philosophy of science.",
-  version: 1,
-  questions: [
+  "id": "verbal-05",
+  "section": "verbal",
+  "title": "Verbal reasoning · Set 5",
+  "description": "22 EPSO-level passages on justice, home affairs, citizenship and fundamental rights, with some law, ethics and philosophy of science.",
+  "version": 4,
+  "questions": [
     {
-      id: "v05-01",
-      topic: "Fundamental rights",
-      difficulty: 3,
-      keyType: "inference",
-      passage:
-        "The Charter of Fundamental Rights of the European Union brings together in a single text civil, political, economic and social rights. Since the Treaty of Lisbon it has had the same legal value as the Treaties, but its reach is deliberately limited. Under its Article 51, it is addressed to the institutions, bodies, offices and agencies of the Union, and to the Member States only when they are implementing Union law. It does not extend the competences of the Union or create new tasks for it.\n\nThe Court of Justice has read the phrase 'implementing Union law' broadly. In its 2013 Åkerberg Fransson judgment, it held that Swedish tax penalties and criminal proceedings for VAT fraud fell within the scope of EU law, because the VAT system is governed by EU rules and Member States are obliged to counter fraud affecting the Union's resources. Where a national measure has no connection with EU law, by contrast, the Charter does not apply, and protection must come from other sources, such as national constitutions or the European Convention on Human Rights.\n\nThe Charter also distinguishes rights from principles. Principles, such as those concerning environmental protection, must be respected by legislators and administrations, but they can be invoked before a court only to interpret the acts that implement them or to review the legality of those acts, not as free-standing claims.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-01",
+      "topic": "Fundamental rights",
+      "difficulty": 3,
+      "keyType": "inference",
+      "passage": "The Charter of Fundamental Rights of the European Union brings together in a single text civil, political, economic and social rights. Since the Treaty of Lisbon it has had the same legal value as the Treaties, but its reach is deliberately limited. Under its Article 51, it is addressed to the institutions, bodies, offices and agencies of the Union, and to the Member States only when they are implementing Union law. It does not extend the competences of the Union or create new tasks for it.\n\nThe Court of Justice has read the phrase 'implementing Union law' broadly. In its 2013 Åkerberg Fransson judgment, it held that Swedish tax penalties and criminal proceedings for VAT fraud fell within the scope of EU law, because the VAT system is governed by EU rules and Member States are obliged to counter fraud affecting the Union's resources. Where a national measure has no connection with EU law, by contrast, the Charter does not apply, and protection must come from other sources, such as national constitutions or the European Convention on Human Rights.\n\nThe Charter also distinguishes rights from principles. Principles, such as those concerning environmental protection, must be respected by legislators and administrations, but they can be invoked before a court only to interpret the acts that implement them or to review the legality of those acts, not as free-standing claims.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The Charter was made binding because the European Convention on Human Rights had proved too weak to protect citizens.",
         "In the Fransson case, the Court of Justice held that the Charter applies to every national measure concerning taxation.",
         "Someone challenging a national measure with no link to EU law would need protection from sources other than the Charter.",
         "A person can rely on the Charter's environmental principle in court as a claim in its own right against a public authority."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "Article 51 sets a condition for the Charter to bind Member States. What happens when that condition is not met?",
         "Check how far the Fransson ruling went: which kind of tax was at issue, and why did EU law apply?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text gives no reason for making the Charter binding and does not assess the Convention's strength.",
         "Overstated. The ruling concerned penalties for 'VAT fraud', a tax 'governed by EU rules'; it does not extend to every tax measure.",
         "Correct. Where a national measure 'has no connection with EU law', the Charter 'does not apply', and protection 'must come from other sources'.",
         "False. Principles can be invoked only to interpret or review implementing acts, 'not as free-standing claims'."
       ],
-      explanation: "The key applies the scope rule in Article 51 to a case it excludes. One distractor widens a ruling about VAT to all taxation; another invents a cause for a reform."
+      "explanation": "The key applies the scope rule in Article 51 to a case it excludes. One distractor widens a ruling about VAT to all taxation; another invents a cause for a reform."
     },
     {
-      id: "v05-02",
-      topic: "Judicial cooperation",
-      difficulty: 3,
-      keyType: "inference",
-      passage:
-        "The European Arrest Warrant, created by a framework decision adopted in 2002 and in use since 2004, replaced the slow and politically controlled extradition procedures that previously applied between EU Member States. A warrant issued by a judicial authority in one Member State must, in principle, be executed in another, and the decision to surrender a person is taken by judges and prosecutors rather than by governments.\n\nA warrant may be issued to prosecute an offence punishable by a maximum of at least twelve months' imprisonment, or to enforce a sentence of at least four months. For 32 categories of serious offences, including terrorism, trafficking in human beings and corruption, the executing authority may not check whether the conduct is also a crime under its own law, provided that the offence carries a maximum penalty of at least three years in the issuing state. For all other offences, this 'double criminality' check remains possible.\n\nMember States can no longer refuse to surrender their own nationals simply because of their nationality, although they may make surrender conditional on the person being returned to serve any custodial sentence at home. If the person consents to surrender, the final decision should be taken within ten days of that consent; otherwise the limit is sixty days after the arrest, which may be extended by a further thirty days in specific cases.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-02",
+      "topic": "Judicial cooperation",
+      "difficulty": 3,
+      "keyType": "inference",
+      "passage": "The European Arrest Warrant, created by a framework decision adopted in 2002 and in use since 2004, replaced the slow and politically controlled extradition procedures that previously applied between EU Member States. A warrant issued by a judicial authority in one Member State must, in principle, be executed in another, and the decision to surrender a person is taken by judges and prosecutors rather than by governments.\n\nA warrant may be issued to prosecute an offence punishable by a maximum of at least twelve months' imprisonment, or to enforce a sentence of at least four months. For 32 categories of serious offences, including terrorism, trafficking in human beings and corruption, the executing authority may not check whether the conduct is also a crime under its own law, provided that the offence carries a maximum penalty of at least three years in the issuing state. For all other offences, this 'double criminality' check remains possible.\n\nMember States can no longer refuse to surrender their own nationals simply because of their nationality, although they may make surrender conditional on the person being returned to serve any custodial sentence at home. If the person consents to surrender, the final decision should be taken within ten days of that consent; otherwise the limit is sixty days after the arrest, which may be extended by a further thirty days in specific cases.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "An offence in one of the listed categories can still be checked for double criminality if it carries at most two years in the issuing state.",
         "A warrant issued by a judge in one Member State must always be executed by the authorities of the Member State receiving it.",
         "The 32 listed categories were selected because together they account for most of the warrants that are issued each year.",
         "A person who consents to surrender is usually handed over to the issuing state within ten days of being arrested."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "The exemption from the double criminality check has two conditions. Are both met in every listed case?",
         "Look at what the ten-day limit runs from, and what it applies to."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. The check is excluded only for listed offences carrying 'at least three years'; for a two-year maximum the exemption does not apply, so the check 'remains possible'.",
         "Overstated. Warrants must be executed 'in principle', and the text describes a double criminality check and conditions on surrender.",
         "Not supported. The text does not say how the categories were chosen or how many warrants concern them.",
         "Not supported. The ten days concern the final decision and run from consent; the text says nothing about when the person is handed over."
       ],
-      explanation: "The key applies a two-part condition to a case that meets only one part. Read every threshold together with the category it qualifies."
+      "explanation": "The key applies a two-part condition to a case that meets only one part. Read every threshold together with the category it qualifies."
     },
     {
-      id: "v05-03",
-      topic: "Judicial cooperation",
-      difficulty: 1,
-      keyType: "paraphrase",
-      passage:
-        "Eurojust, the European Union Agency for Criminal Justice Cooperation, is based in The Hague. It was set up in 2002 to help national authorities deal with serious cross-border crime, and since 2019 it has operated under a regulation that gave it its current name and status. Each Member State sends one national member, usually an experienced prosecutor or judge, who is supported by a deputy and an assistant. Several non-EU countries have also posted liaison prosecutors there.\n\nEurojust does not carry out investigations or bring prosecutions itself; those tasks remain the responsibility of national authorities. Its value lies in coordination. When investigators in several countries are pursuing the same criminal network, Eurojust can host coordination meetings, help resolve conflicts of jurisdiction and support the execution of instruments such as European Arrest Warrants. It also provides legal and financial support to joint investigation teams, in which police and prosecutors from two or more countries work together for a set period under a written agreement.\n\nDuring large operations, coordination centres allow national authorities to follow simultaneous arrests and searches in several countries in real time. The agency's caseload has grown considerably over the past two decades, and a large share of its cases concern fraud, drug trafficking and money laundering.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-03",
+      "topic": "Judicial cooperation",
+      "difficulty": 1,
+      "keyType": "paraphrase",
+      "passage": "Eurojust, the European Union Agency for Criminal Justice Cooperation, is based in The Hague. It was set up in 2002 to help national authorities deal with serious cross-border crime, and since 2019 it has operated under a regulation that gave it its current name and status. Each Member State sends one national member, usually an experienced prosecutor or judge, who is supported by a deputy and an assistant. Several non-EU countries have also posted liaison prosecutors there.\n\nEurojust does not carry out investigations or bring prosecutions itself; those tasks remain the responsibility of national authorities. Its value lies in coordination. When investigators in several countries are pursuing the same criminal network, Eurojust can host coordination meetings, help resolve conflicts of jurisdiction and support the execution of instruments such as European Arrest Warrants. It also provides legal and financial support to joint investigation teams, in which police and prosecutors from two or more countries work together for a set period under a written agreement.\n\nDuring large operations, coordination centres allow national authorities to follow simultaneous arrests and searches in several countries in real time. The agency's caseload has grown considerably over the past two decades, and a large share of its cases concern fraud, drug trafficking and money laundering.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Every national member at Eurojust is an experienced prosecutor or judge sent by a Member State.",
         "Joint investigation teams were first created under the regulation that has governed Eurojust since 2019.",
         "Eurojust's caseload has grown in every single year since the agency was first set up in 2002.",
         "Eurojust never brings prosecutions itself; that task stays with the national authorities concerned."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Find the sentence that separates what Eurojust does from what national authorities do.",
         "Watch for qualifiers such as 'usually' and 'considerably', and compare them with the wording of the options."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. Each national member is 'usually an experienced prosecutor or judge'; the text does not say that all of them are.",
         "Not supported. The text describes joint investigation teams but does not say when they were introduced.",
         "Overstated. The caseload 'has grown considerably over the past two decades'; the text does not say it grew in every single year.",
         "Correct. Eurojust 'does not carry out investigations or bring prosecutions itself'; these 'remain the responsibility of national authorities'."
       ],
-      explanation: "A paraphrase of a stated limit. The traps upgrade growth over two decades to growth 'in every single year', and 'usually' to every national member."
+      "explanation": "A paraphrase of a stated limit. The traps upgrade growth over two decades to growth 'in every single year', and 'usually' to every national member."
     },
     {
-      id: "v05-04",
-      topic: "Police cooperation",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "Europol, the European Union Agency for Law Enforcement Cooperation, supports national police forces in tackling serious international crime and terrorism. Headquartered in The Hague, it began full operations in 1999, and its current mandate rests on a regulation that has applied since 2017 and was strengthened in 2022. Its staff include analysts and specialists, and each Member State sends liaison officers who provide a direct channel between Europol and their national authorities.\n\nEuropol is not a European police force. Its officers have no executive powers: they cannot arrest suspects, search premises or open investigations on their own initiative in a Member State. What the agency offers instead is information and expertise. It processes large volumes of data supplied by national authorities and partners, cross-checks them to detect links between cases, and produces operational analysis and threat assessments. It can also send experts to support investigations on the ground, with the agreement of the Member State concerned.\n\nSpecialised centres deal with particular threats, notably the European Cybercrime Centre, set up in 2013, and the European Counter Terrorism Centre, set up in 2016. The 2022 reform widened Europol's ability to process large and complex datasets and to cooperate with private parties, which critics, including data-protection advocates, argued called for stronger safeguards.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-04-r2",
+      "topic": "Police cooperation",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Europol, the European Union Agency for Law Enforcement Cooperation, supports national police forces in tackling serious international crime and terrorism. Headquartered in The Hague, it began full operations in 1999, and its current mandate rests on a regulation that has applied since 2017 and was strengthened in 2022. Its staff include analysts and specialists, and each Member State sends liaison officers who provide a direct channel between Europol and their national authorities.\n\nEuropol is not a European police force. Its officers have no executive powers: they cannot arrest suspects, search premises or open investigations on their own initiative in a Member State. What the agency offers instead is information and expertise. It processes large volumes of data supplied by national authorities and partners, cross-checks them to detect links between cases, and produces operational analysis and threat assessments. It can also send experts to support investigations on the ground, with the agreement of the Member State concerned.\n\nSpecialised centres deal with particular threats, notably the European Cybercrime Centre, set up in 2013, and the European Counter Terrorism Centre, set up in 2016. The 2022 reform widened Europol's ability to process large and complex datasets and to cooperate with private parties, which critics, including data-protection advocates, argued called for stronger safeguards.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Europol's threat assessments are generally used by the Council to decide the size of the EU's annual policing budget.",
         "In an operation supported by Europol, any arrests have to be carried out by officers other than the agency's own staff.",
         "Europol may also send its experts to support police investigations in countries outside the European Union.",
-        "Critics argued that the 2022 reform made the processing of large datasets by Europol unlawful under EU data-protection rules."
+        "Europol may send experts to support an investigation in a Member State even when that state's authorities withhold their agreement."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "The text lists things Europol officers cannot do. What follows for an operation in which arrests are made?",
         "Check what the text actually says about where and on what condition Europol sends experts."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text mentions threat assessments but says nothing about any budget decision.",
         "Correct. Europol officers 'cannot arrest suspects', so any arrest in a supported operation must be made by someone else.",
         "Not supported. The text mentions experts sent to support investigations 'with the agreement of the Member State concerned'; it says nothing about non-EU countries.",
-        "Overstated. Critics argued that the reform 'called for stronger safeguards', not that it was unlawful."
+        "False. The passage requires the agreement of the Member State concerned before Europol sends experts."
       ],
-      explanation: "The key draws the consequence of a stated lack of power. The critics option turns a call for safeguards into a claim of illegality."
+      "explanation": "The agency's lack of arrest powers determines who must carry out arrests. Deploying experts also requires the Member State's agreement; the passage gives no budget procedure or authority to deploy outside the EU.",
+      "supersedes": "v05-04"
     },
     {
-      id: "v05-05",
-      topic: "Asylum",
-      difficulty: 3,
-      keyType: "combination",
-      passage:
-        "Since the 1990s, the Dublin rules have determined which single Member State is responsible for examining an application for international protection lodged in the EU. The aim is to prevent applicants from lodging claims in several countries at once and to ensure that every claim is examined by someone. The Dublin Convention was signed in 1990 and was later replaced by regulations adopted in 2003 and 2013.\n\nResponsibility is allocated according to a hierarchy of criteria, applied in order. Family ties come first: an unaccompanied child is normally the responsibility of the country where a family member is legally present, provided this is in the child's best interests. Next come residence documents and visas, so that a state which issued a valid visa is generally responsible. Only after these criteria does irregular entry come into play, making the country through which the applicant first crossed the external border responsible. This criterion has been criticised for placing a heavy burden on frontline states.\n\nTransfers are not automatic. In 2011, the Court of Justice ruled that an applicant may not be transferred to a Member State where systemic deficiencies in the asylum procedure and reception conditions give substantial grounds for believing that the person would face inhuman or degrading treatment. In 2026, under the Pact on Migration and Asylum, the 2013 regulation was replaced by new rules that keep the same basic logic.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-05",
+      "topic": "Asylum",
+      "difficulty": 3,
+      "keyType": "combination",
+      "passage": "Since the 1990s, the Dublin rules have determined which single Member State is responsible for examining an application for international protection lodged in the EU. The aim is to prevent applicants from lodging claims in several countries at once and to ensure that every claim is examined by someone. The Dublin Convention was signed in 1990 and was later replaced by regulations adopted in 2003 and 2013.\n\nResponsibility is allocated according to a hierarchy of criteria, applied in order. Family ties come first: an unaccompanied child is normally the responsibility of the country where a family member is legally present, provided this is in the child's best interests. Next come residence documents and visas, so that a state which issued a valid visa is generally responsible. Only after these criteria does irregular entry come into play, making the country through which the applicant first crossed the external border responsible. This criterion has been criticised for placing a heavy burden on frontline states.\n\nTransfers are not automatic. In 2011, the Court of Justice ruled that an applicant may not be transferred to a Member State where systemic deficiencies in the asylum procedure and reception conditions give substantial grounds for believing that the person would face inhuman or degrading treatment. In 2026, under the Pact on Migration and Asylum, the 2013 regulation was replaced by new rules that keep the same basic logic.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "An unaccompanied child is always the responsibility of a country where a family member is legally present.",
         "A state that issued a valid visa can be responsible even if the applicant entered irregularly through another state.",
         "Following the 2011 judgment, transfers of applicants to Greece were suspended by the other Member States for several years.",
         "The rules introduced in 2026 under the Pact abandoned the hierarchy of criteria for allocating responsibility."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "The criteria are 'applied in order'. Where do visas sit compared with irregular entry?",
         "One option names a country the text never mentions."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. An unaccompanied child is 'normally' that country's responsibility, and only 'provided this is in the child's best interests'; the text does not say always.",
         "Correct. Visas come before irregular entry in the hierarchy ('Only after these criteria does irregular entry come into play'), so the visa-issuing state can be responsible.",
         "Not supported. The text describes the 2011 ruling in general terms and does not mention Greece or any suspension of transfers.",
         "False. The new rules 'keep the same basic logic' of the earlier system."
       ],
-      explanation: "The key combines the statement that criteria apply in order with the position of visas in that order. The Greece option is an outside-knowledge trap."
+      "explanation": "The key combines the statement that criteria apply in order with the position of visas in that order. The Greece option is an outside-knowledge trap."
     },
     {
-      id: "v05-06",
-      topic: "Migration",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "The Pact on Migration and Asylum, a package of ten legislative acts formally adopted in May 2024, was designed to apply as a whole from 2026. One of its most debated elements is a new solidarity mechanism, intended to share responsibility between Member States more evenly than the previous rules did.\n\nThe mechanism is often described as mandatory but flexible. Each year, the Commission assesses which Member States are under migratory pressure and proposes the size of an annual solidarity pool, which the Council then establishes. The Pact sets reference levels of at least 30,000 relocations and at least €600 million in financial contributions per year across the Union. Member States must contribute their fair share, although those under migratory pressure can ask for a reduction, and each chooses how to contribute: by relocating applicants from countries under pressure, by making financial contributions, set at €20,000 for each person not relocated, or by funding operational and capacity-building measures. No Member State can be obliged to carry out relocations.\n\nSupporters argue that this flexibility made agreement possible after years of deadlock over earlier reform proposals. Critics on one side say that allowing states to pay instead of relocating weakens the principle of shared responsibility; critics on the other side object to any compulsory element at all. How the mechanism works in practice will depend largely on the pledges that Member States make.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-06",
+      "topic": "Migration",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "The Pact on Migration and Asylum, a package of ten legislative acts formally adopted in May 2024, was designed to apply as a whole from 2026. One of its most debated elements is a new solidarity mechanism, intended to share responsibility between Member States more evenly than the previous rules did.\n\nThe mechanism is often described as mandatory but flexible. Each year, the Commission assesses which Member States are under migratory pressure and proposes the size of an annual solidarity pool, which the Council then establishes. The Pact sets reference levels of at least 30,000 relocations and at least €600 million in financial contributions per year across the Union. Member States must contribute their fair share, although those under migratory pressure can ask for a reduction, and each chooses how to contribute: by relocating applicants from countries under pressure, by making financial contributions, set at €20,000 for each person not relocated, or by funding operational and capacity-building measures. No Member State can be obliged to carry out relocations.\n\nSupporters argue that this flexibility made agreement possible after years of deadlock over earlier reform proposals. Critics on one side say that allowing states to pay instead of relocating weakens the principle of shared responsibility; critics on the other side object to any compulsory element at all. How the mechanism works in practice will depend largely on the pledges that Member States make.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The Commission can require a Member State to relocate applicants if that state has pledged too little to the annual pool.",
         "Critics of the mechanism agree that letting states pay rather than relocate weakens the principle of shared responsibility.",
         "The financial contributions are paid into the EU budget and are mainly used to fund surveillance of the external borders.",
         "Choosing not to relocate anyone does not by itself free a Member State from contributing to the pool."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Separate whether a Member State must contribute from how it contributes.",
         "The critics are divided. Check which group makes which complaint."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. 'No Member State can be obliged to carry out relocations.'",
         "Overstated. Only 'critics on one side' make this point; others object to 'any compulsory element at all'.",
         "Not supported. The text does not say where contributions are paid or what they fund.",
         "Correct. Member States 'must contribute their fair share' and choose how; since relocation is only one of three forms, a state that relocates nobody still contributes in another form."
       ],
-      explanation: "The key separates an obligation (to contribute) from a choice (of the form). The critics option merges two opposing groups of critics into one."
+      "explanation": "The key separates an obligation (to contribute) from a choice (of the form). The critics option merges two opposing groups of critics into one."
     },
     {
-      id: "v05-07",
-      topic: "Asylum",
-      difficulty: 1,
-      keyType: "paraphrase",
-      passage:
-        "The Temporary Protection Directive was adopted in 2001, in the aftermath of the conflicts in the former Yugoslavia, to give the EU a tool for situations in which large numbers of displaced people arrive at once and normal asylum procedures risk being overwhelmed. It provides immediate, collective protection, without the need to examine each person's case individually. For more than twenty years, however, it was not used: calls to activate it during earlier crises did not lead to a decision.\n\nThat changed on 4 March 2022, when the Council, acting on a proposal from the Commission, activated the directive for people fleeing the Russian invasion of Ukraine. Beneficiaries receive a residence permit and the right to work, as well as access to suitable accommodation, medical care and social welfare assistance, and children have access to education on the same terms as nationals of the host country. Several million people have registered for temporary protection, with Germany and Poland hosting the largest numbers.\n\nTemporary protection does not prevent a person from applying for asylum. The Council has extended the protection several times, but it remains temporary by design, and Member States have been discussing how beneficiaries might move to other forms of legal status when it ends.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-07",
+      "topic": "Asylum",
+      "difficulty": 1,
+      "keyType": "paraphrase",
+      "passage": "The Temporary Protection Directive was adopted in 2001, in the aftermath of the conflicts in the former Yugoslavia, to give the EU a tool for situations in which large numbers of displaced people arrive at once and normal asylum procedures risk being overwhelmed. It provides immediate, collective protection, without the need to examine each person's case individually. For more than twenty years, however, it was not used: calls to activate it during earlier crises did not lead to a decision.\n\nThat changed on 4 March 2022, when the Council, acting on a proposal from the Commission, activated the directive for people fleeing the Russian invasion of Ukraine. Beneficiaries receive a residence permit and the right to work, as well as access to suitable accommodation, medical care and social welfare assistance, and children have access to education on the same terms as nationals of the host country. Several million people have registered for temporary protection, with Germany and Poland hosting the largest numbers.\n\nTemporary protection does not prevent a person from applying for asylum. The Council has extended the protection several times, but it remains temporary by design, and Member States have been discussing how beneficiaries might move to other forms of legal status when it ends.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "None of the crises that occurred before 2022 led to the directive being put into effect.",
         "The Council can extend temporary protection only if all Member States agree to the extension.",
         "Most beneficiaries are expected to return to Ukraine once temporary protection comes to an end.",
         "Beneficiaries of temporary protection enjoy the same rights as nationals of the host country in every respect."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "What does the first paragraph say about the directive's use before March 2022?",
         "Equal treatment with nationals is mentioned for one right only. Which one?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. For more than twenty years the directive 'was not used', and calls to activate it 'did not lead to a decision' until 2022.",
         "Not supported. The text says the Council has extended protection but does not state the voting rule.",
         "Not supported. The text mentions discussions about moving to 'other forms of legal status', not expected returns.",
         "Overstated. Equal terms with nationals are mentioned only for children's access to education."
       ],
-      explanation: "A paraphrase of a plain statement about past use. The traps add a voting rule and a forecast that the text never gives, or widen one equal-treatment right to all rights."
+      "explanation": "A paraphrase of a plain statement about past use. The traps add a voting rule and a forecast that the text never gives, or widen one equal-treatment right to all rights."
     },
     {
-      id: "v05-08",
-      topic: "Legal migration",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "The EU Blue Card is a combined work and residence permit for highly qualified workers from outside the EU. A revised directive, which Member States had to transpose by November 2023, sought to make the scheme more attractive after the original 2009 version had been widely judged a disappointment, partly because many countries continued to favour their own national schemes, which they are still allowed to run in parallel.\n\nTo qualify, an applicant needs a binding job offer or work contract of at least six months, down from twelve under the old rules, and must normally hold a higher education qualification. For certain information and communication technology occupations, at least three years of relevant professional experience gained within the previous seven years can replace a degree. The salary offered must reach a threshold set by each Member State between 1 and 1.6 times the national average gross annual salary; a lower threshold may apply to shortage occupations and recent graduates.\n\nAfter twelve months of legal residence, Blue Card holders can move to another Member State to take up highly qualified employment there under simplified procedures, and their family members can join them more easily. Denmark and Ireland do not take part in the scheme, so a Blue Card issued elsewhere does not give its holder these rights in those two countries.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-08",
+      "topic": "Legal migration",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "The EU Blue Card is a combined work and residence permit for highly qualified workers from outside the EU. A revised directive, which Member States had to transpose by November 2023, sought to make the scheme more attractive after the original 2009 version had been widely judged a disappointment, partly because many countries continued to favour their own national schemes, which they are still allowed to run in parallel.\n\nTo qualify, an applicant needs a binding job offer or work contract of at least six months, down from twelve under the old rules, and must normally hold a higher education qualification. For certain information and communication technology occupations, at least three years of relevant professional experience gained within the previous seven years can replace a degree. The salary offered must reach a threshold set by each Member State between 1 and 1.6 times the national average gross annual salary; a lower threshold may apply to shortage occupations and recent graduates.\n\nAfter twelve months of legal residence, Blue Card holders can move to another Member State to take up highly qualified employment there under simplified procedures, and their family members can join them more easily. Denmark and Ireland do not take part in the scheme, so a Blue Card issued elsewhere does not give its holder these rights in those two countries.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Germany issues more Blue Cards than any other Member State taking part in the scheme.",
         "The revised directive requires Member States to close their national schemes for highly qualified workers.",
         "In some ICT occupations, an applicant without a degree could qualify through enough recent work experience.",
         "The revised directive allows professional experience to replace a degree for all Blue Card applicants."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "The degree requirement has an exception. Who does it cover, and on what condition?",
         "Check what the text says about national schemes."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text gives no figures for any country; whatever you know about Germany, the passage does not say it.",
         "False. Member States 'are still allowed to run' national schemes in parallel.",
         "Correct. For certain ICT occupations, 'at least three years of relevant professional experience' in the previous seven years 'can replace a degree'.",
         "Overstated. Experience can replace a degree, but only 'for certain information and communication technology occupations', not for all applicants."
       ],
-      explanation: "The key restates a narrow exception. The overstated option widens that exception from certain ICT occupations to every applicant."
+      "explanation": "The key restates a narrow exception. The overstated option widens that exception from certain ICT occupations to every applicant."
     },
     {
-      id: "v05-09",
-      topic: "EU citizenship",
-      difficulty: 3,
-      keyType: "inference",
-      passage:
-        "Every citizen of the Union has the right to move and reside freely within the territory of the Member States, but under the 2004 Citizens' Rights Directive that right is graded according to the length of stay. For up to three months, a citizen needs nothing more than a valid identity card or passport. Beyond three months, the right of residence depends on the person's situation: workers and self-employed people qualify, while students and economically inactive people must have sufficient resources not to become a burden on the host state's social assistance system, as well as comprehensive sickness insurance. Host states may require registration with the authorities after three months.\n\nAfter five years of continuous legal residence, a citizen acquires the right of permanent residence, which is no longer subject to these conditions. It is lost only through absence from the host state for more than two consecutive years. Family members, including those who are not themselves EU citizens, enjoy rights derived from the citizen's.\n\nProtection against expulsion also increases over time. A host state may restrict free movement on grounds of public policy, public security or public health, but such measures must be proportionate and based exclusively on the personal conduct of the individual concerned. Once a citizen has resided in the host state for the previous ten years, expulsion is possible only on imperative grounds of public security.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-09",
+      "topic": "EU citizenship",
+      "difficulty": 3,
+      "keyType": "inference",
+      "passage": "Every citizen of the Union has the right to move and reside freely within the territory of the Member States, but under the 2004 Citizens' Rights Directive that right is graded according to the length of stay. For up to three months, a citizen needs nothing more than a valid identity card or passport. Beyond three months, the right of residence depends on the person's situation: workers and self-employed people qualify, while students and economically inactive people must have sufficient resources not to become a burden on the host state's social assistance system, as well as comprehensive sickness insurance. Host states may require registration with the authorities after three months.\n\nAfter five years of continuous legal residence, a citizen acquires the right of permanent residence, which is no longer subject to these conditions. It is lost only through absence from the host state for more than two consecutive years. Family members, including those who are not themselves EU citizens, enjoy rights derived from the citizen's.\n\nProtection against expulsion also increases over time. A host state may restrict free movement on grounds of public policy, public security or public health, but such measures must be proportionate and based exclusively on the personal conduct of the individual concerned. Once a citizen has resided in the host state for the previous ten years, expulsion is possible only on imperative grounds of public security.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Students moving to another Member State must usually prove a minimum monthly income that is set at EU level.",
         "Every host state requires citizens from other Member States to register with the authorities after three months.",
         "Family members who are not EU citizens acquire a right of permanent residence only after ten years.",
         "An economically inactive citizen with six years of continuous legal residence in a host state no longer has to prove sufficient resources."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Apply the five-year rule to a person who did not work: which conditions still apply after it?",
         "Is registration after three months an obligation everywhere, or an option for host states?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text requires 'sufficient resources' but mentions no minimum income or any figure set at EU level.",
         "Overstated. Host states 'may require registration with the authorities after three months'; the text does not say that all of them do.",
         "Not supported. The text says family members 'enjoy rights derived from the citizen's' but gives no ten-year rule for them.",
         "Correct. After five years of continuous legal residence, permanent residence 'is no longer subject to these conditions', including sufficient resources."
       ],
-      explanation: "The key applies the permanent-residence rule to a new case. The 'every host state' option turns a permission into a universal rule; two others invent rules the text does not contain."
+      "explanation": "The key applies the permanent-residence rule to a new case. The 'every host state' option turns a permission into a universal rule; two others invent rules the text does not contain."
     },
     {
-      id: "v05-10",
-      topic: "EU citizenship",
-      difficulty: 1,
-      keyType: "paraphrase",
-      passage:
-        "Being an EU citizen brings a practical advantage when travelling outside the Union. If a citizen is in a country where their own Member State has no embassy or consulate able to help, they are entitled to the protection of the diplomatic or consular authorities of any other Member State, on the same conditions as that state's own nationals. The right is set out in the Treaty on the Functioning of the European Union and repeated in the Charter of Fundamental Rights, and a 2015 directive lays down how it is to be applied.\n\nThe assistance covers situations such as arrest or detention, being the victim of a crime, a serious accident or illness, and death, as well as relief and repatriation in an emergency. It can include issuing an emergency travel document to a citizen whose passport has been lost or stolen. The directive also sets out how Member States should cooperate during crises, for example when large numbers of citizens must be evacuated from a conflict zone, with EU Delegations helping to coordinate.\n\nThe assisting state may ask the citizen's own Member State to reimburse the costs it incurs, and the citizen can in turn be asked to repay them. The right applies to unrepresented citizens: a traveller whose own country has an embassy able to help must turn to it.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-10",
+      "topic": "EU citizenship",
+      "difficulty": 1,
+      "keyType": "paraphrase",
+      "passage": "Being an EU citizen brings a practical advantage when travelling outside the Union. If a citizen is in a country where their own Member State has no embassy or consulate able to help, they are entitled to the protection of the diplomatic or consular authorities of any other Member State, on the same conditions as that state's own nationals. The right is set out in the Treaty on the Functioning of the European Union and repeated in the Charter of Fundamental Rights, and a 2015 directive lays down how it is to be applied.\n\nThe assistance covers situations such as arrest or detention, being the victim of a crime, a serious accident or illness, and death, as well as relief and repatriation in an emergency. It can include issuing an emergency travel document to a citizen whose passport has been lost or stolen. The directive also sets out how Member States should cooperate during crises, for example when large numbers of citizens must be evacuated from a conflict zone, with EU Delegations helping to coordinate.\n\nThe assisting state may ask the citizen's own Member State to reimburse the costs it incurs, and the citizen can in turn be asked to repay them. The right applies to unrepresented citizens: a traveller whose own country has an embassy able to help must turn to it.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The state that assists an unrepresented citizen may seek repayment of its costs from the citizen's own state.",
         "All embassies of the Member States must assist every EU citizen who asks them for help outside the Union.",
         "EU Delegations can issue new passports to unrepresented citizens when they are evacuated from a conflict zone abroad.",
         "Every EU citizen whose passport is lost or stolen abroad is issued with an emergency travel document."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Read the last paragraph: who pays first, and who can be asked to pay back?",
         "Check who the right applies to, and whether an emergency document is guaranteed or possible."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. 'The assisting state may ask the citizen's own Member State to reimburse the costs it incurs.'",
         "False. The right covers unrepresented citizens only; a traveller whose own country has an embassy able to help 'must turn to it'.",
         "Not supported. EU Delegations help to coordinate; the text does not say they issue passports.",
         "Overstated. Assistance 'can include' an emergency travel document, and only for unrepresented citizens; it is not automatic for everyone."
       ],
-      explanation: "A paraphrase of the reimbursement rule. Two traps drop the condition that the citizen is unrepresented or turn 'can include' into a guarantee."
+      "explanation": "A paraphrase of the reimbursement rule. Two traps drop the condition that the citizen is unrepresented or turn 'can include' into a guarantee."
     },
     {
-      id: "v05-11",
-      topic: "Fundamental rights",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "The European Union Agency for Fundamental Rights, based in Vienna, was established in 2007. It replaced the European Monitoring Centre on Racism and Xenophobia, which had been set up a decade earlier, and its broader remit reflects a shift from a focus on racism to fundamental rights as a whole. Its task is to provide the EU institutions and the Member States with independent, evidence-based advice when they act within the scope of EU law.\n\nMuch of the agency's work consists of research. Its large-scale surveys, which ask thousands of people across the Union about their experiences, have covered subjects such as violence against women, antisemitism, and the situation of LGBTIQ people, Roma and migrants. Because comparable official statistics are often lacking, these surveys are frequently the main EU-wide source on such questions, and policymakers have drawn on their findings. The agency also issues opinions on draft legislation at the request of the institutions.\n\nThere are important limits to its role, however. The agency cannot examine individual complaints, and it has no power to take legal action against Member States or to impose sanctions. Nor does it decide whether there is a risk of a serious breach of the Union's values: that decision belongs to the institutions under Article 7 of the Treaty on European Union.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-11",
+      "topic": "Fundamental rights",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "The European Union Agency for Fundamental Rights, based in Vienna, was established in 2007. It replaced the European Monitoring Centre on Racism and Xenophobia, which had been set up a decade earlier, and its broader remit reflects a shift from a focus on racism to fundamental rights as a whole. Its task is to provide the EU institutions and the Member States with independent, evidence-based advice when they act within the scope of EU law.\n\nMuch of the agency's work consists of research. Its large-scale surveys, which ask thousands of people across the Union about their experiences, have covered subjects such as violence against women, antisemitism, and the situation of LGBTIQ people, Roma and migrants. Because comparable official statistics are often lacking, these surveys are frequently the main EU-wide source on such questions, and policymakers have drawn on their findings. The agency also issues opinions on draft legislation at the request of the institutions.\n\nThere are important limits to its role, however. The agency cannot examine individual complaints, and it has no power to take legal action against Member States or to impose sanctions. Nor does it decide whether there is a risk of a serious breach of the Union's values: that decision belongs to the institutions under Article 7 of the Treaty on European Union.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The agency's opinions on draft legislation are binding on the institutions that have asked for them.",
         "The agency's surveys are the only source of data on discrimination and hate crime anywhere in the European Union.",
         "Someone whose rights are breached by a national authority would have to seek a remedy outside the agency.",
         "The agency was created mainly because the earlier monitoring centre had been judged to perform poorly."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "The last paragraph lists what the agency cannot do. Apply it to an individual with a grievance.",
         "Compare 'frequently the main EU-wide source' with the strength of the options."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text says the agency issues opinions on request but says nothing about their legal effect.",
         "Overstated. The surveys are 'frequently the main EU-wide source', not the only source of data anywhere.",
         "Correct. The agency 'cannot examine individual complaints' and cannot take legal action, so an individual must seek a remedy elsewhere.",
         "Not supported. The text links the change to a broader remit, not to any judgement on the earlier centre's performance."
       ],
-      explanation: "The key applies a stated limit to a concrete situation. Two traps invent a legal effect and a cause that the text never mentions."
+      "explanation": "The key applies a stated limit to a concrete situation. Two traps invent a legal effect and a cause that the text never mentions."
     },
     {
-      id: "v05-12",
-      topic: "EU law",
-      difficulty: 2,
-      keyType: "combination",
-      passage:
-        "When the European Commission considers that a Member State has failed to fulfil an obligation under EU law, for example by not transposing a directive on time or by applying it incorrectly, it can open an infringement procedure under Article 258 of the Treaty on the Functioning of the European Union. The procedure begins with a letter of formal notice asking the government for its observations. If the reply is unsatisfactory, the Commission sends a reasoned opinion explaining why it believes EU law is being breached and setting a deadline for compliance. Only if the Member State still does not comply may the Commission refer the case to the Court of Justice. Most cases are closed long before that stage.\n\nA judgment finding an infringement is declaratory: the Court establishes that an obligation has been breached, and the Member State must take the necessary measures. If it fails to do so, the Commission can bring the case back to the Court under Article 260, which may then impose a lump sum, a periodic penalty payment, or both. Since the Treaty of Lisbon, however, where a Member State has failed to notify measures transposing a directive, the Commission may ask the Court to impose financial penalties in the first judgment.\n\nThe Commission enjoys broad discretion over whether and when to open a case, and individuals who complain to it cannot compel it to act.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-12",
+      "topic": "EU law",
+      "difficulty": 2,
+      "keyType": "combination",
+      "passage": "When the European Commission considers that a Member State has failed to fulfil an obligation under EU law, for example by not transposing a directive on time or by applying it incorrectly, it can open an infringement procedure under Article 258 of the Treaty on the Functioning of the European Union. The procedure begins with a letter of formal notice asking the government for its observations. If the reply is unsatisfactory, the Commission sends a reasoned opinion explaining why it believes EU law is being breached and setting a deadline for compliance. Only if the Member State still does not comply may the Commission refer the case to the Court of Justice. Most cases are closed long before that stage.\n\nA judgment finding an infringement is declaratory: the Court establishes that an obligation has been breached, and the Member State must take the necessary measures. If it fails to do so, the Commission can bring the case back to the Court under Article 260, which may then impose a lump sum, a periodic penalty payment, or both. Since the Treaty of Lisbon, however, where a Member State has failed to notify measures transposing a directive, the Commission may ask the Court to impose financial penalties in the first judgment.\n\nThe Commission enjoys broad discretion over whether and when to open a case, and individuals who complain to it cannot compel it to act.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "A Court judgment can never impose a financial penalty on a Member State the first time its case is heard.",
         "A state that never notifies its transposition measures could be fined in the Court's first judgment.",
         "Complaints from citizens are the main source of the infringement cases opened by the Commission each year.",
         "Almost no infringement procedures opened by the Commission ever result in a referral to the Court of Justice."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "The normal route to financial penalties needs two judgments. Is there an exception?",
         "Compare 'most cases are closed' with the strength of each option."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. Since Lisbon, penalties can be imposed in the first judgment where transposition measures were not notified.",
         "Correct. For failure to notify transposition measures, the Commission 'may ask the Court to impose financial penalties in the first judgment'.",
         "Not supported. The text mentions complaints only to say they cannot compel the Commission to act; it gives no figures on sources of cases.",
         "Overstated. The text says 'most' cases are closed before referral, not that almost none are referred."
       ],
-      explanation: "The key combines the general two-step route to penalties with the exception for non-notification. One distractor states the general rule as if it had no exception."
+      "explanation": "The key combines the general two-step route to penalties with the exception for non-notification. One distractor states the general rule as if it had no exception."
     },
     {
-      id: "v05-13",
-      topic: "Rule of law",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "Article 7 of the Treaty on European Union provides a procedure for cases in which a Member State threatens the values on which the Union is founded, such as democracy, the rule of law and respect for human rights. It has two distinct stages. Under the preventive arm, the Council, acting by a majority of four fifths of its members after obtaining the consent of the European Parliament, may determine that there is a clear risk of a serious breach of those values. Such a proposal may come from one third of the Member States, from the Parliament or from the Commission.\n\nThe sanctioning arm goes further. The European Council, acting unanimously on a proposal from one third of the Member States or from the Commission, and again with the Parliament's consent, may determine the existence of a serious and persistent breach. The Member State concerned does not take part in the vote. Only after such a determination may the Council, by qualified majority, suspend certain of that state's rights, including its voting rights in the Council.\n\nThe preventive arm has been triggered twice: by the Commission against Poland in 2017 and by the Parliament against Hungary in 2018. Neither case has led to a determination by the Council, and the procedure concerning Poland was closed in 2024 after the Commission withdrew its proposal. Many observers attribute the procedure's limited impact to the unanimity required at the second stage.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-13",
+      "topic": "Rule of law",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Article 7 of the Treaty on European Union provides a procedure for cases in which a Member State threatens the values on which the Union is founded, such as democracy, the rule of law and respect for human rights. It has two distinct stages. Under the preventive arm, the Council, acting by a majority of four fifths of its members after obtaining the consent of the European Parliament, may determine that there is a clear risk of a serious breach of those values. Such a proposal may come from one third of the Member States, from the Parliament or from the Commission.\n\nThe sanctioning arm goes further. The European Council, acting unanimously on a proposal from one third of the Member States or from the Commission, and again with the Parliament's consent, may determine the existence of a serious and persistent breach. The Member State concerned does not take part in the vote. Only after such a determination may the Council, by qualified majority, suspend certain of that state's rights, including its voting rights in the Council.\n\nThe preventive arm has been triggered twice: by the Commission against Poland in 2017 and by the Parliament against Hungary in 2018. Neither case has led to a determination by the Council, and the procedure concerning Poland was closed in 2024 after the Commission withdrew its proposal. Many observers attribute the procedure's limited impact to the unanimity required at the second stage.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The Parliament, which launched the procedure against Hungary, has no right to propose the finding needed at the second stage.",
         "A Member State's voting rights may be suspended as soon as the Council finds a clear risk of a serious breach.",
         "The government of Hungary has said it would veto any decision at the second stage of a procedure against Poland.",
         "According to the text, the unanimity rule at the second stage is the reason why the procedure has had little effect."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Compare the lists of who may make a proposal at each stage.",
         "Distinguish what the text states as fact from what it attributes to observers."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. The Parliament may propose at the preventive stage, but at the sanctioning stage proposals come only 'from one third of the Member States or from the Commission'.",
         "False. Suspension is possible 'only after' the European Council has found a serious and persistent breach.",
         "Not supported. The text mentions no statement by Hungary about a veto.",
         "Overstated. The text reports that 'many observers attribute' the limited impact to unanimity; it does not state this as established fact."
       ],
-      explanation: "The key compares two lists and notices who is missing from the second. Watch for options that turn an opinion reported in the text into a fact."
+      "explanation": "The key compares two lists and notices who is missing from the second. Watch for options that turn an opinion reported in the text into a fact."
     },
     {
-      id: "v05-14",
-      topic: "Rule of law",
-      difficulty: 3,
-      keyType: "inference",
-      passage:
-        "Since 1 January 2021, the EU has had a general regime of conditionality to protect its budget. Under the regulation, the Council can adopt measures such as suspending payments or commitments when breaches of the principles of the rule of law in a Member State affect, or seriously risk affecting, the sound financial management of the EU budget or the protection of the Union's financial interests in a sufficiently direct way. Breaches of the rule of law that have no such link with the budget fall outside its scope; they are dealt with by other instruments.\n\nThe procedure is started by the Commission, which must first notify the Member State and give it an opportunity to respond. The Council then decides on a Commission proposal by qualified majority, so no single government can block a decision. Measures must be proportionate, and they can be lifted if the situation is remedied. Importantly, the government concerned remains obliged to make payments to the final recipients and beneficiaries of EU programmes, such as students or farmers, so that they do not bear the consequences.\n\nHungary and Poland challenged the regulation before the Court of Justice, which dismissed both actions in February 2022. In December 2022, the Council used the mechanism for the first time, suspending about €6.3 billion in commitments under three cohesion programmes for Hungary.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-14",
+      "topic": "Rule of law",
+      "difficulty": 3,
+      "keyType": "inference",
+      "passage": "Since 1 January 2021, the EU has had a general regime of conditionality to protect its budget. Under the regulation, the Council can adopt measures such as suspending payments or commitments when breaches of the principles of the rule of law in a Member State affect, or seriously risk affecting, the sound financial management of the EU budget or the protection of the Union's financial interests in a sufficiently direct way. Breaches of the rule of law that have no such link with the budget fall outside its scope; they are dealt with by other instruments.\n\nThe procedure is started by the Commission, which must first notify the Member State and give it an opportunity to respond. The Council then decides on a Commission proposal by qualified majority, so no single government can block a decision. Measures must be proportionate, and they can be lifted if the situation is remedied. Importantly, the government concerned remains obliged to make payments to the final recipients and beneficiaries of EU programmes, such as students or farmers, so that they do not bear the consequences.\n\nHungary and Poland challenged the regulation before the Court of Justice, which dismissed both actions in February 2022. In December 2022, the Council used the mechanism for the first time, suspending about €6.3 billion in commitments under three cohesion programmes for Hungary.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Measures adopted under the regulation generally stay in force for at least two years before they can be lifted.",
         "In the Hungarian case, the Commission had proposed a larger suspension than the Council adopted.",
         "Under the regulation, the Council can suspend all EU funding to any Member State that breaches the rule of law.",
         "A rule-of-law breach with no bearing on how EU money is managed would not, on its own, justify measures."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "The regulation is triggered by a breach plus something else. What is the second condition?",
         "One option may be true in reality, but does the text say it?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text says measures 'can be lifted if the situation is remedied' and gives no minimum duration.",
         "Not supported. The text gives only the amount finally suspended, not what the Commission proposed. It is an outside-knowledge trap.",
-        "Overstated. Measures require a 'sufficiently direct' link to the budget and must be 'proportionate'; 'all funding' for any breach goes far beyond this.",
+        "False. Measures require a 'sufficiently direct' link to the budget and must be 'proportionate'; 'all funding' for any breach goes far beyond this.",
         "Correct. Breaches 'that have no such link with the budget fall outside its scope'."
       ],
-      explanation: "The key applies the budget-link condition to a case where it is missing. The proposal-versus-decision option tests whether you keep outside knowledge out of your answer."
+      "explanation": "The key applies the budget-link condition to a case where it is missing. The proposal-versus-decision option tests whether you keep outside knowledge out of your answer."
     },
     {
-      id: "v05-15",
-      topic: "Judicial cooperation",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "Mutual recognition, described by EU leaders at the Tampere European Council in 1999 as the cornerstone of judicial cooperation, means that a decision taken by a judicial authority in one Member State is recognised and executed in another with a minimum of formalities, rather than being re-examined from scratch. The idea rests on mutual trust that each Member State's justice system offers adequate safeguards.\n\nThe European Investigation Order applies this principle to evidence. Since 2017, an authority investigating a crime in one of the participating Member States can issue an order asking another to carry out investigative measures, such as hearing witnesses, searching premises or obtaining banking information, and to transfer the evidence obtained. The executing authority must decide whether to recognise the order within 30 days and, in principle, carry out the measure within 90 days of that decision. It may refuse only on grounds listed in the directive, for example where execution would be incompatible with fundamental rights obligations, and it may in some cases use a different, less intrusive measure if that would achieve the same result.\n\nMutual trust is not blind trust, however. Critics point out that procedural safeguards still differ between Member States, and some commentators argue that the system serves prosecutors better than defendants, who have fewer practical means of gathering evidence abroad.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-15-r2",
+      "topic": "Judicial cooperation",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Mutual recognition, described by EU leaders at the Tampere European Council in 1999 as the cornerstone of judicial cooperation, means that a decision taken by a judicial authority in one Member State is recognised and executed in another with a minimum of formalities, rather than being re-examined from scratch. The idea rests on mutual trust that each Member State's justice system offers adequate safeguards.\n\nThe European Investigation Order applies this principle to evidence. Since 2017, an authority investigating a crime in one of the participating Member States can issue an order asking another to carry out investigative measures, such as hearing witnesses, searching premises or obtaining banking information, and to transfer the evidence obtained. The executing authority must decide whether to recognise the order within 30 days and, in principle, carry out the measure within 90 days of that decision. It may refuse only on grounds listed in the directive, for example where execution would be incompatible with fundamental rights obligations, and it may in some cases use a different, less intrusive measure if that would achieve the same result.\n\nMutual trust is not blind trust, however. Critics point out that procedural safeguards still differ between Member States, and some commentators argue that the system serves prosecutors better than defendants, who have fewer practical means of gathering evidence abroad.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Most European Investigation Orders are issued to obtain banking information held in another Member State.",
         "Ireland and Denmark are the Member States that do not take part in the European Investigation Order.",
         "The executing authority does not always have to carry out exactly the measure that the order requested.",
-        "Critics argue that mutual trust in criminal matters has failed and should be replaced by fresh examination."
+        "The executing authority may refuse an order on grounds it considers appropriate even if they are not listed in the directive."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "Read the sentence about refusal to the end. What else may the executing authority do?",
-        "Two options sound plausible but rely on facts the text does not give."
+        "Check the precise limits on refusing an order and on substituting a less intrusive measure."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. Banking information is one example of a measure; the text gives no figures.",
         "Not supported. The text refers to 'participating Member States' but does not name those outside the scheme.",
         "Correct. The executing authority 'may in some cases use a different, less intrusive measure' that achieves the same result.",
-        "Overstated. Critics say that safeguards 'still differ' and that 'mutual trust is not blind trust'; they do not call for abandoning it."
+        "False. Refusal is permitted only on grounds listed in the directive, rather than any ground the authority considers appropriate."
       ],
-      explanation: "The key comes from a qualifying clause at the end of a long sentence. The country option is an outside-knowledge trap: the passage only says some states do not participate."
+      "explanation": "The key comes from a qualifying clause at the end of a long sentence. The country option is an outside-knowledge trap: the passage only says some states do not participate.",
+      "supersedes": "v05-15"
     },
     {
-      id: "v05-16",
-      topic: "Criminal procedure",
-      difficulty: 1,
-      keyType: "paraphrase",
-      passage:
-        "Between 2010 and 2016, the EU adopted six directives setting common minimum standards for the rights of suspects and accused persons in criminal proceedings. The reasoning was that judges would find it easier to trust decisions taken elsewhere in the Union if they could rely on a common floor of procedural guarantees. The directives cover the right to interpretation and translation, the right to information, the right of access to a lawyer, the presumption of innocence and the right to be present at trial, special safeguards for children, and legal aid.\n\nThe directive on the right to information requires that people who are arrested be given promptly a written 'letter of rights' in a language they understand, explaining, for example, their right to remain silent and their right of access to a lawyer. The directive on the presumption of innocence prohibits public authorities from referring to suspects as guilty before a final conviction, and it states that the burden of proof lies with the prosecution.\n\nThe directives lay down minimum standards only, and Member States are free to provide a higher level of protection. Implementation has nevertheless been uneven, and the Commission has opened infringement procedures against several Member States for failing to transpose some of the directives correctly or on time.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-16",
+      "topic": "Criminal procedure",
+      "difficulty": 1,
+      "keyType": "paraphrase",
+      "passage": "Between 2010 and 2016, the EU adopted six directives setting common minimum standards for the rights of suspects and accused persons in criminal proceedings. The reasoning was that judges would find it easier to trust decisions taken elsewhere in the Union if they could rely on a common floor of procedural guarantees. The directives cover the right to interpretation and translation, the right to information, the right of access to a lawyer, the presumption of innocence and the right to be present at trial, special safeguards for children, and legal aid.\n\nThe directive on the right to information requires that people who are arrested be given promptly a written 'letter of rights' in a language they understand, explaining, for example, their right to remain silent and their right of access to a lawyer. The directive on the presumption of innocence prohibits public authorities from referring to suspects as guilty before a final conviction, and it states that the burden of proof lies with the prosecution.\n\nThe directives lay down minimum standards only, and Member States are free to provide a higher level of protection. Implementation has nevertheless been uneven, and the Commission has opened infringement procedures against several Member States for failing to transpose some of the directives correctly or on time.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The letter of rights must also be handed to witnesses questioned by the police in a criminal case.",
         "A Member State may give suspects stronger procedural guarantees than these directives require.",
         "The six directives have created a single code of criminal procedure for the whole of the Union.",
         "The presumption of innocence directive forbids anyone from calling a suspect guilty before a final conviction."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Look for the sentence about the level of protection the directives set.",
         "Check who exactly is bound by the rule on referring to suspects as guilty."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text says the letter is given to 'people who are arrested'; it says nothing about witnesses.",
         "Correct. The directives set 'minimum standards only', and Member States 'are free to provide a higher level of protection'.",
         "False. The directives set only 'common minimum standards', and Member States 'are free to provide a higher level of protection', so there is no single code.",
         "Overstated. The prohibition applies to 'public authorities', not to anyone at all."
       ],
-      explanation: "A paraphrase of the minimum-harmonisation rule. The traps widen 'public authorities' to 'anyone' and 'minimum standards' to a single code."
+      "explanation": "A paraphrase of the minimum-harmonisation rule. The traps widen 'public authorities' to 'anyone' and 'minimum standards' to a single code."
     },
     {
-      id: "v05-17",
-      topic: "Equal treatment",
-      difficulty: 3,
-      keyType: "combination",
-      passage:
-        "EU anti-discrimination law rests largely on two directives adopted in 2000. The Racial Equality Directive prohibits discrimination on grounds of racial or ethnic origin not only in employment but also in social protection, including social security and healthcare, in education, and in access to goods and services available to the public, including housing. The Employment Equality Directive covers discrimination based on religion or belief, disability, age and sexual orientation, but only in employment, occupation and vocational training. Discrimination on grounds of sex is addressed by separate gender equality directives.\n\nThe resulting protection is uneven. A person refused a flat because of their ethnic origin can rely on EU law, whereas a person refused the same flat because of their age or sexual orientation cannot, unless national law provides protection, as it does in many Member States. A Commission proposal of 2008 to extend protection beyond employment for these other grounds did not obtain the unanimity required in the Council.\n\nBoth directives shift the burden of proof. Once a complainant establishes facts from which it may be presumed that there has been discrimination, it is for the respondent to prove that the principle of equal treatment has not been breached. Both also require Member States to ensure that victims have access to judicial or administrative procedures and that sanctions are effective, proportionate and dissuasive.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-17",
+      "topic": "Equal treatment",
+      "difficulty": 3,
+      "keyType": "combination",
+      "passage": "EU anti-discrimination law rests largely on two directives adopted in 2000. The Racial Equality Directive prohibits discrimination on grounds of racial or ethnic origin not only in employment but also in social protection, including social security and healthcare, in education, and in access to goods and services available to the public, including housing. The Employment Equality Directive covers discrimination based on religion or belief, disability, age and sexual orientation, but only in employment, occupation and vocational training. Discrimination on grounds of sex is addressed by separate gender equality directives.\n\nThe resulting protection is uneven. A person refused a flat because of their ethnic origin can rely on EU law, whereas a person refused the same flat because of their age or sexual orientation cannot, unless national law provides protection, as it does in many Member States. A Commission proposal of 2008 to extend protection beyond employment for these other grounds did not obtain the unanimity required in the Council.\n\nBoth directives shift the burden of proof. Once a complainant establishes facts from which it may be presumed that there has been discrimination, it is for the respondent to prove that the principle of equal treatment has not been breached. Both also require Member States to ensure that victims have access to judicial or administrative procedures and that sanctions are effective, proportionate and dissuasive.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "A complainant bears the burden of proof entirely, from the opening of the case until its final judgment.",
         "EU law protects people against all forms of discrimination when they apply to rent or buy housing.",
         "The 2008 proposal was blocked mainly by Member States whose national laws already offered strong protection.",
         "Someone refused a service by a shop because of their religion could rely on neither directive."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Check which grounds each directive covers, and in which areas of life.",
         "Religion appears in one directive. What is that directive's scope?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. Once facts raising a presumption are established, 'it is for the respondent to prove' there was no breach.",
-        "Overstated. Housing is covered for racial or ethnic origin, but the text says age and sexual orientation are not covered in housing by EU law.",
+        "False. Housing is covered for racial or ethnic origin, but the text says age and sexual orientation are not covered in housing by EU law.",
         "Not supported. The text says only that the proposal lacked unanimity; it does not say which states opposed it or why.",
         "Correct. Religion is covered only by the Employment Equality Directive, which applies 'only in employment, occupation and vocational training'; the Racial Equality Directive covers race and ethnic origin."
       ],
-      explanation: "The key combines the ground covered by one directive with that directive's limited scope. The housing option generalises protection that exists for only one ground."
+      "explanation": "The key combines the ground covered by one directive with that directive's limited scope. The housing option generalises protection that exists for only one ground."
     },
     {
-      id: "v05-18",
-      topic: "Philosophy of science",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "In The Logic of Scientific Discovery, first published in German in 1934, Karl Popper proposed a criterion for distinguishing science from non-science. A theory is scientific, he argued, not because it has been confirmed many times but because it is falsifiable: it rules out certain observable outcomes and could therefore be shown to be false. Popper stressed a logical asymmetry. No finite number of observations can prove a universal statement such as 'all swans are white', whereas a single well-established black swan refutes it. Science, on this view, advances through bold conjectures and attempts at refutation rather than by piling up confirmations.\n\nPopper used the criterion to criticise theories that he believed could accommodate any outcome, citing certain versions of psychoanalysis and of Marxist history. A theory that explains everything, he argued, explains nothing.\n\nCritics pointed to complications. Scientists never test a hypothesis in isolation: every prediction also relies on auxiliary assumptions about instruments, initial conditions and background theories. When a prediction fails, it is therefore logically open to blame one of these assumptions rather than the main theory. Historians of science such as Thomas Kuhn added that scientists often keep a successful theory despite anomalies, and that this tenacity has sometimes been productive. Popper accepted that falsification in practice is never conclusive, but he maintained that methodological rules should prevent theories from being rescued by ad hoc adjustments.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-18",
+      "topic": "Philosophy of science",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In The Logic of Scientific Discovery, first published in German in 1934, Karl Popper proposed a criterion for distinguishing science from non-science. A theory is scientific, he argued, not because it has been confirmed many times but because it is falsifiable: it rules out certain observable outcomes and could therefore be shown to be false. Popper stressed a logical asymmetry. No finite number of observations can prove a universal statement such as 'all swans are white', whereas a single well-established black swan refutes it. Science, on this view, advances through bold conjectures and attempts at refutation rather than by piling up confirmations.\n\nPopper used the criterion to criticise theories that he believed could accommodate any outcome, citing certain versions of psychoanalysis and of Marxist history. A theory that explains everything, he argued, explains nothing.\n\nCritics pointed to complications. Scientists never test a hypothesis in isolation: every prediction also relies on auxiliary assumptions about instruments, initial conditions and background theories. When a prediction fails, it is therefore logically open to blame one of these assumptions rather than the main theory. Historians of science such as Thomas Kuhn added that scientists often keep a successful theory despite anomalies, and that this tenacity has sometimes been productive. Popper accepted that falsification in practice is never conclusive, but he maintained that methodological rules should prevent theories from being rescued by ad hoc adjustments.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "For Popper, a theory compatible with every possible observation would not count as scientific.",
         "Popper developed his criterion mainly in order to refute psychoanalysis and Marxist history.",
         "Critics showed that testing a scientific theory against observation is logically impossible.",
         "Kuhn argued that keeping a theory in spite of anomalies has always proved to be productive."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "What, for Popper, must a scientific theory do with respect to possible observations?",
         "Compare 'sometimes' and 'complications' in the text with the wording of the options."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. A scientific theory 'rules out certain observable outcomes'; one compatible with every observation rules out nothing and 'explains nothing'.",
         "Not supported. The text says he 'used' the criterion to criticise these theories, not that this was why he developed it.",
-        "Overstated. Critics showed that a failed prediction does not single out the main theory, not that testing is impossible.",
+        "Not supported. Critics showed that a failed prediction does not single out the main theory, not that testing is impossible.",
         "Overstated. Kuhn said this tenacity 'has sometimes been productive', not always."
       ],
-      explanation: "The key turns Popper's criterion around: a theory that forbids nothing cannot be falsified. Two traps inflate 'complications' and 'sometimes'."
+      "explanation": "The key turns Popper's criterion around: a theory that forbids nothing cannot be falsified. Two traps inflate 'complications' and 'sometimes'."
     },
     {
-      id: "v05-19",
-      topic: "Philosophy of science",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', accepting a study for publication on the basis of its design, before the results are known. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-19",
+      "topic": "Philosophy of science",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', accepting a study for publication on the basis of its design, before the results are known. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The 2015 project demonstrated that most of the findings published in psychology journals are false.",
         "With registered reports, positive results cannot sway a journal's decision to publish a study.",
         "Preregistration of hypotheses is now a condition for publication in most psychology journals.",
         "Supporters claim that preregistration and registered reports eliminate bias from published research."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Connect the preference of journals for positive findings with the timing of acceptance in registered reports.",
         "Check what the text says the 2015 project did not show."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. 'The project did not show that the original findings were wrong.'",
         "Correct. Studies are accepted 'before the results are known', so the bias towards 'novel and positive findings' cannot affect the decision.",
         "Not supported. 'Some journals' offer registered reports; the text gives no rule on preregistration for most journals.",
         "Overstated. Supporters argue that the measures 'reduce bias', not that they eliminate it."
       ],
-      explanation: "The key links a stated cause of the problem with the design of one reform. The traps turn 'reduce' into 'eliminate' and a non-finding into a finding."
+      "explanation": "The key links a stated cause of the problem with the design of one reform. The traps turn 'reduce' into 'eliminate' and a non-finding into a finding."
     },
     {
-      id: "v05-20",
-      topic: "History of law",
-      difficulty: 1,
-      keyType: "inference",
-      passage:
-        "Magna Carta was agreed by King John of England at Runnymede in June 1215, under pressure from rebellious barons. It was a practical peace settlement rather than a statement of universal principles: most of its clauses dealt with specific grievances about feudal payments, inheritance, royal forests and the administration of justice. As a peace settlement it failed almost at once. John asked Pope Innocent III to annul it, the Pope declared it null and void in August 1215, and civil war resumed.\n\nThe charter nevertheless survived. After John's death in 1216, the regents governing for his young son Henry III reissued it in revised form, and further versions followed in 1217 and 1225. The 1225 version, granted in exchange for a tax, became the definitive text and was confirmed many times by later kings.\n\nIts lasting fame rests on a few clauses, above all the promise that no free man would be imprisoned or deprived of his property except by the lawful judgement of his peers or by the law of the land. In the seventeenth century, opponents of royal power reinterpreted this promise as a guarantee of fundamental liberties, and the charter later influenced constitutional thinking in the American colonies. Today only three of its clauses remain part of the law of England and Wales.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-20",
+      "topic": "History of law",
+      "difficulty": 1,
+      "keyType": "inference",
+      "passage": "Magna Carta was agreed by King John of England at Runnymede in June 1215, under pressure from rebellious barons. It was a practical peace settlement rather than a statement of universal principles: most of its clauses dealt with specific grievances about feudal payments, inheritance, royal forests and the administration of justice. As a peace settlement it failed almost at once. John asked Pope Innocent III to annul it, the Pope declared it null and void in August 1215, and civil war resumed.\n\nThe charter nevertheless survived. After John's death in 1216, the regents governing for his young son Henry III reissued it in revised form, and further versions followed in 1217 and 1225. The 1225 version, granted in exchange for a tax, became the definitive text and was confirmed many times by later kings.\n\nIts lasting fame rests on a few clauses, above all the promise that no free man would be imprisoned or deprived of his property except by the lawful judgement of his peers or by the law of the land. In the seventeenth century, opponents of royal power reinterpreted this promise as a guarantee of fundamental liberties, and the charter later influenced constitutional thinking in the American colonies. Today only three of its clauses remain part of the law of England and Wales.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Magna Carta guaranteed fundamental liberties to all inhabitants of England from 1215.",
         "The barons drafted the charter without any involvement from the king's own advisers.",
         "The text that came to be treated as authoritative was not the one agreed at Runnymede.",
         "Magna Carta shaped the constitutions of the American colonies more than any other text."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "Which version of the charter does the text call definitive?",
         "Who was protected by the famous clause, and when was it read as a guarantee of liberties?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. In 1215 the charter was 'a practical peace settlement rather than a statement of universal principles'; it was reinterpreted as a guarantee of fundamental liberties only 'in the seventeenth century'.",
         "Not supported. The text does not say who drafted the charter.",
         "Correct. The charter was agreed at Runnymede in 1215, but 'the 1225 version... became the definitive text'.",
         "Overstated. The text says the charter 'influenced' constitutional thinking in the colonies, not that it outweighed every other text."
       ],
-      explanation: "The key combines two dates and two versions. One trap contradicts what the text says the charter was in 1215; another stretches 'influenced' to 'shaped more than any other text'."
+      "explanation": "The key combines two dates and two versions. One trap contradicts what the text says the charter was in 1215; another stretches 'influenced' to 'shaped more than any other text'."
     },
     {
-      id: "v05-21",
-      topic: "Sociology",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "In The Rules of Sociological Method, published in 1895, Émile Durkheim made a claim that many readers found shocking: crime is a normal feature of society. He did not mean that crime is desirable or that it should go unpunished. His point was partly statistical. Crime is found in societies of every type, so a society entirely without it would be the abnormal case. A rate of crime far above what is usual for a given type of society would, in his view, be pathological.\n\nDurkheim argued that crime also performs functions. When a rule is broken and the offender is punished, members of the community are reminded of the norms they share, and their collective sentiments are reinforced. Crime may also prepare change: by showing that existing norms can be challenged, it leaves room for moral evolution. His example was Socrates, condemned as a criminal under Athenian law, whose independence of thought helped prepare a new morality.\n\nDurkheim illustrated the inevitability of deviance with an imaginary community of saints in an exemplary monastery. There, he suggested, crimes in the ordinary sense would be unknown, but faults that seem venial to ordinary people would cause the same scandal that ordinary offences cause elsewhere. What counts as crime, in other words, depends on the strength of collective sentiments, not on a fixed list of acts.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-21",
+      "topic": "Sociology",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In The Rules of Sociological Method, published in 1895, Émile Durkheim made a claim that many readers found shocking: crime is a normal feature of society. He did not mean that crime is desirable or that it should go unpunished. His point was partly statistical. Crime is found in societies of every type, so a society entirely without it would be the abnormal case. A rate of crime far above what is usual for a given type of society would, in his view, be pathological.\n\nDurkheim argued that crime also performs functions. When a rule is broken and the offender is punished, members of the community are reminded of the norms they share, and their collective sentiments are reinforced. Crime may also prepare change: by showing that existing norms can be challenged, it leaves room for moral evolution. His example was Socrates, condemned as a criminal under Athenian law, whose independence of thought helped prepare a new morality.\n\nDurkheim illustrated the inevitability of deviance with an imaginary community of saints in an exemplary monastery. There, he suggested, crimes in the ordinary sense would be unknown, but faults that seem venial to ordinary people would cause the same scandal that ordinary offences cause elsewhere. What counts as crime, in other words, depends on the strength of collective sentiments, not on a fixed list of acts.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "In Durkheim's monastery, faults most people see as minor would be treated as grave offences.",
         "Durkheim based his claim mainly on crime statistics that he had collected in nineteenth-century France.",
         "Durkheim's theory of crime was rejected by most sociologists during his own lifetime.",
         "Durkheim argued that every crime contributes to the moral evolution of the society concerned."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Read the monastery example closely: what happens to small faults there?",
         "Crime 'may' prepare change. How strong is that claim?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. Faults 'that seem venial to ordinary people would cause the same scandal that ordinary offences cause elsewhere'.",
         "Not supported. The text says his point was 'partly statistical' but does not mention any French data he collected.",
         "Not supported. The text says many readers found the claim shocking; it says nothing about how sociologists received the theory.",
         "Overstated. Crime 'may also prepare change'; the text does not say that every crime does."
       ],
-      explanation: "The key restates the monastery thought experiment in plain words. The traps turn 'may' into 'every' and add sources and reactions the text never mentions."
+      "explanation": "The key restates the monastery thought experiment in plain words. The traps turn 'may' into 'every' and add sources and reactions the text never mentions."
     },
     {
-      id: "v05-22",
-      topic: "Political philosophy",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "In A Theory of Justice, published in 1971, John Rawls asked which principles of justice free and rational people would choose if they did not know what position they would occupy in society. Behind this 'veil of ignorance', the parties do not know their class, social status, natural talents, conception of the good life or even the generation to which they belong. Because no one can tailor the principles to their own advantage, Rawls argued, the choice would be fair, and he called his theory 'justice as fairness'.\n\nHe claimed that the parties would choose two principles. The first gives each person an equal right to the most extensive system of basic liberties compatible with a similar system for all. The second allows social and economic inequalities only if they are attached to positions open to all under fair equality of opportunity and are to the greatest benefit of the least advantaged members of society, a condition known as the difference principle. The first principle has priority: basic liberties may not be traded for economic gains.\n\nThe theory has been both influential and widely criticised. Robert Nozick argued that it ignores how holdings were acquired and fails to respect people's rights over the fruits of their work. Others have questioned whether the parties would really be as cautious as Rawls assumed, since a willingness to gamble could lead them to prefer arrangements that maximise average welfare.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v05-22-r2",
+      "topic": "Political philosophy",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In A Theory of Justice, published in 1971, John Rawls asked which principles of justice free and rational people would choose if they did not know what position they would occupy in society. Behind this 'veil of ignorance', the parties do not know their class, social status, natural talents, conception of the good life or even the generation to which they belong. Because no one can tailor the principles to their own advantage, Rawls argued, the choice would be fair, and he called his theory 'justice as fairness'.\n\nHe claimed that the parties would choose two principles. The first gives each person an equal right to the most extensive system of basic liberties compatible with a similar system for all. The second allows social and economic inequalities only if they are attached to positions open to all under fair equality of opportunity and are to the greatest benefit of the least advantaged members of society, a condition known as the difference principle. The first principle has priority: basic liberties may not be traded for economic gains.\n\nThe theory has been both influential and widely criticised. Robert Nozick argued that it ignores how holdings were acquired and fails to respect people's rights over the fruits of their work. Others have questioned whether the parties would really be as cautious as Rawls assumed, since a willingness to gamble could lead them to prefer arrangements that maximise average welfare.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Rawls's critics agreed that the parties would choose to maximise average welfare rather than be cautious.",
         "Several governments adopted Rawls's two principles as the explicit basis of their tax and welfare policies.",
         "Nozick argued that Rawls's theory fails to respect people's rights over everything that they own.",
-        "An inequality that helps the better-off but leaves the least advantaged no better off fails Rawls's test."
+        "An inequality that helps the better-off but leaves the least advantaged worse off than a feasible equal arrangement fails Rawls's test."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Apply the difference principle to an inequality: whom must it benefit?",
         "Some critics 'questioned' an assumption. Is that the same as agreeing on an alternative?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. Some critics 'questioned' Rawls's assumption of caution; the text does not say critics agreed on an alternative.",
         "Not supported. The text says the theory has been 'influential' but mentions no government adopting it.",
         "Overstated. Nozick's objection concerned people's rights over 'the fruits of their work', a narrower claim than rights over everything they own.",
-        "Correct. Inequalities are allowed 'only if' they are 'to the greatest benefit of the least advantaged'; one that does not help them fails."
+        "Correct. If a feasible equal arrangement would leave the least advantaged better off, the inequality cannot give them the greatest feasible benefit."
       ],
-      explanation: "The key applies the difference principle to a new case. Two traps inflate the critics' positions; one adds an outside fact about governments."
+      "explanation": "The key applies the difference principle to a new case. Two traps inflate the critics' positions; one adds an outside fact about governments.",
+      "supersedes": "v05-22"
     }
   ]
 });

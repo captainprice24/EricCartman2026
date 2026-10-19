@@ -1,0 +1,663 @@
+{
+  "v07-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Compliance for 2025 can be established using the 2025–2027 average; mass is only part of target-setting.",
+    "issues": [
+      {
+        "type": "possible second entailed option",
+        "option": "A",
+        "countermodel": "In ordinary usage, “the target is determined by average mass” can identify one determinant without claiming that it is the sole determinant. On that reading A restates “depends partly on average mass”, making both A and C supported.",
+        "minimalClarification": "Change A to “A manufacturer’s emission target is determined solely by the average mass of its fleet.”"
+      }
+    ]
+  },
+  "v07-02": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Own-staff strikes are not extraordinary circumstances; 25% of €80 is €20, subject to the service-exemption issue.",
+    "issues": [
+      {
+        "type": "no unconditional entailed option",
+        "option": "A",
+        "countermodel": "The €80 ticket can be for a regional service that the Member State has exempted from the regulation’s compensation provisions. The traveller can then meet all the stated conditions in A without being owed €20 under these rules.",
+        "minimalClarification": "Add “On a service subject to these compensation rules” at the start of A."
+      }
+    ]
+  },
+  "v07-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Cement is covered, and carbon prices paid in the production country can be deducted; most embedded emissions remain covered.",
+    "issues": []
+  },
+  "v07-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "reason": "National targets range from 10% to 50%, principally according to income per head; groups warned rather than demonstrated.",
+    "issues": []
+  },
+  "v07-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The target binds the EU collectively; offshore projects explicitly have longer permitting periods.",
+    "issues": []
+  },
+  "v07-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "Medium-sized firms become bound in 2030; passports have product exclusions and the destruction ban names clothing and footwear.",
+    "issues": []
+  },
+  "v07-07": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "73 minus 45 equals 28 percentage points; replaceability has exemptions and some manufacturers express doubts.",
+    "issues": []
+  },
+  "v07-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "Overstated"
+    },
+    "reason": "2019 clearance precedes the end-2020 cutoff; EU-produced goods are expressly included, while only many derived products are specified.",
+    "issues": []
+  },
+  "v07-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "The new nitrogen-dioxide limit is 20, versus the WHO recommendation of 10; postponement is conditional.",
+    "issues": []
+  },
+  "v07-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Whole-territory programmes are allowed, and derogations can permit manure nitrogen above 170 kg/ha.",
+    "issues": []
+  },
+  "v07-11": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "The decisive minister voted against her head of government; urban and river targets exist and the brake concerns agriculture.",
+    "issues": []
+  },
+  "v07-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The 35%-of-consumption cap limits some countries’ storage obligation; filling obligations were extended.",
+    "issues": []
+  },
+  "v07-13": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Inefficient routes explain avoidable emissions; largely failed is weaker than none and a major cause is weaker than most delays.",
+    "issues": []
+  },
+  "v07-14": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Drink is ineligible, which includes wine; independent verification is required and qualifying labels beyond the Ecolabel remain possible.",
+    "issues": []
+  },
+  "v07-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Disposal follows other recovery in the hierarchy; life-cycle assessment can justify departures.",
+    "issues": []
+  },
+  "v07-16": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Brake, tyre and battery requirements cover electric cars; car and van exhaust limits are largely unchanged.",
+    "issues": []
+  },
+  "v07-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "Industrial production began in 1913, before war in 1914; most synthetic-fertiliser nitrogen and an estimate of dependence do not establish the stronger claims.",
+    "issues": []
+  },
+  "v07-18": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The stated single-semiconductor ceiling under unconcentrated sunlight is about 33%; outdoor durability remains uncertain.",
+    "issues": []
+  },
+  "v07-19": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Greater tilt warms summers, so smaller tilt tends to aid snow survival; feedbacks amplify orbital effects and the northern-sunshine account is qualified.",
+    "issues": []
+  },
+  "v07-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "Overstated"
+    },
+    "reason": "Hunting, drought and other predators also reduced elk; limited evidence and continuing dispute do not establish never or disproved.",
+    "issues": []
+  },
+  "v07-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "Higher transmission voltage reduces current and heat losses; HVDC is described as advantageous in particular settings.",
+    "issues": []
+  },
+  "v07-22": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Concentration falls through the northern growing season; the annual rise has changed and the South Pole has a smaller seasonal swing.",
+    "issues": []
+  },
+  "v08-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The 2017 proclamation itself creates no new obligations; training has a 60%-of-adults target.",
+    "issues": []
+  },
+  "v08-02": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "The below-80% action-plan rule applies to every wage-setting model; indicative wage benchmarks are optional.",
+    "issues": []
+  },
+  "v08-03": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "Applicant pay information applies at every employer size; reporting intervals vary and assessment requires additional conditions.",
+    "issues": []
+  },
+  "v08-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "Leave itself has no service-length condition, while payment may require up to six months; requests may be refused with reasons.",
+    "issues": []
+  },
+  "v08-05": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Where the presumption is triggered, the platform bears the contrary burden; the text requires control and direction under national rules.",
+    "issues": [
+      {
+        "type": "key trigger omits a required condition",
+        "option": "A",
+        "countermodel": "A platform may exercise some control (for example setting the maximum price) while the courier remains free of direction, and the facts may fail the national-law trigger. Finding a control fact alone then does not activate the presumption or shift the burden. The passage requires facts indicating control and direction as determined under national rules.",
+        "minimalClarification": "Change the opening to “Once facts triggering the national-law presumption of employment are found”."
+      }
+    ]
+  },
+  "v08-06": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Every Member State has a 3% material-deprivation earmark; a smaller strand is directly Commission-managed.",
+    "issues": []
+  },
+  "v08-07": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False"
+    },
+    "reason": "The reinforced target group is 15–29; the guarantee is nonbinding and ALMA has the narrower disadvantaged 18–29 group.",
+    "issues": []
+  },
+  "v08-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "Workplace insurance is the default; benefit export is conditional, initially three months with a possible extension.",
+    "issues": []
+  },
+  "v08-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "reason": "Reimbursement decisions remain national; the Commission grants central authorisations, and most generic medicines follow national routes.",
+    "issues": []
+  },
+  "v08-10": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "School-closure decisions remain national; deployment outside the EU requires the receiving country’s request.",
+    "issues": []
+  },
+  "v08-11": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Reimbursement cannot exceed the home-system payment or actual expense; refusal is prohibited under specified conditions.",
+    "issues": []
+  },
+  "v08-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "The flavour ban reached heated tobacco in 2023; warnings cover both sides equally and plain packaging is optional.",
+    "issues": []
+  },
+  "v08-13": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Humanitarian volunteering permits ages up to 35; listed covered costs do not establish every cost or guaranteed admission.",
+    "issues": []
+  },
+  "v08-14": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "The panel recommends at most one site per country per round, and national participation is voluntary.",
+    "issues": []
+  },
+  "v08-15": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Delayed reforms attract no legal sanctions; the Commission supports but does not direct the process.",
+    "issues": []
+  },
+  "v08-16": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Mismatched colour words slowed ink naming; reading aloud was hardly slowed, and attribution to Stroop is not given.",
+    "issues": []
+  },
+  "v08-17": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "reason": "Handwashing reduced deaths before the causal agent was understood; the text reports reduced mortality and many rejecting colleagues.",
+    "issues": []
+  },
+  "v08-18": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False"
+    },
+    "reason": "The water-company comparison supplies stronger evidence; Snow argued for swallowing and some victims lived further away.",
+    "issues": []
+  },
+  "v08-19": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "A concurrent verbal task removed the advantage; support concerns certain tasks and cannot simply be generalised.",
+    "issues": []
+  },
+  "v08-20": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Unsystematic similarities are suspect irrespective of language pair; reconstructions remain hypotheses and Jones was not first.",
+    "issues": []
+  },
+  "v08-21": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "False"
+    },
+    "reason": "Mortality drops before fertility in the rapid-growth stage; immigration can avert decline and several factors lower births.",
+    "issues": []
+  },
+  "v09-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "The plan aimed to avoid an independent German military, but Germany later joined NATO with its own forces; the political project collapsed.",
+    "issues": []
+  },
+  "v09-02": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Industrial duties ended ahead of schedule; reluctance is specified for the strategic nuclear sector.",
+    "issues": []
+  },
+  "v09-03": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Each Community retained its own executive until merger; two shared institutions out of the four described are not most.",
+    "issues": []
+  },
+  "v09-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Asylum began in the third pillar with a limited Court role; the Commission sometimes shared initiative.",
+    "issues": []
+  },
+  "v09-05": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Commission size was an Amsterdam leftover; tax unanimity remained and turnout of one third precludes a majority of the electorate voting against.",
+    "issues": []
+  },
+  "v09-06": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "The eight-worker transition excluded Cyprus and Malta; many old states lifted restrictions early and approval does not imply unanimity.",
+    "issues": []
+  },
+  "v09-07": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Luxembourg voted in July after the May and June rejections; French objections included the treaty text itself.",
+    "issues": []
+  },
+  "v09-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Most investment is expected from Member States and industry; an unlikely market-share goal does not establish failure of all objectives.",
+    "issues": []
+  },
+  "v09-09": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Top-level domain registries are covered regardless of size; other small firms can be outside scope and responsibility concerns noncompliance.",
+    "issues": []
+  },
+  "v09-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Reporting starts September 2026, before most duties in December 2027; product exclusions exist and the open-source exclusion is conditional.",
+    "issues": []
+  },
+  "v09-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Wallets must be free of charge for individuals; mandatory private acceptance names particular service classes.",
+    "issues": []
+  },
+  "v09-12": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Designated gatekeepers cannot receive data through this right; default-access design has timing and feasibility conditions and public requests require exceptional need.",
+    "issues": []
+  },
+  "v09-13": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "Research access is generally free for EU-based users and allocations use calls; the hydroelectric and heating example concerns LUMI.",
+    "issues": []
+  },
+  "v09-14": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Initial calibration was needed for absolute distances; later corrections roughly doubled estimates.",
+    "issues": []
+  },
+  "v09-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "Both methods favour large, close planets; transits require almost edge-on alignment, allowing departure from exact alignment.",
+    "issues": []
+  },
+  "v09-16": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "reason": "The reliable limit is about 50,000 years; calibration does not establish universal century-scale errors, and sampling causes minimal damage.",
+    "issues": []
+  },
+  "v09-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "Most agents denied a price influence despite it affecting valuations; group medians do not establish complete separation.",
+    "issues": []
+  },
+  "v09-18": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Selection following an extreme poor result invites expected improvement without treatment; feedback ineffectiveness is hypothetical.",
+    "issues": []
+  },
+  "v09-19": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Full brothers share maternal ancestry; occasional mutations contradict perfectly unchanged inheritance, and often is weaker than whenever.",
+    "issues": []
+  },
+  "v09-20": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "reason": "Wegener died in 1930 with the theory dismissed; most is weaker than all and some land-bridge proponents is weaker than most.",
+    "issues": []
+  },
+  "v09-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Only E and 7 are required, making 4 an extra; results concern many studies and researchers still disagree on the social-rule explanation.",
+    "issues": []
+  }
+}

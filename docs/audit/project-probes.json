@@ -1,5 +1,7 @@
 {
-  "auditedCommit": "ef17a7f3e96da78a40817dfc17ecc7b6dd4a962c",
+  "baseCommit": "68f72609b1be9c1d56559c2c9f9ae202779247af",
+  "verifiedWorkingTree": true,
+  "applicationVersion": "9b4d97ecbcc2",
   "browser": "Chromium",
   "base": "http://127.0.0.1:8000",
   "observations": [
@@ -7,13 +9,13 @@
       "name": "confirmation-dialog-keyboard-isolation",
       "result": {
         "focus": {
-          "insideDialog": false,
-          "action": "next",
+          "insideDialog": true,
+          "action": "cf-yes",
           "qi": 0
         },
         "after": {
-          "qi": 1,
-          "modal": true
+          "qi": 0,
+          "modal": false
         }
       }
     },
@@ -21,15 +23,15 @@
       "name": "tooltip-escape-dismissal",
       "result": {
         "visibleBeforeEscape": true,
-        "visibleAfterEscape": true
+        "visibleAfterEscape": false
       }
     },
     {
       "name": "unchecked-practice-result-consistency",
       "result": {
-        "score": "0/5",
-        "firstReview": "✓\nCorrect.\n1. History of European integration\nYou: B · Correct: B\nReview",
-        "retry": "Coach me on my 4 mistakes",
+        "score": "0/0",
+        "firstReview": "–\n1. Security strategy\nNot checked.\nYou: B · Correct: B\nReview",
+        "retry": null,
         "errors": []
       }
     },
@@ -37,7 +39,7 @@
       "name": "calculator-scientific-result-chaining",
       "result": {
         "first": "= 1e-7",
-        "second": "Check the expression",
+        "second": "= 2e-7",
         "expectedSecond": "= 2e-7"
       }
     },
@@ -51,28 +53,22 @@
     {
       "name": "saved-state-null-preferences",
       "result": {
-        "homeLoaded": false,
-        "errors": [
-          "Cannot read properties of null (reading 'count')"
-        ]
+        "homeLoaded": true,
+        "errors": []
       }
     },
     {
       "name": "saved-state-null-question-stats",
       "result": {
-        "homeLoaded": false,
-        "errors": [
-          "Cannot read properties of null (reading 'v01-01')"
-        ]
+        "homeLoaded": true,
+        "errors": []
       }
     },
     {
       "name": "saved-state-invalid-saved-session-shape",
       "result": {
-        "homeLoaded": false,
-        "errors": [
-          "Cannot read properties of undefined (reading 'map')"
-        ]
+        "homeLoaded": true,
+        "errors": []
       }
     },
     {
@@ -80,7 +76,9 @@
       "result": {
         "before": {
           "sessionSaved": false,
-          "warning": [],
+          "warning": [
+            "Saving is unavailable. Your progress is kept only in this tab and will be lost when you reload or close it."
+          ],
           "errors": []
         },
         "resumeAfterReload": 0
@@ -91,20 +89,20 @@
       "result": {
         "before": {
           "scrollLeft": 0,
-          "scrollWidth": 413,
+          "scrollWidth": 346,
           "clientWidth": 324,
           "qi": 0
         },
         "after": {
-          "scrollLeft": 0,
-          "qi": 1
+          "scrollLeft": 2,
+          "qi": 0
         }
       }
     },
     {
       "name": "abstract-coach-frame-number",
       "result": {
-        "lessonStep": "Predict frame 6 before looking at the optionsForm your own answer first, so you are not drawn to an option that is almost right.",
+        "lessonStep": "Predict the next frame before looking at the optionsForm your own answer first, so you are not drawn to an option that is almost right.",
         "displayedFrames": 6,
         "nextFrame": 7
       }
@@ -137,17 +135,12 @@
     {
       "name": "published-site-packaging",
       "result": {
-        "versionFileIncluded": false,
-        "failed": [
-          {
-            "url": "/version.js",
-            "status": 404
-          }
-        ],
+        "versionFileIncluded": true,
+        "failed": [],
         "homeLoaded": true,
-        "version": null,
+        "version": "9b4d97ecbcc2",
         "questions": 620,
-        "versionedScripts": 0
+        "versionedScripts": 35
       }
     }
   ]

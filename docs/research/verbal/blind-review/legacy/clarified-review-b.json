@@ -1,0 +1,12 @@
+{
+  "v05-22-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "D uniquely follows: a feasible equal arrangement making the least advantaged better off means the proposed inequality does not give them their greatest feasible benefit. A turns some critics' possibility into agreed certainty; B introduces unstated governmental adoption; C broadens rights over fruits of work to all possessions. The revised comparison removes the tied-maximum and unspecified-baseline gap.",
+    "issues": []
+  }
+}

@@ -141,3 +141,39 @@ test("tr picks the requested language with English fallback (E9)", () => {
   assert.equal(C.tr({ en: "Hello" }, "de"), "Hello");
   assert.equal(C.tr("Plain", "fr"), "Plain");
 });
+
+test('calculator chains its own scientific results and rejects malformed or unbounded notation', () => {
+  const tiny = C.calcEval('1/10000000');
+  assert.equal(C.calcEval(String(tiny) + '*2'), 2e-7);
+  assert.equal(C.calcEval(String(C.calcEval('10^22')) + '/2'), 5e21);
+  assert.equal(C.calcEval('2e-3^2'), 0.000004);
+  for (const input of ['1e', '1e+', '1e--2', '1ee2', '1e309', '1e2.3', '2'.repeat(257)]) assert.throws(() => C.calcEval(input), input);
+});
+
+test('saved data recovery keeps valid records and rejects wrong containers', () => {
+  const h = { at: 100, mode: 'practice', pass: null, sections: [{key:'verbal',correct:1,total:5,counted:1,hints:0,usedSec:10,limitSec:null,repeats:0}] };
+  assert.deepEqual(C.cleanStored('history', [h, null, {sections:[{}]}, {...h,sections:[{...h.sections[0],key:'__proto__'}]}]), {value:[h],changed:true});
+  for (const value of [null, [], 42, 'bad']) assert.deepEqual(C.cleanStored('prefs', value), {value:{},changed:true});
+  const st = {seen:2,correct:1,last:false,shown:100,at:100};
+  assert.deepEqual(C.cleanStored('stats', {good:st,bad:{seen:-1,correct:99}}), {value:{good:st},changed:true});
+});
+
+const savedRound = () => ({v:1,mode:'practice',si:0,qi:0,started:100,notes:[],view:'session',sections:[{
+  key:'verbal',ids:['v-test'],orders:[[1,0,2,3]],answers:{'v-test':1},flags:{},elim:{},hints:{},checked:{},hl:{},warned:{},scratch:'notes',limitMs:1000,startedAt:100,deadline:1100,usedMs:null,done:false,timedOut:false,repeats:0
+}]});
+const restoreBank = {'v-test':{id:'v-test',section:'verbal',options:['a','b','c','d'],hints:['h']}};
+test('saved session accepts a complete round and rejects malformed indices, maps, orders and retired IDs', () => {
+  assert.equal(C.validSession(savedRound(), restoreBank), true);
+  for (const alter of [d=>d.sections=[{}],d=>d.qi=-1,d=>d.qi=1,d=>d.si=4,d=>d.mode='other',d=>d.sections[0].ids=['retired'],d=>d.sections[0].orders=[[0,0,2,3]],d=>d.sections[0].answers['v-test']=4,d=>d.sections[0].hl={'v-test':[null]},d=>d.sections[0].checked={'v-test':'yes'},d=>d.sections[0].deadline=999,d=>d.sections[0].hints={'v-test':99},d=>d.view='between']) {
+    const d=savedRound();alter(d);assert.equal(C.validSession(d,restoreBank),false,JSON.stringify(d));
+  }
+  assert.equal(C.validSession(null,restoreBank),false);
+});
+
+test('practice answer state distinguishes unchecked choices from graded mistakes', () => {
+  const it={q:{id:'q',answer:1}}, sec={answers:{q:0},checked:{}};
+  assert.equal(C.answerState(sec,it,'practice'),'unchecked');
+  assert.equal(C.answerState(sec,it,'exam'),'incorrect');
+  sec.checked.q=true;assert.equal(C.answerState(sec,it,'coach'),'incorrect');
+  sec.answers.q=1;assert.equal(C.answerState(sec,it,'practice'),'correct');
+});

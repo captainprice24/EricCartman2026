@@ -2,6 +2,7 @@
 // Each item is computed here: answer, mistake-based distractors and worked solution come from the same numbers.
 // Usage: node scripts/generators/numerical.mjs
 import fs from "node:fs";
+import crypto from "node:crypto";
 import { generateHardSets } from "./numerical-hard.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -36,7 +37,7 @@ const unitF = (u, d = 1) => (v) => group(v, d) + " " + u;
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const COUNTRIES = ["Aldoria", "Brevania", "Calmora", "Dunmark", "Estoria", "Fernland", "Galvia", "Hollen", "Istrada", "Jorvik", "Kestrel", "Lunaria", "Marrow", "Norvale", "Ostland", "Pellam", "Quarta", "Rosmark", "Sundra", "Tavel"];
 const REGIONS = ["North", "South", "East", "West", "Centre", "Coast", "Islands", "Uplands"];
-const FILL = "Not derived from a typical mistake. If you got this, recheck each step of your calculation.";
+
 
 /* ---------- option assembly ---------- */
 function shownValues(exhibits) {
@@ -59,29 +60,26 @@ function assembleNumeric(t) {
   const parse = (s) => parseFloat(String(s).replace(/,/g, "").match(/-?\d+(\.\d+)?/)[0]);
   const keyStr = f(key);
   const used = new Set([keyStr]);
-  const minGap = key * 0.015;
+  const minGap = key * 0.000001;
   const pool = [];
   const add = (v, note, prio) => {
     if (!isFinite(v) || v <= 0) return;
     const ratio = v / key;
-    if (ratio < (prio ? 0.82 : 0.72) || ratio > (prio ? 1.22 : 1.38)) return;
+    if (ratio < 0.7 || ratio > 1.4) return;
     const s = f(v);
+    if (parse(s) / parse(keyStr) < 0.7 || parse(s) / parse(keyStr) > 1.4) return;
     if (used.has(s) || shown.has(parse(s)) || Math.abs(v - key) < minGap || pool.some((p) => Math.abs(p.v - v) < minGap)) return;
     used.add(s);
     pool.push({ v, s, note, prio });
   };
   t.distractors.forEach((d) => add(d.v, d.note, 0));
-  // Fillers are spaced irregularly so their pattern does not reveal the key.
-  const step = t.fillStep || 0.045;
-  for (let i = 1; i <= 8; i++) {
-    add(key * (1 + step * (i * 0.8 + rnd() * 0.9)), FILL, i);
-    add(key * (1 - step * (i * 0.8 + rnd() * 0.9)), FILL, i);
-  }
+  // Keep the established data RNG stream; options contain only named calculation mistakes.
+  for (let i = 0; i < 16; i++) rnd();
   const below = pool.filter((p) => p.v < key).sort((a, b) => a.prio - b.prio || b.v - a.v);
   const above = pool.filter((p) => p.v > key).sort((a, b) => a.prio - b.prio || a.v - b.v);
   // Each feasible key position k (k options below the key) is scored by how many real mistakes it keeps;
   // the bank-wide assignment pass below picks positions so that answer letters stay balanced.
-  const realBelow = below.filter((p) => p.note !== FILL).length, realAbove = above.filter((p) => p.note !== FILL).length;
+  const realBelow = below.length, realAbove = above.length;
   const cands = [];
   for (let cand = 0; cand <= 4; cand++) {
     if (cand > below.length || 4 - cand > above.length) continue;
@@ -256,7 +254,9 @@ T.currency = (c) => {
     distractors: [
       { v: (amt / rates[ai][o]) * rates[bi][o], note: `This uses the ${o ? "1 July" : "1 January"} rates.` },
       { v: (amt / rates[ai][d]) * rates[bi][o], note: "This mixes the two dates." },
-      { v: (amt / rates[ai][o]) * rates[bi][d], note: "This mixes the two dates." }
+      { v: (amt / rates[ai][o]) * rates[bi][d], note: "This mixes the two dates." },
+      { v: (amt / rates[ai][o]) * rates[bi][o] * (1 + rates[bi][d] / rates[bi][o] - rates[ai][d] / rates[ai][o]), note: "This adjusts the other date's conversion by subtracting the two percentage changes; the exact cross-rate requires dividing the rate multipliers." },
+      { v: amt * rates[ai][d] / rates[bi][d], note: "This reverses the cross-rate, multiplying by the source rate and dividing by the destination rate." }
     ],
     hints: ["Use only the column for the date in the question.", `Divide by the ${cur[ai][0]} rate to get euros, then multiply by the ${cur[bi][0]} rate.`],
     solution: [`${group(amt)} ÷ ${rates[ai][d]} = EUR ${group(amt / rates[ai][d], 2)}`, `× ${rates[bi][d]} = ${cur[bi][0]} ${group(correct, 2)}`],
@@ -339,8 +339,8 @@ T.pieRealloc = (c) => {
       { v: (total * sh[b]) / 100 * (1 + p / 100), note: `This increases ${c.labels[b].toLowerCase()} by ${p}% of its own budget.` },
       { v: (prevTotal * (prev[b] + (prev[a] * p) / 100)) / 100, note: "This uses last year's figures instead of this year's." },
       { v: (total * (prev[b] + (prev[a] * p) / 100)) / 100, note: "This uses last year's shares with this year's total." },
-      { v: (total * (sh[b] + p / 10)) / 100, note: FILL },
-      { v: (total * (sh[b] + (sh[a] * p) / 100)) / 100 * 0.9, note: FILL }
+      ...sh.map((v, i) => ({ v: total * (sh[b] + v * p / 100) / 100, note: `This transfers ${p}% of ${c.labels[i].toLowerCase()} instead of ${c.labels[a].toLowerCase()}.` })).filter((d, i) => i !== a),
+      { v: total * sh[b] / 100, note: "This leaves the receiving budget unchanged, omitting the transfer." }
     ],
     hints: ["Use this year's pie only; last year's table is not needed.", `The amount moved is ${p}% of the ${c.labels[a].toLowerCase()} budget, not of the total.`],
     solution: [`${c.labels[a]}: ${sh[a]}% × ${total} = EUR ${group((total * sh[a]) / 100, 2)} million`, `Moved: ${p}% × that = EUR ${group((total * sh[a] * p) / 10000, 2)} million`, `${c.labels[b]}: ${sh[b]}% × ${total} + moved = EUR ${group(correct, 2)} million`],
@@ -363,8 +363,8 @@ T.stackedShare = (c) => {
     distractors: [
       { v: (series[s][y] / (tot - series[s][y])) * 100, note: "This divides by the other components only, not by the total." },
       { v: (series[s][y - 1] / sum(series.map((v) => v[y - 1]))) * 100, note: `This is the share in ${years[y - 1]}.` },
-      ...years.map((yy, j) => ({ v: (series[s][j] / sum(series.map((v) => v[j]))) * 100, note: j === y ? FILL : `This is the share in ${yy}.` })).filter((d, j) => j !== y),
-      { v: ((series[s][y] + series[(s + 1) % 3][y]) / tot) * 100 * 0.5 + (series[s][y] / tot) * 50, note: FILL }
+      ...years.map((yy, j) => ({ v: (series[s][j] / sum(series.map((v) => v[j]))) * 100, note: `This is the share in ${yy}.` })).filter((d, j) => j !== y),
+      ...years.map((yy, j) => ({ v: series[s][y] / sum(series.map(v => v[j])) * 100, note: `This divides the requested component by the total for ${yy}.` })).filter((d, j) => j !== y)
     ],
     hints: [`Add the three segments for ${years[y]} (or read the total above the bar).`, "Divide the component by that total."],
     solution: [`Total ${years[y]} = ${series.map((v) => v[y]).join(" + ")} = ${tot}`, `Share = ${series[s][y]} ÷ ${tot} × 100 = ${group(correct, 2)}%`],
@@ -440,7 +440,7 @@ T.unitPerCapita = (c) => {
       ...rows.map((r, i) => ({ v: (r[0] * c.factor) / r[1], note: `This uses the figures for ${names[i]}.` })).filter((d, i) => i !== x),
       ...rows.map((r, i) => ({ v: (rows[x][0] * c.factor) / r[1], note: `This divides by the population of ${names[i]}.` })).filter((d, i) => i !== x),
       { v: (rows[x][0] * c.factor) / Math.round(rows[x][1]), note: "This rounds the population to a whole number of millions first, which loses precision." },
-      { v: (rows[x][0] * c.factor) / (rows[x][1] + 1), note: FILL }
+      ...rows.map((r, i) => ({ v: r[0] * c.factor / rows[x][1], note: `This uses the total for ${names[i]} with the requested country's population.` })).filter((d, i) => i !== x)
     ],
     hints: [`Convert the units first: ${c.conv}.`, "Then divide by the population (in persons, not millions)."],
     solution: [`Units: ${c.conv}.`, `${group(rows[x][0])} ${c.tShort} ÷ ${rows[x][1]} million people${c.factor !== 1 ? " × " + group(c.factor, c.factor < 1 ? 3 : 0) : ""} = ${group(correct, 2)} ${c.outUnit} per person`],
@@ -486,7 +486,8 @@ T.speedStops = (c) => {
     distractors: [
       { v: (D / Tm) * 60, note: "This excludes the stops." },
       { v: sum(legs.map((l) => (l[0] / l[1]) * 60)) / 4, note: "This averages the four leg speeds, which ignores how long each leg takes and leaves out the stops." },
-      { v: (D / (Tm + S - legs[3][2])) * 60, note: "This leaves out the last stop." }
+      ...legs.map((l, i) => ({ v: D / (Tm + S - l[2]) * 60, note: `This leaves out the stop after leg ${i + 1}.` })),
+      ...legs.map((l, i) => ({ v: D / (Tm + S + l[2]) * 60, note: `This counts the stop after leg ${i + 1} twice.` }))
     ],
     hints: ["Average speed = total distance ÷ total time.", "Total time includes travel time and every stop."],
     solution: [`Distance = ${D} km`, `Time = ${Tm} + ${S} = ${Tm + S} min`, `${D} ÷ ${Tm + S} × 60 = ${group(correct, 2)} km/h`],
@@ -508,7 +509,9 @@ T.successive = (c) => {
     distractors: [
       { v: p * (1 + (a + b + d) / 100), note: "This adds the three percentages; changes compound, so multiply instead." },
       { v: p * (1 + a / 100) * (1 + b / 100), note: "This stops at the end of 2023." },
-      { v: p * (1 + b / 100) * (1 + d / 100), note: "This leaves out the 2022 change." }
+      { v: p * (1 + b / 100) * (1 + d / 100), note: "This leaves out the 2022 change." },
+      { v: p * (1 + a / 100) * (1 + d / 100), note: "This leaves out the 2023 change." },
+      ...[a, b, d].map((g, i) => ({ v: correct * (1 + g / 100), note: `This applies the ${2022 + i} change twice.` }))
     ],
     hints: ["Apply each year's change to the price at the end of the previous year.", "Multiply by (1 + change) three times."],
     solution: [`End of 2022: ${group(p)} × ${(1 + a / 100).toFixed(3)} = EUR ${group(p * (1 + a / 100), 2)}`, `End of 2023: × ${(1 + b / 100).toFixed(3)} = EUR ${group(p * (1 + a / 100) * (1 + b / 100), 2)}`, `End of 2024: × ${(1 + d / 100).toFixed(3)} = EUR ${group(correct, 2)}`],
@@ -530,7 +533,8 @@ T.surveyChain = (c) => {
     distractors: [
       { v: (n * rows[(x + 1) % 5][1] * r) / 10000, note: "This takes the first percentage from another group." },
       { v: (n * s * rows[(x + 1) % 5][2]) / 10000, note: "This takes the second percentage from another group." },
-      { v: (n * s * r) / 10000 + (n * (100 - s) * r) / 10000 * 0.2, note: FILL },
+      { v: n * r / 100, note: "This applies the second percentage to all respondents instead of the subgroup." },
+      ...rows.map((rr, i) => ({ v: rr[0] * s * r / 10000, note: `This uses the number of respondents in the ${c.groups[i]} group.` })).filter((d, i) => i !== x),
       ...rows.map((r, i) => ({ v: (n * r[1] * r[2]) / 10000, note: `This applies the percentages of the ${c.groups[i]} group.` })).filter((d, i) => i !== x)
     ],
     hints: [`First find how many ${c.sLabel.toLowerCase()}.`, `The second percentage applies only to those people, not to all respondents.`],
@@ -643,7 +647,9 @@ T.pieDifference = (c) => {
       { v: (c.total * (prev[p] - prev[q])) / 100, note: "This uses the 2023 shares." },
       { v: (c.total * Math.abs(sh[q] - sh[order[2]])) / 100, note: "This compares the second- and third-largest categories." },
       { v: (c.total * (sh[p] - sh[order[3]])) / 100, note: "This compares the largest with the fourth-largest category." },
-      { v: (c.total * (sh[p] - sh[q])) / 100 * 1.1, note: FILL }
+      { v: prevTot * (prev[p] - prev[q]) / 100, note: "This uses both last year's shares and last year's total." },
+      { v: c.total * (prev[p] - sh[q]) / 100, note: "This mixes last year's largest-category share with this year's second-largest share." },
+      { v: c.total * (sh[p] - prev[q]) / 100, note: "This mixes this year's largest-category share with last year's second-largest share." }
     ],
     hints: ["Find the two largest slices.", "Subtract their shares, then apply the difference to the total."],
     solution: [`${c.labels[p]} ${sh[p]}% − ${c.labels[q]} ${sh[q]}% = ${round(sh[p] - sh[q], 1)}%`, `${round(sh[p] - sh[q], 1)}% × ${group(c.total)} = ${group(correct, 1)}`],
@@ -687,7 +693,9 @@ T.compound = (c) => {
     distractors: [
       { v: A * (1 + (r / 100) * n), note: "This uses simple interest; with compounding, interest is also charged on earlier interest." },
       { v: A * (1 + r / 100) ** (n - 1), note: "One year short." },
-      { v: A * (1 + r / 100) ** (n + 1), note: "One year too many." }
+      { v: A * (1 + r / 100) ** (n + 1), note: "One year too many." },
+      ...rows.map((rr, i) => ({ v: A * (1 + rr[1] / 100) ** n, note: `This uses the interest rate of ${c.offers[i]}.` })).filter((d, i) => i !== x),
+      ...rows.map((rr, i) => ({ v: A * (1 + r / 100) ** rr[2], note: `This uses the term of ${c.offers[i]}.` })).filter((d, i) => i !== x)
     ],
     hints: ["Each year, multiply the outstanding amount by (1 + rate).", `Do this ${n} times.`],
     solution: [`Growth factor = ${(1 + r / 100).toFixed(3)}^${n} = ${((1 + r / 100) ** n).toFixed(5)}`, `${group(A)} × ${((1 + r / 100) ** n).toFixed(5)} = EUR ${group(correct, 2)}`],
@@ -826,7 +834,9 @@ T.marketSharePP = (c) => {
         { v: sh(x, 2) - sh(x, 1), note: `This starts from ${years[1]}.` },
         { v: (sh(x, 2) / sh(x, 0) - 1) * 100, note: "This is the relative change of the share in per cent, not in percentage points." },
         { v: (rows[x][2] / rows[x][0] - 1) * 100, note: `This is the growth of ${c.firms[x]}'s sales, not of its share.` },
-        ...c.firms.map((f, i) => ({ v: sh(i, 2) - sh(i, 0), note: `This is the change for ${f}.` })).filter((d, i) => i !== x)
+        ...c.firms.map((f, i) => ({ v: sh(i, 2) - sh(i, 0), note: `This is the change for ${f}.` })).filter((d, i) => i !== x),
+        ...[0, 1, 2].flatMap(a => [0, 1, 2].filter(b => a !== 2 || b !== 0).map(b => ({ v: (rows[x][2] / tot[a] - rows[x][0] / tot[b]) * 100, note: `This uses the ${years[a]} market total for the final share and the ${years[b]} market total for the initial share.` }))),
+        ...c.firms.map((f, i) => ({ v: sh(i, 2) - sh(x, 0), note: `This uses ${f}'s final share with ${c.firms[x]}'s initial share.` })).filter((d, i) => i !== x)
       ],
       hints: ["Market share = the firm's sales ÷ the total for all firms in the same year.", "Compute the share in both years, then subtract."],
       solution: [`Total ${years[0]} = ${rows.map((r) => group(r[0])).join(" + ")} = ${group(tot[0])}`, `Total ${years[2]} = ${rows.map((r) => group(r[2])).join(" + ")} = ${group(tot[2])}`, `Shares: ${group(rows[x][0])} ÷ ${group(tot[0])} × 100 = ${group(sh(x, 0), 3)}%; ${group(rows[x][2])} ÷ ${group(tot[2])} × 100 = ${group(sh(x, 2), 3)}%`, `${group(sh(x, 2), 3)} − ${group(sh(x, 0), 3)} = ${group(correct, 2)} percentage points`],
@@ -875,7 +885,7 @@ T.fixedVariable = (c) => {
     distractors: [
       { v: cat + mat, note: "This leaves out the room hire, a fixed cost shared by all participants." },
       { v: F / N + cat, note: "This leaves out the materials." },
-      { v: (F + N * cat) / N + mat * 2, note: FILL },
+      { v: (F + N * cat) / N + mat * 2, note: "This counts the materials cost twice." },
       ...rows.map((r, i) => ({ v: (r[0] + N * (r[1] + r[2])) / N, note: `This uses the prices of ${c.venues[i]}.` })).filter((d, i) => i !== x),
       { v: (F * 2 + N * (cat + mat)) / N, note: "This counts the room hire twice." }
     ],
@@ -1031,7 +1041,8 @@ T.combinedRate = (c) => {
     correct, fmt: unitF("minutes", 1), fillStep: 0.05,
     distractors: [
       { v: ((N / rows[i][0] + N / rows[j][0]) / 2) * 60 / 2, note: "This halves the average of the two separate times; rates add, times do not." },
-      { v: (N / ((rows[i][0] + rows[j][0]) / 2)) * 60 / 2 * 1.08, note: FILL },
+      { v: N / (2 * rows[i][0]) * 60, note: `This assumes both units work at the rate of ${c.units[i]}.` },
+      { v: N / (2 * rows[j][0]) * 60, note: `This assumes both units work at the rate of ${c.units[j]}.` },
       ...c.units.map((u, k) => ({ v: (N / (rows[i][0] + rows[k][0])) * 60, note: `This pairs ${c.units[i]} with ${u}.` })).filter((d, k) => k !== i && k !== j),
       ...c.units.map((u, k) => ({ v: (N / (rows[j][0] + rows[k][0])) * 60, note: `This pairs ${c.units[j]} with ${u}.` })).filter((d, k) => k !== i && k !== j)
     ],
@@ -1059,7 +1070,10 @@ T.percentMore = (c) => {
         { v: (1 - py / px) * 100, note: `This divides by ${names[x]}'s value; "higher than ${names[y]}" means ${names[y]} is the base.` },
         { v: (rows[x][0] / rows[y][0] - 1) * 100, note: "This compares the totals, not the values per inhabitant." },
         { v: ((rows[x][0] / rows[x][2]) / (rows[y][0] / rows[y][2]) - 1) * 100, note: "This divides by area instead of population." },
-        ...rows.map((r, i) => ({ v: (px / (r[0] / r[1]) - 1) * 100, note: `This compares with ${names[i]}.` })).filter((d, i) => i !== x && i !== y && px > rows[i][0] / rows[i][1])
+        ...rows.map((r, i) => ({ v: (px / (r[0] / r[1]) - 1) * 100, note: `This compares with ${names[i]}.` })).filter((d, i) => i !== x && i !== y && px > rows[i][0] / rows[i][1]),
+        ...rows.map((r, i) => ({ v: ((r[0] / r[1]) / py - 1) * 100, note: `This compares ${names[i]} with ${names[y]}.` })).filter((d, i) => i !== x && i !== y),
+        ...rows.map((r, i) => ({ v: ((rows[x][0] / r[1]) / py - 1) * 100, note: `This divides ${names[x]}'s total by ${names[i]}'s population.` })).filter((d, i) => i !== x),
+        ...rows.map((r, i) => ({ v: (px / (rows[y][0] / r[1]) - 1) * 100, note: `This divides ${names[y]}'s total by ${names[i]}'s population.` })).filter((d, i) => i !== y)
       ],
       hints: ["Compute the per-inhabitant value for both countries.", `The country after "than" is the base of the comparison.`],
       solution: [`${names[x]}: ${group(rows[x][0])} ÷ ${rows[x][1].toFixed(1)} = ${group(px, 3)}`, `${names[y]}: ${group(rows[y][0])} ÷ ${rows[y][1].toFixed(1)} = ${group(py, 3)}`, `(${group(px, 3)} ÷ ${group(py, 3)} − 1) × 100 = ${group(correct, 2)}%`],
@@ -1371,7 +1385,7 @@ const items = ordered.map(([name, c], i) => {
   const target = (i * 2 + Math.floor(i / 5)) % 5;
   let t, pool = null, lastErr;
   // Regenerate the data if an item is unusable (rounding tie, too few plausible distractors).
-  for (let attempt = 0; attempt < 50; attempt++) {
+  for (let attempt = 0; attempt < 1000; attempt++) {
     try {
       t = CATEGORY.has(name) ? T[name](c, target) : T[name](c);
       pool = t.options ? null : assembleNumeric(t);
@@ -1408,10 +1422,19 @@ const built = items.map(({ t, pool, k }) => {
 });
 
 const sizes = [10, 50, 50, 40];
+const revisions = JSON.parse(fs.readFileSync(path.join(root, "scripts/generators/numerical-revisions.json")));
+const baseline = JSON.parse(fs.readFileSync(path.join(root, "scripts/generators/numerical-baseline.json")));
 let start = 0;
 sizes.forEach((size, si) => {
   const n = si + 1, id = String(n).padStart(2, "0");
-  const qs = built.slice(start, start + size).map((q, k) => ({ id: `n${id}-${String(k + 1).padStart(2, "0")}`, ...q }));
+  const qs = built.slice(start, start + size).map((q, k) => (() => {
+    const oldId = `n${id}-${String(k + 1).padStart(2, "0")}`;
+    const hash = crypto.createHash("sha256").update(JSON.stringify(q)).digest("hex");
+    if (hash === baseline[oldId]) return { id: oldId, ...q };
+    const revision = revisions[oldId];
+    if (!revision || revision.sha256 !== hash) throw new Error(`Substantive edit to ${oldId}: register a fresh revision ID and content hash in numerical-revisions.json.`);
+    return { id: revision.id, supersedes: oldId, ...q };
+  })());
   start += size;
   const set = { id: "numerical-" + id, section: "numerical", title: `Numerical reasoning · Set ${n}`, description: `${size} data-interpretation items with worked solutions (generated).`, version: 3, questions: qs };
   fs.writeFileSync(path.join(root, `questions/numerical/numerical-set-${id}.js`), "/* Generated by scripts/generators/numerical.mjs. Edit the generator, not this file. */\nEPSO_BANK.registerSet(" + JSON.stringify(set, null, 2) + ");\n");

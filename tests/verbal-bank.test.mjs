@@ -3,3 +3,20 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const
 const sets=box.EPSO_BANK.sets.filter(s=>s.challenge);const record=JSON.parse(fs.readFileSync(path.join(root,'docs/research/verbal/blind-review/review-mapping.json')));
 test('four verbal challenge sets retain unique blind-reviewed content and reconciled labels',()=>{assert.equal(sets.length,4);let total=0;for(const s of sets){assert.equal(s.questions.length,10);const answers=JSON.parse(fs.readFileSync(path.join(root,`docs/research/verbal/blind-review/set-${s.id.split('-')[1]}-answers.json`)));const counts=[0,0,0,0];for(const q of s.questions){total++;counts[q.answer]++;const r=record.items.find(r=>r.id===q.id);assert.ok(r,q.id);assert.equal(crypto.createHash('sha256').update(q.passage).digest('hex'),r.passageSha256,q.id+' passage needs fresh review');assert.equal(crypto.createHash('sha256').update(JSON.stringify(q.options)).digest('hex'),r.optionsSha256,q.id+' options need fresh review');assert.equal(answers[q.id].answer,'ABCD'[q.answer]);for(let i=0;i<4;i++)if(i!==q.answer)assert.equal(q.optionNotes[i].split('.')[0],answers[q.id].labels['ABCD'[i]],q.id);assert.equal(q.difficulty,3);assert.ok(q.reasoning.evidence.length>=3);}
 assert.ok(counts.every(n=>n>=2&&n<=3));}assert.equal(total,40);});
+
+test('all 200 foundation verbal items retain independent blind keys, reconciled labels and reviewed text',()=>{
+  const dir=path.join(root,'docs/research/verbal/blind-review/legacy');
+  const mapping=JSON.parse(fs.readFileSync(path.join(dir,'review-mapping.json'))).items;
+  const answers=JSON.parse(fs.readFileSync(path.join(dir,'answers.json')));
+  const qs=box.EPSO_BANK.sets.filter(s=>!s.challenge).flatMap(s=>s.questions);
+  assert.equal(qs.length,200);assert.equal(mapping.length,200);assert.equal(Object.keys(answers).length,200);
+  for(const q of qs){
+    const m=mapping.find(m=>m.id===q.id);assert.ok(m,q.id);
+    assert.equal(crypto.createHash('sha256').update(q.passage).digest('hex'),m.passageSha256,q.id);
+    assert.equal(crypto.createHash('sha256').update(JSON.stringify(q.options)).digest('hex'),m.optionsSha256,q.id);
+    const review=JSON.parse(fs.readFileSync(path.join(dir,m.reviewFile)))[q.id];
+    assert.deepEqual(review,answers[q.id]);assert.equal(review.issues.length,0,q.id+' unresolved review issue');
+    assert.equal(review.answer,'ABCD'[q.answer],q.id);
+    for(let j=0;j<4;j++)if(j!==q.answer)assert.equal(q.optionNotes[j].split('.')[0],review.labels['ABCD'[j]],q.id);
+  }
+});

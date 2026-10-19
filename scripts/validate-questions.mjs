@@ -172,8 +172,8 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       else if (Array.isArray(q.solution) && q.difficulty !== numericalDifficulty(q)) err(where, `difficulty ${q.difficulty} does not match reviewed reasoning (${numericalDifficulty(q)}: ${numericalRubric(q).reason}); see docs/QUESTION_FORMAT.md`);
       if (set.challenge) {
         if (!q.challenge || q.difficulty !== 3 || numericalRubric(q).stages < 4) err(where, "challenge items need 4+ dependent reasoning stages and hard difficulty");
-        if (q.optionNotes.some(n => /not derived from a typical mistake/i.test(en(n)))) err(where, "challenge items cannot use generic filler distractors");
       }
+      if (q.optionNotes.some(n => /not derived from a typical mistake/i.test(en(n)))) err(where, "numerical items cannot use generic filler distractors");
       const key = q.answerType === "category" ? null : numberOf(en(q.options[q.answer]));
       if (key !== null) {
         q.options.forEach((o, i) => {

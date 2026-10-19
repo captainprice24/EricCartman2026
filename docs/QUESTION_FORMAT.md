@@ -121,9 +121,9 @@ so add a solver there for every new topic.
 - **Steps:** medium and harder items need at least 2 solution steps **(enforced)**. Use unit traps
   (thousands vs millions, TWh vs kWh, percentage points vs per cent).
 - **Options:** exactly 5, in ascending order, all within 0.7–1.4 × the key, and never repeating a
-  value printed in the exhibit **(enforced)**. Distractors should be named mistakes (wrong base,
-  wrong row or year, added instead of compounded…). Use generic fillers only when no realistic
-  mistake falls within range.
+  value printed in the exhibit **(enforced)**. Distractors must be named mistakes (wrong base,
+  wrong row or year, added instead of compounded…). Generic fillers are rejected; regenerate
+  the data or expand the template’s actual mistake models if four usable mistakes are unavailable.
 - **Categorical items** (answer is a country or a year) set `answerType: "category"` and still have
   5 options.
 

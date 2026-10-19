@@ -80,3 +80,9 @@ npm run test:e2e
 ```
 
 Do not assume a licence excerpt or archived link proves that terms have not changed. Check source-specific terms before a future import. No paid, leaked or proprietary EPSO/provider question sets have been imported.
+
+## Project repair: foundation distractors
+
+All 150 foundation questions were regenerated under new revision IDs; all 190 numerical items now use named calculation mistakes, with no generic fillers. Models include wrong dates/bases, omitted or duplicated adjustments, wrong rows and non-compounded changes. The original 0.7–1.4 option range and exhibit-value exclusion remain enforced, including after rounding. Data regenerates deterministically when a template cannot supply four distinct usable mistakes.
+
+`scripts/generators/numerical-baseline.json` preserves original content fingerprints. `numerical-revisions.json` maps each superseded ID to its revision and content fingerprint; generation rejects an unregistered substantive edit. Future revisions require fresh IDs. Old attempt history is retained; an unfinished round containing retired questions is discarded with a recovery notice because its answer indices cannot safely be applied to changed questions.

@@ -1,0 +1,668 @@
+{
+  "v04-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The split trade agreement can be concluded by the Union alone; the separate protection agreement remains mixed. Council majority is only usual; the requester is unidentified.",
+    "issues": []
+  },
+  "v04-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "The partner can admit EU exports preferentially without reciprocating for Turkey; neither replacing the union nor its original accession purpose is stated. Political reasons were mainly, not demonstrably solely, responsible.",
+    "issues": []
+  },
+  "v04-03": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Causation and Union interest must also be established. Definitive duties normally last five years; consumer-price effects are unstated; setting aside the lesser duty rule is permissive.",
+    "issues": []
+  },
+  "v04-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The Council uses qualified majority, explicitly preventing one government from blocking a determination. Coercion requires policy pressure, and critics express fear rather than certainty.",
+    "issues": []
+  },
+  "v04-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "National diplomats are meant to fill at least one third of policy-level posts. Neither running-cost funding nor appointment procedure is stated; increasing coordination does not entail universal coordination.",
+    "issues": []
+  },
+  "v04-06": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Military or defence implications always exclude majority voting. Constructive abstention exempts application; blocking requires both one third of states and one third of population.",
+    "issues": []
+  },
+  "v04-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "An asset freeze requires a unanimous CFSP decision followed by a qualified-majority regulation. Disputing reasons alone is not the stated evidential test; limited population impact is not zero impact.",
+    "issues": []
+  },
+  "v04-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Union programmes explicitly do not prevent national ones. The EDF was brought into the budget; taking development objectives into account does not make poverty reduction every policy's chief purpose.",
+    "issues": []
+  },
+  "v04-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "Aid must reflect need alone, independent of political alignment. Greater media attention does not entail attention only to covered crises; access obstruction is frequent rather than established as universal.",
+    "issues": []
+  },
+  "v04-10": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Each participating state voluntarily decides whether to offer assistance. The Brussels centre receives requests; rescEU financing is largely or entirely EU-funded, not invariably entirely.",
+    "issues": []
+  },
+  "v04-11": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "reason": "More-for-more rewards faster reform with more support. Only three eastern partners now have a membership perspective; funding shares are unstated and priority to stability was often, not established as always.",
+    "issues": []
+  },
+  "v04-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Only a limited portion of the headline total is EU grants; guarantees cover part of risk. The largest financier is unidentified, and many pre-existing projects does not entail no new projects.",
+    "issues": []
+  },
+  "v04-13": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Treaty rules exclude military-operation expenditure, including common headquarters costs, from the EU budget. Common costs are pooled separately, so not all costs lie where they fall.",
+    "issues": []
+  },
+  "v04-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "A constructively abstaining state pays towards non-lethal measures instead. Lethal equipment is permitted, not required for every partner; the blocking government and civilian humanitarian funding are unstated.",
+    "issues": []
+  },
+  "v04-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The new force is modular, unlike the old battlegroups. Readiness is not an actual first deployment; publication of the threat analysis is unstated; implementation depends largely rather than demonstrably entirely on states.",
+    "issues": []
+  },
+  "v04-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "Overstated"
+    },
+    "reason": "Everything But Arms ends through UN removal plus transition rather than the standard scheme's income test. Preferences are non-reciprocal; EBA applies to least developed countries rather than all developing countries.",
+    "issues": []
+  },
+  "v04-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "The clause operates mainly between governments, whereas solidarity involves Union instruments. Aid is qualified to accommodate neutral states and is not stated to require military help from every state.",
+    "issues": []
+  },
+  "v04-18": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The account expressly says the more productive country also gains from trade. Specialisation contradicts producing both goods; later losses for particular groups are possible, not established as usual.",
+    "issues": []
+  },
+  "v04-19": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Within a class, date of arrival determines precedence rather than national prestige. The direct cause of the 1815 rules and trade effects are unstated; civil immunity expressly has exceptions.",
+    "issues": []
+  },
+  "v04-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Longer routes reduce available capacity and can raise rates without changed demand. Many diversions is not all companies; the lasting Ever Given effect is unstated; an important revenue source is not necessarily the main one.",
+    "issues": []
+  },
+  "v04-21": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Consultative Parties take decisions by consensus. Claims were frozen without recognition; original signatories are unnamed; the Protocol's ban concerns mineral-resource activity, not every nonresearch activity.",
+    "issues": []
+  },
+  "v04-22": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "The stated MFN exception requires substantially all internal trade. Interim arbitration is limited to joining members; the US motivation is unstated; tariff cutting does not establish complete tariff elimination.",
+    "issues": []
+  },
+  "v05-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "False"
+    },
+    "reason": "The Charter does not apply to national measures with no EU-law connection. The VAT case does not establish coverage of all taxation; principles cannot ground free-standing claims.",
+    "issues": []
+  },
+  "v05-02": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The bar on double-criminality checking requires a listed offence with a maximum penalty of at least three years. Execution is only in principle; ten days runs from consent and concerns the decision, not handover after arrest.",
+    "issues": []
+  },
+  "v05-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "The text explicitly says Eurojust does not prosecute. National members are usually, not necessarily always, prosecutors or judges; growth over decades does not establish growth every year.",
+    "issues": []
+  },
+  "v05-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Europol staff cannot arrest suspects. Neither the use of assessments to determine a policing budget nor dispatch outside the EU is stated; critics sought safeguards without the stated claim of unlawfulness.",
+    "issues": []
+  },
+  "v05-05": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Visa responsibility precedes irregular-entry responsibility. Child responsibility has normality and best-interest qualifications; Greece-specific history is unstated; new rules retain the basic logic.",
+    "issues": []
+  },
+  "v05-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "States must contribute but can choose money or operational measures instead of relocations. No state may be forced to relocate, and the text explicitly describes critics on different sides.",
+    "issues": []
+  },
+  "v05-07": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The directive remained unused for more than twenty years until March 2022. Extension voting rules and expected returns are unstated; equal education rights do not establish equal rights in every respect.",
+    "issues": []
+  },
+  "v05-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "Overstated"
+    },
+    "reason": "Certain ICT occupations permit recent relevant experience instead of a degree. National schemes remain allowed; the experience exception is limited rather than universal.",
+    "issues": []
+  },
+  "v05-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "Permanent residence after five years removes the resources condition. EU-set student income and family members' specific ten-year threshold are unstated; states may require registration, not necessarily all do.",
+    "issues": []
+  },
+  "v05-10": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The assisting state may request reimbursement from the citizen's own state. Represented citizens must use their own embassy; emergency documents are a possible form of assistance, not universally guaranteed.",
+    "issues": []
+  },
+  "v05-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "The agency cannot handle individual complaints or take legal action. Main EU-wide survey data is not the only data anywhere; binding opinions and predecessor failure are unstated.",
+    "issues": []
+  },
+  "v05-12": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Failure to notify transposition permits financial penalties in the first judgment. Most procedures closing earlier does not establish almost none reach court; the main source of cases is unstated.",
+    "issues": []
+  },
+  "v05-13": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Only a third of states or the Commission can propose the second-stage finding. Rights suspension requires that finding, not just clear risk; observers' attribution does not establish unanimity as the definitive reason.",
+    "issues": []
+  },
+  "v05-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "False"
+    },
+    "reason": "Budget impact or sufficiently direct serious risk is required; unconnected rule-of-law breaches are expressly excluded. Minimum duration and the Commission's proposed amount are unstated.",
+    "issues": []
+  },
+  "v05-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "A different less intrusive measure may sometimes achieve the same result. The prevalent use and nonparticipating states are unidentified; critics do not advocate replacing recognition with fresh examination.",
+    "issues": []
+  },
+  "v05-16": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "The directives expressly permit higher national protection. Witness coverage is unstated; minimum standards leave national variation and public-authority restrictions do not cover everyone.",
+    "issues": []
+  },
+  "v05-17": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Religion is covered only in employment, occupation and vocational training; neither directive covers religious refusal of a retail service. The burden shifts, and housing protection does not cover every ground.",
+    "issues": []
+  },
+  "v05-18": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Falsifiability requires excluding some possible observations. Critics challenge isolation of tests, not the possibility of testing; Kuhn says tenacity has sometimes, not always, been productive.",
+    "issues": []
+  },
+  "v05-19": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Registered reports accept on design before results are known, preventing positive results from determining that decision. The project expressly does not prove originals false; bias reduction is not elimination.",
+    "issues": []
+  },
+  "v05-20": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The definitive version dates from 1225 rather than Runnymede in 1215. The original addressed specific grievances and free men; adviser participation is unstated and influence is not ranked above every other text.",
+    "issues": []
+  },
+  "v05-21": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Minor faults would cause the scandal ordinary offences cause elsewhere. French data collection and contemporary reception are unstated; crime may prepare evolution, not every crime necessarily doing so.",
+    "issues": []
+  },
+  "v05-22": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "reason": "D is the intended application of the difference principle; the text requires greatest benefit for the least advantaged. Critics raise a possible gamble, not an agreed prediction; Nozick's objection concerns fruits of work rather than all holdings.",
+    "issues": [
+      {
+        "type": "key_scope_ambiguity",
+        "countermodel": "The text says inequalities must be to the greatest benefit of the least advantaged, but D leaves the comparison baseline unspecified. Two feasible distributions could give the least advantaged the same maximal welfare (for example 10,10 and 10,20), with no feasible distribution giving them more. The unequal option then leaves them no better off than the equal option yet still achieves their greatest feasible benefit. The passage does not state a strict-improvement requirement that excludes such ties.",
+        "minimal_clarification": "Replace D with: An inequality that helps the better-off but leaves the least advantaged worse off than a feasible equal arrangement fails Rawls's test."
+      }
+    ]
+  },
+  "v06-01": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Block-exempt and de minimis measures can avoid prior examination. Only some aid categories meeting conditions are exempt; crisis clearance timing is unstated; recovery restores rather than punishes.",
+    "issues": []
+  },
+  "v06-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "Commitment-based approval is expressly more frequent than outright prohibition. Dominance alone is not the automatic prohibition test; national-authority motivation and review-time comparison are unstated.",
+    "issues": []
+  },
+  "v06-03": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "An immunity recipient generally remains liable to its own purchasers or providers. Later applicants can receive up to 20 percent, not a guaranteed minimum fifth; repeat-offender increases are discretionary.",
+    "issues": []
+  },
+  "v06-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The stated turnover and market value both fall below the alternative financial thresholds. Compensation and company nationality are unstated; banning favourable ranking does not ban displaying own products next to rivals.",
+    "issues": []
+  },
+  "v06-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Businesses deduct input VAT, leaving final consumers to bear it in principle. Fraud partly explains the gap; zero rates are confined to a limited set of eligible items; measured webshop savings are unstated.",
+    "issues": []
+  },
+  "v06-06": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Nationality conditions are expressly banned. The home-country principle was dropped; halved setup time is unstated; professional qualifications are one of several partial explanations.",
+    "issues": []
+  },
+  "v06-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False"
+    },
+    "reason": "After 20 months the longer-posting labour rules apply while normal home-state social security can last 24 months. Core remuneration is not identical all conditions; long postings retain express labour-law exceptions.",
+    "issues": []
+  },
+  "v06-08": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "The Court expressly identified labelling as a less restrictive adequate means. Protective intent and subsequent German legal changes are unstated; restrictions can remain justified by mandatory requirements.",
+    "issues": []
+  },
+  "v06-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Overstated"
+    },
+    "reason": "Applicable CE legislation requires marking regardless of origin. Only certain machinery needs notified-body involvement; uncovered products must not bear CE; frequent online shipment does not prove a majority.",
+    "issues": []
+  },
+  "v06-10": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "The independent firm meets the fewer-than-250 staff and alternative balance-sheet ceiling. Finance ceilings still matter; many EU programmes does not mean every funding form; national-definition history is unstated.",
+    "issues": []
+  },
+  "v06-11": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Milestones and targets must finish by August 2026, before the October reform. Grants are less than half of the total; digital-versus-climate usage is unstated; only several governments are said to revise measures.",
+    "issues": []
+  },
+  "v06-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The text states that progress tends to be greater over several years. Recommendation counts and deficit comparisons are unstated; better implementation does not entail eventual complete implementation.",
+    "issues": []
+  },
+  "v06-13": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Quality and environmental or social criteria may accompany price. EU-wide advertisement applies above thresholds; a large share is not established as most; greater small-firm bidding is not reported.",
+    "issues": []
+  },
+  "v06-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Different country spending weights can produce different aggregate inflation despite identical item-level changes. National offices compile national indices; some comparisons failing does not mean none possible; revision sizes are unstated.",
+    "issues": []
+  },
+  "v06-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Insolvency law remains largely national and cross-border investors face different rules. Financing costs and the primary relaunch trigger are unstated; largely national supervision does not entail entirely national supervision.",
+    "issues": []
+  },
+  "v06-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "The bank rarely funds a whole project and generally supplies up to half. Broad proportionality does not entail exact capital shares; most market borrowing does not mean all; high rating is not an established uniquely highest ranking.",
+    "issues": []
+  },
+  "v06-17": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Dominance itself is lawful and can arise through cheaper products. The Court upheld the fine; subsequent worldwide display changes are unstated; above 50 percent is an indication rather than an absolute test.",
+    "issues": []
+  },
+  "v06-18": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated"
+    },
+    "reason": "Compulsion can prevent low-risk insurance customers from exiting the pool. Rejection reasons are unstated; complete used-car disappearance is an extreme case; remedies reduce rather than demonstrably solve the information problem.",
+    "issues": []
+  },
+  "v06-19": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "1971 is 27 years after 1944. The IMF survived; devaluation causes are unstated; permission only for disequilibrium does not imply a change whenever disequilibrium occurs.",
+    "issues": []
+  },
+  "v06-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Workers often retain a lower default saving rate than was typically chosen before. US motives and UK expected versus actual opt-outs are unstated; a sharp participation rise does not imply everyone joined.",
+    "issues": []
+  },
+  "v06-21": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Community rules with graduated sanctions are features of successful commons. Ostrom documented success without central control and also failures; neither exclusive state control nor universal community superiority follows.",
+    "issues": []
+  },
+  "v06-22": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "Gas revenue and unemployment are both explicitly said to rise. The text describes reduced competitiveness of other exporters, not every sector; Dutch production cuts and Norwegian portfolio composition are unstated.",
+    "issues": []
+  }
+}

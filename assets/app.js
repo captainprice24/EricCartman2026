@@ -19,15 +19,44 @@
   var KEY_STATS = "ad5trainer.qstats.v1";
   var KEY_PREFS = "ad5trainer.prefs.v1";
   var KEY_SESSION = "ad5trainer.session.v1";
-  function load(k, d) {
-    try { var v = window.localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; }
+  var storageMemory = {}, storageUnavailable = false, storageRecovered = false;
+  function remove(k) {
+    storageMemory[k] = null;
+    try { window.localStorage.removeItem(k); } catch (e) { storageUnavailable = true; syncStorageWarning(); }
   }
   function save(k, v) {
-    try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ }
+    storageMemory[k] = v;
+    try { window.localStorage.setItem(k, JSON.stringify(v)); delete storageMemory[k]; }
+    catch (e) { storageUnavailable = true; syncStorageWarning(); }
   }
-  function remove(k) {
-    try { window.localStorage.removeItem(k); } catch (e) { /* storage unavailable */ }
+  function syncStorageWarning() {
+    if (!root || !storageUnavailable || document.getElementById("storage-warning")) return;
+    var box = document.createElement("div"); box.id = "storage-warning"; box.className = "alert"; box.setAttribute("role", "status");
+    box.textContent = "Saving is unavailable. Your progress is kept only in this tab and will be lost when you reload or close it.";
+    (document.getElementById("view-content") || root).insertBefore(box, (document.getElementById("view-content") || root).firstChild);
   }
+  function load(k, d) {
+    var v;
+    if (Object.prototype.hasOwnProperty.call(storageMemory, k)) v = storageMemory[k];
+    else {
+      try { var raw = window.localStorage.getItem(k); if (raw === null) return d; v = JSON.parse(raw); }
+      catch (e) {
+        if (e instanceof SyntaxError) { storageRecovered = true; remove(k); }
+        else storageUnavailable = true;
+        return d;
+      }
+    }
+    if (v === null && k === KEY_SESSION) return d;
+    var kind = k === KEY_PREFS ? "prefs" : k === KEY_HIST ? "history" : k === KEY_STATS ? "stats" : null;
+    if (kind) {
+      var clean = C.cleanStored(kind, v);
+      if (clean.changed) { storageRecovered = true; save(k, clean.value); }
+      return clean.value;
+    }
+    return v;
+  }
+  try { window.localStorage.setItem("ad5trainer.storage-probe", "1"); window.localStorage.removeItem("ad5trainer.storage-probe"); }
+  catch (e) { storageUnavailable = true; syncStorageWarning(); }
 
   /* ---------- question bank ---------- */
   var bank = { all: [], byId: {}, bySection: { verbal: [], numerical: [], abstract: [] }, sets: [], errors: [], langs: { en: true } };
@@ -181,7 +210,7 @@
     };
   }
   function deserialize(d) {
-    if (!d || d.v !== 1 || !d.sections) return null;
+    if (!C.validSession(d, bank.byId)) return null;
     var ok = true;
     var sections = d.sections.map(function (x) {
       var items = x.ids.map(function (id, i) { var q = bank.byId[id]; if (!q) ok = false; return { q: q, order: x.orders[i] }; });
@@ -198,7 +227,11 @@
     var s = state.session;
     if (s && !s.finished && !s.review && ["brief", "lesson", "session", "between"].indexOf(state.view) > -1) save(KEY_SESSION, serialize(s));
   }
-  function savedSession() { return deserialize(load(KEY_SESSION, null)); }
+  function savedSession() {
+    var raw = load(KEY_SESSION, null), restored = deserialize(raw);
+    if (raw !== null && !restored) { storageRecovered = true; remove(KEY_SESSION); }
+    return restored;
+  }
   function clearSaved() { remove(KEY_SESSION); }
 
   function resume() {
@@ -256,7 +289,7 @@
       at: Date.now(), mode: s.mode,
       sections: s.sections.map(function (sec) {
         var sc = score(sec);
-        return { key: sec.key, correct: sc.correct, total: sc.total, hints: countHints(sec), usedSec: Math.round((sec.usedMs || 0) / 1000), limitSec: sec.limitMs ? sec.limitMs / 1000 : null, repeats: sec.repeats || 0 };
+        return { key: sec.key, correct: sc.correct, total: sc.total, counted: sc.counted, hints: countHints(sec), usedSec: Math.round((sec.usedMs || 0) / 1000), limitSec: sec.limitMs ? sec.limitMs / 1000 : null, repeats: sec.repeats || 0 };
       }),
       pass: verdict ? verdict.every(function (v) { return v.pass; }) : null
     });
@@ -443,7 +476,9 @@
     var q = item.q, chosen = sec.answers[q.id];
     var ok = chosen === q.answer;
     var pos = item.order.indexOf(q.answer);
-    var head = chosen === undefined
+    var head = state.session.mode !== "exam" && !sec.checked[q.id]
+      ? '<p class="verdict verdict-skip">Not checked. The correct answer is <b>' + LETTERS[pos] + "</b>.</p>"
+      : chosen === undefined
       ? '<p class="verdict verdict-skip">✗ Not answered. The correct answer is <b>' + LETTERS[pos] + "</b>.</p>"
       : ok ? '<p class="verdict verdict-ok">✓ Correct.</p>'
         : '<p class="verdict verdict-bad">✗ Not quite. The correct answer is <b>' + LETTERS[pos] + "</b>.</p>";
@@ -460,7 +495,7 @@
       var id = it.q.id, cls = ["qdot"], states = [];
       if (sec.answers[id] !== undefined) { cls.push("answered"); states.push("answered"); } else states.push("not answered");
       if (sec.flags[id]) { cls.push("flagged"); states.push("flagged"); }
-      if (sec.checked[id] || s.review) {
+      if (sec.checked[id] || (s.review && s.mode === "exam")) {
         var right = sec.answers[id] === it.q.answer;
         cls.push(right ? "ok" : "bad"); states.push(right ? "correct" : "incorrect");
       }
@@ -546,7 +581,7 @@
       var d = new Date(h.at);
       var parts = h.sections.map(function (s) {
         if (!SECTIONS[s.key]) return "";
-        return SECTIONS[s.key].name.split(" ")[0] + " " + s.correct + "/" + s.total + (s.usedSec ? " in " + fmtTime(s.usedSec) : "");
+        return SECTIONS[s.key].name.split(" ")[0] + " " + s.correct + "/" + (h.mode === "exam" || s.counted === undefined ? s.total : s.counted) + (h.mode !== "exam" && s.counted !== undefined ? " checked (" + s.total + " in round)" : "") + (s.usedSec ? " in " + fmtTime(s.usedSec) : "");
       }).join(" · ");
       var badge = h.pass === null ? "" : h.pass ? '<span class="pill pill-ok">✓ Passed gates</span>' : '<span class="pill pill-bad">✗ Below a pass mark</span>';
       return "<li><span class=\"hist-date\">" + d.toLocaleDateString(undefined, { day: "numeric", month: "short" }) + " " + d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) +
@@ -721,8 +756,8 @@
     var overall = verdict ? verdict.every(function (v) { return v.pass; }) : null;
     var repeats = s.sections.reduce(function (n, sec) { return n + (sec.repeats || 0); }, 0);
     var summary = s.sections.map(function (sec) {
-      var sc = score(sec), pct = sc.total ? Math.round((sc.correct / sc.total) * 100) : 0;
-      return '<div class="score-tile"><h3 class="small muted">' + esc(SECTIONS[sec.key].name) + '</h3><span class="score-big">' + sc.correct + "<small>/" + sc.total + "</small></span>" +
+      var sc = score(sec), denominator = exam ? sc.total : sc.counted, pct = denominator ? Math.round((sc.correct / denominator) * 100) : 0;
+      return '<div class="score-tile"><h3 class="small muted">' + esc(SECTIONS[sec.key].name) + '</h3><span class="score-big">' + sc.correct + "<small>/" + denominator + "</small></span>" +
         '<div class="meter" role="img" aria-label="' + pct + '% correct; the marker shows 50%"><i style="width:' + pct + '%"></i><b style="left:50%"></b></div>' +
         '<span class="small muted">' + pct + "% · " + fmtTime((sec.usedMs || 0) / 1000) + (sec.limitMs ? " of " + fmtTime(sec.limitMs / 1000) : "") + (s.mode === "coach" ? " · " + countHints(sec) + " hints" : "") +
         (!exam && sc.counted < sc.total ? " · " + (sc.total - sc.counted) + " not checked" : "") + "</span></div>";
@@ -744,6 +779,7 @@
     var topics = {};
     s.sections.forEach(function (sec) {
       sec.items.forEach(function (it) {
+        if (C.answerState(sec, it, s.mode) === "unchecked") return;
         var t = (SECTIONS[sec.key].name.split(" ")[0]) + " · " + (it.q.topic || "General");
         topics[t] = topics[t] || { c: 0, n: 0 };
         topics[t].n++; if (sec.answers[it.q.id] === it.q.answer) topics[t].c++;
@@ -753,17 +789,17 @@
 
     var rows = s.sections.map(function (sec, si) {
       return "<h3>" + esc(SECTIONS[sec.key].name) + '</h3><ol class="review-list">' + sec.items.map(function (it, i) {
-        var a = sec.answers[it.q.id], ok = a === it.q.answer;
+        var a = sec.answers[it.q.id], status = C.answerState(sec, it, s.mode), ok = status === "correct", unchecked = status === "unchecked";
         var yours = a === undefined ? "–" : LETTERS[it.order.indexOf(a)];
-        return '<li class="' + (ok ? "ok" : "bad") + '"><span class="rv-n" aria-hidden="true">' + (ok ? "✓" : "✗") + "</span>" + sr(ok ? "Correct." : "Incorrect.") +
+        return '<li class="' + (unchecked ? "unchecked" : ok ? "ok" : "bad") + '"><span class="rv-n" aria-hidden="true">' + (unchecked ? "–" : ok ? "✓" : "✗") + "</span>" + (unchecked ? "" : sr(ok ? "Correct." : "Incorrect.")) +
           '<span class="rv-topic">' + (i + 1) + ". " + esc(it.q.topic || "") + "</span>" +
-          '<span class="rv-ans">You: <b>' + yours + "</b> · Correct: <b>" + LETTERS[it.order.indexOf(it.q.answer)] + "</b></span>" +
+          '<span class="rv-ans">' + (unchecked ? '<span class="small">Not checked.</span><br>' : '') + 'You: <b>' + yours + "</b> · Correct: <b>" + LETTERS[it.order.indexOf(it.q.answer)] + "</b></span>" +
           '<button class="link-btn" data-act="review" data-si="' + si + '" data-i="' + i + '" aria-label="Review question ' + (i + 1) + '">Review</button></li>';
       }).join("") + "</ol>";
     }).join("");
 
     var wrongCount = 0;
-    s.sections.forEach(function (sec) { sec.items.forEach(function (it) { if (sec.answers[it.q.id] !== it.q.answer) wrongCount++; }); });
+    s.sections.forEach(function (sec) { sec.items.forEach(function (it) { if (C.answerState(sec, it, s.mode) === "incorrect") wrongCount++; }); });
 
     return '<div class="results"><p class="eyebrow">' + modeLabel(s.mode) + ' · results</p><h1 id="main-heading" tabindex="-1">' + (exam ? "Your simulation result" : "Round complete") + "</h1>" +
       repeatHTML + gateHTML + rankHTML + '<div class="tiles">' + summary + "</div>" +
@@ -814,8 +850,10 @@
       default: html = viewHome();
     }
     root.className = "app view-" + state.view;
-    root.innerHTML = html + confirmHTML() + (state.notice ? '<div id="toast" class="toast" role="status">' + esc(state.notice) + "</div>" : "");
     persist();
+    var storageNotice = (storageUnavailable ? '<div id="storage-warning" class="alert" role="status">Saving is unavailable. Your progress is kept only in this tab and will be lost when you reload or close it.</div>' : "") +
+      (storageRecovered ? '<div class="alert" role="status">Some saved data could not be restored and was reset. Your other saved progress has been kept.</div>' : "");
+    root.innerHTML = '<div id="view-content"' + (state.ui.confirm ? ' inert aria-hidden="true"' : "") + '>' + storageNotice + html + '</div>' + confirmHTML() + (state.notice ? '<div id="toast" class="toast" role="status">' + esc(state.notice) + "</div>" : "");
 
     var target = null;
     if (state.ui.confirm) target = document.getElementById("cf-yes");
@@ -883,8 +921,9 @@
 
   function startRetryCoach(s) {
     var bySec = {};
-    s.sections.forEach(function (sec) { sec.items.forEach(function (it) { if (sec.answers[it.q.id] !== it.q.answer) (bySec[it.q.section] = bySec[it.q.section] || []).push(it.q); }); });
+    s.sections.forEach(function (sec) { sec.items.forEach(function (it) { if (C.answerState(sec, it, s.mode) === "incorrect") (bySec[it.q.section] = bySec[it.q.section] || []).push(it.q); }); });
     var sections = ORDER.filter(function (k) { return bySec[k]; }).map(function (k) { return makeSection(k, bySec[k], null); });
+    if (!sections.length) { flash("There are no checked mistakes to retry."); return; }
     state.session = { mode: "coach", sections: sections, si: 0, qi: 0, started: Date.now(), notes: [], review: false };
     if (sections.length === 1) go("lesson");
     else { startClock(sections[0]); go("session"); }
@@ -892,8 +931,9 @@
 
   function onClick(e) {
     var t = e.target.closest("[data-act]");
+    if (state.ui.confirm && (!t || ["cf-no", "cf-yes"].indexOf(t.getAttribute("data-act")) < 0)) { e.preventDefault(); return; }
     if (t && t.getAttribute("data-act") === "tip") {
-      var tipId = t.getAttribute("data-k");
+      var tipId = t.getAttribute("data-k"); dismissedTip = null;
       state.ui.tip = state.ui.tip === tipId ? null : tipId;
       render(); return;
     }
@@ -940,7 +980,7 @@
       case "submit": {
         var sec = cur().sec, sc = C.sectionScore(sec, "exam"), un = sc.total - sc.answered, fl = Object.keys(sec.flags).filter(function (k) { return sec.flags[k]; }).length;
         state.ui.confirm = {
-          title: "Submit " + SECTIONS[sec.key].name.toLowerCase() + "?",
+          returnFocus: focusKey(t), title: "Submit " + SECTIONS[sec.key].name.toLowerCase() + "?",
           text: (un ? un + " question" + (un > 1 ? "s are" : " is") + " unanswered. " : "All questions are answered. ") + (fl ? fl + " flagged. " : "") + "You cannot return to this test after submitting.",
           yes: "Submit test", act: "submit"
         };
@@ -949,12 +989,12 @@
       case "end": {
         var secE = cur().sec, open = secE.items.filter(function (it) { return !secE.checked[it.q.id]; }).length;
         if (open && s.mode !== "exam") {
-          state.ui.confirm = { title: "End this round?", text: open + " question" + (open > 1 ? "s have" : " has") + " not been checked. Unchecked questions do not count towards your score.", yes: "End round", act: "end" };
+          state.ui.confirm = { returnFocus: focusKey(t), title: "End this round?", text: open + " question" + (open > 1 ? "s have" : " has") + " not been checked. Unchecked questions do not count towards your score.", yes: "End round", act: "end" };
           render();
         } else finishSession();
         break;
       }
-      case "cf-no": state.ui.confirm = null; render(); break;
+      case "cf-no": closeConfirm(); break;
       case "cf-yes": {
         var a = state.ui.confirm && state.ui.confirm.act; state.ui.confirm = null;
         if (a === "submit") submitSection(false); else if (a === "end") finishSession();
@@ -1021,14 +1061,46 @@
 
   /* ---------- keyboard (W1, W7) ---------- */
   var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", ",": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
+  function closeConfirm() {
+    var selector = state.ui.confirm && state.ui.confirm.returnFocus;
+    state.ui.confirm = null; render();
+    var target = selector && root.querySelector(selector); if (target) target.focus();
+  }
+  var dismissedTip = null;
+  function dismissTips() {
+    root.querySelectorAll(".tip.open").forEach(function (tip) {
+      tip.classList.remove("open"); var btn = tip.parentNode.querySelector("button");
+      btn.setAttribute("aria-expanded", "false"); dismissedTip = btn.getAttribute("data-k");
+    });
+    state.ui.tip = null;
+  }
+  function tipEnter(e) {
+    var wrap = e.target.closest && e.target.closest(".info-wrap");
+    if (!wrap || (e.relatedTarget && wrap.contains(e.relatedTarget))) return;
+    var btn = wrap.querySelector("button"), id = btn.getAttribute("data-k");
+    if (dismissedTip === id) return;
+    wrap.querySelector(".tip").classList.add("open"); btn.setAttribute("aria-expanded", "true");
+  }
+  function tipLeave(e) {
+    var wrap = e.target.closest && e.target.closest(".info-wrap");
+    if (!wrap || (e.relatedTarget && wrap.contains(e.relatedTarget))) return;
+    var btn = wrap.querySelector("button"), id = btn.getAttribute("data-k");
+    dismissedTip = null;
+    if (state.ui.tip !== id) { wrap.querySelector(".tip").classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
+  }
   function onKey(e) {
-    var tag = (e.target.tagName || "").toLowerCase();
-    if (tag === "textarea" || tag === "input" || tag === "select" || e.metaKey || e.ctrlKey || e.altKey) return;
     if (state.ui.confirm) {
-      if (e.key === "Escape") { state.ui.confirm = null; render(); }
+      if (e.key === "Escape") { e.preventDefault(); closeConfirm(); }
+      if (e.key === "Tab") {
+        var buttons = root.querySelectorAll(".dialog button"), index = Array.prototype.indexOf.call(buttons, document.activeElement);
+        buttons[(index + (e.shiftKey ? -1 : 1) + buttons.length) % buttons.length].focus(); e.preventDefault();
+      }
       return;
     }
-    if (state.ui.tip && e.key === "Escape") { state.ui.tip = null; render(); return; }
+    if (e.key === "Escape" && root.querySelector(".tip.open")) { dismissTips(); e.preventDefault(); return; }
+    var tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "textarea" || tag === "input" || tag === "select" || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target.closest && e.target.closest(".table-wrap, .chart-wrap") && /^(Arrow|Home|End|Page)/.test(e.key)) return;
     if (state.view !== "session") return;
     var c = cur(); if (!c) return;
     var k = e.key;
@@ -1090,6 +1162,10 @@
     applyTheme();
     buildBank();
     root.addEventListener("click", onClick);
+    root.addEventListener("mouseover", tipEnter);
+    root.addEventListener("mouseout", tipLeave);
+    root.addEventListener("focusin", tipEnter);
+    root.addEventListener("focusout", tipLeave);
     root.addEventListener("change", onChange);
     root.addEventListener("input", onInput);
     root.addEventListener("mouseup", onSelectionEnd);

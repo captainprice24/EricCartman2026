@@ -5,6 +5,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import vm from "node:vm";
 import { numericalDifficulty, numericalRubric } from "../scripts/lib/difficulty.mjs";
@@ -299,4 +300,22 @@ test("numerical level follows reviewed reasoning, never table size or solution v
   assert.equal(numericalDifficulty(easy), 1);
   assert.equal(numericalDifficulty({ ...easy, solution: Array(30).fill('1 + 2 = 3'), exhibits: [...easy.exhibits, ...easy.exhibits] }), 1);
   assert.throws(() => numericalDifficulty({ topic: 'Unreviewed topic' }), /editorial difficulty review/);
+});
+
+test('the entire numerical bank uses named mistake distractors', () => {
+  for (const q of items) for (let i=0;i<q.options.length;i++) {
+    if (i!==q.answer) assert.doesNotMatch(q.optionNotes[i], /not derived from a typical mistake|generic filler/i, q.id);
+  }
+});
+
+
+test('foundation revisions keep fresh IDs and immutable reviewed generator fingerprints', () => {
+  const revisions=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-revisions.json')));
+  const revised=items.filter(q=>q.supersedes);
+  assert.equal(revised.length,150);
+  for(const {id,supersedes,...q} of revised){
+    assert.notEqual(id,supersedes);
+    assert.equal(revisions[supersedes].id,id);
+    assert.equal(crypto.createHash('sha256').update(JSON.stringify(q)).digest('hex'),revisions[supersedes].sha256,id);
+  }
 });

@@ -15,7 +15,7 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 | New challenge sets | 0 | 0 | 40 | 40 |
 | Current bank | 56 | 82 | 52 | 190 |
 
-69 existing items changed difficulty. All original IDs, stems, options, answers, exhibits and explanations are preserved.
+69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. The forty challenge items are unchanged.
 
 ## Sets
 
@@ -89,8 +89,8 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5, 6, 7 or 8, 10 qu
 
 ## Quality and remaining limits
 
-- Each challenge set has 10 different models, 2 keys in each answer position, 5 sorted numeric options and a mistake explanation for every distractor. Every challenge item uses two exhibits and at least four dependent transformations. No generic filler distractors are allowed in these sets.
-- 94 original items retain at least one generic filler distractor (180 fillers in all). The audit exposes this existing quality debt; relabelling does not repair those distractors. New sets contain zero.
+- Each challenge set has 10 different models, 2 keys in each answer position, 5 sorted numeric options and a mistake explanation for every distractor. Every challenge item uses two exhibits and at least four dependent transformations. No generic filler distractors are allowed anywhere in the numerical bank.
+- 0 original items retain at least one generic filler distractor (0 fillers in all). The generator now rejects layouts without four usable, named mistakes and regenerates data instead of inventing filler values.
 - Four parameter variants per challenge model create transfer practice but are not 40 unrelated reasoning structures. Previously practising a model can improve later-set performance.
 - The current validator checks schemas, exhibit uniqueness, options and numerical rubric consistency. Independent solvers check the displayed data and final rounding. Additional checks cover binding caps, feasible substitution, rate bounds and the whole-batch profit inequality.
 - Complexity is intentionally above the original numerical bank. No claim is made that these items reproduce official EPSO difficulty; the official sample website could not be inspected in this environment.

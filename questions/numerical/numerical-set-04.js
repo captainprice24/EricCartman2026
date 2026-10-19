@@ -7,7 +7,8 @@ EPSO_BANK.registerSet({
   "version": 3,
   "questions": [
     {
-      "id": "n04-01",
+      "id": "n04-01-r2",
+      "supersedes": "n04-01",
       "topic": "Largest gap on a line chart",
       "difficulty": 1,
       "answerType": "category",
@@ -28,23 +29,23 @@ EPSO_BANK.registerSet({
             {
               "name": "Applications",
               "values": [
-                50.5,
-                67.9,
-                57.4,
-                39.6,
-                42.4,
-                31.6
+                38,
+                39.8,
+                75.5,
+                73.1,
+                34.7,
+                82.6
               ]
             },
             {
               "name": "Places",
               "values": [
-                42.4,
-                48.9,
-                33.3,
-                36.4,
-                25,
-                27.5
+                35,
+                28.7,
+                55.9,
+                49.7,
+                21.5,
+                71.9
               ]
             }
           ]
@@ -53,10 +54,10 @@ EPSO_BANK.registerSet({
       "stem": "In which year was the gap between applications and places largest?",
       "options": [
         "2020",
-        "2021",
         "2022",
         "2023",
-        "2024"
+        "2024",
+        "2025"
       ],
       "answer": 2,
       "hints": [
@@ -64,24 +65,25 @@ EPSO_BANK.registerSet({
         "Subtract the lower line from the higher one."
       ],
       "solution": [
-        "2020: 50.5 − 42.4 = 8.1",
-        "2021: 67.9 − 48.9 = 19.0",
-        "2022: 57.4 − 33.3 = 24.1",
-        "2023: 39.6 − 36.4 = 3.2",
-        "2024: 42.4 − 25 = 17.4",
-        "Largest: 2022"
+        "2020: 38 − 35 = 3.0",
+        "2022: 75.5 − 55.9 = 19.6",
+        "2023: 73.1 − 49.7 = 23.4",
+        "2024: 34.7 − 21.5 = 13.2",
+        "2025: 82.6 − 71.9 = 10.7",
+        "Largest: 2023"
       ],
       "optionNotes": [
-        "50.5 − 42.4 = 8.1.",
-        "67.9 − 48.9 = 19.0. The highest applications value, but not the largest gap.",
-        "Correct. 57.4 − 33.3 = 24.1.",
-        "39.6 − 36.4 = 3.2.",
-        "42.4 − 25 = 17.4."
+        "38 − 35 = 3.0.",
+        "75.5 − 55.9 = 19.6.",
+        "Correct. 73.1 − 49.7 = 23.4.",
+        "34.7 − 21.5 = 13.2.",
+        "82.6 − 71.9 = 10.7. The highest applications value, but not the largest gap."
       ],
       "explanation": "Visual distance on a chart can mislead, especially when both lines move. Compute the gap for each option."
     },
     {
-      "id": "n04-02",
+      "id": "n04-02-r2",
+      "supersedes": "n04-02",
       "topic": "Combined work rates",
       "difficulty": 2,
       "exhibits": [
@@ -97,59 +99,60 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Team North",
-              "1,100",
-              "2",
-              "2"
+              "720",
+              "4",
+              "4"
             ],
             [
               "Team South",
-              "770",
-              "7",
+              "510",
+              "9",
               "2"
             ],
             [
               "Team East",
-              "490",
+              "710",
               "5",
               "1"
             ],
             [
               "Team West",
-              "920",
+              "700",
               "5",
-              "4"
+              "2"
             ]
           ]
         }
       ],
       "stem": "Working together at their usual rates, how many minutes do Team East and Team West need for 9,000 words?",
       "options": [
-        "319.5 minutes",
-        "339.6 minutes",
+        "380.3 minutes",
         "383.0 minutes",
-        "413.6 minutes",
-        "422.2 minutes"
+        "385.7 minutes",
+        "442.6 minutes",
+        "446.3 minutes"
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "When two units work together, add their hourly rates.",
         "Time = amount ÷ combined rate; convert hours to minutes."
       ],
       "solution": [
-        "Combined rate = 490 + 920 = 1,410 per hour",
+        "Combined rate = 710 + 700 = 1,410 per hour",
         "9,000 ÷ 1,410 × 60 = 382.98 minutes"
       ],
       "optionNotes": [
-        "This pairs Team West with Team South.",
-        "This pairs Team East with Team North.",
+        "This assumes both units work at the rate of Team East.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This halves the average of the two separate times; rates add, times do not."
+        "This assumes both units work at the rate of Team West.",
+        "This pairs Team East with Team South.",
+        "This pairs Team West with Team South."
       ],
       "explanation": "Rates add; times do not. Averaging the separate times is the classic mistake."
     },
     {
-      "id": "n04-03",
+      "id": "n04-03-r2",
+      "supersedes": "n04-03",
       "topic": "Percentage difference between two items",
       "difficulty": 2,
       "exhibits": [
@@ -164,67 +167,68 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Norvale",
-              "288,601",
-              "24.9",
-              "117"
-            ],
-            [
-              "Marrow",
-              "207,457",
-              "5.9",
-              "135"
-            ],
-            [
-              "Galvia",
-              "214,210",
-              "19.9",
-              "232"
-            ],
-            [
-              "Hollen",
-              "223,465",
-              "11.6",
-              "33"
+              "Calmora",
+              "14,527",
+              "13.3",
+              "111"
             ],
             [
               "Dunmark",
-              "219,522",
-              "3.2",
-              "159"
+              "215,605",
+              "19.9",
+              "70"
+            ],
+            [
+              "Quarta",
+              "201,580",
+              "18.3",
+              "130"
+            ],
+            [
+              "Aldoria",
+              "32,376",
+              "20.6",
+              "274"
+            ],
+            [
+              "Jorvik",
+              "267,817",
+              "23.4",
+              "122"
             ]
           ]
         }
       ],
-      "stem": "By what percentage was electricity use per inhabitant in Dunmark higher than in Norvale?",
+      "stem": "By what percentage was electricity use per inhabitant in Jorvik higher than in Calmora?",
       "options": [
-        "414.9%",
-        "438.7%",
-        "448.8%",
-        "491.9%",
-        "537.3%"
+        "891.9%",
+        "908.5%",
+        "947.8%",
+        "1,090.3%",
+        "1,132.1%"
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Compute the per-inhabitant value for both countries.",
         "The country after \"than\" is the base of the comparison."
       ],
       "solution": [
-        "Dunmark: 219,522 ÷ 3.2 = 68,600.625",
-        "Norvale: 288,601 ÷ 24.9 = 11,590.402",
-        "(68,600.625 ÷ 11,590.402 − 1) × 100 = 491.87%"
+        "Jorvik: 267,817 ÷ 23.4 = 11,445.171",
+        "Calmora: 14,527 ÷ 13.3 = 1,092.256",
+        "(11,445.171 ÷ 1,092.256 − 1) × 100 = 947.85%"
       ],
       "optionNotes": [
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
+        "This compares Dunmark with Calmora.",
+        "This compares Quarta with Calmora.",
         "Correct.",
-        "This compares with Galvia."
+        "This divides Jorvik's total by Aldoria's population.",
+        "This divides Jorvik's total by Dunmark's population."
       ],
       "explanation": "In \"how much higher than the other country\", the country after \"than\" is the base. Reversing the base gives a smaller, wrong percentage."
     },
     {
-      "id": "n04-04",
+      "id": "n04-04-r2",
+      "supersedes": "n04-04",
       "topic": "Averages over part of a period",
       "difficulty": 1,
       "exhibits": [
@@ -249,80 +253,81 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Station A",
-              "31",
-              "53",
-              "123",
+              "34",
+              "102",
+              "124",
+              "35",
+              "111",
               "112",
-              "114",
-              "67",
-              "99",
               "126",
-              "116",
-              "81",
-              "61",
-              "37"
+              "64",
+              "80",
+              "51",
+              "27",
+              "23"
             ],
             [
               "Station B",
-              "47",
               "27",
-              "63",
-              "37",
-              "126",
-              "20",
-              "125",
+              "107",
+              "89",
+              "47",
+              "49",
+              "42",
+              "50",
+              "29",
+              "97",
               "105",
-              "54",
-              "54",
-              "28",
-              "97"
+              "34",
+              "77"
             ],
             [
               "Station C",
+              "104",
+              "85",
               "94",
-              "30",
-              "55",
-              "34",
-              "138",
-              "36",
-              "43",
-              "108",
+              "72",
+              "67",
               "35",
-              "115",
-              "43",
-              "71"
+              "98",
+              "75",
+              "29",
+              "119",
+              "39",
+              "19"
             ]
           ]
         }
       ],
       "stem": "What was the average monthly rainfall for Station C from September to December inclusive?",
       "options": [
-        "58.3",
-        "64.3",
-        "66.0",
-        "73.8",
-        "76.3"
+        "51.5",
+        "59.0",
+        "62.3",
+        "68.7",
+        "69.7"
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Count the months from September to December, including both.",
         "Add them and divide by that number."
       ],
       "solution": [
-        "35 + 115 + 43 + 71 = 264",
-        "264 ÷ 4 = 66.00"
+        "29 + 119 + 39 + 19 = 206",
+        "206 ÷ 4 = 51.50"
       ],
       "optionNotes": [
-        "This uses the row for Station B.",
-        "This leaves out Dec.",
         "Correct.",
-        "This uses the row for Station A.",
-        "This leaves out Sep."
+        "This leaves out Sep.",
+        "This leaves out Dec.",
+        "This divides by one month too few.",
+        "This averages the whole year."
       ],
       "explanation": "\"Inclusive\" ranges are easy to miscount. Count the months before dividing."
     },
     {
-      "id": "n04-05",
+      "id": "n04-05-r2",
+      "supersedes": "n04-05",
       "topic": "Percentage change of a total",
       "difficulty": 1,
       "exhibits": [
@@ -339,78 +344,79 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Energy",
-              "1,122",
-              "1,189",
-              "1,141",
-              "1,118"
-            ],
-            [
-              "Health",
-              "1,320",
-              "1,412",
-              "1,398",
-              "1,426"
+              "2,118",
+              "2,033",
+              "2,033",
+              "2,216"
             ],
             [
               "Transport",
-              "3,398",
-              "3,330",
-              "3,463",
-              "3,463"
+              "1,225",
+              "1,250",
+              "1,325",
+              "1,272"
             ],
             [
               "Materials",
-              "1,875",
-              "1,950",
-              "2,048",
-              "2,212"
+              "2,172",
+              "2,215",
+              "2,348",
+              "2,301"
+            ],
+            [
+              "Digital",
+              "3,915",
+              "4,072",
+              "4,235",
+              "4,447"
             ],
             [
               "Food",
-              "3,355",
-              "3,489",
-              "3,559",
-              "3,630"
+              "2,062",
+              "2,227",
+              "2,205",
+              "2,315"
             ],
             [
               "Chemicals",
-              "1,355",
-              "1,314",
-              "1,288",
-              "1,275"
+              "4,197",
+              "4,365",
+              "4,758",
+              "4,948"
             ]
           ]
         }
       ],
       "stem": "By what percentage did the combined number of applications of the six sectors change between 2020 and 2023?",
       "options": [
-        "5.0%",
-        "5.1%",
-        "5.3%",
-        "5.4%",
-        "5.6%"
+        "9.7%",
+        "10.3%",
+        "10.6%",
+        "11.5%",
+        "12.3%"
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Add up the 2020 column and the 2023 column; ignore the other years.",
         "Percentage change = (new total − old total) ÷ old total × 100."
       ],
       "solution": [
-        "Total 2020 = 1,122 + 1,320 + 3,398 + 1,875 + 3,355 + 1,355 = 12,425",
-        "Total 2023 = 1,118 + 1,426 + 3,463 + 2,212 + 3,630 + 1,275 = 13,124",
-        "Change = (13,124 − 12,425) ÷ 12,425 × 100 = 5.63%"
+        "Total 2020 = 2,118 + 1,225 + 2,172 + 3,915 + 2,062 + 4,197 = 15,689",
+        "Total 2023 = 2,216 + 1,272 + 2,301 + 4,447 + 2,315 + 4,948 = 17,499",
+        "Change = (17,499 − 15,689) ÷ 15,689 × 100 = 11.54%"
       ],
       "optionNotes": [
         "This averages the six individual percentage changes; rows of different sizes must be added up first.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This divides the change by the 2023 total. Always divide by the starting value.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Correct."
+        "This multiplies a one-year change by the number of years instead of comparing the two years directly.",
+        "Correct.",
+        "This is the change for Food alone, not for the total."
       ],
       "explanation": "Total first, then the percentage. Averaging row percentages and dividing by the later value are the two classic errors; extra years in the table are there to distract."
     },
     {
-      "id": "n04-06",
+      "id": "n04-06-r2",
+      "supersedes": "n04-06",
       "topic": "Share of a total",
       "difficulty": 1,
       "exhibits": [
@@ -425,51 +431,51 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
+              "Jorvik",
+              "13.6",
+              "293",
+              "97"
+            ],
+            [
               "Calmora",
-              "2.1",
-              "365",
-              "92"
-            ],
-            [
-              "Ostland",
-              "12.2",
-              "340",
-              "33"
-            ],
-            [
-              "Sundra",
-              "6.9",
-              "117",
-              "37"
-            ],
-            [
-              "Rosmark",
-              "12.0",
-              "140",
-              "19"
-            ],
-            [
-              "Galvia",
-              "9.7",
-              "350",
-              "21"
+              "17.4",
+              "218",
+              "70"
             ],
             [
               "Dunmark",
-              "15.0",
-              "386",
-              "30"
+              "2.2",
+              "245",
+              "66"
+            ],
+            [
+              "Estoria",
+              "12.7",
+              "425",
+              "157"
+            ],
+            [
+              "Rosmark",
+              "17.1",
+              "336",
+              "116"
+            ],
+            [
+              "Marrow",
+              "10.8",
+              "385",
+              "97"
             ]
           ]
         }
       ],
-      "stem": "What share of the combined GDP of the six countries do Calmora and Rosmark account for together?",
+      "stem": "What share of the combined GDP of the six countries do Jorvik and Estoria account for together?",
       "options": [
-        "24.4%",
-        "25.8%",
-        "26.6%",
-        "28.3%",
-        "29.7%"
+        "33.1%",
+        "33.8%",
+        "35.2%",
+        "35.6%",
+        "37.7%"
       ],
       "answer": 4,
       "hints": [
@@ -477,21 +483,22 @@ EPSO_BANK.registerSet({
         "Add the two countries, then divide by the total of all six."
       ],
       "solution": [
-        "Calmora + Rosmark = 365.0 + 140.0 = 505.0",
-        "Total of six = 365.0 + 340.0 + 117.0 + 140.0 + 350.0 + 386.0 = 1,698.0",
-        "Share = 505.0 ÷ 1,698.0 × 100 = 29.74%"
+        "Jorvik + Estoria = 293.0 + 425.0 = 718.0",
+        "Total of six = 293.0 + 218.0 + 245.0 + 425.0 + 336.0 + 385.0 = 1,902.0",
+        "Share = 718.0 ÷ 1,902.0 × 100 = 37.75%"
       ],
       "optionNotes": [
+        "This adds the wrong country: check that you are using Jorvik and Estoria.",
+        "This adds the wrong country: check that you are using Jorvik and Estoria.",
+        "This adds the wrong country: check that you are using Jorvik and Estoria.",
         "This uses the population column instead of GDP.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This adds the wrong country: check that you are using Calmora and Rosmark.",
         "Correct."
       ],
       "explanation": "Locate the right column and the right base. Distractors use the neighbouring column or the wrong denominator."
     },
     {
-      "id": "n04-07",
+      "id": "n04-07-r2",
+      "supersedes": "n04-07",
       "topic": "Per-capita change",
       "difficulty": 3,
       "exhibits": [
@@ -507,72 +514,73 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Aldoria",
-              "445",
-              "498",
-              "25.7",
-              "26.0"
+              "Marrow",
+              "355",
+              "380",
+              "5.8",
+              "6.0"
             ],
             [
-              "Lunaria",
-              "371",
-              "412",
-              "23.2",
-              "23.0"
+              "Hollen",
+              "193",
+              "235",
+              "31.8",
+              "31.2"
             ],
             [
-              "Norvale",
-              "180",
-              "211",
-              "13.1",
-              "13.8"
+              "Fernland",
+              "288",
+              "343",
+              "37.2",
+              "36.8"
             ],
             [
-              "Brevania",
-              "251",
-              "294",
-              "19.1",
-              "18.5"
+              "Quarta",
+              "584",
+              "677",
+              "9.6",
+              "9.7"
             ],
             [
-              "Dunmark",
-              "532",
-              "649",
-              "20.6",
-              "20.6"
+              "Estoria",
+              "580",
+              "708",
+              "5.7",
+              "6.0"
             ]
           ]
         }
       ],
-      "stem": "By what percentage did GDP per inhabitant in Brevania change between 2020 and 2023?",
+      "stem": "By what percentage did GDP per inhabitant in Quarta change between 2020 and 2023?",
       "options": [
-        "17.1%",
-        "19.7%",
-        "20.3%",
-        "20.9%",
-        "22.0%"
+        "14.7%",
+        "14.9%",
+        "15.9%",
+        "16.0%",
+        "20.4%"
       ],
-      "answer": 3,
+      "answer": 0,
       "hints": [
         "Compute GDP per inhabitant for both years first.",
         "Then calculate the percentage change between the two per-capita values."
       ],
       "solution": [
-        "2020: 251 ÷ 19.1 = 13.141 (EUR thousand per person)",
-        "2023: 294 ÷ 18.5 = 15.892",
-        "Change = 15.892 ÷ 13.141 − 1 = 20.93%"
+        "2020: 584 ÷ 9.6 = 60.833 (EUR thousand per person)",
+        "2023: 677 ÷ 9.7 = 69.794",
+        "Change = 69.794 ÷ 60.833 − 1 = 14.73%"
       ],
       "optionNotes": [
-        "This is the change in total GDP; it ignores the change in population.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Subtracting the population change from the GDP change is only an approximation; divide per-capita values instead.",
         "Correct.",
-        "This is the change for Dunmark."
+        "Subtracting the population change from the GDP change is only an approximation; divide per-capita values instead.",
+        "This is the change in total GDP; it ignores the change in population.",
+        "This is the change for Estoria.",
+        "This is the change for Fernland."
       ],
       "explanation": "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
     },
     {
-      "id": "n04-08",
+      "id": "n04-08-r2",
+      "supersedes": "n04-08",
       "topic": "Percentage points",
       "difficulty": 1,
       "exhibits": [
@@ -592,34 +600,34 @@ EPSO_BANK.registerSet({
             {
               "name": "Region North",
               "values": [
-                14.3,
-                17.1,
-                18.3,
-                19.3,
-                21.9,
-                22.5
+                23.4,
+                24.5,
+                26.3,
+                27.7,
+                28.3,
+                31.4
               ]
             },
             {
               "name": "Region South",
               "values": [
-                29.5,
-                31.6,
-                34.3,
-                35.8,
-                38.9,
-                40.1
+                17.6,
+                19.8,
+                20.7,
+                22.1,
+                24.9,
+                25.9
               ]
             },
             {
               "name": "Region East",
               "values": [
-                22.6,
-                24.1,
-                24.7,
-                26.1,
-                27,
-                29.5
+                18.2,
+                19.4,
+                22.5,
+                24.8,
+                25.5,
+                27.5
               ]
             }
           ]
@@ -627,11 +635,11 @@ EPSO_BANK.registerSet({
       ],
       "stem": "By how many percentage points did the share for Region South increase between 2019 and 2023?",
       "options": [
-        "7.3 percentage points",
-        "8.5 percentage points",
-        "9.2 percentage points",
-        "9.6 percentage points",
-        "10.6 percentage points"
+        "5.2 percentage points",
+        "6.1 percentage points",
+        "6.9 percentage points",
+        "8.1 percentage points",
+        "8.3 percentage points"
       ],
       "answer": 1,
       "hints": [
@@ -639,20 +647,21 @@ EPSO_BANK.registerSet({
         "Read the values labelled on the chart for the right series and years."
       ],
       "solution": [
-        "2023: 40.1%; 2019: 31.6%",
-        "Difference: 40.1 − 31.6 = 8.5 percentage points"
+        "2023: 25.9%; 2019: 19.8%",
+        "Difference: 25.9 − 19.8 = 6.1 percentage points"
       ],
       "optionNotes": [
-        "This stops at 2022.",
+        "This starts from 2020 instead of 2019.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
+        "This is the change for Region North.",
+        "This is the change for Region East.",
         "This starts from 2018."
       ],
       "explanation": "Percentage points measure the gap between two percentages; a percentage change measures that gap relative to the start. Check which the question asks for."
     },
     {
-      "id": "n04-09",
+      "id": "n04-09-r2",
+      "supersedes": "n04-09",
       "topic": "Ratios from a chart",
       "difficulty": 1,
       "answerType": "category",
@@ -673,23 +682,23 @@ EPSO_BANK.registerSet({
             {
               "name": "Exports",
               "values": [
-                105,
-                79,
-                87,
-                55,
-                121,
-                80
+                108,
+                94,
+                42,
+                115,
+                99,
+                73
               ]
             },
             {
               "name": "Imports",
               "values": [
-                68,
-                54,
-                54,
-                45,
-                74,
-                74
+                78,
+                62,
+                30,
+                72,
+                67,
+                69
               ]
             }
           ]
@@ -709,24 +718,25 @@ EPSO_BANK.registerSet({
         "Compare ratios, not bar heights."
       ],
       "solution": [
-        "2019: 105 ÷ 68 = 1.544",
-        "2021: 87 ÷ 54 = 1.611",
-        "2022: 55 ÷ 45 = 1.222",
-        "2023: 121 ÷ 74 = 1.635",
-        "2024: 80 ÷ 74 = 1.081",
+        "2019: 108 ÷ 78 = 1.385",
+        "2021: 42 ÷ 30 = 1.400",
+        "2022: 115 ÷ 72 = 1.597",
+        "2023: 99 ÷ 67 = 1.478",
+        "2024: 73 ÷ 69 = 1.058",
         "Lowest: 2024"
       ],
       "optionNotes": [
-        "105 ÷ 68 ≈ 1.544.",
-        "87 ÷ 54 ≈ 1.611.",
-        "55 ÷ 45 ≈ 1.222.",
-        "121 ÷ 74 ≈ 1.635. The tallest exports bar is not the lowest ratio.",
-        "Correct: 80 ÷ 74 ≈ 1.081."
+        "108 ÷ 78 ≈ 1.385.",
+        "42 ÷ 30 ≈ 1.400.",
+        "115 ÷ 72 ≈ 1.597. The tallest exports bar is not the lowest ratio.",
+        "99 ÷ 67 ≈ 1.478.",
+        "Correct: 73 ÷ 69 ≈ 1.058."
       ],
       "explanation": "Compute every candidate ratio. The visually dominant bar is usually a distractor."
     },
     {
-      "id": "n04-10",
+      "id": "n04-10-r2",
+      "supersedes": "n04-10",
       "topic": "Weighted average",
       "difficulty": 2,
       "exhibits": [
@@ -742,32 +752,32 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "School 1",
-              "472",
-              "64",
-              "39"
+              "212",
+              "48",
+              "33"
             ],
             [
               "School 2",
-              "322",
-              "53",
-              "39"
+              "91",
+              "82",
+              "38"
             ],
             [
               "School 3",
-              "282",
-              "83",
-              "35"
+              "479",
+              "64",
+              "54"
             ],
             [
               "School 4",
-              "123",
-              "80",
-              "52"
+              "60",
+              "54",
+              "39"
             ],
             [
               "School 5",
-              "314",
-              "51",
+              "326",
+              "72",
               "51"
             ]
           ]
@@ -775,34 +785,35 @@ EPSO_BANK.registerSet({
       ],
       "stem": "What is the average score across all students in School 1, School 3 and School 4 combined?",
       "options": [
-        "67.31",
-        "71.11",
-        "72.35",
-        "75.67",
-        "82.09"
+        "58.68",
+        "59.09",
+        "61.20",
+        "62.71",
+        "62.89"
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Multiply each group's average by its size.",
         "Divide the sum by the total number of people in the three groups."
       ],
       "solution": [
-        "School 1: 472 × 64 = 30,208",
-        "School 3: 282 × 83 = 23,406",
-        "School 4: 123 × 80 = 9,840",
-        "Sum ÷ people: 63,454 ÷ (472 + 282 + 123) = 72.35"
+        "School 1: 212 × 48 = 10,176",
+        "School 3: 479 × 64 = 30,656",
+        "School 4: 60 × 54 = 3,240",
+        "Sum ÷ people: 44,072 ÷ (212 + 479 + 60) = 58.68"
       ],
       "optionNotes": [
-        "This uses School 1, School 4: check which groups the question names.",
-        "This uses School 1, School 3: check which groups the question names.",
         "Correct.",
-        "This is the simple average of the three values; larger groups must weigh more.",
+        "This uses School 1, School 3: check which groups the question names.",
+        "This uses School 1, School 2, School 3, School 4: check which groups the question names.",
+        "This uses School 1, School 3, School 4, School 5: check which groups the question names.",
         "This uses School 3, School 4: check which groups the question names."
       ],
       "explanation": "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
     },
     {
-      "id": "n04-11",
+      "id": "n04-11-r2",
+      "supersedes": "n04-11",
       "topic": "Removing VAT",
       "difficulty": 2,
       "exhibits": [
@@ -819,37 +830,37 @@ EPSO_BANK.registerSet({
             [
               "No. 101",
               "Dunmark",
-              "4,378",
+              "8,895",
               "25"
             ],
             [
               "No. 102",
               "Aldoria",
-              "9,706",
+              "5,061",
               "21"
             ],
             [
               "No. 103",
               "Brevania",
-              "6,046",
+              "7,500",
               "19"
             ],
             [
               "No. 104",
               "Dunmark",
-              "4,625",
+              "5,744",
               "25"
             ],
             [
               "No. 105",
               "Calmora",
-              "1,243",
+              "8,112",
               "23"
             ],
             [
               "No. 106",
               "Aldoria",
-              "9,391",
+              "4,859",
               "21"
             ]
           ]
@@ -857,33 +868,34 @@ EPSO_BANK.registerSet({
       ],
       "stem": "What is the total amount excluding VAT of the invoices from suppliers in Dunmark?",
       "options": [
-        "EUR 6,752.25",
-        "EUR 7,202.40",
-        "EUR 7,502.50",
-        "EUR 7,619.59",
-        "EUR 8,583.07"
+        "EUR 10,979.25",
+        "EUR 11,298.64",
+        "EUR 11,711.20",
+        "EUR 12,098.35",
+        "EUR 12,199.17"
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Select the invoices from that country only.",
         "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
       ],
       "solution": [
-        "4,378 ÷ 1.25 = 3,502.40",
-        "4,625 ÷ 1.25 = 3,700.00",
-        "Total = 3,502.40 + 3,700.00 = EUR 7,202.40"
+        "8,895 ÷ 1.25 = 7,116.00",
+        "5,744 ÷ 1.25 = 4,595.20",
+        "Total = 7,116.00 + 4,595.20 = EUR 11,711.20"
       ],
       "optionNotes": [
         "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
+        "This includes an invoice from another country.",
         "Correct.",
-        "This applies a flat 20% instead of the rate shown for each invoice.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This includes an invoice from another country."
+        "This applies another country's VAT rate.",
+        "This applies a flat 20% instead of the rate shown for each invoice."
       ],
       "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
     },
     {
-      "id": "n04-12",
+      "id": "n04-12-r2",
+      "supersedes": "n04-12",
       "topic": "Budget reallocation",
       "difficulty": 2,
       "exhibits": [
@@ -894,33 +906,33 @@ EPSO_BANK.registerSet({
           "slices": [
             {
               "label": "Salaries",
-              "value": 10
-            },
-            {
-              "label": "Buildings",
               "value": 13
             },
             {
+              "label": "Buildings",
+              "value": 9
+            },
+            {
               "label": "IT",
-              "value": 18
+              "value": 33
             },
             {
               "label": "Missions",
-              "value": 17
+              "value": 9
             },
             {
               "label": "Training",
-              "value": 21
+              "value": 25
             },
             {
               "label": "Studies",
-              "value": 21
+              "value": 11
             }
           ]
         },
         {
           "type": "table",
-          "title": "Last year (total EUR 80.8 million)",
+          "title": "Last year (total EUR 77.4 million)",
           "columns": [
             "Heading",
             "Share (%)",
@@ -929,32 +941,32 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Salaries",
-              "12",
+              "15",
               "-2"
             ],
             [
               "Buildings",
-              "10",
+              "6",
               "+3"
             ],
             [
               "IT",
-              "19",
+              "34",
               "-1"
             ],
             [
               "Missions",
-              "20",
+              "12",
               "-3"
             ],
             [
               "Training",
-              "19",
+              "23",
               "+2"
             ],
             [
               "Studies",
-              "20",
+              "10",
               "+1"
             ]
           ]
@@ -962,11 +974,11 @@ EPSO_BANK.registerSet({
       ],
       "stem": "If 15% of the buildings budget is moved to training, what will the training budget be?",
       "options": [
-        "EUR 16.56 million",
-        "EUR 17.63 million",
-        "EUR 19.35 million",
-        "EUR 19.74 million",
-        "EUR 20.77 million"
+        "EUR 18.50 million",
+        "EUR 20.55 million",
+        "EUR 21.50 million",
+        "EUR 22.66 million",
+        "EUR 22.92 million"
       ],
       "answer": 3,
       "hints": [
@@ -974,21 +986,22 @@ EPSO_BANK.registerSet({
         "The amount moved is 15% of the buildings budget, not of the total."
       ],
       "solution": [
-        "Buildings: 13% × 86 = EUR 11.18 million",
-        "Moved: 15% × that = EUR 1.68 million",
-        "Training: 21% × 86 + moved = EUR 19.74 million"
+        "Buildings: 9% × 86 = EUR 7.74 million",
+        "Moved: 15% × that = EUR 1.16 million",
+        "Training: 25% × 86 + moved = EUR 22.66 million"
       ],
       "optionNotes": [
         "This uses last year's figures instead of this year's.",
         "This uses last year's shares with this year's total.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
+        "This leaves the receiving budget unchanged, omitting the transfer.",
         "Correct.",
-        "This increases training by 15% of its own budget."
+        "This transfers 15% of studies instead of buildings."
       ],
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n04-13",
+      "id": "n04-13-r2",
+      "supersedes": "n04-13",
       "topic": "Shares in a stacked chart",
       "difficulty": 1,
       "exhibits": [
@@ -1007,31 +1020,31 @@ EPSO_BANK.registerSet({
             {
               "name": "Road",
               "values": [
-                63,
-                126,
+                108,
+                117,
+                33,
                 61,
-                104,
-                106
+                151
               ]
             },
             {
               "name": "Rail",
               "values": [
-                73,
-                104,
-                53,
-                38,
-                40
+                59,
+                84,
+                30,
+                77,
+                33
               ]
             },
             {
               "name": "Waterways",
               "values": [
-                123,
-                62,
-                108,
-                89,
-                135
+                131,
+                81,
+                150,
+                66,
+                31
               ]
             }
           ]
@@ -1039,32 +1052,33 @@ EPSO_BANK.registerSet({
       ],
       "stem": "In 2020, what percentage of the total did rail account for?",
       "options": [
-        "28.2%",
-        "30.9%",
-        "31.6%",
-        "33.9%",
-        "35.6%"
+        "29.8%",
+        "37.7%",
+        "39.1%",
+        "39.4%",
+        "41.2%"
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "Add the three segments for 2020 (or read the total above the bar).",
         "Divide the component by that total."
       ],
       "solution": [
-        "Total 2020 = 126 + 104 + 62 = 292",
-        "Share = 104 ÷ 292 × 100 = 35.62%"
+        "Total 2020 = 117 + 84 + 81 = 282",
+        "Share = 84 ÷ 282 × 100 = 29.79%"
       ],
       "optionNotes": [
-        "This is the share in 2019.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Correct."
+        "Correct.",
+        "This is the share in 2022.",
+        "This divides the requested component by the total for 2023.",
+        "This divides the requested component by the total for 2021.",
+        "This divides the requested component by the total for 2022."
       ],
       "explanation": "In stacked charts, the base is the whole bar. Dividing by the other segments overstates the share."
     },
     {
-      "id": "n04-14",
+      "id": "n04-14-r2",
+      "supersedes": "n04-14",
       "topic": "Rates with changing base",
       "difficulty": 3,
       "exhibits": [
@@ -1080,66 +1094,67 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Uplands",
-              "310",
-              "25.1",
-              "-1.9",
-              "0"
-            ],
-            [
               "Islands",
-              "220",
-              "21.6",
-              "+1.9",
+              "350",
+              "16.3",
+              "+2.8",
               "0"
             ],
             [
-              "South",
-              "190",
-              "26.8",
-              "-1.4",
-              "0"
+              "Uplands",
+              "180",
+              "22.4",
+              "+0.2",
+              "−1"
             ],
             [
-              "East",
-              "260",
-              "15.0",
-              "+3.5",
+              "West",
+              "340",
+              "22.1",
+              "+2.9",
+              "+1"
+            ],
+            [
+              "Centre",
+              "230",
+              "25.5",
+              "+1.1",
               "+1"
             ]
           ]
         }
       ],
-      "stem": "What was the share exporting in East in 2024?",
+      "stem": "What was the share exporting in Centre in 2024?",
       "options": [
-        "14.12%",
-        "14.49%",
-        "14.86%",
-        "15.38%",
-        "18.50%"
+        "24.81%",
+        "25.02%",
+        "25.20%",
+        "25.22%",
+        "25.65%"
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "Turn the 2023 rate into a number of exporting firms first.",
         "Then update both that number and the base before dividing."
       ],
       "solution": [
-        "2023: 15% × 260 = 39.0 thousand",
-        "2024 exporting firms: 39.0 + 1 = 40.0",
-        "2024 base: 260 × 1.035 = 269.1",
-        "Rate = 40.0 ÷ 269.1 × 100 = 14.864%"
+        "2023: 25.5% × 230 = 58.6 thousand",
+        "2024 exporting firms: 58.6 + 1 = 59.6",
+        "2024 base: 230 × 1.011 = 232.5",
+        "Rate = 59.6 ÷ 232.5 × 100 = 25.653%"
       ],
       "optionNotes": [
-        "This applies the change in exporting firms in the wrong direction.",
+        "This applies the changes for Islands instead.",
+        "This applies the changes for Uplands instead.",
+        "This applies the changes for West instead.",
         "This changes the base but not the number of exporting firms.",
-        "Correct.",
-        "This keeps the 2023 registered firms; the base changed too.",
-        "Adding the two percentages has no meaning here."
+        "Correct."
       ],
       "explanation": "When a rate's base moves, recompute both parts of the fraction."
     },
     {
-      "id": "n04-15",
+      "id": "n04-15-r2",
+      "supersedes": "n04-15",
       "topic": "Growth projection",
       "difficulty": 2,
       "exhibits": [
@@ -1170,12 +1185,12 @@ EPSO_BANK.registerSet({
             {
               "name": "Fuel stations",
               "values": [
-                17.2,
-                21.3,
-                22.9,
-                27.4,
-                32.2,
-                34.2
+                13.9,
+                16.8,
+                20.6,
+                26,
+                32,
+                33.1
               ]
             }
           ]
@@ -1208,7 +1223,8 @@ EPSO_BANK.registerSet({
       "explanation": "A constant percentage rate compounds. Linear and non-compounded projections are the usual distractors."
     },
     {
-      "id": "n04-16",
+      "id": "n04-16-r2",
+      "supersedes": "n04-16",
       "topic": "Units and per-capita values",
       "difficulty": 2,
       "exhibits": [
@@ -1223,66 +1239,67 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Istrada",
-              "428",
-              "27.6",
-              "83"
-            ],
-            [
-              "Calmora",
-              "305",
-              "14.5",
-              "273"
+              "Jorvik",
+              "129",
+              "7.8",
+              "73"
             ],
             [
               "Aldoria",
-              "75",
-              "5.4",
-              "193"
+              "198",
+              "11.4",
+              "72"
             ],
             [
-              "Sundra",
-              "363",
-              "28.3",
-              "116"
+              "Lunaria",
+              "532",
+              "28.5",
+              "188"
             ],
             [
-              "Pellam",
-              "165",
-              "11.8",
-              "106"
+              "Fernland",
+              "65",
+              "3.8",
+              "226"
+            ],
+            [
+              "Estoria",
+              "290",
+              "15.4",
+              "157"
             ]
           ]
         }
       ],
-      "stem": "What was gas consumption per inhabitant in Sundra, in kWh?",
+      "stem": "What was gas consumption per inhabitant in Fernland, in kWh?",
       "options": [
-        "12,827 kWh",
-        "13,152 kWh",
-        "13,530 kWh",
-        "13,889 kWh",
-        "15,507 kWh"
+        "16,538 kWh",
+        "17,105 kWh",
+        "17,368 kWh",
+        "18,667 kWh",
+        "18,831 kWh"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Convert the units first: 1 TWh = 1,000,000,000 kWh.",
         "Then divide by the population (in persons, not millions)."
       ],
       "solution": [
         "Units: 1 TWh = 1,000,000,000 kWh.",
-        "363 TWh ÷ 28.3 million people × 1,000 = 12,826.86 kWh per person"
+        "65 TWh ÷ 3.8 million people × 1,000 = 17,105.26 kWh per person"
       ],
       "optionNotes": [
+        "This uses the figures for Jorvik.",
         "Correct.",
-        "This divides by the population of Istrada.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This uses the figures for Aldoria.",
-        "This uses the figures for Istrada."
+        "This uses the figures for Lunaria.",
+        "This uses the figures for Estoria."
       ],
       "explanation": "Unit traps are common: 1 TWh = 1,000,000,000 kWh. If your answer is 1,000 times too large or small, recheck the conversion before choosing."
     },
     {
-      "id": "n04-17",
+      "id": "n04-17-r2",
+      "supersedes": "n04-17",
       "topic": "Average speed",
       "difficulty": 2,
       "exhibits": [
@@ -1298,60 +1315,61 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Leg 1",
-              "22",
-              "97",
-              "7"
+              "14",
+              "100",
+              "9"
             ],
             [
               "Leg 2",
-              "31",
-              "35",
-              "20"
+              "13",
+              "58",
+              "23"
             ],
             [
               "Leg 3",
-              "14",
-              "93",
-              "25"
+              "29",
+              "72",
+              "24"
             ],
             [
               "Leg 4",
-              "30",
-              "67",
-              "19"
+              "19",
+              "66",
+              "13"
             ]
           ]
         }
       ],
       "stem": "What was the average speed over the whole journey, including all the stops listed?",
       "options": [
-        "16.0 km/h",
-        "16.9 km/h",
-        "17.5 km/h",
-        "18.2 km/h",
-        "19.9 km/h"
+        "11.6 km/h",
+        "11.9 km/h",
+        "12.0 km/h",
+        "12.3 km/h",
+        "12.6 km/h"
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Average speed = total distance ÷ total time.",
         "Total time includes travel time and every stop."
       ],
       "solution": [
-        "Distance = 97 km",
-        "Time = 292 + 71 = 363 min",
-        "97 ÷ 363 × 60 = 16.03 km/h"
+        "Distance = 75 km",
+        "Time = 296 + 69 = 365 min",
+        "75 ÷ 365 × 60 = 12.33 km/h"
       ],
       "optionNotes": [
+        "This counts the stop after leg 2 twice.",
+        "This counts the stop after leg 4 twice.",
+        "This counts the stop after leg 1 twice.",
         "Correct.",
-        "This leaves out the last stop.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This excludes the stops."
+        "This leaves out the stop after leg 1."
       ],
       "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; averaging speeds is always wrong for unequal legs."
     },
     {
-      "id": "n04-18",
+      "id": "n04-18-r2",
+      "supersedes": "n04-18",
       "topic": "Successive percentage changes",
       "difficulty": 2,
       "exhibits": [
@@ -1368,71 +1386,72 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Cleaning",
-              "12,810",
-              "-0.1",
-              "-2.9",
-              "0.0"
+              "3,937",
+              "3.8",
+              "-1.1",
+              "7.0"
             ],
             [
               "Security",
-              "3,077",
-              "1.7",
-              "-3.8",
-              "-8.0"
+              "21,066",
+              "-2.1",
+              "10.0",
+              "4.7"
             ],
             [
               "Maintenance",
-              "16,835",
-              "-2.2",
-              "7.6",
-              "5.9"
+              "18,460",
+              "4.8",
+              "-5.7",
+              "-7.2"
             ],
             [
               "Catering",
-              "1,882",
-              "-6.3",
-              "3.2",
-              "9.8"
+              "12,788",
+              "-5.6",
+              "-5.5",
+              "-0.1"
             ],
             [
               "Gardening",
-              "22,325",
-              "-0.4",
-              "-6.7",
-              "8.1"
+              "11,196",
+              "-3.5",
+              "0.5",
+              "7.3"
             ]
           ]
         }
       ],
       "stem": "What was the price of cleaning at the end of 2024?",
       "options": [
-        "EUR 12,426.07",
-        "EUR 12,684.71",
-        "EUR 12,904.29",
-        "EUR 13,165.66",
-        "EUR 13,385.38"
+        "EUR 4,041.65",
+        "EUR 4,166.25",
+        "EUR 4,277.00",
+        "EUR 4,318.89",
+        "EUR 4,324.57"
       ],
-      "answer": 0,
+      "answer": 4,
       "hints": [
         "Apply each year's change to the price at the end of the previous year.",
         "Multiply by (1 + change) three times."
       ],
       "solution": [
-        "End of 2022: 12,810 × 0.999 = EUR 12,797.19",
-        "End of 2023: × 0.971 = EUR 12,426.07",
-        "End of 2024: × 1.000 = EUR 12,426.07"
+        "End of 2022: 3,937 × 1.038 = EUR 4,086.61",
+        "End of 2023: × 0.989 = EUR 4,041.65",
+        "End of 2024: × 1.070 = EUR 4,324.57"
       ],
       "optionNotes": [
-        "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This stops at the end of 2023.",
+        "This leaves out the 2022 change.",
+        "This applies the 2023 change twice.",
+        "This adds the three percentages; changes compound, so multiply instead.",
+        "Correct."
       ],
       "explanation": "Successive percentage changes multiply. Adding them is only an approximation, and the error grows with the size of the changes."
     },
     {
-      "id": "n04-19",
+      "id": "n04-19-r2",
+      "supersedes": "n04-19",
       "topic": "Percentages of percentages",
       "difficulty": 2,
       "exhibits": [
@@ -1448,65 +1467,66 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "15–19",
-              "1,215",
-              "84",
-              "76"
+              "1,099",
+              "85",
+              "45"
             ],
             [
               "20–29",
-              "862",
-              "63",
-              "70"
+              "351",
+              "70",
+              "75"
             ],
             [
               "30–44",
-              "2,190",
-              "70",
-              "36"
+              "1,021",
+              "57",
+              "32"
             ],
             [
               "45–59",
-              "930",
-              "88",
-              "73"
+              "944",
+              "53",
+              "61"
             ],
             [
               "60+",
-              "1,318",
-              "78",
-              "30"
+              "813",
+              "49",
+              "69"
             ]
           ]
         }
       ],
       "stem": "How many respondents in the 15–19 group are studying a language online?",
       "options": [
-        "582",
-        "714",
-        "776",
-        "805",
-        "858"
+        "355",
+        "361",
+        "372",
+        "391",
+        "420"
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "First find how many studying a language.",
         "The second percentage applies only to those people, not to all respondents."
       ],
       "solution": [
-        "1,215 × 84% = 1,020.6",
-        "1,020.6 × 76% = 775.7"
+        "1,099 × 85% = 934.1",
+        "934.1 × 45% = 420.4"
       ],
       "optionNotes": [
-        "This takes the first percentage from another group.",
-        "This takes the second percentage from another group.",
-        "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This applies the percentages of the 45–59 group.",
+        "This uses the number of respondents in the 45–59 group.",
+        "This applies the percentages of the 60+ group.",
+        "This uses the number of respondents in the 30–44 group.",
+        "Correct."
       ],
       "explanation": "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
     },
     {
-      "id": "n04-20",
+      "id": "n04-20-r2",
+      "supersedes": "n04-20",
       "topic": "Per-capita comparison",
       "difficulty": 2,
       "answerType": "category",
@@ -1522,51 +1542,51 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Estoria",
-              "240",
-              "186",
-              "18.4"
+              "Marrow",
+              "222",
+              "223",
+              "20.3"
             ],
             [
-              "Pellam",
-              "59",
-              "29",
-              "20.5"
+              "Jorvik",
+              "193",
+              "179",
+              "37.0"
             ],
             [
-              "Ostland",
-              "232",
-              "214",
-              "18.7"
-            ],
-            [
-              "Brevania",
-              "292",
-              "256",
-              "9.6"
+              "Quarta",
+              "172",
+              "193",
+              "37.4"
             ],
             [
               "Aldoria",
-              "55",
-              "80",
-              "3.4"
+              "241",
+              "208",
+              "37.9"
             ],
             [
-              "Lunaria",
-              "141",
-              "166",
-              "12.7"
+              "Kestrel",
+              "168",
+              "147",
+              "11.9"
+            ],
+            [
+              "Norvale",
+              "74",
+              "24",
+              "38.4"
             ]
           ]
         }
       ],
       "stem": "Which of the following countries had the largest trade surplus per inhabitant?",
       "options": [
-        "Estoria",
-        "Pellam",
-        "Ostland",
-        "Brevania",
-        "Lunaria"
+        "Jorvik",
+        "Quarta",
+        "Aldoria",
+        "Kestrel",
+        "Norvale"
       ],
       "answer": 3,
       "hints": [
@@ -1574,24 +1594,25 @@ EPSO_BANK.registerSet({
         "Divide each surplus by the population."
       ],
       "solution": [
-        "Estoria: 54 ÷ 18.4 = 2.935",
-        "Pellam: 30 ÷ 20.5 = 1.463",
-        "Ostland: 18 ÷ 18.7 = 0.963",
-        "Brevania: 36 ÷ 9.6 = 3.750",
-        "Lunaria: -25 ÷ 12.7 = -1.969",
-        "Largest: Brevania"
+        "Jorvik: 14 ÷ 37 = 0.378",
+        "Quarta: -21 ÷ 37.4 = -0.561",
+        "Aldoria: 33 ÷ 37.9 = 0.871",
+        "Kestrel: 21 ÷ 11.9 = 1.765",
+        "Norvale: 50 ÷ 38.4 = 1.302",
+        "Largest: Kestrel"
       ],
       "optionNotes": [
-        "(240 − 186) ÷ 18.4 = 2.93 (EUR thousand per person). Largest surplus in total, but not per person.",
-        "(59 − 29) ÷ 20.5 = 1.46 (EUR thousand per person).",
-        "(232 − 214) ÷ 18.7 = 0.96 (EUR thousand per person).",
-        "Correct. (292 − 256) ÷ 9.6 = 3.75 (EUR thousand per person).",
-        "(141 − 166) ÷ 12.7 = -1.97 (EUR thousand per person)."
+        "(193 − 179) ÷ 37 = 0.38 (EUR thousand per person).",
+        "(172 − 193) ÷ 37.4 = -0.56 (EUR thousand per person).",
+        "(241 − 208) ÷ 37.9 = 0.87 (EUR thousand per person).",
+        "Correct. (168 − 147) ÷ 11.9 = 1.76 (EUR thousand per person).",
+        "(74 − 24) ÷ 38.4 = 1.30 (EUR thousand per person). Largest surplus in total, but not per person."
       ],
       "explanation": "Two steps for every row: a difference, then a division. The largest absolute surplus is the planted trap."
     },
     {
-      "id": "n04-21",
+      "id": "n04-21-r2",
+      "supersedes": "n04-21",
       "topic": "Undoing a percentage change",
       "difficulty": 1,
       "exhibits": [
@@ -1606,66 +1627,67 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
+              "Uplands",
+              "17,017",
+              "+0.4",
+              "220"
+            ],
+            [
               "North",
-              "9,289",
-              "+1.0",
-              "254"
+              "5,568",
+              "+12.7",
+              "380"
             ],
             [
-              "Centre",
-              "12,402",
-              "-4.7",
-              "202"
-            ],
-            [
-              "Islands",
-              "4,177",
-              "-0.2",
-              "150"
-            ],
-            [
-              "West",
-              "2,532",
-              "+4.5",
-              "224"
+              "Coast",
+              "23,997",
+              "-3.3",
+              "45"
             ],
             [
               "South",
-              "3,298",
-              "-5.3",
-              "208"
+              "12,227",
+              "-3.4",
+              "391"
+            ],
+            [
+              "Centre",
+              "23,553",
+              "+11.6",
+              "106"
             ]
           ]
         }
       ],
-      "stem": "How many homes were completed in the Centre region in 2023?",
+      "stem": "How many homes were completed in the North region in 2023?",
       "options": [
-        "11,295",
-        "11,868",
-        "12,167",
-        "12,427",
-        "13,014"
+        "4,941",
+        "4,989",
+        "5,546",
+        "5,758",
+        "5,764"
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "The 2024 value = 2023 value × (1 + change).",
         "So the 2023 value = 2024 value ÷ (1 + change)."
       ],
       "solution": [
-        "Multiplier from 2023 to 2024 = 1 − 4.7% = 0.953",
-        "2023 value = 12,402 ÷ 0.953 = 13,013.6"
+        "Multiplier from 2023 to 2024 = 1 + 12.7% = 1.127",
+        "2023 value = 5,568 ÷ 1.127 = 4,940.6"
       ],
       "optionNotes": [
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
+        "Correct.",
         "This uses another region's rate.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This uses another region's rate.",
-        "Correct."
+        "This uses another region's rate.",
+        "This uses another region's rate."
       ],
       "explanation": "Undo a percentage change by dividing by the multiplier, not by subtracting the percentage from the later value."
     },
     {
-      "id": "n04-22",
+      "id": "n04-22-r2",
+      "supersedes": "n04-22",
       "topic": "Multi-step: unit cost",
       "difficulty": 2,
       "exhibits": [
@@ -1681,59 +1703,60 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Prevention",
-              "148",
-              "12",
+              "20",
+              "72",
               "9"
             ],
             [
               "Screening",
-              "36",
-              "70",
+              "29",
+              "48",
               "12"
             ],
             [
               "Care",
-              "165",
-              "6",
-              "13"
+              "145",
+              "87",
+              "8"
             ],
             [
               "Rehab",
-              "36",
-              "71",
-              "4"
+              "171",
+              "6",
+              "7"
             ]
           ]
         }
       ],
       "stem": "Excluding administrative costs, how much was spent per beneficiary under Rehab?",
       "options": [
-        "EUR 434",
-        "EUR 451",
-        "EUR 461",
-        "EUR 487",
-        "EUR 507"
+        "EUR 24,510",
+        "EUR 25,935",
+        "EUR 26,505",
+        "EUR 27,333",
+        "EUR 28,500"
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Remove the administrative share from the budget first.",
         "Watch the units: budget in millions, beneficiaries in thousands."
       ],
       "solution": [
-        "Programme spending = 36 × (1 − 4%) = EUR 34.56 million",
-        "EUR 34.56 million ÷ 71 thousand = 34,560,000 ÷ 71,000 = EUR 486.8"
+        "Programme spending = 171 × (1 − 7%) = EUR 159.03 million",
+        "EUR 159.03 million ÷ 6 thousand = 159,030,000 ÷ 6,000 = EUR 26,505.0"
       ],
       "optionNotes": [
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This subtracts the percentage as if it were millions of euros.",
+        "This removes the administrative share twice.",
         "This uses another programme's administrative share.",
         "Correct.",
+        "This subtracts the percentage as if it were millions of euros.",
         "This includes the administrative costs."
       ],
       "explanation": "Check what is excluded and convert millions and thousands carefully before dividing."
     },
     {
-      "id": "n04-23",
+      "id": "n04-23-r2",
+      "supersedes": "n04-23",
       "topic": "Shares to amounts",
       "difficulty": 1,
       "exhibits": [
@@ -1744,33 +1767,33 @@ EPSO_BANK.registerSet({
           "slices": [
             {
               "label": "Policy",
-              "value": 9.3
+              "value": 28.9
             },
             {
               "label": "Legal",
-              "value": 17.3
+              "value": 6.5
             },
             {
               "label": "Finance",
-              "value": 7.1
+              "value": 20.6
             },
             {
               "label": "IT",
-              "value": 25.5
+              "value": 7.5
             },
             {
               "label": "HR",
-              "value": 12.2
+              "value": 23.4
             },
             {
               "label": "Support",
-              "value": 28.6
+              "value": 13.1
             }
           ]
         },
         {
           "type": "table",
-          "title": "2023 (total: 2,848 staff)",
+          "title": "2023 (total: 2,592 staff)",
           "columns": [
             "Category",
             "Share 2023 (%)",
@@ -1779,65 +1802,66 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Policy",
-              "7.3",
-              "9.3"
+              "29.3",
+              "28.9"
             ],
             [
               "Legal",
-              "15.2",
-              "17.3"
+              "8.1",
+              "6.5"
             ],
             [
               "Finance",
-              "8.5",
-              "7.1"
+              "23.1",
+              "20.6"
             ],
             [
               "IT",
-              "25.8",
-              "25.5"
+              "8.7",
+              "7.5"
             ],
             [
               "HR",
-              "11.6",
-              "12.2"
+              "21.5",
+              "23.4"
             ],
             [
               "Support",
-              "28.4",
-              "28.6"
+              "13.8",
+              "13.1"
             ]
           ]
         }
       ],
       "stem": "In 2024, how many more staff went to the largest category than to the second-largest?",
       "options": [
-        "83 staff",
-        "88 staff",
-        "99 staff",
-        "106 staff",
-        "109 staff"
+        "143 staff",
+        "176 staff",
+        "189 staff",
+        "202 staff",
+        "237 staff"
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Find the two largest slices.",
         "Subtract their shares, then apply the difference to the total."
       ],
       "solution": [
-        "Support 28.6% − IT 25.5% = 3.1%",
-        "3.1% × 3,200 = 99.2"
+        "Policy 28.9% − HR 23.4% = 5.5%",
+        "5.5% × 3,200 = 176.0"
       ],
       "optionNotes": [
-        "This uses the 2023 shares.",
         "This applies the 2024 shares to the 2023 total.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This mixes last year's largest-category share with this year's second-largest share.",
+        "This uses both last year's shares and last year's total.",
+        "This mixes this year's largest-category share with last year's second-largest share."
       ],
       "explanation": "Shares of the same total can be subtracted before converting into amounts."
     },
     {
-      "id": "n04-24",
+      "id": "n04-24-r2",
+      "supersedes": "n04-24",
       "topic": "Averaging rates",
       "difficulty": 2,
       "exhibits": [
@@ -1853,67 +1877,68 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Provider V",
-              "173",
-              "39",
+              "785",
+              "72",
               "49"
             ],
             [
               "Provider W",
-              "808",
-              "34",
-              "56"
+              "704",
+              "32",
+              "70"
             ],
             [
               "Provider X",
-              "898",
-              "69",
-              "67"
+              "527",
+              "40",
+              "75"
             ],
             [
               "Provider Y",
-              "672",
-              "43",
-              "71"
+              "751",
+              "70",
+              "67"
             ],
             [
               "Provider Z",
-              "426",
-              "59",
-              "52"
+              "814",
+              "63",
+              "69"
             ]
           ]
         }
       ],
       "stem": "What was the overall pass rate across Provider W, Provider X and Provider Z together?",
       "options": [
-        "42.6%",
-        "50.5%",
-        "52.4%",
-        "53.7%",
-        "65.8%"
+        "35.4%",
+        "45.0%",
+        "46.4%",
+        "48.6%",
+        "52.7%"
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Convert each pass rate into a number of passes.",
         "Total passes ÷ total candidates for the three centres."
       ],
       "solution": [
-        "Provider W: 808 × 34% = 274.7",
-        "Provider X: 898 × 69% = 619.6",
-        "Provider Z: 426 × 59% = 251.3",
-        "Passes ÷ candidates: 1,145.7 ÷ (808 + 898 + 426) × 100 = 53.74%"
+        "Provider W: 704 × 32% = 225.3",
+        "Provider X: 527 × 40% = 210.8",
+        "Provider Z: 814 × 63% = 512.8",
+        "Passes ÷ candidates: 948.9 ÷ (704 + 527 + 814) × 100 = 46.40%"
       ],
       "optionNotes": [
-        "This uses Provider W, Provider Z: check which centres are named.",
-        "This includes all five centres.",
         "This uses Provider W, Provider X: check which centres are named.",
+        "This is the simple average of the three rates; centres with more candidates must count more.",
         "Correct.",
-        "This uses Provider X, Provider Z: check which centres are named."
+        "This uses Provider W, Provider Z: check which centres are named.",
+        "This uses Provider W, Provider X, Provider Y, Provider Z: check which centres are named."
       ],
       "explanation": "Rates from groups of different sizes must be weighted. The average score column is irrelevant."
     },
     {
-      "id": "n04-25",
+      "id": "n04-25-r2",
+      "supersedes": "n04-25",
       "topic": "Compound growth",
       "difficulty": 2,
       "exhibits": [
@@ -1929,59 +1954,60 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Account 1",
-              "41,000",
-              "5.9",
+              "43,000",
+              "4.8",
               "5"
             ],
             [
               "Account 2",
-              "12,000",
-              "2.3",
-              "3"
+              "15,000",
+              "3.2",
+              "4"
             ],
             [
               "Account 3",
-              "40,000",
-              "3.1",
-              "6"
+              "26,000",
+              "4.4",
+              "8"
             ],
             [
               "Account 4",
               "9,000",
-              "4.5",
-              "7"
+              "5.5",
+              "4"
             ]
           ]
         }
       ],
       "stem": "With interest compounded annually and everything repaid at the end of the term, how much is repayable under Account 4?",
       "options": [
-        "EUR 12,247.76",
-        "EUR 12,536.85",
-        "EUR 12,798.91",
-        "EUR 13,174.79",
-        "EUR 13,435.92"
+        "EUR 10,691.64",
+        "EUR 10,856.45",
+        "EUR 10,980.00",
+        "EUR 11,149.42",
+        "EUR 11,762.64"
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Each year, multiply the outstanding amount by (1 + rate).",
-        "Do this 7 times."
+        "Do this 4 times."
       ],
       "solution": [
-        "Growth factor = 1.045^7 = 1.36086",
-        "9,000 × 1.36086 = EUR 12,247.76"
+        "Growth factor = 1.055^4 = 1.23882",
+        "9,000 × 1.23882 = EUR 11,149.42"
       ],
       "optionNotes": [
+        "This uses the interest rate of Account 3.",
+        "This uses the interest rate of Account 1.",
+        "This uses simple interest; with compounding, interest is also charged on earlier interest.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "One year too many.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "One year too many."
       ],
       "explanation": "Compound growth multiplies; simple interest adds. Over several years the difference becomes large."
     },
     {
-      "id": "n04-26",
+      "id": "n04-26-r2",
+      "supersedes": "n04-26",
       "topic": "Highest share in a stacked chart",
       "difficulty": 1,
       "answerType": "category",
@@ -1991,45 +2017,45 @@ EPSO_BANK.registerSet({
           "title": "Public spending (EUR billion, fictional countries)",
           "unit": "EUR bn",
           "categories": [
-            "Dunmark",
-            "Istrada",
-            "Rosmark",
-            "Fernland",
-            "Quarta",
-            "Calmora"
+            "Pellam",
+            "Kestrel",
+            "Jorvik",
+            "Calmora",
+            "Aldoria",
+            "Tavel"
           ],
           "series": [
             {
               "name": "Health",
               "values": [
-                43,
-                33,
-                4,
-                27,
-                24,
-                5
+                7,
+                29,
+                13,
+                55,
+                60,
+                17
               ]
             },
             {
               "name": "Education",
               "values": [
                 36,
-                40,
-                34,
-                59,
-                57,
-                20
+                23,
+                30,
+                30,
+                54,
+                32
               ]
             },
             {
               "name": "Other",
               "values": [
-                7,
-                17,
-                28,
-                52,
-                47,
-                36
+                42,
+                16,
+                18,
+                58,
+                49,
+                21
               ]
             }
           ]
@@ -2037,11 +2063,11 @@ EPSO_BANK.registerSet({
       ],
       "stem": "Which of the following countries had the highest share of education in its total?",
       "options": [
-        "Dunmark",
-        "Istrada",
-        "Rosmark",
-        "Fernland",
-        "Calmora"
+        "Pellam",
+        "Kestrel",
+        "Jorvik",
+        "Aldoria",
+        "Tavel"
       ],
       "answer": 2,
       "hints": [
@@ -2049,24 +2075,25 @@ EPSO_BANK.registerSet({
         "Divide the segment by the total for every option."
       ],
       "solution": [
-        "Dunmark: 36 ÷ 86 = 41.9%",
-        "Istrada: 40 ÷ 90 = 44.4%",
-        "Rosmark: 34 ÷ 66 = 51.5%",
-        "Fernland: 59 ÷ 138 = 42.8%",
-        "Calmora: 20 ÷ 61 = 32.8%",
-        "Highest: Rosmark"
+        "Pellam: 36 ÷ 85 = 42.4%",
+        "Kestrel: 23 ÷ 68 = 33.8%",
+        "Jorvik: 30 ÷ 61 = 49.2%",
+        "Aldoria: 54 ÷ 163 = 33.1%",
+        "Tavel: 32 ÷ 70 = 45.7%",
+        "Highest: Jorvik"
       ],
       "optionNotes": [
-        "36 ÷ 86 = 41.9%.",
-        "40 ÷ 90 = 44.4%.",
-        "Correct. 34 ÷ 66 = 51.5%.",
-        "59 ÷ 138 = 42.8%. Largest amount, but not the largest share.",
-        "20 ÷ 61 = 32.8%."
+        "36 ÷ 85 = 42.4%.",
+        "23 ÷ 68 = 33.8%.",
+        "Correct. 30 ÷ 61 = 49.2%.",
+        "54 ÷ 163 = 33.1%. Largest amount, but not the largest share.",
+        "32 ÷ 70 = 45.7%."
       ],
       "explanation": "The tallest segment is not necessarily the largest share; the bar total matters."
     },
     {
-      "id": "n04-27",
+      "id": "n04-27-r2",
+      "supersedes": "n04-27",
       "topic": "Combining two exhibits",
       "difficulty": 2,
       "exhibits": [
@@ -2077,23 +2104,23 @@ EPSO_BANK.registerSet({
           "slices": [
             {
               "label": "Uplands",
-              "value": 14
+              "value": 25
             },
             {
-              "label": "North",
-              "value": 27
-            },
-            {
-              "label": "Coast",
-              "value": 12
-            },
-            {
-              "label": "South",
-              "value": 18
+              "label": "Centre",
+              "value": 28
             },
             {
               "label": "West",
-              "value": 29
+              "value": 19
+            },
+            {
+              "label": "South",
+              "value": 19
+            },
+            {
+              "label": "Islands",
+              "value": 9
             }
           ]
         },
@@ -2108,27 +2135,27 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Uplands",
-              "1,224",
-              "38,000"
+              "2,252",
+              "33,000"
             ],
             [
-              "North",
-              "2,292",
-              "17,000"
-            ],
-            [
-              "Coast",
-              "4,160",
-              "24,000"
-            ],
-            [
-              "South",
-              "2,217",
-              "16,000"
+              "Centre",
+              "990",
+              "2,000"
             ],
             [
               "West",
-              "2,048",
+              "1,696",
+              "21,000"
+            ],
+            [
+              "South",
+              "2,187",
+              "30,000"
+            ],
+            [
+              "Islands",
+              "1,493",
               "5,000"
             ]
           ]
@@ -2136,33 +2163,34 @@ EPSO_BANK.registerSet({
       ],
       "stem": "How much of this budget was spent per inhabitant in the South region?",
       "options": [
-        "EUR 13.26",
-        "EUR 16.49",
-        "EUR 17.05",
-        "EUR 17.59",
-        "EUR 18.46"
+        "EUR 17.72",
+        "EUR 18.24",
+        "EUR 23.53",
+        "EUR 24.01",
+        "EUR 24.37"
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Use the pie for the region's budget and the table for its population.",
         "Budget (in euros) ÷ population (in persons)."
       ],
       "solution": [
-        "Budget = 18% × 210 million = EUR 37.80 million",
-        "Population = 2,217 thousand = 2,217,000 people",
-        "Per inhabitant = 37.80 million ÷ 2,217,000 = EUR 17.05"
+        "Budget = 19% × 210 million = EUR 39.90 million",
+        "Population = 2,187 thousand = 2,187,000 people",
+        "Per inhabitant = 39.90 million ÷ 2,187,000 = EUR 18.24"
       ],
       "optionNotes": [
-        "This uses the budget share of Uplands.",
-        "This divides by the population of North.",
+        "This divides by the population of Uplands.",
         "Correct.",
-        "This is the average for all regions.",
-        "This divides by another region's population."
+        "This divides by the population of West.",
+        "This uses the budget share of Uplands.",
+        "This is the average for all regions."
       ],
       "explanation": "Combine the exhibits row by row and keep the units consistent. The area column is irrelevant."
     },
     {
-      "id": "n04-28",
+      "id": "n04-28-r2",
+      "supersedes": "n04-28",
       "topic": "Index numbers: values",
       "difficulty": 1,
       "exhibits": [
@@ -2182,79 +2210,80 @@ EPSO_BANK.registerSet({
             [
               "Business",
               "100.0",
-              "102.6",
-              "106.4",
-              "109.3",
-              "105.6",
-              "30"
+              "98.9",
+              "95.7",
+              "96.5",
+              "100.6",
+              "138"
             ],
             [
               "Universities",
               "100.0",
-              "108.6",
-              "104.9",
-              "102.7",
-              "100.4",
-              "42"
+              "106.7",
+              "118.7",
+              "115.9",
+              "113.9",
+              "39"
             ],
             [
               "Government",
               "100.0",
-              "96.4",
-              "101.6",
-              "113.2",
-              "117.0",
-              "9"
+              "100.7",
+              "99.3",
+              "103.2",
+              "100.5",
+              "121"
             ],
             [
               "Non-profit",
               "100.0",
-              "102.4",
-              "110.4",
-              "117.1",
-              "116.5",
-              "41"
+              "99.8",
+              "96.3",
+              "94.6",
+              "94.8",
+              "74"
             ],
             [
               "Hospitals",
               "100.0",
-              "108.4",
-              "115.9",
-              "119.5",
-              "124.3",
-              "132"
+              "110.5",
+              "120.7",
+              "131.0",
+              "144.2",
+              "116"
             ]
           ]
         }
       ],
       "stem": "What was the research staff of Government in 2023, in thousand?",
       "options": [
-        "9.1 thousand",
-        "9.8 thousand",
-        "10.2 thousand",
-        "10.5 thousand",
-        "10.8 thousand"
+        "116.8 thousand",
+        "119.7 thousand",
+        "120.2 thousand",
+        "121.6 thousand",
+        "124.9 thousand"
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "An index of 112.0 means 12% above the 2016 value.",
         "Value = 2016 value × index ÷ 100."
       ],
       "solution": [
-        "Index 113.2 ÷ 100 = 1.132 times the 2016 value",
-        "9 × 1.132 = 10.19 thousand"
+        "Index 103.2 ÷ 100 = 1.032 times the 2016 value",
+        "121 × 1.032 = 124.87 thousand"
       ],
       "optionNotes": [
-        "This uses the 2021 index.",
         "This applies the index of Business.",
-        "Correct.",
+        "This applies the index to the 2016 value of Hospitals.",
+        "This uses the 2021 index.",
         "This uses the 2025 index.",
-        "This applies the index of Hospitals."
+        "Correct."
       ],
       "explanation": "An index only expresses each year relative to the base year. Multiply the base-year value by index ÷ 100."
     },
     {
-      "id": "n04-29",
+      "id": "n04-29-r2",
+      "supersedes": "n04-29",
       "topic": "Index numbers: percentage change",
       "difficulty": 1,
       "exhibits": [
@@ -2273,74 +2302,75 @@ EPSO_BANK.registerSet({
             [
               "Nurses",
               "100.0",
-              "109.9",
-              "113.9",
-              "123.1",
-              "132.1"
+              "110.1",
+              "121.3",
+              "135.5",
+              "145.9"
             ],
             [
               "Teachers",
               "100.0",
-              "111.8",
-              "116.2",
-              "124.0",
-              "139.7"
+              "105.7",
+              "119.1",
+              "121.0",
+              "133.5"
             ],
             [
               "Engineers",
               "100.0",
-              "105.0",
-              "110.4",
-              "112.4",
-              "115.1"
+              "105.6",
+              "120.4",
+              "131.1",
+              "136.0"
             ],
             [
               "Drivers",
               "100.0",
-              "107.0",
-              "110.3",
-              "118.2",
-              "121.0"
+              "109.2",
+              "113.8",
+              "122.6",
+              "134.2"
             ],
             [
               "Clerks",
               "100.0",
-              "109.0",
-              "123.4",
-              "129.9",
-              "146.4"
+              "103.1",
+              "106.6",
+              "121.4",
+              "135.2"
             ]
           ]
         }
       ],
       "stem": "By what percentage did the average wage of Teachers rise between 2018 and 2024?",
       "options": [
-        "25.0%",
-        "27.3%",
-        "27.9%",
-        "28.4%",
-        "34.3%"
+        "22.9%",
+        "26.3%",
+        "27.8%",
+        "28.8%",
+        "31.1%"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "A difference in index points is not a percentage unless the earlier index is 100.",
         "Divide the later index by the earlier one."
       ],
       "solution": [
-        "2018: 111.8; 2024: 139.7",
-        "(139.7 ÷ 111.8 − 1) × 100 = 24.96%"
+        "2018: 105.7; 2024: 133.5",
+        "(133.5 ÷ 105.7 − 1) × 100 = 26.30%"
       ],
       "optionNotes": [
+        "This is the change for Drivers.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This is the change in index points, which equals a percentage only when the starting index is 100.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
+        "This is the change for Engineers.",
         "This is the change for Clerks."
       ],
       "explanation": "Between two years that are not the base year, the percentage change is the ratio of the two indices minus one, not the difference in points."
     },
     {
-      "id": "n04-30",
+      "id": "n04-30-r2",
+      "supersedes": "n04-30",
       "topic": "Market share in percentage points",
       "difficulty": 3,
       "exhibits": [
@@ -2356,67 +2386,68 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Brand V",
-              "5,010",
-              "5,426",
-              "4,920"
+              "2,844",
+              "3,037",
+              "2,460"
             ],
             [
               "Brand W",
-              "4,003",
-              "4,195",
-              "5,440"
+              "2,737",
+              "2,981",
+              "3,936"
             ],
             [
               "Brand X",
-              "6,039",
-              "7,416",
-              "7,470"
+              "3,974",
+              "4,816",
+              "4,701"
             ],
             [
               "Brand Y",
-              "7,302",
-              "6,696",
-              "6,280"
+              "6,295",
+              "6,358",
+              "8,454"
             ],
             [
               "Brand Z",
-              "7,158",
-              "8,196",
-              "9,957"
+              "7,402",
+              "9,541",
+              "6,699"
             ]
           ]
         }
       ],
       "stem": "By how many percentage points did the market share of Brand W change between 2022 and 2024?",
       "options": [
-        "2.40 percentage points",
-        "2.66 percentage points",
-        "2.75 percentage points",
-        "2.83 percentage points",
-        "2.90 percentage points"
+        "2.95 percentage points",
+        "3.22 percentage points",
+        "3.84 percentage points",
+        "4.30 percentage points",
+        "4.49 percentage points"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Market share = the firm's sales ÷ the total for all firms in the same year.",
         "Compute the share in both years, then subtract."
       ],
       "solution": [
-        "Total 2022 = 5,010 + 4,003 + 6,039 + 7,302 + 7,158 = 29,512",
-        "Total 2024 = 4,920 + 5,440 + 7,470 + 6,280 + 9,957 = 34,067",
-        "Shares: 4,003 ÷ 29,512 × 100 = 13.564%; 5,440 ÷ 34,067 × 100 = 15.969%",
-        "15.969 − 13.564 = 2.40 percentage points"
+        "Total 2022 = 2,844 + 2,737 + 3,974 + 6,295 + 7,402 = 23,252",
+        "Total 2024 = 2,460 + 3,936 + 4,701 + 8,454 + 6,699 = 26,250",
+        "Shares: 2,737 ÷ 23,252 × 100 = 11.771%; 3,936 ÷ 26,250 × 100 = 14.994%",
+        "14.994 − 11.771 = 3.22 percentage points"
       ],
       "optionNotes": [
+        "This uses the 2023 market total for the final share and the 2022 market total for the initial share.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
         "This starts from 2023.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This uses the 2023 market total for the final share and the 2024 market total for the initial share.",
+        "This uses the 2023 market total for the final share and the 2023 market total for the initial share."
       ],
       "explanation": "A firm can grow and still lose share if the market grows faster. Shares need each year's own total."
     },
     {
-      "id": "n04-31",
+      "id": "n04-31-r2",
+      "supersedes": "n04-31",
       "topic": "Required growth rate",
       "difficulty": 2,
       "exhibits": [
@@ -2431,67 +2462,68 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Aldoria",
-              "14.7",
-              "24.0",
+              "Kestrel",
+              "23.0",
+              "26.7",
               "78"
             ],
             [
-              "Norvale",
-              "22.5",
-              "36.2",
-              "87"
+              "Galvia",
+              "9.2",
+              "13.2",
+              "39"
             ],
             [
-              "Sundra",
-              "26.6",
-              "43.1",
-              "31"
+              "Aldoria",
+              "20.3",
+              "29.6",
+              "26"
             ],
             [
-              "Calmora",
-              "16.5",
-              "21.5",
-              "15"
+              "Jorvik",
+              "24.8",
+              "32.0",
+              "33"
             ],
             [
-              "Rosmark",
-              "3.9",
-              "5.2",
-              "77"
+              "Dunmark",
+              "4.7",
+              "5.5",
+              "83"
             ]
           ]
         }
       ],
-      "stem": "What constant annual growth rate would Norvale need from 2024 to reach its 2028 target?",
+      "stem": "What constant annual growth rate would Galvia need from 2024 to reach its 2028 target?",
       "options": [
-        "12.62%",
-        "12.82%",
-        "13.04%",
-        "15.22%",
-        "17.18%"
+        "7.49%",
+        "7.58%",
+        "9.45%",
+        "9.89%",
+        "10.87%"
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "Growth factor over the period = target ÷ 2024 value.",
         "The annual factor is its 4th root."
       ],
       "solution": [
-        "Overall factor = 36.2 ÷ 22.5 = 1.6089",
-        "Annual factor = 1.6089^(1/4) = 1.12624",
-        "Rate = (1.12624 − 1) × 100 = 12.62%"
+        "Overall factor = 13.2 ÷ 9.2 = 1.4348",
+        "Annual factor = 1.4348^(1/4) = 1.09445",
+        "Rate = (1.09445 − 1) × 100 = 9.45%"
       ],
       "optionNotes": [
+        "This counts 5 years of growth; from 2024 to 2028 there are 4.",
+        "This divides the gap by the target and spreads it evenly over the years.",
         "Correct.",
-        "This is the rate for Sundra.",
         "This is the rate for Aldoria.",
-        "This divides the total growth by the number of years; growth compounds, so take the root instead.",
-        "This counts 3 years of growth; from 2024 to 2028 there are 4."
+        "This divides the total growth by the number of years; growth compounds, so take the root instead."
       ],
       "explanation": "Required growth compounds: take the nth root of the overall factor. Dividing the total growth by the number of years overstates the rate needed."
     },
     {
-      "id": "n04-32",
+      "id": "n04-32-r2",
+      "supersedes": "n04-32",
       "topic": "Fixed and variable costs",
       "difficulty": 2,
       "exhibits": [
@@ -2508,42 +2540,42 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Hall V",
-              "1,500",
-              "30",
-              "19",
-              "265"
+              "800",
+              "48",
+              "20",
+              "397"
             ],
             [
               "Hall W",
-              "2,600",
-              "22",
-              "22",
-              "536"
+              "3,200",
+              "28",
+              "20",
+              "105"
             ],
             [
               "Hall X",
-              "3,200",
-              "65",
-              "5",
-              "82"
+              "3,500",
+              "58",
+              "7",
+              "152"
             ],
             [
               "Hall Y",
-              "3,700",
-              "50",
-              "11",
-              "189"
+              "5,900",
+              "30",
+              "3",
+              "534"
             ]
           ]
         }
       ],
       "stem": "For a one-day event with 260 participants at Hall X, what is the average cost per participant?",
       "options": [
-        "EUR 70.00",
-        "EUR 75.23",
-        "EUR 77.31",
-        "EUR 82.31",
-        "EUR 87.31"
+        "EUR 65.00",
+        "EUR 71.08",
+        "EUR 71.46",
+        "EUR 78.46",
+        "EUR 85.46"
       ],
       "answer": 3,
       "hints": [
@@ -2551,21 +2583,22 @@ EPSO_BANK.registerSet({
         "Then divide by the number of participants."
       ],
       "solution": [
-        "Per person: 65 + 5 = EUR 70",
-        "Total = 3,200 + 260 × 70 = EUR 21,400",
-        "Per participant = 21,400 ÷ 260 = EUR 82.31"
+        "Per person: 58 + 7 = EUR 65",
+        "Total = 3,500 + 260 × 65 = EUR 20,400",
+        "Per participant = 20,400 ÷ 260 = EUR 78.46"
       ],
       "optionNotes": [
         "This leaves out the room hire, a fixed cost shared by all participants.",
-        "This uses the prices of Hall Y.",
+        "This uses the prices of Hall V.",
         "This leaves out the materials.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This counts the materials cost twice."
       ],
       "explanation": "Fixed costs are spread over everyone, so the average cost per person falls as numbers rise. Variable costs are paid per person."
     },
     {
-      "id": "n04-33",
+      "id": "n04-33-r2",
+      "supersedes": "n04-33",
       "topic": "Break-even point",
       "difficulty": 2,
       "exhibits": [
@@ -2581,60 +2614,61 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Plan S",
-              "900",
-              "0.05",
-              "34"
+              "450",
+              "0.06",
+              "28"
             ],
             [
               "Plan M",
-              "1,450",
-              "0.01",
-              "26"
+              "400",
+              "0.03",
+              "25"
             ],
             [
               "Plan L",
-              "800",
+              "200",
               "0.08",
-              "35"
+              "30"
             ],
             [
               "Plan XL",
-              "1,300",
-              "0.05",
-              "28"
+              "1,500",
+              "0.01",
+              "15"
             ]
           ]
         }
       ],
       "stem": "Above how many gigabytes per year does Plan XL become cheaper than Plan L?",
       "options": [
-        "16,666.7 gigabytes",
-        "17,361.2 gigabytes",
-        "18,159.4 gigabytes",
-        "18,864.7 gigabytes",
-        "19,530.9 gigabytes"
+        "16,250.0 gigabytes",
+        "18,571.4 gigabytes",
+        "21,000.0 gigabytes",
+        "21,428.6 gigabytes",
+        "24,285.7 gigabytes"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "At the break-even point both offers cost the same: fixed fee + price × volume.",
         "Volume = difference in fixed fees ÷ difference in unit prices."
       ],
       "solution": [
-        "Fixed fees: 1,300 − 800 = 500",
-        "Unit prices: 0.08 − 0.05 = 0.03",
-        "500 ÷ 0.03 = 16,666.67 gigabytes"
+        "Fixed fees: 1,500 − 200 = 1,300",
+        "Unit prices: 0.08 − 0.01 = 0.07",
+        "1,300 ÷ 0.07 = 18,571.43 gigabytes"
       ],
       "optionNotes": [
+        "This divides by one price instead of the difference in prices.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This compares with Plan S.",
+        "This ignores the fixed fee of Plan L.",
+        "This adds the fixed fees; the break-even uses their difference."
       ],
       "explanation": "Set the two total costs equal. The offer with the higher fixed fee wins only above the break-even volume. Contract length is irrelevant here."
     },
     {
-      "id": "n04-34",
+      "id": "n04-34-r2",
+      "supersedes": "n04-34",
       "topic": "Proportional allocation",
       "difficulty": 1,
       "exhibits": [
@@ -2649,51 +2683,51 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "West",
-              "1,842",
-              "4,394",
-              "9.4"
-            ],
-            [
               "Coast",
-              "1,163",
-              "5,852",
-              "6.4"
-            ],
-            [
-              "East",
-              "1,376",
-              "4,644",
-              "8.6"
-            ],
-            [
-              "Islands",
-              "2,237",
-              "4,837",
-              "5.3"
-            ],
-            [
-              "Centre",
-              "1,461",
-              "7,571",
-              "9.7"
+              "2,100",
+              "5,786",
+              "6.0"
             ],
             [
               "Uplands",
-              "749",
-              "5,163",
-              "9.3"
+              "1,992",
+              "3,490",
+              "3.2"
+            ],
+            [
+              "Centre",
+              "1,561",
+              "1,989",
+              "3.3"
+            ],
+            [
+              "West",
+              "1,065",
+              "1,917",
+              "9.4"
+            ],
+            [
+              "Islands",
+              "594",
+              "5,220",
+              "8.9"
+            ],
+            [
+              "East",
+              "1,335",
+              "4,026",
+              "12.3"
             ]
           ]
         }
       ],
-      "stem": "EUR 310 million is shared among the six regions in proportion to their population. How much does the Uplands region receive?",
+      "stem": "EUR 310 million is shared among the six regions in proportion to their population. How much does the East region receive?",
       "options": [
-        "EUR 26.30 million",
-        "EUR 27.98 million",
-        "EUR 28.74 million",
-        "EUR 29.34 million",
-        "EUR 30.53 million"
+        "EUR 47.86 million",
+        "EUR 51.67 million",
+        "EUR 55.65 million",
+        "EUR 55.96 million",
+        "EUR 56.60 million"
       ],
       "answer": 0,
       "hints": [
@@ -2701,21 +2735,22 @@ EPSO_BANK.registerSet({
         "Apply that share to the amount."
       ],
       "solution": [
-        "Total population = 1,842 + 1,163 + 1,376 + 2,237 + 1,461 + 749 = 8,828 thousand",
-        "Share = 749 ÷ 8,828 = 0.0848",
-        "0.0848 × 310 = EUR 26.30 million"
+        "Total population = 2,100 + 1,992 + 1,561 + 1,065 + 594 + 1,335 = 8,647 thousand",
+        "Share = 1,335 ÷ 8,647 = 0.1544",
+        "0.1544 × 310 = EUR 47.86 million"
       ],
       "optionNotes": [
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This divides by the population of the other five regions only.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This splits the money equally.",
+        "This shares the money by area, not by population.",
+        "This is the amount for Centre.",
+        "This divides by the population of the other five regions only."
       ],
       "explanation": "Proportional allocation: each part receives its share of the base. Area and unemployment are there to distract."
     },
     {
-      "id": "n04-35",
+      "id": "n04-35-r2",
+      "supersedes": "n04-35",
       "topic": "Discounts and VAT",
       "difficulty": 2,
       "exhibits": [
@@ -2731,66 +2766,67 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Tablets",
-              "278",
-              "15",
-              "6"
+              "1,235",
+              "10",
+              "9"
             ],
             [
               "Projectors",
-              "1,551",
+              "720",
               "20",
-              "6"
+              "21"
             ],
             [
               "Whiteboards",
-              "308",
-              "25",
+              "147",
+              "5",
               "9"
             ],
             [
               "Printers",
-              "331",
-              "25",
-              "9"
+              "1,487",
+              "20",
+              "6"
             ],
             [
               "Speakers",
-              "428",
-              "10",
-              "6"
+              "667",
+              "20",
+              "21"
             ]
           ]
         }
       ],
       "stem": "A buyer orders 12 whiteboards. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included?",
       "options": [
-        "EUR 3,021.48",
-        "EUR 3,104.64",
-        "EUR 3,217.35",
-        "EUR 3,315.52",
-        "EUR 4,028.64"
+        "EUR 1,538.21",
+        "EUR 1,675.80",
+        "EUR 1,776.35",
+        "EUR 1,826.62",
+        "EUR 1,834.56"
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Apply the discount to the list price first.",
         "Then add VAT to the discounted price, and multiply by the quantity."
       ],
       "solution": [
-        "Discounted price = 308 × (1 − 25%) = EUR 231.00",
-        "With VAT = 231.00 × 1.09 = EUR 251.79",
-        "12 × 251.79 = EUR 3,021.48"
+        "Discounted price = 147 × (1 − 5%) = EUR 139.65",
+        "With VAT = 139.65 × 1.09 = EUR 152.22",
+        "12 × 152.22 = EUR 1,826.62"
       ],
       "optionNotes": [
+        "This uses another item's discount.",
+        "This leaves out the VAT.",
+        "This uses another item's VAT rate.",
         "Correct.",
-        "This adds and subtracts the percentages; they must be applied one after the other.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "This leaves out the discount."
+        "This adds and subtracts the percentages; they must be applied one after the other."
       ],
       "explanation": "Successive percentages multiply. Netting them (−discount + VAT) gives a slightly wrong total."
     },
     {
-      "id": "n04-36",
+      "id": "n04-36-r2",
+      "supersedes": "n04-36",
       "topic": "Unit price comparison",
       "difficulty": 1,
       "answerType": "category",
@@ -2807,49 +2843,49 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Grower 1",
-              "800 g",
-              "11.42",
+              "300 g",
+              "3.77",
               "6"
             ],
             [
               "Grower 2",
               "3.6 kg",
-              "25.27",
-              "2"
-            ],
-            [
-              "Grower 3",
-              "3.0 kg",
-              "21.57",
+              "53.39",
               "3"
             ],
             [
+              "Grower 3",
+              "2.5 kg",
+              "16.55",
+              "6"
+            ],
+            [
               "Grower 4",
-              "100 g",
-              "0.72",
-              "1"
+              "750 g",
+              "11.11",
+              "8"
             ],
             [
               "Grower 5",
-              "700 g",
-              "8.36",
-              "2"
+              "3.5 kg",
+              "37.73",
+              "3"
             ],
             [
               "Grower 6",
-              "750 g",
-              "4.51",
-              "4"
+              "4.8 kg",
+              "28.94",
+              "1"
             ]
           ]
         }
       ],
       "stem": "Which of the following suppliers offers grass seed at the lowest price per kilogram?",
       "options": [
+        "Grower 1",
         "Grower 2",
         "Grower 3",
         "Grower 4",
-        "Grower 5",
         "Grower 6"
       ],
       "answer": 4,
@@ -2858,24 +2894,25 @@ EPSO_BANK.registerSet({
         "Then divide the price by the weight."
       ],
       "solution": [
-        "Grower 2: 25.27 ÷ 3.6 = 7.019 EUR/kg",
-        "Grower 3: 21.57 ÷ 3.0 = 7.190 EUR/kg",
-        "Grower 4: 0.72 ÷ 0.10 = 7.200 EUR/kg",
-        "Grower 5: 8.36 ÷ 0.70 = 11.943 EUR/kg",
-        "Grower 6: 4.51 ÷ 0.75 = 6.013 EUR/kg",
+        "Grower 1: 3.77 ÷ 0.30 = 12.567 EUR/kg",
+        "Grower 2: 53.39 ÷ 3.6 = 14.831 EUR/kg",
+        "Grower 3: 16.55 ÷ 2.5 = 6.620 EUR/kg",
+        "Grower 4: 11.11 ÷ 0.75 = 14.813 EUR/kg",
+        "Grower 6: 28.94 ÷ 4.8 = 6.029 EUR/kg",
         "Lowest: Grower 6"
       ],
       "optionNotes": [
-        "25.27 ÷ 3.6 kg = EUR 7.02 per kg.",
-        "21.57 ÷ 3.0 kg = EUR 7.19 per kg.",
-        "0.72 ÷ 0.10 kg = EUR 7.20 per kg. Cheapest pack, but not per kilogram.",
-        "8.36 ÷ 0.70 kg = EUR 11.94 per kg.",
-        "Correct. 4.51 ÷ 0.75 kg = EUR 6.01 per kg."
+        "3.77 ÷ 0.30 kg = EUR 12.57 per kg. Cheapest pack, but not per kilogram.",
+        "53.39 ÷ 3.6 kg = EUR 14.83 per kg.",
+        "16.55 ÷ 2.5 kg = EUR 6.62 per kg.",
+        "11.11 ÷ 0.75 kg = EUR 14.81 per kg.",
+        "Correct. 28.94 ÷ 4.8 kg = EUR 6.03 per kg."
       ],
       "explanation": "Compare like with like: convert to one unit before dividing. The cheapest pack is the planted trap."
     },
     {
-      "id": "n04-37",
+      "id": "n04-37-r2",
+      "supersedes": "n04-37",
       "topic": "Largest relative gap on a line chart",
       "difficulty": 1,
       "answerType": "category",
@@ -2896,23 +2933,23 @@ EPSO_BANK.registerSet({
             {
               "name": "Demand",
               "values": [
-                56.6,
-                86.1,
-                82.2,
-                100.4,
-                98.9,
-                51.3
+                115.9,
+                63.2,
+                106.2,
+                98.6,
+                95.2,
+                112.5
               ]
             },
             {
               "name": "Domestic generation",
               "values": [
-                39.1,
-                56.8,
-                72.3,
-                71.3,
-                79.1,
-                34.9
+                99.7,
+                35.4,
+                89.2,
+                87.8,
+                72.4,
+                73.1
               ]
             }
           ]
@@ -2932,24 +2969,25 @@ EPSO_BANK.registerSet({
         "Divide each gap by the domestic generation value."
       ],
       "solution": [
-        "2019: (56.6 − 39.1) ÷ 39.1 × 100 = 44.8%",
-        "2020: (86.1 − 56.8) ÷ 56.8 × 100 = 51.6%",
-        "2021: (82.2 − 72.3) ÷ 72.3 × 100 = 13.7%",
-        "2022: (100.4 − 71.3) ÷ 71.3 × 100 = 40.8%",
-        "2023: (98.9 − 79.1) ÷ 79.1 × 100 = 25.0%",
+        "2019: (115.9 − 99.7) ÷ 99.7 × 100 = 16.2%",
+        "2020: (63.2 − 35.4) ÷ 35.4 × 100 = 78.5%",
+        "2021: (106.2 − 89.2) ÷ 89.2 × 100 = 19.1%",
+        "2022: (98.6 − 87.8) ÷ 87.8 × 100 = 12.3%",
+        "2023: (95.2 − 72.4) ÷ 72.4 × 100 = 31.5%",
         "Largest: 2020"
       ],
       "optionNotes": [
-        "(56.6 − 39.1) ÷ 39.1 × 100 = 44.8%.",
-        "Correct. (86.1 − 56.8) ÷ 56.8 × 100 = 51.6%.",
-        "(82.2 − 72.3) ÷ 72.3 × 100 = 13.7%.",
-        "(100.4 − 71.3) ÷ 71.3 × 100 = 40.8%. The highest demand value, but not the largest gap.",
-        "(98.9 − 79.1) ÷ 79.1 × 100 = 25.0%."
+        "(115.9 − 99.7) ÷ 99.7 × 100 = 16.2%. The highest demand value, but not the largest gap.",
+        "Correct. (63.2 − 35.4) ÷ 35.4 × 100 = 78.5%.",
+        "(106.2 − 89.2) ÷ 89.2 × 100 = 19.1%.",
+        "(98.6 − 87.8) ÷ 87.8 × 100 = 12.3%.",
+        "(95.2 − 72.4) ÷ 72.4 × 100 = 31.5%."
       ],
       "explanation": "Visual distance on a chart can mislead, especially when both lines move. Compute the gap for each option."
     },
     {
-      "id": "n04-38",
+      "id": "n04-38-r2",
+      "supersedes": "n04-38",
       "topic": "Combined work rates",
       "difficulty": 2,
       "exhibits": [
@@ -2965,59 +3003,60 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Machine V",
-              "1,380",
-              "2",
+              "620",
+              "4",
               "4"
             ],
             [
               "Machine W",
-              "1,880",
-              "6",
+              "2,010",
+              "9",
               "3"
             ],
             [
               "Machine X",
-              "1,520",
-              "9",
+              "1,770",
+              "8",
               "1"
             ],
             [
               "Machine Y",
-              "2,700",
-              "6",
-              "2"
+              "1,370",
+              "3",
+              "3"
             ]
           ]
         }
       ],
       "stem": "Working together at their usual rates, how many minutes do Machine V and Machine W need for 18,000 parcels?",
       "options": [
-        "264.7 minutes",
-        "317.6 minutes",
-        "331.3 minutes",
-        "339.3 minutes",
-        "357.8 minutes"
+        "319.5 minutes",
+        "410.6 minutes",
+        "451.9 minutes",
+        "542.7 minutes",
+        "569.8 minutes"
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "When two units work together, add their hourly rates.",
         "Time = amount ÷ combined rate; convert hours to minutes."
       ],
       "solution": [
-        "Combined rate = 1,380 + 1,880 = 3,260 per hour",
-        "18,000 ÷ 3,260 × 60 = 331.29 minutes"
+        "Combined rate = 620 + 2,010 = 2,630 per hour",
+        "18,000 ÷ 2,630 × 60 = 410.65 minutes"
       ],
       "optionNotes": [
-        "This pairs Machine V with Machine Y.",
-        "This pairs Machine W with Machine X.",
+        "This pairs Machine W with Machine Y.",
         "Correct.",
-        "This halves the average of the two separate times; rates add, times do not.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This pairs Machine V with Machine X.",
+        "This pairs Machine V with Machine Y.",
+        "This halves the average of the two separate times; rates add, times do not."
       ],
       "explanation": "Rates add; times do not. Averaging the separate times is the classic mistake."
     },
     {
-      "id": "n04-39",
+      "id": "n04-39-r2",
+      "supersedes": "n04-39",
       "topic": "Percentage difference between two items",
       "difficulty": 2,
       "exhibits": [
@@ -3032,67 +3071,68 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Estoria",
-              "35,189",
-              "28.3",
-              "155"
+              "Calmora",
+              "32,286",
+              "3.4",
+              "229"
             ],
             [
-              "Norvale",
-              "20,883",
-              "7.7",
-              "232"
+              "Lunaria",
+              "18,345",
+              "20.8",
+              "22"
             ],
             [
-              "Hollen",
-              "4,395",
-              "28.7",
-              "92"
+              "Tavel",
+              "35,156",
+              "3.0",
+              "138"
             ],
             [
-              "Sundra",
-              "17,310",
-              "5.5",
-              "148"
+              "Ostland",
+              "19,683",
+              "24.8",
+              "93"
             ],
             [
-              "Brevania",
-              "34,018",
-              "20.6",
-              "68"
+              "Jorvik",
+              "4,391",
+              "24.0",
+              "149"
             ]
           ]
         }
       ],
-      "stem": "By what percentage was the number of books sold per inhabitant in Norvale higher than in Brevania?",
+      "stem": "By what percentage was the number of books sold per inhabitant in Lunaria higher than in Jorvik?",
       "options": [
-        "64.2%",
-        "68.3%",
-        "73.4%",
-        "74.6%",
-        "77.3%"
+        "304.3%",
+        "317.8%",
+        "333.8%",
+        "382.1%",
+        "398.1%"
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Compute the per-inhabitant value for both countries.",
         "The country after \"than\" is the base of the comparison."
       ],
       "solution": [
-        "Norvale: 20,883 ÷ 7.7 = 2,712.078",
-        "Brevania: 34,018 ÷ 20.6 = 1,651.359",
-        "(2,712.078 ÷ 1,651.359 − 1) × 100 = 64.23%"
+        "Lunaria: 18,345 ÷ 20.8 = 881.971",
+        "Jorvik: 4,391 ÷ 24.0 = 182.958",
+        "(881.971 ÷ 182.958 − 1) × 100 = 382.06%"
       ],
       "optionNotes": [
+        "This divides Lunaria's total by Ostland's population.",
+        "This compares the totals, not the values per inhabitant.",
+        "This compares Ostland with Jorvik.",
         "Correct.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation."
+        "This divides Jorvik's total by Ostland's population."
       ],
       "explanation": "In \"how much higher than the other country\", the country after \"than\" is the base. Reversing the base gives a smaller, wrong percentage."
     },
     {
-      "id": "n04-40",
+      "id": "n04-40-r2",
+      "supersedes": "n04-40",
       "topic": "Averages over part of a period",
       "difficulty": 1,
       "exhibits": [
@@ -3117,75 +3157,75 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Grants",
-              "289",
-              "159",
-              "80",
-              "71",
-              "188",
-              "104",
+              "356",
               "254",
-              "216",
-              "253",
-              "398",
-              "415",
-              "180"
+              "103",
+              "199",
+              "298",
+              "361",
+              "310",
+              "379",
+              "191",
+              "115",
+              "344",
+              "354"
             ],
             [
               "Loans",
-              "385",
-              "124",
-              "211",
-              "366",
-              "170",
-              "241",
-              "111",
-              "265",
-              "66",
+              "306",
+              "420",
+              "146",
+              "281",
+              "147",
               "234",
-              "402",
-              "159"
+              "388",
+              "370",
+              "171",
+              "419",
+              "373",
+              "248"
             ],
             [
               "Guarantees",
-              "116",
-              "365",
-              "224",
-              "248",
-              "325",
-              "400",
-              "366",
-              "231",
-              "284",
-              "413",
-              "279",
-              "172"
+              "343",
+              "267",
+              "196",
+              "406",
+              "352",
+              "122",
+              "188",
+              "264",
+              "251",
+              "385",
+              "302",
+              "144"
             ]
           ]
         }
       ],
       "stem": "What was the average monthly number of applications for Loans from January to May inclusive?",
       "options": [
-        "209.3",
-        "217.8",
-        "227.8",
-        "239.4",
-        "251.2"
+        "248.5",
+        "260.0",
+        "288.3",
+        "291.9",
+        "312.8"
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Count the months from January to May, including both.",
         "Add them and divide by that number."
       ],
       "solution": [
-        "385 + 124 + 211 + 366 + 170 = 1,256",
-        "1,256 ÷ 5 = 251.20"
+        "306 + 420 + 146 + 281 + 147 = 1,300",
+        "1,300 ÷ 5 = 260.00"
       ],
       "optionNotes": [
-        "This divides by one month too many.",
         "This leaves out Jan.",
+        "Correct.",
+        "This leaves out May.",
         "This averages the whole year.",
-        "Not derived from a typical mistake. If you got this, recheck each step of your calculation.",
-        "Correct."
+        "This uses the row for Guarantees."
       ],
       "explanation": "\"Inclusive\" ranges are easy to miscount. Count the months before dividing."
     }

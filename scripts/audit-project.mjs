@@ -1,6 +1,7 @@
 // Audit probes, intentionally separate from passing regression tests. Does not change app behaviour.
 // Run after npm run build: CHROMIUM_PATH=/usr/bin/chromium node scripts/audit-project.mjs
 import fs from 'node:fs';
+import {prepareSite} from './prepare-site.mjs';
 import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
@@ -50,7 +51,7 @@ try {
   const key = await p.evaluate(() => { const s = window.EPSO_APP.state.session, it = s.sections[0].items[0]; return it.order.indexOf(it.q.answer); });
   await p.locator('[data-act="choose"]').nth(key).click();
   await p.locator('.exam-bar [data-act="end"]').click(); await p.locator('#cf-yes').click();
-  const result = { score: await p.locator('.score-big').innerText(), firstReview: await p.locator('.review-list li').first().innerText(), retry: await p.locator('[data-act="retry-coach"]').innerText(), errors: p.errors };
+  const result = { score: await p.locator('.score-big').innerText(), firstReview: await p.locator('.review-list li').first().innerText(), retry: await p.locator('[data-act="retry-coach"]').count() ? await p.locator('[data-act="retry-coach"]').innerText() : null, errors: p.errors };
   await p.context().close(); return result;
  });
  await probe('calculator-scientific-result-chaining', async () => {
@@ -81,13 +82,14 @@ try {
   const table = p.locator('.table-wrap[tabindex="0"]').first(); await table.focus();
   const before = await table.evaluate(el => ({ scrollLeft: el.scrollLeft, scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, qi: window.EPSO_APP.state.session.qi }));
   await p.keyboard.press('ArrowRight');
+  await p.waitForFunction(() => document.activeElement.scrollLeft > 0);
   const after = await p.locator('.table-wrap[tabindex="0"]').first().evaluate(el => ({ scrollLeft: el.scrollLeft, qi: window.EPSO_APP.state.session.qi }));
   await p.context().close(); return { before, after };
  });
  await probe('abstract-coach-frame-number', async () => {
   const p = await page(); await p.selectOption('#opt-set', 'abstract-05');
   await p.locator('[data-act="coach"][data-k="abstract"]').click();
-  const lessonStep = (await p.locator('.steps li').allTextContents()).find(text => text.includes('frame 6'));
+  const lessonStep = (await p.locator('.steps li').allTextContents()).find(text => text.includes('next frame'));
   await p.locator('[data-act="begin-coach"]').click();
   const displayedFrames = await p.locator('.series .fig').count();
   await p.context().close(); return { lessonStep, displayedFrames, nextFrame: displayedFrames + 1 };
@@ -115,8 +117,8 @@ try {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ad5-pages-audit-'));
   let server;
   try {
-   // Reproduce the workflow's exact copied file list, deliberately including any current omission.
-   for (const name of ['index.html', 'assets', 'questions', 'dist']) fs.cpSync(path.join(root, name), path.join(tmp, name), { recursive: true });
+   // Exercise the same staging function as the deployment workflow.
+   prepareSite(tmp);
    server = http.createServer((request, response) => {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const file = path.resolve(tmp, '.' + (pathname === '/' ? '/index.html' : pathname));
@@ -136,7 +138,7 @@ try {
 } finally {
  await browser.close();
  const output = path.join(root, 'docs/audit/project-probes.json');
- fs.writeFileSync(output, JSON.stringify({ auditedCommit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(), browser: 'Chromium', base, observations }, null, 2) + '\n');
+ fs.writeFileSync(output, JSON.stringify({ baseCommit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(), verifiedWorkingTree: true, applicationVersion: fs.readFileSync(path.join(root, 'version.js'), 'utf8').match(/[a-f0-9]{12}/)[0], browser: 'Chromium', base, observations }, null, 2) + '\n');
 }
 
 if (observations.some(o => o.probeError)) process.exitCode = 1;

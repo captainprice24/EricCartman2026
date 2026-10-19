@@ -1,0 +1,845 @@
+{
+  "auditedCommit": "ef17a7f3e96da78a40817dfc17ecc7b6dd4a962c",
+  "sections": {
+    "verbal": {
+      "sets": 13,
+      "items": 240,
+      "difficulty": {
+        "1": 38,
+        "2": 105,
+        "3": 97
+      },
+      "challengeItems": 40
+    },
+    "numerical": {
+      "sets": 8,
+      "items": 190,
+      "difficulty": {
+        "1": 56,
+        "2": 82,
+        "3": 52
+      },
+      "challengeItems": 40
+    },
+    "abstract": {
+      "sets": 8,
+      "items": 190,
+      "difficulty": {
+        "1": 29,
+        "2": 121,
+        "3": 40
+      },
+      "challengeItems": 40
+    }
+  },
+  "total": 620,
+  "numericalDisplayPrecision": {
+    "exhibits": 242,
+    "valuesLosingMoreThanTwoDecimals": []
+  },
+  "numericalGenericDistractors": {
+    "items": 94,
+    "distractors": 180,
+    "inventory": [
+      {
+        "id": "n01-01",
+        "fillers": 1
+      },
+      {
+        "id": "n01-03",
+        "fillers": 2
+      },
+      {
+        "id": "n01-04",
+        "fillers": 1
+      },
+      {
+        "id": "n01-06",
+        "fillers": 2
+      },
+      {
+        "id": "n01-07",
+        "fillers": 1
+      },
+      {
+        "id": "n01-09",
+        "fillers": 2
+      },
+      {
+        "id": "n01-10",
+        "fillers": 2
+      },
+      {
+        "id": "n02-01",
+        "fillers": 1
+      },
+      {
+        "id": "n02-02",
+        "fillers": 1
+      },
+      {
+        "id": "n02-03",
+        "fillers": 1
+      },
+      {
+        "id": "n02-05",
+        "fillers": 1
+      },
+      {
+        "id": "n02-06",
+        "fillers": 2
+      },
+      {
+        "id": "n02-07",
+        "fillers": 1
+      },
+      {
+        "id": "n02-09",
+        "fillers": 1
+      },
+      {
+        "id": "n02-10",
+        "fillers": 1
+      },
+      {
+        "id": "n02-11",
+        "fillers": 2
+      },
+      {
+        "id": "n02-13",
+        "fillers": 2
+      },
+      {
+        "id": "n02-15",
+        "fillers": 2
+      },
+      {
+        "id": "n02-18",
+        "fillers": 4
+      },
+      {
+        "id": "n02-20",
+        "fillers": 1
+      },
+      {
+        "id": "n02-21",
+        "fillers": 4
+      },
+      {
+        "id": "n02-26",
+        "fillers": 2
+      },
+      {
+        "id": "n02-27",
+        "fillers": 4
+      },
+      {
+        "id": "n02-30",
+        "fillers": 1
+      },
+      {
+        "id": "n02-34",
+        "fillers": 1
+      },
+      {
+        "id": "n02-36",
+        "fillers": 2
+      },
+      {
+        "id": "n02-37",
+        "fillers": 1
+      },
+      {
+        "id": "n02-38",
+        "fillers": 3
+      },
+      {
+        "id": "n02-39",
+        "fillers": 1
+      },
+      {
+        "id": "n02-42",
+        "fillers": 1
+      },
+      {
+        "id": "n02-43",
+        "fillers": 2
+      },
+      {
+        "id": "n02-44",
+        "fillers": 3
+      },
+      {
+        "id": "n02-45",
+        "fillers": 2
+      },
+      {
+        "id": "n02-47",
+        "fillers": 1
+      },
+      {
+        "id": "n02-48",
+        "fillers": 1
+      },
+      {
+        "id": "n02-49",
+        "fillers": 3
+      },
+      {
+        "id": "n03-01",
+        "fillers": 2
+      },
+      {
+        "id": "n03-03",
+        "fillers": 1
+      },
+      {
+        "id": "n03-05",
+        "fillers": 2
+      },
+      {
+        "id": "n03-06",
+        "fillers": 3
+      },
+      {
+        "id": "n03-08",
+        "fillers": 3
+      },
+      {
+        "id": "n03-09",
+        "fillers": 3
+      },
+      {
+        "id": "n03-10",
+        "fillers": 2
+      },
+      {
+        "id": "n03-14",
+        "fillers": 3
+      },
+      {
+        "id": "n03-15",
+        "fillers": 3
+      },
+      {
+        "id": "n03-17",
+        "fillers": 2
+      },
+      {
+        "id": "n03-19",
+        "fillers": 1
+      },
+      {
+        "id": "n03-20",
+        "fillers": 2
+      },
+      {
+        "id": "n03-22",
+        "fillers": 1
+      },
+      {
+        "id": "n03-23",
+        "fillers": 1
+      },
+      {
+        "id": "n03-25",
+        "fillers": 3
+      },
+      {
+        "id": "n03-26",
+        "fillers": 1
+      },
+      {
+        "id": "n03-27",
+        "fillers": 2
+      },
+      {
+        "id": "n03-28",
+        "fillers": 1
+      },
+      {
+        "id": "n03-29",
+        "fillers": 1
+      },
+      {
+        "id": "n03-31",
+        "fillers": 3
+      },
+      {
+        "id": "n03-32",
+        "fillers": 2
+      },
+      {
+        "id": "n03-33",
+        "fillers": 2
+      },
+      {
+        "id": "n03-35",
+        "fillers": 1
+      },
+      {
+        "id": "n03-36",
+        "fillers": 1
+      },
+      {
+        "id": "n03-37",
+        "fillers": 3
+      },
+      {
+        "id": "n03-39",
+        "fillers": 2
+      },
+      {
+        "id": "n03-41",
+        "fillers": 2
+      },
+      {
+        "id": "n03-42",
+        "fillers": 1
+      },
+      {
+        "id": "n03-44",
+        "fillers": 4
+      },
+      {
+        "id": "n03-46",
+        "fillers": 2
+      },
+      {
+        "id": "n03-47",
+        "fillers": 2
+      },
+      {
+        "id": "n03-48",
+        "fillers": 1
+      },
+      {
+        "id": "n04-02",
+        "fillers": 1
+      },
+      {
+        "id": "n04-03",
+        "fillers": 3
+      },
+      {
+        "id": "n04-05",
+        "fillers": 2
+      },
+      {
+        "id": "n04-06",
+        "fillers": 2
+      },
+      {
+        "id": "n04-07",
+        "fillers": 1
+      },
+      {
+        "id": "n04-08",
+        "fillers": 2
+      },
+      {
+        "id": "n04-11",
+        "fillers": 1
+      },
+      {
+        "id": "n04-12",
+        "fillers": 1
+      },
+      {
+        "id": "n04-13",
+        "fillers": 3
+      },
+      {
+        "id": "n04-16",
+        "fillers": 1
+      },
+      {
+        "id": "n04-17",
+        "fillers": 2
+      },
+      {
+        "id": "n04-18",
+        "fillers": 4
+      },
+      {
+        "id": "n04-19",
+        "fillers": 2
+      },
+      {
+        "id": "n04-21",
+        "fillers": 2
+      },
+      {
+        "id": "n04-22",
+        "fillers": 1
+      },
+      {
+        "id": "n04-23",
+        "fillers": 2
+      },
+      {
+        "id": "n04-25",
+        "fillers": 3
+      },
+      {
+        "id": "n04-29",
+        "fillers": 2
+      },
+      {
+        "id": "n04-30",
+        "fillers": 3
+      },
+      {
+        "id": "n04-32",
+        "fillers": 1
+      },
+      {
+        "id": "n04-33",
+        "fillers": 4
+      },
+      {
+        "id": "n04-34",
+        "fillers": 3
+      },
+      {
+        "id": "n04-35",
+        "fillers": 2
+      },
+      {
+        "id": "n04-38",
+        "fillers": 1
+      },
+      {
+        "id": "n04-39",
+        "fillers": 4
+      },
+      {
+        "id": "n04-40",
+        "fillers": 1
+      }
+    ]
+  },
+  "verbalSetCues": [
+    {
+      "set": "verbal-01",
+      "n": 20,
+      "heuristic": 0.2,
+      "lowOverlap": 0.225,
+      "highOverlap": 0.175,
+      "shortest": 0.175,
+      "keyHedge": 0.3,
+      "disHedge": 0.2833333333333333,
+      "keyAbs": 0.25,
+      "disAbs": 0.23333333333333334,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        5
+      ],
+      "patternShare": 0.25
+    },
+    {
+      "set": "verbal-02",
+      "n": 25,
+      "heuristic": 0.08,
+      "lowOverlap": 0.28,
+      "highOverlap": 0.2,
+      "shortest": 0.24,
+      "keyHedge": 0.36,
+      "disHedge": 0.32,
+      "keyAbs": 0.28,
+      "disAbs": 0.32,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        11
+      ],
+      "patternShare": 0.44
+    },
+    {
+      "set": "verbal-03",
+      "n": 25,
+      "heuristic": 0.22,
+      "lowOverlap": 0.2533333333333333,
+      "highOverlap": 0.16,
+      "shortest": 0.16,
+      "keyHedge": 0.28,
+      "disHedge": 0.24,
+      "keyAbs": 0.28,
+      "disAbs": 0.28,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        12
+      ],
+      "patternShare": 0.48
+    },
+    {
+      "set": "verbal-04",
+      "n": 22,
+      "heuristic": 0.09090909090909091,
+      "lowOverlap": 0.06818181818181818,
+      "highOverlap": 0.22727272727272727,
+      "shortest": 0.25,
+      "keyHedge": 0.18181818181818182,
+      "disHedge": 0.18181818181818182,
+      "keyAbs": 0.2727272727272727,
+      "disAbs": 0.3181818181818182,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        10
+      ],
+      "patternShare": 0.45454545454545453
+    },
+    {
+      "set": "verbal-05",
+      "n": 22,
+      "heuristic": 0.22727272727272727,
+      "lowOverlap": 0.2727272727272727,
+      "highOverlap": 0.18181818181818182,
+      "shortest": 0.22727272727272727,
+      "keyHedge": 0.3181818181818182,
+      "disHedge": 0.25757575757575757,
+      "keyAbs": 0.22727272727272727,
+      "disAbs": 0.30303030303030304,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        11
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-06",
+      "n": 22,
+      "heuristic": 0.09090909090909091,
+      "lowOverlap": 0.29545454545454547,
+      "highOverlap": 0.18181818181818182,
+      "shortest": 0.22727272727272727,
+      "keyHedge": 0.2727272727272727,
+      "disHedge": 0.3181818181818182,
+      "keyAbs": 0.22727272727272727,
+      "disAbs": 0.3181818181818182,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        11
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-07",
+      "n": 22,
+      "heuristic": 0.22727272727272727,
+      "lowOverlap": 0.09090909090909091,
+      "highOverlap": 0.22727272727272727,
+      "shortest": 0.22727272727272727,
+      "keyHedge": 0.18181818181818182,
+      "disHedge": 0.18181818181818182,
+      "keyAbs": 0.22727272727272727,
+      "disAbs": 0.22727272727272727,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        7
+      ],
+      "patternShare": 0.3181818181818182
+    },
+    {
+      "set": "verbal-08",
+      "n": 21,
+      "heuristic": 0.14285714285714285,
+      "lowOverlap": 0.16666666666666666,
+      "highOverlap": 0.19047619047619047,
+      "shortest": 0.19047619047619047,
+      "keyHedge": 0.23809523809523808,
+      "disHedge": 0.23809523809523808,
+      "keyAbs": 0.23809523809523808,
+      "disAbs": 0.20634920634920634,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        7
+      ],
+      "patternShare": 0.3333333333333333
+    },
+    {
+      "set": "verbal-09",
+      "n": 21,
+      "heuristic": 0.14285714285714285,
+      "lowOverlap": 0.07142857142857142,
+      "highOverlap": 0.30952380952380953,
+      "shortest": 0.2619047619047619,
+      "keyHedge": 0.19047619047619047,
+      "disHedge": 0.23809523809523808,
+      "keyAbs": 0.23809523809523808,
+      "disAbs": 0.2857142857142857,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        7
+      ],
+      "patternShare": 0.3333333333333333
+    },
+    {
+      "set": "verbal-10",
+      "n": 10,
+      "heuristic": 0.3,
+      "lowOverlap": 0.2,
+      "highOverlap": 0.2,
+      "shortest": 0.35,
+      "keyHedge": 0.1,
+      "disHedge": 0.06666666666666667,
+      "keyAbs": 0.3,
+      "disAbs": 0.23333333333333334,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        4
+      ],
+      "patternShare": 0.4
+    },
+    {
+      "set": "verbal-11",
+      "n": 10,
+      "heuristic": 0.2,
+      "lowOverlap": 0.2,
+      "highOverlap": 0.4,
+      "shortest": 0.3,
+      "keyHedge": 0.1,
+      "disHedge": 0.2,
+      "keyAbs": 0.2,
+      "disAbs": 0.2,
+      "topPattern": [
+        "False+False+Not supported",
+        4
+      ],
+      "patternShare": 0.4
+    },
+    {
+      "set": "verbal-12",
+      "n": 10,
+      "heuristic": 0.2,
+      "lowOverlap": 0.2,
+      "highOverlap": 0.2,
+      "shortest": 0.3,
+      "keyHedge": 0.2,
+      "disHedge": 0.16666666666666666,
+      "keyAbs": 0.3,
+      "disAbs": 0.4,
+      "topPattern": [
+        "False+Not supported+Not supported",
+        4
+      ],
+      "patternShare": 0.4
+    },
+    {
+      "set": "verbal-13",
+      "n": 10,
+      "heuristic": 0.2,
+      "lowOverlap": 0.1,
+      "highOverlap": 0.35,
+      "shortest": 0.25,
+      "keyHedge": 0.1,
+      "disHedge": 0.2,
+      "keyAbs": 0.3,
+      "disAbs": 0.4,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        5
+      ],
+      "patternShare": 0.5
+    }
+  ],
+  "abstractSetCues": [
+    {
+      "set": "abstract-01",
+      "medoid": 0.1,
+      "outlier": 0.2,
+      "majority": 0.1
+    },
+    {
+      "set": "abstract-02",
+      "medoid": 0.135,
+      "outlier": 0.2,
+      "majority": 0.133
+    },
+    {
+      "set": "abstract-03",
+      "medoid": 0.16,
+      "outlier": 0.2,
+      "majority": 0.125
+    },
+    {
+      "set": "abstract-04",
+      "medoid": 0.1625,
+      "outlier": 0.2,
+      "majority": 0.11875
+    },
+    {
+      "set": "abstract-05",
+      "medoid": 0.08333333333333333,
+      "outlier": 0,
+      "majority": 0.08333333333333333
+    },
+    {
+      "set": "abstract-06",
+      "medoid": 0.15,
+      "outlier": 0,
+      "majority": 0.15
+    },
+    {
+      "set": "abstract-07",
+      "medoid": 0.2,
+      "outlier": 0,
+      "majority": 0.05
+    },
+    {
+      "set": "abstract-08",
+      "medoid": 0.2,
+      "outlier": 0,
+      "majority": 0.2
+    }
+  ],
+  "verbalSemanticSample": {
+    "ids": [
+      "v01-01",
+      "v01-03",
+      "v02-01",
+      "v02-02",
+      "v03-01",
+      "v03-03",
+      "v04-01",
+      "v05-01",
+      "v06-01",
+      "v06-03",
+      "v07-01",
+      "v07-02",
+      "v08-01",
+      "v08-02",
+      "v09-01",
+      "v09-05",
+      "v10-01",
+      "v11-01",
+      "v12-01",
+      "v13-01"
+    ],
+    "method": "Author review sample of passages, options and notes; not an independent blind review of the complete verbal bank."
+  },
+  "verificationCoverage": {
+    "numericalIndependentKeys": 190,
+    "abstractIndependentChallengeKeys": 40,
+    "verbalArchivedBlindKeys": 40,
+    "verbalArchivedBlindLabels": 120,
+    "legacyAbstractSemanticKeysNotNewlyResolved": 150,
+    "legacyVerbalItemsWithoutNewCompleteBlindReview": 200
+  },
+  "abstractRaster": {
+    "questions": 190,
+    "figures": 1940,
+    "size": "100x100 light theme, actual SVG renderer",
+    "duplicateOptions": [],
+    "keyRepeatsStimulus": [
+      {
+        "id": "a01-05",
+        "challenge": false
+      },
+      {
+        "id": "a01-08",
+        "challenge": false
+      },
+      {
+        "id": "a01-10",
+        "challenge": false
+      },
+      {
+        "id": "a02-01",
+        "challenge": false
+      },
+      {
+        "id": "a02-03",
+        "challenge": false
+      },
+      {
+        "id": "a02-11",
+        "challenge": false
+      },
+      {
+        "id": "a02-19",
+        "challenge": false
+      },
+      {
+        "id": "a02-27",
+        "challenge": false
+      },
+      {
+        "id": "a02-28",
+        "challenge": false
+      },
+      {
+        "id": "a02-31",
+        "challenge": false
+      },
+      {
+        "id": "a02-43",
+        "challenge": false
+      },
+      {
+        "id": "a02-44",
+        "challenge": false
+      },
+      {
+        "id": "a03-03",
+        "challenge": false
+      },
+      {
+        "id": "a03-13",
+        "challenge": false
+      },
+      {
+        "id": "a03-14",
+        "challenge": false
+      },
+      {
+        "id": "a03-19",
+        "challenge": false
+      },
+      {
+        "id": "a03-26",
+        "challenge": false
+      },
+      {
+        "id": "a03-28",
+        "challenge": false
+      },
+      {
+        "id": "a03-33",
+        "challenge": false
+      },
+      {
+        "id": "a03-49",
+        "challenge": false
+      },
+      {
+        "id": "a04-04",
+        "challenge": false
+      },
+      {
+        "id": "a04-14",
+        "challenge": false
+      },
+      {
+        "id": "a04-19",
+        "challenge": false
+      },
+      {
+        "id": "a04-23",
+        "challenge": false
+      },
+      {
+        "id": "a04-27",
+        "challenge": false
+      },
+      {
+        "id": "a04-33",
+        "challenge": false
+      },
+      {
+        "id": "a04-39",
+        "challenge": false
+      }
+    ],
+    "limits": "Exact pixel equality at one resolution/theme; not perceptual similarity or proof of a unique human-interpretable rule."
+  }
+}

@@ -28,14 +28,14 @@ for (const { id, ex } of allExhibits) {
 }
 const verbalSample = [...new Set(sets.filter(s => s.section === 'verbal').flatMap(s => s.challenge ? [s.questions[0].id] : [s.questions[0].id, (s.questions.find(q => q.difficulty === 3) || s.questions.at(-1)).id]))];
 const evidence = {
- auditedCommit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
+ baseCommit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(), verifiedWorkingTree: true, applicationVersion: fs.readFileSync(path.join(root, 'version.js'), 'utf8').match(/[a-f0-9]{12}/)[0],
  sections, total: questions.length, numericalDisplayPrecision: { exhibits: allExhibits.length, valuesLosingMoreThanTwoDecimals: displayRounding },
  numericalGenericDistractors: { items: fillers.length, distractors: fillers.reduce((sum, q) => sum + q.fillers, 0), inventory: fillers },
  verbalSetCues: sets.filter(s => s.section === 'verbal').map(s => ({ set: s.id, ...verbalSetStats(s.questions) })),
  abstractSetCues: sets.filter(s => s.section === 'abstract').map(s => ({ set: s.id, ...Object.fromEntries(['medoid', 'outlier', 'majority'].map(k => [k, s.questions.reduce((sum, q) => sum + abstractBlind(q.options, q.answer)[k], 0) / s.questions.length])) })),
- verbalSemanticSample: { ids: verbalSample, method: 'Author review sample of passages, options and notes; not an independent blind review of the complete verbal bank.' },
- verificationCoverage: { numericalIndependentKeys: 190, abstractIndependentChallengeKeys: 40, verbalArchivedBlindKeys: 40, verbalArchivedBlindLabels: 120,
-  legacyAbstractSemanticKeysNotNewlyResolved: 150, legacyVerbalItemsWithoutNewCompleteBlindReview: 200 }
+ verbalSemanticSample: { ids: verbalSample, method: 'Original author sample retained for continuity; complete independent blind review now covers all 240 keys and 720 distractor labels. See docs/research/verbal/blind-review/legacy/.' },
+ verificationCoverage: { numericalIndependentKeys: 190, abstractIndependentChallengeKeys: 40, verbalArchivedBlindKeys: 240, verbalArchivedBlindLabels: 720,
+  legacyAbstractSemanticKeysNotNewlyResolved: 150, legacyVerbalItemsWithoutNewCompleteBlindReview: 0 }
 };
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 try {

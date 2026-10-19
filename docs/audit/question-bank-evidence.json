@@ -1,5 +1,7 @@
 {
-  "auditedCommit": "ef17a7f3e96da78a40817dfc17ecc7b6dd4a962c",
+  "baseCommit": "68f72609b1be9c1d56559c2c9f9ae202779247af",
+  "verifiedWorkingTree": true,
+  "applicationVersion": "9b4d97ecbcc2",
   "sections": {
     "verbal": {
       "sets": 13,
@@ -38,386 +40,9 @@
     "valuesLosingMoreThanTwoDecimals": []
   },
   "numericalGenericDistractors": {
-    "items": 94,
-    "distractors": 180,
-    "inventory": [
-      {
-        "id": "n01-01",
-        "fillers": 1
-      },
-      {
-        "id": "n01-03",
-        "fillers": 2
-      },
-      {
-        "id": "n01-04",
-        "fillers": 1
-      },
-      {
-        "id": "n01-06",
-        "fillers": 2
-      },
-      {
-        "id": "n01-07",
-        "fillers": 1
-      },
-      {
-        "id": "n01-09",
-        "fillers": 2
-      },
-      {
-        "id": "n01-10",
-        "fillers": 2
-      },
-      {
-        "id": "n02-01",
-        "fillers": 1
-      },
-      {
-        "id": "n02-02",
-        "fillers": 1
-      },
-      {
-        "id": "n02-03",
-        "fillers": 1
-      },
-      {
-        "id": "n02-05",
-        "fillers": 1
-      },
-      {
-        "id": "n02-06",
-        "fillers": 2
-      },
-      {
-        "id": "n02-07",
-        "fillers": 1
-      },
-      {
-        "id": "n02-09",
-        "fillers": 1
-      },
-      {
-        "id": "n02-10",
-        "fillers": 1
-      },
-      {
-        "id": "n02-11",
-        "fillers": 2
-      },
-      {
-        "id": "n02-13",
-        "fillers": 2
-      },
-      {
-        "id": "n02-15",
-        "fillers": 2
-      },
-      {
-        "id": "n02-18",
-        "fillers": 4
-      },
-      {
-        "id": "n02-20",
-        "fillers": 1
-      },
-      {
-        "id": "n02-21",
-        "fillers": 4
-      },
-      {
-        "id": "n02-26",
-        "fillers": 2
-      },
-      {
-        "id": "n02-27",
-        "fillers": 4
-      },
-      {
-        "id": "n02-30",
-        "fillers": 1
-      },
-      {
-        "id": "n02-34",
-        "fillers": 1
-      },
-      {
-        "id": "n02-36",
-        "fillers": 2
-      },
-      {
-        "id": "n02-37",
-        "fillers": 1
-      },
-      {
-        "id": "n02-38",
-        "fillers": 3
-      },
-      {
-        "id": "n02-39",
-        "fillers": 1
-      },
-      {
-        "id": "n02-42",
-        "fillers": 1
-      },
-      {
-        "id": "n02-43",
-        "fillers": 2
-      },
-      {
-        "id": "n02-44",
-        "fillers": 3
-      },
-      {
-        "id": "n02-45",
-        "fillers": 2
-      },
-      {
-        "id": "n02-47",
-        "fillers": 1
-      },
-      {
-        "id": "n02-48",
-        "fillers": 1
-      },
-      {
-        "id": "n02-49",
-        "fillers": 3
-      },
-      {
-        "id": "n03-01",
-        "fillers": 2
-      },
-      {
-        "id": "n03-03",
-        "fillers": 1
-      },
-      {
-        "id": "n03-05",
-        "fillers": 2
-      },
-      {
-        "id": "n03-06",
-        "fillers": 3
-      },
-      {
-        "id": "n03-08",
-        "fillers": 3
-      },
-      {
-        "id": "n03-09",
-        "fillers": 3
-      },
-      {
-        "id": "n03-10",
-        "fillers": 2
-      },
-      {
-        "id": "n03-14",
-        "fillers": 3
-      },
-      {
-        "id": "n03-15",
-        "fillers": 3
-      },
-      {
-        "id": "n03-17",
-        "fillers": 2
-      },
-      {
-        "id": "n03-19",
-        "fillers": 1
-      },
-      {
-        "id": "n03-20",
-        "fillers": 2
-      },
-      {
-        "id": "n03-22",
-        "fillers": 1
-      },
-      {
-        "id": "n03-23",
-        "fillers": 1
-      },
-      {
-        "id": "n03-25",
-        "fillers": 3
-      },
-      {
-        "id": "n03-26",
-        "fillers": 1
-      },
-      {
-        "id": "n03-27",
-        "fillers": 2
-      },
-      {
-        "id": "n03-28",
-        "fillers": 1
-      },
-      {
-        "id": "n03-29",
-        "fillers": 1
-      },
-      {
-        "id": "n03-31",
-        "fillers": 3
-      },
-      {
-        "id": "n03-32",
-        "fillers": 2
-      },
-      {
-        "id": "n03-33",
-        "fillers": 2
-      },
-      {
-        "id": "n03-35",
-        "fillers": 1
-      },
-      {
-        "id": "n03-36",
-        "fillers": 1
-      },
-      {
-        "id": "n03-37",
-        "fillers": 3
-      },
-      {
-        "id": "n03-39",
-        "fillers": 2
-      },
-      {
-        "id": "n03-41",
-        "fillers": 2
-      },
-      {
-        "id": "n03-42",
-        "fillers": 1
-      },
-      {
-        "id": "n03-44",
-        "fillers": 4
-      },
-      {
-        "id": "n03-46",
-        "fillers": 2
-      },
-      {
-        "id": "n03-47",
-        "fillers": 2
-      },
-      {
-        "id": "n03-48",
-        "fillers": 1
-      },
-      {
-        "id": "n04-02",
-        "fillers": 1
-      },
-      {
-        "id": "n04-03",
-        "fillers": 3
-      },
-      {
-        "id": "n04-05",
-        "fillers": 2
-      },
-      {
-        "id": "n04-06",
-        "fillers": 2
-      },
-      {
-        "id": "n04-07",
-        "fillers": 1
-      },
-      {
-        "id": "n04-08",
-        "fillers": 2
-      },
-      {
-        "id": "n04-11",
-        "fillers": 1
-      },
-      {
-        "id": "n04-12",
-        "fillers": 1
-      },
-      {
-        "id": "n04-13",
-        "fillers": 3
-      },
-      {
-        "id": "n04-16",
-        "fillers": 1
-      },
-      {
-        "id": "n04-17",
-        "fillers": 2
-      },
-      {
-        "id": "n04-18",
-        "fillers": 4
-      },
-      {
-        "id": "n04-19",
-        "fillers": 2
-      },
-      {
-        "id": "n04-21",
-        "fillers": 2
-      },
-      {
-        "id": "n04-22",
-        "fillers": 1
-      },
-      {
-        "id": "n04-23",
-        "fillers": 2
-      },
-      {
-        "id": "n04-25",
-        "fillers": 3
-      },
-      {
-        "id": "n04-29",
-        "fillers": 2
-      },
-      {
-        "id": "n04-30",
-        "fillers": 3
-      },
-      {
-        "id": "n04-32",
-        "fillers": 1
-      },
-      {
-        "id": "n04-33",
-        "fillers": 4
-      },
-      {
-        "id": "n04-34",
-        "fillers": 3
-      },
-      {
-        "id": "n04-35",
-        "fillers": 2
-      },
-      {
-        "id": "n04-38",
-        "fillers": 1
-      },
-      {
-        "id": "n04-39",
-        "fillers": 4
-      },
-      {
-        "id": "n04-40",
-        "fillers": 1
-      }
-    ]
+    "items": 0,
+    "distractors": 0,
+    "inventory": []
   },
   "verbalSetCues": [
     {
@@ -433,9 +58,9 @@
       "disAbs": 0.23333333333333334,
       "topPattern": [
         "False+Not supported+Overstated",
-        5
+        6
       ],
-      "patternShare": 0.25
+      "patternShare": 0.3
     },
     {
       "set": "verbal-02",
@@ -450,9 +75,9 @@
       "disAbs": 0.32,
       "topPattern": [
         "False+Not supported+Overstated",
-        11
+        8
       ],
-      "patternShare": 0.44
+      "patternShare": 0.32
     },
     {
       "set": "verbal-03",
@@ -467,9 +92,9 @@
       "disAbs": 0.28,
       "topPattern": [
         "False+Not supported+Overstated",
-        12
+        11
       ],
-      "patternShare": 0.48
+      "patternShare": 0.44
     },
     {
       "set": "verbal-04",
@@ -492,18 +117,18 @@
       "set": "verbal-05",
       "n": 22,
       "heuristic": 0.22727272727272727,
-      "lowOverlap": 0.2727272727272727,
+      "lowOverlap": 0.29545454545454547,
       "highOverlap": 0.18181818181818182,
       "shortest": 0.22727272727272727,
       "keyHedge": 0.3181818181818182,
-      "disHedge": 0.25757575757575757,
+      "disHedge": 0.2878787878787879,
       "keyAbs": 0.22727272727272727,
       "disAbs": 0.30303030303030304,
       "topPattern": [
         "False+Not supported+Overstated",
-        11
+        10
       ],
-      "patternShare": 0.5
+      "patternShare": 0.45454545454545453
     },
     {
       "set": "verbal-06",
@@ -518,9 +143,9 @@
       "disAbs": 0.3181818181818182,
       "topPattern": [
         "False+Not supported+Overstated",
-        11
+        9
       ],
-      "patternShare": 0.5
+      "patternShare": 0.4090909090909091
     },
     {
       "set": "verbal-07",
@@ -532,12 +157,12 @@
       "keyHedge": 0.18181818181818182,
       "disHedge": 0.18181818181818182,
       "keyAbs": 0.22727272727272727,
-      "disAbs": 0.22727272727272727,
+      "disAbs": 0.24242424242424243,
       "topPattern": [
-        "False+Not supported+Overstated",
-        7
+        "False+Not supported+Not supported",
+        6
       ],
-      "patternShare": 0.3181818181818182
+      "patternShare": 0.2727272727272727
     },
     {
       "set": "verbal-08",
@@ -551,7 +176,7 @@
       "keyAbs": 0.23809523809523808,
       "disAbs": 0.20634920634920634,
       "topPattern": [
-        "False+Not supported+Overstated",
+        "False+Not supported+Not supported",
         7
       ],
       "patternShare": 0.3333333333333333
@@ -569,9 +194,9 @@
       "disAbs": 0.2857142857142857,
       "topPattern": [
         "False+Not supported+Overstated",
-        7
+        9
       ],
-      "patternShare": 0.3333333333333333
+      "patternShare": 0.42857142857142855
     },
     {
       "set": "verbal-10",
@@ -704,8 +329,8 @@
       "v05-01",
       "v06-01",
       "v06-03",
-      "v07-01",
-      "v07-02",
+      "v07-01-r2",
+      "v07-02-r2",
       "v08-01",
       "v08-02",
       "v09-01",
@@ -715,15 +340,15 @@
       "v12-01",
       "v13-01"
     ],
-    "method": "Author review sample of passages, options and notes; not an independent blind review of the complete verbal bank."
+    "method": "Original author sample retained for continuity; complete independent blind review now covers all 240 keys and 720 distractor labels. See docs/research/verbal/blind-review/legacy/."
   },
   "verificationCoverage": {
     "numericalIndependentKeys": 190,
     "abstractIndependentChallengeKeys": 40,
-    "verbalArchivedBlindKeys": 40,
-    "verbalArchivedBlindLabels": 120,
+    "verbalArchivedBlindKeys": 240,
+    "verbalArchivedBlindLabels": 720,
     "legacyAbstractSemanticKeysNotNewlyResolved": 150,
-    "legacyVerbalItemsWithoutNewCompleteBlindReview": 200
+    "legacyVerbalItemsWithoutNewCompleteBlindReview": 0
   },
   "abstractRaster": {
     "questions": 190,

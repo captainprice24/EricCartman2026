@@ -1,0 +1,233 @@
+[
+  {
+    "id": "v08-01",
+    "passage": "The European Pillar of Social Rights was proclaimed jointly by the European Parliament, the Council and the Commission at a summit in Gothenburg in November 2017. It sets out 20 principles grouped in three chapters: equal opportunities and access to the labour market, fair working conditions, and social protection and inclusion. The principles range from the right to education and training to the right to a minimum income, to affordable long-term care and to access to essential services such as water, energy and transport.\n\nThe proclamation itself does not create new legal obligations. Its principles are put into practice through a mix of EU legislation, funding and coordination of national policies, and many of the areas concerned remain largely the responsibility of Member States and of the social partners. In 2021 the Commission presented an action plan with three headline targets for the EU to reach by 2030: at least 78% of people aged 20 to 64 should be in employment, at least 60% of adults should take part in training every year, and the number of people at risk of poverty or social exclusion should fall by at least 15 million, including at least 5 million children.\n\nEU leaders welcomed these targets at a summit in Porto in May 2021, and Member States later set national targets of their own to contribute to them.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The Pillar's 20 principles were proclaimed by EU leaders at the summit held in Porto in May 2021.",
+      "A legal right to a minimum income cannot be derived from the 2017 proclamation on its own.",
+      "The poverty target was introduced because the number of people at risk of poverty rose during the pandemic.",
+      "Under the 2030 targets, every adult in the EU is expected to take part in training each year."
+    ]
+  },
+  {
+    "id": "v08-02",
+    "passage": "The Directive on adequate minimum wages, adopted in 2022, had to be transposed by Member States by November 2024. It does not set a common minimum wage for the EU, nor does it oblige any country to introduce a statutory minimum wage. In most Member States a minimum wage is fixed by law, but in five of them, including Denmark, Sweden and Italy, minimum pay is determined through collective agreements, and these countries may keep that model.\n\nFor countries with a statutory minimum wage, the Directive requires clear procedures for setting and updating it. To assess whether it is adequate, they may use indicative reference values such as 60% of the gross median wage or 50% of the gross average wage. A separate provision applies to every Member State, whatever its wage-setting model: where fewer than 80% of workers are covered by collective agreements, the government must draw up an action plan to promote collective bargaining.\n\nDenmark asked the Court of Justice to annul the Directive, arguing that the Treaties exclude pay from the EU's powers. In November 2025 the Court rejected most of the challenge. It annulled two specific provisions but left the rest of the Directive in force, including the rules on collective bargaining.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "A country with no statutory minimum wage still needs an action plan if collective agreements cover only 70% of workers.",
+      "The Court annulled two of the provisions because they interfered too directly with the level of pay in Member States.",
+      "Each Member State must now set its minimum wage at no less than 60% of the gross median wage in that country.",
+      "Every Member State must raise the share of workers covered by collective agreements to at least 80% by a fixed date."
+    ]
+  },
+  {
+    "id": "v08-03",
+    "passage": "The Pay Transparency Directive, adopted in 2023, aims to enforce the principle of equal pay for men and women for equal work or work of equal value. Member States had until June 2026 to bring it into national law. Several of its rights apply to all employers, whatever their size. Job applicants must be told the starting pay, or its range, for the post before the interview, for example in the vacancy notice, and employers may no longer ask candidates how much they earned in previous jobs. Workers may request information on their own pay level and on average pay levels, broken down by sex, for colleagues doing the same work or work of equal value. Contract terms that prevent workers from disclosing their pay in order to enforce equal pay are not allowed.\n\nReporting duties, by contrast, depend on size. Employers with at least 250 workers must report on their gender pay gap every year, those with 150 to 249 workers every three years, and those with 100 to 149 workers also every three years but only from a later date. Smaller employers have no such duty under the Directive, though Member States may impose one. Where reporting reveals a gap of at least 5% in any category of workers that the employer cannot justify on objective, gender-neutral grounds and does not correct within six months, a joint pay assessment must be carried out with workers' representatives.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Employers with 100 or more workers must report annually on the gender pay gap within their organisation.",
+      "Employers who ask job candidates about their previous salaries will face fines that are set at EU level.",
+      "A joint pay assessment is required wherever the overall gap between men's and women's pay exceeds 5%.",
+      "A firm with only 30 staff must still tell applicants the starting pay, or its range, before interviewing them."
+    ]
+  },
+  {
+    "id": "v08-04",
+    "passage": "The Work-Life Balance Directive, which Member States had to apply from August 2022, sets minimum standards for leave and flexible working for parents and carers. Fathers, or equivalent second parents where national law recognises them, are entitled to at least ten working days of paternity leave around the time of the birth, paid at least at the level of national sick pay. The right to the leave itself cannot depend on how long the worker has been employed, but Member States may make the payment conditional on up to six months of prior employment.\n\nEach parent is also entitled to four months of parental leave, to be taken before the child reaches an age set by the Member State, of at most eight years. Two of these months cannot be transferred to the other parent and must be paid, at a level that each Member State defines. Workers who provide personal care or support to a relative, or to a person in the same household, who needs significant care for a serious medical reason are entitled to five working days of carers' leave per year. The Directive leaves it to Member States to decide whether this leave is paid.\n\nParents of children up to at least eight years old and carers may also request flexible arrangements, such as reduced hours or remote work. Employers must respond within a reasonable period and give reasons for any refusal.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Most fathers in the EU now take the full ten working days of paternity leave to which they are entitled.",
+      "Carers' leave is usually paid at the level of national sick pay, in the same way as paternity leave.",
+      "A father employed for three months before the birth is entitled to paternity leave, though it may be unpaid.",
+      "Employers must agree to reduced working hours whenever the parent of a child under eight years old asks for them."
+    ]
+  },
+  {
+    "id": "v08-05",
+    "passage": "The Platform Work Directive, adopted in 2024, is the first piece of EU law to regulate the use of algorithms in managing people at work. Member States have until December 2026 to transpose it. In 2021 the Commission estimated that more than 28 million people in the EU worked through digital labour platforms, in activities ranging from ride-hailing and food delivery to translation and data entry, and that many of them may have been wrongly classified as self-employed.\n\nTo address misclassification, the Directive introduces a legal presumption of employment. Where facts indicating control and direction are found, as determined under national law and collective agreements and taking into account the case law of the Court of Justice, the person is presumed to be in an employment relationship with the platform. The presumption can be rebutted, but it is then for the platform to prove that the relationship is not one of employment. The Directive does not itself list the criteria for triggering the presumption, nor does it automatically reclassify anyone.\n\nOn algorithmic management, platforms may not use automated systems to process data on a person's emotional or psychological state or on private conversations. Decisions that significantly affect a person, such as suspending an account, must be taken by a human being. These protections apply to everyone working through a platform, including those who are genuinely self-employed.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Once facts indicating control are found, a courier need not prove an employment relationship herself.",
+      "Most of the 28 million platform workers counted by the Commission were engaged in ride-hailing or food delivery.",
+      "From December 2026, everyone who works through a digital labour platform will be treated as an employee.",
+      "Platforms may not use automated systems to take any decision about the people who work through them."
+    ]
+  },
+  {
+    "id": "v08-06",
+    "passage": "The European Social Fund Plus (ESF+) is the EU's main instrument for investing in people for the period 2021–2027. It brought together several previously separate instruments, including the European Social Fund, the Fund for European Aid to the Most Deprived and the Youth Employment Initiative. Most of its resources are managed jointly by the Commission and national authorities: Member States design programmes, select projects and are partly reimbursed from the EU budget, while a much smaller strand supporting employment and social innovation is managed directly by the Commission.\n\nThe regulation also earmarks shares of each country's allocation for particular purposes. Every Member State must devote at least 25% of its ESF+ resources under shared management to promoting social inclusion and at least 3% to addressing material deprivation, for example through food aid. Member States in which the share of young people not in employment, education or training was above the EU average in 2019 must spend at least 12.5% on measures for young people. Those with a child poverty rate above the EU average must spend at least 5% on tackling child poverty. Other Member States are asked to allocate an appropriate amount to these two priorities, without a fixed minimum.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The Youth Employment Initiative was merged into ESF+ because it had failed to bring down youth unemployment.",
+      "Even a country with little child poverty must earmark at least 3% of its funds for material deprivation.",
+      "Member States with high child poverty also tended to have NEET rates above the EU average in 2019.",
+      "Member States manage the entire ESF+ budget, with the Commission reimbursing part of what they spend."
+    ]
+  },
+  {
+    "id": "v08-07",
+    "passage": "The Youth Guarantee was launched in 2013, when youth unemployment in the EU had risen sharply following the financial and economic crisis. Under it, Member States committed themselves to ensuring that young people receive a good-quality offer of employment, continued education, an apprenticeship or a traineeship within four months of becoming unemployed or leaving formal education. In 2020 the Council adopted a reinforced Youth Guarantee, which widened the target group from people under 25 to people aged 15 to 29. It also placed greater emphasis on reaching young people who are not registered with public employment services, many of whom face multiple disadvantages.\n\nThe Youth Guarantee takes the form of a Council recommendation rather than a regulation or a directive, so it is not legally binding. Member States implement it through their own schemes, usually run by public employment services, and the EU supports these efforts with funding, notably through the European Social Fund Plus.\n\nIn 2021 the Commission added a related initiative, ALMA, which stands for Aim, Learn, Master, Achieve. It is aimed at disadvantaged young people aged 18 to 29 who are not in employment, education or training, and offers them a supervised work-related stay of two to six months in another Member State, with preparation beforehand and support on their return.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 2020 reform made it legally binding on Member States to make an offer to every young person within four months.",
+      "Youth unemployment probably returned to its pre-crisis level within a few years of the scheme's 2013 launch.",
+      "ALMA offers a supervised stay in another Member State to any young person registered under the Youth Guarantee.",
+      "Since the reinforced Youth Guarantee of 2020, a 28-year-old leaving formal education falls within its target group."
+    ]
+  },
+  {
+    "id": "v08-08",
+    "passage": "EU rules on social security coordination, set out mainly in Regulation 883/2004, do not replace national systems with a single European one. Each country remains free to decide who is insured, which benefits are granted and on what conditions; the EU rules determine which country's system applies in cross-border situations. They apply in the EU Member States and also in Iceland, Liechtenstein, Norway and Switzerland.\n\nA basic principle is that a person is covered by the legislation of one country at a time. As a rule, this is the country where the person works, even if he or she lives elsewhere. Special rules apply to people who normally work in two or more countries: if they carry out a substantial part of their activity, defined as at least 25% of their working time or pay, in the country where they live, they are insured there. Another principle, aggregation, ensures that periods of insurance or work completed in one country are taken into account when another country assesses whether a person qualifies for a benefit.\n\nUnemployed people who move to another country to look for work may, under certain conditions, continue to receive their unemployment benefit from the paying country for three months. The employment services of that country can extend this period up to a maximum of six months.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 25% threshold was introduced to stop employers from choosing the cheapest social security system.",
+      "Switzerland applies the coordination rules because it is a member of the European Economic Area.",
+      "A person who lives in Belgium but works in the Netherlands is, as a rule, insured only in the Netherlands.",
+      "A jobseeker who moves abroad keeps receiving unemployment benefit from the paying country for six months."
+    ]
+  },
+  {
+    "id": "v08-09",
+    "passage": "The European Medicines Agency (EMA) evaluates medicines for human and veterinary use. Originally based in London, it moved to Amsterdam in 2019 after the United Kingdom decided to leave the EU. Its scientific committees are made up largely of experts from national medicines authorities, which together with the Agency and the Commission form a network that shares the work of assessing and monitoring medicines.\n\nUnder the centralised procedure, a company submits a single application to EMA. The Agency's Committee for Medicinal Products for Human Use carries out the scientific assessment and gives an opinion on whether the medicine should be authorised. The legally binding decision is then taken by the European Commission, and the resulting marketing authorisation is valid in all EU Member States as well as in Iceland, Liechtenstein and Norway. The procedure is compulsory for certain categories, such as medicines derived from biotechnology, medicines for rare diseases and medicines with a new active substance intended to treat cancer, diabetes or HIV/AIDS, among other conditions. Most generic and non-prescription medicines, by contrast, are authorised by national authorities.\n\nBeing authorised does not mean that a medicine is available to patients everywhere on the same terms. Decisions on its price and on whether national health systems pay for it are taken by each Member State.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "EMA grants marketing authorisations itself once its committee has completed the scientific assessment.",
+      "A new cancer medicine approved centrally may be paid for by one national health system but not by another.",
+      "A medicine authorised through the centralised procedure can be marketed in any country in Europe.",
+      "Every medicine sold in the EU must first be assessed by one of the scientific committees of EMA."
+    ]
+  },
+  {
+    "id": "v08-10",
+    "passage": "The European Centre for Disease Prevention and Control (ECDC) was established in 2004 and began operating the following year in Solna, near Stockholm. Its task is to identify, assess and communicate current and emerging threats to human health from communicable diseases. It collects surveillance data from Member States, publishes rapid risk assessments when outbreaks occur and provides scientific advice to national authorities and to the EU institutions.\n\nThe COVID-19 pandemic exposed the limits of this model, and in 2022 the Centre's mandate was strengthened. It now gives recommendations on preparedness planning, monitors the capacity of health systems to cope with outbreaks, and can deploy experts through an EU Health Task Force to support Member States and, at their request, countries outside the EU in responding to outbreaks.\n\nEven with these additional tasks, the ECDC has no regulatory powers. It cannot impose public health measures such as travel restrictions, school closures or vaccination requirements; decisions of this kind remain with national governments, which are responsible for organising health services and for the bulk of public health policy. The Centre's influence therefore depends largely on the quality and timeliness of its scientific work and on the readiness of national authorities to act on its advice.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 2022 reform followed criticism of the quality of the risk assessments the Centre published during the pandemic.",
+      "The EU Health Task Force can be sent to any country, inside or outside the EU, on the Centre's own initiative.",
+      "National authorities usually adopt the recommendations of the Centre within days of receiving them.",
+      "Only national governments, not the ECDC, can decide whether schools close during an outbreak."
+    ]
+  },
+  {
+    "id": "v08-11",
+    "passage": "The Directive on patients' rights in cross-border healthcare, adopted in 2011, allows people insured in one EU country to receive healthcare in another and to be reimbursed by their home system. Reimbursement is limited to the amount that the home system would have paid had the same treatment been provided at home, and it may not exceed the actual cost. Patients usually pay the provider up front and then claim the money back. The Directive covers both public and private providers.\n\nMember States may require patients to obtain prior authorisation for certain types of care, notably treatment involving at least one overnight stay in hospital and care requiring highly specialised and cost-intensive medical equipment. Authorisation may not be refused, however, where the treatment is among the benefits to which the patient is entitled at home and cannot be provided there within a medically justifiable time limit. Long-term care, the allocation of organs for transplants and public vaccination programmes are excluded from the Directive.\n\nEach country must have at least one national contact point that informs patients about their rights, about quality and safety standards and about the providers available. The Directive also laid the basis for European Reference Networks, which link specialist centres across Europe so that expertise on rare and complex diseases, rather than the patients themselves, can travel.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "If treatment costing €8,000 abroad would cost the home system €5,000, the patient is reimbursed at most €5,000.",
+      "National contact points can also handle patients' claims for reimbursement of treatment received abroad.",
+      "Most patients who make use of the Directive go abroad in order to be treated for rare and complex diseases.",
+      "A Member State may never refuse authorisation for hospital treatment that a patient wishes to receive abroad."
+    ]
+  },
+  {
+    "id": "v08-12",
+    "passage": "The Tobacco Products Directive, which has applied since May 2016, governs how tobacco and related products are manufactured, presented and sold in the EU. Packs of cigarettes and roll-your-own tobacco must carry combined health warnings, consisting of a picture, a text warning and information on quitting, which cover 65% of both the front and the back of the pack. Member States may go further and require plain packaging, which several have done.\n\nCigarettes and roll-your-own tobacco may not have a characterising flavour such as fruit or vanilla. Products with a larger market share, notably menthol cigarettes, were given a transitional period, and for them the ban took effect only in May 2020. In 2023 the flavour ban was extended to heated tobacco products. An EU-wide system for tracking and tracing tobacco products along the supply chain is intended to curb illicit trade.\n\nElectronic cigarettes containing nicotine are also covered. Their liquids may not contain more than 20 mg of nicotine per millilitre, refill containers are limited to 10 ml, and packages must carry a health warning. The Directive does not deal with tobacco taxation, which is governed by separate EU rules on excise duties. In 2016 the Court of Justice rejected challenges to several of its provisions, including the ban on menthol.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Health warnings must cover 65% of the front of a cigarette pack but may be smaller on the back of the pack.",
+      "Plain packaging has reduced smoking rates in the Member States that have chosen to introduce it.",
+      "For several years after 2016, the Directive's ban on characterising flavours did not cover heated tobacco.",
+      "The Directive requires Member States to introduce plain packaging for cigarettes and roll-your-own tobacco."
+    ]
+  },
+  {
+    "id": "v08-13",
+    "passage": "The European Solidarity Corps offers young people opportunities to volunteer or to run their own projects for the benefit of communities, in their own country or abroad. It was launched in December 2016 and became a programme with its own budget in 2018. For the period 2021–2027 it has a budget of around €1 billion.\n\nYoung people can register from the age of 17, but they must be at least 18 to start an activity. The upper age limit is 30, except for humanitarian aid volunteering, which takes place outside the EU in support of humanitarian operations and is open to people up to the age of 35. Volunteering activities last from two weeks to twelve months. Volunteers' travel, accommodation and meals are covered, and they receive a small allowance for personal expenses. Solidarity projects are set up and run by groups of at least five young people and last between two and twelve months.\n\nWhen the Corps began, it also offered traineeships and jobs, but these were dropped when the programme was renewed for 2021–2027 so that it could concentrate on volunteering and solidarity projects. The programme is open to young people regardless of their educational background or financial means, and it is expected to take particular steps to include those with fewer opportunities.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "A 33-year-old could still volunteer in humanitarian aid but would be too old for all other activities.",
+      "The Corps pays for all of the costs that volunteers incur while they are taking part in an activity.",
+      "Every volunteering activity organised under the European Solidarity Corps lasts for at least two months.",
+      "Young people from any background are guaranteed a place in the programme once they have registered."
+    ]
+  },
+  {
+    "id": "v08-14",
+    "passage": "The European Heritage Label is awarded to sites that have played a significant role in the history, culture or integration of Europe. Monuments, archaeological sites, landscapes, museums and archives can all apply, as can places associated with intangible heritage. The initiative began among a group of Member States in 2006 and became an EU action in 2011, with the first sites designated in 2013. Unlike UNESCO's World Heritage List, it does not focus on the conservation of sites or on their architectural or aesthetic value; what matters is their symbolic value for Europe and the way they communicate it.\n\nSelection takes place in two stages. Every two years, each participating Member State may pre-select up to two sites. A panel of independent experts then assesses the applications and recommends at most one site per country, after which the Commission formally designates the selected sites. Applicants must submit a project explaining how they will promote the European dimension of the site, in particular through educational activities for young people, and the panel checks that the site has a workable plan for doing so. A site can lose the label if it no longer meets the criteria.\n\nParticipation is voluntary: Member States decide for themselves whether to take part in the action.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Every EU Member State is required to pre-select candidate sites for the label once every two years.",
+      "Sites that already appear on UNESCO's World Heritage List cannot apply for the European Heritage Label.",
+      "Sites that are awarded the label receive EU funding for their educational activities aimed at young people.",
+      "A country that pre-selects two sites in one round will have at most one of them recommended by the panel."
+    ]
+  },
+  {
+    "id": "v08-15",
+    "passage": "The Bologna Process began in 1999, when ministers responsible for higher education from 29 European countries signed a declaration in Bologna committing them to make their degree systems more comparable. It is often mistaken for an EU policy, but it is an intergovernmental process: its membership extends well beyond the EU, to nearly fifty countries, and its commitments are agreed by ministers at conferences held every few years rather than adopted as EU law. The European Commission is a member and supports the process with funding, but it does not direct it.\n\nIn 2010 the participating countries launched the European Higher Education Area. Its main features include a three-cycle structure of bachelor's, master's and doctoral degrees; the European Credit Transfer and Accumulation System (ECTS), in which 60 credits correspond to the workload of a full academic year of full-time study; and common standards and guidelines for quality assurance. Graduates can also receive a Diploma Supplement describing the nature and content of their studies.\n\nBecause the commitments are not legally binding, implementation varies. Each country decides how to translate them into national law, and progress is reviewed through regular reports. Countries that are slow to carry out the reforms face no legal sanctions, though their record is made public.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The Bologna Process was launched by the EU in 1999 and has been directed by the European Commission since then.",
+      "A participating country that is slow to introduce the ECTS cannot be fined for the delay.",
+      "The Diploma Supplement was introduced at the same time as the European Higher Education Area was launched.",
+      "In participating countries, a bachelor's degree generally requires three years of full-time study to complete."
+    ]
+  },
+  {
+    "id": "v08-16",
+    "passage": "In 1935 the American psychologist John Ridley Stroop published a study that became one of the most frequently replicated findings in experimental psychology. He asked participants to name the colour of the ink in which words were printed. When the words were names of colours printed in a different colour, such as the word 'red' printed in blue ink, people took considerably longer to name the ink colour than when they named the colours of plain coloured squares. Reading the words aloud, by contrast, was hardly slowed by a mismatched ink colour.\n\nThe standard explanation is that, for literate adults, reading is a highly practised and largely automatic process, whereas naming colours requires more deliberate attention. When the two conflict, the automatic response has to be suppressed, which takes time and sometimes fails, producing errors. Consistent with this account, extended practice at naming colours tends to reduce the interference without removing it.\n\nThe task is now widely used to study attention and self-control, and versions of it appear in clinical research. Researchers caution, however, that the size of the effect varies with factors such as practice, the language of the words and the exact design of the task, so a single score says little about an individual.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Reading the words aloud was slowed as much as naming the ink colours when the two did not match.",
+      "Stroop himself concluded that reading is an automatic process for adults who have learned to read.",
+      "Naming the ink colour took longer when the printed word referred to a colour other than the ink's.",
+      "Practice at naming colours reduces the interference more in children than it does in adults."
+    ]
+  },
+  {
+    "id": "v08-17",
+    "passage": "In the 1840s the Vienna General Hospital had two maternity clinics. Women were admitted to them on alternate days, yet mortality from puerperal fever, an infection after childbirth, was much higher in the first clinic, where doctors and medical students worked, than in the second, which was staffed by midwives. Ignaz Semmelweis, an assistant in the first clinic, sought an explanation. In 1847 a colleague died after being cut with a scalpel during an autopsy, showing symptoms similar to those of the women. Semmelweis concluded that 'cadaverous particles' carried on the hands of doctors and students coming from the dissecting room were causing the disease.\n\nHe required staff to wash their hands in a chlorinated lime solution before examining patients, and mortality in the first clinic fell sharply, to a level close to that of the second. Many of his colleagues nonetheless rejected his conclusions. His explanation conflicted with the prevailing view that the disease had many causes, and he was slow to publish, setting out his argument in full only in 1861. He died in 1865.\n\nRecognition came later, once the work of Louis Pasteur and Joseph Lister had established that microorganisms cause infection. Semmelweis had found a way of preventing the disease without knowing what the causal agent actually was.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Semmelweis may have lost his post at the hospital because of his views on the causes of puerperal fever.",
+      "Handwashing cut deaths although Semmelweis did not know the actual nature of the causal agent.",
+      "After handwashing was introduced, no woman in the first clinic died of puerperal fever again.",
+      "All of his colleagues rejected his conclusions until the work of Pasteur and Lister was published."
+    ]
+  },
+  {
+    "id": "v08-18",
+    "passage": "In the mid-nineteenth century most doctors believed that cholera was spread by 'miasma', a poisonous vapour arising from decaying matter. The London physician John Snow doubted this. Because the disease attacked the digestive system first, he argued, it must be caused by something swallowed rather than inhaled.\n\nDuring an outbreak in Soho in 1854, Snow mapped the homes of those who died and found that they clustered around a public water pump in Broad Street. Some apparent exceptions supported his case: workers at a nearby brewery, who were given beer and had their own well, were largely spared, while some victims living further away turned out to have preferred the Broad Street water. On his advice the local authorities removed the pump handle. The number of new cases had, however, already been falling before the handle was removed, partly because many residents had fled the area, so the episode alone did not prove his theory.\n\nStronger evidence came from Snow's comparison of households in south London supplied by two water companies, one drawing its water from a stretch of the Thames contaminated by sewage and the other from further upstream. Death rates were far higher among customers of the first. Even so, the miasma theory remained dominant among public health officials for years after Snow's death in 1858.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Snow argued that cholera was inhaled, since the disease first affected the digestive system of its victims.",
+      "The brewery workers escaped cholera because the alcohol in their beer killed the cause of the disease.",
+      "Snow's map showed that every cholera death in the Soho outbreak occurred close to the Broad Street pump.",
+      "Comparing the customers of two water companies gave Snow better evidence than removing the pump handle did."
+    ]
+  },
+  {
+    "id": "v08-19",
+    "passage": "The idea that the language people speak shapes the way they think is often called the Sapir–Whorf hypothesis, after the linguist Edward Sapir and his student Benjamin Lee Whorf, although neither formulated it as a single testable hypothesis. In its strong form, known as linguistic determinism, it holds that language sets the limits of thought, so that speakers cannot form concepts for which their language has no words. Most linguists and psychologists now reject this version: people can perceive and reason about distinctions their language does not mark, and new words are coined readily when they are needed.\n\nA weaker claim, that language influences certain kinds of thinking, has found some experimental support. Russian, for example, has separate basic terms for lighter and darker blues. In one study, Russian speakers told two shades of blue apart more quickly when they fell on different sides of the Russian boundary than when they fell on the same side, while English speakers showed no such difference. The advantage disappeared when the Russian speakers had to perform a verbal task at the same time, suggesting that language was involved at the moment of judgement.\n\nEven supporters of the weaker claim stress that such effects are usually small and depend on the task. Critics add that findings from one pair of languages cannot simply be generalised to others.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The Russian speakers' advantage seems to depend on language being available at the moment of judgement.",
+      "Whorf developed his ideas about language and thought while studying how Russian names colours.",
+      "Russian speakers would probably show a similar advantage when telling apart different shades of green.",
+      "Experiments have shown that language influences all kinds of thinking, even if it does not limit thought."
+    ]
+  },
+  {
+    "id": "v08-20",
+    "passage": "In 1786 William Jones, a British judge in India, observed that Sanskrit bore so strong a resemblance to Greek and Latin, in verb roots and grammatical forms, that the three must have sprung from a common source which perhaps no longer existed. He was not the first to notice such similarities, but his remark is often taken as the starting point of comparative linguistics. The family descended from that source is now known as Indo-European. It includes most languages of Europe, among them the Germanic, Romance, Slavic and Celtic languages, as well as Persian and many languages of northern India.\n\nLinguists reconstruct the lost parent language, Proto-Indo-European, by comparing words in its descendants and working out the regular sound correspondences between them. Latin pater, Greek patēr and Sanskrit pitar, for example, correspond to English father, reflecting a systematic change by which an original p became f in the Germanic languages. Similarities that do not follow regular correspondences are treated with suspicion, because they may result from borrowing or chance.\n\nNo texts in Proto-Indo-European survive, so reconstructed forms are hypotheses and are marked with an asterisk. Several languages spoken in Europe, including Basque, Finnish, Estonian and Hungarian, do not belong to the family.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Jones was the first scholar to notice that Sanskrit bore a close resemblance to both Greek and Latin.",
+      "Jones learned Sanskrit in India so that he could study the country's ancient legal texts.",
+      "A Hungarian–German resemblance with no regular sound correspondence would be treated with suspicion.",
+      "Comparing sound correspondences allows linguists to reconstruct Proto-Indo-European exactly as it was spoken."
+    ]
+  },
+  {
+    "id": "v08-21",
+    "passage": "The demographic transition model describes how populations change as societies develop. In the first stage, both birth and death rates are high and the population grows slowly, if at all. In the second, death rates fall, thanks mainly to a better food supply, sanitation and medicine, while birth rates remain high, so the population grows rapidly. In the third stage birth rates also decline, as more children survive, education spreads and families choose to have fewer children, and growth slows. In the fourth, both rates are low and the population is roughly stable.\n\nThe model was developed from the experience of Western Europe, where the transition took well over a century, and it describes rather than explains: it does not specify why fertility starts to fall when it does, and the timing has varied considerably between countries. Many countries in Asia and Latin America passed through the stages much faster than Europe did.\n\nSome demographers add a fifth stage for countries where fertility has fallen well below the replacement level, which in countries with low mortality is about 2.1 children per woman: the level at which a population replaces itself in the long run without migration. In such countries deaths may eventually exceed births, and the population may decline unless immigration makes up the difference.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The demographic transition model was first proposed by a French demographer in the 1920s.",
+      "Rapid growth in the model occurs because mortality falls before fertility does.",
+      "Countries where fertility is below 2.1 children per woman always see their population shrink.",
+      "In the third stage, birth rates fall solely because a larger proportion of children now survive."
+    ]
+  }
+]

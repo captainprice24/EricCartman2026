@@ -46,16 +46,16 @@ window.EPSO_LESSONS = {
   },
   abstract: {
     title: "Abstract reasoning method",
-    format: "10 questions · 10 minutes (1 min each) · pass mark 10/20 combined with numerical. Five figures in a series, each with several elements; pick the next one from five options.",
+    format: "10 questions · 10 minutes (1 min each) · pass mark 10/20 combined with numerical. A series of figures with several elements; pick the next figure from five options.",
     steps: [
       { name: "Inventory the elements", text: "List what is in each frame: shapes, count, colour or fill, position, size, rotation." },
       { name: "Find one rule at a time", text: "Compare frame 1 → 2 → 3 for a single element. Typical rules: rotation by a fixed angle, movement around corners, a colour or shape cycle, counting. Expect two to four rules at once, and some elements that never change." },
       { name: "Check the cycle length", text: "Some attributes alternate (period 2), others cycle every 3 or 4 steps. Write the cycle down." },
-      { name: "Predict frame 6 before looking at the options", text: "Form your own answer first, so you are not drawn to an option that is almost right." },
+      { name: "Predict the next frame before looking at the options", text: "Form your own answer first, so you are not drawn to an option that is almost right." },
       { name: "Eliminate by rule", text: "Discard every option that breaks a rule. Usually only one option satisfies all of them." }
     ],
     traps: [
-      "Options that satisfy one rule but not the other. Most series combine two rules.",
+      "Options may satisfy some relationships but miss others. Track each feature and check alternating, conditional and previous-frame relationships as well as simple repetition.",
       "Clockwise versus anticlockwise movement.",
       "Wrapping around a grid or bouncing at the edge.",
       "Counting series that are not +1 (for example Fibonacci, +2 or doubling).",

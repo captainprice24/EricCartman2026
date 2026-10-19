@@ -1,0 +1,714 @@
+{
+  "v01-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Local authorities are expressly outside the remit even when applying EU law. A conflicts with the prior-contact requirement; C invents a court-referral mechanism; D turns 'much' influence from publicity into exclusive reliance.",
+    "issues": []
+  },
+  "v01-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "The selection caveat explicitly allows participant characteristics to explain employment differences. A universalises a tendency; neither the precise budget multiple nor participant proportions are supplied.",
+    "issues": []
+  },
+  "v01-03": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "At least two years in ERM II is mandatory. B disregards the stated debt exception; Bulgaria's later membership is unstated; Denmark contradicts D.",
+    "issues": []
+  },
+  "v01-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Tobacco filters fall under producer contributions to litter-cleaning costs. A extends the 2025 PET target to all plastic bottles; B discards the affordable-alternative condition; D invents an outcome.",
+    "issues": []
+  },
+  "v01-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Tun-state survival contrasts with ordinary resistance when active. A extends a space-survival finding about some individuals to more than 1,000 species; B invents a human-cell application; D universalises limited survival evidence.",
+    "issues": []
+  },
+  "v01-06": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "A blocking minority must contain at least four states. B conflicts with approval by both institutions; the chair and a transfer of institutional influence are unstated.",
+    "issues": []
+  },
+  "v01-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Unknown statuses permit a higher actual threatened share. A strengthens 'at least as effective' to strictly more effective; C elevates one interacting driver to the identified principal cause; D predicts success without evidence.",
+    "issues": []
+  },
+  "v01-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "The convention paired removal of internal controls with compensating common rules. A converts debate and repeated controls in several countries into permanence everywhere; B supplies an unstated main purpose; C supplies unstated memberships.",
+    "issues": []
+  },
+  "v01-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "reason": "Near the lower bound, policy may imply a transitory moderate overshoot. A contradicts symmetry; C upgrades one proposed contributor to the likely main cause; D turns permission to overlook temporary fluctuations into never responding.",
+    "issues": []
+  },
+  "v01-10": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Britain declined because it was unwilling to transfer industrial control. B replaces treaty expiry with a merger vote; C is not mentioned; D strengthens 'largely' into sole authorship.",
+    "issues": []
+  },
+  "v01-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Forty million is below the very-large threshold, so national supervision applies. A generalises the suspension risk stated for repeated serious breaches; B removes the knowledge condition; D invents an exemption from this particular ban.",
+    "issues": []
+  },
+  "v01-12": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "Irish is official and carries the same-language reply entitlement; Basque is covered only by limited administrative writing arrangements. A invents a reason, B contradicts equal authenticity, C adds an unstated accession prospect.",
+    "issues": []
+  },
+  "v01-13": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Overstated"
+    },
+    "reason": "Reserve status and small sales make new antibiotics commercially unattractive. A turns a restriction on routine group prevention into an all-use ban; B contradicts resistance being natural; C upgrades potential reduction to largely ending misuse.",
+    "issues": []
+  },
+  "v01-14": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "The neutrality objective applies to the Union collectively. A contradicts the cap preventing mainly sink-based compliance; C is not established by the reported criticism; D contradicts the Law setting the target.",
+    "issues": []
+  },
+  "v01-15": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Combining Galileo and GPS improves accuracy and availability in cities. B contradicts the restricted encrypted service; C compares the individual systems without evidence; D turns a timing application into absolute indispensability.",
+    "issues": []
+  },
+  "v01-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "False"
+    },
+    "reason": "Learners prefer rereading despite retrieval's stronger retention, so confidence can mislead. Anxiety is unstated; feedback is expressly unnecessary; a fixed best weekly gap conflicts with the stated dependence on the retention horizon.",
+    "issues": []
+  },
+  "v01-17": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "The EU prize is paid conditional on commitments being fulfilled. Uneven and sometimes unsustained benefits contradict a lasting-benefit guarantee; the third city is only every third year; the euro amount is unstated.",
+    "issues": []
+  },
+  "v01-18": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "False"
+    },
+    "reason": "Four percent of a billion euros is forty million, above the twenty-million alternative. A expands high-risk individual notification to every breach; Ireland is unnamed; consent is expressly just one legal basis.",
+    "issues": []
+  },
+  "v01-19": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "A negative assessment can be overridden for imperative public interest with compensation. A transfers Habitats Directive selection details to Birds sites; B supplies an unstated country ranking; D contradicts protective management constraints.",
+    "issues": []
+  },
+  "v01-20": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Care obligations apply whatever the disruption's cause. A conflicts with the carrier requirement for inbound non-EU flights; C ignores the other compensation conditions and qualifies no faults; D presents an unsettled proposal as an enacted threshold.",
+    "issues": []
+  },
+  "v02-01": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The signatures must cover at least seven states. B contradicts the absence of a legislative obligation; C invents the verifier; D turns questions about effectiveness into a sweeping failure verdict.",
+    "issues": []
+  },
+  "v02-02": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Only the CJEU may declare an EU act invalid; a national court cannot set it aside alone. A contradicts explicit exceptions; B contradicts the national court resolving the dispute; D invents comparative referral frequencies.",
+    "issues": []
+  },
+  "v02-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated"
+    },
+    "reason": "An accounting error need not mean any loss. A invents recovery and fraud totals; B upgrades an important input into the sole determinant; C makes missing documents the probable majority rather than one example of non-compliance.",
+    "issues": []
+  },
+  "v02-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Unanimous Council adoption gives every state blocking power. A contradicts GNI being by far largest; C supplies an unstated budget ratio; D makes a frequent focus exclusive.",
+    "issues": []
+  },
+  "v02-05": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "False"
+    },
+    "reason": "Two and a half years renewable once totals five years. B supplies an unstated success pattern; C contradicts the Foreign Affairs exception; D contradicts the High Representative's concurrent powers.",
+    "issues": []
+  },
+  "v02-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "All EU states belong to the Council of Europe, while EU Convention accession remains incomplete. A extends correspondence of particular rights to wholesale reproduction; B adds an unstated cause; C adds an unstated distribution of complaints.",
+    "issues": []
+  },
+  "v02-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "All states must agree both to opening and to the final treaty. A contradicts possible halts; B invents a time distribution; D upgrades an important consideration into the decisive test.",
+    "issues": []
+  },
+  "v02-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Without an agreement the two-year period needs unanimous European Council extension with the withdrawing state's agreement. A conflicts with qualified-majority conclusion; C invents transition-extension terms; D expands exclusion from own-departure discussions to all Council business.",
+    "issues": []
+  },
+  "v02-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated"
+    },
+    "reason": "All circulating coins are usable throughout the euro area, covering the Spanish one-euro example. A invents a future loss of legal tender; B conflicts with collector coins; C generalises some countries' rare use into universal non-necessity.",
+    "issues": []
+  },
+  "v02-10": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Cheap unlimited plans may have roaming-data caps. B supplies an unstated identical surcharge; C invents a future domestic-rate rule; D drops the visited-network capability condition.",
+    "issues": []
+  },
+  "v02-11": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "Free allocations are phased out while the carbon border adjustment is phased in. The reserve's year and comparative emissions cuts are unstated; all-sector coverage conflicts with a separate future system for buildings and roads.",
+    "issues": []
+  },
+  "v02-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "First-pillar direct payments are entirely EU-financed, unlike second-pillar rural development. A supplies an unstated fraction; B turns 'largely linked' into entirely linked; D attributes an unreported income effect specifically to eco-schemes.",
+    "issues": []
+  },
+  "v02-13": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "The 75% boundary separates less-developed from transition regions. B contradicts funding Member States rather than regions; C overextends growth support into largely closing disparities; D invents a country-group ranking.",
+    "issues": []
+  },
+  "v02-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported"
+    },
+    "reason": "Dialysis is covered necessary care and may need advance arrangement. A upgrades a possible refund to a full guaranteed refund; B invents five-year validity; C infers actual uptake from advice.",
+    "issues": []
+  },
+  "v02-15": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Required information increases with production quantity. A contradicts the one-tonne threshold; C invents firm exits; D makes possible successive listing into automatic authorisation-list placement.",
+    "issues": []
+  },
+  "v02-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "The top class was deliberately almost empty. A changes a possible reclassification into a uniform one; B invents purchasing effects; D contradicts later rescaling of other categories.",
+    "issues": []
+  },
+  "v02-17": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "The packaging pictogram indicates charger inclusion. A contradicts the later laptop date; B contradicts exempt small devices; C adds an unstated 2028 deadline.",
+    "issues": []
+  },
+  "v02-18": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "More seats per inhabitant in smaller states means fewer inhabitants per MEP. B supplies unstated exact national allocations; C invents a turnout correlation; D infers no national-delegation role from most MEPs sitting in political groups.",
+    "issues": []
+  },
+  "v02-19": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "False"
+    },
+    "reason": "Committee rejections have forced replacement nominees despite the final collective vote. A confuses votes cast with all members; B supplies an unstated resignation cause; D conflicts with the European Council's proposal role.",
+    "issues": []
+  },
+  "v02-20": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Anyone alleging a rights violation during a Frontex operation may use the complaints mechanism. A adds the unstated OLAF identity; C contradicts narrow intervention without a request; D invents a completion date.",
+    "issues": []
+  },
+  "v02-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "False"
+    },
+    "reason": "Five million is below the stated ten-million cross-border VAT threshold. A invents case composition; B contradicts non-participating states; C contradicts the VAT damage threshold.",
+    "issues": []
+  },
+  "v02-22": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Survivors may have slower growth/reproduction and greater disease vulnerability. B adds an unstated usual recovery time; C contradicts other bleaching triggers; D invents a worldwide proportion and date.",
+    "issues": []
+  },
+  "v02-23": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "C is the best supported reading of improvement followed by death when supplies ran out, although the passage only explicitly gives timing. A makes much US development exclusive; B invents doctors' reactions; D extends supplies for Allied troops to everyone.",
+    "issues": [
+      {
+        "type": "key_entailment_gap",
+        "countermodel": "The policeman initially improves on penicillin, supplies run out, and he dies then from an independently fatal complication. This satisfies the stated chronology without establishing that shortage was more likely the cause than treatment failure.",
+        "minimal_clarification": "Change the passage to: \"The first human patient they treated, a policeman, improved at first in 1941 but died because supplies ran out before treatment could be completed.\""
+      }
+    ]
+  },
+  "v02-24": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "reason": "Costs depend on national electricity-to-gas prices and savings can be small, so efficiency alone does not guarantee bills. A invents future installation prevalence; C universalises a winter-efficiency advantage despite installation costs; D turns best-suited conditions into an absolute inability.",
+    "issues": []
+  },
+  "v02-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated"
+    },
+    "reason": "High night temperatures prevent recovery from daytime heat. A invents a comparative effectiveness ranking; B changes 'often' into always; C expands local cooling effects to a whole-city claim.",
+    "issues": []
+  },
+  "v03-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "False"
+    },
+    "reason": "Tax matters continued to require unanimity, giving every state a veto. Delors is unnamed; B contradicts the tax exception; D contradicts explicitly incomplete integration after 1992.",
+    "issues": []
+  },
+  "v03-02": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Lisbon entered into force in 2009 and the double majority in 2014. B conflicts with the explicit dropping of constitutional symbols; C upgrades a clarifying protocol to an exemption; D invents a referendum cause.",
+    "issues": []
+  },
+  "v03-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "France and the other five explicitly disagreed on continuing until unanimity. A invents agreed farm-financing terms; B contradicts the additional entangled disputes; C introduces an unnamed decision-maker.",
+    "issues": []
+  },
+  "v03-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Some laureates were unable to travel. A makes several later Nobel recipients a majority; C invents typical proxy attendance; D invents Sakharov's role in creating the award.",
+    "issues": []
+  },
+  "v03-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "On-call time at the workplace counts even while resting. A contradicts the ban on replacing leave with pay except at termination; C contradicts exemptions; D invents opt-out prevalence.",
+    "issues": []
+  },
+  "v03-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False"
+    },
+    "reason": "D is the intended best answer, but 'up to twelve months' supplies no minimum extension guaranteeing ten months. A invents cancellation timing; B extends the first-year presumption to the entire guarantee; C conflicts with explicit excluded goods.",
+    "issues": [
+      {
+        "type": "key_entailment_gap",
+        "countermodel": "A legal scheme extends the withdrawal period by only six months when notice is omitted. That is an extension of up to twelve months, and the shopper is never told; at ten months the withdrawal right has nevertheless expired. The stated maximum alone does not establish D.",
+        "minimal_clarification": "Replace \"it is extended by up to twelve months if the trader fails to inform the consumer of this right\" with \"it remains available for twelve months after the original period ends if the trader never informs the consumer of this right\"."
+      }
+    ]
+  },
+  "v03-07": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Paid subscriptions remain accessible with home content on temporary EU travel. B broadens the no-redirection-without-consent rule into an absolute ban; C invents a 2028 extension plan; D invents the usual verification method.",
+    "issues": []
+  },
+  "v03-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Reasonable grounds at reporting preserve protection even if information later proves inaccurate. A invents a measured effect; B extends the reporting duty to sub-50-worker firms; D adds an unstated one-month response deadline.",
+    "issues": []
+  },
+  "v03-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "False"
+    },
+    "reason": "Claiming disproportionate burden requires a documented assessment. A invents complaint frequencies; B conflicts with transition permission for older terminals; C contradicts documentation and notification requirements.",
+    "issues": []
+  },
+  "v03-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Food must not be sold after its use-by date. A contradicts the safety/quality distinction; C conflicts with unpackaged foods and limited declaration coverage; D invents a future compulsory label.",
+    "issues": []
+  },
+  "v03-11": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Typical conversion is three years for perennial versus two for annual crops. B conflicts with the 95% minimum; C turns restrictions on synthetic pesticides into a ban on every kind; D invents current organic acreage.",
+    "issues": []
+  },
+  "v03-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "PGI needs only one production/processing/preparation stage in the area, so outside-grown ingredients are possible. A contradicts TSG's geographical independence; B expands efforts to seek protection into all-name worldwide protection; D invents a country ranking.",
+    "issues": []
+  },
+  "v03-13": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "Radar sees through clouds while optical sensors require clear skies. A contradicts restricted security data; C strengthens supporters' attributed market-stimulation claim to an established large agriculture market; D invents usage rankings.",
+    "issues": []
+  },
+  "v03-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "ERC grant holders may be any nationality when research is in a Member State or associated country. A invents comparative success rates; B contradicts second-pillar policy priorities; C supplies unstated associated-country identities.",
+    "issues": []
+  },
+  "v03-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Recruitment AI is high risk and must meet human-oversight requirements. A broadens generated/manipulated content to anything receiving any AI help; B contradicts spam filters' minimal-risk status; D invents past prevalence.",
+    "issues": []
+  },
+  "v03-16": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "No common deposit scheme has been agreed and EU protection currently comes through national schemes. B contradicts national supervision of less significant banks; C turns first-loss bail-in aims into an absolute ban on taxpayer help; D adds unstated Bulgarian history.",
+    "issues": []
+  },
+  "v03-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "reason": "With an 85% threshold, withholding 20% leaves at most 80%, so that member can block. A invents a headquarters cause; B contradicts the emergency qualified-majority exception; C invents comparative repayment timing.",
+    "issues": []
+  },
+  "v03-18": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "The informal Eurogroup cannot adopt legal acts, and formal decisions are taken by the Council. A contradicts inclusive meetings; C reverses the before/after order; D invents presidential country-size patterns.",
+    "issues": []
+  },
+  "v03-19": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Different gauges are expressly an example of targeted technical barriers. B extends a main-line passenger-speed capability requirement to every train's actual speed; C invents a project cost ranking; D invents the revision's cause.",
+    "issues": []
+  },
+  "v03-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Two hearts serve the gills and the remaining one the rest of the body. A expands a degree of arm independence into total independence; B reverses haemocyanin's cold-versus-warm efficiency; D invents mirror recognition.",
+    "issues": []
+  },
+  "v03-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated"
+    },
+    "reason": "Gas proportions depend on oxygen/waterlogging conditions, allowing equal carbon amounts to produce different methane amounts. A invents an agriculture comparison; B contradicts abrupt local thaw; C expands some towns' costs to towns generally.",
+    "issues": []
+  },
+  "v03-22": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Janis contrasted poor decisions with good decisions by similar cohesive groups. A contradicts those good-decision examples; C assigns an illustrative symptom to a particular historical group without text support; D upgrades mixed model evidence and widespread use into demonstrated improvement in most organisations.",
+    "issues": []
+  },
+  "v03-23": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Fixed foundations are limited to relatively shallow water, unlike deeper southern sites. A turns fewer noise/visual constraints into none; B contradicts multiple stated reasons for North Sea growth; D invents a 2030 cost forecast.",
+    "issues": []
+  },
+  "v03-24": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Local clustering can permit outbreaks despite high national coverage. B reverses the lower threshold for less contagious diseases; C contradicts retained individual protection; D invents vaccination trends.",
+    "issues": []
+  },
+  "v03-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "reason": "Both chemical and ecological quality must be good, and one failing element is enough to fail. A invents likely political success; B elevates one of several main pressures to the single main one; C invents Commission approval.",
+    "issues": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "v07-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "reason": "Three-year average performance can establish 2025 compliance. Sole determination by mass contradicts dependence partly on mass; individual vehicle limits are explicitly rejected. The electric-sales explanation is unstated.",
+    "issues": []
+  },
+  "v07-02-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "The option now excludes service exemptions and prior delay notice. An own-staff strike does not remove compensation, and 25% of €80 is €20, above the maximum €4 minimum threshold. Assistance and rerouting remain due; exemptions concern specified service categories and parts of the regulation.",
+    "issues": []
+  },
+  "v08-05-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "reason": "Triggering the national-law presumption shifts the contrary burden to the platform. The distribution of platform workers by activity is unstated, automatic employee reclassification is explicitly denied, and the human-decision requirement concerns significant decisions rather than every decision.",
+    "issues": []
+  }
+}
