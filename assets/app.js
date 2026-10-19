@@ -418,7 +418,7 @@
           var label = { "÷": "divide", "×": "multiply", "−": "minus", "+": "plus", "⌫": "delete last character", C: "clear", "√": "square root", "^": "to the power of" }[k];
           return '<button data-act="calc" data-k="' + esc(k) + '"' + (label ? ' aria-label="' + label + '"' : "") + ">" + esc(k) + "</button>";
         }).join("") +
-        '<button class="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
+        '<button class="calc-eq" id="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
         '<div id="calc-history">' + calcHistoryHTML() + '</div><p class="small muted">Practice calculator with calculation history. Use a dot for decimals; commas are not accepted. It has no % key: type 15% as ÷100 (200×15÷100 = 30). The keyboard works while the calculator is open.</p></section>';
     }
     if (ui.scratch) {
@@ -1005,7 +1005,8 @@
       case "instructions": state.ui.instructions = !state.ui.instructions; render(); break;
       case "tool-hl": state.ui.hl = !state.ui.hl; render(); break;
       case "tool-scratch": state.ui.scratch = !state.ui.scratch; if (state.ui.scratch) state.focus = "scratch"; render(); break;
-      case "tool-calc": state.ui.calc = !state.ui.calc; render(); break;
+      // Opening moves focus into the calculator, so Enter evaluates instead of pressing the toolbar button again.
+      case "tool-calc": state.ui.calc = !state.ui.calc; if (state.ui.calc) state.focus = "calc-eq"; render(); break;
       case "calc-reuse": state.ui.calcExpr = state.ui.calcHistory[+t.getAttribute("data-i")].result; state.ui.calcOut = ""; render(); break;
       case "calc-history-clear": state.ui.calcHistory = []; render(); break;
       case "calc": calcPress(t.getAttribute("data-k")); break;

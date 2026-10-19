@@ -471,6 +471,17 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("calculator opened from the toolbar: typing then Enter evaluates (and keeps it open)", async () => {
+    const p = await newPage(desktop);
+    await p.locator('[data-act="practice"][data-k="numerical"]').click();
+    await p.locator('[data-act="tool-calc"]').click();
+    for (const k of "2+3") await p.keyboard.press(k);
+    await p.keyboard.press("Enter");
+    assert.equal(await p.locator(".tool-panel.calc").count(), 1, "calculator still open");
+    assert.match(await p.locator("#calc-out").textContent(), /= 5/);
+    await p.context().close();
+  });
+
   await check("N5: with the calculator open, Enter on a focused button activates that button", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="practice"][data-k="numerical"]').click();
