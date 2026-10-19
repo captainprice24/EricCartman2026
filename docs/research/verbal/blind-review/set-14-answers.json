@@ -1,0 +1,218 @@
+{
+  "v14-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The nine-week gap excludes the returning waiver, requiring a current agreement with valid clearance at commencement. The parent cannot use the subsidiary's licence. Conversion cancels previous property approval and clearance, so fresh approval requires an independent personal inspection after conversion under either direct or remote approval. C's identity and D's expiry history are unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Exclude returning waiver.",
+        "Require agreement and valid clearance at commencement.",
+        "Exclude sponsor licensing.",
+        "Cancel old property approval/clearance at conversion.",
+        "Require fresh approval.",
+        "Join direct and remote routes to a post-conversion independent personal inspection."
+      ],
+      "limitations": "Hard serial chain with a final route join. Missing records add no positive inference; explicit rules still make this below a confident 5/5."
+    }
+  },
+  "v14-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "Changed use cancels inherited eligibility, earlier consent and its report. The unformed partnership cannot qualify; the listed roof project is outside the furniture exception. Either new consent procedure needs a fresh independent architect's report. C's past relationship is unknown, and D expands a conditional requirement to all inheritance cases.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Changed use cancels inherited documents.",
+        "Exclude unformed partnership.",
+        "Require conservation consent for the roof.",
+        "Either consent route requires a fresh independent report."
+      ],
+      "limitations": "Moderate to hard. Both consent routes share the same direct condition; no route-specific report inference is required."
+    }
+  },
+  "v14-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "reason": "Unsigned reciprocity cannot support the partner clearance. No permission predates liquidation and the sole new offer is from an unauthorised former director. Public-interest authorisation is therefore required. Catalogue-only publication does not waive two assessors, who need unredacted access. Their agreement on historical value is unknown.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Reject unsigned partner recognition.",
+        "Exclude pre-liquidation and valid new depositor permission.",
+        "Require public-interest authorisation.",
+        "Reject catalogue-only publication exception.",
+        "Require two assessors with unredacted access."
+      ],
+      "limitations": "Moderate to hard. Clearance and authorisation are mostly separate branches; ownership/delegation cancellation is unused."
+    }
+  },
+  "v14-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "No exemption and the intake move require a fresh gauge study. The broken unresealed seal excludes certified-meter assurance, so manual assurance requires a second instrument independently calibrated after the move. Comparative accuracy is unreported.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Require both current renewal conditions.",
+        "No exemption plus relocation requires fresh gauge study.",
+        "Broken unresealed seal forces manual-log assurance.",
+        "Require independent post-move second-instrument calibration."
+      ],
+      "limitations": "Moderate to hard. Two short independent branches suffice; the blanket no-exemption premise bypasses customer classification."
+    }
+  },
+  "v14-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Withdrawal excludes consortium recognition, forcing direct registration. Delivered notice is service. Timely lodging was required, and because Leto lodged nothing personally the consultant needed explicit appeals authority. Acceptance fourteen days later does not date the objection. Opening date and outcome are unknown.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Exclude consortium route.",
+        "Treat delivered notice as service.",
+        "Require timely objection.",
+        "Exclude personal lodging and require appeal-authorised consultant."
+      ],
+      "limitations": "Moderate to hard. No actual deadline calculation or resolution of competing mandates is necessary."
+    }
+  },
+  "v14-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reason": "The device was not recovered. The unaccredited franchise member cannot use another workshop's accreditation, so the qualifying repair used the mobile route. The test-only video cannot substitute for attendance, forcing an independent witness at the qualifying replacement and load test. The serial change requires a fresh matching record. C invents the witness's installer role; D extends the individual case requirement to all crate devices.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Exclude recovery.",
+        "Exclude accredited-workshop route.",
+        "Require mobile witnessing.",
+        "Reject partial-video substitution.",
+        "Require attended replacement/test and fresh serial-matching documentation."
+      ],
+      "limitations": "Moderate to hard. Generic component wording closes the controller-identity gap. Serial matching remains mostly separate from the repair-route chain."
+    }
+  },
+  "v14-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "Joint ownership excludes the state guarantee and leaves adequate borrower cover. The carrier's lapsed licence excludes accreditation, forcing an escort plan. Crossing cities requires two escorts trained after the latest standard. Experience and premium differences are unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Exclude guarantee.",
+        "Require adequate borrower insurance.",
+        "Exclude accredited carrier.",
+        "Require intercity escort plan with two post-standard-trained escorts."
+      ],
+      "limitations": "Moderate to hard. Insurance and escort requirements are parallel; adequate cover can be obtained by amendment as well as a new policy."
+    }
+  },
+  "v14-08": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "The broken-seal certificate cannot qualify. No manual method exists, and the assay follows detector replacement, so fresh calibration using a post-installation certified reference is required. Anik's deputy signature requires current separate release authority. A and B contradict explicit rules; improved precision is not established.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Exclude external certificate and manual method.",
+        "Require local instrumental assay after detector replacement.",
+        "Require fresh calibration and post-installation reference.",
+        "Require Anik's current release authority."
+      ],
+      "limitations": "Moderate to hard. Timing is sound; signatory authority is a separate short branch."
+    }
+  },
+  "v14-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "No danger or certification excludes urgency. Effective notice to every bidder and the standstill are necessary. The unacknowledged portal forces postal delivery, so the former director must have been reappointed to validly sign. Effective delivery precedes the standstill start after the last delivery. C's 'probably' supplies no evidence for its selected date; it remains an unstated timing claim.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Exclude urgency.",
+        "Require standstill and every effective notice.",
+        "Exclude electronic delivery.",
+        "Require valid postal receipt and administrator-restored authority.",
+        "Place effective delivery before standstill start."
+      ],
+      "limitations": "Hard dependent chain. The appointment's exact dispatch-day timing has no support, even probabilistically."
+    }
+  },
+  "v14-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The six-day outage cannot qualify, so verified insolvency is required. Explicit subscription expiry plus uncleared renewal requires a surviving perpetual clause, hence final-version deposit before termination. The form change expires Veda's delegation unless ratified afterward. Ratification-versus-insolvency order and insolvency's cause are unknown.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Exclude outage trigger.",
+        "Require verified insolvency.",
+        "Exclude current subscription.",
+        "Require surviving perpetual clause and timely final-version deposit.",
+        "Require post-form-change ratification."
+      ],
+      "limitations": "Hard conjunction of three branches, though less dependent than v14-01. Expiry explicitly closes the earlier current-subscription countermodel."
+    }
+  }
+}

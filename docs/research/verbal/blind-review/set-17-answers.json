@@ -1,0 +1,184 @@
+{
+  "v17-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "The older carrier prevents reproduction status and requires a certificate. No consent forces an assay; the unlicensed laboratory needs supervision, and superseded training needs a post-change supplement. Supplement-versus-briefing order and practical-assessment timing are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Old carrier -> listed -> certificate -> assay -> unlicensed lab -> supervision -> supplement."
+    },
+    "limitations": [
+      "Long serial chain, but every alternative is directly eliminated in paragraph order."
+    ]
+  },
+  "v17-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "Liquid cargo forces specialist admission. Changed axles invalidate the old certificate, forcing assessment; one scale forces an independent check weight. Its certification must follow resurfacing and come from a different laboratory. Nothing establishes certification-versus-calibration order or its probability.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Liquid -> specialist -> invalid certificate -> assessment -> one scale/check weight -> different lab and post-resurfacing certification."
+    },
+    "limitations": [
+      "Serial depth improves integration, but no viable competing route survives each stage."
+    ]
+  },
+  "v17-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Minor donor contact changes risk and exceeds the old approval. Delegation is excluded, so an ordinary meeting needs an independent clinician. None was physically present; the investigator and alternate cannot substitute. A qualifying clinician therefore attended the complete meeting live remotely. Script approval and connection-verifier identity are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Minor contact -> new committee approval -> no delegation -> ordinary meeting -> independent clinician -> complete verified live remote connection."
+    },
+    "limitations": [
+      "Several coherent deductions, but eligibility and route exclusions are directly supplied."
+    ]
+  },
+  "v17-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "reason": "The extension to exempt residents is nonroutine. The invalid signature defeats unanimous waiver and forces full notice. No portal acknowledgment leaves postal delivery; the replaced secretary required explicit renewed authority. Full notice starts after effective delivery. No exclusivity for the former secretary is stated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Nonroutine -> invalid waiver -> full notice -> ineffective portal -> postal receipt -> renewed secretary authority."
+    },
+    "limitations": [
+      "A single delivery history survives explicit sequential exclusions."
+    ]
+  },
+  "v17-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "Alert-area collection requires quarantine; alive release requires certification. The warmed reserve is invalid despite its seal, so a fresh sample must follow the failure. The reused instrument must have been sterilised since its latest other-accession use. Collector identity and sterilisation timing relative to discovery are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Quarantine -> alive release certificate -> invalid reserve -> post-failure fresh sample -> post-use instrument sterilisation."
+    },
+    "limitations": [
+      "One instrument and one possible fresh-sample route make the serial inference moderate; probably does not justify D."
+    ]
+  },
+  "v17-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "Private minority ownership forces community-lease eligibility, including its enforceable purchase restriction. The thirty-year term forces full board approval and an active independent auditor. Pavo remained inactive until consulting ended, so the professional-body reactivation needed for approval occurred afterwards and required a declaration after that engagement. Examination versus practice is unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Private minority -> restricted community lease; thirty-year lease -> board -> active Pavo -> post-consulting professional reactivation -> post-consulting declaration."
+    },
+    "limitations": [
+      "The latest inactive-until wording closes the prior-reactivation countermodel. The intended serial chain is now valid, but remains difficulty3."
+    ]
+  },
+  "v17-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Crossing the district boundary requires coordination. Beyond radio range excludes direct approval, forcing a corridor. Changed firmware needs compatibility testing with a post-revocation key. A revoked backup cannot qualify. Tester identity and generation relative to firmware installation are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "District crossing -> coordination -> no direct approval -> corridor -> firmware test -> post-revocation key."
+    },
+    "limitations": [
+      "Six deterministic local applications; there is no intermediate competing history to resolve."
+    ]
+  },
+  "v17-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "The unlisted branch cannot use automatic recognition. With no regulator verification, the third-language transcript requires authorised translation. Mira has no supervisor, so relocation makes receiving-jurisdiction registration confirmation necessary. Because the name change preceded any such confirmation, that confirmation needs a post-name-change identity check. The published earlier passport check cannot suffice. However, nothing orders relocation relative to the later-name identity check.",
+    "issues": [],
+    "semanticissues": [],
+    "countermodels": {
+      "D": "Both orders are permitted: (1) passport check, relocation, name change, new identity check, registration confirmation, translation; (2) passport check, name change, new identity check, relocation, registration confirmation, translation. Each satisfies the passage, so after relocation is not entailed."
+    },
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Unlisted campus -> individual decision -> no regulator verification -> transcript -> authorised translation -> unsupervised relocated Mira -> registration confirmation -> post-name-change identity check.",
+      "assessment": "The new D is a valid unsupported relative-order distractor. It preserves the unique answer and leaves two False distractors."
+    }
+  },
+  "v17-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "Foreign registered ownership excludes the domestic-owner route. Only Osa acted, requiring authority naming the new owner. The suspended insurer cannot supply a qualifying bond, so cash must have cleared into the protected account before release. Funding source and clearance-versus-mandate order are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Foreign owner -> bonded channel -> Osa new-owner authority; suspended insurer -> cash -> cleared protected account."
+    },
+    "limitations": [
+      "The inference partly splits into independent endpoint requirements; moderate difficulty."
+    ]
+  },
+  "v17-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "reason": "Stable numbers prevent unrestricted publication. The predecessor waiver cannot cover the new legal entity, forcing redaction. The changed uncertified local tool is unavailable, leaving the moved outside processor, whose accreditation requires a fresh audit examining post-move production. Audit mode is unspecified, and retrospective post-publication approval cannot qualify.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Identifiers -> restricted -> invalid entity waiver -> redaction -> no local tool -> moved outside site -> fresh production audit."
+    },
+    "limitations": [
+      "A long but deterministic chain. Probably in B provides no evidence for the audit mode."
+    ]
+  }
+}

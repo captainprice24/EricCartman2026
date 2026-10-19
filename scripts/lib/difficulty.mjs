@@ -74,3 +74,15 @@ export function numericalRubric(q) {
   return rubric;
 }
 export function numericalDifficulty(q) { return numericalRubric(q).level; }
+
+// Additional full-test models reviewed for dependent reasoning, not expression count.
+topics(3, 4, "Build disjoint condition populations, pass each through two conditional screens and reconstruct the posterior denominator.", ["Sequential screening posterior"]);
+topics(3, 4, "Drain solute, evaporate water, rebuild volume after fixed dilution and solve a concentrate equation with a moving denominator.", ["Evaporation and replacement mixture"]);
+topics(3, 4, "Choose contribution cap and marginal tax regime, invert net receipts and verify both binding inequalities.", ["Inverse capped-contribution taxation"]);
+topics(3, 4, "Reverse the final whole-balance fee, reverse taxed second-period interest, restore withdrawal and reverse first-period growth.", ["Reverse savings with intervening withdrawal"]);
+topics(3, 4, "Apply asymmetric price changes, track sale fees in both numerator and denominator, and solve the post-fee allocation.", ["Fee-sensitive portfolio rebalance"]);
+topics(3, 4, "Deduplicate registrations, build three disjoint rework populations, apply conditional repeat fraction and solve a whole-day threshold.", ["Deduplicated workload with conditional rework"]);
+topics(3, 4, "Build baseline emissions, solve the binding fast-distance constraint, pool separate travel times and add the stop.", ["Emissions-constrained minimum journey time"]);
+topics(3, 4, "Compound depreciation, tax only positive disposal gain, repay old debt and reverse the fee on the replacement funding gap.", ["Replacement finance after taxed disposal"]);
+topics(3, 4, "Split opening cohorts, apply unequal attrition, rebuild final denominator and solve surviving entrant composition.", ["Reverse entrant composition after cohort attrition"]);
+topics(3, 4, "Invert serial yield, reconstruct productive module-hours, solve an integer capacity bound and add one shared setup.", ["Indivisible capacity after serial losses"]);

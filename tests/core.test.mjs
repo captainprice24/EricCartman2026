@@ -177,3 +177,13 @@ test('practice answer state distinguishes unchecked choices from graded mistakes
   sec.checked.q=true;assert.equal(C.answerState(sec,it,'coach'),'incorrect');
   sec.answers.q=1;assert.equal(C.answerState(sec,it,'practice'),'correct');
 });
+
+test('fixed-test metadata and visited states restore safely while older saved rounds remain compatible',()=>{
+  assert.deepEqual(C.cleanStored('prefs',{examForm:'mock-13'}),{value:{examForm:'mock-13'},changed:false});
+  assert.deepEqual(C.cleanStored('prefs',{examForm:{bad:true}}),{value:{},changed:true});
+  const d=savedRound();d.formId='mock-13';d.sections[0].visited={'v-test':true};assert.equal(C.validSession(d,restoreBank),true);
+  for(const visited of [[],{'retired':true},{'v-test':'yes'}]){d.sections[0].visited=visited;assert.equal(C.validSession(d,restoreBank),false);}
+  delete d.sections[0].visited;assert.equal(C.validSession(d,restoreBank),true);d.formId={bad:true};assert.equal(C.validSession(d,restoreBank),false);
+  const h={at:100,mode:'exam',formId:'mock-13',pass:false,sections:[{key:'verbal',correct:1,total:20,hints:0,usedSec:10,limitSec:2100,repeats:0}]};
+  assert.deepEqual(C.cleanStored('history',[h,{...h,formId:{bad:true}}]),{value:[h],changed:true});
+});

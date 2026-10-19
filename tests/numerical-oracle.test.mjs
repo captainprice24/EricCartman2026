@@ -251,6 +251,19 @@ const S = {
   }
 };
 
+// Separate reconstruction from visible tables; no generator imports or stored answers.
+const expansionRow=q=>q.exhibits[0].rows.find(r=>r[0]===q.stem.match(/(?:district|Tank|code|Plan|account|office|route|asset|club|line) ([A-D])[, .]/)[1]);
+S['Sequential screening posterior']=q=>{const [,p,s,f,t,g]=expansionRow(q);const trueBoth=p*s*t,falseBoth=(100-p)*f*g;return 100*trueBoth/(trueBoth+falseBoth);};
+S['Evaporation and replacement mixture']=q=>{const [,v,c,d,e,h]=expansionRow(q),tar=q.exhibits[1].rows[0][1]/100,water=Number(q.stem.match(/and exactly (\d+) litres/)[1]);const mass=v*c/100*(100-d)/100,remaining=v*(100-d)/100*(100-e)/100;return (tar*(remaining+water)-mass)/(h/100-tar);};
+S['Inverse capped-contribution taxation']=q=>{const [,allow,band,lo,hi,rate,cap]=expansionRow(q),[,net,credit]=q.exhibits[1].rows[0];const takeHome=g=>{const contribution=Math.min(g*rate/100,cap),taxable=Math.max(0,g-contribution-allow);return g-contribution-Math.min(taxable,band)*lo/100-Math.max(0,taxable-band)*hi/100+credit;};let low=0,high=1000000;for(let i=0;i<70;i++){const mid=(low+high)/2;if(takeHome(mid)<net)low=mid;else high=mid;}assert.ok(high*rate/100>cap);assert.ok(high-cap-allow>band);return high;};
+S['Reverse savings with intervening withdrawal']=q=>{const [,a,b,tax,fee,w]=expansionRow(q),target=q.exhibits[1].rows[0][1];const secondStart=target/(1-fee/100)/(1+b/100*(1-tax/100));return (secondStart+w)/(1+a/100*(1-tax/100));};
+S['Fee-sensitive portfolio rebalance']=q=>{const [,x,y,rise,fall,fee]=expansionRow(q),t=q.exhibits[1].rows[0][1]/100;const a=x*(100+rise)/100,b=y*(100-fall)/100;let lo=0,hi=b;for(let i=0;i<70;i++){const sale=(lo+hi)/2,finalX=a+sale*(100-fee)/100,finalY=b-sale;if(finalX/(finalX+finalY)<t)lo=sale;else hi=sale;}assert.ok(hi>0&&hi<b);return hi;};
+S['Deduplicated workload with conditional rework']=q=>{const [,web,desk,both,w,d]=expansionRow(q),[,capacity,repeat]=q.exhibits[1].rows[0];const counts=[web-both,desk-both,both],rates=[w,d,(w+d)/2];const initial=counts.reduce((a,b)=>a+b,0),extra=counts.reduce((total,n,i)=>total+n*rates[i]/100*repeat/100,0);const days=Math.ceil((initial+extra)/capacity);assert.ok((days-1)*capacity<initial+extra);return days;};
+S['Emissions-constrained minimum journey time']=q=>{const [,distance,slow,fast,es,ef]=expansionRow(q),[,budget,stop]=q.exhibits[1].rows[0];const fastKm=(budget-distance*es)/(ef-es);assert.ok(fastKm>0&&fastKm<distance);return (distance-fastKm)/slow*60+fastKm/fast*60+stop;};
+S['Replacement finance after taxed disposal']=q=>{const [,original,dep,years,sale,tax,debt]=expansionRow(q),[,price,fee]=q.exhibits[1].rows[0];let book=original;for(let i=0;i<years;i++)book-=book*dep/100;const proceeds=sale-Math.max(0,sale-book)*tax/100-debt;return (price-proceeds)/(1-fee/100);};
+S['Reverse entrant composition after cohort attrition']=q=>{const [,opening,p,pr,other,entrants]=expansionRow(q),[,target,er]=q.exhibits[1].rows[0];const retainedP=opening*p/100*pr/100,retainedOther=opening*(1-p/100)*other/100,retainedEntrants=entrants*er/100;const required=(retainedP+retainedOther+retainedEntrants)*target/100;const share=100*(required-retainedP)/retainedEntrants;assert.ok(share>0&&share<100);return share;};
+S['Indivisible capacity after serial losses']=q=>{const [,demand,loss,reject,rate,down]=expansionRow(q),[,hours,days,price,setup]=q.exhibits[1].rows[0];const deliveredPerModule=hours*days*(1-down/100)*rate*(1-loss/100)*(1-reject/100);let modules=0;while(modules*deliveredPerModule<demand)modules++;assert.ok((modules-1)*deliveredPerModule<demand);return setup+modules*price;};
+
 test("every numerical topic has an independent solver", () => {
   const missing = [...new Set(items.map((q) => q.topic))].filter((t) => !S[t]);
   assert.deepEqual(missing, []);
@@ -275,9 +288,9 @@ test("every numerical key matches an independent re-calculation", () => {
 });
 
 
-test("four challenge sets have ten distinct models, balanced keys and genuine mistake notes", () => {
+test("seven challenge sets have ten distinct models, balanced keys and genuine mistake notes", () => {
   const sets = ctx.window.EPSO_BANK.sets.filter(s => s.challenge);
-  assert.equal(sets.length, 4);
+  assert.equal(sets.length, 7);
   for (const set of sets) {
     assert.equal(set.questions.length, 10);
     assert.equal(new Set(set.questions.map(q => q.topic)).size, 10);

@@ -153,7 +153,7 @@ templates.push(k => {
     hints: ['Calculate the emissions saving required from the whole system, including unchanged sources.', 'Compare emissions per delivered kWh for Gas and Wind. Convert the delivered substitution back to gross Wind last.'], explanation: 'Replacing equal gross output would change delivered supply. Compare emissions on a common delivered-energy base and include the replacement source’s emissions.' };
 });
 
-function options(t, k, si) {
+export function options(t, k, si) {
   const key = t.correct, f = t.format;
   const used = new Set([f(key)]), shown = new Set(t.exhibits.flatMap(e => e.rows.flatMap(r => r.slice(1))).filter(v => typeof v === 'number'));
   const pool = [];
@@ -174,7 +174,7 @@ function options(t, k, si) {
   });
 }
 
-function balancedLayouts(pools) {
+export function balancedLayouts(pools) {
   const remaining = [2, 2, 2, 2, 2], chosen = [];
   const order = pools.map((p, i) => i).sort((a, b) => pools[a].length - pools[b].length);
   function visit(at) {

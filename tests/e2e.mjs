@@ -122,7 +122,7 @@ async function run(engineName) {
     for (const section of ['verbal', 'abstract']) {
       await p.locator('[data-act="practice"][data-k="' + section + '"]').click();
       const n = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.length);
-      assert.equal(n, section === 'verbal' ? 240 : 190);
+      assert.equal(n, section === 'verbal' ? 300 : 220);
       await p.goto(URL); await p.waitForSelector('.home');
     }
     assert.deepEqual(p.errors, []);

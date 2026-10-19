@@ -1,3 +1,4 @@
+import { generateExpansion } from './numerical-expansion.mjs';
 // Generates all 190 numerical items: legacy Sets 1–4 and challenge Sets 5–8.
 // Each item is computed here: answer, mistake-based distractors and worked solution come from the same numbers.
 // Usage: node scripts/generators/numerical.mjs
@@ -1446,3 +1447,5 @@ built.forEach((q) => { perTopic[q.topic] = (perTopic[q.topic] || 0) + 1; });
 console.log("numerical: 150 items; answer letters A–E", dist.join("/"), "; difficulty", JSON.stringify(diff), "; templates", names.length, "; most items per topic", Math.max(...Object.values(perTopic)));
 
 generateHardSets(root);
+
+generateExpansion(root);

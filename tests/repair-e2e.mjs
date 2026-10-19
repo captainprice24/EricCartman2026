@@ -28,9 +28,9 @@ for(const name of (process.env.BROWSERS||'chromium').split(',')){
   await p.goto(base+(source?'/index.html':'/dist/ad5-reasoning-trainer.html'));await p.waitForSelector('.home');return p;
  }
  try{
- await check('prepared source and standalone load all 620 questions without missing files',async()=>{
+ await check('prepared source and standalone load all 740 questions without missing files',async()=>{
   assert.ok(fs.existsSync(path.join(dir,'version.js')));
-  for(const source of [true,false]){const p=await page({source});assert.equal(await p.evaluate(()=>window.EPSO_APP.bank.all.length),620);if(source)assert.match(await p.evaluate(()=>window.EPSO_VERSION),/^[a-f0-9]{12}$/);else assert.equal(await p.evaluate(()=>window.EPSO_BUNDLED),true);assert.deepEqual(p.errors,[]);await p.context().close();}
+  for(const source of [true,false]){const p=await page({source});assert.equal(await p.evaluate(()=>window.EPSO_APP.bank.all.length),740);if(source)assert.match(await p.evaluate(()=>window.EPSO_VERSION),/^[a-f0-9]{12}$/);else assert.equal(await p.evaluate(()=>window.EPSO_BUNDLED),true);assert.deepEqual(p.errors,[]);await p.context().close();}
  });
  await check('corrupt saved containers recover without losing unrelated history',async()=>{
   const hist=[{at:100,mode:'practice',sections:[{key:'verbal',correct:3,total:5,hints:0,usedSec:10,limitSec:null,repeats:0}],pass:null}];

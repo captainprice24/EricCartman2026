@@ -1,6 +1,6 @@
 # Numerical question-bank audit
 
-Scope: numerical only. All 190 items are inventoried; all 190 answers are independently recalculated by `tests/numerical-oracle.test.mjs`. Verbal and abstract content and difficulty are unchanged.
+Scope: numerical only. All 220 items are inventoried and independently recalculated by tests/numerical-oracle.test.mjs.
 
 ## Finding and repair
 
@@ -12,10 +12,10 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 |---|---:|---:|---:|---:|
 | Original bank under former labels | 41 | 85 | 24 | 150 |
 | Original bank after review | 56 | 82 | 12 | 150 |
-| New challenge sets | 0 | 0 | 40 | 40 |
-| Current bank | 56 | 82 | 52 | 190 |
+| Challenge sets | 0 | 0 | 70 | 70 |
+| Current bank | 56 | 82 | 82 | 220 |
 
-69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. The forty challenge items are unchanged.
+69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. The original forty challenge items are unchanged; sets 09–11 add thirty items across ten further models.
 
 ## Sets
 
@@ -29,8 +29,11 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 | numerical-06 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-07 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-08 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
+| numerical-09 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
+| numerical-10 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
+| numerical-11 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 
-Choose Numerical difficulty in Coach or Practice. Select Set 5, 6, 7 or 8, 10 questions and timed practice for a complete challenge round. The selector applies only to numerical training; exam simulations keep the existing unseen-first difficulty mix.
+Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 questions and timed practice for a complete challenge round. The selector applies only to numerical training; random simulations keep the unseen-first difficulty mix. The fixed full-test library assigns non-overlapping questions, with the new challenge content in tests 13–15.
 
 ## Topic review
 
@@ -75,7 +78,13 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5, 6, 7 or 8, 10 qu
 | Weighted average | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Capped weighted redistribution | 4 | Hard (very hard challenge) | Apply sequential deductions, build weights, detect a binding cap and redistribute on a new base. |
 | Cross-currency landed cost | 4 | Hard (very hard challenge) | Separate goods and freight, apply different discounts, convert invoices, apply fees and pool. |
+| Deduplicated workload with conditional rework | 3 | Hard (very hard challenge) | Deduplicate registrations, build three disjoint rework populations, apply conditional repeat fraction and solve a whole-day threshold. |
+| Emissions-constrained minimum journey time | 3 | Hard (very hard challenge) | Build baseline emissions, solve the binding fast-distance constraint, pool separate travel times and add the stop. |
+| Evaporation and replacement mixture | 3 | Hard (very hard challenge) | Drain solute, evaporate water, rebuild volume after fixed dilution and solve a concentrate equation with a moving denominator. |
+| Fee-sensitive portfolio rebalance | 3 | Hard (very hard challenge) | Apply asymmetric price changes, track sale fees in both numerator and denominator, and solve the post-fee allocation. |
 | Hedged exchange-rate threshold | 4 | Hard (very hard challenge) | Reverse a fee, separate fixed hedged proceeds, solve the unknown rate on the unhedged balance. |
+| Indivisible capacity after serial losses | 3 | Hard (very hard challenge) | Invert serial yield, reconstruct productive module-hours, solve an integer capacity bound and add one shared setup. |
+| Inverse capped-contribution taxation | 3 | Hard (very hard challenge) | Choose contribution cap and marginal tax regime, invert net receipts and verify both binding inequalities. |
 | Linked-index real per-capita change | 4 | Hard (very hard challenge) | Bridge rebased indices, compound price factors, deflate spending and compare changing population bases. |
 | Loss-adjusted emissions substitution | 4 | Hard (very hard challenge) | Build the system target, compare delivered-energy intensities, solve substitution and invert delivery loss. |
 | Market share in percentage points | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
@@ -83,15 +92,19 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5, 6, 7 or 8, 10 qu
 | Rates with changing base | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
 | Real pooled productivity | 4 | Hard (very hard challenge) | Pool two offices, deflate revenue, rebuild both FTE bases, then compare real ratios. |
 | Recovered-output capacity | 4 | Hard (very hard challenge) | Compose rejection and recovery rates, reconstruct past output, solve remaining line time. |
+| Replacement finance after taxed disposal | 3 | Hard (very hard challenge) | Compound depreciation, tax only positive disposal gain, repay old debt and reverse the fee on the replacement funding gap. |
+| Reverse entrant composition after cohort attrition | 3 | Hard (very hard challenge) | Split opening cohorts, apply unequal attrition, rebuild final denominator and solve surviving entrant composition. |
 | Reverse pooled success rate | 4 | Hard (very hard challenge) | Rebuild assessed populations, derive target passes, subtract known passes, solve the missing rate. |
+| Reverse savings with intervening withdrawal | 3 | Hard (very hard challenge) | Reverse the final whole-balance fee, reverse taxed second-period interest, restore withdrawal and reverse first-period growth. |
 | Reverse stock flow with returns | 4 | Hard (very hard challenge) | Compose reusable-return shares, solve the stock equation, then reverse incoming losses. |
+| Sequential screening posterior | 3 | Hard (very hard challenge) | Build disjoint condition populations, pass each through two conditional screens and reconstruct the posterior denominator. |
 | Yield-adjusted profit threshold | 4 | Hard (very hard challenge) | Remove VAT, invert yields, build mixed-batch contribution, solve and round a profit inequality. |
 
 ## Quality and remaining limits
 
-- Each challenge set has 10 different models, 2 keys in each answer position, 5 sorted numeric options and a mistake explanation for every distractor. Every challenge item uses two exhibits and at least four dependent transformations. No generic filler distractors are allowed anywhere in the numerical bank.
+- Each challenge set has 10 different models, 2 keys in each answer position, 5 sorted numeric options and a mistake explanation for every distractor. Every challenge item supplies at least twelve data values in one or two exhibits and at least four dependent transformations. No generic filler distractors are allowed anywhere in the numerical bank.
 - 0 original items retain at least one generic filler distractor (0 fillers in all). The generator now rejects layouts without four usable, named mistakes and regenerates data instead of inventing filler values.
-- Four parameter variants per challenge model create transfer practice but are not 40 unrelated reasoning structures. Previously practising a model can improve later-set performance.
+- The first ten challenge models have four variants each; the ten added models have three variants each. These seventy items are not seventy unrelated reasoning structures. Previously practising a model can improve later-set performance.
 - The current validator checks schemas, exhibit uniqueness, options and numerical rubric consistency. Independent solvers check the displayed data and final rounding. Additional checks cover binding caps, feasible substitution, rate bounds and the whole-batch profit inequality.
 - Complexity is intentionally above the original numerical bank. No claim is made that these items reproduce official EPSO difficulty; the official sample website could not be inspected in this environment.
 

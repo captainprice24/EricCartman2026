@@ -45,3 +45,7 @@ The forty abstract challenge keys have independent visible-figure inference cove
 Local execution uses Node 24 and system Chromium. CI now pins Ubuntu 24.04 and Node 24, with Node 24 checkout/setup actions, Chromium and WebKit; WebKit/Firefox binaries are absent locally. Managed Chromium blocks `file://` with `ERR_BLOCKED_BY_ADMINISTRATOR`, so local browser verification uses HTTP; GitHub CI independently passed disk-based browser checks in Chromium and WebKit. The code remains dependency-free, uses ES5 browser scripts and makes no runtime third-party requests. Official EPSO pages and the production Pages host are outside the environment's network allowlist; current official competition details and the production HTTP version were not independently inspected here. GitHub’s deployment job itself was verified successful.
 
 See [evidence and reproduction commands](audit/README.md), [numerical audit](NUMERICAL_AUDIT.md), [verbal audit](VERBAL_AUDIT.md), and [foundation verbal review archive](research/verbal/blind-review/legacy/README.md).
+
+## Subsequent fifteen-test expansion
+
+The figures and checks above describe the repaired 620-question baseline. The subsequent [expansion record](research/full-tests-2026-10/README.md) covers 740 questions, fifteen fixed full tests, the additional blind reviews and TAO-informed navigation. Its checks extend the baseline; the historical CI run above is evidence for the baseline only.

@@ -86,3 +86,7 @@ Do not assume a licence excerpt or archived link proves that terms have not chan
 All 150 foundation questions were regenerated under new revision IDs; all 190 numerical items now use named calculation mistakes, with no generic fillers. Models include wrong dates/bases, omitted or duplicated adjustments, wrong rows and non-compounded changes. The original 0.7–1.4 option range and exhibit-value exclusion remain enforced, including after rounding. Data regenerates deterministically when a template cannot supply four distinct usable mistakes.
 
 `scripts/generators/numerical-baseline.json` preserves original content fingerprints. `numerical-revisions.json` maps each superseded ID to its revision and content fingerprint; generation rejects an unregistered substantive edit. Future revisions require fresh IDs. Old attempt history is retained; an unfinished round containing retired questions is discarded with a recovery notice because its answer indices cannot safely be applied to changed questions.
+
+## Fifteen-test expansion
+
+The [follow-up design and research record](../full-tests-2026-10/README.md) covers the addition of three full tests: sixty verbal, thirty numerical and thirty abstract items. The current bank has 300/220/220 questions; new sets are verbal14–19 and numerical/abstract09–11. Existing question content remains unchanged. Refreshed inventories reflect these totals. Very hard is an editorial challenge profile, pending first-attempt learner calibration.

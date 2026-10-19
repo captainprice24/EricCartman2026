@@ -20,3 +20,7 @@ CHROMIUM_PATH=/usr/bin/chromium node scripts/render-abstract-contact-sheets.mjs
 ```
 
 Omit `CHROMIUM_PATH` to use Playwright's installed Chromium. PNGs go to ignored `test-results/abstract-contact-sheets/`; the durable SVG/HTML sheet goes to this research directory. Its outlined answer is for review only and is never shown before answering in the app.
+
+## Additional full tests (sets09–11)
+
+Reviewed every new series and all five choices in the generated light and dark contact sheets (thirty items, sixty theme rows). Marker positions, grey/white/black fills, arrow angles, dot counts and panel cells remain distinguishable, with no observed clipping or unintended overlap. Panel gutters remain visible at the rendered size. Separate geometry-based inference verifies the continuation, supporting-track ambiguity and absence of repeated complete stimulus keys; visual inspection alone does not establish unique mathematical rules. All original figure files remain unchanged.

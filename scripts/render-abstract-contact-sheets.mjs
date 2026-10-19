@@ -34,5 +34,5 @@ try {
   await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
   for (const group of groups) await page.locator('#' + group.id).screenshot({ path: path.join(out, group.id + '-' + theme + '.png') });
  }
- console.log('Contact sheets:', durable, '; ten PNGs in', out);
+ console.log('Contact sheets:', durable, '; ' + groups.length * 2 + ' PNGs in', out);
 } finally { await browser.close(); }

@@ -1,0 +1,227 @@
+{
+  "v18-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The owner withheld permission, forcing a compulsory order and boundary assessment. Every survey and assessment used for the licence follows the marker move and lens replacement. The moved unrecertified marker cannot qualify, so an independent survey must have used valid post-replacement calibration. That requires a passed new-configuration test using an independently established reference distance. The reference itself may predate lens replacement; laboratory versus field testing is undetermined.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Withheld permission requires a compulsory order.",
+        "Require a boundary assessment after marker movement.",
+        "Reject the unrecertified marker.",
+        "Use an independent survey explicitly performed after lens replacement.",
+        "Require valid calibration for those survey measurements.",
+        "Require a passed new-configuration test.",
+        "Require a reference distance established independently of the surveyor."
+      ],
+      "limitations": "Hard serial chain. The new all-surveys timing premise closes both the earlier-assessment and earlier-survey histories. Municipal land maintenance is unnecessary once valid research licensing is stipulated. A reference may be older than the replacement, and either test setting can qualify; this remains below a confident 5/5."
+    }
+  },
+  "v18-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "The competence assessment and endorsement explicitly follow surgery. The wrong-class national certificate cannot cover the open-water lesson, so school-assessed competence is required. The older medical clearance expired, and no alternative current clearance exists. A new examination must review a specialist balance report issued after surgery. Its author and clinic are unknown.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Require operational endorsement for open water.",
+        "Exclude wrong-class national certification.",
+        "Use post-surgery school assessment.",
+        "Require new medical examination.",
+        "Require review of post-surgery specialist balance report."
+      ],
+      "limitations": "Moderate to hard. Explicitly stating that the competence assessment occurred after surgery closes the history gap but supplies part of the intended route; both medical-examination routes have the same report condition."
+    }
+  },
+  "v18-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "No current-edition rights licence exists, so preservation authorisation is required. Missing pages force reconstruction; the unverified scan is not a verified duplicate. The changed model supplied for reconstruction needs renewed validation against a separately held reference excluded from its training. Internal/external validation and reference creation date are undetermined.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Require preservation route.",
+        "Missing pages require reconstruction.",
+        "Reject unverified duplicate.",
+        "Use changed model available for reconstruction.",
+        "Require renewed validation.",
+        "Require separately held training-excluded reference."
+      ],
+      "limitations": "Hard serial chain. No substantive earlier-model countermodel found under the stated availability-for-reconstruction facts. A reference may predate the algorithm change."
+    }
+  },
+  "v18-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "Indexed interest is structured despite the fixed minimum. The utility cannot use the municipality's exemption, so a suitability opinion is required. The specialist changed employer before giving it, requiring fresh endorsement. Either endorsement route requires a declaration concerning the identified lender; the old published declaration cannot suffice.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Classify structured debt.",
+        "Exclude municipality-only exemption.",
+        "Require authorised suitability opinion.",
+        "Employer change before opinion requires fresh endorsement.",
+        "Either endorsement route needs lender-specific declaration."
+      ],
+      "limitations": "Hard. Explicit employer-change-before-opinion timing is sufficient; no declaration-method choice is entailed."
+    }
+  },
+  "v18-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Viable specimens require controlled transport; the wrong-class carrier leaves the laboratory vehicle. Changed containment design requires renewed inspection supported by a witnessed pressure test. That test explicitly follows the officer's employment transfer, and ratification is explicitly the only available clearance route. Thus receiving-institution ratification is necessary at the qualifying test.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Require controlled transport.",
+        "Reject wrong-class carrier.",
+        "Require laboratory-vehicle inspection renewal.",
+        "Require officer-witnessed pressure test.",
+        "Use test-after-transfer timing.",
+        "Use ratification-only clearance exclusivity."
+      ],
+      "limitations": "Hard serial chain. Both prior problems are explicitly closed: the relevant test follows transfer, and no fresh clearance is available. Ratification before container redesign or remote rather than on-site witnessing is not entailed."
+    }
+  },
+  "v18-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "No notice was delivered before consent withdrawal, so no earlier effective digital notice can exist. The withdrawn account cannot serve later notice. The moved-out postal recipient therefore needed a separate post-move mail appointment with current identity verification. A retained correspondence address does not restore the permanently relocated student's eligibility.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Exclude pre-withdrawal and post-withdrawal digital service.",
+        "Require valid postal recipient.",
+        "Moved-out recipient needs post-move agency appointment.",
+        "Either appointment medium requires current identity verification.",
+        "Correspondence address does not restore student eligibility."
+      ],
+      "limitations": "Moderate. The earlier-digital-service countermodel is expressly closed. Student ineligibility is already supplied in the case and adds little inference."
+    }
+  },
+  "v18-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "The passive concession cannot cover tracer release. The intentional release cannot use a zero-release design, so the assessment requires a dispersion model with current calibration. Rotor replacement before assessment requires an independent comparison afterward. The reference chain cannot depend on that meter directly or indirectly. Manufacturer identity and reference calibration date are unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Exclude passive-only concession.",
+        "Require assessment.",
+        "Exclude zero-release design.",
+        "Require dispersion model with current calibration.",
+        "Rotor replacement before assessment forces renewed comparison.",
+        "Apply full calibration-chain independence."
+      ],
+      "limitations": "Hard serial chain. The requirement is current calibration at assessment; an older reference remains acceptable if independently calibrated and still current."
+    }
+  },
+  "v18-08": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "The supplier declaration excludes the changed lot, forcing the allergen review. That review explicitly occurs after the new protocol, while the sole lead's original training predates it. Current training therefore requires an independently assessed supplement. The review must verify the actual preparation line after the change; the kitchen supervisor cannot supply independent assessment.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Changed lot is outside declaration.",
+        "Require applicable allergen review.",
+        "Review explicitly postdates protocol.",
+        "Earlier training requires independently assessed supplement.",
+        "Review verifies actual post-change preparation line."
+      ],
+      "limitations": "Moderate to hard. The explicit review date closes the pre-protocol-review history. Direct observation and continuous video share the same verification requirement; assessor type cannot select the observation mode."
+    }
+  },
+  "v18-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Withholding agreement excludes undisputed ownership. Replacing an inventory item ends the sealed-collection exception. The copied maker's mark cannot authenticate identity, requiring material testing. The sample must postdate foreign-material treatment and have its location documented before collection. Collector identity and original-versus-introduced sampled material are not specified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 4,
+      "requiredChain": [
+        "Exclude undisputed ownership.",
+        "Exclude unchanged-inventory exception.",
+        "Exclude copied maker's mark.",
+        "Require material testing.",
+        "Require post-treatment sample.",
+        "Require location documentation before removal."
+      ],
+      "limitations": "Hard serial chain. The explicit post-treatment sampling condition prevents reliance on a pre-treatment sample; it does not require sampling original rather than introduced material."
+    }
+  },
+  "v18-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Valid sealed delivery by Eno after office transfer requires classified-filing authority renewed by the receiving office's director. Renumbering before delivery requires that authority to identify the current matter. B's 'restricted material' refers to this case's classified material and does not claim authority for every restricted category. General mandate/former reference cannot suffice; electronic versus paper renewal is unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "requiredChain": [
+        "Use explicit valid sealed delivery by clerk.",
+        "Office transfer requires receiving-director renewal.",
+        "Current authority must expressly cover this classified filing.",
+        "Renumbering before delivery requires current reference."
+      ],
+      "limitations": "Moderate. Explicit sealed delivery by Eno bypasses portal and alternative-deliverer eliminations; the first paragraph is not indispensable to B."
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "v16-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Valid release needs distribution permission for the restricted source and disclosure clearance. Stable keys exclude anonymisation; changed export functionality requires an independent post-migration assessment. Notice omissions do not show those conditions were absent.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Valid release -> restricted-source distribution permission; identifiable keys -> secure environment -> changed export function -> new independent assessment."
+    },
+    "limitations": [
+      "The answer combines independent local deductions; conspicuous route exclusions keep this below difficulty4."
+    ]
+  },
+  "v16-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Buildings on Friday would put accounts on the forbidden Thursday. Thus contracts precedes data, which precedes equipment. Only buildings or equipment could be last, because all other topics require a successor; buildings cannot be Friday, so equipment is Friday. Other-hearing attendance is not stated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Accounts not Thursday -> buildings not Friday -> contracts < data < equipment -> only equipment can be last."
+    },
+    "limitations": [
+      "A short terminal-element argument bypasses full timetable reconstruction."
+    ]
+  },
+  "v16-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "Absent a separate site reference, valid pooled-specimen provenance requires the contemporaneous individual-tag transfer log. Ivo signing after changing units therefore needed prior written renewal. A motive for renewal and catalogue-entry timing are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Accepted pooled specimen plus no reference -> qualifying log -> contemporaneous tag and authorised Ivo -> written renewal before move."
+    },
+    "limitations": [
+      "Three-link necessary-condition chain with an expressly excluded alternative."
+    ]
+  },
+  "v16-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "The battery excludes South, while the unapproved modification and lack of a new test exclude North. Central therefore required officer authorisation and accredited sealing after the latest opening. The authorisation method and reason for choosing it are unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Battery -> not South; invalid test label -> not North; Central -> authorisation -> post-opening accredited seal."
+    },
+    "limitations": [
+      "Linear elimination; no viable competing route survives."
+    ]
+  },
+  "v16-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Accurate descriptive fractions do not isolate a causal funding-route effect with different sample-selection rules and non-common completion definitions. The completed-project ranking favours S, contradicting B. Grant size and shared-activity claims are absent.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Different selection plus completion definitions -> descriptive ranking does not isolate funding-route causation."
+    },
+    "limitations": [
+      "The repaired A removes the unsupported causal roles previously attributed to shared organisations and revisions. Its narrow causal limitation is now supported."
+    ]
+  },
+  "v16-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reason": "At least one released harbour file exists and is inspected and disputed. An order cannot qualify because none survived appeal, forcing consent and mediation. The mediator must read the complete file with annexes, but can be internal or external. Necessary release conditions do not guarantee release.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Released harbour witness -> inspected/disputed -> not qualifying order -> consent/mediation -> complete-file reading."
+    },
+    "limitations": [
+      "Clear existential chain with a direct global exclusion, rather than difficult witness tracking."
+    ]
+  },
+  "v16-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "The logger gap forces manual monitoring, including post-battery calibrated instruments and a custodian supplement for the changed refrigerant. Experimental status excludes a general destination permit, so a batch-specific permit is necessary. Calibration place/day and prior handling are unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Logger gap -> manual route -> calibrated instruments plus supplemented custodian; experimental batch -> specific permit."
+    },
+    "limitations": [
+      "Independent necessary conditions are collected into one conjunction."
+    ]
+  },
+  "v16-08": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "Vale remains conflicted despite the surname change, so Neri is the only eligible field specialist and must be selected. Neri’s expired qualification is not extended by pending renewal, forcing a competence waiver. The revised general rule requires an external independent specialist’s written assessment of Neri’s work in the precise field. Sol is also selected because Tavi is conflicted, but Sol could have a current qualification or a different assessor; C is not necessary.",
+    "semanticissues": [],
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Vale ineligible -> Neri sole eligible field specialist -> Neri selected -> expired qualification/pending renewal insufficient -> waiver -> independent precise-field specialist assessment.",
+      "assessment": "The selection requirement adds a meaningful dependency and raises the previous easy item to moderate difficulty. The explicit independence repair closes the last semantic countermodel."
+    },
+    "limitations": [
+      "Deterministic exclusions keep the shortest route below difficulty4.",
+      "Tavi’s conflict establishes Sol as the other reviewer but is unnecessary to the shortest inference about Neri."
+    ]
+  },
+  "v16-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "Sponsor payment is commercial, excluding heritage exemption, so a new post-conversion emissions assessment is required. Operator transfer ends the old standing permit, forcing individual authorisation with passenger/date-specific appointment verification. Letter authorship and operator history are unstated.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Commercial payment -> certificate/new assessment; new operator without reissued permit -> individual authorisation -> dated passenger appointment."
+    },
+    "limitations": [
+      "Two parallel route exclusions; the revised B remains explicitly contradicted."
+    ]
+  },
+  "v16-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Birch not fourth with immediate Birch-Coral adjacency excludes Coral fifth. Elm must therefore follow Amber, which follows Dune. Every entry except Coral and Elm has a required successor; Coral cannot be last, so Elm is fifth. Prize identity and timing are absent.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Birch not fourth -> Coral not fifth -> Dune < Amber < Elm -> only Elm can be last."
+    },
+    "limitations": [
+      "A terminal-element argument leaves several supplied constraints unused."
+    ]
+  }
+}

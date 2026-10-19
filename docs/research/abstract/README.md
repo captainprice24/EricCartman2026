@@ -68,3 +68,7 @@ The independent solver in `tests/abstract-oracle.test.mjs` receives only display
 - Treat difficulty as editorial until first-exposure timing and accuracy are available.
 
 The complete bank inventory is in `inventory.csv` and `inventory.json`; the findings and limitations are in [the audit](../../ABSTRACT_AUDIT.md). The saved [contact sheets](contact-sheets.html) contain every new item and a ten-item foundation sample. `VISUAL_REVIEW.md` records the inspection.
+
+## Fifteen-test expansion
+
+The [follow-up design and research record](../full-tests-2026-10/README.md) covers the addition of three full tests: sixty verbal, thirty numerical and thirty abstract items. The current bank has 300/220/220 questions; new sets are verbal14–19 and numerical/abstract09–11. Existing question content remains unchanged. Refreshed inventories reflect these totals. Very hard is an editorial challenge profile, pending first-attempt learner calibration.

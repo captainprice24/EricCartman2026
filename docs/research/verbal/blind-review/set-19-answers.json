@@ -1,0 +1,167 @@
+{
+  "v19-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "reason": "Reissue requires an independent quality officer's assessment after ownership change, later than revision. The supervisor route requires independent post-revision assessment. Thus both feasible routes entail C, while neither route is determined. Old assessment or briefing cannot suffice.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Reissue: assessment > ownership > revision; supervision: assessment > revision; common independent post-revision assessment.",
+      "limitations": "A shallow case split. The modest cross-route conclusion is stylistically distinctive."
+    }
+  },
+  "v19-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "reasoning": "Owner consent requires inspection after merger, later than alteration. A replacement hazard certificate requires inspection after alteration. A hearing requires inspection after its request, which follows merger. Thus every route has an independent post-alteration inspection, but the hazard route permits inspection before merger. Removing 'probably' from B does not supply evidence identifying the route.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Owner > merger > alteration; hazard > alteration; hearing > request > merger > alteration → common alteration bound.",
+      "assessment": "Moderate three-case lower-bound intersection.",
+      "limitations": "The histories are explicitly enumerated; no close identity or scope inference is needed."
+    }
+  },
+  "v19-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reasoning": "A fresh direct mandate requires independent identity verification after revocation. The guardian's continuity route requires verification after the later name change, and the new-document route requires it after a still-later issue date. All feasible routes therefore entail independent post-revocation checking, without identifying the actual route. B contradicts the expressly permitted restoration of the guardian's identity record. C selects an undisclosed route. D invents a link between two verification events and their officer; the text neither requires nor excludes that link, so it is Not supported.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Mandate verification > revocation; continuity verification > name change > revocation; document verification > issue > name change > revocation → common independent post-revocation check.",
+      "assessment": "Moderate three-route lower-bound intersection. The new conditional is unambiguously unsupported and does not create a second supported answer.",
+      "limitations": "The totally ordered dates and broad common conclusion remain straightforward; no rating4+ claim."
+    }
+  },
+  "v19-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reasoning": "Overnight use, annex-only accreditation and the rejoining corridor force a residential fire-pressure test. Reference repair now precedes sensing-element replacement. That replacement forces later meter renewal before the test, and either renewal route requires a reference independently calibrated after its already-completed repair. C invents a workshop-only procedure; D adds an unsupported order between reference calibration and sensing replacement.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Overnight → residential → no main-building accreditation → accommodation plan → no separate corridor → pressure test → sensing replacement after reference repair → meter renewal → independent post-repair reference calibration.",
+      "assessment": "Moderate. The explicit order forces instrument renewal after reference alteration, closing the temporal countermodel. The sensing-event wording is also unambiguous.",
+      "limitations": "The full chain is long but deterministic; C/D introduce unprovided mode/date relations with short rejection routes."
+    }
+  },
+  "v19-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "reason": "Fresh clinical clearance and outbreak-order reports require reviews after the outbreak. Habitat-order competence uses a review after the later reclassification, hence also after outbreak. Post-reclassification dating and laboratory-report use are not universal.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Clinical/outbreak branches → review > outbreak; habitat → review > reclassification > outbreak.",
+      "limitations": "Distinct uses of the review add narrative content but little extra necessary reasoning."
+    }
+  },
+  "v19-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reasoning": "Rector restoration requires a declaration after conflict; individual delegation requires one after later team formation; standing delegation requires one after the still-later merger. All declarations concern the eventual signer and require a different validating officer. D's disclosure paraphrase preserves those requirements. Omitting public papers provides no probability that validation occurred externally.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Rector > conflict; individual > formation > conflict; standing > merger > formation > conflict; different validator.",
+      "assessment": "Moderate case intersection; wording changes preserve the unique key.",
+      "limitations": "The broad common conclusion avoids determining actual signatory or document identity."
+    }
+  },
+  "v19-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "reason": "Dealer integrity review uses beneficial records after control change, later than seller acquisition. Both committee evidence routes require updated records after acquisition, also the last transfer. Hence A's acquisition bound and alternative support routes hold; post-control dating and use of both committee forms do not follow.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Dealer > control > acquisition; report > last transfer = acquisition; audit > acquisition.",
+      "limitations": "The broad record description removes a potentially difficult identity distinction. The route/date intersection is moderate."
+    }
+  },
+  "v19-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "reasoning": "Beyond-region distribution requires special clearance. The predecessor's agreement does not survive merger; compression-module change requires a fresh assessment. The unavailable laboratory forces in-house testing. The sole supervisor now explicitly holds only an earlier credential, so the protocol change requires a supplement. Either supplement mode requires independent verification after the name change. No supplement mode or verification timing relative to merger is established.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Cross-border → no valid agreement → conformity → fresh compatibility assessment → no accredited laboratory → in-house → only old credential → protocol supplement → independent post-name-change identity verification.",
+      "assessment": "Moderate and materially longer than the original item. The new-credential loophole is closed.",
+      "limitations": "A is a direct scope error, C invents mode and D imposes an unordered date, allowing shorter option elimination than the full proof."
+    }
+  },
+  "v19-09": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "Changed support removes the only design approval, so engineering uses a foundation survey after that change. Emergency evidence examines foundations after the later storm or after a still-later request. Therefore every route has a post-change examination, but an engineering survey can precede storm. Contractor identity and universal load assessment are not entailed.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Engineering > support change; emergency survey > storm > change or underwater > request > storm > change.",
+      "limitations": "Moderate lower-bound intersection, closely parallel to the other temporal items."
+    }
+  },
+  "v19-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "reason": "A fresh holder mandate requires independent verification after assignment. The estate name change invalidates both earlier authority documents. Fresh court verification follows the later name change, while the operative notarial request now explicitly follows that change and verification follows the request. Every route therefore requires post-assignment verification by someone other than the researcher; route and verified identity are not determined.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Holder verification > assignment; court verification > name change > assignment; notarial verification > operative request > name change > assignment.",
+      "limitations": "The explicit operative-request condition closes the residual temporal gap. Three short route-specific lower bounds are intersected; this remains moderate rather than very hard."
+    }
+  }
+}

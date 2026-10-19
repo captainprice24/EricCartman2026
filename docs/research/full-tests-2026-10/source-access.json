@@ -1,0 +1,60 @@
+[
+  {
+    "name": "ProofWriter",
+    "url": "https://raw.githubusercontent.com/microsoft/proofwriter/main/README.md",
+    "status": "HTTP Error 404: Not Found",
+    "checkedOn": "2026-10-19",
+    "use": "Proposed repository path did not resolve; no content assessed or used.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  },
+  {
+    "name": "PrOntoQA",
+    "url": "https://raw.githubusercontent.com/asaparov/prontoqa/main/README.md",
+    "status": "accessed",
+    "bytes": 4783,
+    "sha256": "dcdc781ddedfae3fce183b817affeeb737f640fa88b3d3dc4ec63ed35d9ff59d",
+    "checkedOn": "2026-10-19",
+    "use": "Track necessary proof depth and countermodels; avoid treating narrative length as reasoning depth.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  },
+  {
+    "name": "BIG-bench logical deduction",
+    "url": "https://raw.githubusercontent.com/google/BIG-bench/main/bigbench/benchmark_tasks/logical_deduction/README.md",
+    "status": "accessed",
+    "bytes": 14088,
+    "sha256": "d3d0e20ba020525c44f59c6d348f02d84167bb59dc210e39585e5d8de5cd7f4a",
+    "checkedOn": "2026-10-19",
+    "use": "Check that ordering constraints determine the claimed conclusion; use complete candidate histories to test overreach.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  },
+  {
+    "name": "EntailmentBank",
+    "url": "https://raw.githubusercontent.com/allenai/entailment_bank/main/README.md",
+    "status": "accessed",
+    "bytes": 3105,
+    "sha256": "69ba7126eb7428f450d6d30e85d530de8a56bc2cb24323c51658eae5c7eb501f",
+    "checkedOn": "2026-10-19",
+    "use": "Preserve explicit evidence chains for original questions and distinguish inference steps from text decoration.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  },
+  {
+    "name": "CLRS",
+    "url": "https://raw.githubusercontent.com/google-deepmind/clrs/master/README.md",
+    "status": "accessed",
+    "bytes": 10785,
+    "sha256": "dfc6c58b9d794434085cfc288f2c380c3beac288ecab841f11a23f493c0606d4",
+    "checkedOn": "2026-10-19",
+    "use": "Use independent algorithms and invariants for inverse calculations and binding constraints.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  },
+  {
+    "name": "CLEVR",
+    "url": "https://raw.githubusercontent.com/facebookresearch/clevr-dataset-gen/main/README.md",
+    "status": "accessed",
+    "bytes": 4754,
+    "sha256": "4b6c2b0c684179ab16ae29e818dfff310647390f1530647a3d58a0a22aef8e63",
+    "checkedOn": "2026-10-19",
+    "use": "Separate visual attributes from compositional relationships; test distractors and shallow feature shortcuts.",
+    "importDecision": "Method reference only. No benchmark question, figure, code or dataset imported; separate dataset rights must be checked before any future reuse."
+  }
+]

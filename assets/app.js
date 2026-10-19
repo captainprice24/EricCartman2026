@@ -95,6 +95,7 @@
     abstractLevel: ["all", "1", "2", "3"].indexOf(String(prefs.abstractLevel)) > -1 ? String(prefs.abstractLevel) : "all",
     verbalLevel: ["all", "1", "2", "3"].indexOf(String(prefs.verbalLevel)) > -1 ? String(prefs.verbalLevel) : "all",
     numericalLevel: ["all", "1", "2", "3"].indexOf(String(prefs.numericalLevel)) > -1 ? String(prefs.numericalLevel) : "all",
+    examForm: /^mock-\d{2}$/.test(prefs.examForm) ? prefs.examForm : "random",
     examScope: ["full", "verbal", "numerical", "abstract"].indexOf(prefs.examScope) > -1 ? prefs.examScope : "full",
     showTopics: prefs.showTopics === true, // N3: off by default; labels can hint at the rule
     theme: ["system", "light", "dark"].indexOf(prefs.theme) > -1 ? prefs.theme : "system",
@@ -111,7 +112,7 @@
   var state = { view: "home", session: null, ui: freshUI(), notice: null, focus: null };
   var lastView = null;
   function freshUI() {
-    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null, tip: null };
+    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null, tip: null, overview: false, overviewFilter: "all", instructions: false, calcHistory: [] };
   }
 
   function range(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
@@ -122,7 +123,7 @@
       items: questions.map(function (q) {
         return { q: q, order: q.shuffle ? C.shuffle(range(q.options.length)) : range(q.options.length) };
       }),
-      answers: {}, flags: {}, elim: {}, hints: {}, checked: {}, hl: {},
+      answers: {}, flags: {}, visited: {}, elim: {}, hints: {}, checked: {}, hl: {},
       scratch: "", limitMs: limitSec ? limitSec * 1000 : null, startedAt: null, deadline: null, usedMs: null,
       done: false, timedOut: false, repeats: 0, warned: {}
     };
@@ -154,21 +155,25 @@
     var keys = scope === "full" ? ORDER : [scope];
     var stats = load(KEY_STATS, {});
     var notes = [];
+    var form = scope === "full" ? (window.EPSO_EXAMS || []).filter(function (f) { return f.id === prefs.examForm; })[0] : null;
+    if (scope === "full" && prefs.examForm !== "random" && !form) { flash("This full test is unavailable. Choose another test or Fresh random simulation."); return; }
+    if (form) notes.push(form.title + " · " + form.band + ". The fifteen fixed tests share no questions. Training or random simulations may have shown some of them before.");
     var sections = keys.map(function (k) {
       var S = SECTIONS[k];
-      var drawn = C.drawExam(bank.bySection[k], S.examCount, stats);
+      var drawn = form ? { items: form.sections[k].map(function (id) { return bank.byId[id]; }), repeats: 0 } : C.drawExam(bank.bySection[k], S.examCount, stats);
+      if (form) drawn.repeats = drawn.items.filter(function (q) { return q && stats[q.id] && (stats[q.id].shown || stats[q.id].seen); }).length;
       var limit = S.examMinutes * 60;
       if (drawn.items.length < S.examCount) {
         limit = Math.round((S.examMinutes * 60 * drawn.items.length) / S.examCount);
         notes.push(S.name + ": the bank has " + drawn.items.length + " of " + S.examCount + " questions, so the time is scaled to " + fmtTime(limit) + ".");
       }
-      if (drawn.repeats) notes.push(S.name + ": " + drawn.repeats + " of " + drawn.items.length + " questions are ones you have seen before, because the unseen ones have run out. Your score may overstate your level.");
+      if (drawn.repeats) notes.push(S.name + ": " + drawn.repeats + " of " + drawn.items.length + " questions are ones you have seen before" + (form ? " in this fixed test. Its question list stays fixed; choose another full test for different questions." : ", because the unseen ones have run out.") + " Your score may overstate your level.");
       var sec = makeSection(k, drawn.items, limit);
       sec.repeats = drawn.repeats;
       return sec;
     }).filter(function (s) { return s.items.length > 0; });
     if (!sections.length) { flash("No questions are available for this test yet."); return; }
-    state.session = { mode: "exam", sections: sections, si: 0, qi: 0, started: Date.now(), notes: notes, review: false };
+    state.session = { mode: "exam", sections: sections, si: 0, qi: 0, started: Date.now(), notes: notes, formId: form ? form.id : null, review: false };
     go("brief");
   }
 
@@ -198,11 +203,11 @@
   var TAB_ID = String(Date.now()) + Math.random().toString(36).slice(2, 8);
   function serialize(s) {
     return {
-      v: 1, tab: TAB_ID, mode: s.mode, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view,
+      v: 1, tab: TAB_ID, mode: s.mode, formId: s.formId || null, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view,
       sections: s.sections.map(function (sec) {
         return {
           key: sec.key, ids: sec.items.map(function (it) { return it.q.id; }), orders: sec.items.map(function (it) { return it.order; }),
-          answers: sec.answers, flags: sec.flags, elim: sec.elim, hints: sec.hints, checked: sec.checked, hl: sec.hl,
+          answers: sec.answers, flags: sec.flags, visited: sec.visited, elim: sec.elim, hints: sec.hints, checked: sec.checked, hl: sec.hl,
           scratch: sec.scratch, limitMs: sec.limitMs, startedAt: sec.startedAt, deadline: sec.deadline, usedMs: sec.usedMs,
           done: sec.done, timedOut: sec.timedOut, repeats: sec.repeats, warned: sec.warned
         };
@@ -215,13 +220,13 @@
     var sections = d.sections.map(function (x) {
       var items = x.ids.map(function (id, i) { var q = bank.byId[id]; if (!q) ok = false; return { q: q, order: x.orders[i] }; });
       return {
-        key: x.key, items: items, answers: x.answers || {}, flags: x.flags || {}, elim: x.elim || {}, hints: x.hints || {},
+        key: x.key, items: items, answers: x.answers || {}, flags: x.flags || {}, visited: x.visited || {}, elim: x.elim || {}, hints: x.hints || {},
         checked: x.checked || {}, hl: x.hl || {}, scratch: x.scratch || "", limitMs: x.limitMs, startedAt: x.startedAt,
         deadline: x.deadline, usedMs: x.usedMs, done: !!x.done, timedOut: !!x.timedOut, repeats: x.repeats || 0, warned: x.warned || {}
       };
     });
     if (!ok) return null;
-    return { mode: d.mode, sections: sections, si: d.si, qi: d.qi, started: d.started, notes: d.notes || [], review: false, savedView: d.view };
+    return { mode: d.mode, sections: sections, si: d.si, qi: d.qi, started: d.started, notes: d.notes || [], review: false, savedView: d.view, formId: d.formId || null };
   }
   function persist() {
     var s = state.session;
@@ -286,7 +291,7 @@
     var hist = load(KEY_HIST, []);
     var verdict = s.mode === "exam" ? verdictFor(s) : null;
     hist.unshift({
-      at: Date.now(), mode: s.mode,
+      at: Date.now(), mode: s.mode, formId: s.formId || null,
       sections: s.sections.map(function (sec) {
         var sc = score(sec);
         return { key: sec.key, correct: sc.correct, total: sc.total, counted: sc.counted, hints: countHints(sec), usedSec: Math.round((sec.usedMs || 0) / 1000), limitSec: sec.limitMs ? sec.limitMs / 1000 : null, repeats: sec.repeats || 0 };
@@ -414,7 +419,7 @@
           return '<button data-act="calc" data-k="' + esc(k) + '"' + (label ? ' aria-label="' + label + '"' : "") + ">" + esc(k) + "</button>";
         }).join("") +
         '<button class="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
-        '<p class="small muted">The keys follow the basic calculator of TAO, the platform EPSO uses. It has no % key: type 15% as ÷100 (200×15÷100 = 30). The keyboard works while the calculator is open.</p></section>';
+        '<div id="calc-history">' + calcHistoryHTML() + '</div><p class="small muted">Practice calculator with calculation history. Use a dot for decimals; commas are not accepted. It has no % key: type 15% as ÷100 (200×15÷100 = 30). The keyboard works while the calculator is open.</p></section>';
     }
     if (ui.scratch) {
       out += '<section class="tool-panel" aria-label="Scratchpad"><div class="pop-head"><h2><label for="scratch">Scratchpad</label></h2><button class="link-btn" data-act="tool-scratch">Close</button></div>' +
@@ -493,7 +498,7 @@
     var s = state.session;
     return '<nav class="qnav" aria-label="Questions">' + sec.items.map(function (it, i) {
       var id = it.q.id, cls = ["qdot"], states = [];
-      if (sec.answers[id] !== undefined) { cls.push("answered"); states.push("answered"); } else states.push("not answered");
+      if (sec.answers[id] !== undefined) { cls.push("answered"); states.push("answered"); } else { states.push(sec.visited[id] ? "opened, not answered" : "not opened, not answered"); if (sec.visited[id]) cls.push("visited"); }
       if (sec.flags[id]) { cls.push("flagged"); states.push("flagged"); }
       if (sec.checked[id] || (s.review && s.mode === "exam")) {
         var right = sec.answers[id] === it.q.answer;
@@ -506,8 +511,27 @@
       (s.review || s.mode !== "exam" ? '<span><i class="lg lg-ok">✓</i>Correct</span><span><i class="lg lg-bad">✗</i>Incorrect</span>' : "") + "</div>";
   }
 
+  function calcHistoryHTML() {
+    if (!state.ui.calcHistory.length) return '<p class="small muted">Calculation history is empty.</p>';
+    return '<h3 class="small">Calculation history</h3><ol class="calc-history">' + state.ui.calcHistory.map(function (h, i) { return '<li><button class="link-btn" data-act="calc-reuse" data-i="' + i + '" aria-label="Reuse result ' + esc(h.result) + '">' + esc(h.expression + " = " + h.result) + '</button></li>'; }).join("") + '</ol><button class="link-btn" data-act="calc-history-clear">Clear history</button>';
+  }
+  function overviewHTML(sec) {
+    if (!state.ui.overview || state.session.review) return '<div id="test-overview" hidden></div>';
+    var unanswered = sec.items.filter(function (it) { return sec.answers[it.q.id] === undefined; }).length;
+    var flagged = sec.items.filter(function (it) { return sec.flags[it.q.id]; }).length;
+    return '<section id="test-overview" class="tool-panel" aria-label="Current test overview"><h2>Current test overview</h2><div class="overview-filters" role="group" aria-label="Filter questions">' + [["all", "All (" + sec.items.length + ")"], ["unanswered", "Unanswered (" + unanswered + ")"], ["flagged", "Bookmarked (" + flagged + ")"]].map(function (f) { return '<button class="btn" data-act="overview-filter" data-k="' + f[0] + '" aria-pressed="' + (state.ui.overviewFilter === f[0]) + '">' + f[1] + '</button>'; }).join("") + '</div><div class="overview-grid">' + sec.items.map(function (it, i) {
+      var id = it.q.id, answered = sec.answers[id] !== undefined;
+      if (state.ui.overviewFilter === "unanswered" && answered || state.ui.overviewFilter === "flagged" && !sec.flags[id]) return "";
+      return '<button class="btn" data-act="goto" data-i="' + i + '"' + (state.session.qi === i ? ' aria-current="step"' : "") + '>Question ' + (i + 1) + '<span class="small">' + (answered ? "Answered" : sec.visited[id] ? "Opened · unanswered" : "Not opened") + (sec.flags[id] ? " · Bookmarked" : "") + '</span></button>';
+    }).join("") + '</div><p class="small muted">You can return to any question in this test until you submit it. A bookmark does not count as an answer.</p></section>';
+  }
+  function instructionsHTML() {
+    if (!state.ui.instructions || state.session.review) return '<div id="test-instructions" hidden></div>';
+    return '<section id="test-instructions" class="tool-panel" aria-label="Test instructions"><h2>Test instructions</h2><p>Choose one answer per question. Move freely within the current test and bookmark questions using Flag. Overview filters unanswered and bookmarked questions. You cannot return after submitting a test.</p><p>The timer keeps running while tools or these instructions are open, and during a reload. At zero the current test is submitted. Tools assist reading and calculation; no answer feedback appears during an exam.</p><p>Verbal: use only the passage. Numerical: use the supplied data and round as requested. Abstract: find the figure continuing every relationship. Calculator decimals use a dot; keyboard input works while the calculator is open.</p><p class="small muted">Original practice instructions informed by the supplied TAO guide. Follow your competition notice and official candidate instructions on test day.</p></section>';
+  }
+
   function toolsHTML(sec) {
-    var ui = state.ui, k = sec.key, out = "";
+    var ui = state.ui, k = sec.key, out = '<button class="tool" data-act="overview" aria-expanded="' + ui.overview + '" aria-controls="test-overview">Overview</button><button class="tool" data-act="instructions" aria-expanded="' + ui.instructions + '" aria-controls="test-instructions">Instructions</button>';
     if (state.session.review) return "";
     if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '" title="Select words in the text to highlight them; click a highlight to remove it">' + ICON.mark + "<span>Highlight</span></button>";
     out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '" title="Notes for this test, kept while you move between questions">' + ICON.note + "<span>Scratchpad</span></button>";
@@ -585,7 +609,7 @@
       }).join(" · ");
       var badge = h.pass === null ? "" : h.pass ? '<span class="pill pill-ok">✓ Passed gates</span>' : '<span class="pill pill-bad">✗ Below a pass mark</span>';
       return "<li><span class=\"hist-date\">" + d.toLocaleDateString(undefined, { day: "numeric", month: "short" }) + " " + d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) +
-        '</span><span class="hist-mode">' + modeLabel(h.mode) + '</span><span class="hist-score">' + esc(parts) + "</span>" + badge + "</li>";
+        '</span><span class="hist-mode">' + (h.formId ? "Full test " + h.formId.slice(-2) : modeLabel(h.mode)) + '</span><span class="hist-score">' + esc(parts) + "</span>" + badge + "</li>";
     }).join("") + "</ul>" : '<p class="muted">No attempts yet. Your coach rounds, practice sessions and exam simulations will be listed here.</p>';
 
     var warn = bank.errors.length ? '<div class="alert">' + bank.errors.map(esc).join("<br>") + "</div>" : "";
@@ -616,15 +640,17 @@
       "<li><b>Test yourself.</b> In <b>Exam simulation</b>, choose a test type and start it. It is timed like the real exam, with your results at the end.</li>" +
       "</ol><p class=\"small muted\">Your progress is saved in this browser only. " + info("saved", "saved progress", "Results, mistakes and an unfinished exam are stored on this device, in this browser. Another browser or device starts fresh, and private browsing may not keep them.") + "</p></section>" +
 
-      '<section class="exam-card"><div><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. You get questions you have not seen before first, in a mix of difficulty levels.</p>' +
+      '<section class="exam-card"><div><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. Choose a fixed full test, or use Fresh random simulation for unseen-first questions in a mix of difficulty levels.</p>' +
       '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
-      info("fresh", "unseen questions", "Each simulation uses questions you have not seen yet, in Coach, Practice or an earlier simulation. When they run out, repeats are used and your score may look better than it would on the day.") + "</p></div>" +
+      info("fresh", "unseen questions", "This count applies to Fresh random simulation, using questions you have not seen in Coach, Practice or earlier simulations. Repeats are used when unseen questions run out. Fixed tests keep their own question lists and warn about prior exposure.") + "</p></div>" +
       '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
       info("scope", "test types", "<b>All three tests</b> runs verbal, numerical and abstract one after the other, as on exam day (65 min). Choose a single test to practise its timing on its own.", "right") + "</span>" +
       '<select id="exam-scope">' +
       [["full", "All three tests (65 min)"], ["verbal", "Verbal only (35 min)"], ["numerical", "Numerical only (20 min)"], ["abstract", "Abstract only (10 min)"]].map(function (o) {
         return '<option value="' + o[0] + '"' + (prefs.examScope === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
-      }).join("") + '</select><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+      }).join("") + '</select><label for="exam-form">Full test library</label><select id="exam-form"' + (prefs.examScope !== "full" ? " disabled" : "") + '><option value="random">Fresh random simulation</option>' + (window.EPSO_EXAMS || []).map(function (f) {
+        return '<option value="' + f.id + '"' + (prefs.examForm === f.id ? " selected" : "") + '>' + esc(f.title + " · " + f.band + (f.newContent ? " · New" : "")) + '</option>';
+      }).join("") + '</select><p class="small muted">15 complete tests · 40 questions each · no repeats between fixed tests. Tests 13–15 contain the new challenge questions.</p><button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
 
       '<section class="train"><div class="train-head"><div><div class="h-row"><h2>Train one test at a time</h2>' + info("coach", "Coach and Practice", "<b>Coach</b>: a short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong. <b>Practice</b>: answer, then press Check answer to see whether you were right; only checked questions count towards your score.") + "</div>" +
       '<p class="muted">Set the options, then press <b>Coach</b> next to a test. When the method feels familiar, press <b>Practice</b>.</p></div>' +
@@ -637,7 +663,7 @@
       '<select id="opt-set">' + setOpts + "</select></div>" +
       ORDER.map(function (k) {
         var label = SECTIONS[k].name.split(" ")[0];
-        var rounds = k === "verbal" ? "Sets 10–13; 10 questions in 17 min 30 sec" : k === "numerical" ? "Sets 5–8; 10 questions in 20 min" : "Sets 5–8; 10 questions in 10 min";
+        var rounds = k === "verbal" ? "Sets 10–19; 10 questions in 17 min 30 sec" : k === "numerical" ? "Sets 5–11; 10 questions in 20 min" : "Sets 5–11; 10 questions in 10 min";
         return '<div class="field"><span class="field-label small muted"><label for="opt-' + k + '-level">' + label + ' difficulty</label>' +
           info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose Easy, Medium or Hard. Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice.", "right") + "</span>" +
           '<select id="opt-' + k + '-level">' + [["all", "All levels"], ["1", "Easy"], ["2", "Medium"], ["3", "Hard"]].map(function (o) {
@@ -704,7 +730,7 @@
     // N3: for abstract items the topic and difficulty would name the rules, so they wait until the answer is checked.
     var topicText = q.topic + (q.difficulty ? " · " + ["", "easy", "medium", "hard"][q.difficulty] : "");
     if (q.section === "abstract" && !checked) topicText = "Figure series";
-    if (!review) markShown(q);
+    if (!review) { markShown(q); sec.visited[q.id] = true; }
 
     var head = '<header class="exam-bar"><div class="bar-left"><h1 class="chip" id="main-heading" tabindex="-1">' + esc(SECTIONS[sec.key].name) + "</h1>" +
       '<span class="pill">' + (review ? "Review" : modeLabel(mode)) + "</span>" +
@@ -736,7 +762,7 @@
       '<div class="q-actions">' + actions.join("") + "</div>" +
       (mode === "exam" && !review ? '<p class="muted small">' + answered + " of " + sec.items.length + " answered</p>" : "");
 
-    return head + '<div class="session">' + navHTML(sec) +
+    return head + '<div class="session">' + navHTML(sec) + overviewHTML(sec) + instructionsHTML() +
       '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>";
   }
 
@@ -909,7 +935,7 @@
     if (k === "C") { ui.calcExpr = ""; ui.calcOut = ""; }
     else if (k === "⌫") ui.calcExpr = ui.calcExpr.slice(0, -1);
     else if (k === "=") {
-      try { var v = C.calcEval(ui.calcExpr); ui.calcOut = "= " + v; ui.calcExpr = String(v); }
+      try { var v = C.calcEval(ui.calcExpr); ui.calcHistory.unshift({expression: ui.calcExpr, result: String(v)}); ui.calcHistory = ui.calcHistory.slice(0, 10); ui.calcOut = "= " + v; ui.calcExpr = String(v); }
       catch (e) { ui.calcOut = "Check the expression"; }
     } else {
       if (ui.calcExpr.length < 40) ui.calcExpr += k;
@@ -918,6 +944,7 @@
     var e1 = document.getElementById("calc-expr"), e2 = document.getElementById("calc-out");
     if (e1) e1.textContent = ui.calcExpr || "0";
     if (e2) e2.textContent = ui.calcOut;
+    var history = document.getElementById("calc-history"); if (history) history.innerHTML = calcHistoryHTML();
   }
 
   function startRetryCoach(s) {
@@ -973,9 +1000,14 @@
       case "check": check(); break;
       case "hint": { var ch = cur(); ch.sec.hints[ch.item.q.id] = (ch.sec.hints[ch.item.q.id] || 0) + 1; render(); break; }
       case "toggle-method": e.preventDefault(); state.ui.showMethod = !state.ui.showMethod; render(); break;
+      case "overview": state.ui.overview = !state.ui.overview; render(); break;
+      case "overview-filter": state.ui.overviewFilter = t.getAttribute("data-k"); render(); break;
+      case "instructions": state.ui.instructions = !state.ui.instructions; render(); break;
       case "tool-hl": state.ui.hl = !state.ui.hl; render(); break;
       case "tool-scratch": state.ui.scratch = !state.ui.scratch; if (state.ui.scratch) state.focus = "scratch"; render(); break;
       case "tool-calc": state.ui.calc = !state.ui.calc; render(); break;
+      case "calc-reuse": state.ui.calcExpr = state.ui.calcHistory[+t.getAttribute("data-i")].result; state.ui.calcOut = ""; render(); break;
+      case "calc-history-clear": state.ui.calcHistory = []; render(); break;
       case "calc": calcPress(t.getAttribute("data-k")); break;
       case "clear-hl": { var cc = cur(); delete cc.sec.hl[cc.item.q.id]; state.focus = "passage"; render(); break; }
       case "submit": {
@@ -1009,7 +1041,8 @@
 
   function onChange(e) {
     var id = e.target.id;
-    if (id === "exam-scope") prefs.examScope = e.target.value;
+    if (id === "exam-scope") { prefs.examScope = e.target.value; save(KEY_PREFS, prefs); render(); return; }
+    else if (id === "exam-form") prefs.examForm = e.target.value;
     else if (id === "opt-count") prefs.count = e.target.value;
     else if (id === "opt-set") prefs.setId = e.target.value;
     else if (/^opt-(verbal|numerical|abstract)-level$/.test(id)) prefs[id.split("-")[1] + "Level"] = e.target.value;
@@ -1061,7 +1094,7 @@
   }
 
   /* ---------- keyboard (W1, W7) ---------- */
-  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", ",": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
+  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
   function closeConfirm() {
     var selector = state.ui.confirm && state.ui.confirm.returnFocus;
     state.ui.confirm = null; render();

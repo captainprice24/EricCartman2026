@@ -1,0 +1,163 @@
+{
+  "v15-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "reason": "Transfer of the entitled operator's aircraft and operation ends permanent entitlement. The inland temporary route requires a regional request and two valid approvals; the second officer therefore needs timetable delegation. Engine replacement requires a fresh test. Foreign-facility history and same-day timing are not established.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Lost permanent route → temporary request → second valid approval → timetable delegation; replaced engine → new test.",
+      "limitations": "Two direct necessity branches. Distractors permit easy rejection without completing both."
+    }
+  },
+  "v15-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "The Q order does not cover P. Team interviews need affirmative recontact consent. Keys go to the team, excluding the separate-custodian alternative, and the expired former custodian cannot qualify on a renewal application alone. A current replacement is necessary.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Order scope excludes P → consent for interviews; team keys + expired former custodian → current replacement.",
+      "limitations": "Moderate route elimination; C is an incidental unsupported history."
+    }
+  },
+  "v15-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "reason": "The attached cover was made no earlier than 6 June and was attached before entry. The matching unique seal and first-opening receipt establish that the notebook was inside by the 9 June photograph. The crate ledger does not identify notebook contents or dispatch. The reproduced stamp proves no crossing date, and the other production/packing histories are absent.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Paper available 6 → cover manufacture → already attached at entry; unique matching seal + no opening → inside by photo 9.",
+      "limitations": "Useful interval/identity reasoning, but only two bounds and weak incidental distractors."
+    }
+  },
+  "v15-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "The delegation appeal suspends the regional route, leaving ministerial authority. No owner licence forces the authorised-lease route. No current bank guarantee leaves the qualifying parent guarantee with sufficient audited liquid assets. Asset custody at the former issuing bank is unspecified.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Suspended region → minister; no owner licence → authorised lease; no current bank guarantee → qualifying parent guarantee.",
+      "limitations": "Three independent exclusions rather than a deeply dependent chain."
+    }
+  },
+  "v15-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "No current ordinary appointment requires a publisher-accepted ecology guest mandate. Records held only in a permission-only repository require controlled access, which needs an independent committee and binding thirty-day decisions. The provider's general promise is insufficient; motive and application counts are unknown.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "No ordinary appointment → guest mandate; only permission-based data → controlled access → independence and binding deadline.",
+      "limitations": "The competing options do not require tracing the complete supported chain."
+    }
+  },
+  "v15-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "The reports share a source rather than independent observation. The mark fits either primary explanation. With an unrelated surge allowed and its receipt unresolved, the melted fuse does not select one primary cause. Reconstruction does not identify the actual obstruction or prove monitored-surge timing.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Dependent reports; nondiagnostic mark; obstruction plus unresolved surge remains possible → observations do not uniquely discriminate.",
+      "limitations": "The final uncertainty is strongly signposted; incidental B/C are easy to discard."
+    }
+  },
+  "v15-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "reason": "Full-time employment excludes dependency. The ninety-day placement lies in the immediately preceding three-year residence interval, so it needs advance approval. The unaccredited branch and changed curriculum exclude accreditation and reuse, requiring independently assessed equivalence. Later recognition cannot repair missing advance approval.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Employment → residence route; final-year long absence → advance approval; unaccredited altered course → independent equivalence.",
+      "limitations": "The residence repair closes the earlier countermodel. The remaining chains are explicit and moderate."
+    }
+  },
+  "v15-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "reasoning": "Supplier change makes the formulation changed, and no recognised bridge covers the new site. Heat sensitivity forces full observation. The reference membrane replacement now precedes controller replacement; that controller replacement forces later chamber recalibration before observation. Either recalibration route requires reference certification after the already-completed membrane replacement. A contradicts supplier-change rules; C adds an unsupported order between reference certification and controller replacement; D invents a shared laboratory.",
+    "semanticissues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestNecessaryRoute": "Supplier change → changed formulation → no bridge → new study → heat excludes accelerated → full observation → later controller replacement requires recalibration → reference certification after earlier membrane replacement.",
+      "assessment": "Moderate. The full proof is substantially longer, and the explicit alteration order closes the late-reference-change countermodel. A, C and D still have short independent rejection routes.",
+      "limitations": "No 4+ claim: serial elimination and readily rejected distractors cap the shortest necessary reasoning."
+    }
+  },
+  "v15-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "reason": "The opened cartridge and inadequate exterior recording force reliance on Tavi as the authorised continuous observer. The protocol change requires post-change authorisation. Valid transfer and receipt require a newly logged seal matched by individual identity. No fragment-based species/depth method is established.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "Opening + insufficient camera → authorised Tavi → post-change assessment; resealing/receipt → new matched seal.",
+      "limitations": "Directly stated exception conditions make the route elimination moderate."
+    }
+  },
+  "v15-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "reason": "No earlier consent exists. Two unconflicted directors and an attending conflicted director cannot supply valid board consent; the alternate cannot replace that attendee. Valid approval therefore uses Sera's officer route, requiring successor renewal after merger. Shareholder knowledge of renewal is not established.",
+    "issues": [],
+    "difficulty": {
+      "rating": 3,
+      "shortestChain": "No prior consent + failed board quorum → Sera route → merger ended mandate → successor renewal.",
+      "limitations": "Useful serial chain, but ordinary majority is already resolved and A/B repeat explicit prohibited shortcuts."
+    }
+  }
+}

@@ -199,7 +199,7 @@
       Object.keys(value).forEach(function (k) {
         var v = value[k], valid = false;
         if (["timed", "mistakesOnly", "showTopics"].indexOf(k) >= 0) valid = typeof v === "boolean";
-        else if (["setId", "lang"].indexOf(k) >= 0) valid = typeof v === "string";
+        else if (["setId", "lang", "examForm"].indexOf(k) >= 0) valid = typeof v === "string";
         else if (k === "count") valid = ["5", "10", "20", "all"].indexOf(String(v)) >= 0 && (typeof v === "string" || typeof v === "number");
         else if (/^(abstract|verbal|numerical)Level$/.test(k)) valid = ["all", "1", "2", "3"].indexOf(String(v)) >= 0 && (typeof v === "string" || typeof v === "number");
         else if (k === "examScope") valid = ["full", "verbal", "numerical", "abstract"].indexOf(v) >= 0;
@@ -212,6 +212,7 @@
       if (!Array.isArray(value)) return { value: [], changed: true };
       out = value.filter(function (h) {
         var ok = record(h) && natural(h.at) && ["exam", "practice", "coach"].indexOf(h.mode) >= 0 &&
+          (h.formId === undefined || h.formId === null || typeof h.formId === "string" && /^mock-\d{2}$/.test(h.formId)) &&
           Array.isArray(h.sections) && h.sections.length > 0 && h.sections.length <= 3 &&
           (h.pass === null || typeof h.pass === "boolean") && h.sections.every(function (x) {
             return record(x) && ORDER.indexOf(x.key) >= 0 && integer(x.correct) && integer(x.total) && x.total > 0 && x.correct <= x.total &&
@@ -240,6 +241,7 @@
         !integer(d.si) || d.si >= d.sections.length || !integer(d.qi) || !natural(d.started) ||
         ["brief", "lesson", "session", "between"].indexOf(d.view) < 0 ||
         !Array.isArray(d.notes) || !d.notes.every(function (x) { return typeof x === "string"; })) return false;
+    if (d.formId !== undefined && d.formId !== null && (typeof d.formId !== "string" || !/^mock-\d{2}$/.test(d.formId))) return false;
     var keys = Object.create(null);
     var ok = d.sections.every(function (x) {
       if (!record(x) || ORDER.indexOf(x.key) < 0 || keys[x.key] || !Array.isArray(x.ids) || !x.ids.length ||
@@ -255,6 +257,7 @@
       if (!["answers", "flags", "elim", "hints", "checked", "hl", "warned"].every(function (k) { return record(x[k]); })) return false;
       if (!Object.keys(x.answers).every(function (id) { return ids[id] && integer(x.answers[id]) && x.answers[id] < byId[id].options.length; })) return false;
       if (!["flags", "checked"].every(function (k) { return Object.keys(x[k]).every(function (id) { return ids[id] && typeof x[k][id] === "boolean" && (k !== "checked" || !x[k][id] || x.answers[id] !== undefined); }); })) return false;
+      if (x.visited !== undefined && (!record(x.visited) || !Object.keys(x.visited).every(function (id) { return ids[id] && typeof x.visited[id] === "boolean"; }))) return false;
       if (!Object.keys(x.hints).every(function (id) { return ids[id] && integer(x.hints[id]) && x.hints[id] <= (byId[id].hints || []).length; })) return false;
       if (!Object.keys(x.elim).every(function (id) { return ids[id] && record(x.elim[id]) && Object.keys(x.elim[id]).every(function (v) { return /^\d+$/.test(v) && +v < byId[id].options.length && typeof x.elim[id][v] === "boolean"; }); })) return false;
       if (!Object.keys(x.hl).every(function (id) { return ids[id] && Array.isArray(x.hl[id]) && x.hl[id].every(function (r) { return record(r) && integer(r.p) && integer(r.s) && integer(r.e) && r.e > r.s; }); })) return false;

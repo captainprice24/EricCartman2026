@@ -57,6 +57,10 @@ function lag(target, driver) {
   const offset = mod(target[1] - driver[0]);
   return target.slice(1).every((v, i) => mod(v - driver[i]) === offset) ? mod(driver.at(-1) + offset) : null;
 }
+function lagTwo(target, driver) {
+  const offsets=target.slice(2).map((v,i)=>mod(v-driver[i]));
+  return offsets.every(v=>v===offsets[0]) ? mod(driver.at(-2)+offsets[0]) : null;
+}
 function gated(values, gates) {
   const mapping = new Map();
   for (let i = 0; i < values.length - 1; i++) {
@@ -82,6 +86,12 @@ export function predictions(rows) {
     const add = (p, a) => { if (p !== null && a !== null) out.push({ p, a, f: nextF, c: nextC }); };
     [alternating(p), accelerating(p), interleaved(p), gated(p, f.map(v => v === 0 ? 0 : 1)), reflection(p)].forEach(v => add(v, nextA));
     add(nextP, alternating(a));
+    const twoA=lagTwo(a,p),twoP=lagTwo(p,a);
+    [alternating(p),accelerating(p),interleaved(p),gated(p,f.map(v=>v===0?0:1)),reflection(p)].forEach(v=>add(v,twoA));
+    add(twoP,alternating(a));
+    add(gated(p,a.map(v=>v%2)),gated(a,c.map(v=>(v+1)%2)));
+    const accelP=accelerating(p), interRelative=interleaved(a.map((v,i)=>mod(v-p[i])));
+    if(accelP!==null&&interRelative!==null)add(accelP,mod(accelP+interRelative));
     add(gated(p, a.map(v => v % 2)), gated(a, f.map(v => v === 0 ? 0 : 1)));
     const linearP = linear(p), relative = accelerating(a.map((v, i) => mod(v - p[i])));
     if (linearP !== null && relative !== null) add(linearP, mod(linearP + relative));
@@ -97,9 +107,9 @@ export function predictions(rows) {
     };
     const marker = linear(rows.map(s => s.k), 4);
     for (const l of next('l')) for (const r of next('r')) {
-      for (const turn of [0, 1, 3]) for (const operation of ['xor', 'union', 'intersection']) {
+      for (const turn of [0, 1, 3, 'arrow']) for (const operation of ['xor', 'union', 'intersection']) {
         const combine = (x, y) => operation === 'xor' ? x ^ y : operation === 'union' ? x | y : x & y;
-        if (rows.every(s => s.o === combine(rotate(s.l, turn), s.r))) out.push({ l, r, o: combine(rotate(l, turn), r), k: marker });
+        if (rows.every(s => s.o === combine(rotate(s.l, turn === 'arrow' ? s.k : turn), s.r))) out.push({ l, r, o: combine(rotate(l, turn === 'arrow' ? marker : turn), r), k: marker });
       }
     }
   }
@@ -107,7 +117,7 @@ export function predictions(rows) {
 }
 
 test('every challenge answer follows independently inferred rules from the displayed figures', () => {
-  assert.equal(sets.length, 4);
+  assert.equal(sets.length, 7);
   for (const set of sets) for (const q of set.questions) {
     const expected = predictions(q.sequence.map(decode));
     assert.equal(expected.length, 1, q.id + ' has a single continuation in the bounded rule grammar: ' + JSON.stringify(expected));
@@ -115,7 +125,7 @@ test('every challenge answer follows independently inferred rules from the displ
     assert.deepEqual(matches, [q.answer], q.id + ' key');
   }
 });
-test('four abstract rounds have balanced keys, different models and no single-feature answer shortcut', () => {
+test('seven abstract rounds have balanced keys, different models and no single-feature answer shortcut', () => {
   const signatures = new Set();
   for (const set of sets) {
     assert.equal(set.questions.length, 10);

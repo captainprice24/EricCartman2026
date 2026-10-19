@@ -1,0 +1,47 @@
+[
+  {
+    "name": "PrOntoQA",
+    "url": "https://raw.githubusercontent.com/asaparov/prontoqa/main/LICENSE",
+    "status": "accessed",
+    "bytes": 11346,
+    "sha256": "4a79e06d1d3a7e4e27d51ca1e9e2af85e57d8a77b436c205189251b3c1402e3f",
+    "heading": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITION",
+    "scope": "Repository licence evidence only; not a determination of separate dataset permissions."
+  },
+  {
+    "name": "BIG-bench",
+    "url": "https://raw.githubusercontent.com/google/BIG-bench/main/LICENSE",
+    "status": "accessed",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "heading": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIO",
+    "scope": "Repository licence evidence only; not a determination of separate dataset permissions."
+  },
+  {
+    "name": "EntailmentBank",
+    "url": "https://raw.githubusercontent.com/allenai/entailment_bank/main/LICENSE",
+    "status": "accessed",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "heading": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITION",
+    "scope": "Repository licence evidence only; not a determination of separate dataset permissions."
+  },
+  {
+    "name": "CLRS",
+    "url": "https://raw.githubusercontent.com/google-deepmind/clrs/master/LICENSE",
+    "status": "accessed",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "heading": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIO",
+    "scope": "Repository licence evidence only; not a determination of separate dataset permissions."
+  },
+  {
+    "name": "CLEVR generator",
+    "url": "https://raw.githubusercontent.com/facebookresearch/clevr-dataset-gen/main/LICENSE",
+    "status": "accessed",
+    "bytes": 1538,
+    "sha256": "6bd73ce90d18fb0a4ba3db636c8d23ad3cfe0dadce050e8564dfc8ed0fcd1ccb",
+    "heading": "BSD License\n\nFor clevr-dataset-gen software\n\nCopyright (c) 2017-present, Facebook, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without mod",
+    "scope": "Repository licence evidence only; not a determination of separate dataset permissions."
+  }
+]

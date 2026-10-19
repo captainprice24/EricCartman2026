@@ -1,7 +1,7 @@
 // Editorial reasoning rubric, independent of shape count or explanation length.
 const FOUNDATION_TOPICS = new Set(['Single figure', 'Grid movement', 'Overlapping shapes', 'Divided circle', 'Rotating hands']);
 export const ABSTRACT_CHALLENGE_MODELS = new Set(['alternating-orbit', 'accelerating-orbit', 'interleaved-orbits', 'colour-gated-orbit',
-  'two-stage-gate', 'alternating-reflection', 'delayed-handoff', 'accelerating-relative-angle', 'rotating-xor', 'rotated-union']);
+  'two-stage-gate', 'alternating-reflection', 'delayed-handoff', 'accelerating-relative-angle', 'rotating-xor', 'rotated-union', 'two-frame-alternating', 'two-frame-accelerating', 'two-frame-interleaved', 'two-frame-colour-gate', 'dot-gated-handoff', 'two-frame-reflection', 'two-frame-arrow-handoff', 'interleaved-relative-angle', 'arrow-gated-xor', 'arrow-gated-union']);
 export function abstractRubric(q) {
   if (q.challenge) {
     if (!ABSTRACT_CHALLENGE_MODELS.has(q.reasoning?.model)) throw Error('Abstract model needs editorial review: ' + q.reasoning?.model);
