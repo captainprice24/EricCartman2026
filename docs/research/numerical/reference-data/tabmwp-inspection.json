@@ -1,0 +1,24 @@
+{
+  "url": "https://raw.githubusercontent.com/lupantech/PromptPG/main/data/tabmwp/problems_test.json",
+  "retrieved": "2026-10-19",
+  "source_sha256": "c47607dad36477725087cb4e5317fe1e89a69dfed404eca430673bda36fda45c",
+  "records": 7686,
+  "fields": [
+    "question",
+    "choices",
+    "answer",
+    "unit",
+    "table_title",
+    "table",
+    "table_for_pd",
+    "row_num",
+    "column_num",
+    "solution",
+    "ques_type",
+    "ans_type",
+    "grade",
+    "split"
+  ],
+  "sample_numeric_programs": [],
+  "copied_question_text": false
+}

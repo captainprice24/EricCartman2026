@@ -9,7 +9,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-01",
       "topic": "Percentage change of a total",
-      "difficulty": 3,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -97,7 +97,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-02",
       "topic": "Share of a total",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -178,7 +178,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-03",
       "topic": "Per-capita change",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
@@ -413,7 +413,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-06",
       "topic": "Currency conversion",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -487,7 +487,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-07",
       "topic": "Weighted average",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -644,7 +644,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-09",
       "topic": "Budget reallocation",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "pie",
@@ -749,7 +749,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n01-10",
       "topic": "Shares in a stacked chart",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "stacked",

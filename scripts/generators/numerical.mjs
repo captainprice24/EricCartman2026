@@ -1,7 +1,8 @@
-// Generates every numerical reasoning set (questions/numerical/numerical-set-01…04.js, 150 items).
+// Generates all 190 numerical items: legacy Sets 1–4 and challenge Sets 5–8.
 // Each item is computed here: answer, mistake-based distractors and worked solution come from the same numbers.
 // Usage: node scripts/generators/numerical.mjs
 import fs from "node:fs";
+import { generateHardSets } from "./numerical-hard.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { numericalDifficulty } from "../lib/difficulty.mjs";
@@ -1401,7 +1402,7 @@ const built = items.map(({ t, pool, k }) => {
   if (t.answerType) q.answerType = t.answerType;
   q.exhibits = t.exhibits;
   Object.assign(q, { stem: t.stem, options, answer, hints: t.hints, solution: t.solution, optionNotes, explanation: t.explanation });
-  // N11: difficulty follows from the worked solution (steps) and the number of exhibits, not the template.
+  // Difficulty follows the reviewed reasoning model; workload and explanation length are not evidence.
   q.difficulty = numericalDifficulty(q);
   return q;
 });
@@ -1420,3 +1421,5 @@ built.forEach((q) => { dist[q.answer]++; diff[q.difficulty]++; });
 const perTopic = {};
 built.forEach((q) => { perTopic[q.topic] = (perTopic[q.topic] || 0) + 1; });
 console.log("numerical: 150 items; answer letters A–E", dist.join("/"), "; difficulty", JSON.stringify(diff), "; templates", names.length, "; most items per topic", Math.max(...Object.values(perTopic)));
+
+generateHardSets(root);

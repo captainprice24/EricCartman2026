@@ -1,0 +1,16 @@
+{
+  "url": "https://raw.githubusercontent.com/arkilpatel/SVAMP/main/SVAMP.json",
+  "retrieved": "2026-10-19",
+  "source_sha256": "5be77703a6d891ae476d7c082787ad361392aa02453b132516cdd5f4e7934e3e",
+  "records": 1000,
+  "fields": [
+    "ID",
+    "Body",
+    "Question",
+    "Equation",
+    "Answer",
+    "Type"
+  ],
+  "sample_numeric_programs": [],
+  "copied_question_text": false
+}

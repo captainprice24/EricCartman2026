@@ -37,15 +37,25 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 
 ## Question bank
 
-500 original questions: verbal 200, numerical 150, abstract 150.
+580 original questions: verbal 240, numerical 190, abstract 150.
 
-- **Verbal (9 sets):** hand-written passages of about 200 words on EU institutions, law, policy,
-  economics, science and history. Every key was confirmed by a blind second reviewer, and the
-  validator checks each set for answer cues: hedged or absolute wording, length, and wording reused
-  from the passage.
-- **Numerical:** generated from 38 templates (at most 4 items each), with large exhibits, multi-step
-  calculations and mistake-based distractors. Difficulty follows from the worked solution. Every key is
-  re-solved independently by `tests/numerical-oracle.test.mjs`.
+- **Verbal (13 sets):** 200 existing items plus **four challenge sets of 10** (Sets 10–13).
+  Choose **Verbal difficulty: Easy / Medium / Hard** in Coach or Practice; a timed ten-question
+  round takes 17 min 30 sec. The bank contains 38 easy, 105 medium and 97 hard items.
+  All 40 new keys and 120 distractor labels were reconciled with an independent blind reviewer.
+  Difficulty remains editorial; the reviewer found variable reasoning burden across the challenge
+  collection. The [verbal audit](docs/VERBAL_AUDIT.md) distinguishes structural screening of the
+  existing bank from the new blind review. The [research library](docs/research/verbal/README.md)
+  preserves sources, rights decisions, licensed reference samples and review records.
+- **Numerical (8 sets):** 150 foundation/exam-practice items plus **four very hard sets of 10**
+  (Sets 5–8). Challenge items combine changing bases, reverse calculations and constraints, with two
+  exhibits and mistake-based distractors. Choose **Numerical difficulty: Easy / Medium / Hard** in
+  Coach or Practice. For a full challenge round, select Set 5–8, 10 questions and timed practice
+  (20 minutes). The bank contains 56 easy, 82 medium and 52 hard items, including 40 very hard items.
+  Levels follow a reviewed reasoning rubric and await learner calibration. Every key is independently
+  re-solved by `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records
+  every item; the [research library](docs/research/numerical/README.md) saves sources, rights evidence,
+  licensed examples and an authoring checklist for future work.
 - **Abstract:** generated series in five layouts (single figure, grid movement, overlapping shapes,
   divided circle, rotating hands) that combine 2–4 rules. Blind strategies such as "pick the option
   most like the others" score at chance level.
@@ -54,8 +64,10 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 
 ```bash
 npm ci                    # dev tools only: ESLint, Playwright, axe-core
+npm run audit:reasoning   # rebuild verbal item inventory and audit
+npm run audit:numerical   # rebuild numerical item inventory and difficulty audit
 npm run validate          # schema, difficulty, answer-cue and duplicate checks across the bank
-npm test                  # unit tests for assets/core.js and the independent numerical answer check
+npm test                  # core, independent numerical answers and verbal blind-review trace
 npm run build             # dist/ad5-reasoning-trainer.html (commit it; CI checks it is fresh)
 npm run test:e2e          # Playwright regression and axe tests (BROWSERS=chromium,webkit)
 npm run lint
@@ -83,3 +95,12 @@ docs/research.md           exam format (official EPSO sources), platform researc
 
 This is an unofficial training tool, not affiliated with EPSO or the EU institutions.
 All questions are original practice material. Always check the format in your Notice of Competition.
+
+If a managed browser blocks `file://`, serve the repository locally and run the same browser checks
+over HTTP (this verifies browser behaviour, not direct file-URL access):
+
+```bash
+python -m http.server 8000 --bind 127.0.0.1
+# In another terminal:
+E2E_BASE_URL=http://127.0.0.1:8000 CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e
+```

@@ -88,7 +88,8 @@
         return i === 0 ? '<th scope="row">' + esc(c) + "</th>" : '<td class="num">' + esc(c) + "</td>";
       }).join("") + "</tr>";
     }).join("");
-    return '<div class="table-wrap"><table class="exhibit-table"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>";
+    var hint = ex.columns.length > 4 ? '<p class="table-scroll-hint small muted">Scroll sideways to see all columns.</p>' : '';
+    return hint + '<div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Data table') + '"><table class="exhibit-table"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>";
   }
 
   function niceMax(v) {

@@ -1,0 +1,3 @@
+# Final set 13 review trace
+
+The ten unchanged passages/options were independently reviewed in source batches A and B. `review-mapping.json` maps each final ID to its reviewed source ID and passage hash. IDs and set composition changed; option order and text did not. See the source-batch review files for every reasoning chain, preferred distractor label and resolved wording issue. `set-13-answers.json` contains the mapped independent responses. Final comparison: keys 10/10; distractor labels 30/30. Difficulty is editorial; the reviewer distinguishes strong chains from more moderate items, and no learner calibration has been performed.

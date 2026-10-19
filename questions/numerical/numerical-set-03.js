@@ -9,7 +9,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-01",
       "topic": "Compound growth",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -258,7 +258,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-04",
       "topic": "Index numbers: values",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -350,7 +350,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-05",
       "topic": "Index numbers: percentage change",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -730,7 +730,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-10",
       "topic": "Proportional allocation",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -971,7 +971,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-13",
       "topic": "Largest relative gap on a line chart",
-      "difficulty": 2,
+      "difficulty": 1,
       "answerType": "category",
       "exhibits": [
         {
@@ -1188,7 +1188,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-16",
       "topic": "Averages over part of a period",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -1286,7 +1286,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-17",
       "topic": "Percentage change of a total",
-      "difficulty": 3,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -1374,7 +1374,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-18",
       "topic": "Share of a total",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -1455,7 +1455,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-19",
       "topic": "Per-capita change",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
@@ -1690,7 +1690,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-22",
       "topic": "Currency conversion",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -1764,7 +1764,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-23",
       "topic": "Weighted average",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -1921,7 +1921,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-25",
       "topic": "Budget reallocation",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "pie",
@@ -2026,7 +2026,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-26",
       "topic": "Shares in a stacked chart",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "stacked",
@@ -2246,7 +2246,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-29",
       "topic": "Units and per-capita values",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -2539,7 +2539,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-33",
       "topic": "Percentages of percentages",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -2613,7 +2613,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-34",
       "topic": "Per-capita comparison",
-      "difficulty": 1,
+      "difficulty": 2,
       "answerType": "category",
       "exhibits": [
         {
@@ -2840,7 +2840,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-37",
       "topic": "Shares to amounts",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "pie",
@@ -2944,7 +2944,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-38",
       "topic": "Averaging rates",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -3020,7 +3020,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-39",
       "topic": "Compound growth",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -3269,7 +3269,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-42",
       "topic": "Index numbers: values",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -3361,7 +3361,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-43",
       "topic": "Index numbers: percentage change",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -3741,7 +3741,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n03-48",
       "topic": "Proportional allocation",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",

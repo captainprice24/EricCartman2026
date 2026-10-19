@@ -3,6 +3,7 @@
 //        BROWSERS=chromium,webkit node tests/e2e.mjs
 //        CHROMIUM_PATH=/path/to/chrome node tests/e2e.mjs   (use a preinstalled browser)
 // Runs against the single-file build in dist/, so run `node scripts/build.mjs` first.
+// E2E_BASE_URL=http://127.0.0.1:8000 optionally tests a local server when managed browsers block file://.
 import { chromium, webkit, firefox } from "playwright";
 import { createRequire } from "node:module";
 import path from "node:path";
@@ -11,8 +12,9 @@ import assert from "node:assert/strict";
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const URL = pathToFileURL(path.join(root, "dist/ad5-reasoning-trainer.html")).href;
-const SRC_URL = pathToFileURL(path.join(root, "index.html")).href;
+const baseURL = (process.env.E2E_BASE_URL || "").replace(/\/$/, "");
+const URL = baseURL ? baseURL + "/dist/ad5-reasoning-trainer.html" : pathToFileURL(path.join(root, "dist/ad5-reasoning-trainer.html")).href;
+const SRC_URL = baseURL ? baseURL + "/index.html" : pathToFileURL(path.join(root, "index.html")).href;
 const AXE = require.resolve("axe-core/axe.min.js");
 const engines = { chromium, webkit, firefox };
 const names = (process.env.BROWSERS || "chromium").split(",").map((s) => s.trim());
@@ -60,7 +62,7 @@ async function run(engineName) {
     const page = await ctx.newPage();
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
-    page.on("request", (r) => { if (!r.url().startsWith("file:") && !r.url().startsWith("data:")) errors.push("external request: " + r.url()); });
+    page.on("request", (r) => { if (!r.url().startsWith("file:") && !r.url().startsWith("data:") && !(baseURL && r.url().startsWith(baseURL + "/"))) errors.push("external request: " + r.url()); });
     if (opts.clock) await page.clock.install();
     await page.goto(opts.url || URL);
     await page.waitForSelector(".home");
@@ -70,7 +72,7 @@ async function run(engineName) {
   const desktop = { width: 1366, height: 860 }, phone = { width: 390, height: 844 };
   results.push(`${engineName}:`);
 
-  await check("source index.html loads every question set from file://", async () => {
+  await check("source index.html loads every question set from " + (baseURL || "file://"), async () => {
     const p = await newPage(desktop, { url: SRC_URL });
     const n = await p.evaluate(() => window.EPSO_APP.bank.sets.length);
     assert.ok(n >= 3, "sets loaded: " + n);
@@ -86,6 +88,100 @@ async function run(engineName) {
   await check("home page: no external requests, no errors, axe clean", async () => {
     const p = await newPage(desktop);
     await axe(p, "home");
+    assert.deepEqual(p.errors, []);
+    await p.context().close();
+  });
+
+  await check("numerical difficulty filters persist, combine with sets, and leave other sections available", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption('#opt-numerical-level', '1');
+    await p.selectOption('#opt-count', 'all');
+    await p.reload(); await p.waitForSelector('.home');
+    assert.equal(await p.inputValue('#opt-numerical-level'), '1');
+    await p.locator('[data-act="practice"][data-k="numerical"]').click();
+    const easy = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
+    assert.equal(easy.length, 56); assert.ok(easy.every(d => d === 1));
+    await p.goto(URL); await p.waitForSelector('.home');
+    await p.selectOption('#opt-set', 'numerical-05');
+    await p.locator('[data-act="practice"][data-k="numerical"]').click();
+    assert.match(await p.locator('#toast').textContent(), /No numerical reasoning questions match/);
+    await p.selectOption('#opt-numerical-level', '3');
+    await p.locator('[data-act="coach"][data-k="numerical"]').click();
+    const hard = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q));
+    assert.equal(hard.length, 10); assert.ok(hard.every(q => q.difficulty === 3 && q.setId === 'numerical-05'));
+    await p.goto(URL); await p.waitForSelector('.home');
+    await p.selectOption('#opt-set', 'all');
+    for (const section of ['verbal', 'abstract']) {
+      await p.locator('[data-act="practice"][data-k="' + section + '"]').click();
+      const n = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.length);
+      assert.equal(n, section === 'verbal' ? 240 : 150);
+      await p.goto(URL); await p.waitForSelector('.home');
+    }
+    assert.deepEqual(p.errors, []);
+    await p.context().close();
+  });
+
+  for (const [label, vp, dark] of [['desktop', desktop, false], ['phone dark', phone, true]]) {
+    await check(`all four numerical challenge sets render every item and solution at ${label} width`, async () => {
+      const p = await newPage(vp, { dark });
+      for (const id of ['05', '06', '07', '08']) {
+        await p.selectOption('#opt-set', 'numerical-' + id);
+        await p.selectOption('#opt-count', '10');
+        await p.selectOption('#opt-numerical-level', '3');
+        await p.check('#opt-timed');
+        await p.locator('[data-act="practice"][data-k="numerical"]').click();
+        assert.equal(await p.evaluate(() => window.EPSO_APP.state.session.sections[0].limitMs), 20 * 60 * 1000);
+        for (let i = 0; i < 10; i++) {
+          assert.equal(await p.locator('.exhibit-table').count(), 2);
+          assert.equal(await p.locator('[role="radio"]').count(), 5);
+          assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no page overflow');
+          const key = await answerKey(p);
+          await p.locator('[data-act="choose"]').nth(key.pos).click();
+          await p.locator('[data-act="check"]').click();
+          assert.ok(await p.locator('#feedback').isVisible());
+          if (i === 0 && id === '05') await axe(p, label + ' challenge solution');
+          if (i < 9) await p.locator('[data-act="next"]').click();
+        }
+        await p.goto(URL); await p.waitForSelector('.home');
+      }
+      assert.deepEqual(p.errors, []);
+      await p.context().close();
+    });
+  }
+
+  await check("verbal difficulty persists and all four challenge rounds render with correct timing", async () => {
+    const p = await newPage(phone, { dark: true });
+    await p.selectOption('#opt-verbal-level', '1');
+    await p.selectOption('#opt-count', 'all');
+    await p.reload(); await p.waitForSelector('.home');
+    assert.equal(await p.inputValue('#opt-verbal-level'), '1');
+    await p.locator('[data-act="practice"][data-k="verbal"]').click();
+    const easy = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
+    assert.equal(easy.length, 38); assert.ok(easy.every(d => d === 1));
+    await p.goto(URL); await p.waitForSelector('.home');
+    for (const id of ['10', '11', '12', '13']) {
+      await p.selectOption('#opt-set', 'verbal-' + id);
+      await p.selectOption('#opt-verbal-level', '3');
+      await p.selectOption('#opt-count', '10');
+      await p.check('#opt-timed');
+      await p.locator('[data-act="practice"][data-k="verbal"]').click();
+      const round = await p.evaluate(() => {
+        const s = window.EPSO_APP.state.session.sections[0];
+        return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => it.q.difficulty === 3) };
+      });
+      assert.deepEqual(round, { n: 10, limit: 1050000, hard: true });
+      for (let i = 0; i < 10; i++) {
+        assert.equal(await p.locator('[role="radio"]').count(), 4);
+        assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+        const key = await answerKey(p);
+        await p.locator('[data-act="choose"]').nth(key.pos).click();
+        await p.locator('[data-act="check"]').click();
+        assert.ok(await p.locator('#feedback').isVisible());
+        if (i === 0 && id === '10') await axe(p, 'verbal challenge phone dark');
+        if (i < 9) await p.locator('[data-act="next"]').click();
+      }
+      await p.goto(URL); await p.waitForSelector('.home');
+    }
     assert.deepEqual(p.errors, []);
     await p.context().close();
   });
@@ -254,8 +350,13 @@ async function run(engineName) {
     await p.locator('[data-act="tip"][data-k="timed"]').click();
     assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "true");
     await axe(p, "home with a tip open");
+    // Close the pinned tip before checking hover: its panel can cover adjacent buttons.
+    await p.mouse.move(5, 5);
+    await p.keyboard.press("Escape");
+    assert.equal(await p.locator('[data-k="timed"]').getAttribute("aria-expanded"), "false", "Escape closes the pinned tip");
     // Every tip must be visible when its button is hovered, not clipped by its container.
     for (const id of await p.$$eval('[data-act="tip"]', (els) => els.map((e) => e.getAttribute("data-k")))) {
+      await p.mouse.move(5, 5);
       await p.locator(`[data-act="tip"][data-k="${id}"]`).hover();
       const onTop = await p.evaluate((id) => {
         const t = document.getElementById("tip-" + id), r = t.getBoundingClientRect();

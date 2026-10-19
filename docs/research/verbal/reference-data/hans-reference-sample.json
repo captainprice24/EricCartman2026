@@ -1,0 +1,120 @@
+{
+  "source": "https://raw.githubusercontent.com/tommccoy1/hans/master/heuristics_evaluation_set.txt",
+  "retrieved": "2026-10-19",
+  "attribution": "R. Thomas McCoy, Ellie Pavlick and Tal Linzen (2019), HANS, Right for the Wrong Reasons: Diagnosing Syntactic Heuristics in Natural Language Inference.",
+  "license": "MIT",
+  "source_sha256": "c55b62feef9913070e88f38938dc2492018c945ac81f70139346472494124e79",
+  "records_inspected": 30000,
+  "selection": "First record per distinct label/heuristic/subcase, up to 12; selected fields, text unchanged.",
+  "purpose": "Author-study only; not app questions or model training.",
+  "examples": [
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The president advised the doctor .",
+      "sentence2": "The doctor advised the president .",
+      "pairID": "ex0",
+      "heuristic": "lexical_overlap",
+      "subcase": "ln_subject/object_swap",
+      "template": "temp1"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The professors supported the tourists in front of the secretary .",
+      "sentence2": "The tourists supported the professors .",
+      "pairID": "ex1000",
+      "heuristic": "lexical_overlap",
+      "subcase": "ln_preposition",
+      "template": "temp5"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The actors who advised the manager saw the tourists .",
+      "sentence2": "The manager saw the actors .",
+      "pairID": "ex2000",
+      "heuristic": "lexical_overlap",
+      "subcase": "ln_relative_clause",
+      "template": "temp11"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The managers were advised by the athlete .",
+      "sentence2": "The managers advised the athlete .",
+      "pairID": "ex3000",
+      "heuristic": "lexical_overlap",
+      "subcase": "ln_passive",
+      "template": "temp21"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The secretary and the managers saw the actor .",
+      "sentence2": "The secretary saw the managers .",
+      "pairID": "ex4000",
+      "heuristic": "lexical_overlap",
+      "subcase": "ln_conjunction",
+      "template": "temp22"
+    },
+    {
+      "gold_label": "entailment",
+      "sentence1": "The judges recommended the tourist that believed the authors .",
+      "sentence2": "The tourist believed the authors .",
+      "pairID": "ex5000",
+      "heuristic": "lexical_overlap",
+      "subcase": "le_relative_clause",
+      "template": "temp28"
+    },
+    {
+      "gold_label": "entailment",
+      "sentence1": "The bankers near the secretary called the doctor .",
+      "sentence2": "The bankers called the doctor .",
+      "pairID": "ex6000",
+      "heuristic": "lexical_overlap",
+      "subcase": "le_around_prepositional_phrase",
+      "template": "temp30"
+    },
+    {
+      "gold_label": "entailment",
+      "sentence1": "The professors who introduced the lawyers admired the managers .",
+      "sentence2": "The professors admired the managers .",
+      "pairID": "ex7000",
+      "heuristic": "lexical_overlap",
+      "subcase": "le_around_relative_clause",
+      "template": "temp31"
+    },
+    {
+      "gold_label": "entailment",
+      "sentence1": "The tourists and the senators admired the athletes .",
+      "sentence2": "The tourists admired the athletes .",
+      "pairID": "ex8000",
+      "heuristic": "lexical_overlap",
+      "subcase": "le_conjunction",
+      "template": "temp32"
+    },
+    {
+      "gold_label": "entailment",
+      "sentence1": "The authors were supported by the tourist .",
+      "sentence2": "The tourist supported the authors .",
+      "pairID": "ex9000",
+      "heuristic": "lexical_overlap",
+      "subcase": "le_passive",
+      "template": "temp36"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The manager knew the tourists supported the author .",
+      "sentence2": "The manager knew the tourists .",
+      "pairID": "ex10000",
+      "heuristic": "subsequence",
+      "subcase": "sn_NP/S",
+      "template": "temp37"
+    },
+    {
+      "gold_label": "non-entailment",
+      "sentence1": "The managers next to the professors performed .",
+      "sentence2": "The professors performed .",
+      "pairID": "ex11000",
+      "heuristic": "subsequence",
+      "subcase": "sn_PP_on_subject",
+      "template": "temp38"
+    }
+  ]
+}

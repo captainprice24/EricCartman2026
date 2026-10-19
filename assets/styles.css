@@ -464,3 +464,9 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
    controls, so no focus box is drawn around them. */
 h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+/* Wide numerical tables remain readable on phones. */
+.table-scroll-hint { display: none; }
+@media (max-width: 640px) {
+  .table-scroll-hint { display: block; margin: 0 0 8px; }
+}

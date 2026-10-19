@@ -46,5 +46,5 @@ if (mode === "export") {
   });
   console.log(`${set.id}: key agreement ${keyAgree}/${set.questions.length}, distractor label agreement ${labelAgree}/${labels}`);
   issues.forEach((x) => console.log("  - " + x));
-  process.exit(keyAgree === set.questions.length ? 0 : 1);
+  process.exit(keyAgree === set.questions.length && labelAgree === labels ? 0 : 1);
 }

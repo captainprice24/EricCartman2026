@@ -7,6 +7,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
+import { numericalDifficulty, numericalRubric } from "../scripts/lib/difficulty.mjs";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -43,6 +44,84 @@ const slice = (ex, label) => ex.slices.find((s) => lc(s.label) === lc(label)).va
 
 /* ---------- solvers by topic ---------- */
 const S = {
+  "Real pooled productivity": q => {
+    const data = table(q), indexes = table(q, 1), selected = named(q.stem, data.rows.map(r => r[0]));
+    assert.equal(selected.length, 2);
+    const totals = [1, 2, 3, 4].map(c => sumOf(selected.map(i => num(data.rows[i][c]))));
+    const price = num(indexes.rows.find(r => r[0] === 'Casework')[2]);
+    return (totals[1] * totals[2] * 100 / (price * totals[3] * totals[0]) - 1) * 100;
+  },
+  "Cross-currency landed cost": q => {
+    const orders = table(q), terms = table(q, 1);
+    return sumOf(named(q.stem, orders.rows.map(r => r[0])).map(i => {
+      const r = orders.rows[i], p = terms.rows.find(s => s[0] === r[0]);
+      const invoice = num(r[1]) * num(r[2]) - num(r[1]) * num(r[2]) * num(r[3]) / 100 + num(r[4]);
+      const euros = invoice * num(p[1]);
+      return euros + euros * num(p[2]) / 100;
+    }));
+  },
+  "Reverse pooled success rate": q => {
+    const ex = table(q), [i, j] = named(q.stem, ex.rows.map(r => r[0]));
+    const A = ex.rows[i], B = ex.rows[j], target = num(table(q, 1).rows.find(r => r[0] === '2025')[1]) / 100;
+    const survivingA = num(A[1]) - num(A[1]) * num(A[2]) / 100;
+    const survivingB = num(B[1]) - num(B[1]) * num(B[2]) / 100;
+    return 100 * (target + survivingA / survivingB * (target - num(A[3]) / 100));
+  },
+  "Recovered-output capacity": q => {
+    const ex = table(q), [i, j] = named(q.stem, ex.rows.map(r => r[0]));
+    const accepted = r => num(r[1]) - num(r[1]) * num(r[2]) / 100 + num(r[1]) * num(r[2]) * num(r[3]) / 10000;
+    const A = ex.rows[i], B = ex.rows[j];
+    const required = num(table(q, 1).rows.find(r => r[0] === 'Current')[1]);
+    return (required - accepted(A) * num(A[4])) / accepted(B) - num(B[4]);
+  },
+  "Capped weighted redistribution": q => {
+    const ex = table(q), target = ex.rows.findIndex(r => r[0] === q.stem.match(/What is (.+?)’s final|What is (.+?)'s final/).slice(1).find(Boolean)), r = table(q, 1).rows.find(r => r[0] === 'Current');
+    const net = num(r[1]) * (100 - num(r[2])) * (100 - num(r[3])) / 10000;
+    const w = ex.rows.map(r => num(r[1]) * num(r[2])), total = sumOf(w), cap = num(r[4]);
+    const initial = net * w[target] / total, excess = Math.max(0, net * w[0] / total - cap);
+    assert.ok(excess > 0, 'North cap must bind');
+    return initial + excess * w[target] / (total - w[0]);
+  },
+  "Yield-adjusted profit threshold": q => {
+    const ex = table(q), terms = table(q, 1).rows.find(r => r[0] === 'Current');
+    const mix = [...q.stem.matchAll(/(\d+) saleable Kit [AB] units/g)].map(m => Number(m[1]));
+    assert.equal(mix.length, 2);
+    const perBatch = sumOf(mix.map((n, i) => {
+      const r = ex.rows[i];
+      return n * (100 * num(r[1]) / (100 + num(r[2])) - 100 * num(r[3]) / num(r[4]));
+    }));
+    const need = num(terms[1]) + num(terms[2]), batches = Math.ceil(need / perBatch);
+    assert.ok(batches * perBatch >= need && (batches - 1) * perBatch < need, 'minimum feasible batch');
+    return batches;
+  },
+  "Linked-index real per-capita change": q => {
+    const ex = table(q), r = ex.rows[rowNamed(q, ex)], indices = table(q, 1);
+    const old = indices.rows.find(r => r[0] === 'Old base'), fresh = indices.rows.find(r => r[0] === 'New base');
+    const linked2025 = num(old[2]) * num(fresh[3]) / num(fresh[2]);
+    const nominalRatio = num(r[2]) * num(r[3]) / (num(r[1]) * num(r[4]));
+    return (nominalRatio * num(old[1]) / linked2025 - 1) * 100;
+  },
+  "Reverse stock flow with returns": q => {
+    const ex = table(q), r = ex.rows[rowNamed(q, ex)], p = table(q, 1).rows.find(s => s[0] === r[0]);
+    const shipped = num(r[2]) + num(r[3]), returns = shipped * num(r[4]) * num(p[1]) / 10000;
+    return (num(p[3]) - num(r[1]) - returns + shipped) * 100 / (100 - num(p[2]));
+  },
+  "Hedged exchange-rate threshold": q => {
+    const ex = table(q), r = ex.rows[rowNamed(q, ex)], p = table(q, 1).rows.find(s => s[0] === r[0]);
+    const usd = num(r[1]) * num(r[2]), fixedEUR = usd * num(r[3]) * num(r[4]) / 100;
+    const netRequired = num(p[1]) + num(p[2]);
+    return (netRequired * 100 - fixedEUR * (100 - num(p[3]))) / ((usd * (100 - num(r[3])) / 100) * (100 - num(p[3])));
+  },
+  "Loss-adjusted emissions substitution": q => {
+    const ex = table(q), gas = ex.rows.find(r => r[0] === 'Gas'), wind = ex.rows.find(r => r[0] === 'Wind');
+    const emissionTotal = sumOf(ex.rows.map(r => num(r[1]) * num(r[3])));
+    const target = num(table(q, 1).rows.find(r => r[0] === 'Current')[1]) / 100;
+    // For x gross TWh wind, gas gross removed is x * wind delivery fraction / gas delivery fraction.
+    const gasRemovedPerWind = (100 - num(wind[2])) / (100 - num(gas[2]));
+    const x = emissionTotal * target / (gasRemovedPerWind * num(gas[3]) - num(wind[3]));
+    assert.ok(x * gasRemovedPerWind <= num(gas[1]), 'replacement cannot exceed available Gas');
+    return x;
+  },
   "Percentage change of a total": (q) => { const ex = table(q); const [a, b] = yearsIn(q.stem); const A = sumOf(col(ex, a)), B = sumOf(col(ex, b)); return ((B - A) / A) * 100; },
   "Share of a total": (q) => {
     const ex = table(q), what = q.stem.match(/combined (\w+)/)[1];
@@ -192,4 +271,32 @@ test("every numerical key matches an independent re-calculation", () => {
     if (closest !== q.answer || Math.abs(vals[q.answer] - got) > tol) bad.push(`${q.id} (${q.topic}): re-calculated ${got}, key ${q.options[q.answer]}`);
   }
   assert.deepEqual(bad, []);
+});
+
+
+test("four challenge sets have ten distinct models, balanced keys and genuine mistake notes", () => {
+  const sets = ctx.window.EPSO_BANK.sets.filter(s => s.challenge);
+  assert.equal(sets.length, 4);
+  for (const set of sets) {
+    assert.equal(set.questions.length, 10);
+    assert.equal(new Set(set.questions.map(q => q.topic)).size, 10);
+    assert.deepEqual([0, 1, 2, 3, 4].map(i => set.questions.filter(q => q.answer === i).length), [2, 2, 2, 2, 2]);
+    for (const q of set.questions) {
+      assert.equal(q.difficulty, 3);
+      assert.ok(numericalRubric(q).stages >= 4);
+      assert.ok(q.optionNotes.every(n => !/not derived from|recheck each step/i.test(n)));
+      const answer = S[q.topic](q);
+      const decimals = (q.options[q.answer].replace(/,/g, '').match(/\d+\.(\d+)/) || ['', ''])[1].length;
+      const tolerance = .5 * 10 ** -decimals + 1e-9;
+      assert.equal(q.options.filter(o => Math.abs(num(o) - answer) <= tolerance).length, 1, q.id + ' must have exactly one rounded answer');
+      if (q.topic === 'Reverse pooled success rate') assert.ok(answer >= 0 && answer <= 100);
+    }
+  }
+});
+
+test("numerical level follows reviewed reasoning, never table size or solution verbosity", () => {
+  const easy = items.find(q => q.topic === 'Percentage change of a total');
+  assert.equal(numericalDifficulty(easy), 1);
+  assert.equal(numericalDifficulty({ ...easy, solution: Array(30).fill('1 + 2 = 3'), exhibits: [...easy.exhibits, ...easy.exhibits] }), 1);
+  assert.throws(() => numericalDifficulty({ topic: 'Unreviewed topic' }), /editorial difficulty review/);
 });

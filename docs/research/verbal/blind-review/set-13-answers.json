@@ -1,0 +1,82 @@
+{
+  "v13-01": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    }
+  },
+  "v13-02": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "False",
+      "D": "Overstated"
+    }
+  },
+  "v13-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "D": "Not supported"
+    }
+  },
+  "v13-04": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    }
+  },
+  "v13-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "D": "Overstated"
+    }
+  },
+  "v13-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    }
+  },
+  "v13-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated"
+    }
+  },
+  "v13-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported"
+    }
+  },
+  "v13-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    }
+  },
+  "v13-10": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    }
+  }
+}

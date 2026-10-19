@@ -6,6 +6,12 @@ This repository is a dependency-free static web app for practising the EPSO AD5 
 
 1. Read `docs/QUESTION_FORMAT.md` in full. It defines the schema, the difficulty rubric and the
    enforced quality rules.
+   For numerical work, also read `docs/research/numerical/README.md` and `docs/NUMERICAL_AUDIT.md`.
+   They preserve source/rights decisions and the reasoning-based difficulty rubric. Reference examples
+   are for author study and are not registered in the app. Numerical difficulty must not be raised by
+   adding explanation lines or irrelevant exhibit values. Run `npm run audit:numerical` after changes.
+   For verbal work, also read `docs/research/verbal/README.md` and `docs/VERBAL_AUDIT.md`.
+   Preserve blind-review traceability and run `npm run audit:reasoning` after changes.
 2. **Verbal:** write a new file such as `questions/verbal/verbal-set-04.js` by hand.
    **Numerical and abstract:** extend `scripts/generators/numerical.mjs` or `abstract.mjs` with new
    templates or plan entries and rerun them. Never hand-edit generated files.

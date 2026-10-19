@@ -1,0 +1,285 @@
+{
+  "method": "Forty independently blind-reviewed passages and their unchanged options were partitioned into four cue-safe sets. IDs changed; option order did not. Responses were mapped solely by source item ID; no answer was inferred from author keys.",
+  "items": [
+    {
+      "id": "v10-01",
+      "reviewedAs": "v11-15",
+      "passageSha256": "d564c25e05ee408c06a968f5bfba2a5f6314f2eb80c9246b5f79c20f9d4436b8",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "562a860dd4bf98dad6111b6d2b6522fcf04f718758b75b69860e945880a298c2"
+    },
+    {
+      "id": "v10-02",
+      "reviewedAs": "v11-16",
+      "passageSha256": "f2ba31f894a923ac20a1e1c599b66db72a27ce1897da88cc9139435cedbcc531",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "2830736c312df8408385456710324235e8fb037d8a5b8109d079ad5e95874f88"
+    },
+    {
+      "id": "v10-03",
+      "reviewedAs": "v11-12",
+      "passageSha256": "032f026ecc7c986eafb445f93060b7c264ef7a79e3db20c4dc7cce42adc976fe",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "e09052851ab0db6bd9a651ada0edf41d876b4802ca363a694bde8769754894a7"
+    },
+    {
+      "id": "v10-04",
+      "reviewedAs": "v10-14",
+      "passageSha256": "5374db0c9589e6017d4b79ca5cd3c80bdb24fbfd529827ddff119de5d5edeb8e",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "0ed195a2e4cf5fc341549dff77cce21bb12f968e4f106828b5df0f83d7e6f7db"
+    },
+    {
+      "id": "v10-05",
+      "reviewedAs": "v11-20",
+      "passageSha256": "a7e0095a6939009995f4004001d86dfe6a4fd21e7c6dd3b2859de598bc2090d2",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "bb5d83c09cd79fcba951880b11f7a5a384f894cc12f9e4f5b9893520be3f68af"
+    },
+    {
+      "id": "v10-06",
+      "reviewedAs": "v11-08",
+      "passageSha256": "cc834171df91c1373aadbd3e5d3b77f4c279510cb41cb1c4c5554680b613deca",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "784af64833fd6deb590d895d8608ff646aa9cf677b0b78e22023a2705f49ff06"
+    },
+    {
+      "id": "v10-07",
+      "reviewedAs": "v10-07",
+      "passageSha256": "aa95504a7be93728799fc2d5fdfe8d9d30ea540c8e8f561b0379d5dbddedce2a",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "b5fb839f420fc9b6f80459d5ab317b7270884c6b4a2ca7f7490c3640da04f99c"
+    },
+    {
+      "id": "v10-08",
+      "reviewedAs": "v10-09",
+      "passageSha256": "65807546fc3016e8b1cb2dfb1b3550c1828ec5b0acee23177e829f7a39761a6c",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "e107f44604df233d63794c7cb2a9ee6a5097b6f362197555aea7684d4c7eeb85"
+    },
+    {
+      "id": "v10-09",
+      "reviewedAs": "v11-13",
+      "passageSha256": "88b8f57cda6da850ef65bf05b852953133ece45cddde6d8c38826bac0398078e",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "343f3433e702943a40c953018468b33531a48841e4ec64b0487d581703aa0d22"
+    },
+    {
+      "id": "v10-10",
+      "reviewedAs": "v11-05",
+      "passageSha256": "79f08c0fe16e687293f78c60e50cd6cf73fd1994dd424227d149ec0853d36d54",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "bef97135aeba57c4213be43a6f470256e954e4d2e873cdc8930969a621170924"
+    },
+    {
+      "id": "v11-01",
+      "reviewedAs": "v11-06",
+      "passageSha256": "3330df18d381fd6ebe59563f83c896dc08ccf3d9e8341cbadb7e7661742486f3",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "dea1da81fbd36e2058179f4a4af72176d7f717f8417efe24604a631f3580b548"
+    },
+    {
+      "id": "v11-02",
+      "reviewedAs": "v11-03",
+      "passageSha256": "d27d8dba7ea61500695adf6c29e0f9c83aa764f49393afbb48557e36b7f94cd1",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "c11fdc20dfba900f8da0e26d614c2aa4a3fb74b16dc4df88a36c90e85407fcf1"
+    },
+    {
+      "id": "v11-03",
+      "reviewedAs": "v10-16",
+      "passageSha256": "0d1332cbf8b5f33cc80b56d0cdbf8b75c7d68e6f99481788fcb7777e1b5ffba9",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "1f041f55ce2252b827e68236f259289ec80efb200a66c805a5a3dbb90c877687"
+    },
+    {
+      "id": "v11-04",
+      "reviewedAs": "v10-15",
+      "passageSha256": "44a0fba692e2e6c59e8bd5bfebc3ada6dde624d2686097b1045d32992dab60a4",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "289fd3faee4f30c7107786e5fe37741f986c6ed738a4ba8f6373caf2adec0a88"
+    },
+    {
+      "id": "v11-05",
+      "reviewedAs": "v11-18",
+      "passageSha256": "6438b1f5353946075d8b877ae74556dee3ceb9b082f62da6358ceb63d5044493",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "97005d4ce7ff1990b7532a2ba56a33af10946b736a4247b34e76750d9da5a988"
+    },
+    {
+      "id": "v11-06",
+      "reviewedAs": "v10-06",
+      "passageSha256": "9d92fcfcb1a1a28c23591d1e636a1fe9ae8104e1f81cb112962a7c5cb7633612",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "958802a3c17de55af35756cdf6e9be9e9eb4e489ddbd7d1864118c763e099ae8"
+    },
+    {
+      "id": "v11-07",
+      "reviewedAs": "v10-18",
+      "passageSha256": "803c7c7f3fe9813a0c9436111e74820202c6b8cfe98d4fe54f5c86b43e7a6f84",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "64aadda041998b7610c96d5030e5fe8ea6d0e5c63d0a44fe2a3aa6a047093f0e"
+    },
+    {
+      "id": "v11-08",
+      "reviewedAs": "v10-05",
+      "passageSha256": "d8fb8918c5eb827994c8dbc2e6a65cf5cec68e540a5ca991932f289819915e02",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "de0356afbb5958bdaebe556127bcd4a9fd7735e97b8b8e562468c8c08d550e4e"
+    },
+    {
+      "id": "v11-09",
+      "reviewedAs": "v10-02",
+      "passageSha256": "b75b6b36b16cca29dc9a06575a325fc1b6f1451a8bb2d77a28e7eea87273f161",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "c5dfcb24d628681cd81e78decde198768fffb4a2132f9b3e0b53a0bd79d60dad"
+    },
+    {
+      "id": "v11-10",
+      "reviewedAs": "v11-09",
+      "passageSha256": "45c4a4e13462b5e95192fd0a4b417183abcecdec8184ec1815eb0af7198b2a2c",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "895875abe2f68321cb55052df22a8255622fe7f09f92b32620d5f999e748284d"
+    },
+    {
+      "id": "v12-01",
+      "reviewedAs": "v11-07",
+      "passageSha256": "f9cecc8263419f5157366d4dccb06d9101c4a436a9bf4ff4c1822a15b2092977",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "63f225654b42dbf2c51f0369858c2f7b1b8a79caa1bbe4760750ac742bc05a37"
+    },
+    {
+      "id": "v12-02",
+      "reviewedAs": "v10-08",
+      "passageSha256": "19859aa1b9d1df355ce60b2392faa74ce4e31773ecfddd60585b8cbd17b4c8c6",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "05ba38f277920b960d8eeccdd47ee05b0c098411659ff1076d25dfd7d8a27658"
+    },
+    {
+      "id": "v12-03",
+      "reviewedAs": "v10-17",
+      "passageSha256": "23abfc307e6ba3d71718666fd179415b036885aafb4e7ddbb06bf3aedfb85fa4",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "435eedd79719cd8065befdbe364db573e3c49569cda2e46c713481847da3b51a"
+    },
+    {
+      "id": "v12-04",
+      "reviewedAs": "v10-20",
+      "passageSha256": "5638038221a083dd61ba6498021071e0a4369cfe59dd78468beeec11d959caf4",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "b91dc88b5a8634b87ba9cd1942bd457b8b0a442bc3072cb388af99e5a477d543"
+    },
+    {
+      "id": "v12-05",
+      "reviewedAs": "v11-02",
+      "passageSha256": "dbaf7b9d459b80ec5ac06dd02a7d329276f9e9e2d134aabcd3a5a520edaafea8",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "3d9c428db3e85449ee37163382432d79f57e72be91893abfa5d47f6e86c3c81d"
+    },
+    {
+      "id": "v12-06",
+      "reviewedAs": "v10-11",
+      "passageSha256": "ee231ea2b73c99eb9788920c8c4da7bcc0a2d63c57adf1be8bf1df751ee81c5a",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "67421ac6e96aea77c3ee1bd184ef57ecbbcfcfc7a6879965a1abf41c89616e74"
+    },
+    {
+      "id": "v12-07",
+      "reviewedAs": "v10-10",
+      "passageSha256": "8023f72349b478d09531e56aacc0abf396f1aa1ce1af77a25dc67683b55ac59a",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "19a61e2619e87e994f95cfc04be29c279e1ed5fa0f7ae104b5994c975dff8910"
+    },
+    {
+      "id": "v12-08",
+      "reviewedAs": "v10-12",
+      "passageSha256": "cc3cd1312e8de3148cf48954548f44d5cbc7fe9a307976e37786a64d7869fc58",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "39babf282d3714d19340b144afc376382bf1ffa1c8474660d8e9e729888fa797"
+    },
+    {
+      "id": "v12-09",
+      "reviewedAs": "v10-03",
+      "passageSha256": "e58fb8e5e1424e7358a6a3ef0549e98efd1face7aa93fd6035a0891a0dc9bdb6",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "0aeb16a2c4729f37bb4ece1f1161af023f6083093e3cf62dddf10825125ffec5"
+    },
+    {
+      "id": "v12-10",
+      "reviewedAs": "v11-04",
+      "passageSha256": "c7279fceb5a78eeabf79b7e4411811ae4b59fb8bf63e24cf5a759b4503e51a4c",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "63949b4b8818b16c5ec0aa7739a4ffe0de9a34c82af951bb70991b3f0360ea6f"
+    },
+    {
+      "id": "v13-01",
+      "reviewedAs": "v10-13",
+      "passageSha256": "2677d80b68c3fdc4604981bb197af214e6f81d34c55e7608107ede6d2c3d3265",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "3d439b4c379419a322a620b5ab60643cb56ed04e1b838b13f1f3a4406f7d6f54"
+    },
+    {
+      "id": "v13-02",
+      "reviewedAs": "v10-04",
+      "passageSha256": "207871566abfc4f7d8cc63695448160f7769b72a98e9994eebf449473966f1a2",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "4e5214d44421811515f296be9ae1a50539e2cb082dd18bb177c76ef12ef34b5d"
+    },
+    {
+      "id": "v13-03",
+      "reviewedAs": "v10-01",
+      "passageSha256": "c22ac64d2faeb733d864b555b770e416b440ffdf5eb8f2bf06aa2daa94d4f7f8",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "ad2770ab91ca9a6f59935f5301acf7060c57b2c855da3e7b40ebc22ee89f6731"
+    },
+    {
+      "id": "v13-04",
+      "reviewedAs": "v11-19",
+      "passageSha256": "36cdf0e857229d125a0d9f3fd2541af347a50df16b563314a427ca473e6f16a7",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "a996cbba4d4c9ce246187193003de124949a2bfffda5a18e85617095d45f7ec6"
+    },
+    {
+      "id": "v13-05",
+      "reviewedAs": "v11-14",
+      "passageSha256": "8923b79b5fca64b5291745731b0953c16c47e9adcba0e996c59df716a3d9744c",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "75904ab0eb755336b06de34a29139a1a4b08febc4e574c6d45befcd418580204"
+    },
+    {
+      "id": "v13-06",
+      "reviewedAs": "v11-11",
+      "passageSha256": "22e35c9282ef4cb6b5238ae534e9295ba93189c3964acdd7385d2aea271c0b15",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "2731dc3349fbf2c053c56966db6066597c16d83284e8a8e3fe7e9202e02d8442"
+    },
+    {
+      "id": "v13-07",
+      "reviewedAs": "v10-19",
+      "passageSha256": "a549a03f5bafc4bff8060c8ce8f8beceeeef94278680820e61b83b5557daad48",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "89f19e176ed4b8b9bf60cd1212533207b915187de7cf258bfb03bc10a2e06f74"
+    },
+    {
+      "id": "v13-08",
+      "reviewedAs": "v11-17",
+      "passageSha256": "62e6edfcb24d319697e50e3bf078adcfd5dbced14677266cc6bdf24528d8e5f7",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "443cd71016a8f019cfc638fd2344c51143ffb2c9fcbd493b136ce1ad37698e15"
+    },
+    {
+      "id": "v13-09",
+      "reviewedAs": "v11-01",
+      "passageSha256": "364dd7c89684d9ce913dfcf13a2eab673d5da7857c51521f65af1f3820b2f363",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "f026893baae002f162d64d192fe33a3878d2f841810c52b9491764b305f2af71"
+    },
+    {
+      "id": "v13-10",
+      "reviewedAs": "v11-10",
+      "passageSha256": "eb1f6432621bcb7d2bd1cad5b985830f1b427822ecf907d7f18ad0c34f20da1c",
+      "optionOrder": "unchanged from source blind review",
+      "optionsSha256": "fa502c1a778392d22e1628a2b6a80e728bbddf45fe5e1d9e3b89e866cbc8e9c6"
+    }
+  ]
+}

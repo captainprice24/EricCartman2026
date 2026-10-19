@@ -6,7 +6,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { abstractBlind, verbalSetStats, VERBAL_LIMITS } from "./lib/blind.mjs";
-import { numericalDifficulty, numericalScore } from "./lib/difficulty.mjs";
+import { numericalDifficulty, numericalRubric } from "./lib/difficulty.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const qdir = path.join(root, "questions");
@@ -167,8 +167,12 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       if (!Array.isArray(q.solution) || !q.solution.map(en).every(isStr)) err(where, "solution (worked steps) is required");
       else if (q.difficulty >= 2 && q.solution.length < 2) err(where, "medium and harder items need at least 2 solution steps");
       if (q.answerType !== undefined && q.answerType !== "category") err(where, "answerType may only be 'category'");
-      // N11: difficulty follows from the worked steps and the data load (scripts/lib/difficulty.mjs).
-      else if (Array.isArray(q.solution) && q.difficulty !== numericalDifficulty(q)) err(where, `difficulty ${q.difficulty} does not match the worked solution (score ${numericalScore(q)} → ${numericalDifficulty(q)}); see the rubric in docs/QUESTION_FORMAT.md`);
+      // Editorial reasoning level; table size and written line count are not difficulty evidence.
+      else if (Array.isArray(q.solution) && q.difficulty !== numericalDifficulty(q)) err(where, `difficulty ${q.difficulty} does not match reviewed reasoning (${numericalDifficulty(q)}: ${numericalRubric(q).reason}); see docs/QUESTION_FORMAT.md`);
+      if (set.challenge) {
+        if (!q.challenge || q.difficulty !== 3 || numericalRubric(q).stages < 4) err(where, "challenge items need 4+ dependent reasoning stages and hard difficulty");
+        if (q.optionNotes.some(n => /not derived from a typical mistake/i.test(en(n)))) err(where, "challenge items cannot use generic filler distractors");
+      }
       const key = q.answerType === "category" ? null : numberOf(en(q.options[q.answer]));
       if (key !== null) {
         q.options.forEach((o, i) => {
@@ -215,9 +219,14 @@ for (const set of ctx.window.EPSO_BANK.sets) {
     if (v.lowOverlap > L.lowOverlap) err(w, `the option with the least wording from the passage is the key in ${pc(v.lowOverlap)} of items; at most ${pc(L.lowOverlap)}`);
     if (v.highOverlap > L.highOverlap || v.highOverlap < 0.1) err(w, `the option with the most wording from the passage is the key in ${pc(v.highOverlap)} of items; keep it within 10–${pc(L.highOverlap)}`);
     if (v.shortest > L.shortest || v.shortest < 0.1) err(w, `the shortest option is the key in ${pc(v.shortest)} of items; keep it within 10–${pc(L.shortest)}`);
-    if (Math.abs(v.keyHedge - v.disHedge) > L.hedgeGap) err(w, `hedging words (may, can, likely, mainly…) appear in ${pc(v.keyHedge)} of keys but ${pc(v.disHedge)} of distractors; keep the gap within ${pc(L.hedgeGap)}`);
-    if (Math.abs(v.keyAbs - v.disAbs) > L.absoluteGap) err(w, `absolute words (only, all, never, every…) appear in ${pc(v.keyAbs)} of keys but ${pc(v.disAbs)} of distractors; keep the gap within ${pc(L.absoluteGap)}`);
+    if (Math.abs(v.keyHedge - v.disHedge) > L.hedgeGap + 1e-9) err(w, `hedging words (may, can, likely, mainly…) appear in ${pc(v.keyHedge)} of keys but ${pc(v.disHedge)} of distractors; keep the gap within ${pc(L.hedgeGap)}`);
+    if (Math.abs(v.keyAbs - v.disAbs) > L.absoluteGap + 1e-9) err(w, `absolute words (only, all, never, every…) appear in ${pc(v.keyAbs)} of keys but ${pc(v.disAbs)} of distractors; keep the gap within ${pc(L.absoluteGap)}`);
     if (v.patternShare > L.pattern) err(w, `distractor-type pattern '${v.topPattern[0]}' is used in ${pc(v.patternShare)} of items; at most ${pc(L.pattern)}`);
+  }
+  if (set.challenge && set.section === "numerical") {
+    if (set.section !== "numerical" || set.questions.length !== 10) err(w, "challenge sets must contain 10 numerical questions");
+    if (new Set(set.questions.map(q => q.topic)).size !== 10) err(w, "challenge sets must cover 10 different reasoning models");
+    if ([0, 1, 2, 3, 4].some(i => set.questions.filter(q => q.answer === i).length !== 2)) err(w, "challenge answer positions must be balanced at two each");
   }
   if (set.section === "abstract") {
     // N1: no blind strategy (consensus, odd one out, element majority) may beat 30% (chance is 20%).

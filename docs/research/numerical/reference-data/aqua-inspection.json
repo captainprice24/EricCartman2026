@@ -1,0 +1,14 @@
+{
+  "url": "https://raw.githubusercontent.com/google-deepmind/AQuA/master/test.json",
+  "retrieved": "2026-10-19",
+  "source_sha256": "de41581881ef95c5588c44ddc701c77fd480839241dd422a0d181262af24520c",
+  "records": 254,
+  "fields": [
+    "question",
+    "options",
+    "rationale",
+    "correct"
+  ],
+  "sample_numeric_programs": [],
+  "copied_question_text": false
+}

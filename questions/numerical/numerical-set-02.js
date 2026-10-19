@@ -153,7 +153,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-03",
       "topic": "Units and per-capita values",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -446,7 +446,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-07",
       "topic": "Percentages of percentages",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -520,7 +520,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-08",
       "topic": "Per-capita comparison",
-      "difficulty": 1,
+      "difficulty": 2,
       "answerType": "category",
       "exhibits": [
         {
@@ -747,7 +747,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-11",
       "topic": "Shares to amounts",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "pie",
@@ -851,7 +851,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-12",
       "topic": "Averaging rates",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -927,7 +927,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-13",
       "topic": "Compound growth",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -1176,7 +1176,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-16",
       "topic": "Index numbers: values",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -1268,7 +1268,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-17",
       "topic": "Index numbers: percentage change",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -1648,7 +1648,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-22",
       "topic": "Proportional allocation",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -2106,7 +2106,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-28",
       "topic": "Averages over part of a period",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -2204,7 +2204,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-29",
       "topic": "Percentage change of a total",
-      "difficulty": 3,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -2292,7 +2292,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-30",
       "topic": "Share of a total",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "table",
@@ -2373,7 +2373,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-31",
       "topic": "Per-capita change",
-      "difficulty": 2,
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
@@ -2608,7 +2608,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-34",
       "topic": "Currency conversion",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -2682,7 +2682,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-35",
       "topic": "Weighted average",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -2839,7 +2839,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-37",
       "topic": "Budget reallocation",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "pie",
@@ -2944,7 +2944,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-38",
       "topic": "Shares in a stacked chart",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "stacked",
@@ -3164,7 +3164,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-41",
       "topic": "Units and per-capita values",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -3457,7 +3457,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-45",
       "topic": "Percentages of percentages",
-      "difficulty": 1,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
@@ -3531,7 +3531,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-46",
       "topic": "Per-capita comparison",
-      "difficulty": 1,
+      "difficulty": 2,
       "answerType": "category",
       "exhibits": [
         {
@@ -3758,7 +3758,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-49",
       "topic": "Shares to amounts",
-      "difficulty": 2,
+      "difficulty": 1,
       "exhibits": [
         {
           "type": "pie",
@@ -3862,7 +3862,7 @@ EPSO_BANK.registerSet({
     {
       "id": "n02-50",
       "topic": "Averaging rates",
-      "difficulty": 3,
+      "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
