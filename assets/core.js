@@ -161,30 +161,141 @@
     return sec.limitMs ? Math.min(e, sec.limitMs) : e;
   }
 
-  /* ---------- highlighter: ranges stored as { p, s, e } character offsets per paragraph ---------- */
-  function addRange(list, p, s, e) {
-    if (e <= s) return list.slice();
-    var all = list.concat([{ p: p, s: s, e: e }]).sort(function (a, b) { return a.p - b.p || a.s - b.s; });
+  /* ---------- highlighter: ranges stored as { p, s, e[, c] } character offsets per paragraph ----------
+     c is an optional colour index (TAO offers a choice of colours); ranges of the same colour merge,
+     a new range replaces whatever it covers, and removeRange is the eraser. */
+  function rangeOf(p, s, e, c) { var r = { p: p, s: s, e: e }; if (c !== undefined && c !== null) r.c = c; return r; }
+  function cutRange(list, p, s, e) {
     var out = [];
-    all.forEach(function (r) {
-      var last = out[out.length - 1];
-      if (last && last.p === r.p && r.s <= last.e) last.e = Math.max(last.e, r.e);
-      else out.push({ p: r.p, s: r.s, e: r.e });
+    list.forEach(function (r) {
+      if (r.p !== p || r.e <= s || r.s >= e) { out.push(rangeOf(r.p, r.s, r.e, r.c)); return; }
+      if (r.s < s) out.push(rangeOf(r.p, r.s, s, r.c));
+      if (r.e > e) out.push(rangeOf(r.p, e, r.e, r.c));
     });
     return out;
   }
-  // Split a paragraph's text into [{ text, mark }] segments.
+  function addRange(list, p, s, e, c) {
+    if (e <= s) return list.slice();
+    var all = cutRange(list, p, s, e).concat([rangeOf(p, s, e, c)]).sort(function (a, b) { return a.p - b.p || a.s - b.s; });
+    var out = [];
+    all.forEach(function (r) {
+      var last = out[out.length - 1];
+      if (last && last.p === r.p && r.s <= last.e && last.c === r.c) last.e = Math.max(last.e, r.e);
+      else out.push(rangeOf(r.p, r.s, r.e, r.c));
+    });
+    return out;
+  }
+  function removeRange(list, p, s, e) { return e <= s ? list.slice() : cutRange(list, p, s, e); }
+  // Split a paragraph's text into [{ text, mark, c }] segments.
   function segments(text, ranges, p) {
-    var rs = ranges.filter(function (r) { return r.p === p; });
+    var rs = ranges.filter(function (r) { return r.p === p; }).slice().sort(function (a, b) { return a.s - b.s; });
     var out = [], pos = 0;
     rs.forEach(function (r) {
       var s = Math.max(pos, Math.min(r.s, text.length)), e = Math.min(r.e, text.length);
       if (s > pos) out.push({ text: text.slice(pos, s), mark: false });
-      if (e > s) out.push({ text: text.slice(s, e), mark: true });
+      if (e > s) out.push({ text: text.slice(s, e), mark: true, c: r.c });
       pos = Math.max(pos, e);
     });
     if (pos < text.length) out.push({ text: text.slice(pos), mark: false });
     return out;
+  }
+
+  /* ---------- clock display ---------- */
+  // "tao": the platform shows the minutes and seconds left as "34min 42s". Default: "m:ss".
+  function clockText(ms, style) {
+    var sec = Math.max(0, Math.ceil(ms / 1000)), m = Math.floor(sec / 60), s = sec % 60;
+    if (style === "tao") return m + "min " + (s < 10 ? "0" : "") + s + "s";
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  /* ---------- calculator entry editing ---------- */
+  // CE clears the number being typed (the trailing number token); on an operator it removes that operator.
+  function calcClearEntry(expr) {
+    var src = String(expr || "");
+    var m = src.match(/(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$/);
+    return m ? src.slice(0, src.length - m[0].length) : src.slice(0, -1);
+  }
+
+  /* ---------- scratchpad: a list of drawn items in pad pixel coordinates ----------
+     { t: "path", pts: [[x, y], …] } | { t: "line", x1, y1, x2, y2 } | { t: "rect", x, y, w, h }
+     | { t: "ellipse", cx, cy, rx, ry } | { t: "text", x, y, text }. The TAO scratchpad is a drawing
+     window with select, text, brush, shape and erase tools; this model backs the same tools. */
+  var SCRATCH_V = 2, SCRATCH_MAX_ITEMS = 500, SCRATCH_MAX_POINTS = 2000, SCRATCH_MAX_TEXT = 2000;
+  function num(v) { return typeof v === "number" && isFinite(v); }
+  function validScratchItem(it) {
+    if (!record(it)) return false;
+    switch (it.t) {
+      case "path": return Array.isArray(it.pts) && it.pts.length > 0 && it.pts.length <= SCRATCH_MAX_POINTS &&
+        it.pts.every(function (pt) { return Array.isArray(pt) && pt.length === 2 && num(pt[0]) && num(pt[1]); });
+      case "line": return num(it.x1) && num(it.y1) && num(it.x2) && num(it.y2);
+      case "rect": return num(it.x) && num(it.y) && num(it.w) && num(it.h) && it.w >= 0 && it.h >= 0;
+      case "ellipse": return num(it.cx) && num(it.cy) && num(it.rx) && num(it.ry) && it.rx >= 0 && it.ry >= 0;
+      case "text": return num(it.x) && num(it.y) && typeof it.text === "string" && it.text.length <= SCRATCH_MAX_TEXT;
+      default: return false;
+    }
+  }
+  function validScratch(v) {
+    if (typeof v === "string") return true; // older saved rounds kept plain text
+    return record(v) && v.v === SCRATCH_V && Array.isArray(v.items) && v.items.length <= SCRATCH_MAX_ITEMS && v.items.every(validScratchItem);
+  }
+  // Accepts a legacy string, an object or nothing and returns { v, items }.
+  function scratchNormalise(v) {
+    if (typeof v === "string") return { v: SCRATCH_V, items: v ? [{ t: "text", x: 12, y: 24, text: v }] : [] };
+    return validScratch(v) ? { v: SCRATCH_V, items: v.items.slice() } : { v: SCRATCH_V, items: [] };
+  }
+  function bbox(it) {
+    var xs, ys, lines, w, h;
+    switch (it.t) {
+      case "path":
+        xs = it.pts.map(function (p) { return p[0]; }); ys = it.pts.map(function (p) { return p[1]; });
+        return { x: Math.min.apply(null, xs), y: Math.min.apply(null, ys), w: Math.max.apply(null, xs) - Math.min.apply(null, xs), h: Math.max.apply(null, ys) - Math.min.apply(null, ys) };
+      case "line": return { x: Math.min(it.x1, it.x2), y: Math.min(it.y1, it.y2), w: Math.abs(it.x2 - it.x1), h: Math.abs(it.y2 - it.y1) };
+      case "rect": return { x: it.x, y: it.y, w: it.w, h: it.h };
+      case "ellipse": return { x: it.cx - it.rx, y: it.cy - it.ry, w: 2 * it.rx, h: 2 * it.ry };
+      default:
+        lines = it.text.split("\n"); w = 0;
+        lines.forEach(function (l) { w = Math.max(w, l.length); });
+        h = lines.length * 18;
+        return { x: it.x, y: it.y - 14, w: Math.max(8, w * 8.4), h: h };
+    }
+  }
+  function segDist(px, py, x1, y1, x2, y2) {
+    var dx = x2 - x1, dy = y2 - y1, len2 = dx * dx + dy * dy;
+    var t = len2 ? Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / len2)) : 0;
+    var cx = x1 + t * dx, cy = y1 + t * dy;
+    return Math.sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
+  }
+  // Index of the topmost item under (x, y), or -1. Strokes are hit within `tol` px; boxes anywhere inside.
+  function scratchHit(items, x, y, tol) {
+    tol = tol || 6;
+    for (var i = items.length - 1; i >= 0; i--) {
+      var it = items[i], b, j;
+      if (it.t === "path") {
+        if (it.pts.length === 1 && segDist(x, y, it.pts[0][0], it.pts[0][1], it.pts[0][0], it.pts[0][1]) <= tol) return i;
+        for (j = 1; j < it.pts.length; j++) if (segDist(x, y, it.pts[j - 1][0], it.pts[j - 1][1], it.pts[j][0], it.pts[j][1]) <= tol) return i;
+      } else if (it.t === "line") {
+        if (segDist(x, y, it.x1, it.y1, it.x2, it.y2) <= tol) return i;
+      } else {
+        b = bbox(it);
+        if (x >= b.x - tol && x <= b.x + b.w + tol && y >= b.y - tol && y <= b.y + b.h + tol) return i;
+      }
+    }
+    return -1;
+  }
+  function scratchMove(it, dx, dy) {
+    switch (it.t) {
+      case "path": return { t: "path", pts: it.pts.map(function (p) { return [p[0] + dx, p[1] + dy]; }) };
+      case "line": return { t: "line", x1: it.x1 + dx, y1: it.y1 + dy, x2: it.x2 + dx, y2: it.y2 + dy };
+      case "rect": return { t: "rect", x: it.x + dx, y: it.y + dy, w: it.w, h: it.h };
+      case "ellipse": return { t: "ellipse", cx: it.cx + dx, cy: it.cy + dy, rx: it.rx, ry: it.ry };
+      default: return { t: "text", x: it.x + dx, y: it.y + dy, text: it.text };
+    }
+  }
+  // Where a new text box goes so typed working never lands on existing items: under the lowest one.
+  function scratchNextTextPos(items) {
+    var y = 24;
+    items.forEach(function (it) { var b = bbox(it); y = Math.max(y, b.y + b.h + 22); });
+    return { x: 12, y: y };
   }
 
   /* Validate saved data before it can reach a view. Keep unaffected records. */
@@ -198,12 +309,19 @@
       out = {};
       Object.keys(value).forEach(function (k) {
         var v = value[k], valid = false;
-        if (["timed", "mistakesOnly", "showTopics"].indexOf(k) >= 0) valid = typeof v === "boolean";
+        if (["timed", "mistakesOnly", "showTopics", "examShortcuts", "calcExtras", "elimExam", "maskExam", "elimTrain", "maskTrain"].indexOf(k) >= 0) valid = typeof v === "boolean";
         else if (["setId", "lang", "examForm"].indexOf(k) >= 0) valid = typeof v === "string";
         else if (k === "count") valid = ["5", "10", "20", "all"].indexOf(String(v)) >= 0 && (typeof v === "string" || typeof v === "number");
         else if (/^(abstract|verbal|numerical)Level$/.test(k)) valid = ["all", "1", "2", "3"].indexOf(String(v)) >= 0 && (typeof v === "string" || typeof v === "number");
         else if (k === "examScope") valid = ["full", "verbal", "numerical", "abstract"].indexOf(v) >= 0;
-        else if (k === "theme") valid = ["system", "light", "dark"].indexOf(v) >= 0;
+        else if (k === "theme") valid = ["system", "light", "dark", "contrast"].indexOf(v) >= 0;
+        else if (k === "zoom") valid = integer(v) && v >= 50 && v <= 200;
+        else if (k === "hlColor") valid = integer(v) && v <= 2;
+        else if (k === "a11y") valid = record(v) && ["font", "line", "word", "letter"].every(function (f) { return v[f] === undefined || (integer(v[f]) && v[f] <= 6); }) && (v.announce === undefined || typeof v.announce === "boolean");
+        else if (k === "win") valid = record(v) && Object.keys(v).every(function (name) {
+          var g = v[name];
+          return ["calc", "scratch"].indexOf(name) >= 0 && record(g) && num(g.x) && num(g.y) && num(g.w) && g.w > 0 && (g.h === null || g.h === undefined || (num(g.h) && g.h > 0));
+        });
         if (valid) out[k] = v; else changed = true;
       });
       return { value: out, changed: changed };
@@ -242,6 +360,7 @@
         ["brief", "lesson", "session", "between"].indexOf(d.view) < 0 ||
         !Array.isArray(d.notes) || !d.notes.every(function (x) { return typeof x === "string"; })) return false;
     if (d.formId !== undefined && d.formId !== null && (typeof d.formId !== "string" || !/^mock-\d{2}$/.test(d.formId))) return false;
+    if (d.instrDeadline !== undefined && d.instrDeadline !== null && !natural(d.instrDeadline)) return false;
     var keys = Object.create(null);
     var ok = d.sections.every(function (x) {
       if (!record(x) || ORDER.indexOf(x.key) < 0 || keys[x.key] || !Array.isArray(x.ids) || !x.ids.length ||
@@ -259,9 +378,12 @@
       if (!["flags", "checked"].every(function (k) { return Object.keys(x[k]).every(function (id) { return ids[id] && typeof x[k][id] === "boolean" && (k !== "checked" || !x[k][id] || x.answers[id] !== undefined); }); })) return false;
       if (x.visited !== undefined && (!record(x.visited) || !Object.keys(x.visited).every(function (id) { return ids[id] && typeof x.visited[id] === "boolean"; }))) return false;
       if (!Object.keys(x.hints).every(function (id) { return ids[id] && integer(x.hints[id]) && x.hints[id] <= (byId[id].hints || []).length; })) return false;
-      if (!Object.keys(x.elim).every(function (id) { return ids[id] && record(x.elim[id]) && Object.keys(x.elim[id]).every(function (v) { return /^\d+$/.test(v) && +v < byId[id].options.length && typeof x.elim[id][v] === "boolean"; }); })) return false;
-      if (!Object.keys(x.hl).every(function (id) { return ids[id] && Array.isArray(x.hl[id]) && x.hl[id].every(function (r) { return record(r) && integer(r.p) && integer(r.s) && integer(r.e) && r.e > r.s; }); })) return false;
-      return typeof x.scratch === "string" && ["limitMs", "startedAt", "deadline", "usedMs"].every(function (k) { return x[k] === null || natural(x[k]); }) &&
+      var optionMap = function (k) {
+        return x[k] === undefined || (record(x[k]) && Object.keys(x[k]).every(function (id) { return ids[id] && record(x[k][id]) && Object.keys(x[k][id]).every(function (v) { return /^\d+$/.test(v) && +v < byId[id].options.length && typeof x[k][id][v] === "boolean"; }); }));
+      };
+      if (!optionMap("elim") || !optionMap("mask")) return false;
+      if (!Object.keys(x.hl).every(function (id) { return ids[id] && Array.isArray(x.hl[id]) && x.hl[id].every(function (r) { return record(r) && integer(r.p) && integer(r.s) && integer(r.e) && r.e > r.s && (r.c === undefined || (integer(r.c) && r.c <= 2)); }); })) return false;
+      return validScratch(x.scratch) && ["limitMs", "startedAt", "deadline", "usedMs"].every(function (k) { return x[k] === null || natural(x[k]); }) &&
         (x.limitMs === null || x.limitMs > 0) && (x.deadline === null || (x.startedAt !== null && x.limitMs !== null && x.deadline === x.startedAt + x.limitMs)) &&
         typeof x.done === "boolean" && typeof x.timedOut === "boolean" && integer(x.repeats) && x.repeats <= x.ids.length &&
         Object.keys(x.warned).every(function (k) { return typeof x.warned[k] === "boolean"; });
@@ -285,7 +407,9 @@
     cleanStored: cleanStored, validSession: validSession, answerState: answerState,
     calcEval: calcEval, sectionScore: sectionScore, examVerdict: examVerdict,
     shuffle: shuffle, isSeen: isSeen, drawExam: drawExam, freshSimulationsLeft: freshSimulationsLeft,
-    remainingMs: remainingMs, elapsedMs: elapsedMs,
-    addRange: addRange, segments: segments, tr: tr
+    remainingMs: remainingMs, elapsedMs: elapsedMs, clockText: clockText, calcClearEntry: calcClearEntry,
+    addRange: addRange, removeRange: removeRange, segments: segments, tr: tr,
+    validScratch: validScratch, scratchNormalise: scratchNormalise, scratchHit: scratchHit, scratchMove: scratchMove,
+    scratchBBox: bbox, scratchNextTextPos: scratchNextTextPos
   };
 });

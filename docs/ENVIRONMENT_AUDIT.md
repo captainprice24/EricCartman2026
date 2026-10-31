@@ -16,6 +16,34 @@ the tool is relied on for final rehearsal; none is blocking for content practice
 
 ---
 
+## 0. Remediation status (31 October 2026, follow-up commit)
+
+All fourteen findings were acted on in the commit that follows the audit. Verification: the repository
+gates (`npm run lint`, `npm test`, `npm run validate`, `npm run build`, `npm run test:e2e`) and five new
+browser checks named after the findings in `tests/e2e.mjs`.
+
+| ID | Status | What changed |
+|---|---|---|
+| ENV-01 | **Fixed** | Calculator and scratchpad are fixed-position windows over the question (`.tool-win`): dragged by the header (pointer events, keyboard arrows on the focused header), resized from the corner (`resize: both`, ResizeObserver), position and size kept across questions and reloads (`prefs.win`). Below 900 px they become a bottom sheet. |
+| ENV-02 | **Fixed** | The scratchpad is an SVG drawing window with Select, Text, Brush, Line, Rectangle, Ellipse and Erase tools, Undo, Redo and Clear. It opens with a text box ready to type. Items are stored per part in the saved session (`scratch: { v: 2, items }`, validated by `validScratch`). |
+| ENV-03 | **Fixed** | Basic key set `AC CE ⌫ ÷ × − + 0–9 . =` with ▲ ▼ (and ↑ ↓) to review previous operations; the clickable history list is gone. Parentheses, √ and ^ are an opt-in "extra keys" setting labelled as unconfirmed on TAO. The `%` sentence was removed. |
+| ENV-04 | **Fixed** | In the exam simulation, letters, digits, F, X and ←/→ outside the option list do nothing (radio-group arrow keys remain). A start-page option "Trainer keyboard shortcuts (TAO has none)" re-enables them; the briefing mentions them only when on. |
+| ENV-05 | **Fixed** | The pre-test page and each between-parts page show a 60-second countdown and start the part automatically (`instrDeadline`, persisted; "Start now" remains). The between page no longer shows the answered count or time used. |
+| ENV-06 | **Fixed** | Added: line reader (movable, resizable strip; greys out the rest), answer masking, a Settings menu that gates elimination and masking (both off by default in the exam, elimination on in training), an Accessibility menu (system/light/dark/high-contrast theme, text size, line height, word and letter spacing, opt-in spoken time warnings) and zoom −/+ for the question area. |
+| ENV-07 | **Fixed** | Exam clock reads `34min 42s` with no colour change; the 5-minute and 1-minute screen-reader announcements are an opt-in accessibility setting in the exam (unchanged in practice). |
+| ENV-08 | **Fixed** | Navigation bar with back/forward arrows, grey / outlined / filled circles, an arrow under the current question, bookmark ring, and the Overview button in the bar. |
+| ENV-09 | **Fixed** | TAO dialog wording: "Keep answering" / "Review my answers" with "Submit and proceed", or "Submit the test" on the last part. |
+| ENV-10 | **Fixed** | Three highlight colours, an eraser mode (select or click to remove) and Clear all; ranges carry a colour and the eraser cuts ranges (`removeRange`). |
+| ENV-11 | **Fixed** | `docs/research.md` states the confirmed test week, prerequisite window, TAO + Proctorio delivery, recording model and the Annex I tool list; the in-test Instructions panel points to the prerequisite check. |
+| ENV-12 | **Fixed** | The briefing labels Resume as a trainer convenience and states that closing or reloading the tab terminates the real test. |
+| ENV-13 | Documented | README states that non-English Language 1 candidates rehearse the format, not the language. |
+| ENV-14 | Documented | README lists what is not reproduced and names the prerequisite check as the only authoritative rehearsal. Layout-level parity remains unverified. |
+
+The sections below are the audit as written before the fixes; file and line references describe the
+audited commit `02d0c77`.
+
+---
+
 ## 1. Sources and method
 
 | Source | Status | Used for |
