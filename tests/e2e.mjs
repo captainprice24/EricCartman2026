@@ -649,7 +649,7 @@ async function run(engineName) {
     assert.equal(await p.locator(".mask").count(), 5);
     await p.locator(".mask").nth(1).click();
     assert.equal(await p.locator(".opt.masked").count(), 1);
-    await p.locator("#opt-1").click();
+    await p.locator("#opt-1").evaluate((el) => el.click()); // Playwright itself refuses aria-disabled targets
     assert.equal(await p.locator("#opt-1").getAttribute("aria-checked"), "false", "a masked option cannot be chosen");
     assert.match(await p.locator("#timer").textContent(), /^\d+min \d\ds$/, "TAO clock format");
     assert.equal(await p.locator("#timer").evaluate((el) => el.className), "timer", "no colour warning in the exam");
