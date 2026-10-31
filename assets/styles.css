@@ -292,14 +292,31 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .exhibit figcaption { font-weight: 700; }
 .exhibit-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
 /* N9: a shadow at the edge shows that a wide table scrolls sideways. */
+/* Numerical items: the data column gets more room than the answers, so a year of months fits without scrolling. */
+.q-numerical { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
 .table-wrap {
   overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--sunken);
   background:
     linear-gradient(to right, var(--surface) 30%, transparent) left / 32px 100% no-repeat local,
     linear-gradient(to left, var(--surface) 30%, transparent) right / 32px 100% no-repeat local,
     radial-gradient(farthest-side at 0 50%, var(--scroll-shadow), transparent) left / 12px 100% no-repeat scroll,
     radial-gradient(farthest-side at 100% 50%, var(--scroll-shadow), transparent) right / 12px 100% no-repeat scroll;
 }
+/* A table that overflows shows a permanent scrollbar, keeps its row labels in view and offers scroll buttons. */
+.table-wrap::-webkit-scrollbar { height: 10px; }
+.table-wrap::-webkit-scrollbar-track { background: var(--sunken); border-radius: 5px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 5px; }
+.table-box { min-width: 0; }
+.table-wrap.is-scrollable { border: 1px solid var(--line); border-radius: 8px; }
+.table-wrap.is-scrollable .exhibit-table th[scope="row"], .table-wrap.is-scrollable .exhibit-table thead th:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); box-shadow: 1px 0 0 var(--line); }
+.table-wrap.is-scrollable .exhibit-table thead th:first-child { background: var(--sunken); }
+.table-scroll-hint { display: none; align-items: center; gap: 8px; margin-top: 6px; }
+.table-wrap.is-scrollable + .table-scroll-hint { display: flex; }
+.table-scroll-hint .link-btn { text-decoration: none; font-size: 0.9rem; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; }
+.exhibit-table.wide { font-size: 0.84rem; }
+.exhibit-table.wide th, .exhibit-table.wide td { padding: 7px 6px; }
 .data-details summary { cursor: pointer; font-size: 0.85rem; color: var(--muted); padding: 2px 0; }
 .data-details[open] summary { margin-bottom: 6px; }
 .chart-table-sm { display: none; }
@@ -448,7 +465,7 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
   .exam-card { grid-template-columns: minmax(0, 1fr); }
   .train-head { grid-template-columns: minmax(0, 1fr); }
   .train-opts { justify-content: flex-start; }
-  .q-layout { grid-template-columns: minmax(0, 1fr); }
+  .q-layout, .q-numerical { grid-template-columns: minmax(0, 1fr); }
   .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
   .trow { grid-template-columns: minmax(0, 1fr) auto auto; }
   .tact { grid-column: 1 / -1; }
@@ -550,11 +567,6 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
-/* Wide numerical tables remain readable on phones. */
-.table-scroll-hint { display: none; }
-@media (max-width: 640px) {
-  .table-scroll-hint { display: block; margin: 0 0 8px; }
-}
 
 /* Practice overview mirrors useful TAO navigation states without relying on colour alone. */
 .overview-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }

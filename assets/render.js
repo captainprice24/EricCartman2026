@@ -88,8 +88,12 @@
         return i === 0 ? '<th scope="row">' + esc(c) + "</th>" : '<td class="num">' + esc(c) + "</td>";
       }).join("") + "</tr>";
     }).join("");
-    var hint = ex.columns.length > 4 ? '<p class="table-scroll-hint small muted">Scroll sideways to see all columns.</p>' : '';
-    return hint + '<div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Data table') + '"><table class="exhibit-table"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>";
+    // Wide tables (a full year of months) are set compact so they fit the data column. When a table still
+    // overflows, the app marks the wrapper `is-scrollable`: a visible scrollbar, a sticky first column and
+    // scroll buttons make the hidden columns obvious.
+    var wide = ex.columns.length >= 9;
+    var hint = '<div class="table-scroll-hint small muted"><button type="button" class="link-btn" data-act="table-scroll" data-d="-1" aria-label="Scroll the table left">◀</button><span>More columns to the right: scroll the table sideways.</span><button type="button" class="link-btn" data-act="table-scroll" data-d="1" aria-label="Scroll the table right">▶</button></div>';
+    return '<div class="table-box"><div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Data table') + '"><table class="exhibit-table' + (wide ? " wide" : "") + '"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>" + hint + "</div>";
   }
 
   function niceMax(v) {

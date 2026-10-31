@@ -301,14 +301,31 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .exhibit figcaption { font-weight: 700; }
 .exhibit-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
 /* N9: a shadow at the edge shows that a wide table scrolls sideways. */
+/* Numerical items: the data column gets more room than the answers, so a year of months fits without scrolling. */
+.q-numerical { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
 .table-wrap {
   overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--sunken);
   background:
     linear-gradient(to right, var(--surface) 30%, transparent) left / 32px 100% no-repeat local,
     linear-gradient(to left, var(--surface) 30%, transparent) right / 32px 100% no-repeat local,
     radial-gradient(farthest-side at 0 50%, var(--scroll-shadow), transparent) left / 12px 100% no-repeat scroll,
     radial-gradient(farthest-side at 100% 50%, var(--scroll-shadow), transparent) right / 12px 100% no-repeat scroll;
 }
+/* A table that overflows shows a permanent scrollbar, keeps its row labels in view and offers scroll buttons. */
+.table-wrap::-webkit-scrollbar { height: 10px; }
+.table-wrap::-webkit-scrollbar-track { background: var(--sunken); border-radius: 5px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 5px; }
+.table-box { min-width: 0; }
+.table-wrap.is-scrollable { border: 1px solid var(--line); border-radius: 8px; }
+.table-wrap.is-scrollable .exhibit-table th[scope="row"], .table-wrap.is-scrollable .exhibit-table thead th:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); box-shadow: 1px 0 0 var(--line); }
+.table-wrap.is-scrollable .exhibit-table thead th:first-child { background: var(--sunken); }
+.table-scroll-hint { display: none; align-items: center; gap: 8px; margin-top: 6px; }
+.table-wrap.is-scrollable + .table-scroll-hint { display: flex; }
+.table-scroll-hint .link-btn { text-decoration: none; font-size: 0.9rem; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; }
+.exhibit-table.wide { font-size: 0.84rem; }
+.exhibit-table.wide th, .exhibit-table.wide td { padding: 7px 6px; }
 .data-details summary { cursor: pointer; font-size: 0.85rem; color: var(--muted); padding: 2px 0; }
 .data-details[open] summary { margin-bottom: 6px; }
 .chart-table-sm { display: none; }
@@ -457,7 +474,7 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
   .exam-card { grid-template-columns: minmax(0, 1fr); }
   .train-head { grid-template-columns: minmax(0, 1fr); }
   .train-opts { justify-content: flex-start; }
-  .q-layout { grid-template-columns: minmax(0, 1fr); }
+  .q-layout, .q-numerical { grid-template-columns: minmax(0, 1fr); }
   .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
   .trow { grid-template-columns: minmax(0, 1fr) auto auto; }
   .tact { grid-column: 1 / -1; }
@@ -559,11 +576,6 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
-/* Wide numerical tables remain readable on phones. */
-.table-scroll-hint { display: none; }
-@media (max-width: 640px) {
-  .table-scroll-hint { display: block; margin: 0 0 8px; }
-}
 
 /* Practice overview mirrors useful TAO navigation states without relying on colour alone. */
 .overview-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
@@ -2139,8 +2151,12 @@ window.EPSO_LESSONS = {
         return i === 0 ? '<th scope="row">' + esc(c) + "</th>" : '<td class="num">' + esc(c) + "</td>";
       }).join("") + "</tr>";
     }).join("");
-    var hint = ex.columns.length > 4 ? '<p class="table-scroll-hint small muted">Scroll sideways to see all columns.</p>' : '';
-    return hint + '<div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Data table') + '"><table class="exhibit-table"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>";
+    // Wide tables (a full year of months) are set compact so they fit the data column. When a table still
+    // overflows, the app marks the wrapper `is-scrollable`: a visible scrollbar, a sticky first column and
+    // scroll buttons make the hidden columns obvious.
+    var wide = ex.columns.length >= 9;
+    var hint = '<div class="table-scroll-hint small muted"><button type="button" class="link-btn" data-act="table-scroll" data-d="-1" aria-label="Scroll the table left">◀</button><span>More columns to the right: scroll the table sideways.</span><button type="button" class="link-btn" data-act="table-scroll" data-d="1" aria-label="Scroll the table right">▶</button></div>';
+    return '<div class="table-box"><div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Data table') + '"><table class="exhibit-table' + (wide ? " wide" : "") + '"><thead>' + head + "</thead><tbody>" + rows + "</tbody></table></div>" + hint + "</div>";
   }
 
   function niceMax(v) {
@@ -3374,6 +3390,13 @@ window.EPSO_LESSONS = {
     if (target && target.focus) { try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); } }
     positionTips();
     mountTools();
+    markScrollableTables();
+  }
+  // A data table wider than its column gets a visible scroll affordance (see render.js tableHTML).
+  function markScrollableTables() {
+    root.querySelectorAll(".table-wrap").forEach(function (w) {
+      w.classList.toggle("is-scrollable", w.scrollWidth > w.clientWidth + 2);
+    });
   }
 
   function go(view) { state.view = view; state.ui = freshUI(); render(); window.scrollTo(0, 0); }
@@ -3741,6 +3764,7 @@ window.EPSO_LESSONS = {
       case "a11y-reset": prefs.a11y = mergeA11y(null); prefs.theme = "system"; prefs.zoom = 100; save(KEY_PREFS, prefs); applyTheme(); render(); break;
       case "zoom": prefs.zoom = Math.max(50, Math.min(200, prefs.zoom + 10 * (+t.getAttribute("data-d")))); save(KEY_PREFS, prefs); applyA11y(); render(); break;
       case "zoom-reset": prefs.zoom = 100; save(KEY_PREFS, prefs); applyA11y(); render(); break;
+      case "table-scroll": { var wrap = t.closest(".table-box").querySelector(".table-wrap"); wrap.scrollBy({ left: 160 * (+t.getAttribute("data-d")), behavior: "smooth" }); break; }
       case "clear-hl": { var cc = cur(); delete cc.sec.hl[cc.item.q.id]; state.focus = "passage"; render(); break; }
       case "submit": {
         // ENV-09: the two TAO dialogs: with unanswered questions "Keep answering", otherwise "Review my answers".
@@ -3992,7 +4016,7 @@ window.EPSO_LESSONS = {
     document.addEventListener("pointermove", function (e) { if (winDrag) windowMove(e); else if (padDrag) padMove(e); });
     document.addEventListener("pointerup", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
     document.addEventListener("pointercancel", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
-    window.addEventListener("resize", function () { positionTips(); mountTools(); });
+    window.addEventListener("resize", function () { positionTips(); mountTools(); markScrollableTables(); });
     window.addEventListener("scroll", positionTips, true);
     // N13: the same saved session written from another tab would overwrite this one's progress.
     window.addEventListener("storage", function (e) {

@@ -716,6 +716,28 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("wide data tables fit the data column on desktop; on narrow screens they scroll with a visible hint and buttons", async () => {
+    for (const [vp, expectScroll] of [[{ width: 1366, height: 800 }, false], [phone, true]]) {
+      const p = await newPage(vp);
+      await p.selectOption("#opt-set", "numerical-04");
+      await p.selectOption("#opt-count", "all");
+      await p.locator('[data-act="practice"][data-k="numerical"]').click();
+      const i = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.findIndex((it) => it.q.id === "n04-40-r2"));
+      await p.locator(`.qdot[data-i="${i}"]`).click();
+      const wrap = p.locator(".table-wrap").first();
+      assert.equal(await wrap.evaluate((el) => el.scrollWidth > el.clientWidth + 2), expectScroll, `scrollable at ${vp.width}px`);
+      assert.equal(await wrap.evaluate((el) => el.classList.contains("is-scrollable")), expectScroll);
+      assert.equal(await p.locator(".table-scroll-hint").first().isVisible(), expectScroll, "hint only when needed");
+      assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no page-level horizontal scroll");
+      if (expectScroll) {
+        await p.locator('[data-act="table-scroll"][data-d="1"]').first().click();
+        await p.waitForFunction(() => document.querySelector(".table-wrap").scrollLeft > 50);
+        assert.ok(await wrap.evaluate((el) => el.querySelector('th[scope="row"]').getBoundingClientRect().left >= el.getBoundingClientRect().left - 1), "row labels stay in view (sticky)");
+      }
+      await p.context().close();
+    }
+  });
+
   await browser.close();
 }
 

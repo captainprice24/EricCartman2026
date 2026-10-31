@@ -1067,6 +1067,13 @@
     if (target && target.focus) { try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); } }
     positionTips();
     mountTools();
+    markScrollableTables();
+  }
+  // A data table wider than its column gets a visible scroll affordance (see render.js tableHTML).
+  function markScrollableTables() {
+    root.querySelectorAll(".table-wrap").forEach(function (w) {
+      w.classList.toggle("is-scrollable", w.scrollWidth > w.clientWidth + 2);
+    });
   }
 
   function go(view) { state.view = view; state.ui = freshUI(); render(); window.scrollTo(0, 0); }
@@ -1434,6 +1441,7 @@
       case "a11y-reset": prefs.a11y = mergeA11y(null); prefs.theme = "system"; prefs.zoom = 100; save(KEY_PREFS, prefs); applyTheme(); render(); break;
       case "zoom": prefs.zoom = Math.max(50, Math.min(200, prefs.zoom + 10 * (+t.getAttribute("data-d")))); save(KEY_PREFS, prefs); applyA11y(); render(); break;
       case "zoom-reset": prefs.zoom = 100; save(KEY_PREFS, prefs); applyA11y(); render(); break;
+      case "table-scroll": { var wrap = t.closest(".table-box").querySelector(".table-wrap"); wrap.scrollBy({ left: 160 * (+t.getAttribute("data-d")), behavior: "smooth" }); break; }
       case "clear-hl": { var cc = cur(); delete cc.sec.hl[cc.item.q.id]; state.focus = "passage"; render(); break; }
       case "submit": {
         // ENV-09: the two TAO dialogs: with unanswered questions "Keep answering", otherwise "Review my answers".
@@ -1685,7 +1693,7 @@
     document.addEventListener("pointermove", function (e) { if (winDrag) windowMove(e); else if (padDrag) padMove(e); });
     document.addEventListener("pointerup", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
     document.addEventListener("pointercancel", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
-    window.addEventListener("resize", function () { positionTips(); mountTools(); });
+    window.addEventListener("resize", function () { positionTips(); mountTools(); markScrollableTables(); });
     window.addEventListener("scroll", positionTips, true);
     // N13: the same saved session written from another tab would overwrite this one's progress.
     window.addEventListener("storage", function (e) {
