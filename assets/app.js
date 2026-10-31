@@ -98,21 +98,54 @@
     examForm: /^mock-\d{2}$/.test(prefs.examForm) ? prefs.examForm : "random",
     examScope: ["full", "verbal", "numerical", "abstract"].indexOf(prefs.examScope) > -1 ? prefs.examScope : "full",
     showTopics: prefs.showTopics === true, // N3: off by default; labels can hint at the rule
-    theme: ["system", "light", "dark"].indexOf(prefs.theme) > -1 ? prefs.theme : "system",
-    lang: prefs.lang || "en"
+    theme: ["system", "light", "dark", "contrast"].indexOf(prefs.theme) > -1 ? prefs.theme : "system",
+    lang: prefs.lang || "en",
+    // ENV-04: TAO has no keyboard answer shortcuts, so the simulation is mouse-driven unless asked otherwise.
+    examShortcuts: prefs.examShortcuts === true,
+    // ENV-03: parentheses, √ and ^ are not confirmed on the TAO calculator; off by default.
+    calcExtras: prefs.calcExtras === true,
+    // ENV-06: answer elimination and masking are off until enabled in Settings, as on TAO (exam mode).
+    elimExam: prefs.elimExam === true, maskExam: prefs.maskExam === true,
+    elimTrain: prefs.elimTrain !== false, maskTrain: prefs.maskTrain === true,
+    zoom: typeof prefs.zoom === "number" ? prefs.zoom : 100,
+    hlColor: typeof prefs.hlColor === "number" ? prefs.hlColor : 0,
+    a11y: mergeA11y(prefs.a11y),
+    win: prefs.win && typeof prefs.win === "object" ? prefs.win : {}
   };
+  function mergeA11y(v) {
+    var a = { font: 0, line: 0, word: 0, letter: 0, announce: false };
+    if (v && typeof v === "object") Object.keys(a).forEach(function (k) { if (v[k] !== undefined) a[k] = v[k]; });
+    return a;
+  }
   function T(v) { return C.tr(v, prefs.lang); }
   function applyTheme() {
     var el = document.documentElement;
     if (prefs.theme === "system") el.removeAttribute("data-theme");
     else el.setAttribute("data-theme", prefs.theme);
+    applyA11y();
   }
+  // ENV-06: TAO's accessibility tools (text size, line height, word and letter spacing) and zoom are CSS variables.
+  function applyA11y() {
+    var st = document.documentElement.style, a = prefs.a11y;
+    st.setProperty("--a11y-font", String(1 + a.font * 0.1));
+    st.setProperty("--a11y-lhf", String(1 + a.line * 0.1));
+    st.setProperty("--a11y-ws", a.word ? (a.word * 0.1).toFixed(1) + "em" : "normal");
+    st.setProperty("--a11y-ls", a.letter ? (a.letter * 0.02).toFixed(2) + "em" : "normal");
+    st.setProperty("--q-zoom", String(prefs.zoom / 100));
+  }
+  // Answer elimination / masking availability follows the Settings menu of the current mode.
+  function toolOn(name) {
+    var s = state.session, exam = s && s.mode === "exam";
+    return name === "elim" ? (exam ? prefs.elimExam : prefs.elimTrain) : (exam ? prefs.maskExam : prefs.maskTrain);
+  }
+  var INSTRUCTION_SEC = 60; // ENV-05: each part opens on an instruction page with its own countdown, then starts by itself.
 
   /* ---------- state ---------- */
   var state = { view: "home", session: null, ui: freshUI(), notice: null, focus: null };
   var lastView = null;
   function freshUI() {
-    return { hl: false, scratch: false, calc: false, calcExpr: "", calcOut: "", confirm: null, showMethod: false, optPos: null, tip: null, overview: false, overviewFilter: "all", instructions: false, calcHistory: [] };
+    return { hl: false, hlMode: "mark", scratch: false, calc: false, calcExpr: "", calcOut: "", calcLive: "", calcPos: -1, confirm: null, showMethod: false, optPos: null, tip: null,
+      overview: false, overviewFilter: "all", instructions: false, calcHistory: [], tool: "text", reader: null, settings: false, a11y: false, padAutoText: false };
   }
 
   function range(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
@@ -123,8 +156,8 @@
       items: questions.map(function (q) {
         return { q: q, order: q.shuffle ? C.shuffle(range(q.options.length)) : range(q.options.length) };
       }),
-      answers: {}, flags: {}, visited: {}, elim: {}, hints: {}, checked: {}, hl: {},
-      scratch: "", limitMs: limitSec ? limitSec * 1000 : null, startedAt: null, deadline: null, usedMs: null,
+      answers: {}, flags: {}, visited: {}, elim: {}, mask: {}, hints: {}, checked: {}, hl: {},
+      scratch: C.scratchNormalise(""), scratchUndo: [], scratchRedo: [], limitMs: limitSec ? limitSec * 1000 : null, startedAt: null, deadline: null, usedMs: null,
       done: false, timedOut: false, repeats: 0, warned: {}
     };
   }
@@ -173,8 +206,18 @@
       return sec;
     }).filter(function (s) { return s.items.length > 0; });
     if (!sections.length) { flash("No questions are available for this test yet."); return; }
-    state.session = { mode: "exam", sections: sections, si: 0, qi: 0, started: Date.now(), notes: notes, formId: form ? form.id : null, review: false };
+    state.session = { mode: "exam", sections: sections, si: 0, qi: 0, started: Date.now(), notes: notes, formId: form ? form.id : null, review: false, instrDeadline: Date.now() + INSTRUCTION_SEC * 1000 };
     go("brief");
+  }
+  // The instruction page of a part closes by itself when its countdown ends (ENV-05).
+  function beginSection() {
+    var s = state.session;
+    s.instrDeadline = null;
+    startClock(s.sections[s.si]); go("session");
+  }
+  function nextSection() {
+    var s = state.session;
+    s.si++; s.qi = 0; beginSection();
   }
 
   function startTraining(mode, key) {
@@ -203,11 +246,11 @@
   var TAB_ID = String(Date.now()) + Math.random().toString(36).slice(2, 8);
   function serialize(s) {
     return {
-      v: 1, tab: TAB_ID, mode: s.mode, formId: s.formId || null, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view,
+      v: 1, tab: TAB_ID, mode: s.mode, formId: s.formId || null, si: s.si, qi: s.qi, started: s.started, notes: s.notes, view: state.view, instrDeadline: s.instrDeadline || null,
       sections: s.sections.map(function (sec) {
         return {
           key: sec.key, ids: sec.items.map(function (it) { return it.q.id; }), orders: sec.items.map(function (it) { return it.order; }),
-          answers: sec.answers, flags: sec.flags, visited: sec.visited, elim: sec.elim, hints: sec.hints, checked: sec.checked, hl: sec.hl,
+          answers: sec.answers, flags: sec.flags, visited: sec.visited, elim: sec.elim, mask: sec.mask, hints: sec.hints, checked: sec.checked, hl: sec.hl,
           scratch: sec.scratch, limitMs: sec.limitMs, startedAt: sec.startedAt, deadline: sec.deadline, usedMs: sec.usedMs,
           done: sec.done, timedOut: sec.timedOut, repeats: sec.repeats, warned: sec.warned
         };
@@ -220,13 +263,13 @@
     var sections = d.sections.map(function (x) {
       var items = x.ids.map(function (id, i) { var q = bank.byId[id]; if (!q) ok = false; return { q: q, order: x.orders[i] }; });
       return {
-        key: x.key, items: items, answers: x.answers || {}, flags: x.flags || {}, visited: x.visited || {}, elim: x.elim || {}, hints: x.hints || {},
-        checked: x.checked || {}, hl: x.hl || {}, scratch: x.scratch || "", limitMs: x.limitMs, startedAt: x.startedAt,
+        key: x.key, items: items, answers: x.answers || {}, flags: x.flags || {}, visited: x.visited || {}, elim: x.elim || {}, mask: x.mask || {}, hints: x.hints || {},
+        checked: x.checked || {}, hl: x.hl || {}, scratch: C.scratchNormalise(x.scratch), scratchUndo: [], scratchRedo: [], limitMs: x.limitMs, startedAt: x.startedAt,
         deadline: x.deadline, usedMs: x.usedMs, done: !!x.done, timedOut: !!x.timedOut, repeats: x.repeats || 0, warned: x.warned || {}
       };
     });
     if (!ok) return null;
-    return { mode: d.mode, sections: sections, si: d.si, qi: d.qi, started: d.started, notes: d.notes || [], review: false, savedView: d.view, formId: d.formId || null };
+    return { mode: d.mode, sections: sections, si: d.si, qi: d.qi, started: d.started, notes: d.notes || [], review: false, savedView: d.view, formId: d.formId || null, instrDeadline: d.instrDeadline || null };
   }
   function persist() {
     var s = state.session;
@@ -311,7 +354,7 @@
     var s = state.session, sec = s.sections[s.si];
     stopClock(sec);
     sec.done = true; sec.timedOut = !!timedOut;
-    if (s.si < s.sections.length - 1) go("between");
+    if (s.si < s.sections.length - 1) { s.instrDeadline = Date.now() + INSTRUCTION_SEC * 1000; go("between"); }
     else finishSession();
   }
 
@@ -321,29 +364,41 @@
     var m = Math.floor(sec / 60), s = sec % 60;
     return m + ":" + (s < 10 ? "0" : "") + s;
   }
+  // ENV-07: the exam clock reads like TAO's ("34min 42s") and gives no colour warning; practice keeps "m:ss left".
+  function examClock() { var s = state.session; return s && s.mode === "exam" && !s.review; }
   function timerText(sec) {
     var now = Date.now();
     var rem = C.remainingMs(sec, now);
-    return rem != null ? fmtTime(Math.ceil(rem / 1000)) + " left" : fmtTime(C.elapsedMs(sec, now) / 1000);
+    if (rem == null) return fmtTime(C.elapsedMs(sec, now) / 1000);
+    return examClock() ? C.clockText(rem, "tao") : fmtTime(Math.ceil(rem / 1000)) + " left";
   }
   function timerClass(sec) {
     var rem = C.remainingMs(sec, Date.now());
-    if (rem == null) return "";
+    if (rem == null || examClock()) return "";
     return rem <= 60000 ? " crit" : rem <= 300000 ? " warn" : "";
+  }
+  function instructionText(s) {
+    return s.instrDeadline ? C.clockText(Math.max(0, s.instrDeadline - Date.now())) : "";
   }
 
   function tick() {
     var s = state.session;
     if (!s || s.review || s.finished) return;
-    // An exam whose deadline passed while the page was closed or asleep is submitted on return.
-    if (state.view === "between" || state.view === "brief" || state.view === "lesson") return;
+    // Instruction pages (before the first part and between parts) start the part when their countdown ends.
+    if ((state.view === "brief" || state.view === "between") && s.mode === "exam" && s.instrDeadline) {
+      var it = document.getElementById("instr-timer");
+      if (it) it.textContent = instructionText(s);
+      if (Date.now() >= s.instrDeadline) { if (state.view === "brief") beginSection(); else nextSection(); }
+      return;
+    }
     if (state.view !== "session") return;
     var c = cur(); if (!c || c.sec.done) return;
     var rem = C.remainingMs(c.sec, Date.now());
     var el = document.getElementById("timer");
     if (el) { el.textContent = timerText(c.sec); el.className = "timer" + timerClass(c.sec); }
     if (rem != null) {
-      var live = document.getElementById("timer-live");
+      // Spoken time warnings are not a TAO feature: in the exam they are an opt-in accessibility setting.
+      var live = (s.mode !== "exam" || prefs.a11y.announce) ? document.getElementById("timer-live") : null;
       if (rem <= 300000 && !c.sec.warned.five && rem > 60000) { c.sec.warned.five = true; if (live) live.textContent = "5 minutes left."; persist(); }
       if (rem <= 60000 && !c.sec.warned.one && rem > 0) { c.sec.warned.one = true; if (live) live.textContent = "1 minute left."; persist(); }
       if (rem <= 0) {
@@ -369,7 +424,10 @@
     flag: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-1.5 4L16 12H7v9z"/></svg>',
     calc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v4h10V5zm0 6v2h2v-2zm4 0v2h2v-2zm4 0v6h2v-6zm-8 4v2h2v-2zm4 0v2h2v-2z"/></svg>',
     note: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5zm9 1v4h4M8 12h8M8 15h8M8 18h5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
-    mark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5l6 6-9 9H5.5v-6zM4 21h16" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'
+    mark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5l6 6-9 9H5.5v-6zM4 21h16" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    reader: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.45"/><rect x="3" y="9.5" width="18" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    gear: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm8 3.5l-2.2-.6a6 6 0 0 0-.6-1.5l1.1-2-1.7-1.7-2 1.1a6 6 0 0 0-1.5-.6L12.6 4h-1.2l-.6 2.2a6 6 0 0 0-1.5.6l-2-1.1L5.6 7.4l1.1 2a6 6 0 0 0-.6 1.5L4 11.4v1.2l2.2.6a6 6 0 0 0 .6 1.5l-1.1 2 1.7 1.7 2-1.1a6 6 0 0 0 1.5.6l.6 2.2h1.2l.6-2.2a6 6 0 0 0 1.5-.6l2 1.1 1.7-1.7-1.1-2a6 6 0 0 0 .6-1.5l2.2-.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+    a11y: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M4 8.5l6 1v4l-2.5 7h2.3l2.2-5.5 2.2 5.5h2.3L14 13.5v-4l6-1v-2l-8 1-8-1z"/></svg>'
   };
   function modeLabel(m) { return m === "exam" ? "Exam simulation" : m === "coach" ? "Coach" : "Practice"; }
   function sr(text) { return '<span class="sr-only">' + esc(text) + "</span>"; }
@@ -380,19 +438,29 @@
     var ranges = sec.hl[q.id] || [];
     return paragraphs(q).map(function (text, p) {
       return '<p data-p="' + p + '">' + C.segments(text, ranges, p).map(function (sg) {
-        return sg.mark ? '<mark data-p="' + p + '">' + esc(sg.text) + "</mark>" : esc(sg.text);
+        return sg.mark ? '<mark data-p="' + p + '" class="mark-' + (sg.c || 0) + '">' + esc(sg.text) + "</mark>" : esc(sg.text);
       }).join("") + "</p>";
     }).join("");
+  }
+
+  // ENV-10: TAO's highlighter offers a choice of colours, an eraser and "clear all".
+  var HL_COLOURS = ["yellow", "green", "pink"];
+  function highlighterBarHTML(q, sec) {
+    var ui = state.ui, any = (sec.hl[q.id] || []).length > 0;
+    return '<div class="hl-bar" role="group" aria-label="Highlighter"><span class="small muted">Highlighter:</span>' + HL_COLOURS.map(function (name, i) {
+      return '<button class="hl-swatch swatch-' + i + '" data-act="hl-color" data-k="' + i + '" aria-pressed="' + (ui.hlMode === "mark" && prefs.hlColor === i) + '" aria-label="Highlight in ' + name + '"></button>';
+    }).join("") + '<button class="btn hl-tool" data-act="hl-erase" aria-pressed="' + (ui.hlMode === "erase") + '">Eraser</button>' +
+      '<button class="btn hl-tool" data-act="clear-hl"' + (any ? "" : " disabled") + '>Clear all</button>' +
+      '<span class="hl-hint">' + (ui.hlMode === "erase" ? "Select text or click a highlight to remove it." : "Select text to highlight it.") + "</span></div>";
   }
 
   function stimulusHTML(item, sec) {
     var q = item.q, review = state.session.review;
     var main;
     if (q.section === "verbal") {
-      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span>' +
-        (review || !(sec.hl[q.id] || []).length ? "" : '<button class="link-btn" data-act="clear-hl">Clear highlights</button>') + "</div>" +
-        (state.ui.hl ? '<p class="hl-hint">Highlighter on: select text to highlight it, click a highlight to remove it.</p>' : "") +
-        '<div class="passage' + (state.ui.hl ? " hl-on" : "") + '" id="passage">' + passageHTML(q, sec) + "</div>";
+      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span></div>' +
+        (state.ui.hl && !review ? highlighterBarHTML(q, sec) : "") +
+        '<div class="passage' + (state.ui.hl ? " hl-on hl-" + state.ui.hlMode : "") + '" id="passage">' + passageHTML(q, sec) + "</div>";
     } else if (q.section === "numerical") {
       var exhibits = q.exhibits || [q.exhibit];
       main = '<div class="stim-head"><span class="eyebrow">Data</span></div>' + exhibits.map(R.exhibitHTML).join("");
@@ -403,44 +471,126 @@
       main = '<div class="stim-head"><span class="eyebrow">Series</span></div><div class="series">' + seq +
         '<div class="frame frame-q"><span class="frame-n">?</span><span class="qmark" aria-hidden="true">?</span>' + sr("Missing figure") + "</div></div>";
     }
-    return main + toolTrayHTML(sec);
+    return main;
   }
 
-  // W9: tools are docked in the stimulus column so they never cover the answers.
-  function toolTrayHTML(sec) {
+  /* ---------- floating tool windows (ENV-01, ENV-02): calculator and scratchpad ----------
+     As on TAO, each tool is a window over the question: drag it by its header, resize it from the corner,
+     and it keeps its place, size and content from one question to the next. */
+  var WIN_DEFAULTS = { calc: { w: 340, h: null }, scratch: { w: 460, h: 400 } };
+  function winGeom(name) {
+    var d = WIN_DEFAULTS[name], saved = prefs.win[name], vw = window.innerWidth, vh = window.innerHeight;
+    var g = saved ? { x: saved.x, y: saved.y, w: saved.w, h: saved.h == null ? d.h : saved.h } : { x: vw - d.w - 16 - (name === "scratch" ? 0 : 0), y: name === "calc" ? 72 : 90, w: d.w, h: d.h };
+    g.w = Math.max(240, Math.min(g.w, vw - 16));
+    if (g.h != null) g.h = Math.max(160, Math.min(g.h, vh - 16));
+    g.x = Math.max(0, Math.min(g.x, vw - Math.min(g.w, vw)));
+    g.y = Math.max(0, Math.min(g.y, vh - 56));
+    return g;
+  }
+  function winStyle(name) {
+    var g = winGeom(name);
+    return 'style="left:' + Math.round(g.x) + "px;top:" + Math.round(g.y) + "px;width:" + Math.round(g.w) + "px" + (g.h != null ? ";height:" + Math.round(g.h) + "px" : "") + '"';
+  }
+  function saveWin(name, g) { prefs.win[name] = { x: Math.round(g.x), y: Math.round(g.y), w: Math.round(g.w), h: g.h == null ? null : Math.round(g.h) }; save(KEY_PREFS, prefs); }
+
+  var CALC_BASIC = ["AC", "CE", "⌫", "÷", "7", "8", "9", "×", "4", "5", "6", "−", "1", "2", "3", "+", "0", ".", "▲", "▼"];
+  var CALC_EXTRA = ["(", ")", "√", "^"];
+  var CALC_LABELS = { "÷": "divide", "×": "multiply", "−": "minus", "+": "plus", "⌫": "delete last character", AC: "clear all", CE: "clear entry", "√": "square root", "^": "to the power of", "▲": "previous operation", "▼": "next operation" };
+  function calcWindowHTML() {
+    var ui = state.ui, keys = prefs.calcExtras ? CALC_BASIC.concat(CALC_EXTRA) : CALC_BASIC;
+    return '<section class="tool-win tool-panel calc" id="win-calc" aria-label="Calculator" ' + winStyle("calc") + '>' +
+      '<div class="pop-head win-head" data-win="calc" tabindex="0" aria-label="Calculator window: drag to move, or use the arrow keys"><h2>Calculator</h2><button class="link-btn" data-act="tool-calc" aria-label="Close the calculator">✕</button></div>' +
+      '<div class="calc-screen" aria-live="polite"><div class="calc-expr" id="calc-expr">' + esc(ui.calcExpr || "0") + '</div><div class="calc-out" id="calc-out">' + esc(ui.calcOut) + "</div></div>" +
+      '<div class="calc-keys' + (prefs.calcExtras ? " with-extra" : "") + '">' + keys.map(function (k) {
+        return '<button data-act="calc" data-k="' + esc(k) + '"' + (CALC_LABELS[k] ? ' aria-label="' + CALC_LABELS[k] + '"' : "") + ">" + esc(k) + "</button>";
+      }).join("") + '<button class="calc-eq" id="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
+      '<p class="small muted">Type on the keyboard or press the keys; = or Enter gives the result. Use a dot for decimals (a comma is not accepted). ▲ ▼ review previous operations.' + (prefs.calcExtras ? " Parentheses, √ and ^ are trainer extras, not confirmed on TAO." : "") + "</p></section>";
+  }
+
+  var PAD_TOOLS = [["select", "Select"], ["text", "Text"], ["brush", "Brush"], ["line", "Line"], ["rect", "Rectangle"], ["ellipse", "Ellipse"], ["erase", "Erase"]];
+  function padItems(sec) { return C.scratchNormalise(sec.scratch).items; }
+  function padSVG(items) {
+    return items.map(function (it, i) {
+      var a = ' data-i="' + i + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+      switch (it.t) {
+        case "path":
+          if (it.pts.length === 1) return '<circle data-i="' + i + '" cx="' + it.pts[0][0] + '" cy="' + it.pts[0][1] + '" r="1.5" fill="currentColor"/>';
+          return "<polyline" + a + ' points="' + it.pts.map(function (p) { return p[0] + "," + p[1]; }).join(" ") + '"/>';
+        case "line": return "<line" + a + ' x1="' + it.x1 + '" y1="' + it.y1 + '" x2="' + it.x2 + '" y2="' + it.y2 + '"/>';
+        case "rect": return "<rect" + a + ' x="' + it.x + '" y="' + it.y + '" width="' + it.w + '" height="' + it.h + '"/>';
+        case "ellipse": return "<ellipse" + a + ' cx="' + it.cx + '" cy="' + it.cy + '" rx="' + it.rx + '" ry="' + it.ry + '"/>';
+        default: return '<text data-i="' + i + '" x="' + it.x + '" y="' + it.y + '" class="pad-text-item">' + it.text.split("\n").map(function (line, n) {
+          return '<tspan x="' + it.x + '"' + (n ? ' dy="18"' : "") + ">" + (line ? esc(line) : " ") + "</tspan>";
+        }).join("") + "</text>";
+      }
+    }).join("");
+  }
+  function padWindowHTML(sec) {
+    var ui = state.ui, items = padItems(sec);
+    return '<section class="tool-win tool-panel pad" id="win-scratch" aria-label="Scratchpad" ' + winStyle("scratch") + '>' +
+      '<div class="pop-head win-head" data-win="scratch" tabindex="0" aria-label="Scratchpad window: drag to move, or use the arrow keys"><h2>Scratchpad</h2><span class="pad-actions">' +
+      '<button class="link-btn" data-act="pad-undo" aria-label="Undo"' + (sec.scratchUndo.length ? "" : " disabled") + '>↶ Undo</button><button class="link-btn" data-act="pad-redo" aria-label="Redo"' + (sec.scratchRedo.length ? "" : " disabled") + '>↷ Redo</button>' +
+      '<button class="link-btn" data-act="pad-clear"' + (items.length ? "" : " disabled") + '>Clear</button><button class="link-btn" data-act="tool-scratch" aria-label="Close the scratchpad">✕</button></span></div>' +
+      '<div class="pad-body"><div class="pad-tools" role="toolbar" aria-label="Scratchpad tools">' + PAD_TOOLS.map(function (t) {
+        return '<button class="pad-tool" data-act="pad-tool" data-k="' + t[0] + '" aria-pressed="' + (ui.tool === t[0]) + '">' + t[1] + "</button>";
+      }).join("") + '</div><div class="pad-area" id="pad-area" data-tool="' + ui.tool + '" role="group" aria-label="Scratchpad drawing area"><svg class="pad-svg" id="pad-svg" aria-hidden="true" focusable="false">' + padSVG(items) + "</svg></div></div>" +
+      '<p class="small muted pad-help">Text: click to place a text box; Enter starts a new line. Brush, line, rectangle, ellipse: drag. Select: drag an item to move it. Erase: click an item. Your pad is kept for the whole part.</p></section>';
+  }
+  function toolWindowsHTML(sec) {
     var ui = state.ui, out = "";
-    if (state.session.review || (!ui.scratch && !ui.calc)) return "";
-    if (ui.calc) {
-      var keys = ["C", "(", ")", "⌫", "7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "√", "+", "^"];
-      out += '<section class="tool-panel calc" aria-label="Calculator"><div class="pop-head"><h2>Calculator</h2><button class="link-btn" data-act="tool-calc">Close</button></div>' +
-        '<div class="calc-screen" aria-live="polite"><div class="calc-expr" id="calc-expr">' + esc(ui.calcExpr || "0") + '</div><div class="calc-out" id="calc-out">' + esc(ui.calcOut) + "</div></div>" +
-        '<div class="calc-keys">' + keys.map(function (k) {
-          var label = { "÷": "divide", "×": "multiply", "−": "minus", "+": "plus", "⌫": "delete last character", C: "clear", "√": "square root", "^": "to the power of" }[k];
-          return '<button data-act="calc" data-k="' + esc(k) + '"' + (label ? ' aria-label="' + label + '"' : "") + ">" + esc(k) + "</button>";
-        }).join("") +
-        '<button class="calc-eq" id="calc-eq" data-act="calc" data-k="=" aria-label="equals">=</button></div>' +
-        '<div id="calc-history">' + calcHistoryHTML() + '</div><p class="small muted">Practice calculator with calculation history. Use a dot for decimals; commas are not accepted. It has no % key: type 15% as ÷100 (200×15÷100 = 30). The keyboard works while the calculator is open.</p></section>';
-    }
-    if (ui.scratch) {
-      out += '<section class="tool-panel" aria-label="Scratchpad"><div class="pop-head"><h2><label for="scratch">Scratchpad</label></h2><button class="link-btn" data-act="tool-scratch">Close</button></div>' +
-        '<textarea id="scratch" spellcheck="false" placeholder="Notes and working…">' + esc(sec.scratch) + "</textarea></section>";
-    }
-    return '<div class="tool-tray">' + out + "</div>";
+    if (state.session.review) return "";
+    if (ui.calc) out += calcWindowHTML();
+    if (ui.scratch) out += padWindowHTML(sec);
+    return out ? '<div class="tool-layer">' + out + "</div>" : "";
+  }
+  // ENV-06: TAO's line reader is a strip that keeps one line readable and greys out the rest of the screen.
+  function lineReaderHTML() {
+    var r = state.ui.reader;
+    if (!r || state.session.review) return "";
+    return '<div class="line-reader" id="line-reader" style="top:' + Math.round(r.top) + "px;height:" + Math.round(r.height) + 'px" role="group" aria-label="Line reader">' +
+      '<button class="lr-size" data-win="lr-size" aria-label="Line reader height: drag, or use the up and down arrow keys">⇕</button>' +
+      '<button class="lr-move" data-win="lr-move" aria-label="Move the line reader: drag, or use the up and down arrow keys">≡</button></div>';
+  }
+  function settingsPopHTML() {
+    if (!state.ui.settings) return "";
+    var exam = state.session.mode === "exam";
+    return '<div class="tool-pop" id="settings-pop" role="dialog" aria-label="My settings"><h2>My settings</h2>' +
+      '<label class="check"><input type="checkbox" id="set-elim"' + (toolOn("elim") ? " checked" : "") + "> Answer elimination</label><p class=\"small muted\">Strike through options you have ruled out.</p>" +
+      '<label class="check"><input type="checkbox" id="set-mask"' + (toolOn("mask") ? " checked" : "") + "> Answer masking</label><p class=\"small muted\">Hide distracting options until you reveal them again.</p>" +
+      '<p class="small muted">' + (exam ? "As on TAO, both are off until you switch them on here." : "Settings for Coach and Practice.") + '</p><button class="btn" data-act="settings">Close</button></div>';
+  }
+  var A11Y_ROWS = [["font", "Text size", 10, "%"], ["line", "Line height", 10, "%"], ["word", "Word spacing", 1, ""], ["letter", "Letter spacing", 1, ""]];
+  function a11yPopHTML() {
+    if (!state.ui.a11y) return "";
+    var a = prefs.a11y;
+    return '<div class="tool-pop" id="a11y-pop" role="dialog" aria-label="Accessibility tools"><h2>Accessibility tools</h2>' +
+      '<fieldset class="a11y-theme"><legend class="small muted">Contrast theme</legend>' + [["system", "System"], ["light", "Light"], ["dark", "Dark"], ["contrast", "High contrast"]].map(function (t) {
+        return '<label class="check"><input type="radio" name="a11y-theme" value="' + t[0] + '"' + (prefs.theme === t[0] ? " checked" : "") + "> " + t[1] + "</label>";
+      }).join("") + "</fieldset>" +
+      A11Y_ROWS.map(function (r) {
+        var v = a[r[0]], shown = r[3] === "%" ? (100 + v * r[2]) + "%" : (v ? "+" + v : "0");
+        return '<div class="a11y-row"><span>' + r[1] + '</span><button class="btn" data-act="a11y" data-k="' + r[0] + '" data-d="-1" aria-label="Decrease ' + r[1].toLowerCase() + '"' + (v <= 0 ? " disabled" : "") + '>−</button><b>' + shown + '</b><button class="btn" data-act="a11y" data-k="' + r[0] + '" data-d="1" aria-label="Increase ' + r[1].toLowerCase() + '"' + (v >= 6 ? " disabled" : "") + ">+</button></div>";
+      }).join("") +
+      '<label class="check"><input type="checkbox" id="set-announce"' + (a.announce ? " checked" : "") + "> Announce 5-minute and 1-minute warnings (screen readers; not a TAO feature)</label>" +
+      '<div class="row-actions"><button class="btn" data-act="a11y-reset">Reset</button><button class="btn" data-act="a11y-toggle">Close</button></div></div>';
   }
 
   function optionsHTML(item, sec, mode) {
     var q = item.q, id = q.id;
     var chosen = sec.answers[id];
     var checked = !!sec.checked[id] || state.session.review;
-    var elim = sec.elim[id] || {};
+    var elim = sec.elim[id] || {}, mask = sec.mask[id] || {};
+    var elimOn = !checked && toolOn("elim"), maskOn = !checked && toolOn("mask");
     var isFig = q.section === "abstract";
     var showAllNotes = mode === "coach" || state.session.review;
     // N4: one tab stop for the group (roving tabindex): the focused, else the chosen, else the first option.
     var rove = state.ui.optPos != null ? state.ui.optPos : chosen !== undefined && item.order.indexOf(chosen) > -1 ? item.order.indexOf(chosen) : 0;
     var list = item.order.map(function (orig, pos) {
       var cls = ["opt"], status = "";
+      var masked = maskOn && !!mask[orig];
       if (chosen === orig) cls.push("chosen");
-      if (elim[orig]) cls.push("struck");
+      if (elimOn && elim[orig]) cls.push("struck");
+      if (masked) cls.push("masked");
       if (checked) {
         if (orig === q.answer) { cls.push("right"); status = '<span class="mark-icon" aria-hidden="true">✓</span>' + sr(chosen === orig ? "Your answer, correct." : "Correct answer."); }
         else if (chosen === orig) { cls.push("wrong"); status = '<span class="mark-icon" aria-hidden="true">✗</span>' + sr("Your answer, incorrect."); }
@@ -451,14 +601,17 @@
       if (checked && notes && notes[orig] && (showAllNotes || orig === chosen || orig === q.answer)) {
         note = '<p class="opt-note">' + esc(T(notes[orig])) + "</p>";
       }
+      var body = masked ? '<span class="opt-body opt-masked" aria-hidden="true"></span>' + sr("Option hidden by answer masking.") : '<span class="opt-body">' + content + note + "</span>";
       return '<li class="' + cls.join(" ") + '" role="none">' +
-        '<button class="opt-main" id="opt-' + pos + '" role="radio" tabindex="' + (pos === rove ? 0 : -1) + '" data-act="choose" data-opt="' + orig + '"' + (checked ? ' aria-disabled="true"' : ' aria-keyshortcuts="X"') + ' aria-checked="' + (chosen === orig) + '">' +
-        '<span class="letter">' + LETTERS[pos] + "</span>" + '<span class="opt-body">' + content + note + "</span>" + status + "</button>" +
-        (checked ? "" : '<button class="strike" tabindex="-1" data-act="strike" data-opt="' + orig + '" aria-pressed="' + !!elim[orig] + '" aria-label="Strike out option ' + LETTERS[pos] + ' (key X)">✕</button>') +
+        '<button class="opt-main" id="opt-' + pos + '" role="radio" tabindex="' + (pos === rove ? 0 : -1) + '" data-act="choose" data-opt="' + orig + '"' + (checked || masked ? ' aria-disabled="true"' : "") + ' aria-checked="' + (chosen === orig) + '">' +
+        '<span class="letter">' + LETTERS[pos] + "</span>" + body + status + "</button>" +
+        (elimOn ? '<button class="strike" tabindex="-1" data-act="strike" data-opt="' + orig + '" aria-pressed="' + !!elim[orig] + '" aria-label="Strike out option ' + LETTERS[pos] + '">✕</button>' : "") +
+        (maskOn ? '<button class="mask" tabindex="-1" data-act="mask" data-opt="' + orig + '" aria-pressed="' + !!mask[orig] + '" aria-label="' + (mask[orig] ? "Reveal" : "Hide") + " option " + LETTERS[pos] + '">' + (mask[orig] ? "◻" : "◼") + "</button>" : "") +
         "</li>";
     }).join("");
+    var shortcuts = state.session.mode !== "exam" || prefs.examShortcuts;
     return '<ol class="opts' + (isFig ? " opts-fig" : "") + '" role="radiogroup" aria-labelledby="q-stem" aria-describedby="opts-help">' + list + "</ol>" +
-      '<p id="opts-help" class="sr-only">Use the arrow keys to move between options' + (checked ? "." : " and X to strike out the focused option.") + "</p>";
+      '<p id="opts-help" class="sr-only">Use the arrow keys to move between options' + (elimOn && shortcuts ? " and X to strike out the focused option." : ".") + "</p>";
   }
 
   function coachPanelHTML(item, sec) {
@@ -494,12 +647,14 @@
     return '<div class="feedback" id="feedback" tabindex="-1">' + head + sol + exp + "</div>";
   }
 
+  // ENV-08: TAO's navigation bar: back arrow, numbered circles (grey = not opened, outlined = opened but
+  // unanswered, filled = answered, arrow under the current one), an Overview button and a forward arrow.
   function navHTML(sec) {
-    var s = state.session;
-    return '<nav class="qnav" aria-label="Questions">' + sec.items.map(function (it, i) {
+    var s = state.session, flagged = 0;
+    var dots = sec.items.map(function (it, i) {
       var id = it.q.id, cls = ["qdot"], states = [];
-      if (sec.answers[id] !== undefined) { cls.push("answered"); states.push("answered"); } else { states.push(sec.visited[id] ? "opened, not answered" : "not opened, not answered"); if (sec.visited[id]) cls.push("visited"); }
-      if (sec.flags[id]) { cls.push("flagged"); states.push("flagged"); }
+      if (sec.answers[id] !== undefined) { cls.push("answered"); states.push("answered"); } else if (sec.visited[id]) { cls.push("opened"); states.push("opened, not answered"); } else { cls.push("unopened"); states.push("not opened"); }
+      if (sec.flags[id]) { cls.push("flagged"); states.push("bookmarked"); flagged++; }
       if (sec.checked[id] || (s.review && s.mode === "exam")) {
         var right = sec.answers[id] === it.q.answer;
         cls.push(right ? "ok" : "bad"); states.push(right ? "correct" : "incorrect");
@@ -507,13 +662,12 @@
       if (i === s.qi) cls.push("current");
       return '<button class="' + cls.join(" ") + '" data-act="goto" data-i="' + i + '"' + (i === s.qi ? ' aria-current="step"' : "") +
         ' aria-label="Question ' + (i + 1) + ": " + states.join(", ") + '">' + (i + 1) + "</button>";
-    }).join("") + '</nav><div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg"></i>Not answered</span><span><i class="lg lg-flag"></i>Flagged</span>' +
+    }).join("");
+    return '<nav class="qnav" aria-label="Questions"><button class="nav-arrow" data-act="nav-prev" aria-label="Previous question"' + (s.qi === 0 ? " disabled" : "") + '>←</button><div class="qdots">' + dots + "</div>" +
+      (s.review ? "" : '<button class="btn nav-overview" data-act="overview" aria-expanded="' + state.ui.overview + '" aria-controls="test-overview">Overview' + (flagged ? " · " + flagged + " bookmarked" : "") + "</button>") +
+      '<button class="nav-arrow" data-act="nav-next" aria-label="Next question"' + (s.qi === sec.items.length - 1 ? " disabled" : "") + '>→</button></nav>' +
+      '<div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-unopened"></i>Not opened</span><span><i class="lg lg-opened"></i>Opened, not answered</span><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg lg-flag"></i>Bookmarked</span>' +
       (s.review || s.mode !== "exam" ? '<span><i class="lg lg-ok">✓</i>Correct</span><span><i class="lg lg-bad">✗</i>Incorrect</span>' : "") + "</div>";
-  }
-
-  function calcHistoryHTML() {
-    if (!state.ui.calcHistory.length) return '<p class="small muted">Calculation history is empty.</p>';
-    return '<h3 class="small">Calculation history</h3><ol class="calc-history">' + state.ui.calcHistory.map(function (h, i) { return '<li><button class="link-btn" data-act="calc-reuse" data-i="' + i + '" aria-label="Reuse result ' + esc(h.result) + '">' + esc(h.expression + " = " + h.result) + '</button></li>'; }).join("") + '</ol><button class="link-btn" data-act="calc-history-clear">Clear history</button>';
   }
   function overviewHTML(sec) {
     if (!state.ui.overview || state.session.review) return '<div id="test-overview" hidden></div>';
@@ -527,16 +681,22 @@
   }
   function instructionsHTML() {
     if (!state.ui.instructions || state.session.review) return '<div id="test-instructions" hidden></div>';
-    return '<section id="test-instructions" class="tool-panel" aria-label="Test instructions"><h2>Test instructions</h2><p>Choose one answer per question. Move freely within the current test and bookmark questions using Flag. Overview filters unanswered and bookmarked questions. You cannot return after submitting a test.</p><p>The timer keeps running while tools or these instructions are open, and during a reload. At zero the current test is submitted. Tools assist reading and calculation; no answer feedback appears during an exam.</p><p>Verbal: use only the passage. Numerical: use the supplied data and round as requested. Abstract: find the figure continuing every relationship. Calculator decimals use a dot; keyboard input works while the calculator is open.</p><p class="small muted">Original practice instructions informed by the supplied TAO guide. Follow your competition notice and official candidate instructions on test day.</p></section>';
+    return '<section id="test-instructions" class="tool-panel" aria-label="Test instructions"><h2>Test instructions</h2><p>Choose one answer per question. Move freely within the current part, bookmark any question with the flag, and use Overview to jump to bookmarked or unanswered questions. After submitting a part you cannot return to it.</p><p>The clock at the top shows the minutes and seconds left in the current part and keeps running while tools or these instructions are open. At zero the part is submitted.</p><p>Tools, as on TAO: highlighter and line reader for the passage; scratchpad (text and drawing) and calculator (numerical) as windows you can drag by their header and resize; answer elimination and masking, switched on in Settings; accessibility tools and zoom. The calculator takes a dot as decimal separator and Enter as equals.</p><p class="small muted">Rehearse the real tools in EPSO\'s mandatory technical prerequisite check on the TAO platform before test day. These are original trainer instructions; follow your competition notice and the official candidate instructions.</p></section>';
   }
 
+  // ENV-06: the fixed toolbar of TAO: instructions, highlighter, line reader, scratchpad, calculator, settings
+  // (answer elimination and masking), accessibility tools, plus the zoom of the movable toolbar.
   function toolsHTML(sec) {
-    var ui = state.ui, k = sec.key, out = '<button class="tool" data-act="overview" aria-expanded="' + ui.overview + '" aria-controls="test-overview">Overview</button><button class="tool" data-act="instructions" aria-expanded="' + ui.instructions + '" aria-controls="test-instructions">Instructions</button>';
+    var ui = state.ui, k = sec.key, out = '<button class="tool" data-act="instructions" aria-expanded="' + ui.instructions + '" aria-controls="test-instructions">Instructions</button>';
     if (state.session.review) return "";
-    if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '" title="Select words in the text to highlight them; click a highlight to remove it">' + ICON.mark + "<span>Highlight</span></button>";
-    out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '" title="Notes for this test, kept while you move between questions">' + ICON.note + "<span>Scratchpad</span></button>";
+    if (k === "verbal") out += '<button class="tool' + (ui.hl ? " on" : "") + '" data-act="tool-hl" aria-pressed="' + ui.hl + '" title="Select text in the passage to highlight it">' + ICON.mark + "<span>Highlight</span></button>";
+    out += '<button class="tool' + (ui.reader ? " on" : "") + '" data-act="tool-reader" aria-pressed="' + !!ui.reader + '" title="A strip that keeps one line readable and greys out the rest">' + ICON.reader + "<span>Line reader</span></button>";
+    out += '<button class="tool' + (ui.scratch ? " on" : "") + '" data-act="tool-scratch" aria-pressed="' + ui.scratch + '" title="Write and draw; kept for the whole part">' + ICON.note + "<span>Scratchpad</span></button>";
     if (k === "numerical") out += '<button class="tool' + (ui.calc ? " on" : "") + '" data-act="tool-calc" aria-pressed="' + ui.calc + '" title="On-screen calculator; you can also type on the keyboard">' + ICON.calc + "<span>Calculator</span></button>";
-    return '<div class="tools" role="group" aria-label="Tools">' + out + "</div>";
+    out += '<button class="tool' + (ui.settings ? " on" : "") + '" data-act="settings" aria-expanded="' + ui.settings + '" aria-controls="settings-pop" title="Answer elimination and answer masking">' + ICON.gear + "<span>Settings</span></button>";
+    out += '<button class="tool' + (ui.a11y ? " on" : "") + '" data-act="a11y-toggle" aria-expanded="' + ui.a11y + '" aria-controls="a11y-pop" title="Contrast theme, text size and spacing">' + ICON.a11y + "<span>Accessibility</span></button>";
+    out += '<span class="zoom" role="group" aria-label="Zoom"><button class="tool" data-act="zoom" data-d="-1" aria-label="Zoom out"' + (prefs.zoom <= 50 ? " disabled" : "") + '>−</button><button class="tool zoom-level" data-act="zoom-reset" aria-label="Zoom level ' + prefs.zoom + ' percent; reset">' + prefs.zoom + '%</button><button class="tool" data-act="zoom" data-d="1" aria-label="Zoom in"' + (prefs.zoom >= 200 ? " disabled" : "") + '>+</button></span>';
+    return '<div class="tools" role="group" aria-label="Tools">' + out + settingsPopHTML() + a11yPopHTML() + "</div>";
   }
 
   // Small "i" button with a tip: shown on hover, on keyboard focus, and on tap (phones). Never inside a <label>,
@@ -548,9 +708,10 @@
       '<span role="tooltip" id="tip-' + id + '" class="tip' + (open ? " open" : "") + '">' + text + "</span></span>";
   }
 
+  var THEME_NEXT = { system: "light", light: "dark", dark: "contrast", contrast: "system" };
   function themeButton() {
-    var next = { system: "light", light: "dark", dark: "system" }[prefs.theme];
-    var label = { system: "Theme: system", light: "Theme: light", dark: "Theme: dark" }[prefs.theme];
+    var next = THEME_NEXT[prefs.theme];
+    var label = { system: "Theme: system", light: "Theme: light", dark: "Theme: dark", contrast: "Theme: high contrast" }[prefs.theme];
     return '<button class="link-btn theme-btn" data-act="theme" aria-label="' + label + ". Switch to " + next + '">' + label + "</button>";
   }
 
@@ -640,7 +801,7 @@
       "<li><b>Test yourself.</b> In <b>Exam simulation</b>, choose a test type and start it. It is timed like the real exam, with your results at the end.</li>" +
       "</ol><p class=\"small muted\">Your progress is saved in this browser only. " + info("saved", "saved progress", "Results, mistakes and an unfinished exam are stored on this device, in this browser. Another browser or device starts fresh, and private browsing may not keep them.") + "</p></section>" +
 
-      '<section class="exam-card"><div><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each test has its own timer, there are no hints, and you see your score and the explanations only at the end. If you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the EPSO format: question navigator, flags, strike-out, highlighter, scratchpad and calculator. No hints or feedback until the end. Choose a fixed full test, or use Fresh random simulation for unseen-first questions in a mix of difficulty levels.</p>' +
+      '<section class="exam-card"><div><div class="h-row"><h2>Exam simulation</h2>' + info("exam", "the exam simulation", "Like the real test: each part opens on a timed instruction page and starts by itself, has its own clock, offers no hints, and you see your score and the explanations only at the end. Trainer only: if you close the page, reopen it and choose Resume; the clock keeps running.") + "</div>" + '<p class="muted">Timed and in the TAO layout: navigation bar with bookmarks and Overview, highlighter, line reader, movable scratchpad and calculator, answer elimination and masking (Settings), accessibility tools and zoom. No hints or feedback until the end. Choose a fixed full test, or use Fresh random simulation for unseen-first questions in a mix of difficulty levels.</p>' +
       '<p class="fresh">' + (fresh > 0 ? fresh + " full simulation" + (fresh > 1 ? "s" : "") + " left with unseen questions" : "No full simulation left with only unseen questions: new ones will include repeats") + " " +
       info("fresh", "unseen questions", "This count applies to Fresh random simulation, using questions you have not seen in Coach, Practice or earlier simulations. Repeats are used when unseen questions run out. Fixed tests keep their own question lists and warn about prior exposure.") + "</p></div>" +
       '<div class="exam-start"><span class="field-label"><label for="exam-scope">Choose test type</label>' +
@@ -652,7 +813,10 @@
         return '<option value="' + f.id + '"' + (prefs.examForm === f.id ? " selected" : "") + '>' + esc(f.title + " · " + f.band + (f.newContent ? " · New" : "")) + '</option>';
       }).join("") + '</select><p class="small muted" id="exam-form-note">' + (prefs.examScope === "full"
         ? "15 complete tests · 40 questions each · no repeats between fixed tests. Tests 13–15 contain the new challenge questions."
-        : "The full tests cover all three tests, so they can only be chosen with <b>All three tests</b>. A single test always uses a fresh random simulation.") + "</p>" + '<button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
+        : "The full tests cover all three tests, so they can only be chosen with <b>All three tests</b>. A single test always uses a fresh random simulation.") + "</p>" +
+      '<label class="check small"><input type="checkbox" id="opt-shortcuts"' + (prefs.examShortcuts ? " checked" : "") + "> Trainer keyboard shortcuts (TAO has none)</label>" +
+      '<label class="check small"><input type="checkbox" id="opt-calc-extras"' + (prefs.calcExtras ? " checked" : "") + "> Extra calculator keys ( ) √ ^ (not confirmed on TAO)</label>" +
+      '<button class="btn btn-primary btn-lg" data-act="exam">Start simulation</button></div></section>' +
 
       '<section class="train"><div class="train-head"><div><div class="h-row"><h2>Train one test at a time</h2>' + info("coach", "Coach and Practice", "<b>Coach</b>: a short lesson on the method, then questions with a method checklist, hints you can open one by one, and an explanation of why each option is right or wrong. <b>Practice</b>: answer, then press Check answer to see whether you were right; only checked questions count towards your score.") + "</div>" +
       '<p class="muted">Set the options, then press <b>Coach</b> next to a test. When the method feels familiar, press <b>Practice</b>.</p></div>' +
@@ -694,18 +858,20 @@
     var rows = s.sections.map(function (sec, i) {
       return "<li><b>" + (i + 1) + ". " + esc(SECTIONS[sec.key].name) + "</b><span>" + sec.items.length + " questions · " + fmtTime(sec.limitMs / 1000) + "</span></li>";
     }).join("");
-    return '<div class="card narrow"><p class="eyebrow">Exam simulation</p><h1 id="main-heading" tabindex="-1">Before you start</h1>' +
+    return '<div class="card narrow"><p class="eyebrow">Exam simulation · instructions</p><h1 id="main-heading" tabindex="-1">Before you start</h1>' +
       '<ol class="brief-list">' + rows + "</ol>" +
       (s.notes.length ? '<div class="alert">' + s.notes.map(esc).join("<br>") + "</div>" : "") +
-      '<ul class="rules"><li>Each test has its own timer, which keeps running if you switch tabs or close the page. When it runs out, the test is submitted automatically.</li>' +
-      "<li>If the page is closed by accident, reopen it and choose Resume.</li>" +
-      "<li>You can move freely between questions in a test and flag them to come back to.</li>" +
-      "<li>Keyboard: A–E or 1–5 to answer, the arrow keys to move between options, X to strike out the focused option, F to flag. Outside the options, ← and → change question.</li>" +
+      '<ul class="rules"><li>This instruction page closes when its countdown ends and the first part starts by itself, as on TAO. Between parts there is no break: the next instruction page follows straight away.</li>' +
+      "<li>Each part has its own clock, shown at the top as the minutes and seconds left. The clock keeps running if you switch tabs. When it reaches zero, the part is submitted.</li>" +
+      "<li>You can move freely between the questions of the current part, bookmark any question and jump from the Overview. After submitting a part you cannot return to it.</li>" +
+      "<li>Tools: highlighter, line reader, scratchpad (text and drawing) and, in numerical reasoning, the calculator. The scratchpad and calculator are windows: drag them by their header and resize them from the corner. Answer elimination and masking are switched on in Settings.</li>" +
       "<li>There is no negative marking, so answer every question.</li>" +
       "<li>Pass marks: verbal 10/20; numerical and abstract 10/20 combined. Your verbal score also counts towards the EPSO ranking, so aim well above the pass mark.</li>" +
-      "<li>Shortcuts: <kbd>A</kbd>–<kbd>E</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move, <kbd>F</kbd> to flag.</li></ul>" +
+      (prefs.examShortcuts ? "<li>Trainer shortcuts are on: <kbd>A</kbd>–<kbd>E</kbd> or <kbd>1</kbd>–<kbd>5</kbd> answer, <kbd>←</kbd> <kbd>→</kbd> change question, <kbd>F</kbd> bookmarks, <kbd>X</kbd> strikes out. TAO has no keyboard shortcuts; switch them off on the start page to rehearse mouse-only answering.</li>" : "") +
+      "<li>Trainer only: if this page is closed by accident, reopen it and choose Resume; the clock keeps running meanwhile. On test day, closing or reloading the test tab or leaving full screen terminates the test.</li></ul>" +
+      '<p class="instr-count">The test starts automatically in <b id="instr-timer">' + esc(instructionText(s)) + "</b>.</p>" +
       '<div class="row-actions"><button class="btn" data-act="home">Cancel</button><button class="btn btn-primary btn-lg" data-act="begin">Start ' +
-      esc(SECTIONS[s.sections[0].key].name.toLowerCase()) + "</button></div></div>";
+      esc(SECTIONS[s.sections[0].key].name.toLowerCase()) + " now</button></div></div>";
   }
 
   function viewLesson() {
@@ -746,7 +912,7 @@
 
     var actions = [];
     actions.push('<button class="btn" data-act="prev"' + (s.qi === 0 ? " disabled" : "") + ">← Previous</button>");
-    if (!review && mode === "exam") actions.push('<button class="btn btn-flag' + (sec.flags[q.id] ? " on" : "") + '" data-act="flag" aria-pressed="' + !!sec.flags[q.id] + '">' + ICON.flag + (sec.flags[q.id] ? "Flagged" : "Flag") + "</button>");
+    if (!review && mode === "exam") actions.push('<button class="btn btn-flag' + (sec.flags[q.id] ? " on" : "") + '" data-act="flag" aria-pressed="' + !!sec.flags[q.id] + '">' + ICON.flag + (sec.flags[q.id] ? "Bookmarked" : "Bookmark") + "</button>");
     if (!review && mode !== "exam" && !checked) actions.push('<button class="btn btn-primary" data-act="check"' + (sec.answers[q.id] === undefined ? " disabled" : "") + ">Check answer</button>");
     if (last) {
       if (!review && mode === "exam") actions.push('<button class="btn btn-primary" data-act="submit">Submit test</button>');
@@ -769,16 +935,18 @@
     var panelOpen = !review && (state.ui.overview || state.ui.instructions);
     return head + '<div class="session' + (panelOpen ? " with-panel" : "") + '">' + navHTML(sec) +
       (panelOpen ? '<aside class="side-panels" aria-label="Test overview and instructions">' + panels + "</aside>" : panels) +
-      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>";
+      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>" +
+      toolWindowsHTML(sec) + lineReaderHTML();
   }
 
   function viewBetween() {
     var s = state.session, done = s.sections[s.si], next = s.sections[s.si + 1];
-    var sc = score(done);
-    return '<div class="card narrow"><p class="eyebrow">Test ' + (s.si + 1) + " of " + s.sections.length + ' complete</p><h1 id="main-heading" tabindex="-1">' + esc(SECTIONS[done.key].name) + " submitted</h1>" +
-      "<p>" + (done.timedOut ? "Time ran out. " : "") + "You answered " + sc.answered + " of " + sc.total + " questions in " + fmtTime((done.usedMs || 0) / 1000) + ". Scores are shown at the end, as in the real exam.</p>" +
-      "<p>Next: <b>" + esc(SECTIONS[next.key].name) + "</b>, " + next.items.length + " questions in " + fmtTime(next.limitMs / 1000) + ". Its timer starts when you press Start.</p>" +
-      '<div class="row-actions"><button class="btn btn-primary btn-lg" data-act="next-section">Start ' + esc(SECTIONS[next.key].name.toLowerCase()) + "</button></div></div>";
+    // ENV-05: no answered count and no open-ended pause: TAO shows the next part's instructions with a countdown.
+    return '<div class="card narrow"><p class="eyebrow">Part ' + (s.si + 2) + " of " + s.sections.length + ' · instructions</p><h1 id="main-heading" tabindex="-1">' + esc(SECTIONS[next.key].name) + "</h1>" +
+      "<p>" + esc(SECTIONS[done.key].name) + " has been submitted" + (done.timedOut ? " because its time ran out" : "") + ". Scores are shown at the end, as in the real exam.</p>" +
+      "<p>Next: <b>" + next.items.length + " questions in " + fmtTime(next.limitMs / 1000) + "</b>. Move freely within the part, bookmark questions and submit before the clock reaches zero.</p>" +
+      '<p class="instr-count">This part starts automatically in <b id="instr-timer">' + esc(instructionText(s)) + "</b>.</p>" +
+      '<div class="row-actions"><button class="btn btn-primary btn-lg" data-act="next-section">Start ' + esc(SECTIONS[next.key].name.toLowerCase()) + " now</button></div></div>";
   }
 
   function viewResults() {
@@ -871,6 +1039,7 @@
   }
 
   function render() {
+    commitPadText();
     var key = focusKey(document.activeElement);
     var html;
     switch (state.view) {
@@ -897,6 +1066,7 @@
     lastView = state.view;
     if (target && target.focus) { try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); } }
     positionTips();
+    mountTools();
   }
 
   function go(view) { state.view = view; state.ui = freshUI(); render(); window.scrollTo(0, 0); }
@@ -918,6 +1088,7 @@
 
   function choose(orig) {
     var c = cur(); if (!c || c.sec.checked[c.item.q.id] || c.s.review) return;
+    if (toolOn("mask") && c.sec.mask[c.item.q.id] && c.sec.mask[c.item.q.id][orig]) return; // a masked option cannot be chosen
     c.sec.answers[c.item.q.id] = orig;
     if (c.sec.elim[c.item.q.id]) delete c.sec.elim[c.item.q.id][orig];
     render();
@@ -936,21 +1107,248 @@
     var c = cur(); c.sec.flags[c.item.q.id] = !c.sec.flags[c.item.q.id]; render();
   }
 
+  // ENV-03: the TAO calculator: AC clears all, CE the current entry; ▲ ▼ step through previous operations.
   function calcPress(k) {
     var ui = state.ui;
-    if (k === "C") { ui.calcExpr = ""; ui.calcOut = ""; }
-    else if (k === "⌫") ui.calcExpr = ui.calcExpr.slice(0, -1);
-    else if (k === "=") {
-      try { var v = C.calcEval(ui.calcExpr); ui.calcHistory.unshift({expression: ui.calcExpr, result: String(v)}); ui.calcHistory = ui.calcHistory.slice(0, 10); ui.calcOut = "= " + v; ui.calcExpr = String(v); }
+    if (CALC_EXTRA.indexOf(k) > -1 && !prefs.calcExtras) return;
+    if (k === "AC" || k === "C") { ui.calcExpr = ""; ui.calcOut = ""; ui.calcPos = -1; }
+    else if (k === "CE") { ui.calcExpr = C.calcClearEntry(ui.calcExpr); ui.calcOut = ""; ui.calcPos = -1; }
+    else if (k === "⌫") { ui.calcExpr = ui.calcExpr.slice(0, -1); ui.calcPos = -1; }
+    else if (k === "▲" || k === "▼") {
+      var n = ui.calcHistory.length, pos = ui.calcPos + (k === "▲" ? 1 : -1);
+      if (pos >= n || pos < -1) return;
+      if (ui.calcPos === -1) ui.calcLive = ui.calcExpr;
+      ui.calcPos = pos;
+      if (pos === -1) { ui.calcExpr = ui.calcLive; ui.calcOut = ""; }
+      else { ui.calcExpr = ui.calcHistory[pos].expression; ui.calcOut = "= " + ui.calcHistory[pos].result; }
+    } else if (k === "=") {
+      try { var v = C.calcEval(ui.calcExpr); ui.calcHistory.unshift({ expression: ui.calcExpr, result: String(v) }); ui.calcHistory = ui.calcHistory.slice(0, 20); ui.calcOut = "= " + v; ui.calcExpr = String(v); }
       catch (e) { ui.calcOut = "Check the expression"; }
+      ui.calcPos = -1;
     } else {
       if (ui.calcExpr.length < 40) ui.calcExpr += k;
-      ui.calcOut = "";
+      ui.calcOut = ""; ui.calcPos = -1;
     }
     var e1 = document.getElementById("calc-expr"), e2 = document.getElementById("calc-out");
     if (e1) e1.textContent = ui.calcExpr || "0";
     if (e2) e2.textContent = ui.calcOut;
-    var history = document.getElementById("calc-history"); if (history) history.innerHTML = calcHistoryHTML();
+  }
+
+  /* ---------- scratchpad drawing (ENV-02) ---------- */
+  function drawPad() {
+    var c = cur(), svg = document.getElementById("pad-svg");
+    if (svg && c) svg.innerHTML = padSVG(padItems(c.sec));
+    var win = document.getElementById("win-scratch");
+    if (win && c) {
+      var u = win.querySelector('[data-act="pad-undo"]'), r = win.querySelector('[data-act="pad-redo"]'), cl = win.querySelector('[data-act="pad-clear"]');
+      if (u) u.disabled = !c.sec.scratchUndo.length;
+      if (r) r.disabled = !c.sec.scratchRedo.length;
+      if (cl) cl.disabled = !padItems(c.sec).length;
+    }
+  }
+  function commitPad(items) {
+    var c = cur(); if (!c) return;
+    c.sec.scratchUndo = c.sec.scratchUndo.concat([padItems(c.sec)]).slice(-50);
+    c.sec.scratchRedo = [];
+    c.sec.scratch = { v: 2, items: items };
+    persist(); drawPad();
+  }
+  function padUndo(redo) {
+    var c = cur(); if (!c) return;
+    var from = redo ? c.sec.scratchRedo : c.sec.scratchUndo, to = redo ? c.sec.scratchUndo : c.sec.scratchRedo;
+    if (!from.length) return;
+    to.push(padItems(c.sec));
+    c.sec.scratch = { v: 2, items: from.pop() };
+    persist(); drawPad();
+  }
+  function openPadText(x, y, text, editIndex) {
+    var area = document.getElementById("pad-area"); if (!area) return;
+    commitPadText();
+    var ta = document.createElement("textarea");
+    ta.id = "pad-text-input"; ta.className = "pad-text"; ta.spellcheck = false; ta.rows = 1;
+    ta.setAttribute("aria-label", "Scratchpad text; Enter starts a new line, Escape cancels");
+    ta.value = text || "";
+    ta.style.left = Math.round(x) + "px"; ta.style.top = Math.round(y - 15) + "px";
+    ta.setAttribute("data-x", x); ta.setAttribute("data-y", y);
+    if (editIndex != null) {
+      ta.setAttribute("data-edit", editIndex);
+      var el = area.querySelector('[data-i="' + editIndex + '"]'); if (el) el.style.visibility = "hidden";
+    }
+    var fit = function () { ta.rows = Math.max(1, ta.value.split("\n").length); ta.style.width = Math.max(8, ta.value.split("\n").reduce(function (m, l) { return Math.max(m, l.length); }, 0) + 2) + "ch"; };
+    ta.addEventListener("input", fit); fit();
+    ta.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); ta.setAttribute("data-cancel", "1"); commitPadText(); }
+    });
+    ta.addEventListener("blur", function () { commitPadText(); });
+    area.appendChild(ta);
+    ta.focus();
+  }
+  function commitPadText() {
+    var ta = document.getElementById("pad-text-input"); if (!ta) return;
+    var text = ta.value.replace(/\s+$/, ""), x = +ta.getAttribute("data-x"), y = +ta.getAttribute("data-y");
+    var edit = ta.hasAttribute("data-edit") ? +ta.getAttribute("data-edit") : -1, cancel = ta.hasAttribute("data-cancel");
+    ta.remove();
+    var c = cur(); if (!c) return;
+    if (cancel) { drawPad(); return; }
+    var items = padItems(c.sec).slice();
+    if (edit > -1) { if (text) items[edit] = { t: "text", x: x, y: y, text: text }; else items.splice(edit, 1); }
+    else if (text) items.push({ t: "text", x: x, y: y, text: text });
+    else { drawPad(); return; }
+    commitPad(items);
+  }
+  var padDrag = null;
+  function padPoint(area, e) { var r = area.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  function padTemp(area, tag) {
+    var svg = area.querySelector("svg"), old = svg.querySelector("#pad-temp"); if (old) old.remove();
+    var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    el.setAttribute("id", "pad-temp"); el.setAttribute("fill", "none"); el.setAttribute("stroke", "currentColor"); el.setAttribute("stroke-width", "2"); el.setAttribute("stroke-linecap", "round"); el.setAttribute("stroke-linejoin", "round");
+    svg.appendChild(el); return el;
+  }
+  function padDown(e, area) {
+    if (e.target.id === "pad-text-input") return;
+    commitPadText();
+    var c = cur(); if (!c) return;
+    var p = padPoint(area, e), items = padItems(c.sec), tool = state.ui.tool, hit;
+    if (tool === "text") {
+      hit = C.scratchHit(items, p.x, p.y);
+      if (hit > -1 && items[hit].t === "text") openPadText(items[hit].x, items[hit].y, items[hit].text, hit);
+      else openPadText(p.x, p.y, "", null);
+      e.preventDefault(); return;
+    }
+    if (tool === "erase") {
+      hit = C.scratchHit(items, p.x, p.y);
+      if (hit > -1) commitPad(items.slice(0, hit).concat(items.slice(hit + 1)));
+      e.preventDefault(); return;
+    }
+    if (tool === "select") {
+      hit = C.scratchHit(items, p.x, p.y);
+      if (hit < 0) return;
+      padDrag = { kind: "move", i: hit, x0: p.x, y0: p.y, el: area.querySelector('[data-i="' + hit + '"]'), moved: false };
+    } else if (tool === "brush") {
+      padDrag = { kind: "path", pts: [[Math.round(p.x), Math.round(p.y)]], el: padTemp(area, "polyline") };
+      padDrag.el.setAttribute("points", p.x + "," + p.y);
+    } else {
+      padDrag = { kind: tool, x0: p.x, y0: p.y, x1: p.x, y1: p.y, el: padTemp(area, tool) };
+    }
+    padDrag.area = area;
+    try { area.setPointerCapture(e.pointerId); } catch (x) { /* older browsers */ }
+    e.preventDefault();
+  }
+  function padMove(e) {
+    var d = padDrag, p = padPoint(d.area, e);
+    if (d.kind === "move") {
+      d.moved = true;
+      if (d.el) d.el.setAttribute("transform", "translate(" + (p.x - d.x0) + " " + (p.y - d.y0) + ")");
+    } else if (d.kind === "path") {
+      var last = d.pts[d.pts.length - 1];
+      if (Math.abs(last[0] - p.x) + Math.abs(last[1] - p.y) < 1.5 || d.pts.length >= 2000) return;
+      d.pts.push([Math.round(p.x), Math.round(p.y)]);
+      d.el.setAttribute("points", d.pts.map(function (q) { return q[0] + "," + q[1]; }).join(" "));
+    } else {
+      d.x1 = p.x; d.y1 = p.y;
+      var sh = padShape(d);
+      Object.keys(sh).forEach(function (k) { if (k !== "t") d.el.setAttribute(k === "w" ? "width" : k === "h" ? "height" : k, sh[k]); });
+    }
+  }
+  function padShape(d) {
+    var x = Math.round(Math.min(d.x0, d.x1)), y = Math.round(Math.min(d.y0, d.y1)), w = Math.round(Math.abs(d.x1 - d.x0)), h = Math.round(Math.abs(d.y1 - d.y0));
+    if (d.kind === "line") return { t: "line", x1: Math.round(d.x0), y1: Math.round(d.y0), x2: Math.round(d.x1), y2: Math.round(d.y1) };
+    if (d.kind === "rect") return { t: "rect", x: x, y: y, w: w, h: h };
+    return { t: "ellipse", cx: x + Math.round(w / 2), cy: y + Math.round(h / 2), rx: Math.round(w / 2), ry: Math.round(h / 2) };
+  }
+  function padUp() {
+    var d = padDrag; padDrag = null; if (!d) return;
+    var c = cur(); if (!c) return;
+    var items = padItems(c.sec).slice();
+    if (d.kind === "move") {
+      if (!d.moved) return;
+      var tr = d.el && d.el.getAttribute("transform"), m = tr && tr.match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+      if (!m) return;
+      items[d.i] = C.scratchMove(items[d.i], Math.round(+m[1]), Math.round(+m[2]));
+      commitPad(items); return;
+    }
+    if (d.el && d.el.id === "pad-temp") d.el.remove();
+    if (d.kind === "path") { items.push({ t: "path", pts: d.pts }); commitPad(items); return; }
+    var sh = padShape(d), b = C.scratchBBox(sh);
+    if (b.w < 3 && b.h < 3) { drawPad(); return; }
+    items.push(sh); commitPad(items);
+  }
+
+  /* ---------- movable windows and the line reader ---------- */
+  var winDrag = null;
+  function windowDown(e, h) {
+    var kind = h.getAttribute("data-win"), win, r;
+    if (kind === "calc" || kind === "scratch") {
+      win = document.getElementById("win-" + kind); if (!win) return;
+      r = win.getBoundingClientRect();
+      winDrag = { kind: "win", name: kind, el: win, dx: e.clientX - r.left, dy: e.clientY - r.top };
+    } else if (kind === "lr-move") winDrag = { kind: "lr-move", y0: e.clientY, top0: state.ui.reader.top };
+    else if (kind === "lr-size") winDrag = { kind: "lr-size", y0: e.clientY, h0: state.ui.reader.height };
+    else return;
+    try { h.setPointerCapture(e.pointerId); } catch (x) { /* older browsers */ }
+    e.preventDefault();
+  }
+  function placeWindow(el, x, y) {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    x = Math.max(0, Math.min(x, vw - Math.min(el.offsetWidth, vw))); y = Math.max(0, Math.min(y, vh - 48));
+    el.style.left = Math.round(x) + "px"; el.style.top = Math.round(y) + "px";
+  }
+  function placeReader() {
+    var el = document.getElementById("line-reader"), r = state.ui.reader; if (!el || !r) return;
+    r.height = Math.max(24, Math.min(r.height, window.innerHeight - 24));
+    r.top = Math.max(0, Math.min(r.top, window.innerHeight - r.height));
+    el.style.top = Math.round(r.top) + "px"; el.style.height = Math.round(r.height) + "px";
+  }
+  function windowMove(e) {
+    var d = winDrag;
+    if (d.kind === "win") placeWindow(d.el, e.clientX - d.dx, e.clientY - d.dy);
+    else if (d.kind === "lr-move") { state.ui.reader.top = d.top0 + (e.clientY - d.y0); placeReader(); }
+    else { state.ui.reader.height = d.h0 + (e.clientY - d.y0); placeReader(); }
+  }
+  function windowUp() {
+    var d = winDrag; winDrag = null; if (!d) return;
+    if (d.kind === "win") saveWinFromElement(d.name, d.el);
+  }
+  // A window's height is stored only once the candidate has resized it (the browser then sets an inline height).
+  function saveWinFromElement(name, el) {
+    var prev = prefs.win[name] || WIN_DEFAULTS[name];
+    saveWin(name, { x: parseFloat(el.style.left) || 0, y: parseFloat(el.style.top) || 0, w: el.offsetWidth || prev.w, h: prev.h == null && el.style.height === "" ? null : el.offsetHeight });
+  }
+  function nudge(h, key) {
+    var kind = h.getAttribute("data-win"), dx = key === "ArrowLeft" ? -20 : key === "ArrowRight" ? 20 : 0, dy = key === "ArrowUp" ? -20 : key === "ArrowDown" ? 20 : 0;
+    if (!dx && !dy) return false;
+    if (kind === "calc" || kind === "scratch") {
+      var el = document.getElementById("win-" + kind);
+      placeWindow(el, (parseFloat(el.style.left) || 0) + dx, (parseFloat(el.style.top) || 0) + dy); saveWinFromElement(kind, el);
+    } else if (kind === "lr-move") { state.ui.reader.top += dy; placeReader(); }
+    else if (kind === "lr-size") { state.ui.reader.height += dy; placeReader(); }
+    return true;
+  }
+  var resizeWatch = null;
+  function mountTools() {
+    var c = state.view === "session" ? cur() : null;
+    if (resizeWatch) { resizeWatch.disconnect(); resizeWatch = null; }
+    if (!c) return;
+    ["calc", "scratch"].forEach(function (name) {
+      var el = document.getElementById("win-" + name); if (!el) return;
+      placeWindow(el, parseFloat(el.style.left) || 0, parseFloat(el.style.top) || 0);
+      if (typeof ResizeObserver === "function") {
+        resizeWatch = resizeWatch || new ResizeObserver(function (entries) {
+          if (winDrag) return;
+          entries.forEach(function (en) {
+            var w = en.target, nm = w.id.slice(4), g = winGeom(nm), userHeight = g.h != null || w.style.height !== "";
+            if (Math.abs(w.offsetWidth - g.w) > 1 || (userHeight && Math.abs(w.offsetHeight - (g.h || 0)) > 1)) saveWinFromElement(nm, w);
+          });
+        });
+        resizeWatch.observe(el);
+      }
+    });
+    placeReader();
+    if (state.ui.padAutoText && document.getElementById("pad-area")) {
+      state.ui.padAutoText = false;
+      var pos = C.scratchNextTextPos(padItems(c.sec));
+      openPadText(pos.x, pos.y, "", null);
+    }
   }
 
   function startRetryCoach(s) {
@@ -973,9 +1371,9 @@
     }
     if (state.ui.tip) { state.ui.tip = null; if (!t) { render(); return; } }
     if (!t || !root.contains(t)) {
-      // Click on a highlight while the highlighter is on removes it.
+      // The eraser removes the highlight that is clicked.
       var m = e.target.closest("mark");
-      if (m && state.ui.hl) removeHighlight(m);
+      if (m && state.ui.hl && state.ui.hlMode === "erase") removeHighlight(m);
       return;
     }
     if (t.getAttribute("aria-disabled") === "true") return;
@@ -983,14 +1381,15 @@
     var s = state.session;
     switch (act) {
       case "home": state.session = null; clearSaved(); go("home"); break;
-      case "theme": prefs.theme = { system: "light", light: "dark", dark: "system" }[prefs.theme]; save(KEY_PREFS, prefs); applyTheme(); state.focus = null; render(); var tb = root.querySelector('[data-act="theme"]'); if (tb) tb.focus(); break;
+      case "theme": prefs.theme = THEME_NEXT[prefs.theme]; save(KEY_PREFS, prefs); applyTheme(); state.focus = null; render(); var tb = root.querySelector('[data-act="theme"]'); if (tb) tb.focus(); break;
       case "resume": resume(); break;
       case "discard": clearSaved(); render(); break;
       case "exam": startExam(prefs.examScope); break;
       case "coach": startTraining("coach", t.getAttribute("data-k")); break;
       case "practice": startTraining("practice", t.getAttribute("data-k")); break;
-      case "begin": case "begin-coach": startClock(s.sections[s.si]); go("session"); break;
-      case "next-section": s.si++; s.qi = 0; startClock(s.sections[s.si]); go("session"); break;
+      case "begin": beginSection(); break;
+      case "begin-coach": startClock(s.sections[s.si]); go("session"); break;
+      case "next-section": nextSection(); break;
       case "choose": state.ui.optPos = +t.id.slice(4); state.focus = t.id; choose(+t.getAttribute("data-opt")); break;
       case "strike": {
         var c = cur(), id = c.item.q.id, o = +t.getAttribute("data-opt");
@@ -999,8 +1398,15 @@
         if (c.sec.elim[id][o] && c.sec.answers[id] === o) delete c.sec.answers[id];
         render(); break;
       }
-      case "prev": move(-1); break;
-      case "next": move(1); break;
+      case "mask": {
+        var cm = cur(), idm = cm.item.q.id, om = +t.getAttribute("data-opt");
+        cm.sec.mask[idm] = cm.sec.mask[idm] || {};
+        cm.sec.mask[idm][om] = !cm.sec.mask[idm][om];
+        if (cm.sec.mask[idm][om] && cm.sec.answers[idm] === om) delete cm.sec.answers[idm];
+        render(); break;
+      }
+      case "prev": case "nav-prev": move(-1); break;
+      case "next": case "nav-next": move(1); break;
       case "goto": gotoQ(+t.getAttribute("data-i")); break;
       case "flag": toggleFlag(); break;
       case "check": check(); break;
@@ -1009,20 +1415,35 @@
       case "overview": state.ui.overview = !state.ui.overview; render(); break;
       case "overview-filter": state.ui.overviewFilter = t.getAttribute("data-k"); render(); break;
       case "instructions": state.ui.instructions = !state.ui.instructions; render(); break;
-      case "tool-hl": state.ui.hl = !state.ui.hl; render(); break;
-      case "tool-scratch": state.ui.scratch = !state.ui.scratch; if (state.ui.scratch) state.focus = "scratch"; render(); break;
+      case "tool-hl": state.ui.hl = !state.ui.hl; state.ui.hlMode = "mark"; render(); break;
+      case "hl-color": prefs.hlColor = +t.getAttribute("data-k"); save(KEY_PREFS, prefs); state.ui.hlMode = "mark"; render(); break;
+      case "hl-erase": state.ui.hlMode = state.ui.hlMode === "erase" ? "mark" : "erase"; render(); break;
+      case "tool-reader": state.ui.reader = state.ui.reader ? null : { top: Math.round(window.innerHeight * 0.4), height: 110 }; render(); break;
+      // The scratchpad opens with the text tool ready: typed working starts straight away.
+      case "tool-scratch": state.ui.scratch = !state.ui.scratch; if (state.ui.scratch) { state.ui.tool = "text"; state.ui.padAutoText = true; } render(); break;
+      case "pad-tool": commitPadText(); state.ui.tool = t.getAttribute("data-k"); state.focus = null; render(); t = root.querySelector('[data-act="pad-tool"][data-k="' + state.ui.tool + '"]'); if (t) t.focus(); break;
+      case "pad-undo": commitPadText(); padUndo(false); break;
+      case "pad-redo": padUndo(true); break;
+      case "pad-clear": commitPadText(); if (padItems(cur().sec).length) commitPad([]); break;
       // Opening moves focus into the calculator, so Enter evaluates instead of pressing the toolbar button again.
       case "tool-calc": state.ui.calc = !state.ui.calc; if (state.ui.calc) state.focus = "calc-eq"; render(); break;
-      case "calc-reuse": state.ui.calcExpr = state.ui.calcHistory[+t.getAttribute("data-i")].result; state.ui.calcOut = ""; render(); break;
-      case "calc-history-clear": state.ui.calcHistory = []; render(); break;
       case "calc": calcPress(t.getAttribute("data-k")); break;
+      case "settings": state.ui.settings = !state.ui.settings; state.ui.a11y = false; render(); break;
+      case "a11y-toggle": state.ui.a11y = !state.ui.a11y; state.ui.settings = false; render(); break;
+      case "a11y": { var ak = t.getAttribute("data-k"); prefs.a11y[ak] = Math.max(0, Math.min(6, prefs.a11y[ak] + (+t.getAttribute("data-d")))); save(KEY_PREFS, prefs); applyA11y(); render(); break; }
+      case "a11y-reset": prefs.a11y = mergeA11y(null); prefs.theme = "system"; prefs.zoom = 100; save(KEY_PREFS, prefs); applyTheme(); render(); break;
+      case "zoom": prefs.zoom = Math.max(50, Math.min(200, prefs.zoom + 10 * (+t.getAttribute("data-d")))); save(KEY_PREFS, prefs); applyA11y(); render(); break;
+      case "zoom-reset": prefs.zoom = 100; save(KEY_PREFS, prefs); applyA11y(); render(); break;
       case "clear-hl": { var cc = cur(); delete cc.sec.hl[cc.item.q.id]; state.focus = "passage"; render(); break; }
       case "submit": {
-        var sec = cur().sec, sc = C.sectionScore(sec, "exam"), un = sc.total - sc.answered, fl = Object.keys(sec.flags).filter(function (k) { return sec.flags[k]; }).length;
+        // ENV-09: the two TAO dialogs: with unanswered questions "Keep answering", otherwise "Review my answers".
+        var sec = cur().sec, sc = C.sectionScore(sec, "exam"), un = sc.total - sc.answered, lastPart = s.si === s.sections.length - 1;
         state.ui.confirm = {
-          returnFocus: focusKey(t), title: "Submit " + SECTIONS[sec.key].name.toLowerCase() + "?",
-          text: (un ? un + " question" + (un > 1 ? "s are" : " is") + " unanswered. " : "All questions are answered. ") + (fl ? fl + " flagged. " : "") + "You cannot return to this test after submitting.",
-          yes: "Submit test", act: "submit"
+          returnFocus: focusKey(t),
+          title: lastPart ? "You have reached the end of the test. Are you sure you want to submit it for scoring?" : "Are you sure you want to submit this part and proceed to the next one?",
+          text: un ? "You still have " + un + " incomplete question" + (un > 1 ? "s" : "") + ". If you submit this part you won't be able to go back to complete unanswered questions or change your answers."
+            : "You won't be able to go back to review or change your answers after submission.",
+          no: un ? "Keep answering" : "Review my answers", yes: lastPart ? "Submit the test" : "Submit and proceed", act: "submit"
         };
         render(); break;
       }
@@ -1056,13 +1477,20 @@
     else if (id === "opt-timed") prefs.timed = e.target.checked;
     else if (id === "opt-mistakes") prefs.mistakesOnly = e.target.checked;
     else if (id === "opt-topics") prefs.showTopics = e.target.checked;
+    else if (id === "opt-shortcuts") prefs.examShortcuts = e.target.checked;
+    else if (id === "opt-calc-extras") prefs.calcExtras = e.target.checked;
+    else if (id === "set-elim" || id === "set-mask") {
+      var exam = state.session && state.session.mode === "exam";
+      prefs[(id === "set-elim" ? "elim" : "mask") + (exam ? "Exam" : "Train")] = e.target.checked;
+      save(KEY_PREFS, prefs); render(); return;
+    }
+    else if (id === "set-announce") prefs.a11y.announce = e.target.checked;
+    else if (e.target.name === "a11y-theme") { prefs.theme = e.target.value; save(KEY_PREFS, prefs); applyTheme(); render(); return; }
     else return;
     save(KEY_PREFS, prefs);
   }
 
-  function onInput(e) {
-    if (e.target.id === "scratch") { var c = cur(); if (c) { c.sec.scratch = e.target.value; persist(); } }
-  }
+  function onInput() { /* the scratchpad commits its text boxes itself (commitPadText) */ }
 
   /* ---------- highlighter (W6: offsets per paragraph, never raw HTML) ---------- */
   function textOffset(pEl, node, offset) {
@@ -1085,7 +1513,8 @@
       var len = p.textContent.length;
       var s = p.contains(r.startContainer) ? textOffset(p, r.startContainer, r.startOffset) : 0;
       var e = p.contains(r.endContainer) ? textOffset(p, r.endContainer, r.endOffset) : len;
-      list = C.addRange(list, +p.getAttribute("data-p"), Math.min(s, len), Math.min(e, len));
+      list = state.ui.hlMode === "erase" ? C.removeRange(list, +p.getAttribute("data-p"), Math.min(s, len), Math.min(e, len))
+        : C.addRange(list, +p.getAttribute("data-p"), Math.min(s, len), Math.min(e, len), prefs.hlColor);
     }
     c.sec.hl[c.item.q.id] = list;
     sel.removeAllRanges();
@@ -1101,7 +1530,7 @@
   }
 
   /* ---------- keyboard (W1, W7) ---------- */
-  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "C", c: "C", C: "C" };
+  var CALC_KEYS = { "*": "×", x: "×", X: "×", "/": "÷", "-": "−", "+": "+", "(": "(", ")": ")", "^": "^", ".": ".", Enter: "=", "=": "=", Backspace: "⌫", Delete: "AC", c: "AC", C: "AC", ArrowUp: "▲", ArrowDown: "▼" };
   function closeConfirm() {
     var selector = state.ui.confirm && state.ui.confirm.returnFocus;
     state.ui.confirm = null; render();
@@ -1164,9 +1593,12 @@
     if (state.view !== "session") return;
     var c = cur(); if (!c) return;
     var k = e.key;
-    // Escape closes the overview and instructions panels (the calculator handles its own Escape first).
-    if (k === "Escape" && !state.ui.calc && (state.ui.overview || state.ui.instructions)) {
-      state.ui.overview = false; state.ui.instructions = false; state.focus = "q-stem"; render(); e.preventDefault(); return;
+    // Window headers and the line reader handles move with the arrow keys (keyboard equivalent of dragging).
+    var handle = e.target.closest && e.target.closest("[data-win]");
+    if (handle && nudge(handle, k)) { e.preventDefault(); return; }
+    // Escape closes the overview, instructions, settings and accessibility panels (the calculator handles its own Escape first).
+    if (k === "Escape" && !state.ui.calc && (state.ui.overview || state.ui.instructions || state.ui.settings || state.ui.a11y)) {
+      state.ui.overview = false; state.ui.instructions = false; state.ui.settings = false; state.ui.a11y = false; state.focus = "q-stem"; render(); e.preventDefault(); return;
     }
 
     var onControl = e.target.closest && e.target.closest("button, a, summary");
@@ -1175,7 +1607,7 @@
     // W1: while the calculator is open, the keyboard drives the calculator, never the answers.
     // N5: Enter goes to the calculator only from the calculator itself (or nowhere in particular);
     // on any other focused button it keeps its normal meaning.
-    if (state.ui.calc && !(k === "Enter" && onControl && !inCalc)) {
+    if (state.ui.calc && !(k === "Enter" && onControl && !inCalc) && !(e.target.closest && e.target.closest(".tool-win.pad"))) {
       if (/^[0-9]$/.test(k)) { calcPress(k); e.preventDefault(); return; }
       if (CALC_KEYS[k]) { calcPress(CALC_KEYS[k]); e.preventDefault(); return; }
       if (k === "Escape") { state.ui.calc = false; render(); e.preventDefault(); return; }
@@ -1185,6 +1617,10 @@
 
     // W7: Enter and Space keep their normal meaning on focused controls.
     if ((k === "Enter" || k === " ") && onControl) return;
+
+    // ENV-04: TAO has no keyboard answer shortcuts. In the exam simulation they are off unless enabled on the start page;
+    // the radio-group arrow keys below remain, as they are standard behaviour of a focused option list.
+    var strict = c.s.mode === "exam" && !c.s.review && !prefs.examShortcuts;
 
     // N4: WAI-ARIA radio group. Arrows move (and select) within the options; X strikes out the focused option.
     var group = e.target.closest && e.target.closest(".opts");
@@ -1197,13 +1633,14 @@
         if (locked) render(); else choose(c.item.order[np]);
         e.preventDefault(); return;
       }
-      if ((k === "x" || k === "X") && p > -1 && !locked) {
+      if ((k === "x" || k === "X") && p > -1 && !locked && !strict && toolOn("elim")) {
         var orig = c.item.order[p], el = c.sec.elim[c.item.q.id] = c.sec.elim[c.item.q.id] || {};
         el[orig] = !el[orig];
         if (el[orig] && c.sec.answers[c.item.q.id] === orig) delete c.sec.answers[c.item.q.id];
         state.focus = "opt-" + p; render(); e.preventDefault(); return;
       }
     }
+    if (strict) return;
 
     var idx = "abcde".indexOf(k.toLowerCase());
     if (idx === -1 && /^[1-5]$/.test(k)) idx = +k - 1;
@@ -1236,7 +1673,19 @@
     root.addEventListener("touchend", onSelectionEnd);
     root.addEventListener("keyup", function (e) { if (e.key && e.key.indexOf("Arrow") === 0 && e.shiftKey) onSelectionEnd(); });
     document.addEventListener("keydown", onKey);
-    window.addEventListener("resize", positionTips);
+    // Pointer handling for the movable tool windows, the line reader and the scratchpad drawing area.
+    root.addEventListener("pointerdown", function (e) {
+      if (e.button) return;
+      var pad = e.target.closest && e.target.closest("#pad-area");
+      if (pad) { padDown(e, pad); return; }
+      var h = e.target.closest && e.target.closest("[data-win]");
+      if (!h || (h.tagName !== "BUTTON" && e.target.closest("button, input, textarea"))) return;
+      windowDown(e, h);
+    });
+    document.addEventListener("pointermove", function (e) { if (winDrag) windowMove(e); else if (padDrag) padMove(e); });
+    document.addEventListener("pointerup", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
+    document.addEventListener("pointercancel", function () { if (winDrag) windowUp(); else if (padDrag) padUp(); });
+    window.addEventListener("resize", function () { positionTips(); mountTools(); });
     window.addEventListener("scroll", positionTips, true);
     // N13: the same saved session written from another tab would overwrite this one's progress.
     window.addEventListener("storage", function (e) {

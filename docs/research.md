@@ -4,9 +4,32 @@ Compiled October 2026. Check the Notice of Competition for your own competition 
 
 ## The test format this app simulates
 
-The AD5 competition now runs in two stages. Stage 1 (expected October/November 2026) is the
-computer-based reasoning tests, and only candidates who pass them go on to Stage 2
-(EU knowledge, digital skills and the EU free-text essay, expected in 2027).
+The AD5 competition (EPSO/AD/427/26) now runs in two parts. Part 1 is the computer-based
+reasoning tests, confirmed by EPSO's invitation of 19 October 2026 for the **week of 9–13 November
+2026**: individual slots are shown on the TAO platform from 19 October, and a mandatory technical
+prerequisite check must be completed between 20 October and 6 November, otherwise technical
+complaints on test day are dismissed. Only candidates who pass go on to Part 2 (EU knowledge,
+digital skills and the EU free-text essay, expected in 2027).
+
+**Delivery.** Remote, from the candidate's own computer, on the TAO platform of Open Assessment
+Technologies with the Proctorio browser extension (Chrome or Edge, single display, webcam and
+microphone). There is no live proctor: audio, video and screen are recorded and reviewed. Closing or
+reloading the test tab, opening another tab, leaving full screen or losing the connection for more
+than two minutes terminates the test. General instructions are in English and French; all three
+reasoning tests are taken in Language 1.
+
+**Platform tools (TAO guide 427-26 V1, Annex I).** A fixed toolbar with attached documents
+(instructions), highlighter (colours, eraser, clear all), line reader, scratchpad (a movable,
+resizable drawing window with select, text, brush, shape and erase tools), calculator (movable and
+resizable, keyboard input, dot decimals, previous operations reviewed with arrows), a settings
+menu that switches on answer elimination and answer masking, and accessibility tools (contrast
+themes, cursor, font, size, line height, word and letter spacing); a movable Proctorio toolbar
+with zoom in/out. The navigation bar has a back arrow, numbered circles (grey not opened, outlined
+opened but unanswered, filled answered, arrow under the current one), an Overview button with a
+bookmarked list, and a forward arrow. Each part opens on an instruction page with its own countdown
+and starts automatically; the clock at the top shows the minutes and seconds left in the part.
+[docs/ENVIRONMENT_AUDIT.md](ENVIRONMENT_AUDIT.md) records how the trainer compares and what was
+changed to match.
 
 | Test | Questions | Time | Pass mark |
 |---|---|---|---|

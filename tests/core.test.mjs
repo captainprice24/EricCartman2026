@@ -187,3 +187,62 @@ test('fixed-test metadata and visited states restore safely while older saved ro
   const h={at:100,mode:'exam',formId:'mock-13',pass:false,sections:[{key:'verbal',correct:1,total:20,hints:0,usedSec:10,limitSec:2100,repeats:0}]};
   assert.deepEqual(C.cleanStored('history',[h,{...h,formId:{bad:true}}]),{value:[h],changed:true});
 });
+
+test('highlighter colours: same colour merges, a new colour replaces what it covers, the eraser cuts (ENV-10)', () => {
+  let r = C.addRange([], 0, 5, 10, 0);
+  r = C.addRange(r, 0, 8, 15, 0);
+  assert.deepEqual(r, [{ p: 0, s: 5, e: 15, c: 0 }]);
+  r = C.addRange(r, 0, 7, 9, 2);
+  assert.deepEqual(r, [{ p: 0, s: 5, e: 7, c: 0 }, { p: 0, s: 7, e: 9, c: 2 }, { p: 0, s: 9, e: 15, c: 0 }]);
+  assert.deepEqual(C.segments('0123456789abcdefgh', r, 0).map((x) => [x.text, x.mark, x.c]), [['01234', false, undefined], ['56', true, 0], ['78', true, 2], ['9abcde', true, 0], ['fgh', false, undefined]]);
+  assert.deepEqual(C.removeRange(r, 0, 6, 12), [{ p: 0, s: 5, e: 6, c: 0 }, { p: 0, s: 12, e: 15, c: 0 }]);
+  assert.deepEqual(C.removeRange(r, 1, 0, 99), r, 'other paragraphs untouched');
+});
+
+test('clock text follows the TAO format in the exam (ENV-07) and clear-entry edits the current number (ENV-03)', () => {
+  assert.equal(C.clockText(34 * 60000 + 42000, 'tao'), '34min 42s');
+  assert.equal(C.clockText(5000, 'tao'), '0min 05s');
+  assert.equal(C.clockText(0, 'tao'), '0min 00s');
+  assert.equal(C.clockText(59500), '1:00');
+  assert.equal(C.calcClearEntry('12.5×4'), '12.5×');
+  assert.equal(C.calcClearEntry('12.5×'), '12.5');
+  assert.equal(C.calcClearEntry('2e-3'), '');
+  assert.equal(C.calcClearEntry(''), '');
+});
+
+test('scratchpad model: validation, legacy text, hit testing, moving and the next text position (ENV-02)', () => {
+  const items = [
+    { t: 'path', pts: [[10, 10], [60, 10]] }, { t: 'line', x1: 0, y1: 100, x2: 100, y2: 100 },
+    { t: 'rect', x: 200, y: 20, w: 50, h: 30 }, { t: 'ellipse', cx: 300, cy: 300, rx: 20, ry: 10 }, { t: 'text', x: 12, y: 200, text: 'a\nbb' }
+  ];
+  assert.equal(C.validScratch({ v: 2, items }), true);
+  assert.equal(C.validScratch('plain notes'), true, 'older rounds saved plain text');
+  for (const bad of [{ v: 1, items }, { v: 2, items: [{ t: 'blob' }] }, { v: 2, items: [{ t: 'rect', x: 1, y: 1, w: -5, h: 1 }] }, { v: 2, items: [{ t: 'path', pts: [[1, 'x']] }] }, { v: 2, items: [{ t: 'text', x: 0, y: 0, text: 5 }] }, null, 42]) {
+    assert.equal(C.validScratch(bad), false, JSON.stringify(bad));
+  }
+  assert.deepEqual(C.scratchNormalise('notes'), { v: 2, items: [{ t: 'text', x: 12, y: 24, text: 'notes' }] });
+  assert.deepEqual(C.scratchNormalise(''), { v: 2, items: [] });
+  assert.deepEqual(C.scratchNormalise({ v: 2, items: [{ t: 'blob' }] }), { v: 2, items: [] }, 'invalid data is dropped, not restored');
+  assert.equal(C.scratchHit(items, 30, 12), 0, 'stroke within tolerance');
+  assert.equal(C.scratchHit(items, 30, 30), -1);
+  assert.equal(C.scratchHit(items, 50, 103), 1);
+  assert.equal(C.scratchHit(items, 225, 35), 2, 'inside a box');
+  assert.equal(C.scratchHit(items, 300, 300), 3);
+  assert.equal(C.scratchHit(items, 20, 205), 4);
+  assert.deepEqual(C.scratchMove(items[2], 5, -5), { t: 'rect', x: 205, y: 15, w: 50, h: 30 });
+  assert.deepEqual(C.scratchMove(items[0], 1, 1), { t: 'path', pts: [[11, 11], [61, 11]] });
+  assert.deepEqual(C.scratchNextTextPos([]), { x: 12, y: 24 });
+  assert.ok(C.scratchNextTextPos(items).y > 300, 'below the lowest item');
+});
+
+test('saved sessions accept masks, drawn scratchpads, coloured highlights and an instruction countdown; prefs accept the tool settings', () => {
+  const d = savedRound();
+  d.instrDeadline = 5000; d.sections[0].mask = { 'v-test': { 2: true } }; d.sections[0].scratch = { v: 2, items: [{ t: 'line', x1: 0, y1: 0, x2: 5, y2: 5 }] }; d.sections[0].hl = { 'v-test': [{ p: 0, s: 1, e: 4, c: 2 }] };
+  assert.equal(C.validSession(d, restoreBank), true);
+  for (const alter of [x => x.instrDeadline = -1, x => x.sections[0].mask = { 'v-test': { 9: true } }, x => x.sections[0].scratch = { v: 2, items: [{ t: 'no' }] }, x => x.sections[0].hl = { 'v-test': [{ p: 0, s: 1, e: 4, c: 7 }] }]) {
+    const e = savedRound(); alter(e); assert.equal(C.validSession(e, restoreBank), false);
+  }
+  const prefs = { examShortcuts: true, calcExtras: false, elimExam: true, maskExam: false, elimTrain: true, maskTrain: true, theme: 'contrast', zoom: 120, hlColor: 2, a11y: { font: 2, line: 0, word: 1, letter: 0, announce: true }, win: { calc: { x: 10, y: 20, w: 340, h: null }, scratch: { x: 0, y: 0, w: 460, h: 400 } } };
+  assert.deepEqual(C.cleanStored('prefs', prefs), { value: prefs, changed: false });
+  assert.deepEqual(C.cleanStored('prefs', { zoom: 999, hlColor: 5, a11y: { font: 99 }, win: { calc: { x: 'a' } }, theme: 'neon' }), { value: {}, changed: true });
+});

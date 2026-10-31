@@ -48,12 +48,12 @@ const answerKey = (page) => page.evaluate(() => {
   return { correct: it.q.answer, pos: it.order.indexOf(it.q.answer), n: it.order.length };
 });
 
-async function finishCurrentSectionByKeyboard(page) {
-  const n = await page.locator(".qdot").count();
+// The exam simulation is mouse-driven, as TAO is (ENV-04): answer and move by clicking.
+async function finishCurrentSection(page) {
+  const n = await page.locator(".qdots .qdot").count();
   for (let i = 0; i < n; i++) {
-    await page.locator("#q-stem").focus();
-    await page.keyboard.press("a");
-    if (i < n - 1) await page.keyboard.press("ArrowRight");
+    await page.locator('[data-act="choose"]').first().click();
+    if (i < n - 1) await page.locator('[data-act="next"]').click();
   }
   await page.locator('.exam-bar [data-act="submit"]').click();
   await page.locator("#cf-yes").click();
@@ -277,7 +277,7 @@ async function run(engineName) {
     assert.match(await p.locator(".qnum").textContent(), /Question 2 of 20/);
     await p.locator('.qdot[data-i="0"]').click();
     assert.equal(await p.locator('[role="radio"]').nth(1).getAttribute("aria-checked"), "true");
-    assert.match(await p.locator("#timer").textContent(), /^3[45]:\d\d left$/);
+    assert.match(await p.locator("#timer").textContent(), /^3[45]min \d\ds$/, "TAO clock format");
     await p.context().close();
   });
 
@@ -341,11 +341,11 @@ async function run(engineName) {
       const p = await newPage(vp, { dark: label === "phone" });
       await p.locator('[data-act="exam"]').click();
       await p.locator('[data-act="begin"]').click();
-      await finishCurrentSectionByKeyboard(p);
+      await finishCurrentSection(p);
       await p.locator('[data-act="next-section"]').click();
-      await finishCurrentSectionByKeyboard(p);
+      await finishCurrentSection(p);
       await p.locator('[data-act="next-section"]').click();
-      await finishCurrentSectionByKeyboard(p);
+      await finishCurrentSection(p);
       await p.waitForSelector(".results");
       assert.ok(await p.locator(".rank-box").count(), "verbal ranking message shown");
       assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no horizontal scroll");
@@ -363,7 +363,7 @@ async function run(engineName) {
       await p.selectOption("#exam-scope", scope);
       await p.locator('[data-act="exam"]').click();
       await p.locator('[data-act="begin"]').click();
-      await finishCurrentSectionByKeyboard(p);
+      await finishCurrentSection(p);
       await p.waitForSelector(".results");
       await p.context().close();
     });
@@ -379,7 +379,7 @@ async function run(engineName) {
         const repeats = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].repeats);
         assert.equal(repeats, 0);
       }
-      await finishCurrentSectionByKeyboard(p);
+      await finishCurrentSection(p);
       await p.waitForSelector(".results");
       await p.locator('[data-act="home"]').click();
     }
@@ -449,11 +449,9 @@ async function run(engineName) {
     await p.context().close();
   });
 
-  await check("N4: options follow the radio-group keyboard pattern", async () => {
+  await check("N4: options follow the radio-group keyboard pattern (practice; the exam has no shortcuts)", async () => {
     const p = await newPage(desktop);
-    await p.selectOption("#exam-scope", "verbal");
-    await p.locator('[data-act="exam"]').click();
-    await p.locator('[data-act="begin"]').click();
+    await p.locator('[data-act="practice"][data-k="verbal"]').click();
     assert.equal(await p.locator('.opts [tabindex="0"]').count(), 1, "one tab stop in the option group");
     await p.locator("#opt-0").focus();
     await p.keyboard.press("ArrowDown");
@@ -569,6 +567,153 @@ async function run(engineName) {
     await a.waitForSelector("#toast", { timeout: 4000 });
     assert.match(await a.locator("#toast").textContent(), /another tab/);
     await ctx.close();
+  });
+
+  await check("ENV-01: the calculator is a window: dragging its header moves it, the data stays in view, ▲ recalls operations", async () => {
+    const p = await newPage({ width: 1366, height: 768 });
+    await p.selectOption("#exam-scope", "numerical");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    await p.locator('[data-act="tool-calc"]').click();
+    const win = p.locator("#win-calc");
+    assert.equal(await win.evaluate((el) => getComputedStyle(el).position), "fixed");
+    const before = await win.boundingBox();
+    const head = await p.locator("#win-calc .win-head h2").boundingBox();
+    await p.mouse.move(head.x + 4, head.y + 4); await p.mouse.down(); await p.mouse.move(head.x - 300, head.y + 200, { steps: 6 }); await p.mouse.up();
+    const after = await win.boundingBox();
+    assert.ok(Math.abs(after.x - (before.x - 304)) < 3 && Math.abs(after.y - (before.y + 196)) < 3, `moved from ${before.x},${before.y} to ${after.x},${after.y}`);
+    assert.ok(await p.locator(".exhibit").first().evaluate((el) => { const r = el.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }), "the data exhibit stays in view");
+    await p.locator('[data-act="next"]').click();
+    const kept = await win.boundingBox();
+    assert.ok(Math.abs(kept.x - after.x) < 2 && Math.abs(kept.y - after.y) < 2, "position kept on the next question");
+    await p.keyboard.type("2+3"); await p.keyboard.press("Enter"); await p.keyboard.type("*2"); await p.keyboard.press("Enter");
+    await p.keyboard.press("ArrowUp");
+    assert.equal(await p.locator("#calc-expr").textContent(), "5×2");
+    await p.keyboard.press("ArrowUp");
+    assert.equal(await p.locator("#calc-out").textContent(), "= 5", "▲ reviews previous operations");
+    assert.equal(await p.locator('.calc-keys [data-k="√"]').count(), 0, "extra keys are off by default");
+    await axe(p, "numerical exam with the calculator window");
+    await p.context().close();
+  });
+
+  await check("ENV-02: the scratchpad draws, keeps its items across questions and a reload, erases and undoes", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption("#exam-scope", "abstract");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    await p.locator('[data-act="tool-scratch"]').click();
+    assert.equal(await p.evaluate(() => document.activeElement.id), "pad-text-input", "the text tool is ready to type");
+    await p.keyboard.type("3 dots"); await p.keyboard.press("Enter"); await p.keyboard.type("turns 90");
+    await p.locator('[data-act="pad-tool"][data-k="brush"]').click();
+    const area = await p.locator("#pad-area").boundingBox();
+    await p.mouse.move(area.x + 60, area.y + 90); await p.mouse.down(); await p.mouse.move(area.x + 160, area.y + 140, { steps: 5 }); await p.mouse.up();
+    await p.locator('[data-act="pad-tool"][data-k="ellipse"]').click();
+    await p.mouse.move(area.x + 200, area.y + 60); await p.mouse.down(); await p.mouse.move(area.x + 260, area.y + 110, { steps: 3 }); await p.mouse.up();
+    const types = () => p.evaluate(() => window.EPSO_APP.state.session.sections[0].scratch.items.map((i) => i.t));
+    assert.deepEqual(await types(), ["text", "path", "ellipse"]);
+    assert.equal(await p.locator("#pad-svg text").textContent(), "3 dotsturns 90");
+    await p.locator('[data-act="next"]').click();
+    assert.equal(await p.locator("#pad-svg > *").count(), 3, "items are kept on the next question");
+    p.on("dialog", (d) => d.accept());
+    await p.reload();
+    await p.waitForSelector(".resume");
+    await p.locator('[data-act="resume"]').click();
+    await p.waitForSelector(".exam-bar");
+    assert.deepEqual(await types(), ["text", "path", "ellipse"], "items survive a reload");
+    await p.locator('[data-act="tool-scratch"]').click();
+    await p.locator('[data-act="pad-tool"][data-k="erase"]').click();
+    const area2 = await p.locator("#pad-area").boundingBox();
+    await p.mouse.click(area2.x + 230, area2.y + 85);
+    assert.deepEqual(await types(), ["text", "path"], "erase removes the clicked item");
+    await p.locator('[data-act="pad-undo"]').click();
+    assert.deepEqual(await types(), ["text", "path", "ellipse"], "undo restores it");
+    await axe(p, "abstract exam with the scratchpad window");
+    await p.context().close();
+  });
+
+  await check("ENV-04/06/07/09: mouse-driven exam, Settings gate elimination and masking, TAO clock and submit dialog", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption("#exam-scope", "numerical");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    await p.locator("#q-stem").focus();
+    for (const k of ["3", "a", "ArrowRight", "f"]) await p.keyboard.press(k);
+    assert.equal(await p.locator('[role="radio"][aria-checked="true"]').count(), 0, "letters and digits do not answer");
+    assert.match(await p.locator(".qnum").textContent(), /Question 1 of/, "arrows do not change question");
+    assert.equal(await p.locator('[data-act="flag"][aria-pressed="true"]').count(), 0, "F does not bookmark");
+    assert.equal(await p.locator(".strike").count(), 0, "answer elimination is off until enabled in Settings");
+    await p.locator('[data-act="settings"]').click();
+    await p.locator("#set-elim").check();
+    await p.locator("#set-mask").check();
+    assert.equal(await p.locator(".strike").count(), 5);
+    assert.equal(await p.locator(".mask").count(), 5);
+    await p.locator(".mask").nth(1).click();
+    assert.equal(await p.locator(".opt.masked").count(), 1);
+    await p.locator("#opt-1").evaluate((el) => el.click()); // Playwright itself refuses aria-disabled targets
+    assert.equal(await p.locator("#opt-1").getAttribute("aria-checked"), "false", "a masked option cannot be chosen");
+    assert.match(await p.locator("#timer").textContent(), /^\d+min \d\ds$/, "TAO clock format");
+    assert.equal(await p.locator("#timer").evaluate((el) => el.className), "timer", "no colour warning in the exam");
+    await p.locator('.exam-bar [data-act="submit"]').click();
+    assert.match(await p.locator("#cf-text").textContent(), /incomplete question/);
+    assert.equal(await p.locator('[data-act="cf-no"]').textContent(), "Keep answering");
+    assert.equal(await p.locator("#cf-yes").textContent(), "Submit the test");
+    await p.context().close();
+  });
+
+  await check("ENV-05: instruction pages count down and start the part by themselves; no answered count between parts", async () => {
+    const p = await newPage(desktop, { clock: true });
+    await p.locator('[data-act="exam"]').click();
+    await p.waitForSelector("#instr-timer");
+    await p.clock.fastForward("01:01");
+    await p.waitForSelector(".exam-bar");
+    assert.match(await p.locator("#main-heading").textContent(), /Verbal/);
+    await p.locator('.exam-bar [data-act="submit"]').click();
+    await p.locator("#cf-yes").click();
+    await p.waitForSelector("#instr-timer");
+    assert.doesNotMatch(await p.locator(".card").textContent(), /You answered/);
+    await p.clock.fastForward("01:01");
+    await p.waitForSelector(".exam-bar");
+    assert.match(await p.locator("#main-heading").textContent(), /Numerical/);
+    await p.context().close();
+  });
+
+  await check("ENV-06/10: line reader, highlighter colours and eraser, accessibility text settings and high contrast", async () => {
+    const p = await newPage(desktop);
+    await p.selectOption("#exam-scope", "verbal");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    await p.locator('[data-act="tool-reader"]').click();
+    const reader = p.locator("#line-reader");
+    const top0 = parseFloat(await reader.evaluate((el) => el.style.top));
+    const h = await p.locator(".lr-move").boundingBox();
+    await p.mouse.move(h.x + 8, h.y + 8); await p.mouse.down(); await p.mouse.move(h.x + 8, h.y + 108, { steps: 4 }); await p.mouse.up();
+    assert.ok(Math.abs(parseFloat(await reader.evaluate((el) => el.style.top)) - (top0 + 100)) < 3, "the strip moved down 100 px");
+    await p.locator(".lr-size").focus();
+    await p.keyboard.press("ArrowDown");
+    assert.equal(await reader.evaluate((el) => el.style.height), "130px", "arrow keys resize the strip");
+    await p.locator('[data-act="tool-hl"]').click();
+    await p.locator('[data-act="hl-color"][data-k="2"]').click();
+    await p.evaluate(() => {
+      const ps = document.querySelectorAll("#passage p");
+      const r = document.createRange(); r.setStart(ps[0].firstChild, 5); r.setEnd(ps[0].firstChild, 25);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      document.getElementById("passage").dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
+    });
+    assert.equal(await p.locator("#passage mark.mark-2").count(), 1, "the chosen colour is used");
+    await p.locator('[data-act="hl-erase"]').click();
+    await p.locator("#passage mark").click();
+    assert.equal(await p.locator("#passage mark").count(), 0, "the eraser removes a highlight");
+    await p.locator('[data-act="a11y-toggle"]').click();
+    await p.locator('[data-act="a11y"][data-k="font"][data-d="1"]').click();
+    await p.locator('input[name="a11y-theme"][value="contrast"]').check();
+    assert.equal(await p.evaluate(() => document.documentElement.getAttribute("data-theme")), "contrast");
+    assert.equal(await p.evaluate(() => document.documentElement.style.getPropertyValue("--a11y-font")), "1.1");
+    await p.locator('[data-act="zoom"][data-d="1"]').click();
+    assert.equal(await p.locator(".zoom-level").textContent(), "110%");
+    await axe(p, "verbal exam in high contrast with the tools open");
+    await p.locator('[data-act="a11y-reset"]').click();
+    assert.equal(await p.evaluate(() => document.documentElement.getAttribute("data-theme")), null);
+    await p.context().close();
   });
 
   await browser.close();

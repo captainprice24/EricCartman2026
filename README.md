@@ -23,14 +23,26 @@ as in the real exam.
 - **Practice.** Answer, then check straight away. Only checked answers count towards the score.
   Options: timing at exam pace, choice of question set, a filter for previous mistakes, and topic labels on or off.
 - **Exam simulation.** The three tests back to back (20 questions in 35 min, 10 in 20 min, 10 in 10 min), or a single
-  test, with TAO-informed tools: navigation circles, flags, strike-out, highlighter, scratchpad and calculator.
+  test, in the layout of EPSO's TAO platform: each part opens on an instruction page with a countdown and starts by
+  itself; a navigation bar with numbered circles, bookmarks and Overview; the clock as minutes and seconds left;
+  highlighter (three colours and an eraser), line reader, a scratchpad window with text and drawing tools, a
+  calculator window (both dragged by their header and resizable), answer elimination and masking switched on in
+  Settings, accessibility tools (contrast themes, text size and spacing) and zoom. The simulation is mouse-driven,
+  as TAO is; trainer keyboard shortcuts can be switched on from the start page.
   No hints or topic labels. Choose one of **15 fixed full tests** (no repeated questions between them), or a fresh random simulation with unseen-first questions and a 25/50/25 difficulty mix. Tests **13–15 contain 120 new challenge questions**. Results show the
   pass-mark gates separately from your verbal score, which EPSO uses for ranking (40% of the
   preliminary and 35% of the final score), followed by a full review and a "Coach me on my mistakes" round.
 
-Keyboard: `A`–`E` or `1`–`5` to answer; in the option list, arrow keys move between options and `X`
-strikes one out; elsewhere `←` `→` change question; `F` flags (exam); `Enter` checks (practice and coach).
-While the calculator is open, the keyboard types into the calculator. The practice calculator supports parentheses, power, square root and reusable calculation history; use a dot for decimals and ÷100 for percentages. Overview filters unanswered/bookmarked questions, and instructions remain available while the test clock runs.
+Keyboard (Coach and Practice, and in the simulation only when "Trainer keyboard shortcuts" is on): `A`–`E` or `1`–`5`
+to answer; in the option list, arrow keys move between options and `X` strikes one out; elsewhere `←` `→` change
+question; `F` bookmarks (exam); `Enter` checks (practice and coach). While the calculator is open, the keyboard types
+into the calculator: digits, operators, Enter for =, Backspace, Delete for AC, and ↑ ↓ to review previous operations.
+Use a dot for decimals; parentheses, power and square root are optional extras that are not confirmed on TAO.
+
+What the simulation does **not** reproduce: proctoring, identity and room checks, full-screen enforcement, and the
+exact look of a live TAO item. [docs/ENVIRONMENT_AUDIT.md](docs/ENVIRONMENT_AUDIT.md) compares the trainer with the
+official TAO instructions point by point. The mandatory prerequisite check on TAO remains the only authoritative
+rehearsal of the real tools.
 
 Topic labels are off by default (they can hint at the answer); turn them on under the training options.
 
