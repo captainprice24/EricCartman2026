@@ -79,6 +79,21 @@ for(const name of (process.env.BROWSERS||'chromium').split(',')){
   });
   assert.deepEqual(bounds,{inside:true,onTop:true});await p.context().close();
  });
+ await check('Coach and Practice mistakes-only filter never falls back to unrelated questions',async()=>{
+  for(const mode of ['coach','practice']){
+   const p=await page();await p.check('#opt-mistakes');
+   await p.locator(`[data-act="${mode}"][data-k="verbal"]`).click();
+   assert.equal(await p.locator('.home').count(),1);
+   assert.match(await p.locator('#toast').innerText(),/No previously incorrect verbal/);
+   const id=await p.evaluate(()=>{
+    const id=window.EPSO_APP.bank.bySection.verbal[0].id;
+    localStorage.setItem('ad5trainer.qstats.v1',JSON.stringify({[id]:{seen:1,correct:0,last:false,at:100}}));return id;
+   });
+   await p.locator(`[data-act="${mode}"][data-k="verbal"]`).click();
+   assert.deepEqual(await p.evaluate(()=>window.EPSO_APP.state.session.sections[0].items.map(it=>it.q.id)),[id]);
+   assert.deepEqual(p.errors,[]);await p.context().close();
+  }
+ });
  await check('unchecked answers remain neutral in score, history, topics, retry and review',async()=>{
   const p=await page({viewport:{width:320,height:700}});await p.selectOption('#opt-count','5');await p.locator('[data-act="practice"][data-k="verbal"]').click();
   const pos=await p.evaluate(()=>{const it=window.EPSO_APP.state.session.sections[0].items[0];return it.order.indexOf(it.q.answer)});await p.locator('[data-act="choose"]').nth(pos).click();await p.locator('.exam-bar [data-act="end"]').click();await p.locator('#cf-yes').click();

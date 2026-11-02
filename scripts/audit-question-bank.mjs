@@ -33,8 +33,9 @@ const evidence = {
  numericalGenericDistractors: { items: fillers.length, distractors: fillers.reduce((sum, q) => sum + q.fillers, 0), inventory: fillers },
  verbalSetCues: sets.filter(s => s.section === 'verbal').map(s => ({ set: s.id, ...verbalSetStats(s.questions) })),
  abstractSetCues: sets.filter(s => s.section === 'abstract').map(s => ({ set: s.id, ...Object.fromEntries(['medoid', 'outlier', 'majority'].map(k => [k, s.questions.reduce((sum, q) => sum + abstractBlind(q.options, q.answer)[k], 0) / s.questions.length])) })),
- verbalSemanticSample: { ids: verbalSample, method: 'Original author sample retained for continuity; complete independent blind review now covers all 240 keys and 720 distractor labels. See docs/research/verbal/blind-review/legacy/.' },
- verificationCoverage: { numericalIndependentKeys: 190, abstractIndependentChallengeKeys: 40, verbalArchivedBlindKeys: 240, verbalArchivedBlindLabels: 720,
+ verbalSemanticSample: { ids: verbalSample, method: 'Original author sample retained for continuity; archived independent blind review covers the foundation and challenge collections; see docs/VERBAL_AUDIT.md and the expansion-15 archive. See docs/research/verbal/blind-review/legacy/.' },
+ verificationCoverage: { numericalIndependentKeys: numerical.length, abstractIndependentChallengeKeys: questions.filter(q => q.section === 'abstract' && q.challenge).length,
+  verbalArchivedBlindKeys: questions.filter(q => q.section === 'verbal').length, verbalArchivedBlindLabels: questions.filter(q => q.section === 'verbal').reduce((sum, q) => sum + q.options.length - 1, 0),
   legacyAbstractSemanticKeysNotNewlyResolved: 150, legacyVerbalItemsWithoutNewCompleteBlindReview: 0 }
 };
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});

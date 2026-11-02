@@ -32,3 +32,5 @@ git ls-remote --symref origin HEAD
 Omit `CHROMIUM_PATH` when Playwright's Chromium is installed, or point it to your system browser. The audit scripts accept `E2E_BASE_URL` and default to localhost port 8000. Browser contexts are temporary and separate from user browser profiles; packaging files are staged in a fresh temporary directory and removed afterwards. Evidence regenerates from the current checkout and records its base commit, working-tree status and application version.
 
 The additional probes cover known cases, not every possible failure. Raster checks use actual rendered light-theme SVGs at 100×100 pixels; exact matching does not establish semantic validity or equal perceived difficulty. All 200 foundation verbal items now have archived independent AI blind review; fresh human trials and complete independent re-solving of the 150 foundation abstract keys remain outside coverage, as stated in the report.
+
+The [book-reference review](../BOOK_REFERENCE_REVIEW.md) records the November 2026 comparison against three user-supplied preparation guides. `book-references.json` preserves upload identities and SHA-256 hashes without reproducing their content.

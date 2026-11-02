@@ -178,7 +178,7 @@
     if (prefs.mistakesOnly) {
       var stats = load(KEY_STATS, {});
       var wrong = pool.filter(function (q) { return stats[q.id] && stats[q.id].last === false; });
-      if (wrong.length) pool = wrong;
+      pool = wrong;
     }
     pool = C.shuffle(pool);
     return prefs.count === "all" ? pool : pool.slice(0, +prefs.count);
@@ -226,6 +226,7 @@
       var chosen = bank.sets.filter(function (st) { return st.id === prefs.setId; })[0];
       flash(chosen && chosen.section !== key
         ? "The question set you chose (" + chosen.title + ") is for " + SECTIONS[chosen.section].name.toLowerCase() + ". Choose All sets or a " + SECTIONS[key].name.toLowerCase() + " set."
+        : prefs.mistakesOnly ? "No previously incorrect " + SECTIONS[key].name.toLowerCase() + " questions match these settings. Clear Only questions I got wrong to practise other questions."
         : "No " + SECTIONS[key].name.toLowerCase() + " questions match these settings.");
       return;
     }
@@ -582,7 +583,7 @@
     var elim = sec.elim[id] || {}, mask = sec.mask[id] || {};
     var elimOn = !checked && toolOn("elim"), maskOn = !checked && toolOn("mask");
     var isFig = q.section === "abstract";
-    var showAllNotes = mode === "coach" || state.session.review;
+    var showAllNotes = mode !== "exam" || state.session.review;
     // N4: one tab stop for the group (roving tabindex): the focused, else the chosen, else the first option.
     var rove = state.ui.optPos != null ? state.ui.optPos : chosen !== undefined && item.order.indexOf(chosen) > -1 ? item.order.indexOf(chosen) : 0;
     var list = item.order.map(function (orig, pos) {

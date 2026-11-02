@@ -1,0 +1,86 @@
+{
+  "reviewDate": "2026-11-02",
+  "sources": [
+    {
+      "uploadName": "How to succeed in EPSO abstract reasoning tests -- Grace Burkett, José María Franco Reverte -- 2021 -- Independently published -- isbn13 9781096623946 -- d8f3e6b57c12e2479f1a58a3e43cef72 -- Anna’s Archive.epub",
+      "sha256": "bc1d45651dee9612ba26f9fc77198b4e2b2123867a35ac80b8341f4294b1f0f7",
+      "metadata": [
+        {
+          "field": "identifier",
+          "value": "urn:uuid:273fd756-62f2-4858-8d67-99e08f24bba9"
+        },
+        {
+          "field": "creator",
+          "value": "Franco Reverte, José María"
+        },
+        {
+          "field": "date",
+          "value": "2021-06-21"
+        },
+        {
+          "field": "identifier",
+          "value": "urn:asin:B097PZFSKJ"
+        },
+        {
+          "field": "title",
+          "value": "How to succeed in EPSO abstract reasoning tests"
+        }
+      ],
+      "reuse": "Private author reference only; no book content registered in question bank."
+    },
+    {
+      "uploadName": "How to succeed in EPSO verbal reasoning tests, volume 2 -- Grace Burkett, José María Franco Reverte -- 2022 -- Independently published -- isbn13 9781096623946 -- 1c3d1b14ff29c33bf21f28f249d533e3 -- Anna’s Archive.epub",
+      "sha256": "75503f8c7b180b4eda550874b10af60350ed88ffc3dc644333472b6e529ff127",
+      "metadata": [
+        {
+          "field": "identifier",
+          "value": "urn:uuid:273fd756-62f2-4858-8d67-99e08f24bba9"
+        },
+        {
+          "field": "creator",
+          "value": "Franco Reverte, José María"
+        },
+        {
+          "field": "date",
+          "value": "2022-07-11"
+        },
+        {
+          "field": "identifier",
+          "value": "urn:asin:B0B6D6SZ57"
+        },
+        {
+          "field": "title",
+          "value": "How to succeed in EPSO verbal reasoning tests, volume 2"
+        }
+      ],
+      "reuse": "Private author reference only; no book content registered in question bank."
+    },
+    {
+      "uploadName": "How to succeed in EPSO numerical reasoning tests -- José María Franco Reverte -- 2019 -- c192e88aa0b0e6d148252eea971829c0 -- Anna’s Archive.epub",
+      "sha256": "48df01dd949e963870280c159786b4fd1b4b69a8532717fd2ce8d10981efea27",
+      "metadata": [
+        {
+          "field": "identifier",
+          "value": "urn:uuid:273fd756-62f2-4858-8d67-99e08f24bba9"
+        },
+        {
+          "field": "creator",
+          "value": "Franco Reverte, José María"
+        },
+        {
+          "field": "date",
+          "value": "2019-05-01"
+        },
+        {
+          "field": "identifier",
+          "value": "urn:asin:B07RCG7W3N"
+        },
+        {
+          "field": "title",
+          "value": "How to succeed in EPSO numerical reasoning tests"
+        }
+      ],
+      "reuse": "Private author reference only; no book content registered in question bank."
+    }
+  ]
+}

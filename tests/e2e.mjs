@@ -306,6 +306,47 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  for (const [sizeName, viewport] of [["desktop", desktop], ["phone", phone]]) {
+    for (const section of ["verbal", "numerical", "abstract"]) {
+      await check(`Coach and Practice teaching feedback: ${section} at ${sizeName} width`, async () => {
+        for (const mode of ["coach", "practice"]) {
+          const p = await newPage(viewport);
+          await p.selectOption("#opt-count", "5");
+          await p.locator(`[data-act="${mode}"][data-k="${section}"]`).click();
+          if (mode === "coach") await p.locator('[data-act="begin-coach"]').click();
+          assert.equal(await p.locator(".feedback, .opt-note").count(), 0, "no answer feedback before checking");
+          const expected = await p.evaluate(() => {
+            const s = window.EPSO_APP.state.session;
+            const item = s.sections[s.si].items[s.qi];
+            return { hints: item.q.hints.length, notes: item.q.optionNotes.length };
+          });
+          if (mode === "coach") {
+            assert.equal(await p.locator(".hints li").count(), 0, "hints start hidden");
+            for (let i = 0; i < expected.hints; i++) {
+              await p.locator('[data-act="hint"]').click();
+              assert.equal(await p.locator(".hints li").count(), i + 1);
+              assert.equal(await p.locator(".feedback, .opt-note").count(), 0);
+            }
+            assert.equal(await p.locator('[data-act="hint"]').count(), 0);
+            await p.locator('[data-act="next"]').click();
+            assert.equal(await p.locator(".hints li").count(), 0, "hints belong to one question");
+            await p.locator('[data-act="prev"]').click();
+            assert.equal(await p.locator(".hints li").count(), expected.hints, "navigation preserves hints");
+          } else assert.equal(await p.locator(".coach").count(), 0);
+          await p.locator('[data-act="choose"]').first().click();
+          await p.locator('[data-act="check"]').click();
+          assert.equal(await p.locator(".opt-note").count(), expected.notes, "explain every option after checking");
+          assert.equal(await p.locator(".takeaway").count(), 1);
+          if (section === "numerical") assert.equal(await p.locator(".solution li").count() > 0, true);
+          assert.equal(await p.locator('[data-act="hint"]').count(), 0);
+          await axe(p, `${mode} ${section} ${sizeName} feedback`);
+          assert.deepEqual(p.errors, []);
+          await p.context().close();
+        }
+      });
+    }
+  }
+
   await check("W6: a highlight across two paragraphs stays valid and survives navigation", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="coach"][data-k="verbal"]').click();

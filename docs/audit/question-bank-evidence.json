@@ -1,42 +1,42 @@
 {
-  "baseCommit": "68f72609b1be9c1d56559c2c9f9ae202779247af",
+  "baseCommit": "c45efd8fb4b7c47cfd26d3c7e034dafb1f6fed0f",
   "verifiedWorkingTree": true,
-  "applicationVersion": "9b4d97ecbcc2",
+  "applicationVersion": "f01a5a3e9ca0",
   "sections": {
     "verbal": {
-      "sets": 13,
-      "items": 240,
+      "sets": 19,
+      "items": 300,
       "difficulty": {
         "1": 38,
         "2": 105,
-        "3": 97
+        "3": 157
       },
-      "challengeItems": 40
+      "challengeItems": 100
     },
     "numerical": {
-      "sets": 8,
-      "items": 190,
+      "sets": 11,
+      "items": 220,
       "difficulty": {
         "1": 56,
         "2": 82,
-        "3": 52
+        "3": 82
       },
-      "challengeItems": 40
+      "challengeItems": 70
     },
     "abstract": {
-      "sets": 8,
-      "items": 190,
+      "sets": 11,
+      "items": 220,
       "difficulty": {
         "1": 29,
         "2": 121,
-        "3": 40
+        "3": 70
       },
-      "challengeItems": 40
+      "challengeItems": 70
     }
   },
-  "total": 620,
+  "total": 740,
   "numericalDisplayPrecision": {
-    "exhibits": 242,
+    "exhibits": 299,
     "valuesLosingMoreThanTwoDecimals": []
   },
   "numericalGenericDistractors": {
@@ -265,6 +265,108 @@
         5
       ],
       "patternShare": 0.5
+    },
+    {
+      "set": "verbal-14",
+      "n": 10,
+      "heuristic": 0.3,
+      "lowOverlap": 0.2,
+      "highOverlap": 0.3,
+      "shortest": 0.3,
+      "keyHedge": 0.2,
+      "disHedge": 0.13333333333333333,
+      "keyAbs": 0,
+      "disAbs": 0.06666666666666667,
+      "topPattern": [
+        "False+Not supported+Not supported",
+        4
+      ],
+      "patternShare": 0.4
+    },
+    {
+      "set": "verbal-15",
+      "n": 10,
+      "heuristic": 0.25,
+      "lowOverlap": 0.15,
+      "highOverlap": 0.4,
+      "shortest": 0.3,
+      "keyHedge": 0.1,
+      "disHedge": 0.06666666666666667,
+      "keyAbs": 0,
+      "disAbs": 0,
+      "topPattern": [
+        "False+False+Not supported",
+        5
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-16",
+      "n": 10,
+      "heuristic": 0.1,
+      "lowOverlap": 0.1,
+      "highOverlap": 0.1,
+      "shortest": 0.35,
+      "keyHedge": 0,
+      "disHedge": 0.03333333333333333,
+      "keyAbs": 0,
+      "disAbs": 0.03333333333333333,
+      "topPattern": [
+        "False+Not supported+Not supported",
+        5
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-17",
+      "n": 10,
+      "heuristic": 0.3,
+      "lowOverlap": 0.1,
+      "highOverlap": 0.4,
+      "shortest": 0.25,
+      "keyHedge": 0.2,
+      "disHedge": 0.1,
+      "keyAbs": 0,
+      "disAbs": 0.1,
+      "topPattern": [
+        "False+Not supported+Not supported",
+        5
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-18",
+      "n": 10,
+      "heuristic": 0.35,
+      "lowOverlap": 0.25,
+      "highOverlap": 0.4,
+      "shortest": 0.2,
+      "keyHedge": 0.1,
+      "disHedge": 0.1,
+      "keyAbs": 0,
+      "disAbs": 0.06666666666666667,
+      "topPattern": [
+        "False+Not supported+Not supported",
+        5
+      ],
+      "patternShare": 0.5
+    },
+    {
+      "set": "verbal-19",
+      "n": 10,
+      "heuristic": 0.3,
+      "lowOverlap": 0.2,
+      "highOverlap": 0.4,
+      "shortest": 0.3,
+      "keyHedge": 0.3,
+      "disHedge": 0.2,
+      "keyAbs": 0.3,
+      "disAbs": 0.2,
+      "topPattern": [
+        "False+Not supported+Overstated",
+        5
+      ],
+      "patternShare": 0.5
     }
   ],
   "abstractSetCues": [
@@ -315,6 +417,24 @@
       "medoid": 0.2,
       "outlier": 0,
       "majority": 0.2
+    },
+    {
+      "set": "abstract-09",
+      "medoid": 0.15,
+      "outlier": 0,
+      "majority": 0.15
+    },
+    {
+      "set": "abstract-10",
+      "medoid": 0.15,
+      "outlier": 0,
+      "majority": 0.08333333333333333
+    },
+    {
+      "set": "abstract-11",
+      "medoid": 0.2,
+      "outlier": 0,
+      "majority": 0.075
     }
   ],
   "verbalSemanticSample": {
@@ -338,21 +458,27 @@
       "v10-01",
       "v11-01",
       "v12-01",
-      "v13-01"
+      "v13-01",
+      "v14-01",
+      "v15-01",
+      "v16-01",
+      "v17-01",
+      "v18-01",
+      "v19-01"
     ],
-    "method": "Original author sample retained for continuity; complete independent blind review now covers all 240 keys and 720 distractor labels. See docs/research/verbal/blind-review/legacy/."
+    "method": "Original author sample retained for continuity; Archived independent blind review covers the foundation and challenge collections; see docs/VERBAL_AUDIT.md and the expansion-15 archive. See docs/research/verbal/blind-review/legacy/."
   },
   "verificationCoverage": {
-    "numericalIndependentKeys": 190,
-    "abstractIndependentChallengeKeys": 40,
-    "verbalArchivedBlindKeys": 240,
-    "verbalArchivedBlindLabels": 720,
+    "numericalIndependentKeys": 220,
+    "abstractIndependentChallengeKeys": 70,
+    "verbalArchivedBlindKeys": 300,
+    "verbalArchivedBlindLabels": 900,
     "legacyAbstractSemanticKeysNotNewlyResolved": 150,
     "legacyVerbalItemsWithoutNewCompleteBlindReview": 0
   },
   "abstractRaster": {
-    "questions": 190,
-    "figures": 1940,
+    "questions": 220,
+    "figures": 2270,
     "size": "100x100 light theme, actual SVG renderer",
     "duplicateOptions": [],
     "keyRepeatsStimulus": [
