@@ -4,11 +4,11 @@ EPSO_BANK.registerSet({
   "section": "numerical",
   "title": "Numerical reasoning · Set 1",
   "description": "10 data-interpretation items with worked solutions (generated).",
-  "version": 3,
+  "version": 4,
   "questions": [
     {
-      "id": "n01-01-r2",
-      "supersedes": "n01-01",
+      "id": "n01-01-r3",
+      "supersedes": "n01-01-r2",
       "topic": "Percentage change of a total",
       "difficulty": 1,
       "exhibits": [
@@ -68,7 +68,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did the combined number of visitors of the six regions change between 2021 and 2024?",
+      "stem": "By what percentage did the combined number of visitors of the six regions change between 2021 and 2024? Round only the final result to 1 decimal place.",
       "options": [
         "8.0%",
         "9.2%",
@@ -82,22 +82,24 @@ EPSO_BANK.registerSet({
         "Percentage change = (new total − old total) ÷ old total × 100."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total 2021 = 565 + 176 + 538 + 296 + 680 + 652 = 2,907",
         "Total 2024 = 646 + 215 + 581 + 343 + 756 + 691 = 3,232",
-        "Change = (3,232 − 2,907) ÷ 2,907 × 100 = 11.18%"
+        "Change = (3,232 − 2,907) ÷ 2,907 × 100 = 11.18%",
+        "Final answer: 11.2%."
       ],
       "optionNotes": [
         "This is the change for Centre alone, not for the total.",
         "This compares 2021 with 2023: check the years in the question.",
         "This divides the change by the 2024 total. Always divide by the starting value.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 11.2%.",
         "This averages the six individual percentage changes; rows of different sizes must be added up first."
       ],
       "explanation": "Total first, then the percentage. Averaging row percentages and dividing by the later value are the two classic errors; extra years in the table are there to distract."
     },
     {
-      "id": "n01-02-r2",
-      "supersedes": "n01-02",
+      "id": "n01-02-r3",
+      "supersedes": "n01-02-r2",
       "topic": "Share of a total",
       "difficulty": 1,
       "exhibits": [
@@ -150,7 +152,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What share of the combined GDP of the six countries do Jorvik and Pellam account for together?",
+      "stem": "What share of the combined GDP of the six countries do Jorvik and Pellam account for together? Round only the final result to 1 decimal place.",
       "options": [
         "31.7%",
         "32.5%",
@@ -164,22 +166,24 @@ EPSO_BANK.registerSet({
         "Add the two countries, then divide by the total of all six."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Jorvik + Pellam = 295.0 + 478.0 = 773.0",
         "Total of six = 295.0 + 267.0 + 119.0 + 478.0 + 286.0 + 390.0 = 1,835.0",
-        "Share = 773.0 ÷ 1,835.0 × 100 = 42.13%"
+        "Share = 773.0 ÷ 1,835.0 × 100 = 42.13%",
+        "Final answer: 42.1%."
       ],
       "optionNotes": [
         "This adds the wrong country: check that you are using Jorvik and Pellam.",
         "This adds the wrong country: check that you are using Jorvik and Pellam.",
         "This adds the wrong country: check that you are using Jorvik and Pellam.",
         "This adds the wrong country: check that you are using Jorvik and Pellam.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 42.1%."
       ],
-      "explanation": "Locate the right column and the right base. Distractors use the neighbouring column or the wrong denominator."
+      "explanation": "Locate the named countries and the requested column, then divide their combined amount by the total for all six. Wrong options may substitute another country, column or denominator; check the option-specific explanation."
     },
     {
-      "id": "n01-03-r2",
-      "supersedes": "n01-03",
+      "id": "n01-03-r3",
+      "supersedes": "n01-03-r2",
       "topic": "Per-capita change",
       "difficulty": 3,
       "exhibits": [
@@ -232,7 +236,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did GDP per inhabitant in Kestrel change between 2020 and 2023?",
+      "stem": "By what percentage did GDP per inhabitant in Kestrel change between 2020 and 2023? Round only the final result to 1 decimal place.",
       "options": [
         "9.8%",
         "12.0%",
@@ -246,22 +250,24 @@ EPSO_BANK.registerSet({
         "Then calculate the percentage change between the two per-capita values."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2020: 552 ÷ 33.4 = 16.527 (EUR thousand per person)",
         "2023: 646 ÷ 34.4 = 18.779",
-        "Change = 18.779 ÷ 16.527 − 1 = 13.63%"
+        "Change = ((646 ÷ 34.4) ÷ (552 ÷ 33.4) − 1) × 100 ≈ 13.63%",
+        "Final answer: 13.6%."
       ],
       "optionNotes": [
         "This is the change for Tavel.",
         "This divides the change by the 2023 value instead of the 2020 value.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 13.6%.",
         "Subtracting the population change from the GDP change is only an approximation; divide per-capita values instead.",
         "This is the change in total GDP; it ignores the change in population."
       ],
       "explanation": "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
     },
     {
-      "id": "n01-04-r2",
-      "supersedes": "n01-04",
+      "id": "n01-04-r3",
+      "supersedes": "n01-04-r2",
       "topic": "Percentage points",
       "difficulty": 1,
       "exhibits": [
@@ -314,7 +320,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By how many percentage points did the share for Rural increase between 2018 and 2023?",
+      "stem": "By how many percentage points did the share for Rural increase between 2018 and 2023? Round only the final result to 1 decimal place.",
       "options": [
         "5.2 percentage points",
         "5.4 percentage points",
@@ -328,14 +334,16 @@ EPSO_BANK.registerSet({
         "Read the values labelled on the chart for the right series and years."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2023: 21.2%; 2018: 14.8%",
-        "Difference: 21.2 − 14.8 = 6.4 percentage points"
+        "Difference: 21.2 − 14.8 = 6.4 percentage points",
+        "Final answer: 6.4 percentage points."
       ],
       "optionNotes": [
         "This stops at 2022.",
         "This starts from 2019 instead of 2018.",
         "This is the change for Urban.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 6.4 percentage points.",
         "This is the change for Suburban."
       ],
       "explanation": "Percentage points measure the gap between two percentages; a percentage change measures that gap relative to the start. Check which the question asks for."
@@ -416,8 +424,8 @@ EPSO_BANK.registerSet({
       "explanation": "Compute every candidate ratio. The visually dominant bar is usually a distractor."
     },
     {
-      "id": "n01-06-r2",
-      "supersedes": "n01-06",
+      "id": "n01-06-r3",
+      "supersedes": "n01-06-r2",
       "topic": "Currency conversion",
       "difficulty": 2,
       "exhibits": [
@@ -464,7 +472,7 @@ EPSO_BANK.registerSet({
           "note": "Assume conversions go through the euro, with no fees."
         }
       ],
-      "stem": "On 1 July, a company converted PLN 25,000 into SEK. How much did it receive?",
+      "stem": "On 1 July, a company converted PLN 25,000 into SEK. How much did it receive? Round only the final result to 2 decimal places.",
       "options": [
         "SEK 66,491.99",
         "SEK 70,481.42",
@@ -478,21 +486,23 @@ EPSO_BANK.registerSet({
         "Divide by the PLN rate to get euros, then multiply by the SEK rate."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "25,000 ÷ 4.0906 = EUR 6,111.57",
-        "× 12.374 = SEK 75,624.60"
+        "25,000 × (12.374 ÷ 4.0906) ≈ SEK 75,624.60 (one cross-rate calculation avoids rounding the euro balance)",
+        "Final answer: SEK 75,624.60."
       ],
       "optionNotes": [
         "This uses the 1 January rates.",
         "This mixes the two dates.",
         "This mixes the two dates.",
         "This adjusts the other date's conversion by subtracting the two percentage changes; the exact cross-rate requires dividing the rate multipliers.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives SEK 75,624.60."
       ],
       "explanation": "With rates quoted per euro, divide to get into euros and multiply to get out. Check the date column: the other date is a ready-made distractor."
     },
     {
-      "id": "n01-07-r2",
-      "supersedes": "n01-07",
+      "id": "n01-07-r3",
+      "supersedes": "n01-07-r2",
       "topic": "Weighted average",
       "difficulty": 2,
       "exhibits": [
@@ -539,7 +549,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What is the average monthly salary across all staff in Dir. A, Dir. C and Dir. D combined?",
+      "stem": "What is the average monthly salary across all staff in Dir. A, Dir. C and Dir. D combined? Round only the final result to the nearest whole number.",
       "options": [
         "EUR 5,780",
         "EUR 5,836",
@@ -553,13 +563,15 @@ EPSO_BANK.registerSet({
         "Divide the sum by the total number of people in the three groups."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Dir. A: 283 × 5,400 = 1,528,200",
         "Dir. C: 206 × 5,500 = 1,133,000",
         "Dir. D: 318 × 6,300 = 2,003,400",
-        "Sum ÷ people: 4,664,600 ÷ (283 + 206 + 318) = EUR 5,780"
+        "Sum ÷ people: 4,664,600 ÷ (283 + 206 + 318) = EUR 5,780",
+        "Final answer: EUR 5,780."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 5,780.",
         "This includes all five rows, not just the three named.",
         "This uses Dir. A, Dir. D: check which groups the question names.",
         "This uses Dir. A, Dir. B, Dir. C, Dir. D: check which groups the question names.",
@@ -568,8 +580,8 @@ EPSO_BANK.registerSet({
       "explanation": "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
     },
     {
-      "id": "n01-08-r2",
-      "supersedes": "n01-08",
+      "id": "n01-08-r3",
+      "supersedes": "n01-08-r2",
       "topic": "Removing VAT",
       "difficulty": 2,
       "exhibits": [
@@ -622,7 +634,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Aldoria?",
+      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Aldoria? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 13,442.64",
         "EUR 13,722.04",
@@ -636,22 +648,24 @@ EPSO_BANK.registerSet({
         "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "8,638 ÷ 1.21 = 7,138.84",
         "8,378 ÷ 1.21 = 6,923.97",
-        "Total = 7,138.84 + 6,923.97 = EUR 14,062.81"
+        "Total = 7,138.84 + 6,923.97 = EUR 14,062.81",
+        "Final answer: EUR 14,062.81."
       ],
       "optionNotes": [
         "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
         "This includes an invoice from another country.",
         "This applies another country's VAT rate.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 14,062.81.",
         "This applies a flat 20% instead of the rate shown for each invoice."
       ],
       "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
     },
     {
-      "id": "n01-09-r2",
-      "supersedes": "n01-09",
+      "id": "n01-09-r3",
+      "supersedes": "n01-09-r2",
       "topic": "Budget reallocation",
       "difficulty": 2,
       "exhibits": [
@@ -728,7 +742,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If 25% of the travel budget is moved to communication, what will the communication budget be?",
+      "stem": "If 25% of the travel budget is moved to communication, what will the communication budget be? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 9.50 million",
         "EUR 10.56 million",
@@ -742,22 +756,24 @@ EPSO_BANK.registerSet({
         "The amount moved is 25% of the travel budget, not of the total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Travel: 13% × 48 = EUR 6.24 million",
         "Moved: 25% × that = EUR 1.56 million",
-        "Communication: 22% × 48 + moved = EUR 12.12 million"
+        "Communication: 22% × 48 + moved = EUR 12.12 million",
+        "Final answer: EUR 12.12 million."
       ],
       "optionNotes": [
         "This uses last year's figures instead of this year's.",
         "This leaves the receiving budget unchanged, omitting the transfer.",
         "This uses last year's shares with this year's total.",
         "This transfers 25% of studies instead of travel.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 12.12 million."
       ],
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n01-10-r2",
-      "supersedes": "n01-10",
+      "id": "n01-10-r3",
+      "supersedes": "n01-10-r2",
       "topic": "Shares in a stacked chart",
       "difficulty": 1,
       "exhibits": [
@@ -806,7 +822,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "In 2022, what percentage of the total did renewables account for?",
+      "stem": "In 2022, what percentage of the total did renewables account for? Round only the final result to 1 decimal place.",
       "options": [
         "24.1%",
         "24.8%",
@@ -820,11 +836,13 @@ EPSO_BANK.registerSet({
         "Divide the component by that total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total 2022 = 32 + 74 + 27 = 133",
-        "Share = 32 ÷ 133 × 100 = 24.06%"
+        "Share = 32 ÷ 133 × 100 = 24.06%",
+        "Final answer: 24.1%."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 24.1%.",
         "This divides the requested component by the total for 2021.",
         "This divides the requested component by the total for 2019.",
         "This is the share in 2023.",

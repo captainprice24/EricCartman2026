@@ -1,45 +1,35 @@
 # Abstract bank audit
 
-All **220 items** inventoried: **29 Easy, 121 Medium, 70 Hard**.
+All **220 items** reviewed: **29 Easy, 131 Medium, 60 Hard**.
 
-## Reasoning review
+The November book-informed review supersedes the earlier structural-only foundation screen. All 150 foundation answers and all 70 challenge answers now have independent visible-figure inference coverage. See [ABSTRACT_BOOK_REVIEW.md](ABSTRACT_BOOK_REVIEW.md) for defects, repairs and limits.
 
-The old labels were mechanically rules minus one: 38 Easy, 75 Medium and 37 Hard. Counting four independent rotations/cycles does not demonstrate difficult inference. The reviewed rubric uses Easy for two familiar independent tracks; Medium for three/four independent tracks or a nonuniform count/boundary phase; Hard for the new coupled, conditional, interleaved or compositional collection. The legacy phase screen uses reviewed generator wording, not general-purpose text scoring. New topics/models require editorial review.
-
-46 foundation difficulty labels changed; all 150 existing IDs, stimuli, options, keys, hints and explanations are preserved. The original forty challenge questions (Sets 5–8) retain their figures and keys. Sets 9–11 add thirty items using ten more composed/delayed model families. Each round has ten different families; variants and related motifs create transfer effects.
-
-These are editorial bands. No human difficulty study or score uplift has been measured. The new collection combines two substantial relational rules with two supporting cycles, or rotating panels with a composition rule. Familiarity with a family will make its later variants easier.
+Difficulty follows the simplest supported path: two familiar independent tracks are Easy; additional independent tracks and phase tracking are Medium; necessary coupled, delayed, conditional and compositional transformations are Hard. Ten challenge items admit simpler independent continuations and are now Medium. Four relationships alone do not establish Hard difficulty.
 
 | Set | Easy | Medium | Hard | Most central | Outlier | Element majority |
 |---|---:|---:|---:|---:|---:|---:|
 | abstract-01 | 3 | 7 | 0 | 10.0% | 20.0% | 10.0% |
 | abstract-02 | 8 | 42 | 0 | 13.5% | 20.0% | 13.3% |
-| abstract-03 | 12 | 38 | 0 | 16.0% | 20.0% | 12.5% |
+| abstract-03 | 12 | 38 | 0 | 15.7% | 20.0% | 12.7% |
 | abstract-04 | 6 | 34 | 0 | 16.3% | 20.0% | 11.9% |
-| abstract-05 | 0 | 0 | 10 | 8.3% | 0.0% | 8.3% |
-| abstract-06 | 0 | 0 | 10 | 15.0% | 0.0% | 15.0% |
-| abstract-07 | 0 | 0 | 10 | 20.0% | 0.0% | 5.0% |
-| abstract-08 | 0 | 0 | 10 | 20.0% | 0.0% | 20.0% |
-| abstract-09 | 0 | 0 | 10 | 15.0% | 0.0% | 15.0% |
-| abstract-10 | 0 | 0 | 10 | 15.0% | 0.0% | 8.3% |
-| abstract-11 | 0 | 0 | 10 | 20.0% | 0.0% | 7.5% |
+| abstract-05 | 0 | 3 | 7 | 8.3% | 0.0% | 8.3% |
+| abstract-06 | 0 | 1 | 9 | 15.0% | 0.0% | 15.0% |
+| abstract-07 | 0 | 1 | 9 | 20.0% | 0.0% | 5.0% |
+| abstract-08 | 0 | 2 | 8 | 20.0% | 0.0% | 20.0% |
+| abstract-09 | 0 | 1 | 9 | 15.0% | 0.0% | 15.0% |
+| abstract-10 | 0 | 2 | 8 | 15.0% | 0.0% | 8.3% |
+| abstract-11 | 0 | 0 | 10 | 20.0% | 0.0% | 15.0% |
 
 ## Verification and limits
 
-- All 220 items pass schema, distinct options, series uniqueness and the existing size-only distractor check. Every set stays below the 30% ceilings for three option-only strategies; chance is 20%. These checks cover named heuristics, not every possible shortcut.
-- All seventy challenge keys are inferred from visible circle/arrow/cell coordinates and fills by separate code in `tests/abstract-oracle.test.mjs`. It receives no generator parameters or author model labels. The solver fits alternating, accelerating, interleaved, gated, reflected and one- and two-frame delayed rules, dot gates, interleaved relative angles, or fixed/arrow-controlled grid rotations and Boolean combinations. Each six-frame stimulus has one continuation in that bounded grammar and exactly one matching option. This is stronger than checking stored states but is not proof against every conceivable alternative rule.
-- Each challenge set has two keys per answer position, ten model families, no repeated stimulus, and single-/double-feature distractor errors. Every feature agrees with the key in at least one distractor, so no single feature alone identifies the key. All four features are tested in the choices. Colour plus dot count cannot select an orbit key; both input grids plus the bottom arrow cannot select a panel key. A harder relation is needed. No challenge key simply repeats a complete displayed frame.
-- All seventy challenge series and options are included in reproducible light/dark contact sheets; sample legacy figures cover all five old layouts. Rendering and answer feedback are tested on desktop and phone widths. See `VISUAL_REVIEW.md` for observations.
-- The existing 150 questions received structural inventory, heuristic screening and sample visual review, not a fresh item-by-item human semantic review. Their original generators still use fixed steps, cycles and occasional count/boundary phases.
+- Independent code reads visible shape coordinates, fills, counts and drawing order, not generator states, keys or explanations. Foundation inference enumerates short cycles, modular steps and count alternations. Challenge inference enumerates alternating, accelerating, interleaved, gated, reflected and delayed relationships, panel rotation and Boolean composition. A separate check rejects conflicting simpler position/arrow continuations. Each current item has exactly one matching option within these checked grammars.
+- Regression fixtures preserve the seven ambiguous foundation series and three conflicting challenge series. Revised content has fresh IDs and hash-locked mappings. Per-item random streams preserve unrelated figures; fixed full-test membership is maintained through previous IDs.
+- All 220 series and choices appear in reproducible contact sheets in both themes. Exact raster equality checks complement visual inspection. These checks do not establish resistance to every possible perceptual shortcut.
+- All seven challenge rounds retain two keys per answer position and ten model families. Each feature alone leaves several options, and supporting tracks cannot select the answer alone. Named option-only heuristics remain at or below 30% per set.
+- These are editorial bands, not empirical difficulty or score-uplift findings. A finite series can support other invented rules; solver coverage is bounded, not proof of universal uniqueness. Variants create transfer effects.
 
-## Organisation and reuse
+## Practice and refresh
 
-Use Abstract difficulty: Easy / Medium / Hard in Coach and Practice. For a complete challenge round select Set 5–11, ten questions and timed practice (ten minutes). Random simulations retain their unseen-first mixed-difficulty policy; the fixed full-test library has no repeated questions across its fifteen forms. CSV and JSON inventories list every item, its band and the reason.
+Select All levels, a challenge set, ten questions and timed practice for a complete ten-minute round. Hard filters exclude reviewed Medium items. The fifteen fixed forms retain their original membership, with revised IDs substituted.
 
-The research library separates method references, unresolved paths, blocked websites and licensed author-study examples. No third-party figures or questions are registered in the app.
-
-## Calibration
-
-Pilot unseen items at sixty seconds per question. Record first-attempt correctness, time and omissions separately from hints, repeated items and exposure to another variant of the same model. Investigate competing explanations before changing bands. Prefer novel relationships and plausible errors over extra clutter.
-
-Refresh with `npm run audit:abstract`; regenerate through `node scripts/generators/abstract.mjs`.
+Pilot unseen items at sixty seconds per question; separate first attempts from hints, repeats and exposure to related variants. Refresh with `npm run audit:abstract`; regenerate with `node scripts/generators/abstract.mjs` and review contact sheets. No third-party questions or figures are registered in the app.

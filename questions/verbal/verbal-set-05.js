@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 5",
   "description": "22 EPSO-level passages on justice, home affairs, citizenship and fundamental rights, with some law, ethics and philosophy of science.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v05-01",
@@ -137,11 +137,11 @@ EPSO_BANK.registerSet({
       "explanation": "The key combines the statement that criteria apply in order with the position of visas in that order. The Greece option is an outside-knowledge trap."
     },
     {
-      "id": "v05-06",
+      "id": "v05-06-r2",
       "topic": "Migration",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "The Pact on Migration and Asylum, a package of ten legislative acts formally adopted in May 2024, was designed to apply as a whole from 2026. One of its most debated elements is a new solidarity mechanism, intended to share responsibility between Member States more evenly than the previous rules did.\n\nThe mechanism is often described as mandatory but flexible. Each year, the Commission assesses which Member States are under migratory pressure and proposes the size of an annual solidarity pool, which the Council then establishes. The Pact sets reference levels of at least 30,000 relocations and at least €600 million in financial contributions per year across the Union. Member States must contribute their fair share, although those under migratory pressure can ask for a reduction, and each chooses how to contribute: by relocating applicants from countries under pressure, by making financial contributions, set at €20,000 for each person not relocated, or by funding operational and capacity-building measures. No Member State can be obliged to carry out relocations.\n\nSupporters argue that this flexibility made agreement possible after years of deadlock over earlier reform proposals. Critics on one side say that allowing states to pay instead of relocating weakens the principle of shared responsibility; critics on the other side object to any compulsory element at all. How the mechanism works in practice will depend largely on the pledges that Member States make.",
+      "passage": "The Pact on Migration and Asylum, a package of ten legislative acts formally adopted in May 2024, was designed to apply as a whole from 2026. One of its most debated elements is a new solidarity mechanism, intended to share responsibility between Member States more evenly than the previous rules did.\n\nThe mechanism is often described as mandatory but flexible. Each year, the Commission assesses which Member States are under migratory pressure and proposes the size of an annual solidarity pool, which the Council then establishes. Reference planning uses at least 30,000 relocations and EUR 600 million annually, with financial contributions valued at EUR 20,000 per relocation-equivalent. These are collective planning references, not a duty for every state to both relocate and pay. Member States must contribute their fair share, although those under migratory pressure can ask for a reduction, and each chooses how to contribute: by relocating applicants from countries under pressure, by making financial contributions, or by funding operational and capacity-building measures. No Member State can be obliged to carry out relocations.\n\nSupporters argue that this flexibility made agreement possible after years of deadlock over earlier reform proposals. Critics on one side say that allowing states to pay instead of relocating weakens the principle of shared responsibility; critics on the other side object to any compulsory element at all. How the mechanism works in practice will depend largely on the pledges that Member States make.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "The Commission can require a Member State to relocate applicants if that state has pledged too little to the annual pool.",
@@ -160,7 +160,8 @@ EPSO_BANK.registerSet({
         "Not supported. The text does not say where contributions are paid or what they fund.",
         "Correct. Member States 'must contribute their fair share' and choose how; since relocation is only one of three forms, a state that relocates nobody still contributes in another form."
       ],
-      "explanation": "The key separates an obligation (to contribute) from a choice (of the form). The critics option merges two opposing groups of critics into one."
+      "explanation": "The key separates an obligation (to contribute) from a choice (of the form). The critics option merges two opposing groups of critics into one.",
+      "supersedes": "v05-06"
     },
     {
       "id": "v05-07",
@@ -215,11 +216,11 @@ EPSO_BANK.registerSet({
       "explanation": "The key restates a narrow exception. The overstated option widens that exception from certain ICT occupations to every applicant."
     },
     {
-      "id": "v05-09",
+      "id": "v05-09-r2",
       "topic": "EU citizenship",
       "difficulty": 3,
       "keyType": "inference",
-      "passage": "Every citizen of the Union has the right to move and reside freely within the territory of the Member States, but under the 2004 Citizens' Rights Directive that right is graded according to the length of stay. For up to three months, a citizen needs nothing more than a valid identity card or passport. Beyond three months, the right of residence depends on the person's situation: workers and self-employed people qualify, while students and economically inactive people must have sufficient resources not to become a burden on the host state's social assistance system, as well as comprehensive sickness insurance. Host states may require registration with the authorities after three months.\n\nAfter five years of continuous legal residence, a citizen acquires the right of permanent residence, which is no longer subject to these conditions. It is lost only through absence from the host state for more than two consecutive years. Family members, including those who are not themselves EU citizens, enjoy rights derived from the citizen's.\n\nProtection against expulsion also increases over time. A host state may restrict free movement on grounds of public policy, public security or public health, but such measures must be proportionate and based exclusively on the personal conduct of the individual concerned. Once a citizen has resided in the host state for the previous ten years, expulsion is possible only on imperative grounds of public security.",
+      "passage": "Every citizen of the Union has the right to move and reside freely within the territory of the Member States, but under the 2004 Citizens' Rights Directive that right is graded according to the length of stay. For up to three months, a citizen needs nothing more than a valid identity card or passport. Beyond three months, the right of residence depends on the person's situation: workers and self-employed people qualify, while students and economically inactive people must have sufficient resources not to become a burden on the host state's social assistance system, as well as comprehensive sickness insurance. Host states may require registration with the authorities after three months.\n\nAfter five years of continuous legal residence, a citizen acquires the right of permanent residence, which is no longer subject to these conditions. It is lost only through absence from the host state for more than two consecutive years. Family members, including those who are not themselves EU citizens, enjoy rights derived from the citizen's.\n\nProtection against expulsion also increases over time. A host state may restrict free movement on grounds of public policy, public security or public health, and restrictions must be proportionate. Public-policy and public-security measures must be based exclusively on personal conduct; public-health measures follow separate rules. Once a citizen has resided in the host state for the previous ten years, expulsion is possible only on imperative grounds of public security.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Students moving to another Member State must usually prove a minimum monthly income that is set at EU level.",
@@ -238,7 +239,8 @@ EPSO_BANK.registerSet({
         "Not supported. The text says family members 'enjoy rights derived from the citizen's' but gives no ten-year rule for them.",
         "Correct. After five years of continuous legal residence, permanent residence 'is no longer subject to these conditions', including sufficient resources."
       ],
-      "explanation": "The key applies the permanent-residence rule to a new case. The 'every host state' option turns a permission into a universal rule; two others invent rules the text does not contain."
+      "explanation": "The key applies the permanent-residence rule to a new case. The 'every host state' option turns a permission into a universal rule; two others invent rules the text does not contain.",
+      "supersedes": "v05-09"
     },
     {
       "id": "v05-10",
@@ -476,15 +478,15 @@ EPSO_BANK.registerSet({
       "explanation": "The key turns Popper's criterion around: a theory that forbids nothing cannot be falsified. Two traps inflate 'complications' and 'sometimes'."
     },
     {
-      "id": "v05-19",
+      "id": "v05-19-r2",
       "topic": "Philosophy of science",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', accepting a study for publication on the basis of its design, before the results are known. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
+      "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', giving in-principle acceptance based on design before results are known, with final publication subject to faithful execution and quality checks. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "The 2015 project demonstrated that most of the findings published in psychology journals are false.",
-        "With registered reports, positive results cannot sway a journal's decision to publish a study.",
+        "Positive results cannot sway initial acceptance of a registered report before outcomes are known.",
         "Preregistration of hypotheses is now a condition for publication in most psychology journals.",
         "Supporters claim that preregistration and registered reports eliminate bias from published research."
       ],
@@ -495,11 +497,12 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "False. 'The project did not show that the original findings were wrong.'",
-        "Correct. Studies are accepted 'before the results are known', so the bias towards 'novel and positive findings' cannot affect the decision.",
+        "Correct. In-principle acceptance is based on design before outcomes are known; this does not waive the later execution and quality checks.",
         "Not supported. 'Some journals' offer registered reports; the text gives no rule on preregistration for most journals.",
         "Overstated. Supporters argue that the measures 'reduce bias', not that they eliminate it."
       ],
-      "explanation": "The key links a stated cause of the problem with the design of one reform. The traps turn 'reduce' into 'eliminate' and a non-finding into a finding."
+      "explanation": "The key links a stated cause of the problem with the design of one reform. The traps turn 'reduce' into 'eliminate' and a non-finding into a finding.",
+      "supersedes": "v05-19"
     },
     {
       "id": "v05-20",

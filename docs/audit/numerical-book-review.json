@@ -1,0 +1,2731 @@
+{
+  "date": "2026-11-02",
+  "scope": "All 220 numerical items; question wording, answers and Coach teaching paths",
+  "items": 220,
+  "revised": 200,
+  "unchanged": 20,
+  "answerOptionsAndKeysUnchanged": true,
+  "exhibitsUnchanged": true,
+  "fixedFormsPreserveOriginalMembership": true,
+  "limits": "Independent answer solvers and targeted teaching regressions; not independent human review or learner calibration. Generic mistake-note screening does not independently recalculate every distractor.",
+  "records": [
+    {
+      "id": "n01-01-r3",
+      "previousId": "n01-01-r2",
+      "topic": "Percentage change of a total",
+      "correctAnswer": "11.2%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-02-r3",
+      "previousId": "n01-02-r2",
+      "topic": "Share of a total",
+      "correctAnswer": "42.1%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n01-03-r3",
+      "previousId": "n01-03-r2",
+      "topic": "Per-capita change",
+      "correctAnswer": "13.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-04-r3",
+      "previousId": "n01-04-r2",
+      "topic": "Percentage points",
+      "correctAnswer": "6.4 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-05-r2",
+      "previousId": "n01-05-r2",
+      "topic": "Ratios from a chart",
+      "correctAnswer": "2022",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n01-06-r3",
+      "previousId": "n01-06-r2",
+      "topic": "Currency conversion",
+      "correctAnswer": "SEK 75,624.60",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-07-r3",
+      "previousId": "n01-07-r2",
+      "topic": "Weighted average",
+      "correctAnswer": "EUR 5,780",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-08-r3",
+      "previousId": "n01-08-r2",
+      "topic": "Removing VAT",
+      "correctAnswer": "EUR 14,062.81",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-09-r3",
+      "previousId": "n01-09-r2",
+      "topic": "Budget reallocation",
+      "correctAnswer": "EUR 12.12 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n01-10-r3",
+      "previousId": "n01-10-r2",
+      "topic": "Shares in a stacked chart",
+      "correctAnswer": "24.1%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-01-r3",
+      "previousId": "n02-01-r2",
+      "topic": "Rates with changing base",
+      "correctAnswer": "10.59%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-02-r3",
+      "previousId": "n02-02-r2",
+      "topic": "Growth projection",
+      "correctAnswer": "92.7 PB",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-03-r3",
+      "previousId": "n02-03-r2",
+      "topic": "Units and per-capita values",
+      "correctAnswer": "15,319 kWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-04-r3",
+      "previousId": "n02-04-r2",
+      "topic": "Rates of work",
+      "correctAnswer": "55.2 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-05-r3",
+      "previousId": "n02-05-r2",
+      "topic": "Average speed",
+      "correctAnswer": "36.1 km/h",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n02-06-r3",
+      "previousId": "n02-06-r2",
+      "topic": "Successive percentage changes",
+      "correctAnswer": "EUR 185.36",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-07-r3",
+      "previousId": "n02-07-r2",
+      "topic": "Percentages of percentages",
+      "correctAnswer": "184",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-08-r2",
+      "previousId": "n02-08-r2",
+      "topic": "Per-capita comparison",
+      "correctAnswer": "Tavel",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-09-r3",
+      "previousId": "n02-09-r2",
+      "topic": "Undoing a percentage change",
+      "correctAnswer": "130,432",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-10-r3",
+      "previousId": "n02-10-r2",
+      "topic": "Multi-step: unit cost",
+      "correctAnswer": "EUR 8,067",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-11-r3",
+      "previousId": "n02-11-r2",
+      "topic": "Shares to amounts",
+      "correctAnswer": "370 grants",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-12-r3",
+      "previousId": "n02-12-r2",
+      "topic": "Averaging rates",
+      "correctAnswer": "50.5%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-13-r3",
+      "previousId": "n02-13-r2",
+      "topic": "Compound growth",
+      "correctAnswer": "EUR 39,109.46",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-14-r2",
+      "previousId": "n02-14-r2",
+      "topic": "Highest share in a stacked chart",
+      "correctAnswer": "Hollen",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-15-r3",
+      "previousId": "n02-15-r2",
+      "topic": "Combining two exhibits",
+      "correctAnswer": "EUR 8.16",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-16-r3",
+      "previousId": "n02-16-r2",
+      "topic": "Index numbers: values",
+      "correctAnswer": "EUR 1,701.0 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-17-r3",
+      "previousId": "n02-17-r2",
+      "topic": "Index numbers: percentage change",
+      "correctAnswer": "16.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-18-r3",
+      "previousId": "n02-18-r2",
+      "topic": "Market share in percentage points",
+      "correctAnswer": "3.12 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-19-r3",
+      "previousId": "n02-19-r2",
+      "topic": "Required growth rate",
+      "correctAnswer": "4.59%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-20-r3",
+      "previousId": "n02-20-r2",
+      "topic": "Fixed and variable costs",
+      "correctAnswer": "EUR 64.33",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-21-r3",
+      "previousId": "n02-21-r2",
+      "topic": "Break-even point",
+      "correctAnswer": "21,666.7 pages",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-22-r3",
+      "previousId": "n02-22-r2",
+      "topic": "Proportional allocation",
+      "correctAnswer": "EUR 7.55 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-23-r3",
+      "previousId": "n02-23-r2",
+      "topic": "Discounts and VAT",
+      "correctAnswer": "EUR 29,773.35",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-24-r2",
+      "previousId": "n02-24-r2",
+      "topic": "Unit price comparison",
+      "correctAnswer": "Supplier D",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-25-r2",
+      "previousId": "n02-25-r2",
+      "topic": "Largest gap on a line chart",
+      "correctAnswer": "2024",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-26-r3",
+      "previousId": "n02-26-r2",
+      "topic": "Combined work rates",
+      "correctAnswer": "397.8 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-27-r3",
+      "previousId": "n02-27-r2",
+      "topic": "Percentage difference between two items",
+      "correctAnswer": "566.2%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-28-r3",
+      "previousId": "n02-28-r2",
+      "topic": "Averages over part of a period",
+      "correctAnswer": "54.0",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-29-r3",
+      "previousId": "n02-29-r2",
+      "topic": "Percentage change of a total",
+      "correctAnswer": "2.7%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-30-r3",
+      "previousId": "n02-30-r2",
+      "topic": "Share of a total",
+      "correctAnswer": "37.9%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n02-31-r3",
+      "previousId": "n02-31-r2",
+      "topic": "Per-capita change",
+      "correctAnswer": "12.5%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-32-r3",
+      "previousId": "n02-32-r2",
+      "topic": "Relative change",
+      "correctAnswer": "24.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-33-r2",
+      "previousId": "n02-33-r2",
+      "topic": "Ratios from a chart",
+      "correctAnswer": "Q4 22",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-34-r3",
+      "previousId": "n02-34-r2",
+      "topic": "Currency conversion",
+      "correctAnswer": "CZK 417,370.75",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-35-r3",
+      "previousId": "n02-35-r2",
+      "topic": "Weighted average",
+      "correctAnswer": "37.24 hours",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-36-r3",
+      "previousId": "n02-36-r2",
+      "topic": "Removing VAT",
+      "correctAnswer": "EUR 8,359.66",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-37-r3",
+      "previousId": "n02-37-r2",
+      "topic": "Budget reallocation",
+      "correctAnswer": "EUR 2.66 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-38-r3",
+      "previousId": "n02-38-r2",
+      "topic": "Shares in a stacked chart",
+      "correctAnswer": "37.0%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-39-r3",
+      "previousId": "n02-39-r2",
+      "topic": "Rates with changing base",
+      "correctAnswer": "5.92%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-40-r3",
+      "previousId": "n02-40-r2",
+      "topic": "Growth projection",
+      "correctAnswer": "54.9 GW",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-41-r3",
+      "previousId": "n02-41-r2",
+      "topic": "Units and per-capita values",
+      "correctAnswer": "353 m³",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-42-r3",
+      "previousId": "n02-42-r2",
+      "topic": "Rates of work",
+      "correctAnswer": "12.1 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-43-r3",
+      "previousId": "n02-43-r2",
+      "topic": "Average speed",
+      "correctAnswer": "51.0 km/h",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n02-44-r3",
+      "previousId": "n02-44-r2",
+      "topic": "Successive percentage changes",
+      "correctAnswer": "EUR 3,744.91",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-45-r3",
+      "previousId": "n02-45-r2",
+      "topic": "Percentages of percentages",
+      "correctAnswer": "609",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-46-r2",
+      "previousId": "n02-46-r2",
+      "topic": "Per-capita comparison",
+      "correctAnswer": "Kestrel",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n02-47-r3",
+      "previousId": "n02-47-r2",
+      "topic": "Undoing a percentage change",
+      "correctAnswer": "10,501",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-48-r3",
+      "previousId": "n02-48-r2",
+      "topic": "Multi-step: unit cost",
+      "correctAnswer": "EUR 3,923",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-49-r3",
+      "previousId": "n02-49-r2",
+      "topic": "Shares to amounts",
+      "correctAnswer": "1,023 complaints",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n02-50-r3",
+      "previousId": "n02-50-r2",
+      "topic": "Averaging rates",
+      "correctAnswer": "42.1%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-01-r3",
+      "previousId": "n03-01-r2",
+      "topic": "Compound growth",
+      "correctAnswer": "EUR 57,829.60",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-02-r2",
+      "previousId": "n03-02-r2",
+      "topic": "Highest share in a stacked chart",
+      "correctAnswer": "Istrada",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-03-r3",
+      "previousId": "n03-03-r2",
+      "topic": "Combining two exhibits",
+      "correctAnswer": "EUR 27.64",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-04-r3",
+      "previousId": "n03-04-r2",
+      "topic": "Index numbers: values",
+      "correctAnswer": "EUR 4,988.1 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-05-r3",
+      "previousId": "n03-05-r2",
+      "topic": "Index numbers: percentage change",
+      "correctAnswer": "16.8%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-06-r3",
+      "previousId": "n03-06-r2",
+      "topic": "Market share in percentage points",
+      "correctAnswer": "2.17 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-07-r3",
+      "previousId": "n03-07-r2",
+      "topic": "Required growth rate",
+      "correctAnswer": "10.67%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-08-r3",
+      "previousId": "n03-08-r2",
+      "topic": "Fixed and variable costs",
+      "correctAnswer": "EUR 105.89",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-09-r3",
+      "previousId": "n03-09-r2",
+      "topic": "Break-even point",
+      "correctAnswer": "7,857.1 kilometres",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-10-r3",
+      "previousId": "n03-10-r2",
+      "topic": "Proportional allocation",
+      "correctAnswer": "EUR 29.25 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-11-r3",
+      "previousId": "n03-11-r2",
+      "topic": "Discounts and VAT",
+      "correctAnswer": "EUR 18,372.17",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-12-r2",
+      "previousId": "n03-12-r2",
+      "topic": "Unit price comparison",
+      "correctAnswer": "Vendor 3",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-13-r2",
+      "previousId": "n03-13-r2",
+      "topic": "Largest relative gap on a line chart",
+      "correctAnswer": "2023",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-14-r3",
+      "previousId": "n03-14-r2",
+      "topic": "Combined work rates",
+      "correctAnswer": "261.3 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-15-r3",
+      "previousId": "n03-15-r2",
+      "topic": "Percentage difference between two items",
+      "correctAnswer": "595.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-16-r3",
+      "previousId": "n03-16-r2",
+      "topic": "Averages over part of a period",
+      "correctAnswer": "2,886.2",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-17-r3",
+      "previousId": "n03-17-r2",
+      "topic": "Percentage change of a total",
+      "correctAnswer": "8.9%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-18-r3",
+      "previousId": "n03-18-r2",
+      "topic": "Share of a total",
+      "correctAnswer": "24.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n03-19-r3",
+      "previousId": "n03-19-r2",
+      "topic": "Per-capita change",
+      "correctAnswer": "13.8%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-20-r3",
+      "previousId": "n03-20-r2",
+      "topic": "Relative change",
+      "correctAnswer": "38.0%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-21-r2",
+      "previousId": "n03-21-r2",
+      "topic": "Ratios from a chart",
+      "correctAnswer": "2020",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-22-r3",
+      "previousId": "n03-22-r2",
+      "topic": "Currency conversion",
+      "correctAnswer": "CHF 14,719.23",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-23-r3",
+      "previousId": "n03-23-r2",
+      "topic": "Weighted average",
+      "correctAnswer": "EUR 565.35",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-24-r3",
+      "previousId": "n03-24-r2",
+      "topic": "Removing VAT",
+      "correctAnswer": "EUR 5,167.48",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-25-r3",
+      "previousId": "n03-25-r2",
+      "topic": "Budget reallocation",
+      "correctAnswer": "EUR 0.55 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-26-r3",
+      "previousId": "n03-26-r2",
+      "topic": "Shares in a stacked chart",
+      "correctAnswer": "37.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-27-r3",
+      "previousId": "n03-27-r2",
+      "topic": "Rates with changing base",
+      "correctAnswer": "32.16%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-28-r3",
+      "previousId": "n03-28-r2",
+      "topic": "Growth projection",
+      "correctAnswer": "109.7 EUR bn",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-29-r3",
+      "previousId": "n03-29-r2",
+      "topic": "Units and per-capita values",
+      "correctAnswer": "572 kg",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-30-r3",
+      "previousId": "n03-30-r2",
+      "topic": "Rates of work",
+      "correctAnswer": "27.4 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-31-r3",
+      "previousId": "n03-31-r2",
+      "topic": "Average speed",
+      "correctAnswer": "42.1 km/h",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n03-32-r3",
+      "previousId": "n03-32-r2",
+      "topic": "Successive percentage changes",
+      "correctAnswer": "EUR 2,150.74",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-33-r3",
+      "previousId": "n03-33-r2",
+      "topic": "Percentages of percentages",
+      "correctAnswer": "93",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-34-r2",
+      "previousId": "n03-34-r2",
+      "topic": "Per-capita comparison",
+      "correctAnswer": "Marrow",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-35-r3",
+      "previousId": "n03-35-r2",
+      "topic": "Undoing a percentage change",
+      "correctAnswer": "85,292",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-36-r3",
+      "previousId": "n03-36-r2",
+      "topic": "Multi-step: unit cost",
+      "correctAnswer": "EUR 1,600",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-37-r3",
+      "previousId": "n03-37-r2",
+      "topic": "Shares to amounts",
+      "correctAnswer": "14,094 visitors",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-38-r3",
+      "previousId": "n03-38-r2",
+      "topic": "Averaging rates",
+      "correctAnswer": "54.6%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-39-r3",
+      "previousId": "n03-39-r2",
+      "topic": "Compound growth",
+      "correctAnswer": "EUR 31,066.10",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-40-r2",
+      "previousId": "n03-40-r2",
+      "topic": "Highest share in a stacked chart",
+      "correctAnswer": "Istrada",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n03-41-r3",
+      "previousId": "n03-41-r2",
+      "topic": "Combining two exhibits",
+      "correctAnswer": "EUR 2.62",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-42-r3",
+      "previousId": "n03-42-r2",
+      "topic": "Index numbers: values",
+      "correctAnswer": "EUR 33.7 billion",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-43-r3",
+      "previousId": "n03-43-r2",
+      "topic": "Index numbers: percentage change",
+      "correctAnswer": "15.9%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-44-r3",
+      "previousId": "n03-44-r2",
+      "topic": "Market share in percentage points",
+      "correctAnswer": "3.92 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-45-r3",
+      "previousId": "n03-45-r2",
+      "topic": "Required growth rate",
+      "correctAnswer": "5.01%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-46-r3",
+      "previousId": "n03-46-r2",
+      "topic": "Fixed and variable costs",
+      "correctAnswer": "EUR 121.25",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-47-r3",
+      "previousId": "n03-47-r2",
+      "topic": "Break-even point",
+      "correctAnswer": "12,916.7 kWhs",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-48-r3",
+      "previousId": "n03-48-r2",
+      "topic": "Proportional allocation",
+      "correctAnswer": "EUR 2.32 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-49-r3",
+      "previousId": "n03-49-r2",
+      "topic": "Discounts and VAT",
+      "correctAnswer": "EUR 8,586.00",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n03-50-r2",
+      "previousId": "n03-50-r2",
+      "topic": "Unit price comparison",
+      "correctAnswer": "Firm U",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-01-r2",
+      "previousId": "n04-01-r2",
+      "topic": "Largest gap on a line chart",
+      "correctAnswer": "2023",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-02-r3",
+      "previousId": "n04-02-r2",
+      "topic": "Combined work rates",
+      "correctAnswer": "383.0 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-03-r3",
+      "previousId": "n04-03-r2",
+      "topic": "Percentage difference between two items",
+      "correctAnswer": "947.8%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-04-r3",
+      "previousId": "n04-04-r2",
+      "topic": "Averages over part of a period",
+      "correctAnswer": "51.5",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-05-r3",
+      "previousId": "n04-05-r2",
+      "topic": "Percentage change of a total",
+      "correctAnswer": "11.5%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-06-r3",
+      "previousId": "n04-06-r2",
+      "topic": "Share of a total",
+      "correctAnswer": "37.7%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n04-07-r3",
+      "previousId": "n04-07-r2",
+      "topic": "Per-capita change",
+      "correctAnswer": "14.7%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-08-r3",
+      "previousId": "n04-08-r2",
+      "topic": "Percentage points",
+      "correctAnswer": "6.1 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-09-r2",
+      "previousId": "n04-09-r2",
+      "topic": "Ratios from a chart",
+      "correctAnswer": "2024",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-10-r3",
+      "previousId": "n04-10-r2",
+      "topic": "Weighted average",
+      "correctAnswer": "58.68",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-11-r3",
+      "previousId": "n04-11-r2",
+      "topic": "Removing VAT",
+      "correctAnswer": "EUR 11,711.20",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-12-r3",
+      "previousId": "n04-12-r2",
+      "topic": "Budget reallocation",
+      "correctAnswer": "EUR 22.66 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-13-r3",
+      "previousId": "n04-13-r2",
+      "topic": "Shares in a stacked chart",
+      "correctAnswer": "29.8%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-14-r3",
+      "previousId": "n04-14-r2",
+      "topic": "Rates with changing base",
+      "correctAnswer": "25.65%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-15-r3",
+      "previousId": "n04-15-r2",
+      "topic": "Growth projection",
+      "correctAnswer": "66.9 thousand",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-16-r3",
+      "previousId": "n04-16-r2",
+      "topic": "Units and per-capita values",
+      "correctAnswer": "17,105 kWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-17-r3",
+      "previousId": "n04-17-r2",
+      "topic": "Average speed",
+      "correctAnswer": "12.3 km/h",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes",
+        "explanation"
+      ]
+    },
+    {
+      "id": "n04-18-r3",
+      "previousId": "n04-18-r2",
+      "topic": "Successive percentage changes",
+      "correctAnswer": "EUR 4,324.57",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-19-r3",
+      "previousId": "n04-19-r2",
+      "topic": "Percentages of percentages",
+      "correctAnswer": "420",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-20-r2",
+      "previousId": "n04-20-r2",
+      "topic": "Per-capita comparison",
+      "correctAnswer": "Kestrel",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-21-r3",
+      "previousId": "n04-21-r2",
+      "topic": "Undoing a percentage change",
+      "correctAnswer": "4,941",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-22-r3",
+      "previousId": "n04-22-r2",
+      "topic": "Multi-step: unit cost",
+      "correctAnswer": "EUR 26,505",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-23-r3",
+      "previousId": "n04-23-r2",
+      "topic": "Shares to amounts",
+      "correctAnswer": "176 staff",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-24-r3",
+      "previousId": "n04-24-r2",
+      "topic": "Averaging rates",
+      "correctAnswer": "46.4%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-25-r3",
+      "previousId": "n04-25-r2",
+      "topic": "Compound growth",
+      "correctAnswer": "EUR 11,149.42",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-26-r2",
+      "previousId": "n04-26-r2",
+      "topic": "Highest share in a stacked chart",
+      "correctAnswer": "Jorvik",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-27-r3",
+      "previousId": "n04-27-r2",
+      "topic": "Combining two exhibits",
+      "correctAnswer": "EUR 18.24",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-28-r3",
+      "previousId": "n04-28-r2",
+      "topic": "Index numbers: values",
+      "correctAnswer": "124.9 thousand",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-29-r3",
+      "previousId": "n04-29-r2",
+      "topic": "Index numbers: percentage change",
+      "correctAnswer": "26.3%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-30-r3",
+      "previousId": "n04-30-r2",
+      "topic": "Market share in percentage points",
+      "correctAnswer": "3.22 percentage points",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-31-r3",
+      "previousId": "n04-31-r2",
+      "topic": "Required growth rate",
+      "correctAnswer": "9.45%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-32-r3",
+      "previousId": "n04-32-r2",
+      "topic": "Fixed and variable costs",
+      "correctAnswer": "EUR 78.46",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-33-r3",
+      "previousId": "n04-33-r2",
+      "topic": "Break-even point",
+      "correctAnswer": "18,571.4 gigabytes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-34-r3",
+      "previousId": "n04-34-r2",
+      "topic": "Proportional allocation",
+      "correctAnswer": "EUR 47.86 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-35-r3",
+      "previousId": "n04-35-r2",
+      "topic": "Discounts and VAT",
+      "correctAnswer": "EUR 1,826.62",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-36-r2",
+      "previousId": "n04-36-r2",
+      "topic": "Unit price comparison",
+      "correctAnswer": "Grower 6",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-37-r2",
+      "previousId": "n04-37-r2",
+      "topic": "Largest relative gap on a line chart",
+      "correctAnswer": "2020",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": []
+    },
+    {
+      "id": "n04-38-r3",
+      "previousId": "n04-38-r2",
+      "topic": "Combined work rates",
+      "correctAnswer": "410.6 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-39-r3",
+      "previousId": "n04-39-r2",
+      "topic": "Percentage difference between two items",
+      "correctAnswer": "382.1%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n04-40-r3",
+      "previousId": "n04-40-r2",
+      "topic": "Averages over part of a period",
+      "correctAnswer": "260.0",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "stem",
+        "solution",
+        "optionNotes"
+      ]
+    },
+    {
+      "id": "n05-01-r2",
+      "previousId": "n05-01",
+      "topic": "Capped weighted redistribution",
+      "correctAnswer": "EUR 4.76 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-02-r2",
+      "previousId": "n05-02",
+      "topic": "Cross-currency landed cost",
+      "correctAnswer": "EUR 32,947.44",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-03-r2",
+      "previousId": "n05-03",
+      "topic": "Loss-adjusted emissions substitution",
+      "correctAnswer": "5.90 TWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-04-r2",
+      "previousId": "n05-04",
+      "topic": "Real pooled productivity",
+      "correctAnswer": "29.25%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-05-r2",
+      "previousId": "n05-05",
+      "topic": "Linked-index real per-capita change",
+      "correctAnswer": "21.88%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-06-r2",
+      "previousId": "n05-06",
+      "topic": "Recovered-output capacity",
+      "correctAnswer": "41.46 hours",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-07-r2",
+      "previousId": "n05-07",
+      "topic": "Reverse stock flow with returns",
+      "correctAnswer": "5,308.51 units",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-08-r2",
+      "previousId": "n05-08",
+      "topic": "Hedged exchange-rate threshold",
+      "correctAnswer": "0.7890 EUR per USD",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-09-r2",
+      "previousId": "n05-09",
+      "topic": "Yield-adjusted profit threshold",
+      "correctAnswer": "195 batches",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n05-10-r2",
+      "previousId": "n05-10",
+      "topic": "Reverse pooled success rate",
+      "correctAnswer": "84.86%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-01-r2",
+      "previousId": "n06-01",
+      "topic": "Reverse stock flow with returns",
+      "correctAnswer": "6,225.08 units",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-02-r2",
+      "previousId": "n06-02",
+      "topic": "Recovered-output capacity",
+      "correctAnswer": "33.43 hours",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-03-r2",
+      "previousId": "n06-03",
+      "topic": "Real pooled productivity",
+      "correctAnswer": "31.71%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-04-r2",
+      "previousId": "n06-04",
+      "topic": "Yield-adjusted profit threshold",
+      "correctAnswer": "169 batches",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-05-r2",
+      "previousId": "n06-05",
+      "topic": "Hedged exchange-rate threshold",
+      "correctAnswer": "0.6154 EUR per USD",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-06-r2",
+      "previousId": "n06-06",
+      "topic": "Reverse pooled success rate",
+      "correctAnswer": "83.32%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-07-r2",
+      "previousId": "n06-07",
+      "topic": "Loss-adjusted emissions substitution",
+      "correctAnswer": "7.09 TWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-08-r2",
+      "previousId": "n06-08",
+      "topic": "Cross-currency landed cost",
+      "correctAnswer": "EUR 48,692.81",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-09-r2",
+      "previousId": "n06-09",
+      "topic": "Capped weighted redistribution",
+      "correctAnswer": "EUR 5.25 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n06-10-r2",
+      "previousId": "n06-10",
+      "topic": "Linked-index real per-capita change",
+      "correctAnswer": "20.83%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-01-r2",
+      "previousId": "n07-01",
+      "topic": "Reverse pooled success rate",
+      "correctAnswer": "81.64%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-02-r2",
+      "previousId": "n07-02",
+      "topic": "Hedged exchange-rate threshold",
+      "correctAnswer": "0.4505 EUR per USD",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-03-r2",
+      "previousId": "n07-03",
+      "topic": "Yield-adjusted profit threshold",
+      "correctAnswer": "200 batches",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-04-r2",
+      "previousId": "n07-04",
+      "topic": "Loss-adjusted emissions substitution",
+      "correctAnswer": "8.38 TWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-05-r2",
+      "previousId": "n07-05",
+      "topic": "Cross-currency landed cost",
+      "correctAnswer": "EUR 67,971.12",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-06-r2",
+      "previousId": "n07-06",
+      "topic": "Linked-index real per-capita change",
+      "correctAnswer": "19.72%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-07-r2",
+      "previousId": "n07-07",
+      "topic": "Capped weighted redistribution",
+      "correctAnswer": "EUR 4.11 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-08-r2",
+      "previousId": "n07-08",
+      "topic": "Real pooled productivity",
+      "correctAnswer": "27.50%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-09-r2",
+      "previousId": "n07-09",
+      "topic": "Recovered-output capacity",
+      "correctAnswer": "26.20 hours",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n07-10-r2",
+      "previousId": "n07-10",
+      "topic": "Reverse stock flow with returns",
+      "correctAnswer": "7,159.91 units",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-01-r2",
+      "previousId": "n08-01",
+      "topic": "Linked-index real per-capita change",
+      "correctAnswer": "18.55%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-02-r2",
+      "previousId": "n08-02",
+      "topic": "Real pooled productivity",
+      "correctAnswer": "29.57%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-03-r2",
+      "previousId": "n08-03",
+      "topic": "Reverse stock flow with returns",
+      "correctAnswer": "8,112.13 units",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-04-r2",
+      "previousId": "n08-04",
+      "topic": "Capped weighted redistribution",
+      "correctAnswer": "EUR 6.49 million",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-05-r2",
+      "previousId": "n08-05",
+      "topic": "Reverse pooled success rate",
+      "correctAnswer": "88.03%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-06-r2",
+      "previousId": "n08-06",
+      "topic": "Hedged exchange-rate threshold",
+      "correctAnswer": "0.2856 EUR per USD",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-07-r2",
+      "previousId": "n08-07",
+      "topic": "Recovered-output capacity",
+      "correctAnswer": "44.99 hours",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-08-r2",
+      "previousId": "n08-08",
+      "topic": "Yield-adjusted profit threshold",
+      "correctAnswer": "173 batches",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-09-r2",
+      "previousId": "n08-09",
+      "topic": "Loss-adjusted emissions substitution",
+      "correctAnswer": "9.79 TWh",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n08-10-r2",
+      "previousId": "n08-10",
+      "topic": "Cross-currency landed cost",
+      "correctAnswer": "EUR 61,716.04",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-01-r2",
+      "previousId": "n09-01",
+      "topic": "Sequential screening posterior",
+      "correctAnswer": "82.92%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-02-r2",
+      "previousId": "n09-02",
+      "topic": "Reverse savings with intervening withdrawal",
+      "correctAnswer": "EUR 60,890.44",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-03-r2",
+      "previousId": "n09-03",
+      "topic": "Emissions-constrained minimum journey time",
+      "correctAnswer": "501.67 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-04-r2",
+      "previousId": "n09-04",
+      "topic": "Indivisible capacity after serial losses",
+      "correctAnswer": "EUR 108,000.00",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-05-r2",
+      "previousId": "n09-05",
+      "topic": "Inverse capped-contribution taxation",
+      "correctAnswer": "EUR 66,615.38",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-06-r2",
+      "previousId": "n09-06",
+      "topic": "Deduplicated workload with conditional rework",
+      "correctAnswer": "97 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-07-r2",
+      "previousId": "n09-07",
+      "topic": "Reverse entrant composition after cohort attrition",
+      "correctAnswer": "68.25%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-08-r2",
+      "previousId": "n09-08",
+      "topic": "Evaporation and replacement mixture",
+      "correctAnswer": "386.35 litres",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-09-r2",
+      "previousId": "n09-09",
+      "topic": "Fee-sensitive portfolio rebalance",
+      "correctAnswer": "EUR 23,225.81",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n09-10-r2",
+      "previousId": "n09-10",
+      "topic": "Replacement finance after taxed disposal",
+      "correctAnswer": "EUR 154,855.67",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-01-r2",
+      "previousId": "n10-01",
+      "topic": "Evaporation and replacement mixture",
+      "correctAnswer": "409.31 litres",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-02-r2",
+      "previousId": "n10-02",
+      "topic": "Fee-sensitive portfolio rebalance",
+      "correctAnswer": "EUR 23,450.67",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-03-r2",
+      "previousId": "n10-03",
+      "topic": "Replacement finance after taxed disposal",
+      "correctAnswer": "EUR 167,600.12",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-04-r2",
+      "previousId": "n10-04",
+      "topic": "Sequential screening posterior",
+      "correctAnswer": "84.44%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-05-r2",
+      "previousId": "n10-05",
+      "topic": "Reverse savings with intervening withdrawal",
+      "correctAnswer": "EUR 63,946.92",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-06-r2",
+      "previousId": "n10-06",
+      "topic": "Emissions-constrained minimum journey time",
+      "correctAnswer": "539.49 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-07-r2",
+      "previousId": "n10-07",
+      "topic": "Indivisible capacity after serial losses",
+      "correctAnswer": "EUR 112,000.00",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-08-r2",
+      "previousId": "n10-08",
+      "topic": "Inverse capped-contribution taxation",
+      "correctAnswer": "EUR 70,365.63",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-09-r2",
+      "previousId": "n10-09",
+      "topic": "Deduplicated workload with conditional rework",
+      "correctAnswer": "102 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n10-10-r2",
+      "previousId": "n10-10",
+      "topic": "Reverse entrant composition after cohort attrition",
+      "correctAnswer": "69.44%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-01-r2",
+      "previousId": "n11-01",
+      "topic": "Inverse capped-contribution taxation",
+      "correctAnswer": "EUR 74,215.87",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-02-r2",
+      "previousId": "n11-02",
+      "topic": "Deduplicated workload with conditional rework",
+      "correctAnswer": "107 days",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-03-r2",
+      "previousId": "n11-03",
+      "topic": "Reverse entrant composition after cohort attrition",
+      "correctAnswer": "70.63%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-04-r2",
+      "previousId": "n11-04",
+      "topic": "Evaporation and replacement mixture",
+      "correctAnswer": "426.93 litres",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-05-r2",
+      "previousId": "n11-05",
+      "topic": "Fee-sensitive portfolio rebalance",
+      "correctAnswer": "EUR 23,779.85",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-06-r2",
+      "previousId": "n11-06",
+      "topic": "Replacement finance after taxed disposal",
+      "correctAnswer": "EUR 180,639.41",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-07-r2",
+      "previousId": "n11-07",
+      "topic": "Sequential screening posterior",
+      "correctAnswer": "85.43%",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-08-r2",
+      "previousId": "n11-08",
+      "topic": "Reverse savings with intervening withdrawal",
+      "correctAnswer": "EUR 67,014.42",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-09-r2",
+      "previousId": "n11-09",
+      "topic": "Emissions-constrained minimum journey time",
+      "correctAnswer": "575.57 minutes",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    },
+    {
+      "id": "n11-10-r2",
+      "previousId": "n11-10",
+      "topic": "Indivisible capacity after serial losses",
+      "correctAnswer": "EUR 109,200.00",
+      "answerUnchanged": true,
+      "exhibitsUnchanged": true,
+      "changedFields": [
+        "optionNotes",
+        "solution"
+      ]
+    }
+  ]
+}

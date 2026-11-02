@@ -1,0 +1,212 @@
+{
+  "reference": "How to succeed in EPSO abstract reasoning tests (Burkett and Franco Reverte, 2021), user-supplied EPUB; methods only, no copied questions or figures.",
+  "method": "Independently decode visible geometry; enumerate bounded feature cycles/steps and coupled/panel grammar; reject conflicting simple continuations; inspect rendered contact sheets. No learner difficulty calibration.",
+  "totals": {
+    "easy": 29,
+    "medium": 131,
+    "hard": 60
+  },
+  "reviewed": 220,
+  "revisedIds": 220,
+  "geometryChanges": [
+    {
+      "id": "a01-03-r2",
+      "previousId": "a01-03",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a02-18-r2",
+      "previousId": "a02-18",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a02-48-r2",
+      "previousId": "a02-48",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a03-23-r2",
+      "previousId": "a03-23",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a03-43-r2",
+      "previousId": "a03-43",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a03-48-r2",
+      "previousId": "a03-48",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a04-08-r2",
+      "previousId": "a04-08",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a04-23-r2",
+      "previousId": "a04-23",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 2,
+      "difficulty": 2
+    },
+    {
+      "id": "a07-04-r2",
+      "previousId": "a07-04",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 3,
+      "difficulty": 3
+    },
+    {
+      "id": "a08-05-r2",
+      "previousId": "a08-05",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 3,
+      "difficulty": 3
+    },
+    {
+      "id": "a11-04-r2",
+      "previousId": "a11-04",
+      "sequenceChanged": true,
+      "optionsChanged": true,
+      "previousDifficulty": 3,
+      "difficulty": 3
+    }
+  ],
+  "difficultyChanges": [
+    {
+      "id": "a05-01-r2",
+      "previousId": "a05-01",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a05-06-r2",
+      "previousId": "a05-06",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a05-08-r2",
+      "previousId": "a05-08",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a06-08-r2",
+      "previousId": "a06-08",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a07-08-r2",
+      "previousId": "a07-08",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a08-02-r2",
+      "previousId": "a08-02",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a08-08-r2",
+      "previousId": "a08-08",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a09-02-r2",
+      "previousId": "a09-02",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a10-05-r2",
+      "previousId": "a10-05",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    },
+    {
+      "id": "a10-08-r2",
+      "previousId": "a10-08",
+      "sequenceChanged": false,
+      "optionsChanged": false,
+      "previousDifficulty": 3,
+      "difficulty": 2
+    }
+  ],
+  "findings": {
+    "ambiguousFoundation": [
+      "a01-03",
+      "a02-18",
+      "a03-23",
+      "a03-43",
+      "a03-48",
+      "a04-08",
+      "a04-23"
+    ],
+    "competingChallenge": [
+      "a07-04",
+      "a08-05",
+      "a11-04"
+    ],
+    "sixthFrameTreatment": "All eight every-third-frame front-layer series now show six observations; seven previously had conflicting short-cycle continuations.",
+    "palette": "Figure tiles preserve black/grey/white in both themes; prior dark-mode inversion conflicted with colour names.",
+    "teaching": "All 220 have concrete predictions, feature-by-feature worked solutions and reviewed hints. Coach has three original examples, including rendered figures."
+  },
+  "verification": {
+    "independentFoundation": 150,
+    "independentChallenge": 70,
+    "contactSheetItems": 220,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "limits": "Bounded grammar uniqueness is not universal mathematical uniqueness. Editorial bands await unseen-item learner trials."
+  }
+}

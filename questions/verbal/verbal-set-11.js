@@ -4,83 +4,93 @@ EPSO_BANK.registerSet({
   section: "verbal",
   title: "Verbal reasoning · Set 11 — Very hard",
   description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 1,
+  version: 2,
   challenge: true,
   questions: [
     {
-      id: "v11-01",
-      topic: "Supplier-comparison composition",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional agency compared the average delivery time of two suppliers. Supplier Birch delivered standard components in an average of four days and specialist components in twelve. Supplier Alder averaged five days for standard components and thirteen for specialist components. The figures covered completed orders in the same quarter, using the same definition of delivery time.\n\nThe agency also published each supplier's overall average, but its short summary omitted the proportions of standard and specialist orders assigned to each. Staff explained that specialist orders generally took longer regardless of supplier. Birch had been used mainly for specialist components, while Alder handled mainly standard components. The exact mix and the overall averages are not supplied in the account available here.\n\nFor an internal planning exercise, the analyst assigned equal numbers of standard and specialist orders to each supplier, retaining each supplier's observed category averages. The exercise did not reassign any actual order and did not predict how delivery times would respond to a changed contract. It excluded every difference other than the mix when recombining the existing category means. No observation established that either supplier could maintain its existing means under a real change in the amount or type of work.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v11-01-r2",
+      "topic": "Supplier-comparison composition",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional agency compared the average delivery time of two suppliers. Supplier Birch delivered standard components in an average of four days and specialist components in twelve. Supplier Alder averaged five days for standard components and thirteen for specialist components. The figures covered completed orders in the same quarter, using the same definition of delivery time.\n\nThe agency also published each supplier's overall average, but its short summary omitted the proportions of standard and specialist orders assigned to each. Staff explained that specialist orders generally took longer regardless of supplier. Birch had been used mainly for specialist components, while Alder handled mainly standard components. The exact mix and the overall averages are not supplied in the account available here.\n\nFor an internal planning exercise, the analyst assigned equal numbers of standard and specialist orders to each supplier, retaining each supplier's observed category averages. The exercise did not reassign any actual order and did not predict how delivery times would respond to a changed contract. It excluded every difference other than the mix when recombining the existing category means. No observation established that either supplier could maintain its existing means under a real change in the amount or type of work.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Birch had the lower observed overall average before the common-mix exercise because its advantage was present in each separate category.",
         "Alder's lower standard-order share follows from Birch being faster in both categories, even though the precise observed category proportions were unpublished.",
         "The exercise eliminates Birch's category advantages because identical weights make the two suppliers' retained delivery-time figures identical.",
         "Common category weights preserve Birch's lower stated mean, without establishing its observed aggregate ranking or future workload response."
       ],
-      answer: 3,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 3,
+      "hints": [
+        "Distinguish observed overall averages from recombinations using common category weights.",
+        "Ask whether changing weights in an arithmetic exercise establishes what would happen to actual delivery performance."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. The actual mixes and overall means are undisclosed; within-category advantages do not determine the observed aggregate ranking.",
         "False. Being faster within each category does not by itself establish the observed weights, and the narrative places more specialist work with Birch.",
         "False. Common weights do not make the distinct category means identical.",
         "Correct. Birch's lower mean in each category survives identical weights; different observed weights and untested workload responses remain separate questions."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Standardised comparison versus intervention prediction",
-        evidence: [
+      "explanation": "A standardised comparison can remove a composition difference without measuring the effect of an actual intervention.",
+      "reasoning": {
+        "model": "Standardised comparison versus intervention prediction",
+        "evidence": [
           "four days for standard components and specialist components in twelve",
           "five days for standard components and thirteen for specialist components",
           "equal numbers of standard and specialist orders",
           "did not reassign any actual order"
         ]
       },
-      reviewedAs: "v11-06"
+      "reviewedAs": "v11-06",
+      "solution": [
+        "Birch is one day faster in each category. With equal counts, its mean is (4 + 12) / 2 = 8 days, versus (5 + 13) / 2 = 9 days for Alder.",
+        "The actual category mixes and overall means are not supplied, so the original aggregate ranking remains unknown.",
+        "No orders were reassigned, and no evidence shows whether the category means would persist after a real workload change."
+      ],
+      "supersedes": "v11-01"
     },
     {
-      id: "v11-02",
-      topic: "Rare-species survey sensitivity",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional woodland study used sound recorders to search for a rare bird. A recognisable call in a recording was accepted as evidence that the bird had visited the recorder's detection area. The absence of a recognised call was treated differently: birds might remain silent, be masked by other sounds or pass outside the effective detection range. Researchers described the method as capable of confirming some visits rather than proving absence.\n\nIn the first season, recorders operated for two nights at each site. In the second, they operated for eight nights. Recognised calls were found at 14 sites in the first season and 23 in the second. Weather and the number of individual birds were not measured consistently between seasons. The report did not identify which sites had positive recordings in both periods.\n\nBoth surveys covered the same 30 sites. Every site had a usable recording in each season; only the listening duration differed as described. The released totals do not identify sites with positive calls in both years. No additional site was introduced, and the report gives no evidence of whether a previously silent site had previously been visited by the bird. The conservation group is examining what the positive-site totals alone force before interpreting any apparent expansion of occupied habitat.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v11-02-r2",
+      "topic": "Rare-species survey sensitivity",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional woodland study used sound recorders to search for a rare bird. A recognisable call in a recording was accepted as evidence that the bird had visited the recorder's detection area. The absence of a recognised call was treated differently: birds might remain silent, be masked by other sounds or pass outside the effective detection range. Researchers described the method as capable of confirming some visits rather than proving absence.\n\nIn the first season, recorders operated for two nights at each site. In the second, they operated for eight nights. Recognised calls were found at 14 sites in the first season and 23 in the second. Weather and the number of individual birds were not measured consistently between seasons. The report did not identify which sites had positive recordings in both periods.\n\nBoth surveys covered the same 30 sites. Every site had a usable recording in each season; only the listening duration differed as described. The released totals do not identify sites with positive calls in both years. No additional site was introduced, and the report gives no evidence of whether a previously silent site had previously been visited by the bird. The conservation group is examining what the positive-site totals alone force before interpreting any apparent expansion of occupied habitat.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Every site positive in the first season also yielded a call in the second, because the longer recording period increased opportunities for detection.",
         "The same fixed set of sites means only the fourteen previously positive sites could yield calls again.",
         "At least nine sites newly yielded calls, without establishing nine newly occupied sites or identifying the full overlap.",
         "The 23 positive sites establish that at least 23 different individual birds were present, because each site yielded a recognised call."
       ],
-      answer: 2,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 2,
+      "hints": [
+        "Compare the two positive-site totals on the same set of sites.",
+        "How many later positives can fit among the earlier positives, and what does a negative recording actually establish?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. The totals leave the overlap unreported; greater opportunity does not establish every old site's later result.",
         "False. The fixed set contains other sites, and twenty-three cannot fit into fourteen.",
         "Correct. Twenty-three positives cannot all fit among fourteen old positives; at least nine come from previously negative sites. Non-detection does not prove prior absence.",
         "Overstated. A single bird can potentially visit multiple detection areas; the site totals do not identify distinct individuals."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Existential overlap bound with imperfect detection",
-        evidence: [
+      "explanation": "A bound on newly detected sites is not a bound on newly occupied sites when detection is imperfect.",
+      "reasoning": {
+        "model": "Existential overlap bound with imperfect detection",
+        "evidence": [
           "14 sites in the first season and 23 in the second",
           "capable of confirming some visits rather than proving absence",
           "same 30 sites"
         ]
       },
-      reviewedAs: "v11-03"
+      "reviewedAs": "v11-03",
+      "solution": [
+        "Only 14 sites were positive in the first season, while 23 were positive in the second.",
+        "At most 14 later positives can come from earlier positive sites, so at least 23 − 14 = 9 had not previously yielded recognised calls.",
+        "An earlier negative does not prove that birds were absent, and these counts do not establish the exact overlap."
+      ],
+      "supersedes": "v11-02"
     },
     {
       id: "v11-03",
@@ -159,42 +169,47 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-15"
     },
     {
-      id: "v11-05",
-      topic: "Food-storage inspection domains",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional food depot uses separate checks for room temperature and package integrity. A batch can enter distribution only if its temperature record is acceptable and its packages pass inspection. An acceptable room temperature does not establish an individual batch's complete temperature history, which includes transport before arrival.\n\nThe depot's temperature display shows the current room reading. Its batch file holds a transport logger record and a seal inspection result. A missing logger record can be replaced by an approved supplier certificate, but a current room reading cannot replace it. A certificate concerns temperature history only; it does not waive the package inspection. In one month, 40 batches arrived and six required additional documentation, without the report specifying their eventual decisions.\n\nCedar's supplier certificate has now been approved, and its packages have passed the required inspection. Batch Fern has a complete acceptable transport logger record but failed package inspection. Current room temperature is acceptable for both. Neither batch has an emergency exemption, and there are no additional release requirements in this case. The depot has not published the cause of Fern's package failure or which supplier supplied either batch. Staff are checking whether different kinds of positive evidence cover both criteria for each batch before releasing either one.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v11-05-r2",
+      "topic": "Food-storage inspection domains",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional food depot uses separate checks for room temperature and package integrity. A batch can enter distribution only if its temperature record is acceptable and its packages pass inspection. An acceptable room temperature does not establish an individual batch's complete temperature history, which includes transport before arrival.\n\nThe depot's temperature display shows the current room reading. Its batch file holds a transport logger record and a seal inspection result. A missing logger record can be replaced by an approved supplier certificate, but a current room reading cannot replace it. A certificate concerns temperature history only; it does not waive the package inspection. In one month, 40 batches arrived and six required additional documentation, without the report specifying their eventual decisions.\n\nCedar's supplier certificate has now been approved, and its packages have passed the required inspection. Batch Fern has a complete acceptable transport logger record but failed package inspection. Current room temperature is acceptable for both. Neither batch has an emergency exemption, and there are no additional release requirements in this case. The depot has not published the cause of Fern's package failure or which supplier supplied either batch. Staff are checking whether different kinds of positive evidence cover both criteria for each batch before releasing either one.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "All batches with acceptable transport records must be released, so Fern's logger overrides the package finding under the same route used for Cedar.",
         "Both batches remain ineligible because a supplier certificate can never replace a logger record and the room display concerns only current temperature.",
         "Cedar satisfies all release conditions through packaging and approved history; Fern's satisfactory logger leaves its package failure unresolved.",
         "Fern's supplier caused its package defect during transport, while Cedar's supplier avoided the same handling failure by providing a certificate."
       ],
-      answer: 2,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 2,
+      "hints": [
+        "Separate the temperature-history condition from the packaging condition.",
+        "Determine exactly which evidence an approved supplier certificate is allowed to replace."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. One satisfied condition is expanded into sufficient release despite the separate package requirement.",
         "False. An approved supplier certificate is an explicitly permitted substitute.",
         "Correct. Approved certificate substitutes for history only, completing Cedar's conjunction; Fern meets history but fails the independent package condition.",
         "Not supported. Neither cause nor supplier identity is reported."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Different evidence routes completing independent conditions",
-        evidence: [
+      "explanation": "Alternative evidence for one prerequisite does not remove a separate prerequisite.",
+      "reasoning": {
+        "model": "Different evidence routes completing independent conditions",
+        "evidence": [
           "only if its temperature record is acceptable and its packages pass inspection",
           "replaced by an approved supplier certificate",
           "Cedar's supplier certificate has now been approved",
           "Fern has a complete acceptable transport logger record but failed package inspection"
         ]
       },
-      reviewedAs: "v11-18"
+      "reviewedAs": "v11-18",
+      "solution": [
+        "Release needs acceptable temperature history and satisfactory packaging.",
+        "Cedar's approved certificate can replace the history record and its packaging passes, so both conditions are satisfied.",
+        "Fern's acceptable logger addresses history, but its packaging failure remains; one condition cannot substitute for the other."
+      ],
+      "supersedes": "v11-05"
     },
     {
       id: "v11-06",
@@ -234,42 +249,42 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-06"
     },
     {
-      id: "v11-07",
-      topic: "Green-space access and group nesting",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional park programme offers evening access to residents with either a local keycard or a permit from a participating school. Every local keycard holder has completed an identity check. A school permit can be issued without that check, but every school-permit holder must enter with a named supervisor from the programme's roster present, including adult permit-holders. Holding both documents is permitted.\n\nAdults can enter without a supervisor when using a local keycard. Children require a rostered supervisor regardless of entry document. A supervisor's presence does not by itself confer an entry document. The gate log lists lawful evening admissions and ages but does not identify the document used. It does not record identity checks or distinguish group visits from solo visits.\n\nThe log includes an adult, Orla, lawfully admitted without any rostered supervisor present, and a child, Ren, lawfully admitted with a supervisor. Orla's and Ren's document files are not released. The programme confirms that no admission used an exception or a document other than the two stated kinds. Their names are not sufficient to identify relationships to the participating schools. The report gives no evidence about whether Ren held one entry document or both, or whether Ren had independently completed an identity check.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Every lawful admission establishes a completed identity check, because a local keycard is one of the two permitted evening-entry documents.",
+      "id": "v11-07-r2",
+      "topic": "Green-space access and group nesting",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional park programme offers evening access to residents with either a local keycard or a permit from a participating school. Every local keycard holder has completed an identity check. A school permit can be issued without that check, but everyone entering on a school permit must enter with a named supervisor from the programme's roster present, including adult permit-holders. Holding both documents is permitted.\n\nAdults can enter without a supervisor when using a local keycard. Children require a rostered supervisor regardless of entry document. A supervisor's presence does not by itself confer an entry document. The gate log lists lawful evening admissions and ages but does not identify the document used. It does not record identity checks or distinguish group visits from solo visits.\n\nThe log includes an adult, Orla, lawfully admitted without any rostered supervisor present, and a child, Ren, lawfully admitted with a supervisor. Orla's and Ren's document files are not released. The programme confirms that no admission used an exception or a document other than the two stated kinds. Their names are not sufficient to identify relationships to the participating schools. The report gives no evidence about whether Ren held one entry document or both, or whether Ren had independently completed an identity check.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Even an entrant using only a school permit must have completed an identity check, because both entry routes require it.",
         "Orla's entry entails a keycard and identity check; Ren's supervisor does not distinguish the two permissible entry routes.",
         "Children entering on a local keycard need no rostered supervisor, so Ren's accompanying supervisor establishes use of a school permit.",
         "Orla was unrelated to the participating schools because an adult without a supervisor could not have any connection to their permit arrangements."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Use absence of a supervisor to eliminate Orla's unavailable route.",
         "For Ren, determine whether the supervisor requirement distinguishes the routes or is shared by both."
       ],
-      optionNotes: [
-        "Overstated. A prerequisite of one permitted route is extended to all admissions.",
+      "optionNotes": [
+        "False. A school permit can be issued without an identity check; the check is required for local keycards, not both routes.",
         "Correct. Without a rostered supervisor Orla cannot use school-permit entry; the remaining keycard route entails an identity check. Ren can use either route.",
         "False. Children need a rostered supervisor regardless of entry document; presence does not identify school-permit entry.",
         "Not supported. Entry-route inference does not establish absence of any school relationship."
       ],
-      explanation: "The same observed accompaniment has different inferential value for adults and children. A necessary condition becomes informative only when it distinguishes the available routes.",
-      reasoning: {
-        model: "Age-dependent route elimination and converse traps",
-        evidence: [
+      "explanation": "The same observed accompaniment has different inferential value for adults and children. A necessary condition becomes informative only when it distinguishes the available routes.",
+      "reasoning": {
+        "model": "Age-dependent route elimination and converse traps",
+        "evidence": [
           "Every local keycard holder has completed an identity check",
-          "every school-permit holder must enter with a named supervisor",
+          "everyone entering on a school permit must enter with a named supervisor",
           "Children require a rostered supervisor regardless",
           "adult, Orla, lawfully admitted without any rostered supervisor"
         ]
       },
-      reviewedAs: "v10-18"
+      "reviewedAs": "v10-18",
+      "supersedes": "v11-07"
     },
     {
       id: "v11-08",
@@ -347,41 +362,46 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-02"
     },
     {
-      id: "v11-10",
-      topic: "Restricted dataset linkage",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional statistics unit permits analysts to use de-identified survey files after completing confidentiality training. Linking those files to employment records requires additional approval from a linkage panel. Completion of training does not imply that linkage has been approved. The panel considers the proposed linkage purpose, the variables to be used and the safeguards in the analysis environment.\n\nAn approval names both a project and a version of its linkage plan. Replacing a variable with a less detailed one does not automatically remove the need to seek approval for an amended plan; the panel decides whether the change can be handled through a simplified review. A simplified review is still a review, not a general exemption. The unit approved 16 linkages last year but gave no average review time.\n\nThe panel approved the team's new seasonal-work project for annual employment status under a revised plan. The decision explicitly excludes monthly status. The original job-change project's earlier annual-data approval also remains valid, but no decision transfers approval between projects. The team now proposes running the seasonal project using monthly observations and publishing only annual totals. It will keep the existing secure environment. No approval specifically covers those monthly inputs, and the panel has not said that annual outputs remove the input restriction.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v11-10-r2",
+      "topic": "Restricted dataset linkage",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional statistics unit permits analysts to use de-identified survey files after completing confidentiality training. Linking those files to employment records requires additional approval from a linkage panel. Completion of training does not imply that linkage has been approved. The panel considers the proposed linkage purpose, the variables to be used and the safeguards in the analysis environment.\n\nAn approval names both a project and a version of its linkage plan. Replacing a variable with a less detailed one does not automatically remove the need to seek approval for an amended plan; the panel decides whether the change can be handled through a simplified review. A simplified review is still a review, not a general exemption. The unit approved 16 linkages last year but gave no average review time.\n\nThe panel approved the team's new seasonal-work project for annual employment status under a revised plan. The decision explicitly excludes monthly status. The original job-change project's earlier annual-data approval also remains valid, but no decision transfers approval between projects. The team now proposes running the seasonal project using monthly observations and publishing only annual totals. It will keep the existing secure environment. No approval specifically covers those monthly inputs, and the panel has not said that annual outputs remove the input restriction.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Neither annual-data approval covers the monthly inputs; shared safeguards and annual output do not change the named input scope.",
         "The old project's approval transfers to the new monthly plan when the secure environment is unchanged.",
         "The seasonal project's approved outputs establish that its monthly inputs underwent a simplified review before the revised decision was issued.",
         "Publishing annual totals makes monthly input use authorised because the new decision's annual-data condition concerns the final reported figures."
       ],
-      answer: 0,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 0,
+      "hints": [
+        "For each approval, list the project and input-data version it names.",
+        "Does summarising monthly inputs into annual outputs change the scope of permission to use those inputs?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. Both decisions cover annual inputs in their named scopes, while the proposed computation uses excluded monthly observations.",
         "False. Approvals are project/version-specific and no transfer decision exists.",
         "Not supported. No monthly-input review or approval is reported.",
         "False. The decision explicitly excludes monthly status; annual output does not change the input named in the plan."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Input scope versus transformed output and project transfer",
-        evidence: [
+      "explanation": "Permission attaches to its stated inputs and project. Transformation of outputs does not retrospectively authorise excluded inputs.",
+      "reasoning": {
+        "model": "Input scope versus transformed output and project transfer",
+        "evidence": [
           "names both a project and a version",
           "the panel decides whether the change can be handled through a simplified review",
           "decision explicitly excludes monthly status"
         ]
       },
-      reviewedAs: "v11-09"
+      "reviewedAs": "v11-09",
+      "solution": [
+        "The decisions approve named annual inputs within their respective project scopes.",
+        "The proposed work uses monthly observations, which the approvals exclude.",
+        "Shared safeguards and annual output do not extend the approved input scope or transfer permission between projects."
+      ],
+      "supersedes": "v11-10"
     }
   ]
 });

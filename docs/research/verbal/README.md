@@ -75,3 +75,7 @@ npm run test:e2e
 ## Fifteen-test expansion
 
 The [follow-up design and research record](../full-tests-2026-10/README.md) covers the addition of three full tests: sixty verbal, thirty numerical and thirty abstract items. The current bank has 300/220/220 questions; new sets are verbal14–19 and numerical/abstract09–11. Existing question content remains unchanged. Refreshed inventories reflect these totals. Very hard is an editorial challenge profile, pending first-attempt learner calibration.
+
+## Supplied-book review (2 November 2026)
+
+The [detailed verbal review](../../VERBAL_BOOK_REVIEW.md) covers a new independent blind assessment of all 300 keys and 900 distractor labels. It repairs one missing-premise question and revises 97 items, including case-specific hints and nineteen worked reasoning paths. Fourteen passage/option revisions received a fresh blind review. Initial disagreements, reconciliations and difficulty concerns remain in [the review archive](blind-review/book-2026-11/README.md); the final record does not erase them. The supplied book was used for methods only, with no copied questions or passages.

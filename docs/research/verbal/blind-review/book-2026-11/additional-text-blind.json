@@ -1,0 +1,35 @@
+[
+  {
+    "id": "v05-19-r2",
+    "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', giving in-principle acceptance based on design before results are known, with final publication subject to faithful execution and quality checks. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 2015 project demonstrated that most of the findings published in psychology journals are false.",
+      "In registered reports, initial acceptance rests on study design rather than whether the eventual results turn out positive.",
+      "Preregistration of hypotheses is now a condition for publication in most psychology journals.",
+      "Supporters claim that preregistration and registered reports eliminate bias from published research."
+    ]
+  },
+  {
+    "id": "v07-18-r2",
+    "passage": "A solar cell converts light into electricity when photons free electrons in a semiconductor. Each semiconductor has a band gap, the minimum energy a photon must carry to free an electron. Photons with less energy than the band gap pass through without producing current, while photons with more energy produce current but lose the excess as heat. This trade-off sets a ceiling on efficiency.\n\nIn 1961 William Shockley and Hans-Joachim Queisser calculated this ceiling for a conventional cell made of a single semiconductor under unconcentrated sunlight. The limit that bears their names is about 33% and is reached with a band gap of around 1.3 to 1.4 electronvolts. Silicon, which dominates the market, has a band gap of about 1.1 electronvolts; its own theoretical maximum, once other unavoidable losses are included, is usually put at around 29%. Good commercial silicon modules now convert more than 20% of sunlight into electricity.\n\nThe limit does not apply to cells that stack several materials with different band gaps, each capturing a different part of the solar spectrum. Such tandem cells, for example combining silicon with a perovskite layer, have exceeded 33% in the laboratory, although questions remain about how well perovskites withstand years of outdoor use.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Perovskite layers have been found unable to withstand years of outdoor use in tandem solar cells.",
+      "A cell converting 36% of unconcentrated sunlight exceeds the stated ceiling for the conventional single-semiconductor model.",
+      "Silicon dominates the market because it is cheaper to produce than other suitable semiconductors.",
+      "Shockley and Queisser predicted in 1961 that stacked cells would one day be able to exceed the limit they had calculated."
+    ]
+  },
+  {
+    "id": "v09-19-r2",
+    "passage": "Most of a human cell's DNA is packed into the nucleus, but mitochondria, the structures that supply cells with energy, carry a small genome of their own. In humans it is a circular molecule of roughly 16,600 base pairs containing 37 genes, compared with about three billion base pairs in the nuclear genome. A cell may contain hundreds or thousands of copies of mitochondrial DNA but only two copies of the nuclear genome.\n\nMitochondrial DNA is inherited almost exclusively from the mother, because the father's mitochondria are normally eliminated after fertilisation; only a handful of cases of paternal transmission have been reported. It therefore passes down the female line largely unchanged, apart from occasional mutations, and is not reshuffled in each generation as nuclear DNA is.\n\nThese properties make it valuable to forensic scientists and archaeologists. Because there are so many copies, it can often be recovered from old or degraded samples when nuclear DNA cannot. A skeleton found under a car park in Leicester in 2012 was later identified as that of King Richard III, in part by comparing its mitochondrial DNA with that of living descendants of his eldest sister through an unbroken female line. Maternal relatives can have matching mitochondrial sequences, although mutations can differentiate some relatives. A shared match alone cannot identify one individual uniquely.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Mitochondrial DNA passes from mother to child entirely unchanged, in every family and every generation.",
+      "The identification of Richard III's skeleton also relied on radiocarbon dating of the bones.",
+      "A mitochondrial match shared by Richard III and a maternal relative could not alone identify which individual the skeleton belonged to.",
+      "Mitochondrial DNA can be recovered from old or degraded samples whenever nuclear DNA cannot be."
+    ]
+  }
+]

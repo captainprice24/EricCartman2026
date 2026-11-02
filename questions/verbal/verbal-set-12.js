@@ -4,45 +4,50 @@ EPSO_BANK.registerSet({
   section: "verbal",
   title: "Verbal reasoning · Set 12 — Very hard",
   description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 1,
+  version: 2,
   challenge: true,
   questions: [
     {
-      id: "v12-01",
-      topic: "Translation-review authority",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional translation office marks a text as linguistically approved when both a translator and an independent reviser sign the final version. A subject expert's comments can inform either signatory but cannot replace either signature. Linguistic approval is separate from authorisation to publish, which belongs to the commissioning body.\n\nAny change after the independent revision must be checked again by the reviser before the changed version receives linguistic approval. A translator may correct an obvious typographical error immediately, but the ease of the correction does not waive that recheck. The commissioning body can publish an unapproved version if it accepts responsibility for doing so; this does not retrospectively supply the missing linguistic approval. Last month the office processed 80 revisions and 25 post-revision corrections, without reporting publication outcomes.\n\nThe translator and reviser signed version A on Monday. The translator changed a number on Tuesday to produce version B. On Wednesday the reviser checked and signed B, but the translator expressly withdrew their own signature pending another source check. The commissioning body then authorised publication of B. No additional translator signature or waiver exists. Version A remains unchanged in the archive, and neither signatory withdrew a signature from that archived version. The public notice identifies B as the published text.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v12-01-r2",
+      "topic": "Translation-review authority",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional translation office marks a text as linguistically approved when both a translator and an independent reviser sign the final version. A subject expert's comments can inform either signatory but cannot replace either signature. Linguistic approval is separate from authorisation to publish, which belongs to the commissioning body.\n\nAny change after the independent revision must be checked again by the reviser before the changed version receives linguistic approval. A translator may correct an obvious typographical error immediately, but the ease of the correction does not waive that recheck. The commissioning body can publish an unapproved version if it accepts responsibility for doing so; this does not retrospectively supply the missing linguistic approval. Last month the office processed 80 revisions and 25 post-revision corrections, without reporting publication outcomes.\n\nThe translator and reviser signed version A on Monday. The translator changed a number on Tuesday to produce version B. On Wednesday the reviser checked and signed B, but the translator expressly withdrew their own signature pending another source check. The commissioning body then authorised publication of B. No additional translator signature or waiver exists. Version A remains unchanged in the archive, and neither signatory withdrew a signature from that archived version. The public notice identifies B as the published text.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Every signature on A automatically applies to B once the reviser has checked the changed number and the commissioning body authorises publication.",
         "A retains both signatures; B has a reviser check and publication authorisation but lacks the translator signature needed for approval.",
         "The translator withdrew the signature after finding that the revised number differed from the source used by the subject expert.",
         "B's new reviser signature replaces the translator's withdrawn signature because it concerns the latest version."
       ],
-      answer: 1,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 1,
+      "hints": [
+        "Track the two signatures separately for each final version.",
+        "Distinguish publication authorisation from the signature requirements for translation approval."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. Version-specific approval is expanded into automatic inheritance despite a changed text and express withdrawal.",
         "Correct. A's signatures remain; B lacks one required final-version signature, and publication is a distinct decision.",
         "Not supported. The reason for the pending source check and any comparison with the expert’s source are not reported.",
         "False. Both signatures are required; revision does not replace translation sign-off."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Version inheritance and withdrawn prerequisites",
-        evidence: [
+      "explanation": "Distinguish version-specific evidence and independent decisions; a later authorisation need not certify every earlier requirement.",
+      "reasoning": {
+        "model": "Version inheritance and withdrawn prerequisites",
+        "evidence": [
           "both a translator and an independent reviser sign the final version",
           "does not retrospectively supply the missing linguistic approval",
           "translator expressly withdrew their own signature"
         ]
       },
-      reviewedAs: "v11-07"
+      "reviewedAs": "v11-07",
+      "solution": [
+        "Version A retains both required signatures.",
+        "Version B has a reviser check and publication authorisation, but lacks the translator signature for the final version.",
+        "The separate publication decision cannot replace the missing approval prerequisite."
+      ],
+      "supersedes": "v12-01"
     },
     {
       id: "v12-02",
@@ -159,41 +164,46 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-20"
     },
     {
-      id: "v12-05",
-      topic: "Consortium voting scopes",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional research consortium has twelve member laboratories. Six hold permanent seats on its executive panel, and four of those six supported a proposed data platform. The other six laboratories participate through an annual assembly, whose vote had not yet occurred when the panel published its recommendation. The consortium's rules describe the panel vote as advice to the assembly, not as the consortium's final decision.\n\nThe proposal requires support from at least seven laboratories at the assembly. A laboratory with a permanent panel seat still casts just one assembly vote, and supporting a panel recommendation does not bind it to cast the same vote later. The assembly can amend a proposal before deciding it. Last year three panel recommendations were adopted and two were rejected, but the report supplies no member-by-member voting record for those proposals.\n\nAt the assembly, all six laboratories without permanent panel seats voted against the unchanged platform proposal. The six panel laboratories' assembly ballots have not been released. All twelve members were eligible to vote, the threshold remained seven supporting laboratories and no abstention altered that threshold. A separate amendment had been discussed informally but was not the text put to this assembly vote. The minutes reported the six non-panel votes separately from the earlier advisory panel recommendation.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v12-05-r2",
+      "topic": "Consortium voting scopes",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional research consortium has twelve member laboratories. Six hold permanent seats on its executive panel, and four of those six supported a proposed data platform. The other six laboratories participate through an annual assembly, whose vote had not yet occurred when the panel published its recommendation. The consortium's rules describe the panel vote as advice to the assembly, not as the consortium's final decision.\n\nThe proposal requires support from at least seven laboratories at the assembly. A laboratory with a permanent panel seat still casts just one assembly vote, and supporting a panel recommendation does not bind it to cast the same vote later. The assembly can amend a proposal before deciding it. Last year three panel recommendations were adopted and two were rejected, but the report supplies no member-by-member voting record for those proposals.\n\nAt the assembly, all six laboratories without permanent panel seats voted against the unchanged platform proposal. The six panel laboratories' assembly ballots have not been released. All twelve members were eligible to vote, the threshold remained seven supporting laboratories and no abstention altered that threshold. A separate amendment had been discussed informally but was not the text put to this assembly vote. The minutes reported the six non-panel votes separately from the earlier advisory panel recommendation.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Only the panel laboratories' unreleased ballots can determine whether this unchanged proposal reached seven votes at the assembly.",
         "The four panel supporters must have opposed at the assembly, since all six non-panel laboratories voted against.",
         "The six non-panel laboratories voted against the informal amendment as well as the unchanged proposal, because their assembly votes concerned the platform.",
         "The unchanged proposal cannot pass even if every panel laboratory supports it, regardless of the earlier advisory majority."
       ],
-      answer: 3,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 3,
+      "hints": [
+        "Apply the assembly threshold to the unchanged proposal and count possible supporters.",
+        "Keep advisory votes and discussion of an amendment separate from binding votes on the unchanged text."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. At most six votes remain available from panel laboratories, below seven.",
         "Not supported. Their later individual votes are not disclosed or forced by the others' opposition.",
         "Not supported. Their votes were on the unchanged proposal, not the separately discussed amendment.",
         "Correct. Six opposing non-panel members leave only six potential supporters. Nonbinding earlier votes cannot create a seventh."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Voting threshold under subgroup bounds",
-        evidence: [
+      "explanation": "An upper bound can rule out passage without revealing every individual vote. Voting scope and legal effect matter as much as the headline majority.",
+      "reasoning": {
+        "model": "Voting threshold under subgroup bounds",
+        "evidence": [
           "at least seven laboratories",
           "does not bind it to cast the same vote later",
           "all six laboratories without permanent panel seats voted against"
         ]
       },
-      reviewedAs: "v11-02"
+      "reviewedAs": "v11-02",
+      "solution": [
+        "Seven assembly votes are required for passage.",
+        "Six non-panel laboratories oppose the unchanged proposal, leaving at most six supporters even if all panel laboratories vote for it.",
+        "The earlier advisory majority cannot provide another binding vote, and amendment discussion does not establish votes on that amendment."
+      ],
+      "supersedes": "v12-05"
     },
     {
       id: "v12-06",
@@ -347,41 +357,46 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-03"
     },
     {
-      id: "v12-10",
-      topic: "Reserve-stock reporting",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional health network defines usable reserve stock as material that is unexpired, has passed quality release and is not already committed to an appointment. The monthly dashboard reports physical stock separately from usable reserve. Moving a package into the central warehouse changes its location but does not establish quality release or remove an existing commitment.\n\nThe central warehouse received 800 packages at the end of March. Of these, 200 awaited quality release and 300 were committed to April appointments. The report does not state the overlap between those groups or the expiry status of the remaining packages. It states that packages awaiting release cannot be used for appointments, even when already booked. Staff must substitute released stock or reschedule the appointment.\n\nPackage-level checking established that exactly 100 packages were in both the pending-release and committed groups. Of the packages in neither excluded group, 150 were confirmed unexpired. Expiry for the others in that remainder was unresolved. These findings concern the same 800-package delivery, and no package was distributed or newly committed before the reserve snapshot. The controller has not inferred expiry from the absence of a flag and has reported each confirmed condition separately.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v12-10-r2",
+      "topic": "Reserve-stock reporting",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional health network defines usable reserve stock as material that is unexpired, has passed quality release and is not already committed to an appointment. The monthly dashboard reports physical stock separately from usable reserve. Moving a package into the central warehouse changes its location but does not establish quality release or remove an existing commitment.\n\nThe central warehouse received 800 packages at the end of March. Of these, 200 awaited quality release and 300 were committed to April appointments. The report does not state the overlap between those groups or the expiry status of the remaining packages. It states that packages awaiting release cannot be used for appointments, even when already booked. Staff must substitute released stock or reschedule the appointment.\n\nPackage-level checking established that exactly 100 packages were in both the pending-release and committed groups. All packages outside the pending-release group had passed quality release. Of the packages in neither excluded group, 150 were confirmed unexpired. Expiry for the others in that remainder was unresolved. These findings concern the same 800-package delivery, and no package was distributed or newly committed before the reserve snapshot. The controller has not inferred expiry from the absence of a flag and has reported each confirmed condition separately.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Usable reserve is bounded between 150 and 400 packages; the known overlap fixes the excluded union but not the remaining expiry status.",
         "The reserve contains exactly 300 packages, because subtracting both excluded totals avoids counting pending commitments as usable stock.",
         "Every one of the 400 packages outside both excluded groups is usable, since pending release and appointment commitments are the only recorded exclusions.",
         "The 150 confirmed unexpired packages were predominantly intended for emergency appointments rather than the already committed April appointments."
       ],
-      answer: 0,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 0,
+      "hints": [
+        "Identify the three conditions for usable reserve and the overlap between excluded groups.",
+        "Use the confirmed expiry findings as a lower bound rather than treating missing expiry information as clearance."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. The excluded union is 400, leaving 400 released/uncommitted; 150 of that remainder meet the expiry condition, and the rest may or may not.",
-        "Overstated. Subtracting 200 and 300 double-counts the known overlap of 100.",
+        "Not supported. Accounting for overlap leaves 400 packages outside the two excluded groups, but unresolved expiry prevents establishing an exact usable reserve of 300.",
         "Overstated. Satisfaction of two conditions is extended to the third, unresolved expiry condition.",
         "Not supported. No intended emergency-use distribution is supplied."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Intersecting eligibility conditions and partial bounds",
-        evidence: [
+      "explanation": "Combine overlap correctly, then keep confirmed and unresolved conditions separate when deriving bounds.",
+      "reasoning": {
+        "model": "Intersecting eligibility conditions and partial bounds",
+        "evidence": [
           "unexpired, has passed quality release and is not already committed",
           "exactly 100 packages were in both",
           "150 were confirmed unexpired"
         ]
       },
-      reviewedAs: "v11-04"
+      "reviewedAs": "v11-04",
+      "solution": [
+        "The excluded union is 200 + 300 − 100 = 400 packages, leaving 400 outside those two groups.",
+        "Of that remainder, 150 are confirmed unexpired; the expiry status of the other 250 is unresolved.",
+        "Usable reserve is therefore at least 150 and at most 400 packages, rather than an exact count inferred from missing flags."
+      ],
+      "supersedes": "v12-10"
     }
   ]
 });

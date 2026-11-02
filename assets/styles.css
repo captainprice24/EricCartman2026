@@ -280,7 +280,7 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .frame-n { position: absolute; top: 4px; left: 6px; font: 600 0.7rem var(--font-mono); color: var(--muted); }
 .frame-q { border-style: dashed; background: var(--sunken); }
 .qmark { font: 700 2rem var(--font-mono); color: var(--muted); }
-.fig { width: 100%; max-width: 140px; aspect-ratio: 1; height: auto; display: block; }
+.fig { --ink: #15203b; --surface: #fff; --fig-grey: #9aa3b6; background: #fff; border-radius: 4px; width: 100%; max-width: 140px; aspect-ratio: 1; height: auto; display: block; }
 .fig * { stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; }
 .fig .f-black { fill: var(--ink); }
 .fig .f-grey { fill: var(--fig-grey); }
@@ -602,3 +602,8 @@ h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
   .win-head { cursor: default; }
   .zoom { display: none; }
 }
+
+.lesson-figures { display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; }
+.lesson-figures figure { margin:0; width:100px; text-align:center; }
+.lesson-figures .fig { width:100px; }
+.lesson-figures figcaption { font-size:.85rem; }

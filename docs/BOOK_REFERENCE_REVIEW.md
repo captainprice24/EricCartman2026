@@ -64,3 +64,9 @@ New browser regressions exercise both modes in all three sections on desktop and
 Existing regressions cover difficulty/set filtering, timed practice, unchecked-answer scoring, saved-session restoration, neutral unchecked review and mistake retry. These verify application behavior, not learning gains. This extension does not claim a new semantic review of every individual hint, a human usability trial or measured transfer to an EPSO examination.
 
 Extension verification: lint, all unit/solver suites, 740-item validation, the regenerated local build and the full Chromium browser suite passed. The browser run includes six new subject/viewport feedback checks (each exercises both modes), the new mistakes-filter regression, all 12 repair regressions and five full-test checks. No publication was performed.
+
+The subsequent [detailed numerical pass](NUMERICAL_BOOK_REVIEW.md) found wording and teaching defects missed by the broad screening above. It fixes 200 numerical items under new IDs while retaining the independently verified keys. Its findings supersede the earlier “no replacement justified” conclusion for those teaching paths.
+
+The later [verbal review](VERBAL_BOOK_REVIEW.md) adds independent review of all 300 items, repairs a missing-premise item missed by the earlier screening and revises 97 questions and teaching paths. Its evidence and findings supersede the broad verbal screening above.
+
+The completed abstract review is documented in [ABSTRACT_BOOK_REVIEW.md](ABSTRACT_BOOK_REVIEW.md). It covers all 220 questions and their teaching, corrects conflicting continuations and difficulty labels, and adds visual Coach examples. It supersedes the initial abstract screening.

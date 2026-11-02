@@ -4,11 +4,11 @@ EPSO_BANK.registerSet({
   "section": "numerical",
   "title": "Numerical reasoning · Set 2",
   "description": "50 data-interpretation items with worked solutions (generated).",
-  "version": 3,
+  "version": 4,
   "questions": [
     {
-      "id": "n02-01-r2",
-      "supersedes": "n02-01",
+      "id": "n02-01-r3",
+      "supersedes": "n02-01-r2",
       "topic": "Rates with changing base",
       "difficulty": 3,
       "exhibits": [
@@ -54,7 +54,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the unemployment rate in South in 2024?",
+      "stem": "What was the unemployment rate in South in 2024? Round only the final result to 2 decimal places.",
       "options": [
         "10.32%",
         "10.42%",
@@ -68,23 +68,25 @@ EPSO_BANK.registerSet({
         "Then update both that number and the base before dividing."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2023: 10.5% × 3,310 = 347.6 thousand",
         "2024 unemployed: 347.6 + 1 = 348.6",
         "2024 base: 3,310 × 0.994 = 3,290.1",
-        "Rate = 348.6 ÷ 3,290.1 × 100 = 10.594%"
+        "Rate = ((3310 × 10.5 ÷ 100 + (1)) ÷ (3310 × (1 + (-0.6) ÷ 100))) × 100 ≈ 10.594%",
+        "Final answer: 10.59%."
       ],
       "optionNotes": [
         "This applies the changes for Uplands instead.",
         "This applies the changes for North instead.",
         "This keeps the 2023 labour force; the base changed too.",
         "This changes the base but not the number of unemployed.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 10.59%."
       ],
       "explanation": "When a rate's base moves, recompute both parts of the fraction."
     },
     {
-      "id": "n02-02-r2",
-      "supersedes": "n02-02",
+      "id": "n02-02-r3",
+      "supersedes": "n02-02-r2",
       "topic": "Growth projection",
       "difficulty": 2,
       "exhibits": [
@@ -126,7 +128,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If mobile data keeps growing at the same annual percentage rate as between 2023 and 2024, what will it be in 2026?",
+      "stem": "If mobile data keeps growing at the same annual percentage rate as between 2023 and 2024, what will it be in 2026? Round only the final result to 1 decimal place.",
       "options": [
         "82.7 PB",
         "89.7 PB",
@@ -140,21 +142,23 @@ EPSO_BANK.registerSet({
         "Apply it 2 times (compounding)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Rate = 73.9 ÷ 66 − 1 = 11.970%",
-        "73.9 × (1 + 0.11970)^2 = 92.65"
+        "73.9 × (73.9 ÷ 66)^2 ≈ 92.65",
+        "Final answer: 92.7 PB."
       ],
       "optionNotes": [
         "One year short.",
         "This adds the same absolute increase each year; the question asks for a constant percentage rate.",
         "This applies the rate without compounding.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 92.7 PB.",
         "One year too many."
       ],
       "explanation": "A constant percentage rate compounds. Linear and non-compounded projections are the usual distractors."
     },
     {
-      "id": "n02-03-r2",
-      "supersedes": "n02-03",
+      "id": "n02-03-r3",
+      "supersedes": "n02-03-r2",
       "topic": "Units and per-capita values",
       "difficulty": 2,
       "exhibits": [
@@ -201,7 +205,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was electricity consumption per inhabitant in Galvia, in kWh?",
+      "stem": "What was electricity consumption per inhabitant in Galvia, in kWh? Round only the final result to the nearest whole number.",
       "options": [
         "15,319 kWh",
         "16,000 kWh",
@@ -215,11 +219,13 @@ EPSO_BANK.registerSet({
         "Then divide by the population (in persons, not millions)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Units: 1 TWh = 1,000,000,000 kWh.",
-        "144 TWh ÷ 9.4 million people × 1,000 = 15,319.15 kWh per person"
+        "144 ÷ 9.4 × 1,000 ≈ 15,319.15 kWh per person (conversion factor accounts for both exhibit scales)",
+        "Final answer: 15,319 kWh."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 15,319 kWh.",
         "This rounds the population to a whole number of millions first, which loses precision.",
         "This uses the figures for Kestrel.",
         "This uses the figures for Calmora.",
@@ -228,8 +234,8 @@ EPSO_BANK.registerSet({
       "explanation": "Unit traps are common: 1 TWh = 1,000,000,000 kWh. If your answer is 1,000 times too large or small, recheck the conversion before choosing."
     },
     {
-      "id": "n02-04-r2",
-      "supersedes": "n02-04",
+      "id": "n02-04-r3",
+      "supersedes": "n02-04-r2",
       "topic": "Rates of work",
       "difficulty": 2,
       "exhibits": [
@@ -270,7 +276,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If Team DE is given 3 extra staff working at the same rate, how many working days will it need to clear its backlog?",
+      "stem": "If Team DE is given 3 extra staff working at the same rate, how many working days will it need to clear its backlog? Assume output is uniform and part of a working day is allowed. Round only the final result to 1 decimal place.",
       "options": [
         "39.5 days",
         "47.5 days",
@@ -284,22 +290,24 @@ EPSO_BANK.registerSet({
         "Days = backlog ÷ daily output with the new headcount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "New staff = 8 + 3 = 11",
         "Daily output = 11 × 5 = 55",
-        "3,038 ÷ 55 = 55.24 days"
+        "3,038 ÷ 55 = 55.24 days",
+        "Final answer: 55.2 days."
       ],
       "optionNotes": [
         "This uses another team's output per person.",
         "This adds the extra staff to the daily rate instead of to the headcount.",
         "One person too many: check the new headcount.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 55.2 days.",
         "One person short: check the new headcount."
       ],
       "explanation": "Add staff to the headcount, then multiply by the individual rate."
     },
     {
-      "id": "n02-05-r2",
-      "supersedes": "n02-05",
+      "id": "n02-05-r3",
+      "supersedes": "n02-05-r2",
       "topic": "Average speed",
       "difficulty": 2,
       "exhibits": [
@@ -340,7 +348,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the average speed over the whole journey, including all the stops listed?",
+      "stem": "What was the average speed over the whole journey, including all the stops listed? Round only the final result to 1 decimal place.",
       "options": [
         "36.1 km/h",
         "37.1 km/h",
@@ -354,22 +362,24 @@ EPSO_BANK.registerSet({
         "Total time includes travel time and every stop."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Distance = 154 km",
         "Time = 204 + 52 = 256 min",
-        "154 ÷ 256 × 60 = 36.09 km/h"
+        "154 ÷ 256 × 60 = 36.09 km/h",
+        "Final answer: 36.1 km/h."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 36.1 km/h.",
         "This leaves out the stop after leg 2.",
         "This leaves out the stop after leg 4.",
         "This leaves out the stop after leg 1.",
         "This leaves out the stop after leg 3."
       ],
-      "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; averaging speeds is always wrong for unequal legs."
+      "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; use total distance divided by total elapsed time. An unweighted mean of speeds works only for equal time intervals, and excludes the stops here."
     },
     {
-      "id": "n02-06-r2",
-      "supersedes": "n02-06",
+      "id": "n02-06-r3",
+      "supersedes": "n02-06-r2",
       "topic": "Successive percentage changes",
       "difficulty": 2,
       "exhibits": [
@@ -422,7 +432,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the price of toner at the end of 2024?",
+      "stem": "What was the price of toner at the end of 2024? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 171.28",
         "EUR 177.58",
@@ -436,22 +446,24 @@ EPSO_BANK.registerSet({
         "Multiply by (1 + change) three times."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "End of 2022: 217 × 0.924 = EUR 200.51",
         "End of 2023: × 0.958 = EUR 192.09",
-        "End of 2024: × 0.965 = EUR 185.36"
+        "End of 2024: × 0.965 = EUR 185.36",
+        "Final answer: EUR 185.36."
       ],
       "optionNotes": [
         "This applies the 2022 change twice.",
         "This applies the 2023 change twice.",
         "This applies the 2024 change twice.",
         "This adds the three percentages; changes compound, so multiply instead.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 185.36."
       ],
       "explanation": "Successive percentage changes multiply. Adding them is only an approximation, and the error grows with the size of the changes."
     },
     {
-      "id": "n02-07-r2",
-      "supersedes": "n02-07",
+      "id": "n02-07-r3",
+      "supersedes": "n02-07-r2",
       "topic": "Percentages of percentages",
       "difficulty": 2,
       "exhibits": [
@@ -498,7 +510,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "How many respondents in the 25–39 group were satisfied and would recommend the service?",
+      "stem": "Approximately how many respondents in the 25–39 group were satisfied and would recommend the service? Use the reported percentages as estimates. Round only the final result to the nearest whole number.",
       "options": [
         "157",
         "158",
@@ -512,13 +524,15 @@ EPSO_BANK.registerSet({
         "The second percentage applies only to those people, not to all respondents."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "556 × 69% = 383.6",
-        "383.6 × 48% = 184.1"
+        "556 × (69 ÷ 100) × (48 ÷ 100) ≈ 184.1",
+        "Final answer: 184."
       ],
       "optionNotes": [
         "This takes the second percentage from another group.",
         "This applies the percentages of the 18–24 group.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 184.",
         "This uses the number of respondents in the 65+ group.",
         "This applies the percentages of the 65+ group."
       ],
@@ -611,8 +625,8 @@ EPSO_BANK.registerSet({
       "explanation": "Two steps for every row: a difference, then a division. The largest absolute surplus is the planted trap."
     },
     {
-      "id": "n02-09-r2",
-      "supersedes": "n02-09",
+      "id": "n02-09-r3",
+      "supersedes": "n02-09-r2",
       "topic": "Undoing a percentage change",
       "difficulty": 1,
       "exhibits": [
@@ -659,7 +673,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "How many tourist arrivals did the Uplands region record in 2023?",
+      "stem": "How many tourist arrivals did the Uplands region record in 2023? Round only the final result to the nearest whole number.",
       "options": [
         "130,432",
         "132,429",
@@ -673,11 +687,13 @@ EPSO_BANK.registerSet({
         "So the 2023 value = 2024 value ÷ (1 + change)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Multiplier from 2023 to 2024 = 1 + 6.1% = 1.061",
-        "2023 value = 138,388 ÷ 1.061 = 130,431.7"
+        "2023 value = 138,388 ÷ 1.061 = 130,431.7",
+        "Final answer: 130,432."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 130,432.",
         "This uses another region's rate.",
         "This uses another region's rate.",
         "This uses another region's rate.",
@@ -686,8 +702,8 @@ EPSO_BANK.registerSet({
       "explanation": "Undo a percentage change by dividing by the multiplier, not by subtracting the percentage from the later value."
     },
     {
-      "id": "n02-10-r2",
-      "supersedes": "n02-10",
+      "id": "n02-10-r3",
+      "supersedes": "n02-10-r2",
       "topic": "Multi-step: unit cost",
       "difficulty": 2,
       "exhibits": [
@@ -728,7 +744,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "Excluding administrative costs, how much was spent per beneficiary under Programme A?",
+      "stem": "Excluding administrative costs, how much was spent per beneficiary under Programme A? Round only the final result to the nearest whole number.",
       "options": [
         "EUR 6,967",
         "EUR 7,167",
@@ -742,21 +758,23 @@ EPSO_BANK.registerSet({
         "Watch the units: budget in millions, beneficiaries in thousands."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Programme spending = 55 × (1 − 12%) = EUR 48.40 million",
-        "EUR 48.40 million ÷ 6 thousand = 48,400,000 ÷ 6,000 = EUR 8,066.7"
+        "EUR 48.40 million ÷ 6 thousand = 48,400,000 ÷ 6,000 = EUR 8,066.7",
+        "Final answer: EUR 8,067."
       ],
       "optionNotes": [
         "This removes the administrative share twice.",
         "This subtracts the percentage as if it were millions of euros.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 8,067.",
         "This uses another programme's administrative share.",
         "This includes the administrative costs."
       ],
       "explanation": "Check what is excluded and convert millions and thousands carefully before dividing."
     },
     {
-      "id": "n02-11-r2",
-      "supersedes": "n02-11",
+      "id": "n02-11-r3",
+      "supersedes": "n02-11-r2",
       "topic": "Shares to amounts",
       "difficulty": 1,
       "exhibits": [
@@ -833,7 +851,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "In 2024, how many more grants went to the largest category than to the second-largest?",
+      "stem": "In 2024, how many more grants went to the largest category than to the second-largest? Round only the final result to the nearest whole number.",
       "options": [
         "338 grants",
         "344 grants",
@@ -847,21 +865,23 @@ EPSO_BANK.registerSet({
         "Subtract their shares, then apply the difference to the total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Digital 31.9% − Culture 16.5% = 15.4%",
-        "15.4% × 2,400 = 369.6"
+        "15.4% × 2,400 = 369.6",
+        "Final answer: 370 grants."
       ],
       "optionNotes": [
         "This uses the 2023 shares.",
         "This applies the 2024 shares to the 2023 total.",
         "This mixes last year's largest-category share with this year's second-largest share.",
         "This mixes this year's largest-category share with last year's second-largest share.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 370 grants."
       ],
       "explanation": "Shares of the same total can be subtracted before converting into amounts."
     },
     {
-      "id": "n02-12-r2",
-      "supersedes": "n02-12",
+      "id": "n02-12-r3",
+      "supersedes": "n02-12-r2",
       "topic": "Averaging rates",
       "difficulty": 2,
       "exhibits": [
@@ -908,7 +928,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the overall pass rate across Centre 2, Centre 3 and Centre 5 together?",
+      "stem": "What was the overall pass rate across Centre 2, Centre 3 and Centre 5 together? Round only the final result to 1 decimal place.",
       "options": [
         "50.5%",
         "51.7%",
@@ -922,13 +942,15 @@ EPSO_BANK.registerSet({
         "Total passes ÷ total candidates for the three centres."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Centre 2: 653 × 43% = 280.8",
         "Centre 3: 477 × 48% = 229.0",
         "Centre 5: 295 × 71% = 209.4",
-        "Passes ÷ candidates: 719.2 ÷ (653 + 477 + 295) × 100 = 50.47%"
+        "Passes ÷ candidates: 719.2 ÷ (653 + 477 + 295) × 100 = 50.47%",
+        "Final answer: 50.5%."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 50.5%.",
         "This uses Centre 2, Centre 5: check which centres are named.",
         "This includes all five centres.",
         "This uses Centre 3, Centre 5: check which centres are named.",
@@ -937,8 +959,8 @@ EPSO_BANK.registerSet({
       "explanation": "Rates from groups of different sizes must be weighted. The average score column is irrelevant."
     },
     {
-      "id": "n02-13-r2",
-      "supersedes": "n02-13",
+      "id": "n02-13-r3",
+      "supersedes": "n02-13-r2",
       "topic": "Compound growth",
       "difficulty": 2,
       "exhibits": [
@@ -979,7 +1001,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "With interest compounded annually and everything repaid at the end of the term, how much is repayable under Offer A?",
+      "stem": "With interest compounded annually and everything repaid at the end of the term, how much is repayable under Offer A? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 39,024.00",
         "EUR 39,109.46",
@@ -993,12 +1015,14 @@ EPSO_BANK.registerSet({
         "Do this 3 times."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Growth factor = 1.028^3 = 1.08637",
-        "36,000 × 1.08637 = EUR 39,109.46"
+        "36,000 × (1 + 2.8 ÷ 100)^3 ≈ EUR 39,109.46",
+        "Final answer: EUR 39,109.46."
       ],
       "optionNotes": [
         "This uses simple interest; with compounding, interest is also charged on earlier interest.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 39,109.46.",
         "One year too many.",
         "This uses the term of Offer D.",
         "This uses the term of Offer C."
@@ -1092,8 +1116,8 @@ EPSO_BANK.registerSet({
       "explanation": "The tallest segment is not necessarily the largest share; the bar total matters."
     },
     {
-      "id": "n02-15-r2",
-      "supersedes": "n02-15",
+      "id": "n02-15-r3",
+      "supersedes": "n02-15-r2",
       "topic": "Combining two exhibits",
       "difficulty": 2,
       "exhibits": [
@@ -1161,7 +1185,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "How much of this budget was spent per inhabitant in the Centre region?",
+      "stem": "How much of this budget was spent per inhabitant in the Centre region? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 6.18",
         "EUR 6.57",
@@ -1175,22 +1199,24 @@ EPSO_BANK.registerSet({
         "Budget (in euros) ÷ population (in persons)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Budget = 16% × 120 million = EUR 19.20 million",
         "Population = 2,354 thousand = 2,354,000 people",
-        "Per inhabitant = 19.20 million ÷ 2,354,000 = EUR 8.16"
+        "Per inhabitant = 19.20 million ÷ 2,354,000 = EUR 8.16",
+        "Final answer: EUR 8.16."
       ],
       "optionNotes": [
         "This divides by the population of South.",
         "This divides by the population of Uplands.",
         "This uses the budget share of South.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 8.16.",
         "This is the average for all regions."
       ],
       "explanation": "Combine the exhibits row by row and keep the units consistent. The area column is irrelevant."
     },
     {
-      "id": "n02-16-r2",
-      "supersedes": "n02-16",
+      "id": "n02-16-r3",
+      "supersedes": "n02-16-r2",
       "topic": "Index numbers: values",
       "difficulty": 1,
       "exhibits": [
@@ -1255,7 +1281,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the output of Construction in 2023, in EUR million?",
+      "stem": "What was the output of Construction in 2023, in EUR million? Round only the final result to 1 decimal place.",
       "options": [
         "EUR 1,701.0 million",
         "EUR 1,726.9 million",
@@ -1269,11 +1295,13 @@ EPSO_BANK.registerSet({
         "Value = 2015 value × index ÷ 100."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Index 105.0 ÷ 100 = 1.050 times the 2015 value",
-        "1,620 × 1.050 = 1,701.00 EUR million"
+        "1,620 × 1.050 = 1,701.00 EUR million",
+        "Final answer: EUR 1,701.0 million."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 1,701.0 million.",
         "This applies the index of Manufacturing.",
         "This applies the index of Agriculture.",
         "This applies the index of Tourism.",
@@ -1282,8 +1310,8 @@ EPSO_BANK.registerSet({
       "explanation": "An index only expresses each year relative to the base year. Multiply the base-year value by index ÷ 100."
     },
     {
-      "id": "n02-17-r2",
-      "supersedes": "n02-17",
+      "id": "n02-17-r3",
+      "supersedes": "n02-17-r2",
       "topic": "Index numbers: percentage change",
       "difficulty": 1,
       "exhibits": [
@@ -1342,7 +1370,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did the turnover of Retail rise between 2021 and 2024?",
+      "stem": "By what percentage did the turnover of Retail rise between 2021 and 2024? Round only the final result to 1 decimal place.",
       "options": [
         "16.1%",
         "16.6%",
@@ -1356,12 +1384,14 @@ EPSO_BANK.registerSet({
         "Divide the later index by the earlier one."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2021: 116.4; 2024: 135.7",
-        "(135.7 ÷ 116.4 − 1) × 100 = 16.58%"
+        "(135.7 ÷ 116.4 − 1) × 100 = 16.58%",
+        "Final answer: 16.6%."
       ],
       "optionNotes": [
         "This is the change for Agriculture.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 16.6%.",
         "This is the change in index points, which equals a percentage only when the starting index is 100.",
         "This starts from 2019.",
         "This is the change for Tourism."
@@ -1369,8 +1399,8 @@ EPSO_BANK.registerSet({
       "explanation": "Between two years that are not the base year, the percentage change is the ratio of the two indices minus one, not the difference in points."
     },
     {
-      "id": "n02-18-r2",
-      "supersedes": "n02-18",
+      "id": "n02-18-r3",
+      "supersedes": "n02-18-r2",
       "topic": "Market share in percentage points",
       "difficulty": 3,
       "exhibits": [
@@ -1417,7 +1447,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By how many percentage points did the market share of Maker C change between 2022 and 2024?",
+      "stem": "By how many percentage points did the market share of Maker C change between 2022 and 2024? Round only the final result to 2 decimal places.",
       "options": [
         "3.12 percentage points",
         "3.55 percentage points",
@@ -1431,13 +1461,15 @@ EPSO_BANK.registerSet({
         "Compute the share in both years, then subtract."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total 2022 = 863 + 171 + 721 + 433 + 802 = 2,990",
         "Total 2024 = 747 + 153 + 842 + 630 + 720 = 3,092",
         "Shares: 721 ÷ 2,990 × 100 = 24.114%; 842 ÷ 3,092 × 100 = 27.232%",
-        "27.232 − 24.114 = 3.12 percentage points"
+        "27.232 − 24.114 = 3.12 percentage points",
+        "Final answer: 3.12 percentage points."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 3.12 percentage points.",
         "This uses the 2023 market total for the final share and the 2024 market total for the initial share.",
         "This uses the 2023 market total for the final share and the 2023 market total for the initial share.",
         "This uses the 2024 market total for the final share and the 2024 market total for the initial share.",
@@ -1446,8 +1478,8 @@ EPSO_BANK.registerSet({
       "explanation": "A firm can grow and still lose share if the market grows faster. Shares need each year's own total."
     },
     {
-      "id": "n02-19-r2",
-      "supersedes": "n02-19",
+      "id": "n02-19-r3",
+      "supersedes": "n02-19-r2",
       "topic": "Required growth rate",
       "difficulty": 2,
       "exhibits": [
@@ -1494,7 +1526,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What constant annual growth rate would Ostland need from 2024 to reach its 2030 target?",
+      "stem": "What constant annual growth rate would Ostland need from 2024 to reach its 2030 target? Round only the final result to 2 decimal places.",
       "options": [
         "3.94%",
         "4.59%",
@@ -1508,13 +1540,15 @@ EPSO_BANK.registerSet({
         "The annual factor is its 6th root."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Overall factor = 55.9 ÷ 42.7 = 1.3091",
-        "Annual factor = 1.3091^(1/6) = 1.04592",
-        "Rate = (1.04592 − 1) × 100 = 4.59%"
+        "Annual factor = (55.9 ÷ 42.7)^(1/6) ≈ 1.04592",
+        "Rate = ((55.9 ÷ 42.7)^(1/6) − 1) × 100 ≈ 4.59%",
+        "Final answer: 4.59%."
       ],
       "optionNotes": [
         "This divides the gap by the target and spreads it evenly over the years.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 4.59%.",
         "This divides the total growth by the number of years; growth compounds, so take the root instead.",
         "This counts 5 years of growth; from 2024 to 2030 there are 6.",
         "This is the rate for Calmora."
@@ -1522,8 +1556,8 @@ EPSO_BANK.registerSet({
       "explanation": "Required growth compounds: take the nth root of the overall factor. Dividing the total growth by the number of years overstates the rate needed."
     },
     {
-      "id": "n02-20-r2",
-      "supersedes": "n02-20",
+      "id": "n02-20-r3",
+      "supersedes": "n02-20-r2",
       "topic": "Fixed and variable costs",
       "difficulty": 2,
       "exhibits": [
@@ -1569,7 +1603,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "For a one-day event with 120 participants at Venue B, what is the average cost per participant?",
+      "stem": "For a one-day event with 120 participants at Venue B, what is the average cost per participant? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 51.33",
         "EUR 64.33",
@@ -1583,13 +1617,15 @@ EPSO_BANK.registerSet({
         "Then divide by the number of participants."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Per person: 23 + 13 = EUR 36",
         "Total = 3,400 + 120 × 36 = EUR 7,720",
-        "Per participant = 7,720 ÷ 120 = EUR 64.33"
+        "Per participant = 7,720 ÷ 120 = EUR 64.33",
+        "Final answer: EUR 64.33."
       ],
       "optionNotes": [
         "This leaves out the materials.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 64.33.",
         "This uses the prices of Venue C.",
         "This counts the materials cost twice.",
         "This uses the prices of Venue D."
@@ -1597,8 +1633,8 @@ EPSO_BANK.registerSet({
       "explanation": "Fixed costs are spread over everyone, so the average cost per person falls as numbers rise. Variable costs are paid per person."
     },
     {
-      "id": "n02-21-r2",
-      "supersedes": "n02-21",
+      "id": "n02-21-r3",
+      "supersedes": "n02-21-r2",
       "topic": "Break-even point",
       "difficulty": 2,
       "exhibits": [
@@ -1639,7 +1675,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "Above how many pages per year does Offer A become cheaper than Offer B?",
+      "stem": "What is the annual break-even volume between Offer A and Offer B, in pages? Treat volume as continuous; the higher-fixed-fee offer is cheaper strictly above the unrounded threshold. Round only the final result to 1 decimal place.",
       "options": [
         "16,250.0 pages",
         "20,000.0 pages",
@@ -1653,22 +1689,24 @@ EPSO_BANK.registerSet({
         "Volume = difference in fixed fees ÷ difference in unit prices."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Fixed fees: 1,400 − 100 = 1,300",
         "Unit prices: 0.08 − 0.02 = 0.06",
-        "1,300 ÷ 0.06 = 21,666.67 pages"
+        "1,300 ÷ 0.06 = 21,666.67 pages",
+        "Final answer: 21,666.7 pages."
       ],
       "optionNotes": [
         "This divides by one price instead of the difference in prices.",
         "This compares with Offer D.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 21,666.7 pages.",
         "This ignores the fixed fee of Offer B.",
         "This adds the fixed fees; the break-even uses their difference."
       ],
       "explanation": "Set the two total costs equal. The offer with the higher fixed fee wins only above the break-even volume. Contract length is irrelevant here."
     },
     {
-      "id": "n02-22-r2",
-      "supersedes": "n02-22",
+      "id": "n02-22-r3",
+      "supersedes": "n02-22-r2",
       "topic": "Proportional allocation",
       "difficulty": 1,
       "exhibits": [
@@ -1721,7 +1759,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "EUR 48 million is shared among the six regions in proportion to their population. How much does the Centre region receive?",
+      "stem": "EUR 48 million is shared among the six regions in proportion to their population. How much does the Centre region receive? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 7.25 million",
         "EUR 7.55 million",
@@ -1735,13 +1773,15 @@ EPSO_BANK.registerSet({
         "Apply that share to the amount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total population = 181 + 1,191 + 1,241 + 2,050 + 872 + 2,352 = 7,887 thousand",
         "Share = 1,241 ÷ 7,887 = 0.1573",
-        "0.1573 × 48 = EUR 7.55 million"
+        "(1,241 ÷ 7,887) × 48 ≈ EUR 7.55 million",
+        "Final answer: EUR 7.55 million."
       ],
       "optionNotes": [
         "This is the amount for East.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 7.55 million.",
         "This shares the money by area, not by population.",
         "This splits the money equally.",
         "This divides by the population of the other five regions only."
@@ -1749,8 +1789,8 @@ EPSO_BANK.registerSet({
       "explanation": "Proportional allocation: each part receives its share of the base. Area and unemployment are there to distract."
     },
     {
-      "id": "n02-23-r2",
-      "supersedes": "n02-23",
+      "id": "n02-23-r3",
+      "supersedes": "n02-23-r2",
       "topic": "Discounts and VAT",
       "difficulty": 2,
       "exhibits": [
@@ -1797,7 +1837,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "A buyer orders 25 laptops. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included?",
+      "stem": "A buyer orders 25 laptops. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included? Calculate VAT on the full discounted order; do not round individual unit prices. Round only the final result to 2 decimal places.",
       "options": [
         "EUR 27,315.00",
         "EUR 28,119.28",
@@ -1811,14 +1851,16 @@ EPSO_BANK.registerSet({
         "Then add VAT to the discounted price, and multiply by the quantity."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Discounted price = 1,214 × (1 − 10%) = EUR 1,092.60",
         "With VAT = 1,092.60 × 1.09 = EUR 1,190.93",
-        "25 × 1,190.93 = EUR 29,773.35"
+        "25 × 1214 × (1 − 10 ÷ 100) × (1 + 9 ÷ 100) ≈ EUR 29,773.35",
+        "Final answer: EUR 29,773.35."
       ],
       "optionNotes": [
         "This leaves out the VAT.",
         "This uses another item's discount.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 29,773.35.",
         "This adds and subtracts the percentages; they must be applied one after the other.",
         "This leaves out the discount."
       ],
@@ -1986,8 +2028,8 @@ EPSO_BANK.registerSet({
       "explanation": "Visual distance on a chart can mislead, especially when both lines move. Compute the gap for each option."
     },
     {
-      "id": "n02-26-r2",
-      "supersedes": "n02-26",
+      "id": "n02-26-r3",
+      "supersedes": "n02-26-r2",
       "topic": "Combined work rates",
       "difficulty": 2,
       "exhibits": [
@@ -2028,7 +2070,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "Working together at their usual rates, how many minutes do Scanner A and Scanner C need for 12,000 pages?",
+      "stem": "Working together at their usual rates, how many minutes do Scanner A and Scanner C need for 12,000 pages? Round only the final result to 1 decimal place.",
       "options": [
         "397.8 minutes",
         "419.3 minutes",
@@ -2042,11 +2084,13 @@ EPSO_BANK.registerSet({
         "Time = amount ÷ combined rate; convert hours to minutes."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Combined rate = 1,110 + 700 = 1,810 per hour",
-        "12,000 ÷ 1,810 × 60 = 397.79 minutes"
+        "12,000 ÷ 1,810 × 60 = 397.79 minutes",
+        "Final answer: 397.8 minutes."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 397.8 minutes.",
         "This halves the average of the two separate times; rates add, times do not.",
         "This pairs Scanner C with Scanner B.",
         "This pairs Scanner C with Scanner D.",
@@ -2055,8 +2099,8 @@ EPSO_BANK.registerSet({
       "explanation": "Rates add; times do not. Averaging the separate times is the classic mistake."
     },
     {
-      "id": "n02-27-r2",
-      "supersedes": "n02-27",
+      "id": "n02-27-r3",
+      "supersedes": "n02-27-r2",
       "topic": "Percentage difference between two items",
       "difficulty": 2,
       "exhibits": [
@@ -2103,7 +2147,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage was health spending per inhabitant in Rosmark higher than in Galvia?",
+      "stem": "By what percentage was health spending per inhabitant in Rosmark higher than in Galvia? Round only the final result to 1 decimal place.",
       "options": [
         "410.0%",
         "551.6%",
@@ -2117,22 +2161,24 @@ EPSO_BANK.registerSet({
         "The country after \"than\" is the base of the comparison."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Rosmark: 44,484 ÷ 1.7 = 26,167.059",
         "Galvia: 59,312 ÷ 15.1 = 3,927.947",
-        "(26,167.059 ÷ 3,927.947 − 1) × 100 = 566.18%"
+        "(26,167.059 ÷ 3,927.947 − 1) × 100 = 566.18%",
+        "Final answer: 566.2%."
       ],
       "optionNotes": [
         "This divides by area instead of population.",
         "This compares with Marrow.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 566.2%.",
         "This divides Rosmark's total by Jorvik's population.",
         "This divides Galvia's total by Estoria's population."
       ],
       "explanation": "In \"how much higher than the other country\", the country after \"than\" is the base. Reversing the base gives a smaller, wrong percentage."
     },
     {
-      "id": "n02-28-r2",
-      "supersedes": "n02-28",
+      "id": "n02-28-r3",
+      "supersedes": "n02-28-r2",
       "topic": "Averages over part of a period",
       "difficulty": 1,
       "exhibits": [
@@ -2203,7 +2249,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the average monthly number of visitors for Castle from June to September inclusive?",
+      "stem": "What was the average monthly number of visitors for Castle from June to September inclusive? Round only the final result to 1 decimal place.",
       "options": [
         "43.2",
         "45.8",
@@ -2217,21 +2263,23 @@ EPSO_BANK.registerSet({
         "Add them and divide by that number."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "65 + 46 + 56 + 49 = 216",
-        "216 ÷ 4 = 54.00"
+        "216 ÷ 4 = 54.00",
+        "Final answer: 54.0."
       ],
       "optionNotes": [
         "This divides by one month too many.",
         "This uses the row for Gardens.",
         "This averages the whole year.",
         "This leaves out Jun.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 54.0."
       ],
       "explanation": "\"Inclusive\" ranges are easy to miscount. Count the months before dividing."
     },
     {
-      "id": "n02-29-r2",
-      "supersedes": "n02-29",
+      "id": "n02-29-r3",
+      "supersedes": "n02-29-r2",
       "topic": "Percentage change of a total",
       "difficulty": 1,
       "exhibits": [
@@ -2291,7 +2339,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did the combined tonnage recycled of the six cities change between 2021 and 2023?",
+      "stem": "By what percentage did the combined tonnage recycled of the six cities change between 2021 and 2023? Round only the final result to 1 decimal place.",
       "options": [
         "2.0%",
         "2.2%",
@@ -2305,22 +2353,24 @@ EPSO_BANK.registerSet({
         "Percentage change = (new total − old total) ÷ old total × 100."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total 2021 = 7,443 + 8,987 + 4,533 + 8,304 + 5,149 + 4,283 = 38,699",
         "Total 2023 = 7,502 + 9,167 + 4,486 + 8,550 + 5,621 + 4,413 = 39,739",
-        "Change = (39,739 − 38,699) ÷ 38,699 × 100 = 2.69%"
+        "Change = (39,739 − 38,699) ÷ 38,699 × 100 = 2.69%",
+        "Final answer: 2.7%."
       ],
       "optionNotes": [
         "This is the change for Brightwell alone, not for the total.",
         "This compares 2022 with 2023: check the years in the question.",
         "This divides the change by the 2023 total. Always divide by the starting value.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 2.7%.",
         "This averages the six individual percentage changes; rows of different sizes must be added up first."
       ],
       "explanation": "Total first, then the percentage. Averaging row percentages and dividing by the later value are the two classic errors; extra years in the table are there to distract."
     },
     {
-      "id": "n02-30-r2",
-      "supersedes": "n02-30",
+      "id": "n02-30-r3",
+      "supersedes": "n02-30-r2",
       "topic": "Share of a total",
       "difficulty": 1,
       "exhibits": [
@@ -2373,7 +2423,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What share of the combined population of the six countries do Dunmark and Marrow account for together?",
+      "stem": "What share of the combined population of the six countries do Dunmark and Marrow account for together? Round only the final result to 1 decimal place.",
       "options": [
         "31.4%",
         "31.7%",
@@ -2387,22 +2437,24 @@ EPSO_BANK.registerSet({
         "Add the two countries, then divide by the total of all six."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Dunmark + Marrow = 17.9 + 14.8 = 32.7",
         "Total of six = 17.9 + 12.3 + 16.8 + 14.8 + 9.5 + 15.0 = 86.3",
-        "Share = 32.7 ÷ 86.3 × 100 = 37.89%"
+        "Share = 32.7 ÷ 86.3 × 100 = 37.89%",
+        "Final answer: 37.9%."
       ],
       "optionNotes": [
         "This adds the wrong country: check that you are using Dunmark and Marrow.",
         "This adds the wrong country: check that you are using Dunmark and Marrow.",
         "This adds the wrong country: check that you are using Dunmark and Marrow.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 37.9%.",
         "This adds the wrong country: check that you are using Dunmark and Marrow."
       ],
-      "explanation": "Locate the right column and the right base. Distractors use the neighbouring column or the wrong denominator."
+      "explanation": "Locate the named countries and the requested column, then divide their combined amount by the total for all six. Wrong options may substitute another country, column or denominator; check the option-specific explanation."
     },
     {
-      "id": "n02-31-r2",
-      "supersedes": "n02-31",
+      "id": "n02-31-r3",
+      "supersedes": "n02-31-r2",
       "topic": "Per-capita change",
       "difficulty": 3,
       "exhibits": [
@@ -2455,7 +2507,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did GDP per inhabitant in Norvale change between 2020 and 2023?",
+      "stem": "By what percentage did GDP per inhabitant in Norvale change between 2020 and 2023? Round only the final result to 1 decimal place.",
       "options": [
         "10.8%",
         "11.1%",
@@ -2469,22 +2521,24 @@ EPSO_BANK.registerSet({
         "Then calculate the percentage change between the two per-capita values."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2020: 195 ÷ 35.2 = 5.540 (EUR thousand per person)",
         "2023: 228 ÷ 36.6 = 6.230",
-        "Change = 6.230 ÷ 5.540 − 1 = 12.45%"
+        "Change = ((228 ÷ 36.6) ÷ (195 ÷ 35.2) − 1) × 100 ≈ 12.45%",
+        "Final answer: 12.5%."
       ],
       "optionNotes": [
         "This is the change for Sundra.",
         "This divides the change by the 2023 value instead of the 2020 value.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 12.5%.",
         "Subtracting the population change from the GDP change is only an approximation; divide per-capita values instead.",
         "This is the change in total GDP; it ignores the change in population."
       ],
       "explanation": "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
     },
     {
-      "id": "n02-32-r2",
-      "supersedes": "n02-32",
+      "id": "n02-32-r3",
+      "supersedes": "n02-32-r2",
       "topic": "Relative change",
       "difficulty": 1,
       "exhibits": [
@@ -2537,7 +2591,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "By what percentage did the share for Country X increase between 2019 and 2023?",
+      "stem": "By what percentage did the share for Country X increase between 2019 and 2023? Round only the final result to 1 decimal place.",
       "options": [
         "18.3%",
         "19.2%",
@@ -2551,15 +2605,17 @@ EPSO_BANK.registerSet({
         "Read the values labelled on the chart for the right series and years."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2019: 28.9%; 2023: 36%",
-        "(36 − 28.9) ÷ 28.9 × 100 = 24.57%"
+        "(36 − 28.9) ÷ 28.9 × 100 = 24.57%",
+        "Final answer: 24.6%."
       ],
       "optionNotes": [
         "This stops at 2022.",
         "This is the change for Country Y.",
         "This divides by the later value.",
         "This is the change for Country Z.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 24.6%."
       ],
       "explanation": "Percentage points measure the gap between two percentages; a percentage change measures that gap relative to the start. Check which the question asks for."
     },
@@ -2639,8 +2695,8 @@ EPSO_BANK.registerSet({
       "explanation": "Compute every candidate ratio. The visually dominant bar is usually a distractor."
     },
     {
-      "id": "n02-34-r2",
-      "supersedes": "n02-34",
+      "id": "n02-34-r3",
+      "supersedes": "n02-34-r2",
       "topic": "Currency conversion",
       "difficulty": 2,
       "exhibits": [
@@ -2687,7 +2743,7 @@ EPSO_BANK.registerSet({
           "note": "Assume conversions go through the euro, with no fees."
         }
       ],
-      "stem": "On 1 January, a company converted USD 18,000 into CZK. How much did it receive?",
+      "stem": "On 1 January, a company converted USD 18,000 into CZK. How much did it receive? Round only the final result to 2 decimal places.",
       "options": [
         "CZK 411,700.75",
         "CZK 417,370.75",
@@ -2701,12 +2757,14 @@ EPSO_BANK.registerSet({
         "Divide by the USD rate to get euros, then multiply by the CZK rate."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "18,000 ÷ 1.1118 = EUR 16,189.96",
-        "× 25.7796 = CZK 417,370.75"
+        "18,000 × (25.7796 ÷ 1.1118) ≈ CZK 417,370.75 (one cross-rate calculation avoids rounding the euro balance)",
+        "Final answer: CZK 417,370.75."
       ],
       "optionNotes": [
         "This adjusts the other date's conversion by subtracting the two percentage changes; the exact cross-rate requires dividing the rate multipliers.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives CZK 417,370.75.",
         "This mixes the two dates.",
         "This mixes the two dates.",
         "This uses the 1 July rates."
@@ -2714,8 +2772,8 @@ EPSO_BANK.registerSet({
       "explanation": "With rates quoted per euro, divide to get into euros and multiply to get out. Check the date column: the other date is a ready-made distractor."
     },
     {
-      "id": "n02-35-r2",
-      "supersedes": "n02-35",
+      "id": "n02-35-r3",
+      "supersedes": "n02-35-r2",
       "topic": "Weighted average",
       "difficulty": 2,
       "exhibits": [
@@ -2762,7 +2820,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What is the average number of training hours across all staff in Unit 1, Unit 3 and Unit 4 combined?",
+      "stem": "What is the average number of training hours across all staff in Unit 1, Unit 3 and Unit 4 combined? Round only the final result to 2 decimal places.",
       "options": [
         "34.51 hours",
         "35.07 hours",
@@ -2776,23 +2834,25 @@ EPSO_BANK.registerSet({
         "Divide the sum by the total number of people in the three groups."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Unit 1: 112 × 45 = 5,040",
         "Unit 3: 114 × 29 = 3,306",
         "Unit 4: 25 × 40 = 1,000",
-        "Sum ÷ people: 9,346 ÷ (112 + 114 + 25) = 37.24 hours"
+        "Sum ÷ people: 9,346 ÷ (112 + 114 + 25) = 37.24 hours",
+        "Final answer: 37.24 hours."
       ],
       "optionNotes": [
         "This includes all five rows, not just the three named.",
         "This uses Unit 1, Unit 3, Unit 4, Unit 5: check which groups the question names.",
         "This uses Unit 1, Unit 2, Unit 3, Unit 4: check which groups the question names.",
         "This uses Unit 1, Unit 3: check which groups the question names.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives 37.24 hours."
       ],
       "explanation": "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
     },
     {
-      "id": "n02-36-r2",
-      "supersedes": "n02-36",
+      "id": "n02-36-r3",
+      "supersedes": "n02-36-r2",
       "topic": "Removing VAT",
       "difficulty": 2,
       "exhibits": [
@@ -2845,7 +2905,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Brevania?",
+      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Brevania? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 7,958.40",
         "EUR 8,057.88",
@@ -2859,22 +2919,24 @@ EPSO_BANK.registerSet({
         "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "913 ÷ 1.19 = 767.23",
         "9,035 ÷ 1.19 = 7,592.44",
-        "Total = 767.23 + 7,592.44 = EUR 8,359.66"
+        "Total = 767.23 + 7,592.44 = EUR 8,359.66",
+        "Final answer: EUR 8,359.66."
       ],
       "optionNotes": [
         "This applies another country's VAT rate.",
         "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
         "This applies another country's VAT rate.",
         "This applies a flat 20% instead of the rate shown for each invoice.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 8,359.66."
       ],
       "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
     },
     {
-      "id": "n02-37-r2",
-      "supersedes": "n02-37",
+      "id": "n02-37-r3",
+      "supersedes": "n02-37-r2",
       "topic": "Budget reallocation",
       "difficulty": 2,
       "exhibits": [
@@ -2951,7 +3013,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If 40% of the consumables budget is moved to dissemination, what will the dissemination budget be?",
+      "stem": "If 40% of the consumables budget is moved to dissemination, what will the dissemination budget be? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 2.18 million",
         "EUR 2.28 million",
@@ -2965,22 +3027,24 @@ EPSO_BANK.registerSet({
         "The amount moved is 40% of the consumables budget, not of the total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Consumables: 23% × 12 = EUR 2.76 million",
         "Moved: 40% × that = EUR 1.10 million",
-        "Dissemination: 13% × 12 + moved = EUR 2.66 million"
+        "Dissemination: 13% × 12 + moved = EUR 2.66 million",
+        "Final answer: EUR 2.66 million."
       ],
       "optionNotes": [
         "This increases dissemination by 40% of its own budget.",
         "This uses last year's shares with this year's total.",
         "This transfers 40% of equipment instead of consumables.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 2.66 million.",
         "This transfers 40% of personnel instead of consumables."
       ],
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n02-38-r2",
-      "supersedes": "n02-38",
+      "id": "n02-38-r3",
+      "supersedes": "n02-38-r2",
       "topic": "Shares in a stacked chart",
       "difficulty": 1,
       "exhibits": [
@@ -3029,7 +3093,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "In 2021, what percentage of the total did incineration account for?",
+      "stem": "In 2021, what percentage of the total did incineration account for? Round only the final result to 1 decimal place.",
       "options": [
         "37.0%",
         "37.5%",
@@ -3043,11 +3107,13 @@ EPSO_BANK.registerSet({
         "Divide the component by that total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Total 2021 = 65 + 145 + 182 = 392",
-        "Share = 145 ÷ 392 × 100 = 36.99%"
+        "Share = 145 ÷ 392 × 100 = 36.99%",
+        "Final answer: 37.0%."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 37.0%.",
         "This is the share in 2022.",
         "This divides the requested component by the total for 2019.",
         "This is the share in 2020.",
@@ -3056,8 +3122,8 @@ EPSO_BANK.registerSet({
       "explanation": "In stacked charts, the base is the whole bar. Dividing by the other segments overstates the share."
     },
     {
-      "id": "n02-39-r2",
-      "supersedes": "n02-39",
+      "id": "n02-39-r3",
+      "supersedes": "n02-39-r2",
       "topic": "Rates with changing base",
       "difficulty": 3,
       "exhibits": [
@@ -3103,7 +3169,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the dropout rate in South in 2024?",
+      "stem": "What was the dropout rate in South in 2024? Round only the final result to 2 decimal places.",
       "options": [
         "5.91%",
         "5.92%",
@@ -3117,14 +3183,16 @@ EPSO_BANK.registerSet({
         "Then update both that number and the base before dividing."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2023: 6% × 760 = 45.6 thousand",
         "2024 dropouts: 45.6 − 1 = 44.6",
         "2024 base: 760 × 0.991 = 753.2",
-        "Rate = 44.6 ÷ 753.2 × 100 = 5.922%"
+        "Rate = ((760 × 6 ÷ 100 + (-1)) ÷ (760 × (1 + (-0.9) ÷ 100))) × 100 ≈ 5.922%",
+        "Final answer: 5.92%."
       ],
       "optionNotes": [
         "This applies the changes for North instead.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 5.92%.",
         "This changes the base but not the number of dropouts.",
         "This applies the change in dropouts in the wrong direction.",
         "This applies the changes for Uplands instead."
@@ -3132,8 +3200,8 @@ EPSO_BANK.registerSet({
       "explanation": "When a rate's base moves, recompute both parts of the fraction."
     },
     {
-      "id": "n02-40-r2",
-      "supersedes": "n02-40",
+      "id": "n02-40-r3",
+      "supersedes": "n02-40-r2",
       "topic": "Growth projection",
       "difficulty": 2,
       "exhibits": [
@@ -3175,7 +3243,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If solar capacity keeps growing at the same annual percentage rate as between 2022 and 2023, what will it be in 2026?",
+      "stem": "If solar capacity keeps growing at the same annual percentage rate as between 2022 and 2023, what will it be in 2026? Round only the final result to 1 decimal place.",
       "options": [
         "47.8 GW",
         "50.3 GW",
@@ -3189,21 +3257,23 @@ EPSO_BANK.registerSet({
         "Apply it 3 times (compounding)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Rate = 36.2 ÷ 31.5 − 1 = 14.921%",
-        "36.2 × (1 + 0.14921)^3 = 54.94"
+        "36.2 × (36.2 ÷ 31.5)^3 ≈ 54.94",
+        "Final answer: 54.9 GW."
       ],
       "optionNotes": [
         "One year short.",
         "This adds the same absolute increase each year; the question asks for a constant percentage rate.",
         "This applies the rate without compounding.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 54.9 GW.",
         "One year too many."
       ],
       "explanation": "A constant percentage rate compounds. Linear and non-compounded projections are the usual distractors."
     },
     {
-      "id": "n02-41-r2",
-      "supersedes": "n02-41",
+      "id": "n02-41-r3",
+      "supersedes": "n02-41-r2",
       "topic": "Units and per-capita values",
       "difficulty": 2,
       "exhibits": [
@@ -3250,7 +3320,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was water use per inhabitant in Calmora, in m³?",
+      "stem": "What was water use per inhabitant in Calmora, in m³? Round only the final result to the nearest whole number.",
       "options": [
         "353 m³",
         "356 m³",
@@ -3264,11 +3334,13 @@ EPSO_BANK.registerSet({
         "Then divide by the population (in persons, not millions)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Units: million m³ ÷ million people = m³ per person.",
-        "8,534 million m³ ÷ 24.2 million people = 352.64 m³ per person"
+        "8,534 ÷ 24.2 ≈ 352.64 m³ per person (conversion factor accounts for both exhibit scales)",
+        "Final answer: 353 m³."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 353 m³.",
         "This rounds the population to a whole number of millions first, which loses precision.",
         "This uses the figures for Dunmark.",
         "This uses the figures for Marrow.",
@@ -3277,8 +3349,8 @@ EPSO_BANK.registerSet({
       "explanation": "Unit traps are common: million m³ ÷ million people = m³ per person. If your answer is 1,000 times too large or small, recheck the conversion before choosing."
     },
     {
-      "id": "n02-42-r2",
-      "supersedes": "n02-42",
+      "id": "n02-42-r3",
+      "supersedes": "n02-42-r2",
       "topic": "Rates of work",
       "difficulty": 2,
       "exhibits": [
@@ -3319,7 +3391,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "If Panel 3 is given 2 extra staff working at the same rate, how many working days will it need to clear its backlog?",
+      "stem": "If Panel 3 is given 2 extra staff working at the same rate, how many working days will it need to clear its backlog? Assume output is uniform and part of a working day is allowed. Round only the final result to 1 decimal place.",
       "options": [
         "11.0 days",
         "11.3 days",
@@ -3333,22 +3405,24 @@ EPSO_BANK.registerSet({
         "Days = backlog ÷ daily output with the new headcount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "New staff = 12 + 2 = 14",
         "Daily output = 14 × 7 = 98",
-        "1,188 ÷ 98 = 12.12 days"
+        "1,188 ÷ 98 = 12.12 days",
+        "Final answer: 12.1 days."
       ],
       "optionNotes": [
         "This adds the extra staff to the daily rate instead of to the headcount.",
         "One person too many: check the new headcount.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 12.1 days.",
         "One person short: check the new headcount.",
         "This ignores the extra staff."
       ],
       "explanation": "Add staff to the headcount, then multiply by the individual rate."
     },
     {
-      "id": "n02-43-r2",
-      "supersedes": "n02-43",
+      "id": "n02-43-r3",
+      "supersedes": "n02-43-r2",
       "topic": "Average speed",
       "difficulty": 2,
       "exhibits": [
@@ -3389,7 +3463,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the average speed over the whole journey, including all the stops listed?",
+      "stem": "What was the average speed over the whole journey, including all the stops listed? Round only the final result to 1 decimal place.",
       "options": [
         "51.0 km/h",
         "53.1 km/h",
@@ -3403,22 +3477,24 @@ EPSO_BANK.registerSet({
         "Total time includes travel time and every stop."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Distance = 245 km",
         "Time = 215 + 73 = 288 min",
-        "245 ÷ 288 × 60 = 51.04 km/h"
+        "245 ÷ 288 × 60 = 51.04 km/h",
+        "Final answer: 51.0 km/h."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 51.0 km/h.",
         "This leaves out the stop after leg 2.",
         "This leaves out the stop after leg 4.",
         "This leaves out the stop after leg 3.",
         "This leaves out the stop after leg 1."
       ],
-      "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; averaging speeds is always wrong for unequal legs."
+      "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; use total distance divided by total elapsed time. An unweighted mean of speeds works only for equal time intervals, and excludes the stops here."
     },
     {
-      "id": "n02-44-r2",
-      "supersedes": "n02-44",
+      "id": "n02-44-r3",
+      "supersedes": "n02-44-r2",
       "topic": "Successive percentage changes",
       "difficulty": 2,
       "exhibits": [
@@ -3471,7 +3547,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the price of freezer at the end of 2024?",
+      "stem": "What was the price of freezer at the end of 2024? Round only the final result to 2 decimal places.",
       "options": [
         "EUR 3,416.89",
         "EUR 3,435.70",
@@ -3485,22 +3561,24 @@ EPSO_BANK.registerSet({
         "Multiply by (1 + change) three times."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "End of 2022: 3,020 × 1.096 = EUR 3,309.92",
         "End of 2023: × 1.090 = EUR 3,607.81",
-        "End of 2024: × 1.038 = EUR 3,744.91"
+        "End of 2024: × 1.038 = EUR 3,744.91",
+        "Final answer: EUR 3,744.91."
       ],
       "optionNotes": [
         "This leaves out the 2022 change.",
         "This leaves out the 2023 change.",
         "This stops at the end of 2023.",
         "This adds the three percentages; changes compound, so multiply instead.",
-        "Correct."
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 3,744.91."
       ],
       "explanation": "Successive percentage changes multiply. Adding them is only an approximation, and the error grows with the size of the changes."
     },
     {
-      "id": "n02-45-r2",
-      "supersedes": "n02-45",
+      "id": "n02-45-r3",
+      "supersedes": "n02-45-r2",
       "topic": "Percentages of percentages",
       "difficulty": 2,
       "exhibits": [
@@ -3547,7 +3625,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "How many respondents in the Industry group work remotely and want to continue?",
+      "stem": "Approximately how many respondents in the Industry group work remotely and want to continue? Use the reported percentages as estimates. Round only the final result to the nearest whole number.",
       "options": [
         "485",
         "504",
@@ -3561,14 +3639,16 @@ EPSO_BANK.registerSet({
         "The second percentage applies only to those people, not to all respondents."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2,107 × 85% = 1,791.0",
-        "1,791.0 × 34% = 608.9"
+        "2,107 × (85 ÷ 100) × (34 ÷ 100) ≈ 608.9",
+        "Final answer: 609."
       ],
       "optionNotes": [
         "This applies the percentages of the Health group.",
         "This uses the number of respondents in the Public group.",
         "This uses the number of respondents in the Health group.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 609.",
         "This applies the percentages of the Retail group."
       ],
       "explanation": "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
@@ -3660,8 +3740,8 @@ EPSO_BANK.registerSet({
       "explanation": "Two steps for every row: a difference, then a division. The largest absolute surplus is the planted trap."
     },
     {
-      "id": "n02-47-r2",
-      "supersedes": "n02-47",
+      "id": "n02-47-r3",
+      "supersedes": "n02-47-r2",
       "topic": "Undoing a percentage change",
       "difficulty": 1,
       "exhibits": [
@@ -3708,7 +3788,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "How many new businesses were registered in the Coast region in 2023?",
+      "stem": "How many new businesses were registered in the Coast region in 2023? Round only the final result to the nearest whole number.",
       "options": [
         "10,501",
         "10,538",
@@ -3722,11 +3802,13 @@ EPSO_BANK.registerSet({
         "So the 2023 value = 2024 value ÷ (1 + change)."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Multiplier from 2023 to 2024 = 1 + 13.2% = 1.132",
-        "2023 value = 11,887 ÷ 1.132 = 10,500.9"
+        "2023 value = 11,887 ÷ 1.132 = 10,500.9",
+        "Final answer: 10,501."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 10,501.",
         "This uses another region's rate.",
         "This uses another region's rate.",
         "This uses another region's rate.",
@@ -3735,8 +3817,8 @@ EPSO_BANK.registerSet({
       "explanation": "Undo a percentage change by dividing by the multiplier, not by subtracting the percentage from the later value."
     },
     {
-      "id": "n02-48-r2",
-      "supersedes": "n02-48",
+      "id": "n02-48-r3",
+      "supersedes": "n02-48-r2",
       "topic": "Multi-step: unit cost",
       "difficulty": 2,
       "exhibits": [
@@ -3777,7 +3859,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "Excluding administrative costs, how much was spent per beneficiary under Scheme 3?",
+      "stem": "Excluding administrative costs, how much was spent per beneficiary under Scheme 3? Round only the final result to the nearest whole number.",
       "options": [
         "EUR 3,388",
         "EUR 3,923",
@@ -3791,12 +3873,14 @@ EPSO_BANK.registerSet({
         "Watch the units: budget in millions, beneficiaries in thousands."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Programme spending = 107 × (1 − 12%) = EUR 94.16 million",
-        "EUR 94.16 million ÷ 24 thousand = 94,160,000 ÷ 24,000 = EUR 3,923.3"
+        "EUR 94.16 million ÷ 24 thousand = 94,160,000 ÷ 24,000 = EUR 3,923.3",
+        "Final answer: EUR 3,923."
       ],
       "optionNotes": [
         "This removes the administrative share twice.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 3,923.",
         "This subtracts the percentage as if it were millions of euros.",
         "This uses another programme's administrative share.",
         "This includes the administrative costs."
@@ -3804,8 +3888,8 @@ EPSO_BANK.registerSet({
       "explanation": "Check what is excluded and convert millions and thousands carefully before dividing."
     },
     {
-      "id": "n02-49-r2",
-      "supersedes": "n02-49",
+      "id": "n02-49-r3",
+      "supersedes": "n02-49-r2",
       "topic": "Shares to amounts",
       "difficulty": 1,
       "exhibits": [
@@ -3882,7 +3966,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "In 2024, how many more complaints went to the largest category than to the second-largest?",
+      "stem": "In 2024, how many more complaints went to the largest category than to the second-largest? Round only the final result to the nearest whole number.",
       "options": [
         "870 complaints",
         "1,023 complaints",
@@ -3896,12 +3980,14 @@ EPSO_BANK.registerSet({
         "Subtract their shares, then apply the difference to the total."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Other 27.3% − Privacy 21.8% = 5.5%",
-        "5.5% × 18,600 = 1,023.0"
+        "5.5% × 18,600 = 1,023.0",
+        "Final answer: 1,023 complaints."
       ],
       "optionNotes": [
         "This applies the 2024 shares to the 2023 total.",
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 1,023 complaints.",
         "This mixes this year's largest-category share with last year's second-largest share.",
         "This uses both last year's shares and last year's total.",
         "This mixes last year's largest-category share with this year's second-largest share."
@@ -3909,8 +3995,8 @@ EPSO_BANK.registerSet({
       "explanation": "Shares of the same total can be subtracted before converting into amounts."
     },
     {
-      "id": "n02-50-r2",
-      "supersedes": "n02-50",
+      "id": "n02-50-r3",
+      "supersedes": "n02-50-r2",
       "topic": "Averaging rates",
       "difficulty": 2,
       "exhibits": [
@@ -3957,7 +4043,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "What was the overall pass rate across Hilltop, Lakeside and Harbour together?",
+      "stem": "What was the overall pass rate across Hilltop, Lakeside and Harbour together? Round only the final result to 1 decimal place.",
       "options": [
         "42.1%",
         "42.8%",
@@ -3971,13 +4057,15 @@ EPSO_BANK.registerSet({
         "Total passes ÷ total candidates for the three centres."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Hilltop: 81 × 38% = 30.8",
         "Lakeside: 86 × 63% = 54.2",
         "Harbour: 362 × 38% = 137.6",
-        "Passes ÷ candidates: 222.5 ÷ (81 + 86 + 362) × 100 = 42.06%"
+        "Passes ÷ candidates: 222.5 ÷ (81 + 86 + 362) × 100 = 42.06%",
+        "Final answer: 42.1%."
       ],
       "optionNotes": [
-        "Correct.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 42.1%.",
         "This uses Lakeside, Harbour: check which centres are named.",
         "This is the simple average of the three rates; centres with more candidates must count more.",
         "This uses Riverside, Hilltop, Lakeside, Harbour: check which centres are named.",

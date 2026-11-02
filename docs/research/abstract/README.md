@@ -72,3 +72,7 @@ The complete bank inventory is in `inventory.csv` and `inventory.json`; the find
 ## Fifteen-test expansion
 
 The [follow-up design and research record](../full-tests-2026-10/README.md) covers the addition of three full tests: sixty verbal, thirty numerical and thirty abstract items. The current bank has 300/220/220 questions; new sets are verbal14–19 and numerical/abstract09–11. Existing question content remains unchanged. Refreshed inventories reflect these totals. Very hard is an editorial challenge profile, pending first-attempt learner calibration.
+
+## November book-informed review
+
+The current 220-item review supersedes the earlier foundation-only structural screen and uniformly Hard challenge labels. See [the review](../../ABSTRACT_BOOK_REVIEW.md) and [current audit](../../ABSTRACT_AUDIT.md). All items now have independent visible-figure solver coverage; all figures and choices are included in light/dark contact sheets. The supplied book informed methods only; no content was copied.

@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 15 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v15-01",
+      "id": "v15-01-r2",
       "topic": "Night flight slot allocation",
       "difficulty": 3,
       "challenge": true,
@@ -33,7 +33,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track the legal basis for the flight slot before deciding which consequences survive a transfer.",
         "Legal transfer ends permanent entitlement."
       ],
       "optionNotes": [
@@ -42,10 +42,11 @@ EPSO_BANK.registerSet({
         "Correct. Transfer removes permanence; inland service removes the island exception, forcing two valid approvals, while the engine change requires a fresh matching test.",
         "Overstated. The exact request date relative to signature is not stated."
       ],
-      "explanation": "Legal transfer ends permanent entitlement. The inland route requires a regional request. Both municipalities must validly approve its timetable. The second officer needs timetable delegation. The engine replacement requires a new configuration-matched test."
+      "explanation": "Legal transfer ends permanent entitlement. The inland route requires a regional request. Both municipalities must validly approve its timetable. The second officer needs timetable delegation. The engine replacement requires a new configuration-matched test.",
+      "supersedes": "v15-01"
     },
     {
-      "id": "v15-02",
+      "id": "v15-02-r2",
       "topic": "Clinical sample consent",
       "difficulty": 3,
       "challenge": true,
@@ -71,7 +72,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Follow the consent and statutory-order routes separately; do not apply a condition from one route automatically to the other.",
         "The statutory order excludes condition P."
       ],
       "optionNotes": [
@@ -80,10 +81,11 @@ EPSO_BANK.registerSet({
         "Not supported. Earlier interviews and their subject are unreported.",
         "Correct. The mismatched order cannot authorise the study; interviews require amended consent and team-held keys require a currently accredited custodian."
       ],
-      "explanation": "The statutory order excludes condition P. Team interviews require affirmative amended consent. Identifying keys reached the team, excluding the separate-custodian route. Accreditation must be current at release. The expired former custodian cannot meet that requirement by applying."
+      "explanation": "The statutory order excludes condition P. Team interviews require affirmative amended consent. Identifying keys reached the team, excluding the separate-custodian route. Accreditation must be current at release. The expired former custodian cannot meet that requirement by applying.",
+      "supersedes": "v15-02"
     },
     {
-      "id": "v15-03",
+      "id": "v15-03-r2",
       "topic": "Refugee archive chronology",
       "difficulty": 3,
       "challenge": true,
@@ -109,7 +111,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Distinguish the date of a reproduced cover from the age or date of the wording it encloses.",
         "The reproduced cover requires paper unavailable before 6 June."
       ],
       "optionNotes": [
@@ -118,10 +120,11 @@ EPSO_BANK.registerSet({
         "Not supported. No insertion, official identity or depicted person is established.",
         "Not supported. Earliest paper availability does not identify production date or workshop."
       ],
-      "explanation": "The reproduced cover cannot exist before the paper became available on 6 June. The receipt lists the notebook in the parcel’s first opening since sealing. The same intact individual seal is photographed on 9 June. The notebook was therefore inside by 9 June. The crate-only ledger does not identify the notebook’s dispatch."
+      "explanation": "The reproduced cover cannot exist before the paper became available on 6 June. The receipt lists the notebook in the parcel’s first opening since sealing. The same intact individual seal is photographed on 9 June. The notebook was therefore inside by 9 June. The crate-only ledger does not identify the notebook’s dispatch.",
+      "supersedes": "v15-03"
     },
     {
-      "id": "v15-04",
+      "id": "v15-04-r2",
       "topic": "Emergency reserve ownership",
       "difficulty": 3,
       "challenge": true,
@@ -147,7 +150,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check authority to use the reserve separately from ownership, including the effect of the pending appeal.",
         "The pending delegation appeal excludes regional authority."
       ],
       "optionNotes": [
@@ -156,10 +159,11 @@ EPSO_BANK.registerSet({
         "False. A new owner needs its own licence.",
         "Not supported. No location of the parent’s liquid assets is specified."
       ],
-      "explanation": "The pending delegation appeal excludes regional authority. The minister supplies the valid declaration. No new-owner licence exists, requiring a valid lease. The lease needs authorised withdrawals and current guarantee. Expired bank cover forces a parent guarantee with sufficient audited liquid assets."
+      "explanation": "The pending delegation appeal excludes regional authority. The minister supplies the valid declaration. No new-owner licence exists, requiring a valid lease. The lease needs authorised withdrawals and current guarantee. Expired bank cover forces a parent guarantee with sufficient audited liquid assets.",
+      "supersedes": "v15-04"
     },
     {
-      "id": "v15-05",
+      "id": "v15-05-r2",
       "topic": "Publication embargo routes",
       "difficulty": 3,
       "challenge": true,
@@ -185,7 +189,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check whether the appointment still exists before treating continued technical access as authority.",
         "Resignation ends the appointment despite working email."
       ],
       "optionNotes": [
@@ -194,10 +198,11 @@ EPSO_BANK.registerSet({
         "Correct. Resignation leaves a subject-matched accepted guest mandate; permission-only data leave controlled access requiring independence and a binding deadline.",
         "Not supported. No application counts or comparison are supplied."
       ],
-      "explanation": "Resignation ends the appointment despite working email. Eligibility requires an accepted guest mandate covering ecology. Permission-only records fail public deposition. Controlled access requires an independent committee. The general promise must be supplemented by a binding thirty-day duty."
+      "explanation": "Resignation ends the appointment despite working email. Eligibility requires an accepted guest mandate covering ecology. Permission-only records fail public deposition. Controlled access requires an independent committee. The general promise must be supplemented by a binding thirty-day duty.",
+      "supersedes": "v15-05"
     },
     {
-      "id": "v15-06",
+      "id": "v15-06-r2",
       "topic": "Accident evidence independence",
       "difficulty": 3,
       "challenge": true,
@@ -223,7 +228,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "For each competing explanation, ask whether the observed mark distinguishes it from the alternative.",
         "The mark is nondiagnostic between the two explanations."
       ],
       "optionNotes": [
@@ -232,10 +237,11 @@ EPSO_BANK.registerSet({
         "Not supported. Neither arrival at the machine nor that temporal ordering is established.",
         "Correct. The reports share one source; the disconnected circuit defeats the usual fault prediction, and a surge remains a possible additional cause under obstruction."
       ],
-      "explanation": "The mark is nondiagnostic between the two explanations. The two flash reports share one originating message. The circuit was disconnected, defeating the stated electrical-fault fuse prediction. Obstruction plus an unrelated surge remains allowed. The monitor does not establish whether that additional surge reached the machine."
+      "explanation": "The mark is nondiagnostic between the two explanations. The two flash reports share one originating message. The circuit was disconnected, defeating the stated electrical-fault fuse prediction. Obstruction plus an unrelated surge remains allowed. The monitor does not establish whether that additional surge reached the machine.",
+      "supersedes": "v15-06"
     },
     {
-      "id": "v15-07",
+      "id": "v15-07-r2",
       "topic": "Scholarship residence status",
       "difficulty": 3,
       "challenge": true,
@@ -261,7 +267,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate the ordinary residence route from dependent status, then apply each route's conditions to the stated employment facts.",
         "Full-time employment excludes dependent qualification."
       ],
       "optionNotes": [
@@ -270,10 +276,11 @@ EPSO_BANK.registerSet({
         "False. Full-time employment ends dependent status.",
         "Not supported. The assessor’s earlier involvement and campus history are not specified."
       ],
-      "explanation": "Full-time employment excludes dependent qualification. The ninety-day absence would otherwise break continuity. Only pre-departure approval preserves the residence route. Branch accreditation is absent and changed curriculum prevents reuse. New equivalence therefore requires an independent report."
+      "explanation": "Full-time employment excludes dependent qualification. The ninety-day absence would otherwise break continuity. Only pre-departure approval preserves the residence route. Branch accreditation is absent and changed curriculum prevents reuse. New equivalence therefore requires an independent report.",
+      "supersedes": "v15-07"
     },
     {
-      "id": "v15-08",
+      "id": "v15-08-r2",
       "topic": "Stability-study product release",
       "difficulty": 3,
       "challenge": true,
@@ -300,7 +307,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Before comparing product outcomes, identify whether the studies use the same age composition.",
         "Age mix differs across surveys."
       ],
       "optionNotes": [
@@ -309,10 +316,11 @@ EPSO_BANK.registerSet({
         "Overstated. Each event has its own timing bound; their mutual order is not specified.",
         "Not supported. Neither certification nor recalibration identifies the organisation performing the other operation."
       ],
-      "explanation": "Supplier change requires renewed stability evidence. The manufacturing-site mismatch and absent replacement defeat the bridge. Heat-induced crystal change excludes accelerated testing. Full-duration observation needs a calibrated chamber from its start. Controller replacement requires recalibration. Both recalibration routes require reference certification after membrane replacement."
+      "explanation": "Supplier change requires renewed stability evidence. The manufacturing-site mismatch and absent replacement defeat the bridge. Heat-induced crystal change excludes accelerated testing. Full-duration observation needs a calibrated chamber from its start. Controller replacement requires recalibration. Both recalibration routes require reference certification after membrane replacement.",
+      "supersedes": "v15-08"
     },
     {
-      "id": "v15-09",
+      "id": "v15-09-r2",
       "topic": "Deep-sea specimen custody",
       "difficulty": 3,
       "challenge": true,
@@ -338,7 +346,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track which action opens the custody container and which authorisation route can permit that action.",
         "Opening requires the controlled-transfer exception."
       ],
       "optionNotes": [
@@ -347,10 +355,11 @@ EPSO_BANK.registerSet({
         "Correct. The opened cartridge and inadequate video force a currently authorised observer, timely resealing and a matching individual laboratory seal.",
         "Not supported. Species identification does not establish depth and no fragment-based calculation is described."
       ],
-      "explanation": "Opening requires the controlled-transfer exception. Exterior-only video cannot replace attendance. The sole observer needs post-change authorisation. That requires the supplementary assessment. Continuous handling must end with a logged new seal, matched individually at receipt."
+      "explanation": "Opening requires the controlled-transfer exception. Exterior-only video cannot replace attendance. The sole observer needs post-change authorisation. That requires the supplementary assessment. Continuous handling must end with a logged new seal, matched individually at receipt.",
+      "supersedes": "v15-09"
     },
     {
-      "id": "v15-10",
+      "id": "v15-10-r2",
       "topic": "Joint venture voting authority",
       "difficulty": 3,
       "challenge": true,
@@ -376,7 +385,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "List each approval needed for a valid joint-venture decision rather than stopping at its ordinary vote count.",
         "Ordinary majority supplies only one of two necessary approvals."
       ],
       "optionNotes": [
@@ -385,7 +394,8 @@ EPSO_BANK.registerSet({
         "Not supported. Shareholder knowledge and its timing are not reported.",
         "Correct. The board lacks three eligible directors and cannot use the recusal alternate; valid consent therefore needs Sera’s renewed disposal mandate."
       ],
-      "explanation": "Ordinary majority supplies only one of two necessary approvals. Purchaser employment excludes one board participant. An attending conflicted director cannot be replaced by the alternate. Only two eligible directors remain, so board consent fails. Sera consequently needs a disposal mandate renewed after merger."
+      "explanation": "Ordinary majority supplies only one of two necessary approvals. Purchaser employment excludes one board participant. An attending conflicted director cannot be replaced by the alternate. Only two eligible directors remain, so board consent fails. Sera consequently needs a disposal mandate renewed after merger.",
+      "supersedes": "v15-10"
     }
   ]
 });

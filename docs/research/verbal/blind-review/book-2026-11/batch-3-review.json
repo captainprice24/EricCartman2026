@@ -1,0 +1,1589 @@
+{
+  "v10-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Letters separately miss dates or site; uploading excludes site revisions."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "The EUR120 was paid; repayment timing and changed-use bills are unknown."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-03": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Seat ages match, employment statuses differ, but directions and district employment mix are absent."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Frozen recovery performance did not worsen; 26 qualifying products lack repair verification; manufacturer outcomes are undisclosed."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Pine exceeds twelve months and retains privacy clearance; Cedar needs both new-version decisions."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Recycled tonnage changes from 0.40T to 0.24T; individual and policy attribution are unknown."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Liquid excludes paperwork-only entry, forcing Pine's pressure/seal route; Cedar's classes do not entail seal approval."
+    ],
+    "issues": [
+      "Minor wording gap: the pressure-tested waiver rule is expressed only as a necessary seal condition rather than an explicitly defined pressure-test route. B relies on interpreting the stated routes as exhaustive, as the case subsequently directs."
+    ],
+    "suggestions": [
+      "Explicitly name the test-based route and its pressure-test and independent-seal requirements."
+    ]
+  },
+  "v10-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Complex shares are 6/8 and 3/8; common weights retain Birch's one-week advantage, without a workload prediction."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "False"
+    },
+    "evidence": [
+      "Removing chairs clears the courtyard; bolts into original stone remain prohibited and unapproved."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-10": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Compliant renewal entails Sana's academic threshold; Tavi's payment remains conditional and assessment timing is unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-01": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Common-mix means are eight and nine days; original aggregate order and actual changed-load performance are not established."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-02": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "At most fourteen second-season positives can be old positives, forcing at least nine new detections, not new occupancies."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Rowan supplied documents after editor assignment; Hazel's entry concerns original paperwork rather than acceptance or current web presence."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Elm's compliant electrical work entails assessment and registration entails audit; Ash's shared owner supplies no endorsement."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Approved certificate plus passed packaging qualifies Cedar; Fern fails the independent packaging condition."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Conserved implies approved dossier implies mark; some loaned dossiers truly lack marks, but marked dossiers need not concern treatment."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Unsupervised lawful adult admission requires a keycard and check; a supervised child could use either document."
+    ],
+    "issues": [
+      "Wording tension: every school-permit holder must enter with a supervisor, yet adults may enter without one using a keycard and may hold both. The answer survives, but dual holders’ obligations are unclear."
+    ],
+    "suggestions": [
+      "Replace every school-permit holder with every entrant using a school permit."
+    ]
+  },
+  "v11-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Rowan meets the omission exception and made a clerical correction; Hazel's equipment change is a late new bid."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Never taking the assessment forces exemption and board-verified practice; board identity and briefing chronology remain unspecified."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Each approval specifies annual inputs and project; annual output and unchanged safeguards cannot authorise monthly inputs."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A retains both signatures; B lacks its translator signature despite the reviser's signature and publication permission."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-02": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "The correction entails amended-exemplar descent for K and L; omissions, independent ownership notes and copy dates do not fix the tree."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Trial assignments differ but calibration rod is shared; the selected manual subset is not an independent trial."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Consultant checked only the coefficient; shared idling assumption and unadjusted total do not establish scheduling causation."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-05": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Six certain opponents leave at most six supporters against a threshold of seven."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Both filing routes require at least one completed internal complaint, and every investigated service must be within district."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Full employment may be 45 to 65; forty-five responses cannot contain all fifty original employees and no transitions are identified."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Randomisation compares medium-plus-map policies; complete assignment outcomes cannot isolate reading or components or generalise to decliners."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-09": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Permissions attach to the specific image and medium; artwork clearance survives the crop but photographer permission does not transfer."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v12-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Excluded union is 200+300-100=400; the remaining 400 include 150 definitely unexpired and 250 unresolved."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Approval in principle is not commitment; Friday large repairs need a board resolution, while ordinary small grants remain delegated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-02": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fifty-four supporters exceed both the original forty and half the hundred; at least fourteen former opponents support, not exactly fourteen."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fuel bars a waiver, so Silver needed an active inspected sensor; other cargo and inspection histories remain open."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-04": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Random access with common training isolates assignment, not actual use or district-wide transfer; outcomes have not been reported."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Paired revised-model runs differ only in the campaign assumption; their one-million difference is simulated rather than observed saving."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Available 34 plus Elm's eight gives 42, plus Willow's six gives 40; both repairs give 48."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-07": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Neri's scholarship entails methods and fieldwork; confirmed lack of oral evaluation eliminates placement, forcing community project."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Updated papers repeat one model lineage; the local monitor neither identifies network displacement nor proves the estimate false."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fixed raw measurements cannot improve between classifications; all seven losses reflect the rule, without decomposing the annual workforce result."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v13-10": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Blue wins the retained central expenditure scenario; flexibility does not value omitted effects or guarantee every future."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v14-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Nine weeks bars waiver; parent lacks licence; conversion invalidates old property approval, requiring a fresh independent personal inspection."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Conversion cancels inherited eligibility/consent; roof work on the listed building requires fresh independent architectural evidence."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Unsigned reciprocity cannot support clearance; no valid depositor permission exists and catalogue-only publication forces two assessors with unredacted access."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Nursery supply bars exemption, relocation requires fresh gauge evidence, and broken seal forces independently calibrated manual assurance."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Consortium recognition ended; served notice requires a timely objection and the sole consultant needed explicit appeal authority."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "No recovery, accreditation or qualifying video route exists; an independent live witness and new serial-matched repair record are necessary."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Joint ownership bars guarantee; old policy excludes territory; lapsed carrier forces two currently trained escorts across municipal boundaries."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-08": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Broken seal and no manual method force recalibrated local assay using a post-installation reference; deputy needs separate release authority."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Financial loss cannot waive standstill; failed portal forces valid postal receipt, requiring renewed former-director mail authority."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v14-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Six-day outage cannot trigger release; expired subscription forces surviving final-contract clause, and merger forces delegation ratification."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Separate-company transfer ends entitlement, inland route needs regional request and officer delegation; replacement engine requires a new noise test."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Q-only order cannot cover P; interviews require affirmative consent and expired accreditation requires a current custodian for team-held keys."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Cover cannot predate 6 June and sealed parcel already contains notebook by 9 June; crate dispatch need not be notebook dispatch."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v15-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Regional delegation is suspended and ownership is unlicensed; national declaration and guaranteed authorised lease are the surviving routes."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Resigned editor needs accepted subject mandate; permission-only records require independent controlled access with binding thirty-day decisions."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Flash witnesses share one source, the circuit was disconnected, and a surge remains possible; the mark fits either primary mechanism."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v15-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Employment bars dependency; ninety-day absence requires advance approval; changed unaccredited branch curriculum requires independent equivalence report."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Changed supplier and site defeat old approval/bridge; heat sensitivity forces full observation with renewed chamber calibration and post-membrane certified reference."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Exterior-only video cannot qualify; Tavi needs protocol supplement, continuous observation and a newly logged seal matched at receipt."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v15-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Attending conflicted director cannot be replaced by alternate; sole usable consent is Sera's successor-renewed disposal mandate."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Restricted source needs express distribution permission; stable keys force secure environment with independent post-export-change assessment."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Friday buildings would require Thursday accounts, forbidden; ordinary ordering forces equipment after data on Friday."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v16-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "No separate genetic reference exists, so contemporaneous log is necessary; officer authority must be renewed in writing before the move."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Modified battery has no current test label and cannot go South; Central requires officer approval and accredited resealing after reopening."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Streams differ in sample eligibility and completion definition; accurate fractions do not identify causal route effects."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v16-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Released harbour files exist, are disputed and inspected, and cannot use failed orders; consent mediation entails full-annex reading."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v16-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Logger gap forces manual route, refrigerant change forces supplement, battery changes force calibration, and experimental batch needs specific permit."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-08": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Vale and Tavi are conflicted; Neri must provide the specialist and needs a precise-field independently assessed waiver after qualification expiry."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Sponsor payment excludes heritage route; converted engine requires assessment and transferred operator requires individually verified dated passenger appointment."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v16-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Coral cannot be fifth since Birch cannot be fourth; Dune precedes Amber and Elm, forcing Elm into last place."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v17-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Old carrier is listed despite late inscription; unlicensed lab needs supervision, whose superseded training requires a method supplement."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-02": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Liquid forces specialist admission; changed axles invalidate certificate, leaving one scale plus post-resurfacing weight certified by another laboratory."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Minor contact precludes chair delegation; conflicted alternate cannot count, so third eligible member must be a live remotely connected independent clinician."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Incomplete waiver cannot count; no portal acknowledgment leaves postal delivery, requiring explicitly renewed former-secretary authority before full notice begins."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Living release needs negative certificate; overheated reserve forces fresh sample with instrument sterilised since prior accession use."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Private minority forces enforceably restricted lease; thirty years forces full board and Pavo's professionally restored registration with post-consulting declaration."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Boundary touch and radio-range failure force corridor; firmware change requires compatibility using a newly generated unrevoked key."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Unlisted branch and third-language transcript require unsupervised Mira's renewed registration and post-name-change identity check; relocation timing of that check is unspecified."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Foreign owner bars domestic channel; suspended insurer forces cleared deposit, and sole agent needs authority for present owner."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v17-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "New entity loses waiver and changed local tool lacks certification; moved outside processor must pass new production-site audit before qualifying."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Private protected site needs order; moved unrecognised marker forces survey with lens-tested instrument using an independent reference distance."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-02": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Open-water lesson and wrong national class force school assessment; post-surgery clearance requires a new exam reviewing post-surgery specialist balance report."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Missing pages and no current-edition permission force reconstructed preservation; changed model needs validation against separate non-training reference."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Indexed interest is structured; entity-specific exemption fails, so changed-employer specialist needs new lender-specific independence endorsement before opinion."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Replication-capable specimen and wrong carrier class force renewed laboratory vehicle; transferred officer needs ratified organism clearance before witnessing test."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Withdrawn digital consent forces postal service; moved recipient needs post-move appointment with current identity; correspondence does not restore student eligibility."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Anchor and intentional tracer force assessment/model; changed rotor needs comparison with independently calibrated reference, including no indirect dependence."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-08": {
+    "answer": null,
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "If a review is required, changed protocol requires independent supplement and actual-line verification; however only a lot change, not a source change, is given."
+    ],
+    "issues": [
+      "No fully supported A–D answer as written; D is the likely intended answer, but its required-review premise is missing.",
+      "Answer D is intended but not entailed: an ingredient-lot change is not expressly a source change or new cross-contact route, the only stated triggers for a changed meal. A valid standing-approval history therefore remains possible.",
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "State that the ingredient source changed as well as the lot, or define a lot change as a changed meal.",
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Withheld agreement forces panel; replaced inventory and copied mark force post-treatment material sampling with location documented before removal."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v18-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Classified case and predecessor-only account force sealed clerk delivery; office transfer and renumbering require director authority for present case and classified filings."
+    ],
+    "issues": [
+      "Difficulty concern: long procedural chain tests working memory, while explicitly invalid alternatives and invented biographical details often make elimination substantially easier than the chain suggests."
+    ],
+    "suggestions": [
+      "For a harder item, use distractors that each follow most of the valid chain and differ at one scope or timing inference."
+    ]
+  },
+  "v19-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Reissue requires assessment after ownership change, itself after method revision; supervision requires post-revision assessment, independent in either route."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Consent inspection follows merger, hazard inspection follows alteration, hearing inspection follows request; all are independent and post-alteration, not necessarily post-merger."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "New mandate check follows revocation; either guardian identity route follows later name change, so all permitted checks are independent and post-revocation."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Annex accreditation and rejoining corridor fail; pressure test needs sensing-element recalibration using reference recertified after repair, with no tighter chronology."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fresh veterinary and outbreak routes require post-outbreak review; habitat review follows later reclassification, hence also outbreak; laboratory report is not universal."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Rector restoration, individual mandate and ratified standing mandate all require signatory declaration after conflict, independently validated; merger timing is not universal."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Dealer review needs post-control records, later than acquisition; both committee routes need post-acquisition records, without forcing post-control timing or both reports."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Cross-border release loses predecessor agreement, module certificate and relocated lab; only in-house test remains, requiring supplemented credential and post-name-change identity check."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-09": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "New load survey follows support change; emergency evidence follows later storm or request; all examine actual foundations but need not follow storm on engineering route."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v19-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Holder mandate check follows assignment; estate checks follow later name change/request; verifier differs from researcher but precise identity and later timing vary."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

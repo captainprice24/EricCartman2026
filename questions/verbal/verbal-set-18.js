@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 18 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v18-01",
+      "id": "v18-01-r2",
       "topic": "Forest plot licence",
       "difficulty": 3,
       "challenge": true,
@@ -34,7 +34,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate private ownership from protected status when classifying the plot for licensing.",
         "Private protected status requires a licence."
       ],
       "optionNotes": [
@@ -43,10 +43,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either test location is permitted.",
         "Not supported. The test must use the new configuration, but the reference need not be newly measured after lens replacement."
       ],
-      "explanation": "Private protected status requires a licence. Withheld permission leaves the compulsory order. The moved unrecertified marker cannot assess boundaries. An independent survey is necessary. The replaced lens requires a new-configuration calibration test. Either test route requires an independently established reference distance."
+      "explanation": "Private protected status requires a licence. Withheld permission leaves the compulsory order. The moved unrecertified marker cannot assess boundaries. An independent survey is necessary. The replaced lens requires a new-configuration calibration test. Either test route requires an independently established reference distance.",
+      "supersedes": "v18-01"
     },
     {
-      "id": "v18-02",
+      "id": "v18-02-r2",
       "topic": "Maritime training endorsement",
       "difficulty": 3,
       "challenge": true,
@@ -73,7 +74,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Use the scheme's geographic boundary to classify the training voyage before applying endorsement rules.",
         "Leaving the basin makes the instruction operational."
       ],
       "optionNotes": [
@@ -82,10 +83,11 @@ EPSO_BANK.registerSet({
         "False. Neither seated trainees nor a different-class certificate supplies the required recognition.",
         "Not supported. The specialist and examination location are not identified."
       ],
-      "explanation": "Leaving the basin makes the instruction operational. The national class mismatch prevents recognition. School competence assessment is therefore necessary. That assessment requires current medical clearance. Balance-affecting surgery ends the old clearance. Either new-examination route requires a post-surgery specialist balance report."
+      "explanation": "Leaving the basin makes the instruction operational. The national class mismatch prevents recognition. School competence assessment is therefore necessary. That assessment requires current medical clearance. Balance-affecting surgery ends the old clearance. Either new-examination route requires a post-surgery specialist balance report.",
+      "supersedes": "v18-02"
     },
     {
-      "id": "v18-03",
+      "id": "v18-03-r2",
       "topic": "Library digitisation authority",
       "difficulty": 3,
       "challenge": true,
@@ -112,7 +114,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate the public-domain work from newly added material and determine which permission each part needs.",
         "Copyrighted new chapters exclude direct public-domain use."
       ],
       "optionNotes": [
@@ -121,10 +123,11 @@ EPSO_BANK.registerSet({
         "Correct. No rights route remains; missing pages force reconstruction, no verified duplicate forces the changed model, and renewed validation needs an untrained reference.",
         "Not supported. Independence from training is required, not later creation of the reference."
       ],
-      "explanation": "Copyrighted new chapters exclude direct public-domain use. No current-edition rights licence exists. Missing pages prevent intact-original preservation. No verified duplicate leaves the imaging model. Changed restoration invalidates its old validation. Renewed validation must test a separately held reference excluded from training."
+      "explanation": "Copyrighted new chapters exclude direct public-domain use. No current-edition rights licence exists. Missing pages prevent intact-original preservation. No verified duplicate leaves the imaging model. Changed restoration invalidates its old validation. Renewed validation must test a separately held reference excluded from training.",
+      "supersedes": "v18-03"
     },
     {
-      "id": "v18-04",
+      "id": "v18-04-r2",
       "topic": "Municipal bond approval",
       "difficulty": 3,
       "challenge": true,
@@ -151,7 +154,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Classify the interest formula as a whole; a fixed minimum need not make every component fixed.",
         "Indexed interest makes the issue structured despite its fixed minimum."
       ],
       "optionNotes": [
@@ -160,10 +163,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either employer review route is available.",
         "Correct. Indexed interest forces structured treatment; a different issuer lacks the exemption, and the sole moved specialist needs endorsement supported by lender-specific independence."
       ],
-      "explanation": "Indexed interest makes the issue structured despite its fixed minimum. The new legal issuer cannot use the municipality’s exemption. An independent suitability opinion is necessary. The sole specialist changed employer. Fresh employer endorsement is required. Either endorsement route needs independence concerning the identified lender."
+      "explanation": "Indexed interest makes the issue structured despite its fixed minimum. The new legal issuer cannot use the municipality’s exemption. An independent suitability opinion is necessary. The sole specialist changed employer. Fresh employer endorsement is required. Either endorsement route needs independence concerning the identified lender.",
+      "supersedes": "v18-04"
     },
     {
-      "id": "v18-05",
+      "id": "v18-05-r2",
       "topic": "Biological transport licence",
       "difficulty": 3,
       "challenge": true,
@@ -190,7 +194,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Apply the transport definition to how the material can behave after warming, not only to its condition at dispatch.",
         "Warming-restored replication excludes ordinary posting."
       ],
       "optionNotes": [
@@ -199,10 +203,11 @@ EPSO_BANK.registerSet({
         "Not supported. Ratification must precede cleared activity, not necessarily the design change.",
         "Not supported. Either inspection arrangement is permitted."
       ],
-      "explanation": "Warming-restored replication excludes ordinary posting. Wrong organism class excludes the carrier. The laboratory vehicle therefore needs current approval. Changed inner design requires a renewed containment inspection. Either renewal route requires an officer-witnessed pressure test. The moved officer’s organism clearance needs receiving-institution ratification."
+      "explanation": "Warming-restored replication excludes ordinary posting. Wrong organism class excludes the carrier. The laboratory vehicle therefore needs current approval. Changed inner design requires a renewed containment inspection. Either renewal route requires an officer-witnessed pressure test. The moved officer’s organism clearance needs receiving-institution ratification.",
+      "supersedes": "v18-05"
     },
     {
-      "id": "v18-06",
+      "id": "v18-06-r2",
       "topic": "District ballot delivery",
       "difficulty": 3,
       "challenge": true,
@@ -229,7 +234,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check the stated eligibility conditions before interpreting the ballot delivery record.",
         "Kira remains an eligible ordinary resident."
       ],
       "optionNotes": [
@@ -238,10 +243,11 @@ EPSO_BANK.registerSet({
         "False. Withdrawal ends nominated digital service.",
         "Not supported. Either appointment method can qualify."
       ],
-      "explanation": "Kira remains an eligible ordinary resident. Every eligible elector needs effective notice. Withdrawn digital consent removes that route. The moved recipient cannot act merely as a household member. A separate appointment after the move is necessary. Either appointment format requires current identity verification."
+      "explanation": "Kira remains an eligible ordinary resident. Every eligible elector needs effective notice. Withdrawn digital consent removes that route. The moved recipient cannot act merely as a household member. A separate appointment after the move is necessary. Either appointment format requires current identity verification.",
+      "supersedes": "v18-06"
     },
     {
-      "id": "v18-07",
+      "id": "v18-07-r2",
       "topic": "Ocean sensor deployment",
       "difficulty": 3,
       "challenge": true,
@@ -268,7 +274,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Compare the deployment's actual anchor location with the protected-area boundary.",
         "The anchor lies in the protected polygon."
       ],
       "optionNotes": [
@@ -277,10 +283,11 @@ EPSO_BANK.registerSet({
         "Correct. Anchor position requires a permit, passive concession and zero-release routes fail, and the changed meter needs a comparison excluding direct and indirect dependence.",
         "Not supported. Independence, not a post-replacement reference calibration date, is required."
       ],
-      "explanation": "The anchor lies in the protected polygon. Chemical release exceeds the passive concession. Intentional tracer release cannot use zero-release certification. The dispersion model therefore needs current current-meter calibration. Rotor replacement requires an independent comparison. Direct and intermediate calibration dependence on the meter are excluded."
+      "explanation": "The anchor lies in the protected polygon. Chemical release exceeds the passive concession. Intentional tracer release cannot use zero-release certification. The dispersion model therefore needs current current-meter calibration. Rotor replacement requires an independent comparison. Direct and intermediate calibration dependence on the meter are excluded.",
+      "supersedes": "v18-07"
     },
     {
-      "id": "v18-08",
+      "id": "v18-08-r2",
       "topic": "School meal allergen approval",
       "difficulty": 3,
       "challenge": true,
@@ -289,7 +296,7 @@ EPSO_BANK.registerSet({
         "model": "recipe-classification-to-training-revalidation",
         "stages": 6,
         "evidence": [
-          "A changed ingredient lot makes the meal changed.",
+          "A changed ingredient source makes the meal changed.",
           "The named-lot declaration cannot cover it.",
           "An on-site review is necessary.",
           "The sole lead’s old-protocol training is not current.",
@@ -297,7 +304,7 @@ EPSO_BANK.registerSet({
           "Either observation method must verify the actual post-change line."
         ]
       },
-      "passage": "A fictional school serves unchanged standard meals under a standing approval. A meal is changed when its ingredient source changes or when preparation introduces a new cross-contact route. Using an identical recipe name does not make it unchanged. A changed meal requires either an approved supplier declaration or an on-site allergen review. A supplier declaration covers only the factory and ingredient lot named on it.\n\nAn on-site review uses a trained allergen lead, with either direct kitchen observation or continuous live video. Both require the lead to verify the actual preparation line after the change. Training ceases to be current after a new national allergen protocol unless a protocol supplement is passed. The supplement can be assessed by an external trainer or a school consortium; either assessor must be independent of the lead's meal-preparation work. The lead's kitchen supervisor cannot independently assess it. Menu pages publish meal names rather than training and review records.\n\nThe allergen review took place after the new protocol came into effect. A meal was validly served after its ingredient lot changed to one outside the supplier declaration. The sole allergen lead's training predated the new protocol. The recipe name was unchanged, and the kitchen supervisor offered an endorsement. No other declaration, lead or approval route existed.",
+      "passage": "A fictional school serves unchanged standard meals under a standing approval. A meal is changed when its ingredient source changes or when preparation introduces a new cross-contact route. Using an identical recipe name does not make it unchanged. A changed meal requires either an approved supplier declaration or an on-site allergen review. A supplier declaration covers only the factory and ingredient lot named on it.\n\nAn on-site review uses a trained allergen lead, with either direct kitchen observation or continuous live video. Both require the lead to verify the actual preparation line after the change. Training ceases to be current after a new national allergen protocol unless a protocol supplement is passed. The supplement can be assessed by an external trainer or a school consortium; either assessor must be independent of the lead's meal-preparation work. The lead's kitchen supervisor cannot independently assess it. Menu pages publish meal names rather than training and review records.\n\nThe allergen review took place after the new protocol came into effect. A meal was validly served after both its ingredient source and lot changed to ones outside the supplier declaration. The sole allergen lead's training predated the new protocol. The recipe name was unchanged, and the kitchen supervisor offered an endorsement. No other declaration, lead or approval route existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
         "The unchanged recipe name preserved standing approval despite the ingredient-lot change, so no independent protocol supplement or on-site allergen review was needed.",
@@ -307,19 +314,20 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
-        "A changed ingredient lot makes the meal changed."
+        "First decide whether the meal meets the stated change trigger, then check supplier coverage and lead training separately.",
+        "Apply the changed-source definition before checking whether the declaration covers the new lot."
       ],
       "optionNotes": [
-        "False. Ingredient changes count despite the recipe name.",
+        "False. The changed source triggers the changed-meal rule despite the recipe name.",
         "False. The kitchen supervisor cannot independently assess this supplement.",
         "Not supported. Either observation method is allowed, regardless of assessor route.",
-        "Correct. The lot change defeats standing and supplier routes; on-site review needs the sole lead’s current training, an independent supplement assessment and actual-line verification."
+        "Correct. The source change requires fresh approval and the new lot is outside the declaration. The on-site route therefore needs current training through an independent supplement assessment and actual-line verification."
       ],
-      "explanation": "A changed ingredient lot makes the meal changed. The named-lot declaration cannot cover it. An on-site review is necessary. The sole lead’s old-protocol training is not current. A supplement must be assessed independently, excluding the kitchen supervisor. Either observation method must verify the actual post-change line."
+      "explanation": "A changed ingredient source makes the meal changed. The named-lot declaration cannot cover it. An on-site review is necessary. The sole lead’s old-protocol training is not current. A supplement must be assessed independently, excluding the kitchen supervisor. Either observation method must verify the actual post-change line.",
+      "supersedes": "v18-08"
     },
     {
-      "id": "v18-09",
+      "id": "v18-09-r2",
       "topic": "Museum restitution chain",
       "difficulty": 3,
       "challenge": true,
@@ -346,7 +354,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check the agreement requirement for each claimant rather than treating a majority as unanimous consent.",
         "One claimant withholds agreement, excluding undisputed return."
       ],
       "optionNotes": [
@@ -355,10 +363,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either collector is allowed.",
         "Not supported. The rule fixes object identity, timing and location documentation, not which material area the procedure must use."
       ],
-      "explanation": "One claimant withholds agreement, excluding undisputed return. Collection substitution ends the inventory exception. The copied mark cannot authenticate identity. Material testing is necessary. Introduced material requires sampling after treatment. Either collector must document the object location before removing the sample."
+      "explanation": "One claimant withholds agreement, excluding undisputed return. Collection substitution ends the inventory exception. The copied mark cannot authenticate identity. Material testing is necessary. Introduced material requires sampling after treatment. Either collector must document the object location before removing the sample.",
+      "supersedes": "v18-09"
     },
     {
-      "id": "v18-10",
+      "id": "v18-10-r2",
       "topic": "Digital court filing authorisation",
       "difficulty": 3,
       "challenge": true,
@@ -385,7 +394,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Classify every annex under the filing rules before deciding whether ordinary delivery is available.",
         "Classified annexes exclude ordinary delivery."
       ],
       "optionNotes": [
@@ -394,7 +403,8 @@ EPSO_BANK.registerSet({
         "False. General authority and the cancelled reference both fail.",
         "Not supported. Either renewal format is permitted."
       ],
-      "explanation": "Classified annexes exclude ordinary delivery. The new entity lacks a valid portal account. The sole clerk must therefore deliver sealed material validly. Classified filing needs explicit authority. Office transfer requires the new director’s renewal. The authority must name the current, renumbered case."
+      "explanation": "Classified annexes exclude ordinary delivery. The new entity lacks a valid portal account. The sole clerk must therefore deliver sealed material validly. Classified filing needs explicit authority. Office transfer requires the new director’s renewal. The authority must name the current, renumbered case.",
+      "supersedes": "v18-10"
     }
   ]
 });

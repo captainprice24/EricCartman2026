@@ -222,7 +222,7 @@
   function dataTableHTML(ex, totals) {
     var rows = ex.series.map(function (s) { return { name: s.name, values: s.values }; });
     if (totals) rows.push({ name: "Total", values: totals });
-    return '<div class="table-wrap"><table class="exhibit-table compact"><thead><tr><th scope="col"><span class="sr-only">Series</span></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
+    return '<div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Chart data table') + '"><table class="exhibit-table compact"><thead><tr><th scope="col"><span class="sr-only">Series</span></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
       "</tr></thead><tbody>" + rows.map(function (s) {
         return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(+(+v).toFixed(2)) + "</td>"; }).join("") + "</tr>";
       }).join("") + "</tbody></table></div>";

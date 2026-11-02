@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 19 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v19-01",
+      "id": "v19-01-r2",
       "topic": "Analytical licence alternatives",
       "difficulty": 3,
       "challenge": true,
@@ -33,7 +33,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "List the two licence routes and identify any evidential condition common to both.",
         "Release can use reissue or external supervision."
       ],
       "optionNotes": [
@@ -42,10 +42,11 @@ EPSO_BANK.registerSet({
         "Correct. Reissue needs an assessment after the later ownership change; supervision needs post-revision assessment. Either route entails independent post-revision competence.",
         "False. Both feasible routes require a later practical assessment; a briefing is insufficient."
       ],
-      "explanation": "Release can use reissue or external supervision. Reissue forces the independent quality officer’s assessment after ownership change. Ownership change followed the method revision. Supervision with the older credential forces conversion and post-revision assessment. Both histories therefore entail an independent person’s post-revision practical assessment, without identifying the person."
+      "explanation": "Release can use reissue or external supervision. Reissue forces the independent quality officer’s assessment after ownership change. Ownership change followed the method revision. Supervision with the older credential forces conversion and post-revision assessment. Both histories therefore entail an independent person’s post-revision practical assessment, without identifying the person.",
+      "supersedes": "v19-01"
     },
     {
-      "id": "v19-02",
+      "id": "v19-02-r2",
       "topic": "Protected site planning fork",
       "difficulty": 3,
       "challenge": true,
@@ -71,7 +72,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track which older planning documents remain valid and which conditions each alternative new route requires.",
         "Old consent and the old hazard certificate cannot supply current approval."
       ],
       "optionNotes": [
@@ -80,10 +81,11 @@ EPSO_BANK.registerSet({
         "Overstated. Replacement hazard inspection may occur after alteration but before merger.",
         "Correct. Consent requires post-merger inspection, the hearing requires post-request inspection, and replacement hazard certification requires post-alteration inspection; all imply the common lower bound."
       ],
-      "explanation": "Old consent and the old hazard certificate cannot supply current approval. Fresh consent requires an inspection after merger, hence after alteration. Fresh hazard certification requires inspection after alteration. A hearing requires inspection after its post-merger request. All routes entail a contractor-independent post-alteration inspection, but not all force post-merger timing."
+      "explanation": "Old consent and the old hazard certificate cannot supply current approval. Fresh consent requires an inspection after merger, hence after alteration. Fresh hazard certification requires inspection after alteration. A hearing requires inspection after its post-merger request. All routes entail a contractor-independent post-alteration inspection, but not all force post-merger timing.",
+      "supersedes": "v19-02"
     },
     {
-      "id": "v19-03",
+      "id": "v19-03-r2",
       "topic": "Clinical access instrument fork",
       "difficulty": 3,
       "challenge": true,
@@ -109,7 +111,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate the earlier mandate from other possible access instruments, then identify their shared safeguards.",
         "The revoked mandate cannot itself support access."
       ],
       "optionNotes": [
@@ -118,10 +120,11 @@ EPSO_BANK.registerSet({
         "Not supported. The route and verified identity are not identified.",
         "Not supported. The access rules do not link the identity officers working on different possible authorisation routes."
       ],
-      "explanation": "The revoked mandate cannot itself support access. Fresh mandate implies independent verification after revocation. The guardian’s later name change requires a new court check. Continuity requires verification after that change; new-document checking requires verification after later issue. All qualifying histories therefore imply post-revocation verification, without forcing post-name-change timing in the mandate route."
+      "explanation": "The revoked mandate cannot itself support access. Fresh mandate implies independent verification after revocation. The guardian’s later name change requires a new court check. Continuity requires verification after that change; new-document checking requires verification after later issue. All qualifying histories therefore imply post-revocation verification, without forcing post-name-change timing in the mandate route.",
+      "supersedes": "v19-03"
     },
     {
-      "id": "v19-04",
+      "id": "v19-04-r2",
       "topic": "Residential equipment clearance",
       "difficulty": 3,
       "challenge": true,
@@ -148,7 +151,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check what the fire-system change invalidates before tracing the alternative routes to current equipment clearance.",
         "Old accreditation cannot be used after the fire-system change."
       ],
       "optionNotes": [
@@ -157,10 +160,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either calibration procedure remains available.",
         "Overstated. The reference must be calibrated after its own repair; no order relative to the meter’s change is given."
       ],
-      "explanation": "Overnight sleeping makes the rooms residential. Annex accreditation cannot cover the main building. The accommodation plan is necessary. The rejoining corridor is not a separate escape route. The changed sensing element requires calibration before the fire-pressure test. Either renewal method needs an independently calibrated post-repair reference."
+      "explanation": "Overnight sleeping makes the rooms residential. Annex accreditation cannot cover the main building. The accommodation plan is necessary. The rejoining corridor is not a separate escape route. The changed sensing element requires calibration before the fire-pressure test. Either renewal method needs an independently calibrated post-repair reference.",
+      "supersedes": "v19-04"
     },
     {
-      "id": "v19-05",
+      "id": "v19-05-r2",
       "topic": "Wildlife relocation permit fork",
       "difficulty": 3,
       "challenge": true,
@@ -186,7 +190,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate the old veterinary clearance from each route to a new relocation permit.",
         "The older veterinary clearance is unusable."
       ],
       "optionNotes": [
@@ -195,10 +199,11 @@ EPSO_BANK.registerSet({
         "Correct. Fresh clearance and outbreak assessment need post-outbreak review; habitat endorsement needs post-reclassification review, which is later still.",
         "Overstated. A laboratory report is required for outbreak assessment alone."
       ],
-      "explanation": "The older veterinary clearance is unusable. Fresh clearance consults a post-outbreak review. Outbreak emergency assessment cites such a review through a later report. Habitat assessment requires a post-reclassification review. Reclassification followed the outbreak, so all histories imply a post-outbreak review while only one forces the later bound."
+      "explanation": "The older veterinary clearance is unusable. Fresh clearance consults a post-outbreak review. Outbreak emergency assessment cites such a review through a later report. Habitat assessment requires a post-reclassification review. Reclassification followed the outbreak, so all histories imply a post-outbreak review while only one forces the later bound.",
+      "supersedes": "v19-05"
     },
     {
-      "id": "v19-06",
+      "id": "v19-06-r2",
       "topic": "Research contract signature fork",
       "difficulty": 3,
       "challenge": true,
@@ -224,7 +229,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check the authority available after the conflict arose, including whether each route needs a fresh independent finding.",
         "Old rector authority is suspended and needs an independent finding plus post-conflict declaration."
       ],
       "optionNotes": [
@@ -233,10 +238,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either validation location is allowed; publication omission identifies neither.",
         "Correct. Rector restoration requires post-conflict declaration; individual delegation requires later post-team declaration; standing delegation requires still-later post-merger declaration."
       ],
-      "explanation": "Old rector authority is suspended and needs an independent finding plus post-conflict declaration. Individual delegation needs a post-team declaration. Standing delegation needs post-merger ratification and declaration. Conflict preceded team formation, which preceded merger. All routes force a post-conflict declaration validated by someone other than the signatory."
+      "explanation": "Old rector authority is suspended and needs an independent finding plus post-conflict declaration. Individual delegation needs a post-team declaration. Standing delegation needs post-merger ratification and declaration. Conflict preceded team formation, which preceded merger. All routes force a post-conflict declaration validated by someone other than the signatory.",
+      "supersedes": "v19-06"
     },
     {
-      "id": "v19-07",
+      "id": "v19-07-r2",
       "topic": "Heritage funding audit fork",
       "difficulty": 3,
       "challenge": true,
@@ -262,19 +268,20 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Put the seller's acquisition and dealer's control change in order, then apply the record-date requirement of each route.",
         "Old dealer listing cannot suffice after control change."
       ],
       "optionNotes": [
         "Correct. Dealer review requires post-control-change records, which are also post-acquisition; both committee alternatives require post-acquisition records directly.",
-        "Overstated. Either committee evidence route remains available.",
+        "False. The explanation says the old list entry excluded both committee evidence routes, directly conflicting with the rules allowing committee approval and stating that public listing may lag. Necessity alone would overstate, but the explicit exclusion makes this False.",
         "Overstated. Committee records could fall between acquisition and the later control change.",
         "False. Either committee alternative can qualify alone."
       ],
-      "explanation": "Old dealer listing cannot suffice after control change. New dealer review requires later ownership records. That change followed the seller’s acquisition. Both committee alternatives require post-acquisition records directly. All histories share the acquisition lower bound, without identifying the branch or requiring the later control-change bound."
+      "explanation": "Old dealer listing cannot suffice after control change. New dealer review requires later ownership records. That change followed the seller’s acquisition. Both committee alternatives require post-acquisition records directly. All histories share the acquisition lower bound, without identifying the branch or requiring the later control-change bound.",
+      "supersedes": "v19-07"
     },
     {
-      "id": "v19-08",
+      "id": "v19-08-r2",
       "topic": "Broadcast transmission release",
       "difficulty": 3,
       "challenge": true,
@@ -301,7 +308,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Determine the effect of the engine change on accreditation before comparing alternative transmission-release routes.",
         "Changed engine prevents reliance on old accreditation."
       ],
       "optionNotes": [
@@ -310,10 +317,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either supplement assessment format is allowed.",
         "Overstated. Name change fixes the verification lower bound; its order relative to the merger is not specified."
       ],
-      "explanation": "Beyond-region distribution is cross-border despite audience identity. The new company cannot use the predecessor’s reciprocal agreement. A conformity certificate is necessary. The changed compression module requires a fresh compatibility assessment. Unrestored laboratory relocation forces supervised in-house testing. Changed protocol requires a supplement using post-name-change independent identity verification."
+      "explanation": "Beyond-region distribution is cross-border despite audience identity. The new company cannot use the predecessor’s reciprocal agreement. A conformity certificate is necessary. The changed compression module requires a fresh compatibility assessment. Unrestored laboratory relocation forces supervised in-house testing. Changed protocol requires a supplement using post-name-change independent identity verification.",
+      "supersedes": "v19-08"
     },
     {
-      "id": "v19-09",
+      "id": "v19-09-r2",
       "topic": "Harbour infrastructure inspection fork",
       "difficulty": 3,
       "challenge": true,
@@ -339,7 +347,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Identify which inspection shortcut the changed supports invalidate and what the remaining routes have in common.",
         "Changed supports invalidate the design shortcut."
       ],
       "optionNotes": [
@@ -348,10 +356,11 @@ EPSO_BANK.registerSet({
         "Correct. Engineering evidence follows support change; emergency evidence follows the later storm or still-later request. All histories examine actual foundations after change.",
         "Not supported. Either public or contracted examiners may qualify."
       ],
-      "explanation": "Changed supports invalidate the design shortcut. Engineering certification therefore needs a post-change foundation survey. Emergency storm evidence is later than that change. Emergency underwater evidence follows the still-later request. All possible histories examine actual post-change foundations, without universally requiring post-storm timing or a load assessment."
+      "explanation": "Changed supports invalidate the design shortcut. Engineering certification therefore needs a post-change foundation survey. Emergency storm evidence is later than that change. Emergency underwater evidence follows the still-later request. All possible histories examine actual post-change foundations, without universally requiring post-storm timing or a load assessment.",
+      "supersedes": "v19-09"
     },
     {
-      "id": "v19-10",
+      "id": "v19-10-r2",
       "topic": "Patent archive access fork",
       "difficulty": 3,
       "challenge": true,
@@ -377,7 +386,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track the assignment's effect on old mandates, then examine each remaining route to archive access.",
         "Assignment invalidates old inventor mandates."
       ],
       "optionNotes": [
@@ -386,7 +395,8 @@ EPSO_BANK.registerSet({
         "Overstated. The mandate route may verify identity before the later name change.",
         "Correct. Fresh-holder mandates require post-assignment verification; estate certificate and notarial histories require still-later verification after name change or request."
       ],
-      "explanation": "Assignment invalidates old inventor mandates. A fresh holder mandate needs post-assignment independent identity. The estate’s changed name invalidates the old court certificate. New certificate identity follows the name change; notarial identity follows a later request. All routes imply an independent nonresearcher verification after assignment without identifying whose identity was verified."
+      "explanation": "Assignment invalidates old inventor mandates. A fresh holder mandate needs post-assignment independent identity. The estate’s changed name invalidates the old court certificate. New certificate identity follows the name change; notarial identity follows a later request. All routes imply an independent nonresearcher verification after assignment without identifying whose identity was verified.",
+      "supersedes": "v19-10"
     }
   ]
 });

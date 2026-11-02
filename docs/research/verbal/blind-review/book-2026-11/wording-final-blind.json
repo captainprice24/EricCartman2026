@@ -1,0 +1,13 @@
+[
+  {
+    "id": "v05-19-r2",
+    "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', giving in-principle acceptance based on design before results are known, with final publication subject to faithful execution and quality checks. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 2015 project demonstrated that most of the findings published in psychology journals are false.",
+      "For registered reports, initial design-based acceptance precedes discovering whether the eventual results are positive.",
+      "Preregistration of hypotheses is now a condition for publication in most psychology journals.",
+      "Supporters claim that preregistration and registered reports eliminate bias from published research."
+    ]
+  }
+]

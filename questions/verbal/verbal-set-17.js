@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 17 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v17-01",
+      "id": "v17-01-r2",
       "topic": "Export assay licensing",
       "difficulty": 3,
       "challenge": true,
@@ -34,7 +34,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Classify the whole object, including its carrier, before applying the licence exceptions.",
         "The 1880 carrier makes the object listed."
       ],
       "optionNotes": [
@@ -43,10 +43,11 @@ EPSO_BANK.registerSet({
         "Correct. The old carrier defeats reproduction, consent fails, the unlicensed assay needs supervision, and superseded training needs a post-change supplement.",
         "Not supported. The supplement follows the method change; its order relative to the later ownership transfer is not specified."
       ],
-      "explanation": "The 1880 carrier makes the object listed. The 1920 inscription alone does not create a modern reproduction. Withheld consent forces an origin assay. Unreissued ownership-change licensing forces supervision. The supervisor’s superseded method training needs a supplement. That supplement must postdate the method change."
+      "explanation": "The 1880 carrier makes the object listed. The 1920 inscription alone does not create a modern reproduction. Withheld consent forces an origin assay. Unreissued ownership-change licensing forces supervision. The supervisor’s superseded method training needs a supplement. That supplement must postdate the method change.",
+      "supersedes": "v17-01"
     },
     {
-      "id": "v17-02",
+      "id": "v17-02-r2",
       "topic": "Rail wagon admission",
       "difficulty": 3,
       "challenge": true,
@@ -73,7 +74,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check whether cargo type changes the admission route before applying the wagon's mass threshold.",
         "Liquid cargo requires specialist admission regardless of mass."
       ],
       "optionNotes": [
@@ -82,10 +83,11 @@ EPSO_BANK.registerSet({
         "Not supported. Each event has its own lower bound; their mutual ordering is unspecified.",
         "Correct. Liquid forces specialist admission; changed axles defeat the old certificate, one scale forces an independent check weight, and resurfacing fixes its certification lower bound."
       ],
-      "explanation": "Liquid cargo requires specialist admission regardless of mass. Changed axle count invalidates the old certificate. The removed second scale prevents a two-scale assessment. One current scale therefore needs an independent check weight. Independence excludes the scale-calibrating laboratory. Resurfacing requires later certification of the weight’s mass."
+      "explanation": "Liquid cargo requires specialist admission regardless of mass. Changed axle count invalidates the old certificate. The removed second scale prevents a two-scale assessment. One current scale therefore needs an independent check weight. Independence excludes the scale-calibrating laboratory. Resurfacing requires later certification of the weight’s mass.",
+      "supersedes": "v17-02"
     },
     {
-      "id": "v17-03",
+      "id": "v17-03-r2",
       "topic": "Adverse-event consent review",
       "difficulty": 3,
       "challenge": true,
@@ -112,7 +114,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Identify what counts as new donor contact and which conditions apply when minors are interviewed.",
         "Contractor interviews of minors are new donor contact."
       ],
       "optionNotes": [
@@ -121,10 +123,11 @@ EPSO_BANK.registerSet({
         "Not supported. Clinical attendance is necessary; personal script approval is not stated.",
         "Not supported. The verifier’s identity and exact pre-meeting timing are unspecified."
       ],
-      "explanation": "Contractor interviews of minors are new donor contact. The analysis-only approval cannot cover it. Minor contact excludes delegated chair approval. Ordinary approval requires an independent clinician among three eligible members. The attending investigator and alternate cannot fill an eligible place. With no other physical participant, the clinician must attend completely through a verified live connection."
+      "explanation": "Contractor interviews of minors are new donor contact. The analysis-only approval cannot cover it. Minor contact excludes delegated chair approval. Ordinary approval requires an independent clinician among three eligible members. The attending investigator and alternate cannot fill an eligible place. With no other physical participant, the clinician must attend completely through a verified live connection.",
+      "supersedes": "v17-03"
     },
     {
-      "id": "v17-04",
+      "id": "v17-04-r2",
       "topic": "Council remote adoption",
       "difficulty": 3,
       "challenge": true,
@@ -151,7 +154,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Apply the definition of a routine charge to who must pay, rather than relying on the charge's name.",
         "Extension to exempt residents makes the renamed charge nonroutine."
       ],
       "optionNotes": [
@@ -160,10 +163,11 @@ EPSO_BANK.registerSet({
         "Not supported. Renewing the former secretary does not imply that the replacement lost authority.",
         "False. Dispatch without acknowledgment is not effective electronic delivery."
       ],
-      "explanation": "Extension to exempt residents makes the renamed charge nonroutine. The incomplete-text signature prevents a unanimous valid waiver. Full notice is therefore necessary. No portal acknowledgment leaves postal service. The replaced secretary requires explicit later reauthorisation. Effective delivery must precede the full notice start."
+      "explanation": "Extension to exempt residents makes the renamed charge nonroutine. The incomplete-text signature prevents a unanimous valid waiver. Full notice is therefore necessary. No portal acknowledgment leaves postal service. The replaced secretary requires explicit later reauthorisation. Effective delivery must precede the full notice start.",
+      "supersedes": "v17-04"
     },
     {
-      "id": "v17-05",
+      "id": "v17-05-r2",
       "topic": "Seed accession release",
       "difficulty": 3,
       "challenge": true,
@@ -190,7 +194,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check the accession's collection location and date against the alert before deciding whether release can use the ordinary route.",
         "Collection within the active alert area triggers quarantine."
       ],
       "optionNotes": [
@@ -199,10 +203,11 @@ EPSO_BANK.registerSet({
         "Correct. Alert collection forces quarantine; live release excludes destruction, warmed reserve fails despite intact seal, and fresh sampling needs post-use sterilisation.",
         "Not supported. The discovery date and its order relative to sterilisation are not stated."
       ],
-      "explanation": "Collection within the active alert area triggers quarantine. Alive-for-sowing release excludes destruction. A negative certificate is necessary. The warm reserve fails despite its intact seal. The fresh sample must follow that failure. The reused instrument requires sterilisation after its last other-accession use."
+      "explanation": "Collection within the active alert area triggers quarantine. Alive-for-sowing release excludes destruction. A negative certificate is necessary. The warm reserve fails despite its intact seal. The fresh sample must follow that failure. The reused instrument requires sterilisation after its last other-accession use.",
+      "supersedes": "v17-05"
     },
     {
-      "id": "v17-06",
+      "id": "v17-06-r2",
       "topic": "Treasury grant signature",
       "difficulty": 3,
       "challenge": true,
@@ -229,7 +234,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate public ownership from control and check whether an ownership exception requires the entire entity to qualify.",
         "Private minority ownership excludes the public route."
       ],
       "optionNotes": [
@@ -238,10 +243,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either reactivation route remains available.",
         "Correct. Private ownership forces a restricted community lease; its duration excludes delegated approval, and the sole auditor needs professional reactivation with a post-consulting declaration."
       ],
-      "explanation": "Private minority ownership excludes the public route. The community lease requires an enforceable purchase restriction. Thirty years excludes treasurer delegation. Full board approval needs the sole independent auditor. Leaving the firm makes registration inactive. Professional reactivation under either route requires a post-consulting independence declaration."
+      "explanation": "Private minority ownership excludes the public route. The community lease requires an enforceable purchase restriction. Thirty years excludes treasurer delegation. Full board approval needs the sole independent auditor. Leaving the firm makes registration inactive. Professional reactivation under either route requires a post-consulting independence declaration.",
+      "supersedes": "v17-06"
     },
     {
-      "id": "v17-07",
+      "id": "v17-07-r2",
       "topic": "Survey drone flight clearance",
       "difficulty": 3,
       "challenge": true,
@@ -268,7 +274,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Compare the complete flight area with the territorial limits of the exemption.",
         "Touching another district defeats the exemption."
       ],
       "optionNotes": [
@@ -277,10 +283,11 @@ EPSO_BANK.registerSet({
         "Not supported. Either testing provider is allowed.",
         "Not supported. Revocation supplies the lower bound, not firmware installation."
       ],
-      "explanation": "Touching another district defeats the exemption. Beyond-range flight excludes direct approval. A certified automated corridor is necessary. Changed firmware cancels earlier device certification. Fresh compatibility testing requires a current new key. Revoked backup restoration cannot meet post-revocation generation."
+      "explanation": "Touching another district defeats the exemption. Beyond-range flight excludes direct approval. A certified automated corridor is necessary. Changed firmware cancels earlier device certification. Fresh compatibility testing requires a current new key. Revoked backup restoration cannot meet post-revocation generation.",
+      "supersedes": "v17-07"
     },
     {
-      "id": "v17-08",
+      "id": "v17-08-r2",
       "topic": "Translated diploma recognition",
       "difficulty": 3,
       "challenge": true,
@@ -307,7 +314,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check whether the specific campus and award are covered, rather than extending recognition from the institution's name.",
         "Unlisted branch campus excludes automatic recognition."
       ],
       "optionNotes": [
@@ -316,10 +323,11 @@ EPSO_BANK.registerSet({
         "False. Earlier identity checks do not establish the later legal identity.",
         "Not supported. The check must follow the name change, but its order relative to relocation is unspecified."
       ],
-      "explanation": "Unlisted branch campus excludes automatic recognition. Absent regulator verification requires an authenticated transcript. Its third language requires authorised translation. No supervisor means Mira must hold current registration. Relocation requires confirmation by the receiving jurisdiction. Confirmation needs an identity check after the legal name change."
+      "explanation": "Unlisted branch campus excludes automatic recognition. Absent regulator verification requires an authenticated transcript. Its third language requires authorised translation. No supervisor means Mira must hold current registration. Relocation requires confirmation by the receiving jurisdiction. Confirmation needs an identity check after the legal name change.",
+      "supersedes": "v17-08"
     },
     {
-      "id": "v17-09",
+      "id": "v17-09-r2",
       "topic": "Port consignment authority",
       "difficulty": 3,
       "challenge": true,
@@ -346,7 +354,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Determine the consignment's ownership classification before following the alternative authority routes.",
         "Registered foreign ownership excludes domestic release."
       ],
       "optionNotes": [
@@ -355,10 +363,11 @@ EPSO_BANK.registerSet({
         "Correct. Foreign ownership excludes the domestic channel; the sole agent needs new-owner authority, and no licensed insurer bond leaves cleared cash under either funding route.",
         "Not supported. Both must be effective at release but their mutual order is not fixed."
       ],
-      "explanation": "Registered foreign ownership excludes domestic release. Only the bonded channel remains. The sole agent needs authority naming the changed owner. The suspended insurer cannot supply a qualifying bond. No other bond exists, leaving cash. Cash must actually clear into the protected account before release."
+      "explanation": "Registered foreign ownership excludes domestic release. Only the bonded channel remains. The sole agent needs authority naming the changed owner. The suspended insurer cannot supply a qualifying bond. No other bond exists, leaving cash. Cash must actually clear into the protected account before release.",
+      "supersedes": "v17-09"
     },
     {
-      "id": "v17-10",
+      "id": "v17-10-r2",
       "topic": "Sensitive archive publication",
       "difficulty": 3,
       "challenge": true,
@@ -385,7 +394,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check the definition of restricted information, including identifiers that remain stable after names are removed.",
         "Stable numbers keep the file restricted."
       ],
       "optionNotes": [
@@ -394,7 +403,8 @@ EPSO_BANK.registerSet({
         "False. Suspended accreditation cannot support processing before the required fresh audit.",
         "Correct. Remaining identifiers restrict publication, the old-entity waiver fails, the uncertified local tool fails, and the moved processor needs a fresh post-move production audit."
       ],
-      "explanation": "Stable numbers keep the file restricted. The predecessor-only waiver cannot cover the new entity. Approved redaction is consequently required. Changed export functionality defeats local certification. The outside processor’s moved site needs renewed accreditation. Either audit route must examine the actual production system after the move."
+      "explanation": "Stable numbers keep the file restricted. The predecessor-only waiver cannot cover the new entity. Approved redaction is consequently required. Changed export functionality defeats local certification. The outside processor’s moved site needs renewed accreditation. Either audit route must examine the actual production system after the move.",
+      "supersedes": "v17-10"
     }
   ]
 });

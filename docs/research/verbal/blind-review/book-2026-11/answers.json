@@ -1,0 +1,3904 @@
+{
+  "v01-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Prior institutional contact is required; local authorities are excluded even implementing EU law; escalation is to Parliament; publicity supplies much, not all, influence."
+    ]
+  },
+  "v01-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Employment finding is a tendency; no budget multiple or participant proportions given; selection differences may explain some employment advantage."
+    ]
+  },
+  "v01-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Two ERM II years are compulsory; sufficiently diminishing debt has an exception; Bulgaria's accession is unstated; Denmark has an opt-out."
+    ]
+  },
+  "v01-04-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Tobacco filters are among products whose producers must contribute to litter-cleaning costs.",
+      "The 25% target is limited to covered PET bottles up to three litres, not all plastic drinks bottles.",
+      "B disregards the explicit affordability condition. No outcome evidence about beach lids is provided."
+    ]
+  },
+  "v01-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Only some individuals survived space; human cell storage is not predicted; tun state supplies main resilience; universal indefinite survival is unsupported exaggeration."
+    ]
+  },
+  "v01-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Blocking minority requires four states; both legislators must approve joint text; chair and institutional power shift are unstated."
+    ]
+  },
+  "v01-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "At least equal effectiveness does not establish greater effectiveness; unassessed species could raise threatened share; no single leading cause established; success is not predicted."
+    ]
+  },
+  "v01-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Repeated temporary controls do not establish permanence throughout area; SIS's principal purpose and named countries' accession are not given; compensating measures accompanied abolition."
+    ]
+  },
+  "v01-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Target is symmetric; temporary moderate overshoot may follow lower-bound policy; contribution is not main causation; looking through fluctuations is not never responding."
+    ]
+  },
+  "v01-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "UK declined supranational control; treaty expiry ended ECSC; Commission ancestry unstated; largely Monnet is not solely Monnet."
+    ]
+  },
+  "v01-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Suspension concerns repeated serious breaches; advertising restriction requires knowledge of minority; 40 million is below very-large threshold; specific small-platform exemptions are not identified."
+    ]
+  },
+  "v01-12": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Reason for procedural languages unstated; versions equally authentic; Catalan accession prediction unstated; official Irish has guaranteed same-language reply while Basque arrangements are limited."
+    ]
+  },
+  "v01-13": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Preventive group use is restricted rather than all use banned; natural resistance exists independently of misuse; faster diagnostics could reduce use rather than largely end it; low sales deter development."
+    ]
+  },
+  "v01-14": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Natural-sink contribution is capped; neutrality is Union-wide; critics dispute adequacy without establishing objective sufficiency; Climate Law sets target."
+    ]
+  },
+  "v01-15": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Combining systems helps among buildings; encrypted government service exists; standalone accuracy comparison absent; other satellite timing systems exist and inability is unstated."
+    ]
+  },
+  "v01-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Anxiety mechanism unstated; feedback is not required; confidence can favour inferior rereading; no optimal fixed one-week gap given."
+    ]
+  },
+  "v01-17-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Prize payment conditional on commitments; benefits uneven rather than guaranteed; third city only every third year; prize sum unstated."
+    ]
+  },
+  "v01-18": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Notification to individuals requires high risk; Ireland case share unstated; consent one of several bases; four percent of one billion is forty million."
+    ]
+  },
+  "v01-19": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Birds selection mechanism not specified; Spain area ranking unstated; overriding-interest exception can permit project; farming must protect designated features."
+    ]
+  },
+  "v01-20": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "US-operated inward flight excluded; assistance independent of cause; routine technical problems do not imply every fault qualifies; higher threshold remains proposed."
+    ]
+  },
+  "v02-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Seven states required; Commission may choose no legislation; signature verifier unidentified; few direct laws does not establish overall failure."
+    ]
+  },
+  "v02-02": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Obvious-answer exception exists; national court settles dispute; only CJEU can invalidate EU act; comparative referral rates unstated."
+    ]
+  },
+  "v02-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Recovery outcomes unstated; Parliament decides with Council recommendation; often procurement or documents does not establish most missing documents; error need not mean financial loss."
+    ]
+  },
+  "v02-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "GNI is largest resource; unanimity gives each state veto; one-percent budget size unstated; focus is not exclusive subject."
+    ]
+  },
+  "v02-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "False"
+    },
+    "evidence": [
+      "Two-and-a-half-year term renewable once; size/success relationship unstated; Foreign Affairs exception; external representation shared with High Representative."
+    ]
+  },
+  "v02-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Charter correspondence does not make whole Charter reproduction; expulsion cause and complaint proportions unstated; all EU states belong while EU accession incomplete."
+    ]
+  },
+  "v02-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Talks can halt after reform reversals; duration unstated; unanimous opening and ratification give vetoes; absorption is important rather than decisive."
+    ]
+  },
+  "v02-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Agreement needs qualified majority; extension needs unanimity and departing-state agreement; transition extension possibility unstated; exclusion concerns own departure."
+    ]
+  },
+  "v02-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Future note withdrawal unstated; collector coins valid only nationally; rounding occurs in some countries; circulating Spanish coin valid throughout area."
+    ]
+  },
+  "v02-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Cheap unlimited plans can have roaming cap; uniform surcharge detail and 2032 domestic-rate prediction unstated; equal quality conditional on visited network."
+    ]
+  },
+  "v02-11": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Reserve introduction year unstated; free allocations phased out alongside import carbon charge; relative emissions progress unstated; ETS covers selected sectors."
+    ]
+  },
+  "v02-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Budget fraction unstated; largely area-linked is not entirely; first pillar wholly EU-funded unlike second; eco-scheme income effect unstated."
+    ]
+  },
+  "v02-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Crossing 75 percent changes region category; Cohesion Fund supports states; growth support is not closed disparities; newest-state absorption ranking absent."
+    ]
+  },
+  "v02-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Refund merely possible; validity duration and actual insurance take-up absent; dialysis included with advance arrangements."
+    ]
+  },
+  "v02-15-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Standard information requirements increase at tonnage-band boundaries including ten tonnes; ten tonnes therefore requires more information than two.",
+      "Registration explicitly does not apply below one tonne.",
+      "Small-company cost complaints do not establish market exits. Potential listing and subsequent possible authorisation-list transfer do not establish automatic transfer for every carcinogen."
+    ]
+  },
+  "v02-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Might become C/D is not every product; consumer response unmeasured; top class deliberately nearly empty; categories rescaled at different times."
+    ]
+  },
+  "v02-17": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Laptop deadline is April 2026; scope excludes some devices; wireless deadline unstated; packaging symbol indicates charger inclusion."
+    ]
+  },
+  "v02-18": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Degressive proportionality gives fewer citizens per small-state MEP; German seat total and turnout-age correlation unstated; mostly groups does not eliminate delegations."
+    ]
+  },
+  "v02-19": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Censure threshold concerns votes cast plus member majority; resignation cause unstated; committee rejections shape membership; President choice also requires European Council."
+    ]
+  },
+  "v02-20": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "OLAF link unstated; anyone believing violation can complain; narrow intervention exception exists; completion date unstated."
+    ]
+  },
+  "v02-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Case composition unstated; participation is not universal; VAT jurisdiction has damage threshold; five million falls below ten million."
+    ]
+  },
+  "v02-22": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Survivors can have lingering effects; recovery times unstated; heat is not sole trigger; global fraction since 2000 unstated."
+    ]
+  },
+  "v02-23-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Much US production development is not all; doctors' reaction unstated; first patient died when supplies ran out; Allied troop provision is not universal availability."
+    ]
+  },
+  "v02-24": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "New-home adoption prediction unstated; relative electricity price can limit savings; higher installation costs make universal best-choice claim unsupported; works best does not mean cannot work elsewhere."
+    ]
+  },
+  "v02-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Relative cooling effectiveness unstated; poorer districts often rather than always hottest; local cooling does not establish entire-city lowering; night heat prevents recovery."
+    ]
+  },
+  "v03-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "White Paper Commission president not named; tax unanimity retained; unanimity implies every-state veto; market incomplete after deadline."
+    ]
+  },
+  "v03-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "2014 majority start follows 2009 entry; largely adopted reforms is not identical treaty; clarifying protocol is not exemption; Irish voting reason unstated."
+    ]
+  },
+  "v03-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Farm-finance concession not specified; crisis involved several disputes; de Gaulle direction unstated; parties explicitly disagreed about continuing until unanimity."
+    ]
+  },
+  "v03-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Several later Nobels is not most; absent laureates remained eligible; relatives' attendance and Sakharov initiative unstated."
+    ]
+  },
+  "v03-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Minimum leave cash replacement only at termination; workplace on-call counts; exemptions exist; opt-out prevalence unstated."
+    ]
+  },
+  "v03-06-r3": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False"
+    },
+    "evidence": [
+      "Failure ever to inform the consumer extends withdrawal availability twelve months beyond the initial period, encompassing ten months after delivery for an otherwise eligible purchase.",
+      "The passage supplies no observed cancellation timing.",
+      "The presumption stated for first-year defects does not establish a presumption for every defect throughout two years. Explicit product exclusions refute C."
+    ]
+  },
+  "v03-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Portability preserves catalogue on temporary business travel; redirecting with consent allowed; extension deadline and verification methods unstated."
+    ]
+  },
+  "v03-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Effect on dismissals unreported; private-company threshold fifty; reasonable belief protects inaccurate report; monthly full-response deadline unstated."
+    ]
+  },
+  "v03-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Complaint distribution unreported; legacy terminals have transition; exemption requires documented assessment rather than bare assertion; documentation mandatory."
+    ]
+  },
+  "v03-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Use-by is safety; sale forbidden after use-by; most pre-packed does not mean all food; compulsory-label prediction unstated."
+    ]
+  },
+  "v03-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Three versus two years conversion; logo needs ninety-five percent; synthetic pesticides restricted rather than every pesticide banned; current farmland share unstated."
+    ]
+  },
+  "v03-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "TSG has no geographic requirement; worldwide coverage not assured; PGI needs only one local stage; country ranking absent."
+    ]
+  },
+  "v03-13": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Some data restricted; radar penetrates clouds unlike optics; supporters' stimulation claim does not prove a large market; emergency frequency absent."
+    ]
+  },
+  "v03-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Comparative success rates absent; collaborative calls have priorities; association country names absent; any nationality permitted at eligible location."
+    ]
+  },
+  "v03-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Labelling statement generalises beyond specified transparency cases; spam minimal risk; recruitment high-risk needs oversight; prior social-scoring prevalence unstated."
+    ]
+  },
+  "v03-16": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Deposit insurance still national EU-wide; ECB directly supervises significant banks; taxpayer rescue elimination stronger than stated aim; Bulgarian joining history unstated."
+    ]
+  },
+  "v03-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Luxembourg rationale unstated; emergency voting exception; repayment comparison absent; twenty percent can prevent eighty-five percent majority."
+    ]
+  },
+  "v03-18": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Inclusive format admits non-euro states; legal acts adopted by Council; meeting normally before Ecofin; presidents' country sizes unstated."
+    ]
+  },
+  "v03-19": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Gauge mismatch targeted; speed capability concerns main passenger lines rather than every train; project cost ranking and revision motive unstated."
+    ]
+  },
+  "v03-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Arms have a degree of independence; warm conditions reduce efficiency; one heart pumps systemic circulation; mirror recognition unstated."
+    ]
+  },
+  "v03-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Agriculture comparison absent; local abrupt thaw possible; some towns is not general town pattern; waterlogging changes methane yield."
+    ]
+  },
+  "v03-22": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Good decisions possible for similar cohesive groups; harmony risk not inevitability; particular Bay of Pigs symptom unstated; widespread use not proven efficacy."
+    ]
+  },
+  "v03-23": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Fewer constraints is not none; multiple North Sea advantages listed; fixed bases limited to shallow water; 2030 cost crossover unstated."
+    ]
+  },
+  "v03-24": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Local clusters can sustain outbreaks despite high national coverage; lower-contagion threshold lower; individual severe-disease protection remains; vaccination trend unstated."
+    ]
+  },
+  "v03-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Legislative prediction absent; agriculture one of several pressures; Commission approval requirement absent; one failing chemical element defeats good status."
+    ]
+  },
+  "v04-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Investment agreement remains mixed; Union-alone trade part avoids individual ratification; requesting institution absent; Council usually rather than always QMV."
+    ]
+  },
+  "v04-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Mainly political is not solely; original accession motive and officials' preference unstated; EU partner need not lower tariffs on Turkish exports."
+    ]
+  },
+  "v04-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Causation and Union interest also required; duties normally five years; consumer price prediction not established; permission to disapply is not mandatory."
+    ]
+  },
+  "v04-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Coercion requires policy pressure rather than any trade effect; Lithuania origin unstated; QMV prevents lone veto; feared retaliation is not certainty."
+    ]
+  },
+  "v04-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Running-cost source and appointment procedure absent; national diplomats at least third of policy staff; increasing coordination not universal total coordination."
+    ]
+  },
+  "v04-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Military matters excluded from QMV even implementation; constructive abstainer need not apply decision; future sanctions vote change unstated; population and state-number thresholds both needed."
+    ]
+  },
+  "v04-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Disputing reasons does not itself cause annulment; prior UN action unstated; targeted limited impact not zero; asset freeze needs unanimous decision then QMV regulation."
+    ]
+  },
+  "v04-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "EDF brought into budget; concurrent national programmes permitted; humanitarian funding unstated; poverty coherence does not make poverty chief aim of all policy."
+    ]
+  },
+  "v04-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Media bias is not exclusive attention; fixed share unstated; obstruction often rather than always; impartiality allocates solely by need."
+    ]
+  },
+  "v04-10": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Ukraine participation history absent; offers voluntary regardless requester; Geneva centre contradicted by Brussels handling; largely or entirely is not entirely."
+    ]
+  },
+  "v04-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "More reform should bring more support; regional allocation comparison absent; often not always stability first; only three of six eastern partners given perspective."
+    ]
+  },
+  "v04-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Guarantees cover part of risk; EIB finance ranking absent; only limited grants component; many old projects is not none new."
+    ]
+  },
+  "v04-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Military operation costs cannot enter EU budget; civilian costs from EU budget; piracy outcome absent; common military costs funded collectively."
+    ]
+  },
+  "v04-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Permission to finance weapons does not imply every beneficiary; blocking country unnamed; humanitarian funding unstated; abstainer funds non-lethal measures."
+    ]
+  },
+  "v04-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Readiness date not first mission; modular components allow flexibility; publication unstated; dependence largely not entirely national."
+    ]
+  },
+  "v04-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Cambodia sector detail absent; preferences unilateral; EBA exit linked to UN delisting not income alone; developing-country scope overstated beyond least developed."
+    ]
+  },
+  "v04-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Aid obligation preserves neutral policy rather than mandates military help; neutral-state responses unspecified; drafting motive absent; clause mainly intergovernmental unlike Article 222."
+    ]
+  },
+  "v04-18": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Model permits gains for absolutely superior country too; specialisation not both goods; Corn Laws usage unstated; may hurt groups not usually."
+    ]
+  },
+  "v04-19": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Temporal sequence not direct causation; arrival precedence can favour small-state envoy; trade damage not stated; civil exceptions and waiver limit immunity."
+    ]
+  },
+  "v04-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Many diversions not all; lasting worldwide rate effect unreported; extra ships needed for same frequency reduces capacity; important forex source not mainly all forex."
+    ]
+  },
+  "v04-21": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Consensus decisions only by Consultative Parties; territorial claims frozen not recognised; original named signatories absent; peaceful nonresearch activity also allowed."
+    ]
+  },
+  "v04-22": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Arrangement only participants; US rationale unstated; tariffs cut not removed altogether; substantial internal trade condition stated."
+    ]
+  },
+  "v05-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Binding-rights motive absent; VAT judgment does not cover all taxation; no EU-law link means other protections needed; principles not freestanding claims."
+    ]
+  },
+  "v05-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Listed-category exemption conditional on at least three-year maximum, so lower penalties can be checked; in principle is not always; category-selection rationale unstated; decision after consent differs from handover after arrest."
+    ]
+  },
+  "v05-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Usually judges/prosecutors not every; investigation-team creation date unstated; growth over decades not each year; prosecution remains national."
+    ]
+  },
+  "v05-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Budget purpose unstated; Europol cannot arrest so other officers must; non-EU deployments unstated; Member State consent necessary."
+    ]
+  },
+  "v05-05": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Child rule conditional on best interests; visa precedes irregular entry; Greece transfer history unstated; new rules retain basic logic."
+    ]
+  },
+  "v05-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "States must contribute their fair share while choosing among relocation, money and operational support; declining relocation alone supplies no exemption.",
+      "No Member State can be obliged to relocate.",
+      "The passage attributes the pay-instead criticism to one side, not all critics. No destination or main spending purpose for financial contributions is given."
+    ]
+  },
+  "v05-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Directive first activated in 2022; extension voting rule absent; expected returns unstated; equal national rights stated for education not every respect."
+    ]
+  },
+  "v05-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Germany issuance ranking absent; national schemes may continue; selected ICT experience replaces degree; exception not every applicant."
+    ]
+  },
+  "v05-09-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "Five years of continuous legal residence confers permanent residence no longer subject to the sufficient-resources condition, so six years qualifies.",
+      "No EU-set monthly income threshold is stated. Host states may require registration; universal actual registration requirements are not established.",
+      "No ten-year permanent-residence rule for non-EU family members is stated; the ten-year provision concerns protection against expulsion."
+    ]
+  },
+  "v05-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: State reimbursement is expressly allowed.",
+      "B: Assistance is limited to unrepresented citizens.",
+      "C: Delegations coordinate; passport issuance is not assigned to them.",
+      "D: An emergency document may be issued, not invariably."
+    ]
+  },
+  "v05-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Advice is not described as binding.",
+      "B: Main EU-wide source does not mean only data anywhere.",
+      "C: The agency cannot hear complaints or grant remedies.",
+      "D: Poor predecessor performance is not given as the reason."
+    ]
+  },
+  "v05-12": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: The first-judgment penalty exception is explicit.",
+      "B: Non-notification permits first-judgment penalties.",
+      "C: No complaint-source breakdown appears.",
+      "D: Most closed before referral does not mean almost none referred."
+    ]
+  },
+  "v05-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Second-stage proposals exclude Parliament.",
+      "B: Suspension requires a persistent-breach determination.",
+      "C: Hungarian veto statements are absent.",
+      "D: Observers attribution is stronger when recast as the established reason."
+    ]
+  },
+  "v05-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: No minimum duration is stated.",
+      "B: The earlier proposal amount is absent.",
+      "C: Budget connection and proportionality limit measures.",
+      "D: A breach without a budget connection falls outside scope."
+    ]
+  },
+  "v05-15-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: No frequency of banking requests is given.",
+      "B: Nonparticipating countries are unnamed.",
+      "C: An equivalent less intrusive measure is sometimes allowed.",
+      "D: Refusal grounds must be listed."
+    ]
+  },
+  "v05-16": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Witness entitlement is not stated.",
+      "B: Higher protection is expressly permitted.",
+      "C: Minimum guarantees are not a single procedural code.",
+      "D: The prohibition concerns public authorities, not anyone."
+    ]
+  },
+  "v05-17": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Burden shifts to respondent.",
+      "B: Housing protection does not cover all grounds.",
+      "C: Blocking governments and motives are not identified.",
+      "D: Religion protection in these directives is limited to employment-related fields."
+    ]
+  },
+  "v05-18": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Compatibility with all observations means unfalsifiability.",
+      "B: Main motivation is not supplied.",
+      "C: Auxiliary-assumption complications do not make testing impossible.",
+      "D: Kuhn says sometimes productive, not always."
+    ]
+  },
+  "v05-19-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "In-principle acceptance is based on design before results are known; unknown eventual positive results cannot influence that initial decision. B does not assert guaranteed final publication.",
+      "The project explicitly did not show that original findings were wrong, contradicting A.",
+      "The prevalence of mandatory preregistration across journals is unstated. Reducing bias does not establish elimination of bias."
+    ]
+  },
+  "v05-20": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: The charter concerned free men and specific grievances.",
+      "B: The drafting participants are not specified.",
+      "C: The definitive text dates from 1225.",
+      "D: Influence is stated without a greatest-influence ranking."
+    ]
+  },
+  "v05-21": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Minor faults cause comparable scandal among saints.",
+      "B: No mainly French statistical basis is supplied.",
+      "C: Contemporary sociological reception is absent.",
+      "D: Crime may prepare change; every crime is not claimed."
+    ]
+  },
+  "v05-22-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Some critics questioned caution, without consensus.",
+      "B: Government adoption is not discussed.",
+      "C: Rights over fruits of work is narrower than everything owned.",
+      "D: Worsening the least advantaged relative to an available equal arrangement fails the difference principle."
+    ]
+  },
+  "v06-01": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Only qualifying categories and conditions are exempt.",
+      "B: Block exemptions permit payment without prior approval.",
+      "C: No approval-time statistics are supplied.",
+      "D: Recovery restores the prior situation rather than punishing."
+    ]
+  },
+  "v06-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: The historical purpose of the two-thirds rule is unstated.",
+      "B: Dominance need not lead automatically to prohibition.",
+      "C: No domestic-versus-foreign timing comparison is made.",
+      "D: Commitment approvals are more common than outright bans."
+    ]
+  },
+  "v06-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Victims retain damages rights despite immunity.",
+      "B: Later applicants can obtain less than 20 percent or no reduction.",
+      "C: Repeat fines can increase, not always.",
+      "D: Sector distribution is absent."
+    ]
+  },
+  "v06-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Compensation orders are not discussed.",
+      "B: Headquarters of designated firms are not supplied.",
+      "C: Both alternative financial thresholds are missed.",
+      "D: Preferential ranking is banned, not adjacent display."
+    ]
+  },
+  "v06-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Partly due to fraud does not establish mainly.",
+      "B: Zero rates are limited to specified essential items.",
+      "C: Deduction means consumers generally bear the tax.",
+      "D: No measured portal cost reduction appears."
+    ]
+  },
+  "v06-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Nationality-based conditions are banned.",
+      "B: The home-country principle was dropped.",
+      "C: No halving of setup time is reported.",
+      "D: National rules partly hinder trade, without a main qualifications cause."
+    ]
+  },
+  "v06-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Trade-union motivation is not stated.",
+      "B: Host remuneration does not mean identical conditions from day one.",
+      "C: Long postings retain specified exceptions.",
+      "D: Twenty months exceeds labour-law thresholds but is within normal 24-month home insurance."
+    ]
+  },
+  "v06-08": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Protectionist intent is not established.",
+      "B: Labelling was a less restrictive adequate alternative.",
+      "C: Subsequent German legal amendments are not stated.",
+      "D: Mandatory requirements can justify restrictions."
+    ]
+  },
+  "v06-09-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Only certain machinery requires a notified body.",
+      "B: Uncovered products must not carry CE.",
+      "C: No majority statistic for unsafe online purchases appears.",
+      "D: Applicable marking rules extend to foreign-made goods."
+    ]
+  },
+  "v06-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: The firm meets staff and balance-sheet limits.",
+      "B: A financial ceiling is also required.",
+      "C: Many funding programmes does not mean all EU funding.",
+      "D: Prior national definitions are not described."
+    ]
+  },
+  "v06-11": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: 338 billion is less than half of 723.8 billion.",
+      "B: Milestones must finish by August 2026.",
+      "C: No comparison of actual national digital and climate measures is given.",
+      "D: Several revising governments does not mean every government."
+    ]
+  },
+  "v06-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: No recommendation-count reduction is stated.",
+      "B: Deficit-based recommendation counts are absent.",
+      "C: Progress tends to increase over several years.",
+      "D: Greater implementation does not imply all recommendations."
+    ]
+  },
+  "v06-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Quality and environmental criteria can supplement price.",
+      "B: EU advertising is threshold-dependent.",
+      "C: A large share is not necessarily most.",
+      "D: Increased small-firm bidding from subdivision is not measured."
+    ]
+  },
+  "v06-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: National indices do not always allow comparison, rather than never.",
+      "B: National offices compile national indices.",
+      "C: No revision-size statistic appears.",
+      "D: Different food weights can yield different aggregate inflation."
+    ]
+  },
+  "v06-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Relative financing cost is not stated.",
+      "B: National insolvency law implies differing bankruptcy recovery rules.",
+      "C: Main motivation for the relaunch is not specified.",
+      "D: Supervision remains largely national, not entirely."
+    ]
+  },
+  "v06-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Capital shares broadly reflect weight, not exactly.",
+      "B: Most lending is market-funded, not all.",
+      "C: The bank rarely finances a whole project.",
+      "D: A high rating is not a unique highest ranking."
+    ]
+  },
+  "v06-17": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: The Court upheld the decision.",
+      "B: Dominance achieved by cheaper products is not itself unlawful.",
+      "C: Worldwide implementation changes are absent.",
+      "D: Above 50 percent is an indication, not always conclusive."
+    ]
+  },
+  "v06-18": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Reasons for journal rejection are absent.",
+      "B: Disappearance occurs in the extreme case.",
+      "C: Warranties reduce rather than solve the problem.",
+      "D: Compulsion prevents low-risk customers opting out."
+    ]
+  },
+  "v06-19": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: 1971 minus 1944 is 27.",
+      "B: The IMF expressly survived.",
+      "C: Causes of 1930s devaluations are not supplied.",
+      "D: Only if a condition holds does not require change whenever it holds."
+    ]
+  },
+  "v06-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Administrative-cost motivation is not supplied.",
+      "B: UK opt-out data are absent.",
+      "C: Default persistence may reduce contributions.",
+      "D: Participation rose sharply, without universal enrolment."
+    ]
+  },
+  "v06-21": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Local rules and graduated sanctions can sustain shared resources.",
+      "B: Ostrom found success without central control.",
+      "C: Hardins subsequent views are absent.",
+      "D: She documented failures as well as successes."
+    ]
+  },
+  "v06-22": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: The resource sector can boom while other exports weaken.",
+      "B: Dutch production decisions are not supplied.",
+      "C: Fund portfolio composition is absent.",
+      "D: Both rising gas revenues and unemployment are explicit."
+    ]
+  },
+  "v07-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Mass matters partly rather than solely.",
+      "B: Targets apply to fleet averages.",
+      "C: Three-year average compliance replaces the 2025-only test.",
+      "D: An EU-wide EV-sales decline is not given as the reason."
+    ]
+  },
+  "v07-02-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Ninety minutes earns 25 percent of 80 and own-staff strikes are not exempt.",
+      "B: Assistance and rerouting remain due.",
+      "C: Air-passenger alignment is not stated.",
+      "D: Exemptions concern specified services and parts only."
+    ]
+  },
+  "v07-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "A carbon price already paid in the production country can be deducted; cement is covered.",
+      "Comparable costs in the same covered sectors do not establish exact equality at all times and across all sectors.",
+      "The simplification explicitly retained the vast majority of embedded emissions. No certificate-revenue allocation is stated."
+    ]
+  },
+  "v07-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "A: National targets vary between 10 and 50 percent.",
+      "B: GDP per head mainly determines effort.",
+      "C: Environmental groups warn about a possibility rather than prove actual postponement.",
+      "D: All countries have targets, not only wealthy ones."
+    ]
+  },
+  "v07-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Twelve months is a principle with offshore exceptions.",
+      "B: The target binds the EU collectively.",
+      "C: Actual recommendations to named numbers of states are absent.",
+      "D: Predominant locations are not specified."
+    ]
+  },
+  "v07-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Passports apply only to products governed by detailed rules.",
+      "B: A comparative textile waste ranking is not given.",
+      "C: The destruction ban concerns specified clothing and footwear.",
+      "D: Medium firms enter the ban in 2030."
+    ]
+  },
+  "v07-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: 73 minus 45 is 28 percentage points.",
+      "B: Replaceability has exemptions.",
+      "C: Import-dependence effects are not stated.",
+      "D: Some manufacturers doubt supply; unanimity and certainty are absent."
+    ]
+  },
+  "v07-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Commodity deforestation shares are not supplied.",
+      "B: EU-produced goods are included.",
+      "C: 2019 clearance precedes the end-2020 cutoff.",
+      "D: Many derived products does not mean every product containing a commodity."
+    ]
+  },
+  "v07-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: The studies and historical cause are not supplied.",
+      "B: Postponement requires modelling and a roadmap, not cost preference alone.",
+      "C: City compliance statistics are absent.",
+      "D: 20 is twice the WHO value of 10."
+    ]
+  },
+  "v07-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Derogations can allow amounts above 170.",
+      "B: Whole-territory application is expressly allowed.",
+      "C: No time-series pollution trend is given.",
+      "D: The health rationale for the threshold is not stated."
+    ]
+  },
+  "v07-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: The decisive ministerial vote is expressly described.",
+      "B: Urban and river targets are included.",
+      "C: Emergency suspension is limited to agricultural targets.",
+      "D: The plan submission deadline is not supplied."
+    ]
+  },
+  "v07-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: More flexibility does not remove obligations.",
+      "B: The main cause of price falls is not established.",
+      "C: The 35-percent-consumption cap qualifies the capacity rule.",
+      "D: Actual annual target achievement is not reported."
+    ]
+  },
+  "v07-13": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Largely failed does not mean no integration.",
+      "B: Longer unnecessary routes connect route reform to emissions reductions.",
+      "C: SESAR partnership governance is not detailed.",
+      "D: A major cause does not mean most delays."
+    ]
+  },
+  "v07-14": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Independent assessment is required.",
+      "B: Other certified or public-authority labels remain permissible.",
+      "C: Comparative sales outcomes are not supplied.",
+      "D: Food and drink cannot receive the label."
+    ]
+  },
+  "v07-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: The dominant EU disposal method is not specified.",
+      "B: Life-cycle exceptions permit departures.",
+      "C: Disposal is the final and only lower-ranked category.",
+      "D: Producer payments cover collection and treatment; plant-building intent is not specified."
+    ]
+  },
+  "v07-16": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Non-exhaust particles and battery durability cover EVs.",
+      "B: Car and van exhaust limits largely stay unchanged.",
+      "C: Comparative brake and exhaust pollution quantities are absent.",
+      "D: Actual use of cost savings is not reported."
+    ]
+  },
+  "v07-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Most synthetic-fertiliser nitrogen is narrower than all fertilisers.",
+      "B: Dependence estimates do not establish an unavoidable hunger counterfactual.",
+      "C: Nobel award chronology is not supplied.",
+      "D: Industrial production in 1913 predates war in 1914."
+    ]
+  },
+  "v07-18-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "The stated conventional single-semiconductor ceiling under unconcentrated sunlight is about 33%; 36% exceeds it.",
+      "Questions remain about perovskite durability; this does not establish that perovskites have been found unable to withstand years outdoors.",
+      "Silicon market dominance is stated, but no cost explanation is supplied.",
+      "The passage describes the 1961 conventional-cell calculation and present tandem achievements without attributing a tandem prediction to Shockley and Queisser."
+    ]
+  },
+  "v07-19": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Less tilt means cooler summers and more surviving snow.",
+      "B: Feedbacks amplify the orbital pacing.",
+      "C: A future interglacial forecast is not given.",
+      "D: Appears most important is less certain than established determination."
+    ]
+  },
+  "v07-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Reintroduction purpose is not supplied.",
+      "B: Little evidence of avoidance is not proof of never avoiding.",
+      "C: Hunting drought and other predators are alternative causes.",
+      "D: The popular account is disputed rather than conclusively disproved."
+    ]
+  },
+  "v07-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Possible campaign delays are not evidenced.",
+      "B: HVDC is used for selected sufficiently long links, not all.",
+      "C: Teslas previous employment is not supplied.",
+      "D: Higher voltage reduces current and resistive losses."
+    ]
+  },
+  "v07-22": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Annual increases vary.",
+      "B: Seasonal uptake lowers readings over the northern growing season.",
+      "C: Seasonal-amplitude history is not given.",
+      "D: South Pole swings are smaller rather than absent."
+    ]
+  },
+  "v08-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Proclamation occurred in Gothenburg in 2017.",
+      "B: The proclamation alone creates no legal obligations.",
+      "C: The causal origin of the poverty target is absent.",
+      "D: The training target is 60 percent, not every adult."
+    ]
+  },
+  "v08-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Below 80 percent coverage triggers a plan in any wage model.",
+      "B: The reason for annulment is not supplied.",
+      "C: 60 percent is indicative rather than mandatory.",
+      "D: A plan requirement is not a fixed-date attainment duty."
+    ]
+  },
+  "v08-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "evidence": [
+      "Starting-pay disclosure applies to all employers; a 30-person company has no reporting duty under the Directive.",
+      "The explicit three-year schedules for 100–249 workers refute universal annual reporting.",
+      "No fines or EU-level fine-setting are stated. Assessment requires an unjustified category-level gap of at least 5% left uncorrected for six months, not simply an overall gap above 5%."
+    ]
+  },
+  "v08-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Leave take-up statistics are absent.",
+      "B: Carer leave pay is left to states and no usual rate is given.",
+      "C: Leave is unconditional on tenure but payment may require six months.",
+      "D: Employers may refuse with reasons."
+    ]
+  },
+  "v08-05-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Triggering facts shift the rebuttal burden to the platform.",
+      "B: Sector composition is not quantified.",
+      "C: The presumption is rebuttable and no one is automatically reclassified.",
+      "D: Human decision rules concern significant decisions."
+    ]
+  },
+  "v08-06": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: No failed-programme causal explanation is supplied.",
+      "B: The 3 percent requirement applies to every state.",
+      "C: No correlation of national poverty and NEET rates is reported.",
+      "D: A smaller strand is directly Commission-managed."
+    ]
+  },
+  "v08-07": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: The recommendation remains nonbinding.",
+      "B: The youth-unemployment trajectory is absent.",
+      "C: ALMA has narrower disadvantage and NEET eligibility conditions.",
+      "D: The reinforced group includes ages 15 to 29."
+    ]
+  },
+  "v08-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: The rationale for 25 percent is not supplied.",
+      "B: Swiss EEA membership is neither stated nor true.",
+      "C: The workplace-country rule applies in this ordinary cross-border case.",
+      "D: Three months is normal and extension is conditional."
+    ]
+  },
+  "v08-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "A: The Commission grants legal authorisation.",
+      "B: Reimbursement decisions remain national.",
+      "C: EU and three named countries do not mean all Europe.",
+      "D: Most generic and nonprescription medicines are nationally assessed."
+    ]
+  },
+  "v08-10": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Specific criticism of assessment quality is not stated.",
+      "B: Outside-EU assistance requires a request.",
+      "C: No usual response-time data appear.",
+      "D: National governments retain school-closure decisions."
+    ]
+  },
+  "v08-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Reimbursement cannot exceed the home-system amount.",
+      "B: Claims processing by contact points is not described.",
+      "C: No majority reason for patient travel is supplied.",
+      "D: Refusal is barred only when specified entitlement and timing conditions hold."
+    ]
+  },
+  "v08-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Warnings cover 65 percent on both sides.",
+      "B: Smoking-rate outcomes are absent.",
+      "C: Heated tobacco joined the flavour ban only in 2023.",
+      "D: Plain packaging is optional for states."
+    ]
+  },
+  "v08-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Humanitarian volunteering permits ages up to 35, other activities 30.",
+      "B: Covered essentials and a small allowance do not cover all costs.",
+      "C: Activities can last two weeks.",
+      "D: Eligibility does not guarantee selection."
+    ]
+  },
+  "v08-14": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Participation is voluntary.",
+      "B: UNESCO listing does not establish exclusion.",
+      "C: Educational funding is not promised.",
+      "D: At most one candidate per country is recommended."
+    ]
+  },
+  "v08-15": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: The process is intergovernmental and not Commission-directed.",
+      "B: No legal sanctions apply for implementation delay.",
+      "C: The supplements introduction date is not supplied.",
+      "D: Bachelor duration is not supplied."
+    ]
+  },
+  "v08-16": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: Reading was hardly slowed unlike colour naming.",
+      "B: The explanation is not attributed to Stroop himself.",
+      "C: Incongruent colour words slowed ink-colour naming.",
+      "D: No child-adult practice comparison is made."
+    ]
+  },
+  "v08-17": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Loss of his post and its causes are absent.",
+      "B: Handwashing worked before the causal agent was understood.",
+      "C: Deaths fell rather than ceased altogether.",
+      "D: Many colleagues is not all colleagues."
+    ]
+  },
+  "v08-18": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Snow proposed swallowing rather than inhalation.",
+      "B: Alcohol killing the agent is not supplied.",
+      "C: Farther-away victims are expressly discussed.",
+      "D: The water-company comparison provided stronger evidence."
+    ]
+  },
+  "v08-19": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: A concurrent verbal task removed the advantage.",
+      "B: Whorfs Russian colour research is not described.",
+      "C: A blue result cannot be generalised to green.",
+      "D: Evidence concerns certain task-dependent thinking."
+    ]
+  },
+  "v08-20": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Jones was explicitly not first.",
+      "B: His reason for learning Sanskrit is not given.",
+      "C: Irregular similarities merit suspicion, regardless of borrowing or chance.",
+      "D: Reconstructions remain hypotheses rather than exact transcripts."
+    ]
+  },
+  "v08-21": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "False"
+    },
+    "evidence": [
+      "A: The models originator and date are absent.",
+      "B: Mortality declines while births initially remain high.",
+      "C: Migration and timing can prevent shrinkage.",
+      "D: Education and family choices also contribute."
+    ]
+  },
+  "v09-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Only French support weakening is described.",
+      "B: Italys ratification status is absent.",
+      "C: Germany acquired its own forces despite the plans opposite aim.",
+      "D: The political community collapsed with the EDC."
+    ]
+  },
+  "v09-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "A: 1968 abolition beat the twelve-year schedule.",
+      "B: Reluctance is described for nuclear control, not every field.",
+      "C: The reports specific separate-community recommendation is not supplied.",
+      "D: A majority-energy forecast is not supplied."
+    ]
+  },
+  "v09-03": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Two shared institutions do not establish most among the separately listed bodies.",
+      "B: The common Court predated the merger.",
+      "C: The subsequent legal fate of the EEC is not explained.",
+      "D: Distinct executives remained until July 1967."
+    ]
+  },
+  "v09-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: The French referendum is absent.",
+      "B: Asylum belonged to the third pillar with limited Court power.",
+      "C: A leading UK role is not supplied.",
+      "D: The Commission sometimes shared initiative."
+    ]
+  },
+  "v09-05": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Sensitive fields retained unanimity.",
+      "B: Low turnout prevents rejection by most of the entire electorate.",
+      "C: Charter proclamation is not discussed.",
+      "D: Commission size was an Amsterdam leftover."
+    ]
+  },
+  "v09-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Later Bulgarian and Romanian accession is not supplied.",
+      "B: The exceptions are exactly Cyprus and Malta.",
+      "C: Many restrictions ended before seven years.",
+      "D: Approval is stated without unanimity."
+    ]
+  },
+  "v09-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Luxembourg voted after France and the Netherlands.",
+      "B: Dutch referendum historical priority is absent.",
+      "C: Campaign quality and main causation are absent.",
+      "D: The text expressly includes objections to the treaty itself."
+    ]
+  },
+  "v09-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Pandemic shortage origin is not supplied.",
+      "B: The first strand bridges research and factory rather than mainly building large plants.",
+      "C: Most investment is expected from states and industry.",
+      "D: The auditors doubted one target rather than all objectives."
+    ]
+  },
+  "v09-09": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: The required early-warning content is not detailed.",
+      "B: Top-level registries are covered regardless of size.",
+      "C: Small firms generally fall outside.",
+      "D: Liability is for compliance failures rather than any incident."
+    ]
+  },
+  "v09-10-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Coverage exclusions and normally-at-least-five wording qualify the rule.",
+      "B: Only noncommercial open-source supply is excluded.",
+      "C: Fine levels are absent.",
+      "D: Toy reporting begins in 2026 before most duties in 2027."
+    ]
+  },
+  "v09-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Replacement of identity cards is not stated.",
+      "B: Payment functionality is not stated.",
+      "C: The wallet is expressly free for individuals.",
+      "D: Only specified categories of private services must accept it."
+    ]
+  },
+  "v09-12": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Gatekeepers are ineligible third-party recipients.",
+      "B: A main small-firm competition purpose is not given.",
+      "C: The design rule has date and feasibility qualifications.",
+      "D: Public requests require exceptional need."
+    ]
+  },
+  "v09-13": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: LUMIs energy practices cannot be generalised to all systems.",
+      "B: No global fastest ranking is given.",
+      "C: Funding proportions are not given.",
+      "D: EU-based climate researchers can apply for generally free access across sites."
+    ]
+  },
+  "v09-14": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: The initial relation required independent calibration for absolute distances.",
+      "B: The type correction roughly doubled distances.",
+      "C: Lifetime reception is not described.",
+      "D: Universal reach to every galaxy is not supported."
+    ]
+  },
+  "v09-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Keplers historical priority is not given.",
+      "B: The discovery telescope location is not supplied.",
+      "C: Detection favours large close planets.",
+      "D: Almost edge-on does not require exact alignment."
+    ]
+  },
+  "v09-16": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "A: Weapons-test effects are not supplied.",
+      "B: 70000 years exceeds about 50000 reliable years.",
+      "C: Variation and calibration do not establish an always-several-centuries error.",
+      "D: Minimal damage does not mean none."
+    ]
+  },
+  "v09-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Different medians do not establish complete separation.",
+      "B: Kahnemans Nobel is not mentioned.",
+      "C: Payment manipulation is not mentioned.",
+      "D: Most agents denied an influence, so not all acknowledged it."
+    ]
+  },
+  "v09-18": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: Galton initially interpreted the effect biologically.",
+      "B: The school case applies the stated selection-and-regression mechanism.",
+      "C: A zero-feedback counterfactual is not proof of actual zero effect.",
+      "D: Regression is a tendency rather than an inevitable next score."
+    ]
+  },
+  "v09-19-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "The passage explicitly says a shared mitochondrial match alone cannot uniquely identify an individual. C concerns a shared match between two individuals, without claiming that all maternal relatives necessarily match.",
+      "Occasional mutations explicitly contradict entirely unchanged inheritance in every generation.",
+      "Radiocarbon dating is not mentioned. Often recoverable when nuclear DNA cannot be recovered does not establish recovery whenever nuclear DNA cannot be recovered."
+    ]
+  },
+  "v09-20": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "A: He died in 1930 before acceptance in the 1960s.",
+      "B: Translation and readership are not described.",
+      "C: Most rejecting does not mean all.",
+      "D: Some land-bridge explanations does not mean most geologists."
+    ]
+  },
+  "v09-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "A: Many studies is not every study.",
+      "B: Researchers explicitly disagree.",
+      "C: Logic-training results are absent.",
+      "D: E and 7 suffice, so adding 4 is one extra card."
+    ]
+  },
+  "v10-01-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Letters separately miss dates or site; uploading excludes site revisions."
+    ]
+  },
+  "v10-02-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "The EUR120 was paid; repayment timing and changed-use bills are unknown."
+    ]
+  },
+  "v10-03-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Seat ages match, employment statuses differ, but directions and district employment mix are absent."
+    ]
+  },
+  "v10-04": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Frozen recovery performance did not worsen; 26 qualifying products lack repair verification; manufacturer outcomes are undisclosed."
+    ]
+  },
+  "v10-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Pine exceeds twelve months and retains privacy clearance; Cedar needs both new-version decisions."
+    ]
+  },
+  "v10-06-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Recycled tonnage changes from 0.40T to 0.24T; individual and policy attribution are unknown."
+    ]
+  },
+  "v10-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "False"
+    },
+    "evidence": [
+      "Pine contains liquid and cannot use the paperwork-only route; its valid waiver through a stated route therefore required pressure testing and an independent seal check.",
+      "Cedar class P establishes pressure testing; Q concerns reporting and says nothing about testing. Neither establishes an independent seal check or waiver.",
+      "Other products can explicitly obtain paperwork-only waivers without pressure testing, refuting C. Cedar explicitly holds both P and Q, refuting D."
+    ]
+  },
+  "v10-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Complex shares are 6/8 and 3/8; common weights retain Birch's one-week advantage, without a workload prediction."
+    ]
+  },
+  "v10-09-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Removing chairs clears the courtyard; bolts into original stone remain prohibited and unapproved."
+    ]
+  },
+  "v10-10-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Compliant renewal entails Sana's academic threshold; Tavi's payment remains conditional and assessment timing is unstated."
+    ]
+  },
+  "v11-01-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Common-mix means are eight and nine days; original aggregate order and actual changed-load performance are not established."
+    ]
+  },
+  "v11-02-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "At most fourteen second-season positives can be old positives, forcing at least nine new detections, not new occupancies."
+    ]
+  },
+  "v11-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Rowan supplied documents after editor assignment; Hazel's entry concerns original paperwork rather than acceptance or current web presence."
+    ]
+  },
+  "v11-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Elm's compliant electrical work entails assessment and registration entails audit; Ash's shared owner supplies no endorsement."
+    ]
+  },
+  "v11-05-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Approved certificate plus passed packaging qualifies Cedar; Fern fails the independent packaging condition."
+    ]
+  },
+  "v11-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Conserved implies approved dossier implies mark; some loaned dossiers truly lack marks, but marked dossiers need not concern treatment."
+    ]
+  },
+  "v11-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Orla entered lawfully without a supervisor; school-permit entry requires one, so she entered using a keycard and has completed the associated identity check.",
+      "Children need a supervisor under either document; Ren’s supervisor does not establish which route was used.",
+      "School permits can explicitly be issued without the identity check, refuting A. Children explicitly require supervisors even on local keycards, refuting C.",
+      "Orla’s entry document does not establish absence of school relationships or inability to also hold a school permit; relationships are expressly not identifiable from the released evidence."
+    ]
+  },
+  "v11-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Rowan meets the omission exception and made a clerical correction; Hazel's equipment change is a late new bid."
+    ]
+  },
+  "v11-09": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Never taking the assessment forces exemption and board-verified practice; board identity and briefing chronology remain unspecified."
+    ]
+  },
+  "v11-10-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Each approval specifies annual inputs and project; annual output and unchanged safeguards cannot authorise monthly inputs."
+    ]
+  },
+  "v12-01-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "A retains both signatures; B lacks its translator signature despite the reviser's signature and publication permission."
+    ]
+  },
+  "v12-02": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "The correction entails amended-exemplar descent for K and L; omissions, independent ownership notes and copy dates do not fix the tree."
+    ]
+  },
+  "v12-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Trial assignments differ but calibration rod is shared; the selected manual subset is not an independent trial."
+    ]
+  },
+  "v12-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Consultant checked only the coefficient; shared idling assumption and unadjusted total do not establish scheduling causation."
+    ]
+  },
+  "v12-05-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Six certain opponents leave at most six supporters against a threshold of seven."
+    ]
+  },
+  "v12-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Both filing routes require at least one completed internal complaint, and every investigated service must be within district."
+    ]
+  },
+  "v12-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Full employment may be 45 to 65; forty-five responses cannot contain all fifty original employees and no transitions are identified."
+    ]
+  },
+  "v12-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Randomisation compares medium-plus-map policies; complete assignment outcomes cannot isolate reading or components or generalise to decliners."
+    ]
+  },
+  "v12-09": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Permissions attach to the specific image and medium; artwork clearance survives the crop but photographer permission does not transfer."
+    ]
+  },
+  "v12-10-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "The pending-release and committed union contains 200 + 300 - 100 = 400 packages, leaving 400 in neither excluded group.",
+      "Every package outside pending release explicitly passed quality release; packages in neither group are also uncommitted. Of these, 150 are explicitly unexpired. All three usable-reserve conditions are therefore established for those 150, giving the lower bound.",
+      "The other 250 in the remainder have unresolved expiry status. They could all be unexpired or all fail that condition, giving inclusive bounds of 150 to 400.",
+      "B subtracts overlapping exclusions twice and asserts an exact total despite unresolved expiry; 300 is possible but is not established.",
+      "C asserts that all 400 are usable even though expiry remains unresolved for 250; this strengthens the evidence without a stated expired counterexample.",
+      "No emergency-purpose allocation or predominance is reported for the 150 packages."
+    ]
+  },
+  "v13-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Approval in principle is not commitment; Friday large repairs need a board resolution, while ordinary small grants remain delegated."
+    ]
+  },
+  "v13-02": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fifty-four supporters exceed both the original forty and half the hundred; at least fourteen former opponents support, not exactly fourteen."
+    ]
+  },
+  "v13-03": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Fuel bars a waiver, so Silver needed an active inspected sensor; other cargo and inspection histories remain open."
+    ]
+  },
+  "v13-04-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Random access with common training isolates assignment, not actual use or district-wide transfer; outcomes have not been reported."
+    ]
+  },
+  "v13-05-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Paired revised-model runs differ only in the campaign assumption; their one-million difference is simulated rather than observed saving."
+    ]
+  },
+  "v13-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Available 34 plus Elm's eight gives 42, plus Willow's six gives 40; both repairs give 48."
+    ]
+  },
+  "v13-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Neri's scholarship entails methods and fieldwork; confirmed lack of oral evaluation eliminates placement, forcing community project."
+    ]
+  },
+  "v13-08-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Updated papers repeat one model lineage; the local monitor neither identifies network displacement nor proves the estimate false."
+    ]
+  },
+  "v13-09-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fixed raw measurements cannot improve between classifications; all seven losses reflect the rule, without decomposing the annual workforce result."
+    ]
+  },
+  "v13-10-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Blue wins the retained central expenditure scenario; flexibility does not value omitted effects or guarantee every future."
+    ]
+  },
+  "v14-01-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Nine weeks bars waiver; parent lacks licence; conversion invalidates old property approval, requiring a fresh independent personal inspection."
+    ]
+  },
+  "v14-02-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Conversion cancels inherited eligibility/consent; roof work on the listed building requires fresh independent architectural evidence."
+    ]
+  },
+  "v14-03-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Unsigned reciprocity cannot support clearance; no valid depositor permission exists and catalogue-only publication forces two assessors with unredacted access."
+    ]
+  },
+  "v14-04-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Nursery supply bars exemption, relocation requires fresh gauge evidence, and broken seal forces independently calibrated manual assurance."
+    ]
+  },
+  "v14-05-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Consortium recognition ended; served notice requires a timely objection and the sole consultant needed explicit appeal authority."
+    ]
+  },
+  "v14-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "No recovery, accreditation or qualifying video route exists; an independent live witness and new serial-matched repair record are necessary."
+    ]
+  },
+  "v14-07-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Joint ownership bars guarantee; old policy excludes territory; lapsed carrier forces two currently trained escorts across municipal boundaries."
+    ]
+  },
+  "v14-08-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Broken seal and no manual method force recalibrated local assay using a post-installation reference; deputy needs separate release authority."
+    ]
+  },
+  "v14-09-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Financial loss cannot waive standstill; failed portal forces valid postal receipt, requiring renewed former-director mail authority."
+    ]
+  },
+  "v14-10-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Six-day outage cannot trigger release; expired subscription forces surviving final-contract clause, and merger forces delegation ratification."
+    ]
+  },
+  "v15-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Separate-company transfer ends entitlement, inland route needs regional request and officer delegation; replacement engine requires a new noise test."
+    ]
+  },
+  "v15-02-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Q-only order cannot cover P; interviews require affirmative consent and expired accreditation requires a current custodian for team-held keys."
+    ]
+  },
+  "v15-03-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Cover cannot predate 6 June and sealed parcel already contains notebook by 9 June; crate dispatch need not be notebook dispatch."
+    ]
+  },
+  "v15-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Regional delegation is suspended and ownership is unlicensed; national declaration and guaranteed authorised lease are the surviving routes."
+    ]
+  },
+  "v15-05-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Resigned editor needs accepted subject mandate; permission-only records require independent controlled access with binding thirty-day decisions."
+    ]
+  },
+  "v15-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Flash witnesses share one source, the circuit was disconnected, and a surge remains possible; the mark fits either primary mechanism."
+    ]
+  },
+  "v15-07-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Employment bars dependency; ninety-day absence requires advance approval; changed unaccredited branch curriculum requires independent equivalence report."
+    ]
+  },
+  "v15-08-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Changed supplier and site defeat old approval/bridge; heat sensitivity forces full observation with renewed chamber calibration and post-membrane certified reference."
+    ]
+  },
+  "v15-09-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Exterior-only video cannot qualify; Tavi needs protocol supplement, continuous observation and a newly logged seal matched at receipt."
+    ]
+  },
+  "v15-10-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Attending conflicted director cannot be replaced by alternate; sole usable consent is Sera's successor-renewed disposal mandate."
+    ]
+  },
+  "v16-01-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Restricted source needs express distribution permission; stable keys force secure environment with independent post-export-change assessment."
+    ]
+  },
+  "v16-02-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Friday buildings would require Thursday accounts, forbidden; ordinary ordering forces equipment after data on Friday."
+    ]
+  },
+  "v16-03-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "No separate genetic reference exists, so contemporaneous log is necessary; officer authority must be renewed in writing before the move."
+    ]
+  },
+  "v16-04-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Modified battery has no current test label and cannot go South; Central requires officer approval and accredited resealing after reopening."
+    ]
+  },
+  "v16-05-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Streams differ in sample eligibility and completion definition; accurate fractions do not identify causal route effects."
+    ]
+  },
+  "v16-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Released harbour files exist, are disputed and inspected, and cannot use failed orders; consent mediation entails full-annex reading."
+    ]
+  },
+  "v16-07-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Logger gap forces manual route, refrigerant change forces supplement, battery changes force calibration, and experimental batch needs specific permit."
+    ]
+  },
+  "v16-08-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Vale and Tavi are conflicted; Neri must provide the specialist and needs a precise-field independently assessed waiver after qualification expiry."
+    ]
+  },
+  "v16-09-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Sponsor payment excludes heritage route; converted engine requires assessment and transferred operator requires individually verified dated passenger appointment."
+    ]
+  },
+  "v16-10-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Coral cannot be fifth since Birch cannot be fourth; Dune precedes Amber and Elm, forcing Elm into last place."
+    ]
+  },
+  "v17-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Old carrier is listed despite late inscription; unlicensed lab needs supervision, whose superseded training requires a method supplement."
+    ]
+  },
+  "v17-02-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Liquid forces specialist admission; changed axles invalidate certificate, leaving one scale plus post-resurfacing weight certified by another laboratory."
+    ]
+  },
+  "v17-03-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Minor contact precludes chair delegation; conflicted alternate cannot count, so third eligible member must be a live remotely connected independent clinician."
+    ]
+  },
+  "v17-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Incomplete waiver cannot count; no portal acknowledgment leaves postal delivery, requiring explicitly renewed former-secretary authority before full notice begins."
+    ]
+  },
+  "v17-05-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Living release needs negative certificate; overheated reserve forces fresh sample with instrument sterilised since prior accession use."
+    ]
+  },
+  "v17-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Private minority forces enforceably restricted lease; thirty years forces full board and Pavo's professionally restored registration with post-consulting declaration."
+    ]
+  },
+  "v17-07-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Boundary touch and radio-range failure force corridor; firmware change requires compatibility using a newly generated unrevoked key."
+    ]
+  },
+  "v17-08-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Unlisted branch and third-language transcript require unsupervised Mira's renewed registration and post-name-change identity check; relocation timing of that check is unspecified."
+    ]
+  },
+  "v17-09-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Foreign owner bars domestic channel; suspended insurer forces cleared deposit, and sole agent needs authority for present owner."
+    ]
+  },
+  "v17-10-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "New entity loses waiver and changed local tool lacks certification; moved outside processor must pass new production-site audit before qualifying."
+    ]
+  },
+  "v18-01-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Private protected site needs order; moved unrecognised marker forces survey with lens-tested instrument using an independent reference distance."
+    ]
+  },
+  "v18-02-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Open-water lesson and wrong national class force school assessment; post-surgery clearance requires a new exam reviewing post-surgery specialist balance report."
+    ]
+  },
+  "v18-03-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Missing pages and no current-edition permission force reconstructed preservation; changed model needs validation against separate non-training reference."
+    ]
+  },
+  "v18-04-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Indexed interest is structured; entity-specific exemption fails, so changed-employer specialist needs new lender-specific independence endorsement before opinion."
+    ]
+  },
+  "v18-05-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Replication-capable specimen and wrong carrier class force renewed laboratory vehicle; transferred officer needs ratified organism clearance before witnessing test."
+    ]
+  },
+  "v18-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Withdrawn digital consent forces postal service; moved recipient needs post-move appointment with current identity; correspondence does not restore student eligibility."
+    ]
+  },
+  "v18-07-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Anchor and intentional tracer force assessment/model; changed rotor needs comparison with independently calibrated reference, including no indirect dependence."
+    ]
+  },
+  "v18-08-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "The changed source makes the meal changed; the new source and lot fall outside the only declaration. Valid service consequently required an on-site review.",
+      "The sole lead’s pre-protocol training required a passed independently assessed supplement, and either allowed review method required verification of the actual changed line.",
+      "Recipe-name identity explicitly does not preserve unchanged status. The supervisor explicitly cannot independently assess the supplement.",
+      "Nothing identifies the assessor or distinguishes live video from direct observation."
+    ]
+  },
+  "v18-09-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Withheld agreement forces panel; replaced inventory and copied mark force post-treatment material sampling with location documented before removal."
+    ]
+  },
+  "v18-10-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Classified case and predecessor-only account force sealed clerk delivery; office transfer and renumbering require director authority for present case and classified filings."
+    ]
+  },
+  "v19-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Reissue requires assessment after ownership change, itself after method revision; supervision requires post-revision assessment, independent in either route."
+    ]
+  },
+  "v19-02-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Consent inspection follows merger, hazard inspection follows alteration, hearing inspection follows request; all are independent and post-alteration, not necessarily post-merger."
+    ]
+  },
+  "v19-03-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "New mandate check follows revocation; either guardian identity route follows later name change, so all permitted checks are independent and post-revocation."
+    ]
+  },
+  "v19-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Annex accreditation and rejoining corridor fail; pressure test needs sensing-element recalibration using reference recertified after repair, with no tighter chronology."
+    ]
+  },
+  "v19-05-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Fresh veterinary and outbreak routes require post-outbreak review; habitat review follows later reclassification, hence also outbreak; laboratory report is not universal."
+    ]
+  },
+  "v19-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Rector restoration, individual mandate and ratified standing mandate all require signatory declaration after conflict, independently validated; merger timing is not universal."
+    ]
+  },
+  "v19-07-r2": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "Dealer review needs post-control records, later than acquisition; both committee routes need post-acquisition records, without forcing post-control timing or both reports."
+    ]
+  },
+  "v19-08-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Cross-border release loses predecessor agreement, module certificate and relocated lab; only in-house test remains, requiring supplemented credential and post-name-change identity check."
+    ]
+  },
+  "v19-09-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "New load survey follows support change; emergency evidence follows later storm or request; all examine actual foundations but need not follow storm on engineering route."
+    ]
+  },
+  "v19-10-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Holder mandate check follows assignment; estate checks follow later name change/request; verifier differs from researcher but precise identity and later timing vary."
+    ]
+  }
+}

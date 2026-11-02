@@ -1,0 +1,48 @@
+{
+  "v05-19-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Registered reports give in-principle acceptance on study design before results are known; faithful execution and quality checks govern final publication.",
+      "The passage explicitly says the project did not show that the original findings were wrong, contradicting the claimed demonstration in A.",
+      "No prevalence of mandatory preregistration across psychology journals is given. Supporters claim reduced bias, which does not establish elimination."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v07-18-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "The stated conventional single-semiconductor ceiling under unconcentrated sunlight is about 33%; 36% exceeds it.",
+      "Questions remain about perovskite durability; this does not establish that perovskites have been found unable to withstand years outdoors.",
+      "Silicon market dominance is stated, but no cost explanation is supplied.",
+      "The passage describes the 1961 conventional-cell calculation and present tandem achievements without attributing a tandem prediction to Shockley and Queisser."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v09-19-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "The passage explicitly says a shared mitochondrial match alone cannot uniquely identify an individual. C concerns a shared match between two individuals, without claiming that all maternal relatives necessarily match.",
+      "Occasional mutations explicitly contradict entirely unchanged inheritance in every generation.",
+      "Radiocarbon dating is not mentioned. Often recoverable when nuclear DNA cannot be recovered does not establish recovery whenever nuclear DNA cannot be recovered."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 16 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v16-01",
+      "id": "v16-01-r2",
       "topic": "Restricted data release",
       "difficulty": 3,
       "challenge": true,
@@ -33,7 +33,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Distinguish permission to view a source from permission to reuse it, and check the source's licence status.",
         "A freely viewable restricted source is not an open licence."
       ],
       "optionNotes": [
@@ -42,10 +42,11 @@ EPSO_BANK.registerSet({
         "Not supported. The assessor’s earlier involvement is not stated.",
         "Not supported. No fees or cost comparison are provided."
       ],
-      "explanation": "A freely viewable restricted source is not an open licence. Analysis-only permission cannot authorise distribution. Stable person keys exclude full anonymisation. The export change defeats the old-assessment exception. Secure access therefore needs a post-migration independent assessment."
+      "explanation": "A freely viewable restricted source is not an open licence. Analysis-only permission cannot authorise distribution. Stable person keys exclude full anonymisation. The export change defeats the old-assessment exception. Secure access therefore needs a post-migration independent assessment.",
+      "supersedes": "v16-01"
     },
     {
-      "id": "v16-02",
+      "id": "v16-02-r2",
       "topic": "Hearing order constraints",
       "difficulty": 3,
       "challenge": true,
@@ -71,7 +72,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Write the hearing-order constraints in a short schedule and test each proposed position against all of them.",
         "Friday buildings would require Thursday accounts, which is forbidden."
       ],
       "optionNotes": [
@@ -80,10 +81,11 @@ EPSO_BANK.registerSet({
         "False. Contracts is expressly excluded from Monday.",
         "Not supported. Witness availability does not establish attendance at another hearing."
       ],
-      "explanation": "Friday buildings would require Thursday accounts, which is forbidden. Equipment must consequently follow data. Contracts precedes data and cannot be Monday. The accounts-buildings pair therefore occupies Monday-Tuesday. Contracts, data and equipment fill Wednesday-Friday in that order."
+      "explanation": "Friday buildings would require Thursday accounts, which is forbidden. Equipment must consequently follow data. Contracts precedes data and cannot be Monday. The accounts-buildings pair therefore occupies Monday-Tuesday. Contracts, data and equipment fill Wednesday-Friday in that order.",
+      "supersedes": "v16-02"
     },
     {
-      "id": "v16-03",
+      "id": "v16-03-r2",
       "topic": "Research specimen provenance",
       "difficulty": 3,
       "challenge": true,
@@ -109,7 +111,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Follow specimen identity through pooling; a label can establish less after material has been combined.",
         "Pooling defeats label-only provenance."
       ],
       "optionNotes": [
@@ -118,10 +120,11 @@ EPSO_BANK.registerSet({
         "Correct. With genetic restoration unavailable, a contemporaneous individual log is necessary, signed under authority renewed before the move.",
         "Not supported. The catalogue’s preparation date and compiler are not given."
       ],
-      "explanation": "Pooling defeats label-only provenance. No separately stored reference exists, excluding genetic restoration. The remaining route needs a contemporaneous individual-tag log. The signing officer had moved units. Only a written renewal before that move preserves signing authority."
+      "explanation": "Pooling defeats label-only provenance. No separately stored reference exists, excluding genetic restoration. The remaining route needs a contemporaneous individual-tag log. The signing officer had moved units. Only a written renewal before that move preserves signing authority.",
+      "supersedes": "v16-03"
     },
     {
-      "id": "v16-04",
+      "id": "v16-04-r2",
       "topic": "Courier routing eligibility",
       "difficulty": 3,
       "challenge": true,
@@ -147,7 +150,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Apply the cargo eligibility rules to each available courier route before inferring which one could have been used.",
         "A battery cannot use South."
       ],
       "optionNotes": [
@@ -156,10 +159,11 @@ EPSO_BANK.registerSet({
         "Not supported. The authorisation route and reasons are unspecified.",
         "Correct. Battery excludes South; unapproved modification and no retest exclude North, leaving Central and its shared post-opening accredited-seal requirement."
       ],
-      "explanation": "A battery cannot use South. Unapproved casing modification invalidates the label. No retest restores North eligibility. Central therefore needs dangerous-goods authorisation. Either authorisation route needs accredited sealing after the final opening."
+      "explanation": "A battery cannot use South. Unapproved casing modification invalidates the label. No retest restores North eligibility. Central therefore needs dangerous-goods authorisation. Either authorisation route needs accredited sealing after the final opening.",
+      "supersedes": "v16-04"
     },
     {
-      "id": "v16-05",
+      "id": "v16-05-r2",
       "topic": "Grant audit sampling",
       "difficulty": 3,
       "challenge": true,
@@ -185,7 +189,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Compare how cases entered each audit sample before interpreting the resulting error rates.",
         "The audited populations have different selection rules."
       ],
       "optionNotes": [
@@ -194,10 +198,11 @@ EPSO_BANK.registerSet({
         "Not supported. Grant sizes by revision status are not reported.",
         "Not supported. Shared organisations do not establish shared financed activities."
       ],
-      "explanation": "The audited populations have different selection rules. Completion is defined differently by stream. Some organisations recur without linked identification. Original-target comparisons coexist with unequally described revisions. No randomised or adjusted estimate isolates the funding-route effect."
+      "explanation": "The audited populations have different selection rules. Completion is defined differently by stream. Some organisations recur without linked identification. Original-target comparisons coexist with unequally described revisions. No randomised or adjusted estimate isolates the funding-route effect.",
+      "supersedes": "v16-05"
     },
     {
-      "id": "v16-06",
+      "id": "v16-06-r2",
       "topic": "Petition witness membership",
       "difficulty": 3,
       "challenge": true,
@@ -223,7 +228,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track the membership and release conditions as one-way implications, including any confirmed existence statements.",
         "Some released harbour files exist."
       ],
       "optionNotes": [
@@ -232,10 +237,11 @@ EPSO_BANK.registerSet({
         "Overstated. The passage expressly states that these requirements do not promise release.",
         "Not supported. Either independent mediation arrangement could qualify."
       ],
-      "explanation": "Some released harbour files exist. All such files are inspected and disputed. No surviving order is available for them. The exclusive inspected-file alternatives force consent. Release then requires independent mediation including the confidential annexes."
+      "explanation": "Some released harbour files exist. All such files are inspected and disputed. No surviving order is available for them. The exclusive inspected-file alternatives force consent. Release then requires independent mediation including the confidential annexes.",
+      "supersedes": "v16-06"
     },
     {
-      "id": "v16-07",
+      "id": "v16-07-r2",
       "topic": "Cold-chain vaccine custody",
       "difficulty": 3,
       "challenge": true,
@@ -261,7 +267,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check whether the batch belongs to the ordinary transport class or needs its own authorisation.",
         "An experimental batch needs a batch-specific permit."
       ],
       "optionNotes": [
@@ -270,10 +276,11 @@ EPSO_BANK.registerSet({
         "Correct. Missing logs force manual assurance with supplemented training and recalibration; experimental status excludes the general permit.",
         "Not supported. The custodian’s earlier experience with this product is unspecified."
       ],
-      "explanation": "An experimental batch needs a batch-specific permit. The logger gap defeats continuous assurance. Manual monitoring therefore requires the trained original custodian. The refrigerant change requires a pre-handling supplement. Both instruments need calibration after battery replacement."
+      "explanation": "An experimental batch needs a batch-specific permit. The logger gap defeats continuous assurance. Manual monitoring therefore requires the trained original custodian. The refrigerant change requires a pre-handling supplement. Both instruments need calibration after battery replacement.",
+      "supersedes": "v16-07"
     },
     {
-      "id": "v16-08",
+      "id": "v16-08-r2",
       "topic": "Anonymous review conflicts",
       "difficulty": 3,
       "challenge": true,
@@ -300,7 +307,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Test each reviewer's eligibility separately; a valid pairing must satisfy the conditions for every assigned reviewer.",
         "Both assigned reviewers must be eligible."
       ],
       "optionNotes": [
@@ -309,10 +316,11 @@ EPSO_BANK.registerSet({
         "Not supported. The same specialist is permitted but not required.",
         "Correct. Recent coauthorship excludes Vale and current author-institution employment excludes Tavi; the specialist requirement forces Neri, whose expired qualification needs a field-assessed waiver."
       ],
-      "explanation": "At least one assigned reviewer must be a field specialist. Only Neri and Vale qualify by field. Vale’s recent same-person coauthorship excludes Vale. Tavi’s current institution also creates a conflict, leaving Neri and Sol. Neri’s expired qualification and pending renewal force a waiver. That waiver needs independent written assessment of work in the precise field."
+      "explanation": "At least one assigned reviewer must be a field specialist. Only Neri and Vale qualify by field. Vale’s recent same-person coauthorship excludes Vale. Tavi’s current institution also creates a conflict, leaving Neri and Sol. Neri’s expired qualification and pending renewal force a waiver. That waiver needs independent written assessment of work in the precise field.",
+      "supersedes": "v16-08"
     },
     {
-      "id": "v16-09",
+      "id": "v16-09-r2",
       "topic": "Metropolitan fleet access",
       "difficulty": 3,
       "challenge": true,
@@ -338,7 +346,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Use the programme's definition of a commercial journey rather than the traveller's informal description.",
         "Sponsor payment makes the journey commercial."
       ],
       "optionNotes": [
@@ -347,10 +355,11 @@ EPSO_BANK.registerSet({
         "Not supported. Verification need not use a letter, and no common author is given.",
         "Not supported. Prior service to these passengers is unspecified."
       ],
-      "explanation": "Sponsor payment makes the journey commercial. Heritage eligibility is excluded. Engine conversion requires renewed emissions assessment. The new operator lacks a standing permit. Individual authority therefore needs verified named passengers and journey date."
+      "explanation": "Sponsor payment makes the journey commercial. Heritage eligibility is excluded. Engine conversion requires renewed emissions assessment. The new operator lacks a standing permit. Individual authority therefore needs verified named passengers and journey date.",
+      "supersedes": "v16-09"
     },
     {
-      "id": "v16-10",
+      "id": "v16-10-r2",
       "topic": "Exhibition award score order",
       "difficulty": 3,
       "challenge": true,
@@ -376,7 +385,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Make a short ranking with the stated adjacent-position rules, then test which placements force a forbidden position.",
         "Fifth-place Coral requires fourth-place Birch, which is forbidden."
       ],
       "optionNotes": [
@@ -385,7 +394,8 @@ EPSO_BANK.registerSet({
         "False. Birch is expressly forbidden fourth place.",
         "Not supported. The audience winner and floor-plan timing are not given."
       ],
-      "explanation": "Fifth-place Coral requires fourth-place Birch, which is forbidden. Elm must therefore follow Amber. Dune precedes Amber, giving Dune-Amber-Elm. Birch-Coral occupy an adjacent pair. Any placement of that pair consistent with the chain leaves Elm last."
+      "explanation": "Fifth-place Coral requires fourth-place Birch, which is forbidden. Elm must therefore follow Amber. Dune precedes Amber, giving Dune-Amber-Elm. Birch-Coral occupy an adjacent pair. Any placement of that pair consistent with the chain leaves Elm last.",
+      "supersedes": "v16-10"
     }
   ]
 });

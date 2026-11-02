@@ -24,3 +24,9 @@ Omit `CHROMIUM_PATH` to use Playwright's installed Chromium. PNGs go to ignored 
 ## Additional full tests (sets09–11)
 
 Reviewed every new series and all five choices in the generated light and dark contact sheets (thirty items, sixty theme rows). Marker positions, grey/white/black fills, arrow angles, dot counts and panel cells remain distinguishable, with no observed clipping or unintended overlap. Panel gutters remain visible at the rendered size. Separate geometry-based inference verifies the continuation, supporting-track ambiguity and absence of repeated complete stimulus keys; visual inspection alone does not establish unique mathematical rules. All original figure files remain unchanged.
+
+## November whole-bank review
+
+The new contact sheets cover all 220 questions and all options (22 groups, 44 PNGs in two themes). Every item was visually inspected on the light sheets; dark samples cover all five foundation layouts and both challenge layouts. The semantic review independently solves all 220 keys within documented bounded grammars. Eight front-layer series now show six observations and three challenge stimuli were replaced.
+
+A theme-specific teaching defect was found: dark mode reversed filled black and white shapes while explanations retained their colour names. Figure tiles now use a fixed black/grey/white palette in both themes. Revised dark sheets confirm visible outlines, grey separation, front-layer boundaries and arrow directions; figure colours now match the teaching. Grid icons remain compact but identifiable. These are author visual checks, not independent human blind review or empirical difficulty calibration. Earlier statements that foundation items were not re-reviewed and all figures were preserved describe the historical pass only.

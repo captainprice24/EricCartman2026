@@ -115,7 +115,7 @@ for(const name of (process.env.BROWSERS||'chromium').split(',')){
   assert.ok(target,'a wide table exists');const qi=await p.evaluate(()=>window.EPSO_APP.state.session.qi);await target.focus();await p.keyboard.press('ArrowRight');await p.waitForFunction(()=>document.activeElement.scrollLeft>0);assert.equal(await p.evaluate(()=>window.EPSO_APP.state.session.qi),qi);await p.context().close();
  });
  await check('abstract coaching describes the next frame without assuming a series length',async()=>{
-  const p=await page();await p.selectOption('#opt-set','abstract-05');await p.locator('[data-act="coach"][data-k="abstract"]').click();const text=await p.locator('.lesson').innerText();assert.match(text,/Predict the next frame/);assert.doesNotMatch(text,/frame 6|Five figures|Most series combine two rules/);await p.context().close();
+  const p=await page();await p.selectOption('#opt-set','abstract-05');await p.locator('[data-act="coach"][data-k="abstract"]').click();const text=await p.locator('.lesson .steps').innerText();assert.match(text,/Predict a feature from the series/);assert.doesNotMatch(text,/frame 6|Five figures|Most series combine two rules/);await p.context().close();
  });
  }finally{await browser.close();}
 }

@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 2",
   "description": "25 EPSO-level passages on EU institutions, law, the single market, environment and science.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v02-01",
@@ -58,7 +58,7 @@ EPSO_BANK.registerSet({
       "explanation": "The key turns a general rule into its consequence for one judge, and the text is absolute on that point. The 'every question' option is contradicted by the exception introduced by 'although'. The option about lower courts sounds reasonable but compares frequencies that the text never gives."
     },
     {
-      "id": "v02-03",
+      "id": "v02-03-r2",
       "topic": "EU institutions",
       "difficulty": 1,
       "keyType": "paraphrase",
@@ -81,7 +81,8 @@ EPSO_BANK.registerSet({
         "Overstated. Missing documents are one example ('for example') of non-compliance; the text does not say which cause is most common.",
         "Correct. An error 'does not necessarily mean that money has been lost or misused'."
       ],
-      "explanation": "The key restates a definition in other words. One trap turns 'an important part' into sole control; another promotes an example into the main cause. An example in a text never tells you how common something is."
+      "explanation": "The key restates a definition in other words. One trap turns 'an important part' into sole control; another promotes an example into the main cause. An example alone does not establish prevalence; a frequency claim needs additional evidence.",
+      "supersedes": "v02-03"
     },
     {
       "id": "v02-04",
@@ -370,11 +371,11 @@ EPSO_BANK.registerSet({
       "explanation": "The key combines the coverage of chronic conditions with the advance-arrangement condition and the exclusion of trips made for treatment. The validity option is a close paraphrase that adds one unstated detail."
     },
     {
-      "id": "v02-15",
+      "id": "v02-15-r2",
       "topic": "Chemicals regulation",
       "difficulty": 3,
       "keyType": "combination",
-      "passage": "REACH, the EU regulation on chemicals that entered into force in 2007, places the burden of proof on industry rather than on public authorities. Companies that manufacture or import a chemical substance in quantities of one tonne or more per year must register it with the European Chemicals Agency (ECHA) in Helsinki, providing information on its properties, its uses and how it can be handled safely; the amount of information required increases with the quantity produced. The principle is often summarised as 'no data, no market': a substance that has not been registered cannot be manufactured or placed on the EU market in those quantities.\n\nSubstances of very high concern, such as those that cause cancer or accumulate in living organisms, can be placed on a list from which they may be moved to an authorisation list. Once that happens, they can be used only with a specific authorisation, which is granted only if the risks are adequately controlled or if the socio-economic benefits outweigh them and no suitable alternative exists. Certain uses of other substances can also be restricted across the EU.\n\nEnvironmental organisations argue that identifying and restricting harmful chemicals takes too long, while industry points to the high cost of registration for small companies.",
+      "passage": "REACH, the EU regulation on chemicals that entered into force in 2007, places the burden of proof on industry rather than on public authorities. Companies that manufacture or import a chemical substance in quantities of one tonne or more per year must register it with the European Chemicals Agency (ECHA) in Helsinki, providing information on its properties, its uses and how it can be handled safely; standard information requirements increase at tonnage-band boundaries, including ten tonnes, rather than at every increase in quantity. This registration duty does not apply below the one-tonne threshold. The principle is often summarised as 'no data, no market': a substance that has not been registered cannot be manufactured or placed on the EU market in those quantities.\n\nSubstances of very high concern, such as those that cause cancer or accumulate in living organisms, can be placed on a list from which they may be moved to an authorisation list. Once that happens, they can be used only with a specific authorisation, which is granted only if the risks are adequately controlled or if the socio-economic benefits outweigh them and no suitable alternative exists. Certain uses of other substances can also be restricted across the EU.\n\nEnvironmental organisations argue that identifying and restricting harmful chemicals takes too long, while industry points to the high cost of registration for small companies.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Companies must register every substance they make or import under REACH, whatever the quantity.",
@@ -389,11 +390,12 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "False. Registration applies to quantities of 'one tonne or more per year', and 'no data, no market' applies only 'in those quantities'; the text sets a threshold, so not every quantity counts.",
-        "Correct. Both quantities reach the one-tonne threshold, and 'the amount of information required increases with the quantity produced'.",
+        "Correct. Both firms reach the one-tonne registration threshold, and the ten-tonne firm crosses the stated boundary for additional standard information.",
         "Not supported. Industry 'points to the high cost' for small companies; the text reports no firms leaving the market.",
         "Overstated. Such substances 'can be placed' on a list and 'may be moved' to the authorisation list; nothing is automatic."
       ],
-      "explanation": "The key applies two rules, the threshold and the sliding scale, to two quantities. The registration option is contradicted by the one-tonne threshold, and the cancer option removes the decision to list a substance, so nothing is automatic."
+      "explanation": "The key applies two rules, the threshold and the information-band boundary, to two quantities. The registration option is contradicted by the one-tonne threshold, and the cancer option removes the decision to list a substance, so nothing is automatic.",
+      "supersedes": "v02-15"
     },
     {
       "id": "v02-16",

@@ -9,8 +9,8 @@
   "byDifficulty": {
     "easy": [
       "v01-15",
-      "v01-17",
-      "v02-03",
+      "v01-17-r2",
+      "v02-03-r2",
       "v02-17",
       "v02-22",
       "v02-25",
@@ -28,7 +28,7 @@
       "v05-10",
       "v05-16",
       "v05-20",
-      "v06-09",
+      "v06-09-r2",
       "v06-12",
       "v06-13",
       "v06-16",
@@ -51,7 +51,7 @@
       "v01-01",
       "v01-02",
       "v01-05",
-      "v01-07",
+      "v01-07-r2",
       "v01-08",
       "v01-10",
       "v01-11",
@@ -75,7 +75,7 @@
       "v03-01",
       "v03-02",
       "v03-05",
-      "v03-06-r2",
+      "v03-06-r3",
       "v03-08",
       "v03-09",
       "v03-11",
@@ -98,14 +98,14 @@
       "v04-18",
       "v04-19",
       "v05-04-r2",
-      "v05-06",
+      "v05-06-r2",
       "v05-08",
       "v05-11",
       "v05-12",
       "v05-13",
       "v05-15-r2",
       "v05-18",
-      "v05-19",
+      "v05-19-r2",
       "v05-21",
       "v05-22-r2",
       "v06-01",
@@ -120,7 +120,7 @@
       "v06-19",
       "v06-20",
       "v07-01-r2",
-      "v07-03",
+      "v07-03-r2",
       "v07-06",
       "v07-07",
       "v07-08",
@@ -131,7 +131,7 @@
       "v07-17",
       "v07-22",
       "v08-01",
-      "v08-03",
+      "v08-03-r2",
       "v08-05-r2",
       "v08-06",
       "v08-08",
@@ -145,18 +145,18 @@
       "v09-03",
       "v09-04",
       "v09-08",
-      "v09-10",
+      "v09-10-r2",
       "v09-12",
       "v09-13",
       "v09-14",
       "v09-15",
       "v09-17",
-      "v09-19",
+      "v09-19-r2",
       "v09-20"
     ],
     "hard": [
       "v01-03",
-      "v01-04",
+      "v01-04-r2",
       "v01-06",
       "v01-09",
       "v01-12",
@@ -167,7 +167,7 @@
       "v02-07",
       "v02-08",
       "v02-11",
-      "v02-15",
+      "v02-15-r2",
       "v02-18",
       "v02-19",
       "v03-03",
@@ -186,7 +186,7 @@
       "v05-01",
       "v05-02",
       "v05-05",
-      "v05-09",
+      "v05-09-r2",
       "v05-14",
       "v05-17",
       "v06-03",
@@ -198,7 +198,7 @@
       "v07-02-r2",
       "v07-04",
       "v07-14",
-      "v07-18",
+      "v07-18-r2",
       "v07-19",
       "v07-20",
       "v08-02",
@@ -208,110 +208,110 @@
       "v08-18",
       "v08-20",
       "v09-05",
-      "v09-06",
+      "v09-06-r2",
       "v09-09",
       "v09-18",
       "v09-21",
-      "v10-01",
-      "v10-02",
-      "v10-03",
+      "v10-01-r2",
+      "v10-02-r2",
+      "v10-03-r2",
       "v10-04",
       "v10-05",
-      "v10-06",
-      "v10-07",
+      "v10-06-r2",
+      "v10-07-r2",
       "v10-08",
-      "v10-09",
-      "v10-10",
-      "v11-01",
-      "v11-02",
+      "v10-09-r2",
+      "v10-10-r2",
+      "v11-01-r2",
+      "v11-02-r2",
       "v11-03",
       "v11-04",
-      "v11-05",
+      "v11-05-r2",
       "v11-06",
-      "v11-07",
+      "v11-07-r2",
       "v11-08",
       "v11-09",
-      "v11-10",
-      "v12-01",
+      "v11-10-r2",
+      "v12-01-r2",
       "v12-02",
       "v12-03",
       "v12-04",
-      "v12-05",
+      "v12-05-r2",
       "v12-06",
       "v12-07",
       "v12-08",
       "v12-09",
-      "v12-10",
+      "v12-10-r2",
       "v13-01",
       "v13-02",
       "v13-03",
-      "v13-04",
-      "v13-05",
-      "v13-06",
+      "v13-04-r2",
+      "v13-05-r2",
+      "v13-06-r2",
       "v13-07",
-      "v13-08",
-      "v13-09",
-      "v13-10",
-      "v14-01",
-      "v14-02",
-      "v14-03",
-      "v14-04",
-      "v14-05",
-      "v14-06",
-      "v14-07",
-      "v14-08",
-      "v14-09",
-      "v14-10",
-      "v15-01",
-      "v15-02",
-      "v15-03",
-      "v15-04",
-      "v15-05",
-      "v15-06",
-      "v15-07",
-      "v15-08",
-      "v15-09",
-      "v15-10",
-      "v16-01",
-      "v16-02",
-      "v16-03",
-      "v16-04",
-      "v16-05",
-      "v16-06",
-      "v16-07",
-      "v16-08",
-      "v16-09",
-      "v16-10",
-      "v17-01",
-      "v17-02",
-      "v17-03",
-      "v17-04",
-      "v17-05",
-      "v17-06",
-      "v17-07",
-      "v17-08",
-      "v17-09",
-      "v17-10",
-      "v18-01",
-      "v18-02",
-      "v18-03",
-      "v18-04",
-      "v18-05",
-      "v18-06",
-      "v18-07",
-      "v18-08",
-      "v18-09",
-      "v18-10",
-      "v19-01",
-      "v19-02",
-      "v19-03",
-      "v19-04",
-      "v19-05",
-      "v19-06",
-      "v19-07",
-      "v19-08",
-      "v19-09",
-      "v19-10"
+      "v13-08-r2",
+      "v13-09-r2",
+      "v13-10-r2",
+      "v14-01-r2",
+      "v14-02-r2",
+      "v14-03-r2",
+      "v14-04-r2",
+      "v14-05-r2",
+      "v14-06-r2",
+      "v14-07-r2",
+      "v14-08-r2",
+      "v14-09-r2",
+      "v14-10-r2",
+      "v15-01-r2",
+      "v15-02-r2",
+      "v15-03-r2",
+      "v15-04-r2",
+      "v15-05-r2",
+      "v15-06-r2",
+      "v15-07-r2",
+      "v15-08-r2",
+      "v15-09-r2",
+      "v15-10-r2",
+      "v16-01-r2",
+      "v16-02-r2",
+      "v16-03-r2",
+      "v16-04-r2",
+      "v16-05-r2",
+      "v16-06-r2",
+      "v16-07-r2",
+      "v16-08-r2",
+      "v16-09-r2",
+      "v16-10-r2",
+      "v17-01-r2",
+      "v17-02-r2",
+      "v17-03-r2",
+      "v17-04-r2",
+      "v17-05-r2",
+      "v17-06-r2",
+      "v17-07-r2",
+      "v17-08-r2",
+      "v17-09-r2",
+      "v17-10-r2",
+      "v18-01-r2",
+      "v18-02-r2",
+      "v18-03-r2",
+      "v18-04-r2",
+      "v18-05-r2",
+      "v18-06-r2",
+      "v18-07-r2",
+      "v18-08-r2",
+      "v18-09-r2",
+      "v18-10-r2",
+      "v19-01-r2",
+      "v19-02-r2",
+      "v19-03-r2",
+      "v19-04-r2",
+      "v19-05-r2",
+      "v19-06-r2",
+      "v19-07-r2",
+      "v19-08-r2",
+      "v19-09-r2",
+      "v19-10-r2"
     ]
   },
   "items": [
@@ -355,14 +355,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v01-04",
+      "id": "v01-04-r2",
       "set": "verbal-01",
       "band": "Hard",
       "challenge": false,
       "topic": "Environment",
       "keyType": "combination",
       "rules": "",
-      "words": 200,
+      "words": 213,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing combination item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -394,7 +394,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v01-07",
+      "id": "v01-07-r2",
       "set": "verbal-01",
       "band": "Medium",
       "challenge": false,
@@ -524,7 +524,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v01-17",
+      "id": "v01-17-r2",
       "set": "verbal-01",
       "band": "Easy",
       "challenge": false,
@@ -602,7 +602,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v02-03",
+      "id": "v02-03-r2",
       "set": "verbal-02",
       "band": "Easy",
       "challenge": false,
@@ -758,14 +758,14 @@
       "rationale": "Existing combination item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v02-15",
+      "id": "v02-15-r2",
       "set": "verbal-02",
       "band": "Hard",
       "challenge": false,
       "topic": "Chemicals regulation",
       "keyType": "combination",
       "rules": "",
-      "words": 207,
+      "words": 224,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing combination item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -966,14 +966,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v03-06-r2",
+      "id": "v03-06-r3",
       "set": "verbal-03",
       "band": "Medium",
       "challenge": false,
       "topic": "Consumer rights",
       "keyType": "inference",
       "rules": "",
-      "words": 212,
+      "words": 241,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -1577,14 +1577,14 @@
       "rationale": "Existing combination item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v05-06",
+      "id": "v05-06-r2",
       "set": "verbal-05",
       "band": "Medium",
       "challenge": false,
       "topic": "Migration",
       "keyType": "inference",
       "rules": "",
-      "words": 231,
+      "words": 237,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -1616,14 +1616,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v05-09",
+      "id": "v05-09-r2",
       "set": "verbal-05",
       "band": "Hard",
       "challenge": false,
       "topic": "EU citizenship",
       "keyType": "inference",
       "rules": "",
-      "words": 230,
+      "words": 234,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -1746,14 +1746,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v05-19",
+      "id": "v05-19-r2",
       "set": "verbal-05",
       "band": "Medium",
       "challenge": false,
       "topic": "Philosophy of science",
       "keyType": "inference",
       "rules": "",
-      "words": 226,
+      "words": 230,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -1902,7 +1902,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v06-09",
+      "id": "v06-09-r2",
       "set": "verbal-06",
       "band": "Easy",
       "challenge": false,
@@ -2110,14 +2110,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v07-03",
+      "id": "v07-03-r2",
       "set": "verbal-07",
       "band": "Medium",
       "challenge": false,
       "topic": "Trade and climate",
       "keyType": "inference",
       "rules": "",
-      "words": 221,
+      "words": 224,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -2305,14 +2305,14 @@
       "rationale": "Existing combination item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v07-18",
+      "id": "v07-18-r2",
       "set": "verbal-07",
       "band": "Hard",
       "challenge": false,
       "topic": "Physics of energy",
       "keyType": "inference",
       "rules": "",
-      "words": 202,
+      "words": 203,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -2396,14 +2396,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v08-03",
+      "id": "v08-03-r2",
       "set": "verbal-08",
       "band": "Medium",
       "challenge": false,
       "topic": "Equal pay",
       "keyType": "inference",
       "rules": "",
-      "words": 238,
+      "words": 243,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -2708,7 +2708,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v09-06",
+      "id": "v09-06-r2",
       "set": "verbal-09",
       "band": "Hard",
       "challenge": false,
@@ -2760,7 +2760,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v09-10",
+      "id": "v09-10-r2",
       "set": "verbal-09",
       "band": "Medium",
       "challenge": false,
@@ -2877,14 +2877,14 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v09-19",
+      "id": "v09-19-r2",
       "set": "verbal-09",
       "band": "Medium",
       "challenge": false,
       "topic": "Genetics",
       "keyType": "inference",
       "rules": "",
-      "words": 213,
+      "words": 219,
       "reasoningModel": "",
       "reviewedAs": "",
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
@@ -2916,7 +2916,7 @@
       "rationale": "Existing inference item; original editorial band retained. Key type alone does not establish difficulty; subtlety of distractors matters."
     },
     {
-      "id": "v10-01",
+      "id": "v10-01-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -2929,7 +2929,7 @@
       "rationale": "Linked-premise challenge: Conjunctive document scope and limited procedural extension. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-02",
+      "id": "v10-02-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -2942,7 +2942,7 @@
       "rationale": "Linked-premise challenge: Fixed-consumption comparison versus actual cash-flow return. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-03",
+      "id": "v10-03-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -2981,7 +2981,7 @@
       "rationale": "Linked-premise challenge: Competing temporal routes with conditional clearance inheritance. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-06",
+      "id": "v10-06-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -2994,14 +2994,14 @@
       "rationale": "Linked-premise challenge: Share reversal with a known changing base. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-07",
+      "id": "v10-07-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
       "topic": "Inspection waivers and certification classes",
       "keyType": "inference",
       "rules": "",
-      "words": 214,
+      "words": 210,
       "reasoningModel": "Route elimination and nonexclusive classifications",
       "reviewedAs": "v10-07",
       "rationale": "Linked-premise challenge: Route elimination and nonexclusive classifications. Independent blind key/label review archived; difficulty remains editorial."
@@ -3020,7 +3020,7 @@
       "rationale": "Linked-premise challenge: Composition inferred from aggregate reversal. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-09",
+      "id": "v10-09-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -3033,7 +3033,7 @@
       "rationale": "Linked-premise challenge: Independent remedies and an ineligible revised method. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v10-10",
+      "id": "v10-10-r2",
       "set": "verbal-10",
       "band": "Hard",
       "challenge": true,
@@ -3046,7 +3046,7 @@
       "rationale": "Linked-premise challenge: Backward qualification inference across independent decisions. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v11-01",
+      "id": "v11-01-r2",
       "set": "verbal-11",
       "band": "Hard",
       "challenge": true,
@@ -3059,7 +3059,7 @@
       "rationale": "Linked-premise challenge: Standardised comparison versus intervention prediction. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v11-02",
+      "id": "v11-02-r2",
       "set": "verbal-11",
       "band": "Hard",
       "challenge": true,
@@ -3098,7 +3098,7 @@
       "rationale": "Linked-premise challenge: Shared route prerequisites across nontransferable entities. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v11-05",
+      "id": "v11-05-r2",
       "set": "verbal-11",
       "band": "Hard",
       "challenge": true,
@@ -3124,14 +3124,14 @@
       "rationale": "Linked-premise challenge: Contrapositive chain with existential information. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v11-07",
+      "id": "v11-07-r2",
       "set": "verbal-11",
       "band": "Hard",
       "challenge": true,
       "topic": "Green-space access and group nesting",
       "keyType": "inference",
       "rules": "",
-      "words": 205,
+      "words": 208,
       "reasoningModel": "Age-dependent route elimination and converse traps",
       "reviewedAs": "v10-18",
       "rationale": "Linked-premise challenge: Age-dependent route elimination and converse traps. Independent blind key/label review archived; difficulty remains editorial."
@@ -3163,7 +3163,7 @@
       "rationale": "Linked-premise challenge: Alternative routes with shared prerequisites. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v11-10",
+      "id": "v11-10-r2",
       "set": "verbal-11",
       "band": "Hard",
       "challenge": true,
@@ -3176,7 +3176,7 @@
       "rationale": "Linked-premise challenge: Input scope versus transformed output and project transfer. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v12-01",
+      "id": "v12-01-r2",
       "set": "verbal-12",
       "band": "Hard",
       "challenge": true,
@@ -3228,7 +3228,7 @@
       "rationale": "Linked-premise challenge: Component-specific independence and changing activity bases. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v12-05",
+      "id": "v12-05-r2",
       "set": "verbal-12",
       "band": "Hard",
       "challenge": true,
@@ -3293,14 +3293,14 @@
       "rationale": "Linked-premise challenge: Two-dimensional permissions with partial inheritance. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v12-10",
+      "id": "v12-10-r2",
       "set": "verbal-12",
       "band": "Hard",
       "challenge": true,
       "topic": "Reserve-stock reporting",
       "keyType": "inference",
       "rules": "",
-      "words": 195,
+      "words": 205,
       "reasoningModel": "Intersecting eligibility conditions and partial bounds",
       "reviewedAs": "v11-04",
       "rationale": "Linked-premise challenge: Intersecting eligibility conditions and partial bounds. Independent blind key/label review archived; difficulty remains editorial."
@@ -3345,7 +3345,7 @@
       "rationale": "Linked-premise challenge: Eliminated exception and backward implication. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-04",
+      "id": "v13-04-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3358,7 +3358,7 @@
       "rationale": "Linked-premise challenge: Design improvements with remaining exposure and sampling limits. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-05",
+      "id": "v13-05-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3371,7 +3371,7 @@
       "rationale": "Linked-premise challenge: Isolated model sensitivity versus realised causal contribution. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-06",
+      "id": "v13-06-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3397,7 +3397,7 @@
       "rationale": "Linked-premise challenge: Backward inference through award and route constraints. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-08",
+      "id": "v13-08-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3410,7 +3410,7 @@
       "rationale": "Linked-premise challenge: Versioned source dependence versus narrower independent evidence. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-09",
+      "id": "v13-09-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3423,7 +3423,7 @@
       "rationale": "Linked-premise challenge: Nested reclassification versus longitudinal change. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v13-10",
+      "id": "v13-10-r2",
       "set": "verbal-13",
       "band": "Hard",
       "challenge": true,
@@ -3436,7 +3436,7 @@
       "rationale": "Linked-premise challenge: Conditional dominance versus unpriced decision dimensions. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-01",
+      "id": "v14-01-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3449,7 +3449,7 @@
       "rationale": "Linked-premise challenge: revoked-route-and-independent-evidence. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-02",
+      "id": "v14-02-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3462,7 +3462,7 @@
       "rationale": "Linked-premise challenge: nested-exceptions-and-consent. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-03",
+      "id": "v14-03-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3475,7 +3475,7 @@
       "rationale": "Linked-premise challenge: delegation-revocation-and-alternative-proof. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-04",
+      "id": "v14-04-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3488,7 +3488,7 @@
       "rationale": "Linked-premise challenge: continuing-validity-and-two-route-intersection. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-05",
+      "id": "v14-05-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3501,7 +3501,7 @@
       "rationale": "Linked-premise challenge: inverse-procedure-and-standing. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-06",
+      "id": "v14-06-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3514,7 +3514,7 @@
       "rationale": "Linked-premise challenge: serial-identity-and-exhaustive-alternatives. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-07",
+      "id": "v14-07-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3527,7 +3527,7 @@
       "rationale": "Linked-premise challenge: ownership-scope-and-expiring-waiver. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-08",
+      "id": "v14-08-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3540,7 +3540,7 @@
       "rationale": "Linked-premise challenge: validity-at-event-and-converging-paths. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-09",
+      "id": "v14-09-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3553,7 +3553,7 @@
       "rationale": "Linked-premise challenge: quantifier-scope-and-authorisation-chain. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v14-10",
+      "id": "v14-10-r2",
       "set": "verbal-14",
       "band": "Hard",
       "challenge": true,
@@ -3566,7 +3566,7 @@
       "rationale": "Linked-premise challenge: exhaustive-defaults-and-condition-renewal. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-01",
+      "id": "v15-01-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3579,7 +3579,7 @@
       "rationale": "Linked-premise challenge: exhausted-derogations-and-operating-date. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-02",
+      "id": "v15-02-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3592,7 +3592,7 @@
       "rationale": "Linked-premise challenge: scope-matching-and-restricted-reidentification. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-03",
+      "id": "v15-03-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3605,7 +3605,7 @@
       "rationale": "Linked-premise challenge: dated-interval-and-identity-constraints. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-04",
+      "id": "v15-04-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3618,7 +3618,7 @@
       "rationale": "Linked-premise challenge: conditional-authority-and-complete-cases. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-05",
+      "id": "v15-05-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3631,7 +3631,7 @@
       "rationale": "Linked-premise challenge: revocation-and-necessary-evidence. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-06",
+      "id": "v15-06-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3644,7 +3644,7 @@
       "rationale": "Linked-premise challenge: shared-source-and-negative-control. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-07",
+      "id": "v15-07-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3657,7 +3657,7 @@
       "rationale": "Linked-premise challenge: time-indexed-membership-and-waiver. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-08",
+      "id": "v15-08-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3670,7 +3670,7 @@
       "rationale": "Linked-premise challenge: classification-and-current-reference-chain. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-09",
+      "id": "v15-09-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3683,7 +3683,7 @@
       "rationale": "Linked-premise challenge: nested-sampling-and-substitution. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v15-10",
+      "id": "v15-10-r2",
       "set": "verbal-15",
       "band": "Hard",
       "challenge": true,
@@ -3696,7 +3696,7 @@
       "rationale": "Linked-premise challenge: composed-veto-and-owner-identity. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-01",
+      "id": "v16-01-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3709,7 +3709,7 @@
       "rationale": "Linked-premise challenge: permission-scope-and-source-combination. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-02",
+      "id": "v16-02-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3722,7 +3722,7 @@
       "rationale": "Linked-premise challenge: conditional-ordering-and-fixed-endpoint. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-03",
+      "id": "v16-03-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3735,7 +3735,7 @@
       "rationale": "Linked-premise challenge: sample-lineage-and-method-selection. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-04",
+      "id": "v16-04-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3748,7 +3748,7 @@
       "rationale": "Linked-premise challenge: nested-classification-and-binding-gate. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-05",
+      "id": "v16-05-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3761,7 +3761,7 @@
       "rationale": "Linked-premise challenge: conditional-selection-and-generalisation. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-06",
+      "id": "v16-06-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3774,7 +3774,7 @@
       "rationale": "Linked-premise challenge: quantified-intersection-and-exclusions. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-07",
+      "id": "v16-07-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3787,7 +3787,7 @@
       "rationale": "Linked-premise challenge: reset-events-and-parallel-certification. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-08",
+      "id": "v16-08-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3800,7 +3800,7 @@
       "rationale": "Linked-premise challenge: identity-link-and-alternative-assignment. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-09",
+      "id": "v16-09-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3813,7 +3813,7 @@
       "rationale": "Linked-premise challenge: class-membership-and-expired-certificate. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v16-10",
+      "id": "v16-10-r2",
       "set": "verbal-16",
       "band": "Hard",
       "challenge": true,
@@ -3826,7 +3826,7 @@
       "rationale": "Linked-premise challenge: ranking-with-linked-conditions. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-01",
+      "id": "v17-01-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3839,7 +3839,7 @@
       "rationale": "Linked-premise challenge: nested-route-to-assessor-competence. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-02",
+      "id": "v17-02-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3852,7 +3852,7 @@
       "rationale": "Linked-premise challenge: classification-to-calibration-chain. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-03",
+      "id": "v17-03-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3865,7 +3865,7 @@
       "rationale": "Linked-premise challenge: derived-risk-to-qualified-signature. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-04",
+      "id": "v17-04-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3878,7 +3878,7 @@
       "rationale": "Linked-premise challenge: inferred-meeting-class-and-service-route. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-05",
+      "id": "v17-05-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3891,7 +3891,7 @@
       "rationale": "Linked-premise challenge: derived-status-to-sample-timing. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-06",
+      "id": "v17-06-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3904,7 +3904,7 @@
       "rationale": "Linked-premise challenge: ownership-class-to-time-specific-authority. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-07",
+      "id": "v17-07-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3917,7 +3917,7 @@
       "rationale": "Linked-premise challenge: inferred-boundary-to-firmware-test. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-08",
+      "id": "v17-08-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3930,7 +3930,7 @@
       "rationale": "Linked-premise challenge: scope-to-qualified-translation-chain. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-09",
+      "id": "v17-09-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3943,7 +3943,7 @@
       "rationale": "Linked-premise challenge: nested-identity-and-insurance-validity. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v17-10",
+      "id": "v17-10-r2",
       "set": "verbal-17",
       "band": "Hard",
       "challenge": true,
@@ -3956,7 +3956,7 @@
       "rationale": "Linked-premise challenge: derived-scope-to-post-move-audit. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-01",
+      "id": "v18-01-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -3969,7 +3969,7 @@
       "rationale": "Linked-premise challenge: inferred-land-class-to-independent-instrument. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-02",
+      "id": "v18-02-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -3982,7 +3982,7 @@
       "rationale": "Linked-premise challenge: new-activity-to-medical-date-bound. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-03",
+      "id": "v18-03-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -3995,7 +3995,7 @@
       "rationale": "Linked-premise challenge: collection-status-to-machine-validation. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-04",
+      "id": "v18-04-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4008,7 +4008,7 @@
       "rationale": "Linked-premise challenge: issuer-identity-to-specialist-mandate. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-05",
+      "id": "v18-05-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4021,7 +4021,7 @@
       "rationale": "Linked-premise challenge: derived-risk-to-access-cleared-staff. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-06",
+      "id": "v18-06-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4034,7 +4034,7 @@
       "rationale": "Linked-premise challenge: derived-electorate-to-substitute-recipient. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-07",
+      "id": "v18-07-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4047,20 +4047,20 @@
       "rationale": "Linked-premise challenge: inferred-location-to-reference-invariance. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-08",
+      "id": "v18-08-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
       "topic": "School meal allergen approval",
       "keyType": "inference",
       "rules": "",
-      "words": 211,
+      "words": 214,
       "reasoningModel": "recipe-classification-to-training-revalidation",
       "reviewedAs": "",
       "rationale": "Linked-premise challenge: recipe-classification-to-training-revalidation. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-09",
+      "id": "v18-09-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4073,7 +4073,7 @@
       "rationale": "Linked-premise challenge: object-identity-to-post-treatment-testing. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v18-10",
+      "id": "v18-10-r2",
       "set": "verbal-18",
       "band": "Hard",
       "challenge": true,
@@ -4086,7 +4086,7 @@
       "rationale": "Linked-premise challenge: route-restriction-to-specific-delegation. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-01",
+      "id": "v19-01-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4099,7 +4099,7 @@
       "rationale": "Linked-premise challenge: forked-history-with-common-lower-bound. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-02",
+      "id": "v19-02-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4112,7 +4112,7 @@
       "rationale": "Linked-premise challenge: alternative-proofs-and-overlapping-dates. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-03",
+      "id": "v19-03-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4125,7 +4125,7 @@
       "rationale": "Linked-premise challenge: route-neutral-identity-bound. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-04",
+      "id": "v19-04-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4138,7 +4138,7 @@
       "rationale": "Linked-premise challenge: derived-use-and-inspection-instrument-chain. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-05",
+      "id": "v19-05-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4151,7 +4151,7 @@
       "rationale": "Linked-premise challenge: shared-time-bound-with-different-subjects. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-06",
+      "id": "v19-06-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4164,7 +4164,7 @@
       "rationale": "Linked-premise challenge: common-authority-after-earliest-event. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-07",
+      "id": "v19-07-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4177,7 +4177,7 @@
       "rationale": "Linked-premise challenge: necessary-common-record-not-selected-branch. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-08",
+      "id": "v19-08-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4190,7 +4190,7 @@
       "rationale": "Linked-premise challenge: classification-to-current-certificate-authority. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-09",
+      "id": "v19-09-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,
@@ -4203,7 +4203,7 @@
       "rationale": "Linked-premise challenge: shared-interval-with-unordered-branches. Independent blind key/label review archived; difficulty remains editorial."
     },
     {
-      "id": "v19-10",
+      "id": "v19-10-r2",
       "set": "verbal-19",
       "band": "Hard",
       "challenge": true,

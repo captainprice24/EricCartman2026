@@ -4,10 +4,10 @@ EPSO_BANK.registerSet({
   "section": "abstract",
   "title": "Abstract reasoning · Set 1",
   "description": "10 figure series in five layouts, combining 2–4 rules (generated).",
-  "version": 3,
+  "version": 4,
   "questions": [
     {
-      "id": "a01-01",
+      "id": "a01-01-r2",
       "topic": "Single figure",
       "difficulty": 1,
       "rules": 2,
@@ -27,12 +27,14 @@ EPSO_BANK.registerSet({
         [{"t":"poly","x":50,"y":49,"r":26,"n":5,"rot":0,"fill":"grey"},{"t":"arrow","x":50,"y":48,"r":13,"rot":180,"fill":"white"},{"t":"circle","x":87,"y":13,"r":6,"fill":"black"},{"t":"circle","x":50,"y":91,"r":3.5,"fill":"black"},{"t":"rect","x":45,"y":2,"w":10,"h":6,"fill":"black"}]
       ],
       "answer": 0,
-      "hints": ["Look at each element separately: the outer shape, its fill, the arrow (if there is one), the corner dot, the number of dots and the top bar (if there is one). Some change from frame to frame; others never change.","Two elements follow a rule: the arrow, the top bar. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the top bar has not changed, and the corner dot changes, although it is the same in every frame.","Wrong: the arrow has not turned, and the number of dots changes, although it is the same in every frame.","Wrong: the top bar has not changed, and the fill colour changes, although it is the same in every frame.","Wrong: the top bar has not changed."],
-      "explanation": "Two independent rules apply: the arrow turns 90° clockwise each step; the top bar moves one place to the right and wraps around to the left. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the outer shape, the fill colour, the arrow, the corner dot, the number of dots, the top bar. Which change, and which stay fixed?","Two elements follow a rule: the arrow, the top bar. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Correct: the arrow: 180° clockwise from up; the top bar: right. Constant features stay unchanged.","Wrong: the top bar has not changed, and the corner dot changes, although it is the same in every frame.","Wrong: the arrow has not turned, and the number of dots changes, although it is the same in every frame.","Wrong: the top bar has not changed, and the fill colour changes, although it is the same in every frame.","Wrong: the top bar has not changed."],
+      "explanation": "Two independent rules apply: the arrow turns 90° clockwise each step; the top bar moves one place to the right and wraps around to the left. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the arrow turns 90° clockwise each step. Frames 1–5: 90° clockwise from up → 180° clockwise from up → 270° clockwise from up → 0° clockwise from up → 90° clockwise from up. Next: 180° clockwise from up.","the top bar moves one place to the right and wraps around to the left. Frames 1–5: left → middle → right → left → middle. Next: right.","Keep the constant features unchanged: the outer shape: pentagon; the fill colour: grey; the corner dot: upper-right; the number of dots: 1."],
+      "supersedes": "a01-01"
     },
     {
-      "id": "a01-02",
+      "id": "a01-02-r2",
       "topic": "Grid movement",
       "difficulty": 2,
       "rules": 3,
@@ -52,12 +54,14 @@ EPSO_BANK.registerSet({
         [{"t":"rect","x":35,"y":5,"w":30,"h":30,"fill":"grey"},{"t":"rect","x":5,"y":5,"w":90,"h":90,"fill":"none"},{"t":"line","x1":35,"y1":5,"x2":35,"y2":95},{"t":"line","x1":65,"y1":5,"x2":65,"y2":95},{"t":"line","x1":5,"y1":35,"x2":95,"y2":35},{"t":"line","x1":5,"y1":65,"x2":95,"y2":65},{"t":"circle","x":13,"y":73,"r":6,"fill":"black"},{"t":"star","x":57,"y":27,"r":7,"rot":0,"fill":"black"},{"t":"arrow","x":57,"y":13,"r":6,"rot":270,"fill":"black"}]
       ],
       "answer": 2,
-      "hints": ["Look at each element separately: the circle, its colour, the star, the arrow and the shaded cell. Some change from frame to frame; others never change.","Three elements follow a rule: the star, the arrow, the circle's colour. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the star stops one place short, and the arrow has not turned.","Wrong: the arrow has not turned.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the star stops one place short, and the circle changes, although it is the same in every frame.","Wrong: the star goes one place too far, and the arrow has not turned."],
-      "explanation": "Three independent rules apply: the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step; the arrow turns 90° clockwise each step; the circle's colour follows a cycle of 2: grey → black. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the circle, the star, the arrow, the shaded cell, the circle's colour. Which change, and which stay fixed?","Three elements follow a rule: the star, the arrow, the circle's colour. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the star stops one place short, and the arrow has not turned.","Wrong: the arrow has not turned.","Correct: the star: top-left; the arrow: 0° clockwise from up; the circle's colour: black. Constant features stay unchanged.","Wrong: the star stops one place short, and the circle changes, although it is the same in every frame.","Wrong: the star goes one place too far, and the arrow has not turned."],
+      "explanation": "Three independent rules apply: the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step; the arrow turns 90° clockwise each step; the circle's colour follows a cycle of 2: grey → black. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step. Frames 1–5: bottom-right → top-middle → middle-left → middle-right → bottom-middle. Next: top-left.","the arrow turns 90° clockwise each step. Frames 1–5: 270° clockwise from up → 0° clockwise from up → 90° clockwise from up → 180° clockwise from up → 270° clockwise from up. Next: 0° clockwise from up.","the circle's colour follows a cycle of 2: grey → black. Frames 1–5: grey → black → grey → black → grey. Next: black.","Keep the constant features unchanged: the circle: bottom-left; the shaded cell: top-middle."],
+      "supersedes": "a01-02"
     },
     {
-      "id": "a01-03",
+      "id": "a01-03-r2",
       "topic": "Overlapping shapes",
       "difficulty": 2,
       "rules": 3,
@@ -67,22 +71,25 @@ EPSO_BANK.registerSet({
         [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":26,"n":4,"rot":0,"fill":"black"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
         [{"t":"poly","x":38,"y":54,"r":27,"n":3,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
         [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":51,"r":24,"n":5,"rot":0,"fill":"black"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
-        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":26,"n":4,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}]
-      ],
-      "options": [
-        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
-        [{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":54,"r":27,"n":3,"rot":0,"fill":"white"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
-        [{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"grey"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
-        [{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}],
+        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":26,"n":4,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
         [{"t":"poly","x":38,"y":54,"r":27,"n":3,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"circle","x":93,"y":50,"r":4,"fill":"black"}]
       ],
+      "options": [
+        [{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
+        [{"t":"poly","x":62,"y":54,"r":27,"n":3,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
+        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"grey"},{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
+        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":50,"r":24,"n":6,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}],
+        [{"t":"poly","x":62,"y":51,"r":24,"n":5,"rot":0,"fill":"white"},{"t":"poly","x":38,"y":51,"r":24,"n":5,"rot":0,"fill":"black"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}]
+      ],
       "answer": 4,
-      "hints": ["Look at each element separately: the left shape, the right shape, their fills, which shape is in front, and the small dot. Some change from frame to frame; others never change.","Three elements follow a rule: the shape in front, the left shape, the small dot. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the wrong shape is in front, and the left shape is a hexagon, which never appears in the series.","Wrong: the left shape is a hexagon, which never appears in the series, and the right shape changes, although it is the same in every frame.","Wrong: the left shape is a hexagon, which never appears in the series, and the right shape's fill changes, although it is the same in every frame.","Wrong: the left shape is a hexagon, which never appears in the series.","Correct: it follows every rule, and the elements without a rule are unchanged."],
-      "explanation": "Three independent rules apply: the right shape comes to the front in every third frame; the left shape follows a cycle of 3: pentagon → diamond → triangle; the small dot moves to the opposite side each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the shape in front, the left shape, the right shape, the left shape's fill, the right shape's fill, the small dot. Which change, and which stay fixed?","Three elements follow a rule: the shape in front, the left shape, the small dot. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the wrong shape is in front, and the left shape is a hexagon, which never appears in the series.","Wrong: the left shape is a hexagon, which never appears in the series, and the right shape changes, although it is the same in every frame.","Wrong: the left shape is a hexagon, which never appears in the series, and the right shape's fill changes, although it is the same in every frame.","Wrong: the left shape is a hexagon, which never appears in the series.","Correct: the shape in front: left; the left shape: pentagon; the small dot: left. Constant features stay unchanged."],
+      "explanation": "Three independent rules apply: the right shape comes to the front in every third frame; the left shape follows a cycle of 3: pentagon → diamond → triangle; the small dot moves to the opposite side each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the right shape comes to the front in every third frame. Frames 1–6: left → left → right → left → left → right. Next: left.","the left shape follows a cycle of 3: pentagon → diamond → triangle. Frames 1–6: pentagon → diamond → triangle → pentagon → diamond → triangle. Next: pentagon.","the small dot moves to the opposite side each step. Frames 1–6: left → right → left → right → left → right. Next: left.","Keep the constant features unchanged: the right shape: pentagon; the left shape's fill: black; the right shape's fill: white."],
+      "supersedes": "a01-03"
     },
     {
-      "id": "a01-04",
+      "id": "a01-04-r2",
       "topic": "Divided circle",
       "difficulty": 2,
       "rules": 4,
@@ -102,12 +109,14 @@ EPSO_BANK.registerSet({
         [{"t":"wedge","x":50,"y":50,"r":36,"a0":0,"a1":45,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":45,"a1":90,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":90,"a1":135,"fill":"grey"},{"t":"wedge","x":50,"y":50,"r":36,"a0":135,"a1":180,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":180,"a1":225,"fill":"black"},{"t":"wedge","x":50,"y":50,"r":36,"a0":225,"a1":270,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":270,"a1":315,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":315,"a1":360,"fill":"white"},{"t":"circle","x":50,"y":50,"r":9,"fill":"black"},{"t":"poly","x":50,"y":93,"r":5,"n":3,"rot":0,"fill":"black"}]
       ],
       "answer": 1,
-      "hints": ["Look at each element separately: the black segment, the grey segment, the colour of the centre circle and the small triangle outside. Some change from frame to frame; others never change.","Four elements follow a rule: the centre circle, the grey segment, the black segment, the small triangle. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the centre circle repeats the previous frame, and the black segment goes one place too far.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the black segment goes one place too far.","Wrong: the centre circle is grey, which never appears in the series, and the black segment goes one place too far.","Wrong: the centre circle repeats the previous frame, and the small triangle stops one place short."],
-      "explanation": "Four independent rules apply: the centre circle follows a cycle of 2: black → white; the grey segment moves one segment anticlockwise each step; the black segment moves two segments anticlockwise each step; the small triangle moves to the opposite side each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the black segment, the grey segment, the centre circle, the small triangle. Which change, and which stay fixed?","Four elements follow a rule: the centre circle, the grey segment, the black segment, the small triangle. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the centre circle repeats the previous frame, and the black segment goes one place too far.","Correct: the centre circle: white; the grey segment: segment 3 of 8, counted clockwise from the top boundary; the black segment: segment 5 of 8, counted clockwise from the top boundary; the small triangle: left. Constant features stay unchanged.","Wrong: the black segment goes one place too far.","Wrong: the centre circle is grey, which never appears in the series, and the black segment goes one place too far.","Wrong: the centre circle repeats the previous frame, and the small triangle stops one place short."],
+      "explanation": "Four independent rules apply: the centre circle follows a cycle of 2: black → white; the grey segment moves one segment anticlockwise each step; the black segment moves two segments anticlockwise each step; the small triangle moves to the opposite side each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the centre circle follows a cycle of 2: black → white. Frames 1–5: black → white → black → white → black. Next: white.","the grey segment moves one segment anticlockwise each step. Frames 1–5: segment 8 of 8, counted clockwise from the top boundary → segment 7 of 8, counted clockwise from the top boundary → segment 6 of 8, counted clockwise from the top boundary → segment 5 of 8, counted clockwise from the top boundary → segment 4 of 8, counted clockwise from the top boundary. Next: segment 3 of 8, counted clockwise from the top boundary.","the black segment moves two segments anticlockwise each step. Frames 1–5: segment 7 of 8, counted clockwise from the top boundary → segment 5 of 8, counted clockwise from the top boundary → segment 3 of 8, counted clockwise from the top boundary → segment 1 of 8, counted clockwise from the top boundary → segment 7 of 8, counted clockwise from the top boundary. Next: segment 5 of 8, counted clockwise from the top boundary.","the small triangle moves to the opposite side each step. Frames 1–5: right → left → right → left → right. Next: left."],
+      "supersedes": "a01-04"
     },
     {
-      "id": "a01-05",
+      "id": "a01-05-r2",
       "topic": "Rotating hands",
       "difficulty": 1,
       "rules": 2,
@@ -127,12 +136,14 @@ EPSO_BANK.registerSet({
         [{"t":"line","x1":50,"y1":50,"x2":27.37,"y2":27.37},{"t":"line","x1":50,"y1":50,"x2":65.56,"y2":34.44},{"t":"circle","x":23.13,"y":23.13,"r":6,"fill":"white"},{"t":"poly","x":69.09,"y":30.91,"r":6,"n":3,"rot":45,"fill":"black"},{"t":"poly","x":50,"y":50,"r":11,"n":4,"rot":0,"fill":"white"}]
       ],
       "answer": 3,
-      "hints": ["Look at each element separately: the long hand with its round tip, the colour of that tip, the short hand with its triangular tip, and the centre shape and its fill. Some change from frame to frame; others never change.","Two elements follow a rule: the centre shape, the centre shape's fill. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the centre shape repeats the previous frame, and the short hand changes, although it is the same in every frame.","Wrong: the centre shape's fill is black, which never appears in the series.","Wrong: the centre shape is a hexagon, which never appears in the series, and the colour of the round tip changes, although it is the same in every frame.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the centre shape repeats the previous frame, and the colour of the round tip changes, although it is the same in every frame."],
-      "explanation": "Two independent rules apply: the centre shape follows a cycle of 2: diamond → triangle; the centre shape's fill follows a cycle of 2: grey → white. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the long hand, the short hand, the colour of the round tip, the centre shape, the centre shape's fill. Which change, and which stay fixed?","Two elements follow a rule: the centre shape, the centre shape's fill. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the centre shape repeats the previous frame, and the short hand changes, although it is the same in every frame.","Wrong: the centre shape's fill is black, which never appears in the series.","Wrong: the centre shape is a hexagon, which never appears in the series, and the colour of the round tip changes, although it is the same in every frame.","Correct: the centre shape: triangle; the centre shape's fill: white. Constant features stay unchanged.","Wrong: the centre shape repeats the previous frame, and the colour of the round tip changes, although it is the same in every frame."],
+      "explanation": "Two independent rules apply: the centre shape follows a cycle of 2: diamond → triangle; the centre shape's fill follows a cycle of 2: grey → white. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the centre shape follows a cycle of 2: diamond → triangle. Frames 1–5: diamond → triangle → diamond → triangle → diamond. Next: triangle.","the centre shape's fill follows a cycle of 2: grey → white. Frames 1–5: grey → white → grey → white → grey. Next: white.","Keep the constant features unchanged: the long hand: 315° clockwise from up; the short hand: 45° clockwise from up; the colour of the round tip: black."],
+      "supersedes": "a01-05"
     },
     {
-      "id": "a01-06",
+      "id": "a01-06-r2",
       "topic": "Single figure",
       "difficulty": 2,
       "rules": 3,
@@ -152,12 +163,14 @@ EPSO_BANK.registerSet({
         [{"t":"poly","x":50,"y":48,"r":26,"n":6,"rot":0,"fill":"black"},{"t":"circle","x":13,"y":75,"r":6,"fill":"black"},{"t":"circle","x":25,"y":91,"r":3.5,"fill":"black"},{"t":"circle","x":35,"y":91,"r":3.5,"fill":"black"},{"t":"circle","x":45,"y":91,"r":3.5,"fill":"black"},{"t":"circle","x":55,"y":91,"r":3.5,"fill":"black"},{"t":"circle","x":65,"y":91,"r":3.5,"fill":"black"},{"t":"circle","x":75,"y":91,"r":3.5,"fill":"black"}]
       ],
       "answer": 1,
-      "hints": ["Look at each element separately: the outer shape, its fill, the arrow (if there is one), the corner dot, the number of dots and the top bar (if there is one). Some change from frame to frame; others never change.","Three elements follow a rule: the number of dots, the fill colour, the corner dot. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the number of dots is 2 instead of 3.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the number of dots is 1 instead of 3.","Wrong: the number of dots is 2 instead of 3, and the outer shape changes, although it is the same in every frame.","Wrong: the number of dots is 6 instead of 3, and the outer shape changes, although it is the same in every frame."],
-      "explanation": "Three independent rules apply: each number of dots appears twice before rising by one; the fill colour follows a cycle of 2: white → black; the corner dot moves one corner clockwise each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the outer shape, the fill colour, the corner dot, the number of dots. Which change, and which stay fixed?","Three elements follow a rule: the number of dots, the fill colour, the corner dot. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the number of dots is 2 instead of 3.","Correct: the number of dots: 3; the fill colour: black; the corner dot: lower-left. Constant features stay unchanged.","Wrong: the number of dots is 1 instead of 3.","Wrong: the number of dots is 2 instead of 3, and the outer shape changes, although it is the same in every frame.","Wrong: the number of dots is 6 instead of 3, and the outer shape changes, although it is the same in every frame."],
+      "explanation": "Three independent rules apply: each number of dots appears twice before rising by one; the fill colour follows a cycle of 2: white → black; the corner dot moves one corner clockwise each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["each number of dots appears twice before rising by one. Frames 1–5: 1 → 1 → 2 → 2 → 3. Next: 3.","the fill colour follows a cycle of 2: white → black. Frames 1–5: white → black → white → black → white. Next: black.","the corner dot moves one corner clockwise each step. Frames 1–5: lower-right → lower-left → upper-left → upper-right → lower-right. Next: lower-left.","Keep the constant features unchanged: the outer shape: diamond."],
+      "supersedes": "a01-06"
     },
     {
-      "id": "a01-07",
+      "id": "a01-07-r2",
       "topic": "Grid movement",
       "difficulty": 2,
       "rules": 3,
@@ -177,12 +190,14 @@ EPSO_BANK.registerSet({
         [{"t":"rect","x":65,"y":5,"w":30,"h":30,"fill":"grey"},{"t":"rect","x":5,"y":5,"w":90,"h":90,"fill":"none"},{"t":"line","x1":35,"y1":5,"x2":35,"y2":95},{"t":"line","x1":65,"y1":5,"x2":65,"y2":95},{"t":"line","x1":5,"y1":35,"x2":95,"y2":35},{"t":"line","x1":5,"y1":65,"x2":95,"y2":65},{"t":"circle","x":13,"y":73,"r":6,"fill":"black"},{"t":"star","x":87,"y":87,"r":7,"rot":0,"fill":"black"},{"t":"arrow","x":87,"y":73,"r":6,"rot":45,"fill":"black"}]
       ],
       "answer": 3,
-      "hints": ["Look at each element separately: the circle, its colour, the star, the arrow and the shaded cell. Some change from frame to frame; others never change.","Three elements follow a rule: the star, the arrow, the shaded cell. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the arrow has turned the wrong way, and the circle changes, although it is the same in every frame.","Wrong: the arrow has turned the wrong way.","Wrong: the arrow has not turned, and the circle changes, although it is the same in every frame.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the arrow has turned the wrong way, and the shaded cell is in the top-right cell instead of the bottom-right cell."],
-      "explanation": "Three independent rules apply: the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step; the arrow turns 135° anticlockwise each step; the shaded cell moves one cell down along the right column and starts again at the other end. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the circle, the star, the arrow, the shaded cell, the circle's colour. Which change, and which stay fixed?","Three elements follow a rule: the star, the arrow, the shaded cell. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the arrow has turned the wrong way, and the circle changes, although it is the same in every frame.","Wrong: the arrow has turned the wrong way.","Wrong: the arrow has not turned, and the circle changes, although it is the same in every frame.","Correct: the star: bottom-right; the arrow: 135° clockwise from up; the shaded cell: bottom-right. Constant features stay unchanged.","Wrong: the arrow has turned the wrong way, and the shaded cell is in the top-right cell instead of the bottom-right cell."],
+      "explanation": "Three independent rules apply: the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step; the arrow turns 135° anticlockwise each step; the shaded cell moves one cell down along the right column and starts again at the other end. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the star moves two cells forward in reading order (left to right, then down a row; after the last cell it starts again at the top left) each step. Frames 1–5: bottom-middle → top-left → top-right → centre → bottom-left. Next: bottom-right.","the arrow turns 135° anticlockwise each step. Frames 1–5: 90° clockwise from up → 315° clockwise from up → 180° clockwise from up → 45° clockwise from up → 270° clockwise from up. Next: 135° clockwise from up.","the shaded cell moves one cell down along the right column and starts again at the other end. Frames 1–5: top-right → middle-right → bottom-right → top-right → middle-right. Next: bottom-right.","Keep the constant features unchanged: the circle: bottom-left; the circle's colour: black."],
+      "supersedes": "a01-07"
     },
     {
-      "id": "a01-08",
+      "id": "a01-08-r2",
       "topic": "Overlapping shapes",
       "difficulty": 2,
       "rules": 4,
@@ -202,12 +217,14 @@ EPSO_BANK.registerSet({
         [{"t":"poly","x":38,"y":50,"r":26,"n":4,"rot":0,"fill":"white"},{"t":"poly","x":62,"y":54,"r":27,"n":3,"rot":0,"fill":"white"},{"t":"circle","x":7,"y":50,"r":4,"fill":"black"}]
       ],
       "answer": 0,
-      "hints": ["Look at each element separately: the left shape, the right shape, their fills, which shape is in front, and the small dot. Some change from frame to frame; others never change.","Four elements follow a rule: the shape in front, the right shape's fill, the left shape's fill, the right shape. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the wrong shape is in front.","Wrong: the left shape's fill repeats the previous frame, and the right shape is a hexagon, which never appears in the series.","Wrong: the right shape is a circle, which never appears in the series, and the small dot changes, although it is the same in every frame.","Wrong: the right shape is a triangle, which never appears in the series, and the small dot changes, although it is the same in every frame."],
-      "explanation": "Four independent rules apply: the two shapes take turns to be in front; the right shape's fill follows a cycle of 2: grey → white; the left shape's fill follows a cycle of 2: black → white; the right shape follows a cycle of 2: diamond → pentagon. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the shape in front, the left shape, the right shape, the left shape's fill, the right shape's fill, the small dot. Which change, and which stay fixed?","Four elements follow a rule: the shape in front, the right shape's fill, the left shape's fill, the right shape. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Correct: the shape in front: right; the right shape's fill: white; the left shape's fill: white; the right shape: pentagon. Constant features stay unchanged.","Wrong: the wrong shape is in front.","Wrong: the left shape's fill repeats the previous frame, and the right shape is a hexagon, which never appears in the series.","Wrong: the right shape is a circle, which never appears in the series, and the small dot changes, although it is the same in every frame.","Wrong: the right shape is a triangle, which never appears in the series, and the small dot changes, although it is the same in every frame."],
+      "explanation": "Four independent rules apply: the two shapes take turns to be in front; the right shape's fill follows a cycle of 2: grey → white; the left shape's fill follows a cycle of 2: black → white; the right shape follows a cycle of 2: diamond → pentagon. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the two shapes take turns to be in front. Frames 1–5: left → right → left → right → left. Next: right.","the right shape's fill follows a cycle of 2: grey → white. Frames 1–5: grey → white → grey → white → grey. Next: white.","the left shape's fill follows a cycle of 2: black → white. Frames 1–5: black → white → black → white → black. Next: white.","the right shape follows a cycle of 2: diamond → pentagon. Frames 1–5: diamond → pentagon → diamond → pentagon → diamond. Next: pentagon.","Keep the constant features unchanged: the left shape: diamond; the small dot: top."],
+      "supersedes": "a01-08"
     },
     {
-      "id": "a01-09",
+      "id": "a01-09-r2",
       "topic": "Divided circle",
       "difficulty": 1,
       "rules": 2,
@@ -227,12 +244,14 @@ EPSO_BANK.registerSet({
         [{"t":"wedge","x":50,"y":50,"r":36,"a0":0,"a1":60,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":60,"a1":120,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":120,"a1":180,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":180,"a1":240,"fill":"black"},{"t":"wedge","x":50,"y":50,"r":36,"a0":240,"a1":300,"fill":"white"},{"t":"wedge","x":50,"y":50,"r":36,"a0":300,"a1":360,"fill":"grey"},{"t":"circle","x":50,"y":50,"r":9,"fill":"black"},{"t":"poly","x":7,"y":50,"r":5,"n":3,"rot":90,"fill":"black"}]
       ],
       "answer": 2,
-      "hints": ["Look at each element separately: the black segment, the grey segment, the colour of the centre circle and the small triangle outside. Some change from frame to frame; others never change.","Two elements follow a rule: the small triangle, the centre circle. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the small triangle stops one place short.","Wrong: the small triangle stops one place short, and the grey segment changes, although it is the same in every frame.","Correct: it follows every rule, and the elements without a rule are unchanged.","Wrong: the small triangle has not moved, and the black segment changes, although it is the same in every frame.","Wrong: the small triangle stops one place short, and the centre circle repeats the previous frame."],
-      "explanation": "Two independent rules apply: the small triangle moves to the opposite side each step; the centre circle follows a cycle of 3: grey → black → white. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the black segment, the grey segment, the centre circle, the small triangle. Which change, and which stay fixed?","Two elements follow a rule: the small triangle, the centre circle. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the small triangle stops one place short.","Wrong: the small triangle stops one place short, and the grey segment changes, although it is the same in every frame.","Correct: the small triangle: top; the centre circle: white. Constant features stay unchanged.","Wrong: the small triangle has not moved, and the black segment changes, although it is the same in every frame.","Wrong: the small triangle stops one place short, and the centre circle repeats the previous frame."],
+      "explanation": "Two independent rules apply: the small triangle moves to the opposite side each step; the centre circle follows a cycle of 3: grey → black → white. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the small triangle moves to the opposite side each step. Frames 1–5: bottom → top → bottom → top → bottom. Next: top.","the centre circle follows a cycle of 3: grey → black → white. Frames 1–5: grey → black → white → grey → black. Next: white.","Keep the constant features unchanged: the black segment: segment 4 of 6, counted clockwise from the top boundary; the grey segment: segment 6 of 6, counted clockwise from the top boundary."],
+      "supersedes": "a01-09"
     },
     {
-      "id": "a01-10",
+      "id": "a01-10-r2",
       "topic": "Rotating hands",
       "difficulty": 2,
       "rules": 3,
@@ -252,9 +271,11 @@ EPSO_BANK.registerSet({
         [{"t":"line","x1":50,"y1":50,"x2":27.37,"y2":27.37},{"t":"line","x1":50,"y1":50,"x2":50,"y2":28},{"t":"circle","x":23.13,"y":23.13,"r":6,"fill":"grey"},{"t":"poly","x":50,"y":23,"r":6,"n":3,"rot":0,"fill":"black"},{"t":"circle","x":50,"y":50,"r":9,"fill":"white"}]
       ],
       "answer": 4,
-      "hints": ["Look at each element separately: the long hand with its round tip, the colour of that tip, the short hand with its triangular tip, and the centre shape and its fill. Some change from frame to frame; others never change.","Three elements follow a rule: the short hand, the colour of the round tip, the long hand. Work out each rule and predict the next frame before you look at the options.","Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."],
-      "optionNotes": ["Wrong: the short hand has turned the wrong way.","Wrong: the short hand has turned the wrong way, and the centre shape's fill changes, although it is the same in every frame.","Wrong: the short hand has turned the wrong way, and the round tip repeats the previous frame.","Wrong: the short hand has turned the wrong way, and the centre shape changes, although it is the same in every frame.","Correct: it follows every rule, and the elements without a rule are unchanged."],
-      "explanation": "Three independent rules apply: the short hand turns 90° anticlockwise each step; the round tip follows a cycle of 2: black → grey; the long hand turns 90° clockwise each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work."
+      "hints": ["Separate the visible features: the long hand, the short hand, the colour of the round tip, the centre shape, the centre shape's fill. Which change, and which stay fixed?","Three elements follow a rule: the short hand, the colour of the round tip, the long hand. Work out each rule and predict the next frame before you look at the options.","Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."],
+      "optionNotes": ["Wrong: the short hand has turned the wrong way.","Wrong: the short hand has turned the wrong way, and the centre shape's fill changes, although it is the same in every frame.","Wrong: the short hand has turned the wrong way, and the round tip repeats the previous frame.","Wrong: the short hand has turned the wrong way, and the centre shape changes, although it is the same in every frame.","Correct: the short hand: 0° clockwise from up; the colour of the round tip: grey; the long hand: 315° clockwise from up. Constant features stay unchanged."],
+      "explanation": "Three independent rules apply: the short hand turns 90° anticlockwise each step; the round tip follows a cycle of 2: black → grey; the long hand turns 90° clockwise each step. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.",
+      "solution": ["the short hand turns 90° anticlockwise each step. Frames 1–5: 90° clockwise from up → 0° clockwise from up → 270° clockwise from up → 180° clockwise from up → 90° clockwise from up. Next: 0° clockwise from up.","the round tip follows a cycle of 2: black → grey. Frames 1–5: black → grey → black → grey → black. Next: grey.","the long hand turns 90° clockwise each step. Frames 1–5: 225° clockwise from up → 315° clockwise from up → 45° clockwise from up → 135° clockwise from up → 225° clockwise from up. Next: 315° clockwise from up.","Keep the constant features unchanged: the centre shape: circle; the centre shape's fill: white."],
+      "supersedes": "a01-10"
     }
   ]
 });

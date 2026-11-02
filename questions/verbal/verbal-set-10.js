@@ -4,120 +4,135 @@ EPSO_BANK.registerSet({
   section: "verbal",
   title: "Verbal reasoning · Set 10 — Very hard",
   description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 1,
+  version: 2,
   challenge: true,
   questions: [
     {
-      id: "v10-01",
-      topic: "Open-call eligibility transitions",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional arts council offers a development call and a production call. The development call admits projects without a completed script. The production call requires a completed script and a confirmed venue. Receiving development support does not waive either production requirement. Applicants can seek both forms of support in different rounds, subject to the conditions of the round they enter.\n\nA venue confirmation must cover the proposed performance dates. An earlier confirmation for another season is not sufficient. The council can extend a submission deadline following a documented technical failure, but an extension does not move the planned performance dates or convert an expired venue confirmation into a current one. The latest production round attracted 48 applications, while 20 projects had received development support in an earlier round. No overlap was reported.\n\nThe group obtains a new venue letter covering autumn, but it names an indoor hall rather than the outdoor site specified in the production proposal. The council's rules require the confirmed venue to be the proposed venue. Changing the proposal's site counts as a substantive revision, permitted only before the submission deadline. The granted extension concerns uploading existing documents and expressly excludes substantive revisions. No separate revision permission has been issued. The script is complete, and the old spring letter still names the originally proposed outdoor site.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-01-r2",
+      "topic": "Open-call eligibility transitions",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional arts council offers a development call and a production call. The development call admits projects without a completed script. The production call requires a completed script and a confirmed venue. Receiving development support does not waive either production requirement. Applicants can seek both forms of support in different rounds, subject to the conditions of the round they enter.\n\nA venue confirmation must cover the proposed performance dates. An earlier confirmation for another season is not sufficient. The council can extend a submission deadline following a documented technical failure, but an extension does not move the planned performance dates or convert an expired venue confirmation into a current one. The latest production round attracted 48 applications, while 20 projects had received development support in an earlier round. No overlap was reported.\n\nThe group obtains a new venue letter covering autumn, but it names an indoor hall rather than the outdoor site specified in the production proposal. The council's rules require the confirmed venue to be the proposed venue. Changing the proposal's site counts as a substantive revision, permitted only before the submission deadline. The granted extension concerns uploading existing documents and expressly excludes substantive revisions. No separate revision permission has been issued. The script is complete, and the old spring letter still names the originally proposed outdoor site.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Neither letter supplies all required venue-and-date conditions, and the upload extension does not authorise changing the proposed site.",
         "Development support permits the indoor substitution even after the deadline because the completed script remains the same in both proposed venues.",
         "The two letters jointly confirm the proposed autumn event: one has the right site and the other the right dates.",
         "The council will issue substantive-revision permission because the indoor hall has lower production costs than the original outdoor site."
       ],
-      answer: 0,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 0,
+      "hints": [
+        "Match each venue letter against both the proposed site and the performance dates.",
+        "Separate permission to upload documents from permission to revise the proposal."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. The original letter has wrong dates and the new letter a different site; the procedural extension does not authorise the site revision.",
         "False. The earlier award waives no later requirements, including substantive revision limits.",
         "False. One document must confirm the proposed venue and dates together; the two mismatched letters do not supply that combination.",
         "Not supported. No cost comparison or future decision is reported."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Conjunctive document scope and limited procedural extension",
-        evidence: [
+      "explanation": "A document must satisfy the relevant conditions together. A procedural extension does not automatically change substantive eligibility.",
+      "reasoning": {
+        "model": "Conjunctive document scope and limited procedural extension",
+        "evidence": [
           "must cover the proposed performance dates",
           "confirmed venue to be the proposed venue",
           "extension concerns uploading existing documents and expressly excludes substantive revisions"
         ]
       },
-      reviewedAs: "v11-15"
+      "reviewedAs": "v11-15",
+      "solution": [
+        "The old letter names the proposed outdoor site but covers spring rather than autumn.",
+        "The new letter covers autumn but names a different venue. Conditions cannot be assembled from mismatched confirmations.",
+        "Changing the proposed site requires substantive-revision permission, which the upload extension expressly excludes."
+      ],
+      "supersedes": "v10-01"
     },
     {
-      id: "v10-02",
-      topic: "Community-energy benefit boundaries",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional energy cooperative offered members a reduced tariff for electricity bought from the cooperative. It also paid a year-end rebate when the annual accounts showed a surplus. The tariff reduction did not depend on a surplus, and the rebate was not guaranteed. Membership required a share contribution that could be returned on exit, subject to the cooperative's published repayment schedule.\n\nAn evaluation compared members' bills with a standard tariff for the same consumption. It found savings during the observed year. The comparison excluded share contributions, repayments, rebates and changes in household consumption after joining. It therefore measured a tariff difference on a fixed consumption basis, not a complete return on membership. The cooperative had 320 members, of whom 180 supplied usable bill information.\n\nA member's fixed-consumption tariff saving is EUR 90. The member paid a EUR 120 share contribution and received no rebate during the same year. The share remains eligible for repayment on exit under the schedule, but no exit or repayment occurred. The member's actual consumption changed after joining, and no bill comparison at that changed consumption has been published. The evaluation treats tariff comparisons, membership cash movements and potential future repayments as separate entries rather than netting them into one number.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-02-r2",
+      "topic": "Community-energy benefit boundaries",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional energy cooperative offered members a reduced tariff for electricity bought from the cooperative. It also paid a year-end rebate when the annual accounts showed a surplus. The tariff reduction did not depend on a surplus, and the rebate was not guaranteed. Membership required a share contribution that could be returned on exit, subject to the cooperative's published repayment schedule.\n\nAn evaluation compared members' bills with a standard tariff for the same consumption. It found savings during the observed year. The comparison excluded share contributions, repayments, rebates and changes in household consumption after joining. It therefore measured a tariff difference on a fixed consumption basis, not a complete return on membership. The cooperative had 320 members, of whom 180 supplied usable bill information.\n\nA member's fixed-consumption tariff saving is EUR 90. The member paid a EUR 120 share contribution and received no rebate during the same year. The share remains eligible for repayment on exit under the schedule, but no exit or repayment occurred. The member's actual consumption changed after joining, and no bill comparison at that changed consumption has been published. The evaluation treats tariff comparisons, membership cash movements and potential future repayments as separate entries rather than netting them into one number.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The member's overall annual gain was EUR 90 because a repayable share contribution is not a cash payment in the year of joining.",
         "The member will recover the contribution before the next annual bill because eligibility for repayment fixes the timing of an exit.",
         "The member's actual annual electricity bill fell by EUR 90 after joining, because that was the measured saving under the fixed-consumption comparison.",
         "Fixed-use savings and membership cash flows do not determine the actual overall gain without a comparison at the changed consumption."
       ],
-      answer: 3,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 3,
+      "hints": [
+        "Identify what the evaluation holds constant and what it excludes.",
+        "Separate a repayable asset, an actual cash payment and a saving measured at fixed consumption."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. The share was paid during the year; potential repayment does not erase that cash movement or establish the all-in gain.",
         "Not supported. No exit or future repayment date is established.",
         "Overstated. A fixed-consumption counterfactual does not establish the actual bill movement when consumption changed.",
         "Correct. The tariff measure freezes consumption while actual use changed; the contribution and no rebate are known, but a full observed bill counterfactual is not."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Fixed-consumption comparison versus actual cash-flow return",
-        evidence: [
+      "explanation": "A counterfactual tariff saving is not a complete observed return on membership. Check the scope of each financial measure before combining it.",
+      "reasoning": {
+        "model": "Fixed-consumption comparison versus actual cash-flow return",
+        "evidence": [
           "same consumption",
           "excluded share contributions, repayments, rebates",
           "actual consumption changed after joining"
         ]
       },
-      reviewedAs: "v11-16"
+      "reviewedAs": "v11-16",
+      "solution": [
+        "The EUR 90 saving compares tariffs at fixed consumption; actual consumption later changed.",
+        "EUR 120 was paid for a share and no rebate was received. Possible future repayment does not erase the current cash payment.",
+        "The actual overall gain needs a comparison at the changed consumption, which is unavailable."
+      ],
+      "supersedes": "v10-02"
     },
     {
-      id: "v10-03",
-      topic: "Citizen-panel replacement rules",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional citizen panel recruits by drawing invitations from a resident register. Invitees can decline. Seats vacated after the first meeting are filled from a reserve list containing people who accepted the original invitation but were not initially seated. The reserve list is not a fresh random sample of the whole register. The programme distinguishes random invitation from voluntary participation.\n\nThe first panel had 30 members, and six were replaced during the year. Replacements matched the departing members' age bands, but no matching was required for employment, education or political views. The published evaluation found the final panel's age distribution close to that of the district. It did not measure how those invited but declining differed in their views from those who participated.\n\nA follow-up summary confirms that all six replacements had different employment statuses from the members they replaced, although each matched the departing member's age band. It gives no direction for those changes or district-wide employment distribution. The invitation draw and voluntary acceptance rules remained unchanged. The evaluation again found close age balance. The council now has to distinguish what the replacement records establish about age continuity, what changed on another characteristic, and what remains unknown about representativeness of the whole panel.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-03-r2",
+      "topic": "Citizen-panel replacement rules",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional citizen panel recruits by drawing invitations from a resident register. Invitees can decline. Seats vacated after the first meeting are filled from a reserve list containing people who accepted the original invitation but were not initially seated. The reserve list is not a fresh random sample of the whole register. The programme distinguishes random invitation from voluntary participation.\n\nThe first panel had 30 members, and six were replaced during the year. Replacements matched the departing members' age bands, but no matching was required for employment, education or political views. The published evaluation found the final panel's age distribution close to that of the district. It did not measure how those invited but declining differed in their views from those who participated.\n\nA follow-up summary confirms that all six replacements had different employment statuses from the members they replaced, although each matched the departing member's age band. It gives no direction for those changes or district-wide employment distribution. The invitation draw and voluntary acceptance rules remained unchanged. The evaluation again found close age balance. The council now has to distinguish what the replacement records establish about age continuity, what changed on another characteristic, and what remains unknown about representativeness of the whole panel.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The final panel had more employed members than the initial panel because all six replacements changed the employment status recorded for their seats.",
         "The final panel's close age distribution establishes that the six employment-status changes moved it closer to the district's employment distribution.",
         "Age bands were preserved and employment status changed in every replaced seat; population employment balance remains unresolved.",
         "All six replacements came from newly randomised district samples, because matching the age of departing members required refreshing the reserve list."
       ],
-      answer: 2,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 2,
+      "hints": [
+        "List which characteristics replacements had to match and which actually changed.",
+        "A change in employment status needs a direction and a population benchmark before it can establish representativeness."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The directions of those employment changes are not supplied.",
         "Overstated. No district employment benchmark or direction of seat changes is given.",
         "Correct. Age matching and employment changes are recorded, but their direction, benchmark and selection implications remain unresolved.",
         "False. The reserve list is explicitly not a fresh random population sample."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Preserved margins versus changed unmeasured composition",
-        evidence: [
+      "explanation": "Matching one demographic margin does not establish population representativeness on another characteristic.",
+      "reasoning": {
+        "model": "Preserved margins versus changed unmeasured composition",
+        "evidence": [
           "matched the departing members' age bands",
           "reserve list is not a fresh random sample",
           "all six replacements had different employment statuses",
           "no direction for those changes or district-wide employment distribution"
         ]
       },
-      reviewedAs: "v11-12"
+      "reviewedAs": "v11-12",
+      "solution": [
+        "Each replacement preserves the departing member's age band, while all six employment statuses change.",
+        "The directions of the employment changes and the district employment distribution are not given.",
+        "Age balance therefore cannot establish whether employment balance improved, and the reserve list remains selectively composed."
+      ],
+      "supersedes": "v10-03"
     },
     {
       id: "v10-04",
@@ -196,79 +211,84 @@ EPSO_BANK.registerSet({
       reviewedAs: "v11-20"
     },
     {
-      id: "v10-06",
-      topic: "Recycling denominator changes",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional town reported that its recycling rate rose from 40% to 48%. The rate was defined as recycled household waste divided by all household waste collected. Commercial waste was recorded separately. The town did not release the absolute household-waste totals alongside the two percentages. It also changed collection routes, but kept the stated rate definition unchanged.\n\nDuring the later year, residents were encouraged to avoid food waste and reuse packaging. These measures could reduce the denominator as well as the amount sent for disposal. A separate scheme collected more commercial cardboard, but those loads were excluded from both the numerator and denominator of the household rate. The council supplied no estimate of how much either household prevention measure had changed total collected waste.\n\nThe town later confirmed that collected household-waste tonnage in the second year was exactly half the first year's tonnage. It supplied no division of that reduction between prevention, changing household numbers or other causes. The two household recycling percentages remained 40% and 48%, and neither definition included commercial cardboard. No further correction to the tonnage or percentage figures was announced. The statistician is comparing the implied amounts rather than evaluating which policy produced the reduction in the household denominator.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-06-r2",
+      "topic": "Recycling denominator changes",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional town reported that its recycling rate rose from 40% to 48%. The rate was defined as recycled household waste divided by all household waste collected. Commercial waste was recorded separately. The town did not release the absolute household-waste totals alongside the two percentages. It also changed collection routes, but kept the stated rate definition unchanged.\n\nDuring the later year, residents were encouraged to avoid food waste and reuse packaging. These measures could reduce the denominator as well as the amount sent for disposal. A separate scheme collected more commercial cardboard, but those loads were excluded from both the numerator and denominator of the household rate. The council supplied no estimate of how much either household prevention measure had changed total collected waste.\n\nThe town later confirmed that collected household-waste tonnage in the second year was exactly half the first year's tonnage. It supplied no division of that reduction between prevention, changing household numbers or other causes. The two household recycling percentages remained 40% and 48%, and neither definition included commercial cardboard. No further correction to the tonnage or percentage figures was announced. The statistician is comparing the implied amounts rather than evaluating which policy produced the reduction in the household denominator.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Household recycled tonnage fell despite the higher share; neither that calculation nor excluded cardboard identifies its policy cause.",
         "The increased commercial cardboard explains the household recycling share once the household collection total is known to have halved.",
         "Every household recycled a smaller quantity, because the town's total collected waste halved while the reported recycling rate increased.",
         "The food-waste campaign generated more than half of the reduction in collected household waste, since it addressed one component of the denominator."
       ],
-      answer: 0,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 0,
+      "hints": [
+        "Compare amounts using each percentage and its own collection total.",
+        "Try a starting total of 100 units; apply the confirmed halving before the later percentage."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. The later amount is 48% of half the old denominator, below 40% of the old denominator; causes are not decomposed.",
         "False. Commercial material remains excluded from both terms of the household share.",
         "Overstated. An aggregate decline is extended to every household despite no household-level quantities.",
         "Not supported. No causal shares are given."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Share reversal with a known changing base",
-        evidence: [
+      "explanation": "A rising share need not mean a rising amount. Calculating the change does not identify its cause.",
+      "reasoning": {
+        "model": "Share reversal with a known changing base",
+        "evidence": [
           "40% to 48%",
           "Commercial waste was recorded separately",
           "exactly half the first year's tonnage"
         ]
       },
-      reviewedAs: "v11-08"
+      "reviewedAs": "v11-08",
+      "solution": [
+        "With 100 initial units collected, 40 units were recycled.",
+        "The later collection total is 50 units, of which 48% is 24 units. Recycled tonnage falls despite the higher rate.",
+        "Commercial cardboard is excluded from both rates, and the causes of the household reduction are not separated."
+      ],
+      "supersedes": "v10-06"
     },
     {
-      id: "v10-07",
-      topic: "Inspection waivers and certification classes",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional packaging standard recognises three certification classes. All class P products have passed a pressure test. A pressure-tested product receives a transport waiver only if its seal has also passed an independent check. Class Q registration, by contrast, concerns the maker's reporting system and says nothing about either test. Products can hold more than one class at once.\n\nNo product containing liquid can use the ordinary paperwork-only waiver route. Other products can obtain such a waiver without pressure testing if their paperwork is complete. The register records that a product has a waiver, but does not identify the route used. It records certification classes separately, and the absence of a class Q entry is not evidence that testing failed. The authority registered 90 products in the latest quarter, with overlapping categories.\n\nProduct Pine contains liquid and has an ordinary transport waiver valid for its present shipment. The authority confirms that the waiver was granted through one of the stated routes, with no special dispensation. Pine's class P and Q fields have not been published. Product Cedar is known to hold class P and class Q, but no seal-check finding or waiver decision for Cedar has been released. Both products have completed the maker's internal inspection, a procedure separate from the independent seal check.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-07-r2",
+      "topic": "Inspection waivers and certification classes",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional packaging standard recognises three certification classes. All class P products have passed a pressure test. The test-based waiver route requires both pressure testing and an independent seal check. Class Q registration, by contrast, concerns the maker's reporting system and says nothing about either test. Products can hold more than one class at once.\n\nNo product containing liquid can use the ordinary paperwork-only waiver route. Other products can obtain such a waiver without pressure testing if their paperwork is complete. The register records that a product has a waiver, but does not identify the route used. It records certification classes separately, and the absence of a class Q entry is not evidence that testing failed. The authority registered 90 products in the latest quarter, with overlapping categories.\n\nProduct Pine contains liquid and has an ordinary transport waiver valid for its present shipment. The authority confirms that the waiver was granted through one of the stated routes, with no special dispensation. Pine's class P and Q fields have not been published. Product Cedar is known to hold class P and class Q, but no seal-check finding or waiver decision for Cedar has been released. Both products have completed the maker's internal inspection, a procedure separate from the independent seal check.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Cedar's two published classes establish the independent seal check, so its waiver status can be inferred without a separate decision.",
         "Pine's waiver entails both tests; Cedar's two classes establish pressure testing and reporting, but do not establish its waiver.",
         "Every waived product is pressure-tested, since the paperwork-only route is unavailable for the liquid carried in Pine's shipment.",
-        "Pine cannot hold class Q because its waiver depended on testing rather than the maker's reporting system."
+        "The standard forbids a product from holding class P and class Q at once, because the two classes cover incompatible routes."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Eliminate the waiver route that Pine's contents make unavailable.",
         "For Cedar, ask what each class establishes and what the waiver still needs."
       ],
-      optionNotes: [
-        "Overstated. Class P establishes pressure testing and Q reporting, not the seal result or a granted waiver.",
+      "optionNotes": [
+        "Not supported. Neither the pressure-testing class nor the reporting-system class establishes an independent seal check or a waiver decision.",
         "Correct. Liquid excludes the paperwork route, so Pine's waiver entails the tested route and its seal prerequisite. Cedar's classes establish no waiver decision.",
-        "Overstated. The route exclusion for liquid is extended to all products.",
-        "False. The rules expressly allow overlapping classes; test-based waiver status does not bar Q."
+        "False. The ordinary paperwork route expressly allows non-liquid products to obtain waivers without pressure testing.",
+        "False. The standard expressly allows products to hold more than one class at once."
       ],
-      explanation: "The same published status can have alternative routes, but case facts can eliminate one. Overlapping certification classes must not be treated as mutually exclusive.",
-      reasoning: {
-        model: "Route elimination and nonexclusive classifications",
-        evidence: [
-          "receives a transport waiver only if its seal has also passed an independent check",
+      "explanation": "The same published status can have alternative routes, but case facts can eliminate one. Overlapping certification classes must not be treated as mutually exclusive.",
+      "reasoning": {
+        "model": "Route elimination and nonexclusive classifications",
+        "evidence": [
+          "The test-based waiver route requires both pressure testing and an independent seal check",
           "No product containing liquid can use the ordinary paperwork-only waiver route",
           "Products can hold more than one class at once",
           "Pine contains liquid and has an ordinary transport waiver"
         ]
       },
-      reviewedAs: "v10-07"
+      "reviewedAs": "v10-07",
+      "supersedes": "v10-07"
     },
     {
       id: "v10-08",
@@ -309,79 +329,89 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-09"
     },
     {
-      id: "v10-09",
-      topic: "Historic-building use exceptions",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional heritage charter normally prohibits attaching signs to a protected facade. A temporary event permit can authorise a removable sign when the heritage officer approves the attachment method. Permission for the event alone does not approve the sign. Signs fixed into original stone are outside this exception, even if they will later be removed.\n\nThe charter does not restrict free-standing signs placed inside the courtyard, provided that the public route remains unobstructed. A free-standing sign does not become a facade attachment because it advertises an event in the building. The charter's quarterly report counted 14 event permits and nine approved temporary attachments, but did not pair the decisions by event.\n\nThe officer approved unpierced clamps for the proposed banner. Before installation, the venue switched to bolts fixed into original stone and retained the same event permit. The courtyard sign remained free-standing, but chairs were placed across the public route beside it. The venue proposes removing the chairs while keeping the bolts. No new method approval or exception covers the bolts, and no other obstruction would remain if the chairs were removed. The charter's stated provisions remain the complete relevant rules for these placements.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-09-r2",
+      "topic": "Historic-building use exceptions",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional heritage charter normally prohibits attaching signs to a protected facade. A temporary event permit can authorise a removable sign when the heritage officer approves the attachment method. Permission for the event alone does not approve the sign. Signs fixed into original stone are outside this exception, even if they will later be removed.\n\nThe charter does not restrict free-standing signs placed inside the courtyard, provided that the public route remains unobstructed. A free-standing sign does not become a facade attachment because it advertises an event in the building. The charter's quarterly report counted 14 event permits and nine approved temporary attachments, but did not pair the decisions by event.\n\nThe officer approved unpierced clamps for the proposed banner. Before installation, the venue switched to bolts fixed into original stone and retained the same event permit. The courtyard sign remained free-standing, but chairs were placed across the public route beside it. The venue proposes removing the chairs while keeping the bolts. No new method approval or exception covers the bolts, and no other obstruction would remain if the chairs were removed. The charter's stated provisions remain the complete relevant rules for these placements.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The clamp approval transfers to the bolts because both attach the same banner for the same temporary event.",
         "Removing chairs fixes the courtyard condition, but the bolts remain outside the facade exception despite the clamp approval.",
         "Every placement becomes permissible once the venue has an event permit, since the method approval concerned the same banner before its attachments changed.",
         "The officer accepted the bolt substitution as a safer method than clamps after reviewing the risk of the sign falling into the courtyard."
       ],
-      answer: 1,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 1,
+      "hints": [
+        "Treat the facade attachment and courtyard route as separate conditions.",
+        "Check whether the later fixing method still qualifies for the exception that covered the original clamps."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. An approval for clamps does not authorise bolts, which the exception excludes.",
         "Correct. The independent route condition would be satisfied for the free-standing sign; original-stone fixings remain ineligible for the attachment exception.",
         "False. The passage expressly separates event permission from sign approval and prohibits the substituted bolts under the exception.",
         "Not supported. No such safety comparison or acceptance is reported."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Independent remedies and an ineligible revised method",
-        evidence: [
+      "explanation": "A remedy for one condition does not cure an independent failure elsewhere, and approval for one method does not transfer automatically to a substituted method.",
+      "reasoning": {
+        "model": "Independent remedies and an ineligible revised method",
+        "evidence": [
           "Signs fixed into original stone are outside this exception",
           "provided that they do not block the public route",
           "switched to bolts fixed into original stone",
           "No new method approval or exception covers the bolts"
         ]
       },
-      reviewedAs: "v11-13"
+      "reviewedAs": "v11-13",
+      "solution": [
+        "Clamps were approved, but the venue installed bolts into original stone; those fixings are outside the stated exception.",
+        "The courtyard sign is free-standing, but its public route is obstructed by chairs.",
+        "Removing chairs clears the courtyard condition while leaving the prohibited facade fixings unchanged."
+      ],
+      "supersedes": "v10-09"
     },
     {
-      id: "v10-10",
-      topic: "Scholarship renewal and reassessment",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional scholarship normally continues into a second year when a recipient meets the academic threshold and submits a progress report by the deadline. Recipients taking an approved medical interruption can submit the report at a revised deadline, but the academic threshold still applies when their completed work is assessed. An interruption changes timing rather than lowering the standard.\n\nFinancial reassessment is a different process. It can increase or reduce the amount paid after renewal but does not determine whether the academic renewal conditions were met. A student whose household income has fallen can request reassessment even if the renewal decision is still pending. The fund received 75 reassessment requests and renewed 120 awards last year, without saying how many students appeared in both groups.\n\nSana received an approved medical interruption. Her progress report arrived after the ordinary deadline but before the revised deadline. The fund has now confirmed renewal under the published rules, although her assessment score is not public. Her financial reassessment request is still pending, and no revised payment amount has been announced. Another recipient, Tavi, has received a calculation of a higher potential payment, explicitly conditional on renewal but has no published renewal decision. Both cases use the ordinary rules, with no waived academic conditions.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v10-10-r2",
+      "topic": "Scholarship renewal and reassessment",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional scholarship normally continues into a second year when a recipient meets the academic threshold and submits a progress report by the deadline. Recipients taking an approved medical interruption can submit the report at a revised deadline, but the academic threshold still applies when their completed work is assessed. An interruption changes timing rather than lowering the standard.\n\nFinancial reassessment is a different process. It can increase or reduce the amount paid after renewal but does not determine whether the academic renewal conditions were met. A student whose household income has fallen can request reassessment even if the renewal decision is still pending. The fund received 75 reassessment requests and renewed 120 awards last year, without saying how many students appeared in both groups.\n\nSana received an approved medical interruption. Her progress report arrived after the ordinary deadline but before the revised deadline. The fund has now confirmed renewal under the published rules, although her assessment score is not public. Her financial reassessment request is still pending, and no revised payment amount has been announced. Another recipient, Tavi, has received a calculation of a higher potential payment, explicitly conditional on renewal but has no published renewal decision. Both cases use the ordinary rules, with no waived academic conditions.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Tavi met the academic threshold before Sana, since an increased payment requires a financial decision and Sana's financial request remains pending.",
         "Only Sana's lower household income could explain renewal after the ordinary deadline, because the assessment score was not released publicly.",
         "Sana's renewal entails the academic threshold; Tavi's conditional payment calculation does not establish the same academic finding.",
         "Tavi's academic assessment was completed earlier than Sana's because financial reassessment yielded a conditional payment calculation before Sana's request was resolved."
       ],
-      answer: 2,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 2,
+      "hints": [
+        "Separate academic renewal from financial reassessment, including conditional payment calculations.",
+        "Reason backwards from a confirmed renewal; do not infer the same finding from a payment that remains conditional."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. Neither comparative timing of academic assessment nor Tavi's finding is given.",
         "False. The approved interruption changes the deadline, while need does not replace academic conditions.",
         "Correct. Renewal entails academic qualification and timely reporting under the revised deadline; payment reassessment is a separate process not determining the academic condition.",
         "Not supported. The independent financial decision does not date or establish Tavi’s academic assessment."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Backward qualification inference across independent decisions",
-        evidence: [
+      "explanation": "A confirmed decision can entail its necessary prerequisites. A separate conditional calculation does not establish that decision.",
+      "reasoning": {
+        "model": "Backward qualification inference across independent decisions",
+        "evidence": [
           "academic threshold still applies",
           "does not determine whether the academic renewal conditions were met",
           "confirmed renewal under the published rules"
         ]
       },
-      reviewedAs: "v11-05"
+      "reviewedAs": "v11-05",
+      "solution": [
+        "Sana meets the revised reporting deadline under an approved interruption.",
+        "Confirmed renewal under the ordinary rules entails that the academic threshold was met, even though her score is private.",
+        "Tavi's higher potential payment is conditional on renewal, so it does not establish an academic decision or its timing."
+      ],
+      "supersedes": "v10-10"
     }
   ]
 });

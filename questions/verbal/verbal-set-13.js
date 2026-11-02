@@ -4,7 +4,7 @@ EPSO_BANK.registerSet({
   section: "verbal",
   title: "Verbal reasoning · Set 13 — Very hard",
   description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 1,
+  version: 2,
   challenge: true,
   questions: [
     {
@@ -122,116 +122,131 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-01"
     },
     {
-      id: "v13-04",
-      topic: "Recommendation strength and follow-up",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional education review found that schools using a new attendance dashboard had fewer recorded absences after its introduction. The schools volunteered and received training at the same time as the software. The study did not separate the effects of training, dashboard use and pre-existing differences between participating and other schools. The review covered one school year rather than long-term outcomes.\n\nThe reviewers recommended offering the dashboard to another group of schools under a design that could compare outcomes more reliably. They did not recommend compulsory district-wide adoption. Their proposal included common recording definitions, baseline measurements and a record of whether teachers actually used the system. The original report had counted software activation, which did not establish regular classroom use.\n\nThe follow-up gave every enrolled school the same training and randomly assigned access to the dashboard. All schools used common recording definitions and supplied complete outcomes. Analysts retained schools in their assigned access groups whether or not teachers used the dashboard regularly. The schools again volunteered rather than being sampled from the whole district. The study has not yet reported outcomes. The design separates access from training in a way the original combined introduction did not, but includes no separate random assignment to actual classroom use.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-04-r2",
+      "topic": "Recommendation strength and follow-up",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional education review found that schools using a new attendance dashboard had fewer recorded absences after its introduction. The schools volunteered and received training at the same time as the software. The study did not separate the effects of training, dashboard use and pre-existing differences between participating and other schools. The review covered one school year rather than long-term outcomes.\n\nThe reviewers recommended offering the dashboard to another group of schools under a design that could compare outcomes more reliably. They did not recommend compulsory district-wide adoption. Their proposal included common recording definitions, baseline measurements and a record of whether teachers actually used the system. The original report had counted software activation, which did not establish regular classroom use.\n\nThe follow-up gave every enrolled school the same training and randomly assigned access to the dashboard. All schools used common recording definitions and supplied complete outcomes. Analysts retained schools in their assigned access groups whether or not teachers used the dashboard regularly. The schools again volunteered rather than being sampled from the whole district. The study has not yet reported outcomes. The design separates access from training in a way the original combined introduction did not, but includes no separate random assignment to actual classroom use.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The follow-up separates access assignment from common training, while actual uptake effects and transfer beyond volunteers remain unresolved.",
         "The follow-up identifies the effect of regular classroom use in every district school because access is random and training is held constant.",
         "Only the schools regularly using the dashboard remain in the analysis, since random access removes the need to retain nonusers within their assigned groups.",
         "The district purchased the dashboard after the follow-up found a favourable access effect relative to the original study's combined introduction."
       ],
-      answer: 0,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 0,
+      "hints": [
+        "Separate random assignment of access from actual software use and from recruitment into the study.",
+        "Which factor is held common in the follow-up, and what has not yet been measured?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. Training is no longer confounded with access assignment, but actual uptake is not separately randomised and recruitment remains selective.",
         "Overstated. An access design for volunteers is expanded into an actual-use effect for every school.",
         "False. The analysis explicitly retains schools in assignment groups regardless of use.",
         "Not supported. No follow-up outcome or purchase decision has been reported."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Design improvements with remaining exposure and sampling limits",
-        evidence: [
+      "explanation": "A stronger design can address one confound without proving a result, a usage effect or population-wide generalisability.",
+      "reasoning": {
+        "model": "Design improvements with remaining exposure and sampling limits",
+        "evidence": [
           "schools volunteered",
           "same training and randomly assigned access",
           "retained schools in their assigned access groups"
         ]
       },
-      reviewedAs: "v11-19"
+      "reviewedAs": "v11-19",
+      "solution": [
+        "All enrolled schools receive the same training, so training no longer varies with assigned dashboard access.",
+        "Schools remain in their assigned groups regardless of actual use; regular-use effects are not separately randomised.",
+        "Schools volunteer, and outcomes are not yet reported. The design alone establishes neither a favourable result nor transfer to every district school."
+      ],
+      "supersedes": "v13-04"
     },
     {
-      id: "v13-05",
-      topic: "Forecast revision interpretation",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional water authority issued an early forecast of summer demand based on normal rainfall and the previous year's population estimate. A revised forecast was lower. Between the two releases, the authority updated both the rainfall assumption and the population estimate. It did not publish a decomposition attributing the change to either input.\n\nThe revised forecast also incorporated a planned conservation campaign. Its estimated effect came from a model, not from measured responses to that summer's campaign, which had not yet started. The authority warned that a lower forecast was a conditional expectation of demand, not a record of water already saved. The first forecast projected 40 million cubic metres and the revision projected 36 million, using the same demand definition.\n\nFor a supplementary model check, analysts ran the revised population and rainfall assumptions twice: once with the campaign effect set to zero and once with the planned campaign effect included. The projected demands differed by one million cubic metres. All other inputs were identical in these two runs. The original forecast revision remained four million. Actual summer demand was not yet observed, and no new evidence measured the campaign response. The analysts retained the distinction between changing an assumption in a model and observing its realised effect.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-05-r2",
+      "topic": "Forecast revision interpretation",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional water authority issued an early forecast of summer demand based on normal rainfall and the previous year's population estimate. A revised forecast was lower. Between the two releases, the authority updated both the rainfall assumption and the population estimate. It did not publish a decomposition attributing the change to either input.\n\nThe revised forecast also incorporated a planned conservation campaign. Its estimated effect came from a model, not from measured responses to that summer's campaign, which had not yet started. The authority warned that a lower forecast was a conditional expectation of demand, not a record of water already saved. The first forecast projected 40 million cubic metres and the revision projected 36 million, using the same demand definition.\n\nFor a supplementary model check, analysts ran the revised population and rainfall assumptions twice: once with the campaign effect set to zero and once with the planned campaign effect included. The projected demands differed by one million cubic metres. All other inputs were identical in these two runs. The original forecast revision remained four million. Actual summer demand was not yet observed, and no new evidence measured the campaign response. The analysts retained the distinction between changing an assumption in a model and observing its realised effect.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The remaining three million cubic metres were saved by population decline alone, because the campaign accounts for one million in the paired runs.",
         "The one-million difference proves the campaign had saved a quarter of the full revision before it began.",
         "The paired runs isolate one campaign assumption within the revised model, without measuring savings or explaining the full revision.",
         "Every household reduced use in response to the campaign, since a model with common inputs projected lower demand when its effect was included."
       ],
-      answer: 2,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 2,
+      "hints": [
+        "Separate the original forecast revision from the later pair of model runs.",
+        "Which input alone changes between the paired runs, and are either run's figures observed savings?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The remainder also involves rainfall and is not an observed saving or population-only decomposition.",
         "False. The campaign had not begun and the numbers are prospective model outputs.",
         "Correct. Only the campaign assumption varies within the paired runs, but the overall revision varied other inputs and actual effects remain unobserved.",
         "Overstated. An aggregate conditional estimate is expanded to an observed universal household response."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Isolated model sensitivity versus realised causal contribution",
-        evidence: [
+      "explanation": "Changing one model input isolates a conditional model effect. It does not measure a realised causal effect or explain every difference between separate forecasts.",
+      "reasoning": {
+        "model": "Isolated model sensitivity versus realised causal contribution",
+        "evidence": [
           "campaign, which had not yet started",
           "updated both the rainfall assumption and the population estimate",
           "All other inputs were identical in these two runs"
         ]
       },
-      reviewedAs: "v11-14"
+      "reviewedAs": "v11-14",
+      "solution": [
+        "The original forecast falls from 40 to 36 million cubic metres while multiple assumptions change.",
+        "The paired revised-model runs differ only in the campaign assumption, producing a one-million difference within that model.",
+        "Actual demand and campaign responses are unobserved; the paired difference neither measures realised savings nor attributes the full four-million revision."
+      ],
+      "supersedes": "v13-05"
     },
     {
-      id: "v13-06",
-      topic: "Refuge-room capacity records",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional fire-safety register records a room as available for refuge when its fire door is operational and its accessible route is unobstructed. The register also lists a design capacity, which is not a count of people currently sheltering there. A room can retain its design capacity in the database while being marked temporarily unavailable.\n\nFacilities staff inspect doors each Monday. Accessibility staff review routes separately after maintenance work. Completing the door inspection does not certify the route, and reopening a route does not establish that a defective door has been repaired. The building has six refuge rooms with a combined design capacity of 48 people. Two rooms are undergoing work, but their individual capacities and the condition of the other rooms are not given in the report.\n\nThe officer later verified that four rooms met both availability conditions and together provided 34 design places. The remaining rooms were Elm, with eight places, and Willow, with six. Elm's door worked but its route was obstructed. Willow's route was clear but its door was defective. No other condition or capacity changed. A contractor can clear Elm's route or repair Willow's door independently; either action leaves the other room's condition unchanged. Neither action has yet occurred.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-06-r2",
+      "topic": "Refuge-room capacity records",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional fire-safety register records a room as available for refuge when its fire door is operational and its accessible route is unobstructed. The register also lists a design capacity, which is not a count of people currently sheltering there. A room can retain its design capacity in the database while being marked temporarily unavailable.\n\nFacilities staff inspect doors each Monday. Accessibility staff review routes separately after maintenance work. Completing the door inspection does not certify the route, and reopening a route does not establish that a defective door has been repaired. The building has six refuge rooms with a combined design capacity of 48 people. Two rooms are undergoing work, but their individual capacities and the condition of the other rooms are not given in the report.\n\nThe officer later verified that four rooms met both availability conditions and together provided 34 design places. The remaining rooms were Elm, with eight places, and Willow, with six. Elm's door worked but its route was obstructed. Willow's route was clear but its door was defective. No other condition or capacity changed. A contractor can clear Elm's route or repair Willow's door independently; either action leaves the other room's condition unchanged. Neither action has yet occurred.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Repairing Willow's door would add eight available places, since Elm's larger capacity is already shown in the combined design total.",
         "Clearing Elm's route alone would yield 42 available places; repairing Willow alone would yield 40, and both actions would restore all 48.",
         "Either single repair would make all 48 design places available, because every room would then have passed at least one of the two checks.",
         "The contractor will clear Elm's route first because its work is quicker and adds more places than the repair to Willow's defective door."
       ],
-      answer: 1,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 1,
+      "hints": [
+        "List what is missing for Elm and Willow to meet both availability conditions.",
+        "Add each room's capacity only when the proposed action completes its remaining condition."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. Willow has six places; Elm remains blocked if only Willow is repaired.",
         "Correct. The four available rooms supply 34; the actions separately complete the remaining condition for eight-place Elm or six-place Willow.",
         "False. The proposed at-least-one rule contradicts the explicit requirement for both conditions in each available room.",
         "Not supported. No sequence or work-time comparison is reported."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Conjunctive operational capacity across separate repairs",
-        evidence: [
+      "explanation": "Count capacity only after all conditions for availability are satisfied; stored design capacity is not automatically usable capacity.",
+      "reasoning": {
+        "model": "Conjunctive operational capacity across separate repairs",
+        "evidence": [
           "fire door is operational and its accessible route is unobstructed",
           "four rooms met both availability conditions",
           "Elm's door worked but its route was obstructed",
           "Willow's route was clear but its door was defective"
         ]
       },
-      reviewedAs: "v11-11"
+      "reviewedAs": "v11-11",
+      "solution": [
+        "Four available rooms already supply 34 places.",
+        "Clearing Elm's route completes its conditions and adds eight places: 34 + 8 = 42. Repairing only Willow adds six: 34 + 6 = 40.",
+        "Both independent repairs add 14 places, restoring all 48. Neither single repair fixes the other room."
+      ],
+      "supersedes": "v13-06"
     },
     {
       id: "v13-07",
@@ -272,116 +287,131 @@ EPSO_BANK.registerSet({
       reviewedAs: "v10-19"
     },
     {
-      id: "v13-08",
-      topic: "Source independence in reporting",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional policy observatory reviewed claims that a new freight terminal had reduced road congestion. Three newspapers carried the same estimate of time saved. One cited a press briefing, another cited the first newspaper, and the third used a statement from the terminal operator. The briefing and operator statement both drew on the same consultancy model.\n\nThe model compared observed travel times after opening with a simulated no-terminal scenario. The consultancy had not observed that counterfactual directly. A separate traffic monitor recorded shorter journeys on one route, but did not measure displaced congestion elsewhere or control for an unrelated road closure ending during the period. The observatory did not say the estimate was false; it examined how much independent support the reports provided.\n\nThe supplier later issued a second estimate using a new assumption about displaced congestion. All three newspapers updated their total-saving figure from that release without commissioning another model. The independent monitor continued measuring only its original route. Its latest observation still showed a shorter journey there, but no record linked that local change to the supplier's revised displaced-congestion assumption. The public record therefore contains two versions of one model lineage and a narrower observation series, rather than a new independent network-wide counterfactual comparison.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-08-r2",
+      "topic": "Source independence in reporting",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional policy observatory reviewed claims that a new freight terminal had reduced road congestion. Three newspapers carried the same estimate of time saved. One cited a press briefing, another cited the first newspaper, and the third used a statement from the terminal operator. The briefing and operator statement both drew on the same consultancy model.\n\nThe model compared observed travel times after opening with a simulated no-terminal scenario. The consultancy had not observed that counterfactual directly. A separate traffic monitor recorded shorter journeys on one route, but did not measure displaced congestion elsewhere or control for an unrelated road closure ending during the period. The observatory did not say the estimate was false; it examined how much independent support the reports provided.\n\nThe supplier later issued a second estimate using a new assumption about displaced congestion. All three newspapers updated their total-saving figure from that release without commissioning another model. The independent monitor continued measuring only its original route. Its latest observation still showed a shorter journey there, but no record linked that local change to the supplier's revised displaced-congestion assumption. The public record therefore contains two versions of one model lineage and a narrower observation series, rather than a new independent network-wide counterfactual comparison.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The three updated articles provide independent evidence for the revised displacement assumption because they were published separately from the original model report.",
         "The monitor independently verified the new network-wide saving, since it continued to observe shorter journeys after the newspapers revised their figures.",
         "The updated total is necessarily false because no independent source established the model's revised assumption about displaced congestion.",
         "Updated articles still repeat one model lineage; the route monitor does not independently verify network-wide displaced congestion."
       ],
-      answer: 3,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 3,
+      "hints": [
+        "Trace the updated newspaper figures back to the evidence that produced them.",
+        "Compare the geographic scope of the model with the scope of the independent monitor."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. Separate publication is expanded into independent evidence despite the shared updated input.",
         "Overstated. The monitor measured only one route, not network displacement or the new total.",
         "Not supported. Absence of independent validation is not proof of falsehood; the passage expressly distinguishes these.",
         "Correct. The shared revised assumption and narrow route observation concern different inferential claims."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Versioned source dependence versus narrower independent evidence",
-        evidence: [
+      "explanation": "Count independent evidence sources, not publications, and match each observation's scope to the claim being assessed.",
+      "reasoning": {
+        "model": "Versioned source dependence versus narrower independent evidence",
+        "evidence": [
           "both drew on the same consultancy model",
           "did not measure displaced congestion elsewhere",
           "without commissioning another model"
         ]
       },
-      reviewedAs: "v11-17"
+      "reviewedAs": "v11-17",
+      "solution": [
+        "All three updated newspaper totals derive from the same revised model assumption.",
+        "The monitor independently observes shorter journeys on one route, not displaced congestion throughout the network.",
+        "Repeated publication and a narrower observation do not independently validate the model's network-wide counterfactual. Lack of validation also does not prove it false."
+      ],
+      "supersedes": "v13-08"
     },
     {
-      id: "v13-09",
-      topic: "Diagnostic threshold comparisons",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional occupational clinic reported that the proportion of workers flagged by its hearing screen fell from 18% to 11% over two years. During that interval, the clinic changed the threshold for a flag: the second year's rule required a larger measured loss. The instruments and test-room conditions remained the same. Workers whose results lay between the old and new thresholds would therefore have been flagged under the first rule but not the second.\n\nThe clinic also introduced quieter machinery in several workshops. Managers considered the new equipment a plausible explanation for better hearing outcomes. However, the published figures were based on each year's applicable threshold, and the report did not provide raw hearing measurements or results recalculated under a common rule. The workforce changed through recruitment and retirement, with no analysis identifying people screened in both years.\n\nA separate check reapplied both thresholds to the unchanged raw results of 100 continuing workers. Eighteen received a flag under the old rule and eleven under the new rule. The check used the same measured loss for each worker in both classifications. The seven workers no longer flagged had not been retested between classifications. This check was separate from the published year-to-year workforce comparison, and no common-rule year-to-year result for the full workforce was released.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-09-r2",
+      "topic": "Diagnostic threshold comparisons",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional occupational clinic reported that the proportion of workers flagged by its hearing screen fell from 18% to 11% over two years. During that interval, the clinic changed the threshold for a flag: the second year's rule required a larger measured loss. The instruments and test-room conditions remained the same. Workers whose results lay between the old and new thresholds would therefore have been flagged under the first rule but not the second.\n\nThe clinic also introduced quieter machinery in several workshops. Managers considered the new equipment a plausible explanation for better hearing outcomes. However, the published figures were based on each year's applicable threshold, and the report did not provide raw hearing measurements or results recalculated under a common rule. The workforce changed through recruitment and retirement, with no analysis identifying people screened in both years.\n\nA separate check reapplied both thresholds to the unchanged raw results of 100 continuing workers. Eighteen received a flag under the old rule and eleven under the new rule. The check used the same measured loss for each worker in both classifications. The seven workers no longer flagged had not been retested between classifications. This check was separate from the published year-to-year workforce comparison, and no common-rule year-to-year result for the full workforce was released.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The seven lost flags in the fixed-data check establish better hearing in those workers, since the stricter rule used the same instruments.",
         "All seven lost flags in the fixed-data check arise from reclassification; that result does not allocate the workforce-wide annual change.",
         "Every worker newly unflagged in the fixed-data check had also improved between the two annual screens, because the same people were reclassified.",
         "The full workforce's lower annual flag rate resulted entirely from the threshold change rather than any change in hearing or membership."
       ],
-      answer: 1,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 1,
+      "hints": [
+        "Keep the unchanged-data reclassification separate from the annual workforce comparison.",
+        "Did any measurement change between applying the two thresholds to the fixed dataset?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. The raw measurements were unchanged and no retest occurred between these classifications.",
         "Correct. With identical measurements and nested thresholds, fewer flags arise from the classification change. The annual workforce data also changed membership and possibly hearing.",
         "Not supported. The fixed-data reclassification does not disclose each person's year-to-year hearing history.",
         "Overstated. A demonstrated effect in the fixed-data exercise is extended into a complete attribution of a different annual comparison."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Nested reclassification versus longitudinal change",
-        evidence: [
+      "explanation": "A classification change on fixed evidence can be isolated without explaining a separate comparison whose population and measurements may differ.",
+      "reasoning": {
+        "model": "Nested reclassification versus longitudinal change",
+        "evidence": [
           "required a larger measured loss",
           "no analysis identifying people screened in both years",
           "unchanged raw results of 100 continuing workers"
         ]
       },
-      reviewedAs: "v11-01"
+      "reviewedAs": "v11-01",
+      "solution": [
+        "The fixed-data exercise applies two thresholds to exactly the same measurements for 100 continuing workers.",
+        "Flags fall from 18 to 11, so seven flags disappear through reclassification rather than a measured hearing improvement in that exercise.",
+        "The annual workforce comparison also involves changed membership and potentially changed hearing, so this exercise cannot allocate that aggregate annual change."
+      ],
+      "supersedes": "v13-09"
     },
     {
-      id: "v13-10",
-      topic: "Long-term maintenance estimates",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional infrastructure committee compared two resurfacing options over ten years. Option Red cost less to install, while Option Blue was expected to need fewer repairs. The initial report estimated total expenditure under a scenario in which traffic grew at a specified rate. It did not claim that the traffic forecast was certain. Under that scenario, Blue had the lower estimated total cost despite its higher initial price.\n\nThe committee then requested a sensitivity analysis. In the low-growth scenario, Red had the lower total estimate. In the high-growth scenario, Blue retained its advantage. Neither analysis valued disruption to road users or environmental effects. The finance office stressed that changing a scenario changed the projection, not the historical installation quotes.\n\nThe council is considering two claims for a public leaflet. One calls Blue preferable under the central expenditure model; the other calls Blue cheaper in every possible future once disruption and environmental effects are included. The council retains the central traffic assumption and the model's cost categories, but has obtained no new valuation of omitted effects. Its selected contract also allows later maintenance decisions to change, and no report estimates the consequences of exercising that option.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v13-10-r2",
+      "topic": "Long-term maintenance estimates",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional infrastructure committee compared two resurfacing options over ten years. Option Red cost less to install, while Option Blue was expected to need fewer repairs. The initial report estimated total expenditure under a scenario in which traffic grew at a specified rate. It did not claim that the traffic forecast was certain. Under that scenario, Blue had the lower estimated total cost despite its higher initial price.\n\nThe committee then requested a sensitivity analysis. In the low-growth scenario, Red had the lower total estimate. In the high-growth scenario, Blue retained its advantage. Neither analysis valued disruption to road users or environmental effects. The finance office stressed that changing a scenario changed the projection, not the historical installation quotes.\n\nThe council is considering two claims for a public leaflet. One calls Blue preferable under the central expenditure model; the other calls Blue cheaper in every possible future once disruption and environmental effects are included. The council retains the central traffic assumption and the model's cost categories, but has obtained no new valuation of omitted effects. Its selected contract also allows later maintenance decisions to change, and no report estimates the consequences of exercising that option.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The low-growth scenario is the more likely one, since the council retained flexibility to revise maintenance.",
         "Adding the unpriced disruption effects would reverse the central expenditure ranking and make Red cheaper than Blue over the same ten-year period.",
         "Only Blue's maintenance option removes uncertainty over future costs, so choosing that contract converts the central expenditure ranking into an all-futures ranking.",
         "The central cost model supports Blue conditionally; contract flexibility supplies no value for omitted disruption or environmental effects."
       ],
-      answer: 3,
-      hints: [
-        "Identify the exact groups, conditions and dates in the passage.",
-        "Derive what the stated facts force before adding a cause, outcome or converse that has not been established."
+      "answer": 3,
+      "hints": [
+        "List which costs and traffic assumptions each estimate includes.",
+        "Separate a conditional ranking from a claim about every future or about unvalued effects."
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. No probabilities for the scenarios are supplied.",
         "Not supported. No disruption valuation is given, so neither the direction nor size of a ranking change is established.",
-        "Overstated. Flexibility does not eliminate uncertainty or supply the omitted valuations.",
+        "False. The all-futures ranking conflicts with the explicitly supplied low-growth scenario in which Red has the lower total estimate. Flexible later maintenance is not shown to remove that counterexample or omitted-effect uncertainty.",
         "Correct. The central model gives Blue a conditional included-cost advantage; neither omitted valuations nor the option's effects are quantified."
       ],
-      explanation: "Combine the case facts with the stated definitions and scope limits. A necessary consequence is different from a plausible explanation or an unreported outcome.",
-      reasoning: {
-        model: "Conditional dominance versus unpriced decision dimensions",
-        evidence: [
+      "explanation": "A conditional cost advantage cannot be promoted to an unconditional recommendation by adding unmeasured effects or contractual flexibility.",
+      "reasoning": {
+        "model": "Conditional dominance versus unpriced decision dimensions",
+        "evidence": [
           "Under that scenario, Blue had the lower estimated total cost",
           "In the low-growth scenario, Red had the lower total estimate",
           "Neither analysis valued disruption",
           "no new valuation of omitted effects"
         ]
       },
-      reviewedAs: "v11-10"
+      "reviewedAs": "v11-10",
+      "solution": [
+        "Blue is cheaper under the central model's traffic assumption and included expenditure categories.",
+        "Red is cheaper in the low-growth scenario, so the supplied results already show scenario dependence.",
+        "Disruption, environmental effects and the maintenance option's consequences remain unvalued; flexibility supplies neither a new valuation nor certainty about all futures."
+      ],
+      "supersedes": "v13-10"
     }
   ]
 });

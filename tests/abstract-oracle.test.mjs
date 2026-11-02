@@ -4,6 +4,9 @@ import path from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {foundationFeatures,inferFoundation} from './abstract-foundation-solver.mjs';
+import crypto from 'node:crypto';
+import {abstractContentHash} from '../scripts/generators/abstract-review-revision.mjs';
 import { fileURLToPath } from 'node:url';
 import { abstractBlind } from '../scripts/lib/blind.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -133,7 +136,7 @@ test('seven abstract rounds have balanced keys, different models and no single-f
     for (let key = 0; key < 5; key++) assert.equal(set.questions.filter(q => q.answer === key).length, 2);
     for (const strategy of ['medoid', 'outlier', 'majority']) assert.ok(set.questions.reduce((sum, q) => sum + abstractBlind(q.options, q.answer)[strategy], 0) / 10 <= .3, set.id + ' ' + strategy);
     for (const q of set.questions) {
-      assert.equal(q.difficulty, 3); assert.equal(q.rules, 4); assert.equal(q.sequence.length, 6);
+      assert.ok([2,3].includes(q.difficulty)); assert.equal(q.rules, 4); assert.equal(q.sequence.length, 6);
       const sig = JSON.stringify(q.sequence); assert.ok(!signatures.has(sig)); signatures.add(sig);
       const options = q.options.map(decode), key = options[q.answer];
       const support = 'p' in key ? ['f', 'c'] : ['l', 'r', 'k'];
@@ -149,4 +152,39 @@ test('seven abstract rounds have balanced keys, different models and no single-f
       }
     }
   }
+});
+
+function simpleNext(values) {
+  const out=[linear(values),alternating(values),accelerating(values),interleaved(values)];
+  for(let period=1;period<=4;period++)if(values.every((v,i)=>i<period||v===values[i-period]))out.push(values[values.length%period]);
+  return [...new Set(out.filter(v=>v!==null))];
+}
+test('all 150 foundation keys follow uniquely inferred visible tracks',()=>{
+  const qs=bank.filter(s=>!s.challenge).flatMap(s=>Array.from(s.questions));assert.equal(qs.length,150);
+  for(const q of qs){const prediction=inferFoundation(q.sequence);assert.ok(prediction.next,q.id+' unique continuation '+JSON.stringify(prediction.fits));
+    const matches=Array.from(q.options,(f,i)=>same(foundationFeatures(f).features,prediction.next)?i:-1).filter(i=>i>=0);
+    assert.deepEqual(matches,[q.answer],q.id);assert.ok(q.solution.length>=q.rules);
+  }
+});
+test('challenge keys exclude conflicting simple patterns and bands reflect simpler paths',()=>{
+  for(const set of sets)for(const q of set.questions){const rows=q.sequence.map(decode),key=decode(q.options[q.answer]);if(!('p' in key))continue;
+    const p=simpleNext(rows.map(r=>r.p)),a=simpleNext(rows.map(r=>r.a));
+    assert.ok(p.every(v=>v===key.p)&&a.every(v=>v===key.a),q.id+' conflicting simple continuation');
+    assert.equal(q.difficulty,p.length&&a.length?2:3,q.id+' difficulty');
+  }
+});
+test('reviewed IDs and content are immutable and prior ambiguities are regression fixtures',()=>{
+  const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
+  for(const q of bank.flatMap(s=>Array.from(s.questions))){const r=registry.revisions[q.supersedes];assert.ok(r,q.id);assert.equal(q.id,r.id);assert.equal(abstractContentHash(q),r.sha256);}
+  const before=JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/abstract-ambiguities.json')));
+  for(const q of before.foundation)assert.equal(inferFoundation(q.sequence).next,null,q.id);
+  for(const q of before.challenge){const a=simpleNext(q.sequence.map(decode).map(r=>r.a));assert.ok(a.some(v=>v!==decode(q.options[q.answer]).a),q.id);}
+});
+
+test('figure changes stay confined to the eleven repaired stimuli',()=>{
+ const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
+ const expected=['a01-03','a02-18','a02-48','a03-23','a03-43','a03-48','a04-08','a04-23','a07-04','a08-05','a11-04'];
+ const hash=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
+ const changed=[];for(const q of bank.flatMap(s=>Array.from(s.questions))){const b=registry.baseline[q.supersedes];if(hash(q.sequence)!==b.sequenceSha256||hash(q.options)!==b.optionsSha256)changed.push(q.supersedes);}
+ assert.deepEqual(changed,expected);
 });

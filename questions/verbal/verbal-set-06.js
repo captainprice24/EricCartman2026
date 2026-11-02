@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 6",
   "description": "22 EPSO-level passages on competition, the single market, EU economic policy and economics.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v06-01",
@@ -214,7 +214,7 @@ EPSO_BANK.registerSet({
       "explanation": "The key restates the Court's reasoning about a less restrictive alternative. The 'every product' option removes both 'in principle' and the mandatory-requirements exception."
     },
     {
-      "id": "v06-09",
+      "id": "v06-09-r2",
       "topic": "Product rules",
       "difficulty": 1,
       "keyType": "paraphrase",
@@ -234,10 +234,11 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Overstated. A notified body must be involved for 'certain machinery'; the text does not extend this to all machinery.",
         "False. Products not covered by legislation requiring the marking 'must not carry it'.",
-        "Overstated. The text says enforcement is harder because unsafe goods are 'often shipped directly', but gives no share of unsafe products.",
+        "Not supported. The passage connects online marketplaces with enforcement difficulty and frequent direct shipments from outside the EU. It never gives the purchasing channel of unsafe products found on the market. Changing that population and channel into a majority statistic invents evidence, rather than simply changing some to most for the same stated population.",
         "Correct. Goods made in China or the United States 'must carry it too if they fall within the scope of the relevant legislation'."
       ],
-      "explanation": "The key paraphrases the rule on imported goods. The 'all machinery' option generalises a requirement that applies only to certain higher-risk products."
+      "explanation": "The key paraphrases the rule on imported goods. The 'all machinery' option generalises a requirement that applies only to certain higher-risk products.",
+      "supersedes": "v06-09"
     },
     {
       "id": "v06-10",

@@ -1,0 +1,1550 @@
+{
+  "v01-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Prior institutional contact is required; local authorities are excluded even implementing EU law; escalation is to Parliament; publicity supplies much, not all, influence."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v01-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Employment finding is a tendency; no budget multiple or participant proportions given; selection differences may explain some employment advantage."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Two ERM II years are compulsory; sufficiently diminishing debt has an exception; Bulgaria's accession is unstated; Denmark has an opt-out."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v01-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "2025 target concerns PET; availability and affordability qualify bans; tobacco producers pay cleanup costs; cap effectiveness unreported."
+    ],
+    "issues": [
+      "Factual scope: tethered-cap and recycled-content rules apply to specified beverage containers, principally up to three litres; wording overgeneralises all bottles."
+    ],
+    "suggestions": [
+      "State the covered container volume and material scope."
+    ]
+  },
+  "v01-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Only some individuals survived space; human cell storage is not predicted; tun state supplies main resilience; universal indefinite survival is unsupported exaggeration."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v01-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Blocking minority requires four states; both legislators must approve joint text; chair and institutional power shift are unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-07": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "At least equal effectiveness does not establish greater effectiveness; unassessed species could raise threatened share; no single leading cause established; success is not predicted."
+    ],
+    "issues": [
+      "B is a modal inference from incomplete species assessments, rather than a directly reported higher estimate; still the only supported possibility."
+    ],
+    "suggestions": []
+  },
+  "v01-08": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Repeated temporary controls do not establish permanence throughout area; SIS's principal purpose and named countries' accession are not given; compensating measures accompanied abolition."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v01-09": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Target is symmetric; temporary moderate overshoot may follow lower-bound policy; contribution is not main causation; looking through fluctuations is not never responding."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "UK declined supranational control; treaty expiry ended ECSC; Commission ancestry unstated; largely Monnet is not solely Monnet."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v01-11": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Suspension concerns repeated serious breaches; advertising restriction requires knowledge of minority; 40 million is below very-large threshold; specific small-platform exemptions are not identified."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-12": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Reason for procedural languages unstated; versions equally authentic; Catalan accession prediction unstated; official Irish has guaranteed same-language reply while Basque arrangements are limited."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-13": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Preventive group use is restricted rather than all use banned; natural resistance exists independently of misuse; faster diagnostics could reduce use rather than largely end it; low sales deter development."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-14": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Natural-sink contribution is capped; neutrality is Union-wide; critics dispute adequacy without establishing objective sufficiency; Climate Law sets target."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-15": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Combining systems helps among buildings; encrypted government service exists; standalone accuracy comparison absent; other satellite timing systems exist and inability is unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Anxiety mechanism unstated; feedback is not required; confidence can favour inferior rereading; no optimal fixed one-week gap given."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-17": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Prize payment conditional on commitments; benefits uneven rather than guaranteed; third city only every third year; prize sum unstated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage.",
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem.",
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v01-18": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Notification to individuals requires high risk; Ireland case share unstated; consent one of several bases; four percent of one billion is forty million."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-19": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Birds selection mechanism not specified; Spain area ranking unstated; overriding-interest exception can permit project; farming must protect designated features."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v01-20": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "evidence": [
+      "US-operated inward flight excluded; assistance independent of cause; routine technical problems do not imply every fault qualifies; higher threshold remains proposed."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-01": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Seven states required; Commission may choose no legislation; signature verifier unidentified; few direct laws does not establish overall failure."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-02": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Obvious-answer exception exists; national court settles dispute; only CJEU can invalidate EU act; comparative referral rates unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Recovery outcomes unstated; Parliament decides with Council recommendation; often procurement or documents does not establish most missing documents; error need not mean financial loss."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "GNI is largest resource; unanimity gives each state veto; one-percent budget size unstated; focus is not exclusive subject."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-05": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Two-and-a-half-year term renewable once; size/success relationship unstated; Foreign Affairs exception; external representation shared with High Representative."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Charter correspondence does not make whole Charter reproduction; expulsion cause and complaint proportions unstated; all EU states belong while EU accession incomplete."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Talks can halt after reform reversals; duration unstated; unanimous opening and ratification give vetoes; absorption is important rather than decisive."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Agreement needs qualified majority; extension needs unanimity and departing-state agreement; transition extension possibility unstated; exclusion concerns own departure."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Future note withdrawal unstated; collector coins valid only nationally; rounding occurs in some countries; circulating Spanish coin valid throughout area."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v02-10": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Cheap unlimited plans can have roaming cap; uniform surcharge detail and 2032 domestic-rate prediction unstated; equal quality conditional on visited network."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-11": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Reserve introduction year unstated; free allocations phased out alongside import carbon charge; relative emissions progress unstated; ETS covers selected sectors."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Budget fraction unstated; largely area-linked is not entirely; first pillar wholly EU-funded unlike second; eco-scheme income effect unstated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Crossing 75 percent changes region category; Cohesion Fund supports states; growth support is not closed disparities; newest-state absorption ranking absent."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Refund merely possible; validity duration and actual insurance take-up absent; dialysis included with advance arrangements."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Registration threshold is one tonne; information grows with quantity; business closures unstated; carcinogenic status does not automatically trigger authorisation listing."
+    ],
+    "issues": [
+      "Factual precision: REACH information requirements rise in tonnage bands, not with every increase in quantity. Ten versus two tonnes crosses a real band, but the passage states a misleading continuous relationship."
+    ],
+    "suggestions": [
+      "Say information requirements increase at specified tonnage thresholds."
+    ]
+  },
+  "v02-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Might become C/D is not every product; consumer response unmeasured; top class deliberately nearly empty; categories rescaled at different times."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-17": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Laptop deadline is April 2026; scope excludes some devices; wireless deadline unstated; packaging symbol indicates charger inclusion."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-18": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Degressive proportionality gives fewer citizens per small-state MEP; German seat total and turnout-age correlation unstated; mostly groups does not eliminate delegations."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-19": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Censure threshold concerns votes cast plus member majority; resignation cause unstated; committee rejections shape membership; President choice also requires European Council."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-20": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "OLAF link unstated; anyone believing violation can complain; narrow intervention exception exists; completion date unstated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v02-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Case composition unstated; participation is not universal; VAT jurisdiction has damage threshold; five million falls below ten million."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-22": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Survivors can have lingering effects; recovery times unstated; heat is not sole trigger; global fraction since 2000 unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-23-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Much US production development is not all; doctors' reaction unstated; first patient died when supplies ran out; Allied troop provision is not universal availability."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-24": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "New-home adoption prediction unstated; relative electricity price can limit savings; higher installation costs make universal best-choice claim unsupported; works best does not mean cannot work elsewhere."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Relative cooling effectiveness unstated; poorer districts often rather than always hottest; local cooling does not establish entire-city lowering; night heat prevents recovery."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "White Paper Commission president not named; tax unanimity retained; unanimity implies every-state veto; market incomplete after deadline."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v03-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "2014 majority start follows 2009 entry; largely adopted reforms is not identical treaty; clarifying protocol is not exemption; Irish voting reason unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Farm-finance concession not specified; crisis involved several disputes; de Gaulle direction unstated; parties explicitly disagreed about continuing until unanimity."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-04": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Several later Nobels is not most; absent laureates remained eligible; relatives' attendance and Sakharov initiative unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-05": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Minimum leave cash replacement only at termination; workplace on-call counts; exemptions exist; opt-out prevalence unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Cancellation timing distribution unstated; first-year presumption overstretched to two; withdrawal exceptions exist; uninformed right persists twelve extra months."
+    ],
+    "issues": [
+      "Factual precision: trader may withhold reimbursement until goods or return evidence received; unconditional fourteen-day refund wording omits this qualification."
+    ],
+    "suggestions": [
+      "Add the return/evidence withholding exception."
+    ]
+  },
+  "v03-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Portability preserves catalogue on temporary business travel; redirecting with consent allowed; extension deadline and verification methods unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Effect on dismissals unreported; private-company threshold fifty; reasonable belief protects inaccurate report; monthly full-response deadline unstated."
+    ],
+    "issues": [
+      "C needs contextual reading: reasonable grounds to believe truth remains necessary despite actual inaccuracy."
+    ],
+    "suggestions": [
+      "Add \"where reasonable belief existed at reporting\" to C."
+    ]
+  },
+  "v03-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Complaint distribution unreported; legacy terminals have transition; exemption requires documented assessment rather than bare assertion; documentation mandatory."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Use-by is safety; sale forbidden after use-by; most pre-packed does not mean all food; compulsory-label prediction unstated."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v03-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Three versus two years conversion; logo needs ninety-five percent; synthetic pesticides restricted rather than every pesticide banned; current farmland share unstated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v03-12": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "TSG has no geographic requirement; worldwide coverage not assured; PGI needs only one local stage; country ranking absent."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-13": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Some data restricted; radar penetrates clouds unlike optics; supporters' stimulation claim does not prove a large market; emergency frequency absent."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Comparative success rates absent; collaborative calls have priorities; association country names absent; any nationality permitted at eligible location."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v03-15": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Labelling statement generalises beyond specified transparency cases; spam minimal risk; recruitment high-risk needs oversight; prior social-scoring prevalence unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-16": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Deposit insurance still national EU-wide; ECB directly supervises significant banks; taxpayer rescue elimination stronger than stated aim; Bulgarian joining history unstated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v03-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Luxembourg rationale unstated; emergency voting exception; repayment comparison absent; twenty percent can prevent eighty-five percent majority."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-18": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Inclusive format admits non-euro states; legal acts adopted by Council; meeting normally before Ecofin; presidents' country sizes unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-19": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Gauge mismatch targeted; speed capability concerns main passenger lines rather than every train; project cost ranking and revision motive unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Arms have a degree of independence; warm conditions reduce efficiency; one heart pumps systemic circulation; mirror recognition unstated."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v03-21": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Agriculture comparison absent; local abrupt thaw possible; some towns is not general town pattern; waterlogging changes methane yield."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-22": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Good decisions possible for similar cohesive groups; harmony risk not inevitability; particular Bay of Pigs symptom unstated; widespread use not proven efficacy."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-23": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Fewer constraints is not none; multiple North Sea advantages listed; fixed bases limited to shallow water; 2030 cost crossover unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-24": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Local clusters can sustain outbreaks despite high national coverage; lower-contagion threshold lower; individual severe-disease protection remains; vaccination trend unstated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-25": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Legislative prediction absent; agriculture one of several pressures; Commission approval requirement absent; one failing chemical element defeats good status."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Investment agreement remains mixed; Union-alone trade part avoids individual ratification; requesting institution absent; Council usually rather than always QMV."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Mainly political is not solely; original accession motive and officials' preference unstated; EU partner need not lower tariffs on Turkish exports."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-03": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Causation and Union interest also required; duties normally five years; consumer price prediction not established; permission to disapply is not mandatory."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-04": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Coercion requires policy pressure rather than any trade effect; Lithuania origin unstated; QMV prevents lone veto; feared retaliation is not certainty."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v04-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Running-cost source and appointment procedure absent; national diplomats at least third of policy staff; increasing coordination not universal total coordination."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-06": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Military matters excluded from QMV even implementation; constructive abstainer need not apply decision; future sanctions vote change unstated; population and state-number thresholds both needed."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-07": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Disputing reasons does not itself cause annulment; prior UN action unstated; targeted limited impact not zero; asset freeze needs unanimous decision then QMV regulation."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "EDF brought into budget; concurrent national programmes permitted; humanitarian funding unstated; poverty coherence does not make poverty chief aim of all policy."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-09": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Media bias is not exclusive attention; fixed share unstated; obstruction often rather than always; impartiality allocates solely by need."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-10": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Ukraine participation history absent; offers voluntary regardless requester; Geneva centre contradicted by Brussels handling; largely or entirely is not entirely."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-11": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "More reform should bring more support; regional allocation comparison absent; often not always stability first; only three of six eastern partners given perspective."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-12": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Guarantees cover part of risk; EIB finance ranking absent; only limited grants component; many old projects is not none new."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-13": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Military operation costs cannot enter EU budget; civilian costs from EU budget; piracy outcome absent; common military costs funded collectively."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-14": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Permission to finance weapons does not imply every beneficiary; blocking country unnamed; humanitarian funding unstated; abstainer funds non-lethal measures."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-15": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Readiness date not first mission; modular components allow flexibility; publication unstated; dependence largely not entirely national."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-16": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Cambodia sector detail absent; preferences unilateral; EBA exit linked to UN delisting not income alone; developing-country scope overstated beyond least developed."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-17": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Aid obligation preserves neutral policy rather than mandates military help; neutral-state responses unspecified; drafting motive absent; clause mainly intergovernmental unlike Article 222."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-18": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Model permits gains for absolutely superior country too; specialisation not both goods; Corn Laws usage unstated; may hurt groups not usually."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-19": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Temporal sequence not direct causation; arrival precedence can favour small-state envoy; trade damage not stated; civil exceptions and waiver limit immunity."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-20": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Many diversions not all; lasting worldwide rate effect unreported; extra ships needed for same frequency reduces capacity; important forex source not mainly all forex."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v04-21": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Consensus decisions only by Consultative Parties; territorial claims frozen not recognised; original named signatories absent; peaceful nonresearch activity also allowed."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v04-22": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Arrangement only participants; US rationale unstated; tariffs cut not removed altogether; substantial internal trade condition stated."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v05-01": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Binding-rights motive absent; VAT judgment does not cover all taxation; no EU-law link means other protections needed; principles not freestanding claims."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-02": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Listed-category exemption conditional on at least three-year maximum, so lower penalties can be checked; in principle is not always; category-selection rationale unstated; decision after consent differs from handover after arrest."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Supported"
+    },
+    "evidence": [
+      "Usually judges/prosecutors not every; investigation-team creation date unstated; growth over decades not each year; prosecution remains national."
+    ],
+    "issues": [
+      "Difficulty concern: close paraphrase of an explicit sentence, with conspicuous absolute or unrelated distractors, makes this item relatively easy."
+    ],
+    "suggestions": [
+      "For a harder item, use plausible scope or conditionality distinctions without relying on conspicuous universal quantifiers."
+    ]
+  },
+  "v05-04-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Budget purpose unstated; Europol cannot arrest so other officers must; non-EU deployments unstated; Member State consent necessary."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-05": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "B": "Supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "evidence": [
+      "Child rule conditional on best interests; visa precedes irregular entry; Greece transfer history unstated; new rules retain basic logic."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  },
+  "v05-06": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Not supported",
+      "D": "Supported"
+    },
+    "evidence": [
+      "No forced relocations; critics differ rather than all agree on one objection; budget destination and use absent; alternative contributions remain mandatory."
+    ],
+    "issues": [
+      "Factual precision: 30,000 relocations and EUR600 million are alternative reference equivalents for flexible solidarity, so wording may imply both must independently be delivered each year."
+    ],
+    "suggestions": [
+      "Clarify equivalence and mixed contribution accounting."
+    ]
+  },
+  "v05-07": {
+    "answer": "A",
+    "labels": {
+      "A": "Supported",
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Directive first activated in 2022; extension voting rule absent; expected returns unstated; equal national rights stated for education not every respect."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-08": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "False",
+      "C": "Supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Germany issuance ranking absent; national schemes may continue; selected ICT experience replaces degree; exception not every applicant."
+    ],
+    "issues": [
+      "Wording: generic \"correct\" stem allows factually true outside-knowledge distractors; only one option is supported by this passage."
+    ],
+    "suggestions": [
+      "Specify \"According to the passage\" in the stem."
+    ]
+  }
+}

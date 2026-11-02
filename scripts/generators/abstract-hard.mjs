@@ -1,3 +1,5 @@
+import { abstractRubric, simpleCircularFits } from '../lib/abstract-difficulty.mjs';
+import { reviewedAbstract } from './abstract-review-revision.mjs';
 // Original series with coupled rules. No external task content or runtime dependencies.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,6 +36,7 @@ function panels(s) {
 }
 
 export function generateHardAbstract(root) {
+  const itemSeeds = JSON.parse(fs.readFileSync(path.join(root, "scripts/generators/abstract-hard-seeds.json")));
   let seed = 20261019;
   const random = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   const pick = a => a[Math.floor(random() * a.length)];
@@ -57,7 +60,7 @@ export function generateHardAbstract(root) {
       });
       const dir = v => v > 0 ? 'clockwise' : 'anticlockwise';
       description = [`The left mini-grid turns ${dir(ls)} by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn`, `the middle mini-grid turns 90° ${dir(rs)} each frame`,
-        fresh ? `rotate the left grid by the bottom arrow's angle in THAT frame, then ${model === 'rotating-xor' ? 'exclusive-or' : 'union'} it with the middle grid to obtain the right grid` : model === 'rotating-xor' ? 'in each frame the right mini-grid is black exactly where one, but not both, of the first two grids is black (exclusive-or)' : `in each frame first turn the left grid 90° ${dir(turn)}, then combine its black cells with those of the middle grid: a cell in the right grid is black if either input is black`,
+        fresh ? `rotate the left grid clockwise by the bottom arrow's angle measured clockwise from up in THAT frame, then ${model === 'rotating-xor' ? 'exclusive-or' : 'union'} it with the middle grid to obtain the right grid` : model === 'rotating-xor' ? 'in each frame the right mini-grid is black exactly where one, but not both, of the first two grids is black (exclusive-or)' : `in each frame first turn the left grid 90° ${dir(turn)}, then combine its black cells with those of the middle grid: a cell in the right grid is black if either input is black`,
         `the bottom arrow turns 90° ${dir(ks)} each frame`];
       return { rows, draw: panels, tracks: ['l', 'r', 'o', 'k'], domains: [range(16), range(16), range(16), range(4)], description,
         names: { l: 'left mini-grid', r: 'middle mini-grid', o: 'right mini-grid', k: 'bottom arrow' }, layout: 'binary-panels' };
@@ -115,6 +118,10 @@ export function generateHardAbstract(root) {
   function build(model, target) {
     const spec = source(model); if (!spec) return null;
     const { rows, draw, tracks, domains, names } = spec, key = rows[6];
+    const simpler = spec.layout === 'coupled-orbit' ? { p: simpleCircularFits(rows.slice(0,6).map(s=>s.p)), a: simpleCircularFits(rows.slice(0,6).map(s=>s.a)) } : null;
+    // A simple alternative explaining every visible transition must not imply a conflicting continuation.
+    if (simpler && ['p','a'].some(k=>simpler[k].some(fit=>fit.next!==key[k]))) return null;
+    const independent = simpler && simpler.p.length && simpler.a.length;
     const signature = JSON.stringify(rows.slice(0, 6).map(draw));
     if (used.has(signature)) return null;
     const atom = [];
@@ -137,16 +144,35 @@ export function generateHardAbstract(root) {
       const rank = 1 + b.sums.slice(1).filter(s => s < b.sums[0] - 1e-9).length;
       if (rank !== target || (target !== 1 && (b.medoid > 0 || b.majority > 0)) || (target !== 5 && b.outlier > 0)) continue;
       const value = (k, v) => spec.layout === 'binary-panels' ? k === 'k' ? `${v * 90}° clockwise from up` : `[${range(4).map(i => v & (1 << i) ? 'black' : 'white').join(', ')}] in reading order` : k === 'p' ? PLACES[v] : k === 'a' ? `${v * 45}° clockwise from up` : k === 'f' ? FILLS[v] : String(v + 1);
+      const descriptions = spec.description.slice();
+      if (independent) {
+        descriptions[0] = `the marker can be continued independently using ${simpler.p[0].model}`;
+        descriptions[1] = `the arrow can be continued independently using ${simpler.a[0].model}`;
+      }
+      const arrowFirst = !independent && ['two-stage-gate','delayed-handoff','dot-gated-handoff','two-frame-arrow-handoff'].includes(model);
+      const order = arrowFirst ? ['a','p','f','c'] : tracks;
+      const solution = descriptions.map((description,i) => {
+        const k = order[i];
+        let text = description + `. Frames 1–6, ${names[k]}: ` + rows.slice(0,6).map(s=>value(k,s[k])).join(' → ') + `. Next: ${value(k,key[k])}.`;
+        if (k === 'o') text += description.includes('exclusive-or') ? ' A corresponding cell is black only when the two inputs differ.' : ' A corresponding cell is black when at least one input is black, including when both are black.';
+        return text;
+      });
+      const secondHint = spec.layout === 'binary-panels'
+        ? 'Compare matching cells within each frame. Does black mean either input is black, or exactly one? Check whether the bottom arrow controls a preliminary turn.'
+        : independent ? 'Try short cycles, fixed steps, alternating steps and separate odd/even tracks before assuming one element controls another.'
+        : model.includes('two-frame') ? 'Compare the dependent element with the driver two frames earlier; make separate rows for frame numbers so the lag is not shifted.'
+        : 'Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.';
       used.add(signature);
       return {
-        topic: spec.layout === 'coupled-orbit' ? 'Coupled orbit and conditional transformations' : 'Rotating binary panels and composition',
+        topic: independent ? 'Independent orbit tracks' : spec.layout === 'coupled-orbit' ? 'Coupled orbit and conditional transformations' : 'Rotating binary panels and composition',
         difficulty: 3, rules: 4, challenge: true, reasoning: { model, layout: spec.layout, dependency: spec.description.slice(0, 2).join('; ') },
         stem: 'Which figure comes next in the series?', sequence: rows.slice(0, 6).map(draw),
         options: figures, answer: 0,
         hints: [spec.layout === 'coupled-orbit' ? 'Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.' : 'Track each mini-grid separately. Then compare corresponding cells across the three grids within a frame; also follow the bottom arrow.',
-          spec.description[0] + '. ' + spec.description[1] + '.', 'Predict all four features before choosing. Matching only one feature leaves several options.'],
-        optionNotes: ['Correct: all four relationships continue, including the dependency between elements.', ...changes.map(c => 'Wrong: ' + Object.keys(c).map(k => `${names[k]} is ${value(k, c[k])}; it should be ${value(k, key[k])}`).join('; ') + '.')],
-        explanation: 'Four relationships apply: ' + spec.description.join('; ') + '. Infer from every displayed frame; do not choose from option similarity alone.'
+          secondHint, descriptions[0] + '. ' + descriptions[1] + '. Predict the remaining colour/count or panel features before choosing.'],
+        optionNotes: ['Correct: ' + tracks.map(k=>names[k]+': '+value(k,key[k])).join('; ') + '.', ...changes.map(c => 'Wrong: ' + Object.keys(c).map(k => `${names[k]} is ${value(k, c[k])}; it should be ${value(k, key[k])}`).join('; ') + '.')],
+        solution,
+        explanation: (independent ? 'Four independent tracks suffice for this visible series: ' : 'Four relationships apply: ') + descriptions.join('; ') + '. Check every displayed transition; option similarity alone does not establish a rule.'
       };
     }
     return null;
@@ -154,14 +180,17 @@ export function generateHardAbstract(root) {
   for (let set = 5; set <= 11; set++) {
     const id = String(set).padStart(2, '0'), targets = [...shuffle([1, 2, 3, 4, 1, 2, 3, 4]), 2, 2];
     const questions = (set < 9 ? MODELS : NEW_MODELS).map((model, i) => {
+      seed = itemSeeds[`a${id}-${String(i + 1).padStart(2, '0')}`];
       let item;
       for (let attempt = 0; attempt < 400 && !item; attempt++) item = build(model, targets[i]);
       if (!item) throw Error(`Unable to generate ${model} at rank ${targets[i]}`);
       const answer = (i * 2 + set) % 5, opts = item.options.slice(1), notes = item.optionNotes.slice(1);
       opts.splice(answer, 0, item.options[0]); notes.splice(answer, 0, item.optionNotes[0]);
-      return { id: `a${id}-${String(i + 1).padStart(2, '0')}`, ...item, options: opts, optionNotes: notes, answer };
+      const q = { id: `a${id}-${String(i + 1).padStart(2, '0')}`, ...item, options: opts, optionNotes: notes, answer };
+      q.difficulty = abstractRubric(q).level;
+      return reviewedAbstract(q);
     });
-    const data = { id: 'abstract-' + id, section: 'abstract', title: `Abstract reasoning · Very hard ${set - 4}`, description: '10 original series: conditional, alternating, delayed and compositional relationships. Editorial Hard; learner calibration pending.', version: 1, challenge: true, questions };
+    const data = { id: 'abstract-' + id, section: 'abstract', title: `Abstract reasoning · Challenge ${set - 4}`, description: '10 original series with independent and dependent patterns. Reviewed Medium/Hard levels; learner calibration pending. Choose All levels for a complete ten-question round.', version: 2, challenge: true, questions };
     fs.writeFileSync(path.join(root, `questions/abstract/abstract-set-${id}.js`), '/* Generated by scripts/generators/abstract-hard.mjs; edit the generator. */\nEPSO_BANK.registerSet(' + JSON.stringify(data, null, 2) + ');\n');
     console.log(data.id, '10 challenge items', Object.fromEntries(['medoid', 'outlier', 'majority'].map(k => [k, questions.reduce((sum, q) => sum + abstractBlind(q.options, q.answer)[k], 0) / 10])));
   }

@@ -4,11 +4,11 @@ EPSO_BANK.registerSet({
   "section": "numerical",
   "title": "Numerical reasoning · Set 5 — Very hard",
   "description": "10 original challenge items: linked exhibits, reverse calculations and changing bases. Timed practice: 20 minutes. Difficulty is editorial, pending user calibration.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "n05-01",
+      "id": "n05-01-r2",
       "topic": "Capped weighted redistribution",
       "difficulty": 3,
       "challenge": true,
@@ -96,7 +96,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "optionNotes": [
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. A binding cap changes the remaining allocation base. Reweight the uncapped regions after removing the capped payment.",
         "Uses the Previous reserve percentage instead of the Current one.",
         "Redistributes the uncapped pool by population alone, ignoring need multipliers.",
         "Incorrectly reduces North’s cap by overhead and reserve before redistribution.",
@@ -107,21 +107,23 @@ EPSO_BANK.registerSet({
         "Check whether North hits the cap. If so, the other regions share the available fund minus North’s capped payment."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "After overhead = 24 × (1 − 7 ÷ 100) = 22.320000 million.",
         "Available fund = after overhead × (1 − 11 ÷ 100) = 19.864800 million.",
         "North weight = 930 × 1.8 = 1,674.000000.",
         "South weight = 510 × 1.2 = 612.000000.",
         "East weight = 420 × 1.4 = 588.000000.",
         "West weight = 390 × 1.1 = 429.000000.",
-        "North preliminary = 19.864800 × 1674 ÷ 3303 = 10.067719 million, above the 7.2 cap.",
+        "North preliminary = 19.864800 × 1,674.000000 ÷ 3,303.000000 = 10.067719 million, above the 7.2 cap.",
         "Uncapped fund = 19.864800 − 7.2 = 12.664800 million.",
-        "Other weights = 3303 − 1674 = 1629.",
-        "Final award = 12.664800 × 612 ÷ 1629 = 4.76 million."
+        "Other weights = 3,303.000000 − 1,674.000000 = 1,629.000000.",
+        "Final award = 12.664800 × 612.000000 ÷ 1,629.000000 = 4.76 million."
       ],
-      "explanation": "A binding cap changes the remaining allocation base. Reweight the uncapped regions after removing the capped payment."
+      "explanation": "A binding cap changes the remaining allocation base. Reweight the uncapped regions after removing the capped payment.",
+      "supersedes": "n05-01"
     },
     {
-      "id": "n05-02",
+      "id": "n05-02-r2",
       "topic": "Cross-currency landed cost",
       "difficulty": 3,
       "challenge": true,
@@ -214,7 +216,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "optionNotes": [
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Each percentage has a specified base. Preserve those bases when combining invoices in different currencies.",
         "Nets goods discount and fee additively rather than compounding them.",
         "Charges the bank fee twice.",
         "Adds freight twice to each invoice.",
@@ -225,6 +227,7 @@ EPSO_BANK.registerSet({
         "The exchange rate is EUR per foreign unit, so multiply; apply the fee after conversion."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Atlas goods = 75 × 240 × (1 − 8 ÷ 100) = 16,560.000000.",
         "Atlas converted invoice = (16,560.000000 + 1100) × 0.78 = 13,774.800000 EUR.",
         "Atlas with bank fee = 13,774.800000 × (1 + 2 ÷ 100) = 14,050.296000 EUR.",
@@ -233,10 +236,11 @@ EPSO_BANK.registerSet({
         "Boreal with bank fee = 18,346.740000 × (1 + 3 ÷ 100) = 18,897.142200 EUR.",
         "Total = 14,050.296000 + 18,897.142200 = EUR 32,947.44."
       ],
-      "explanation": "Each percentage has a specified base. Preserve those bases when combining invoices in different currencies."
+      "explanation": "Each percentage has a specified base. Preserve those bases when combining invoices in different currencies.",
+      "supersedes": "n05-02"
     },
     {
-      "id": "n05-03",
+      "id": "n05-03-r2",
       "topic": "Loss-adjusted emissions substitution",
       "difficulty": 3,
       "challenge": true,
@@ -323,25 +327,27 @@ EPSO_BANK.registerSet({
         "Applies the reduction target only to Gas emissions instead of total system emissions.",
         "Treats gross generation as delivered generation and ignores both loss rates.",
         "Adjusts Gas losses but uses Wind gross intensity as its delivered intensity.",
-        "Correct. Follow the worked solution, retaining full intermediate precision."
+        "Correct. Replacing equal gross output would change delivered supply. Compare emissions on a common delivered-energy base and include the replacement source’s emissions."
       ],
       "hints": [
         "Calculate the emissions saving required from the whole system, including unchanged sources.",
         "Compare emissions per delivered kWh for Gas and Wind. Convert the delivered substitution back to gross Wind last."
       ],
       "solution": [
-        "Baseline emissions proportional to 26 × 430 + 15 × 28 + 21 × 18 + 10 × 44 = 12418.",
-        "Required saving = 12418 × 18 ÷ 100 = 2,235.240000 on the same scale.",
-        "Gas per delivered kWh = 430 ÷ (1 − 7 ÷ 100) = 462.365591 g.",
-        "Wind per delivered kWh = 28 ÷ (1 − 12 ÷ 100) = 31.818182 g.",
-        "Saving per delivered kWh = 462.365591 − 31.818182 = 430.547410 g.",
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
+        "Baseline emissions = 26 × 430 + 15 × 28 + 21 × 18 + 10 × 44 = 12418 kilotonnes (1 TWh × 1 g/kWh = 1 kilotonne).",
+        "Required saving = 12418 × 18 ÷ 100 = 2,235.240000 kilotonnes.",
+        "Gas intensity = 430 ÷ (1 − 7 ÷ 100) = 462.365591 g/kWh.",
+        "Wind intensity = 28 ÷ (1 − 12 ÷ 100) = 31.818182 g/kWh.",
+        "Saving per delivered kWh = 462.365591 − 31.818182 = 430.547410 g/kWh.",
         "Delivered substitution = 2,235.240000 ÷ 430.547410 = 5.191623 TWh.",
         "Gross Wind = 5.191623 ÷ (1 − 12 ÷ 100) = 5.90 TWh."
       ],
-      "explanation": "Replacing equal gross output would change delivered supply. Compare emissions on a common delivered-energy base and include the replacement source’s emissions."
+      "explanation": "Replacing equal gross output would change delivered supply. Compare emissions on a common delivered-energy base and include the replacement source’s emissions.",
+      "supersedes": "n05-03"
     },
     {
-      "id": "n05-04",
+      "id": "n05-04-r2",
       "topic": "Real pooled productivity",
       "difficulty": 3,
       "challenge": true,
@@ -435,7 +441,7 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "optionNotes": [
         "Averages office productivity growth rates rather than pooling revenue and FTE.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Aggregation, price changes and workforce changes affect different parts of the ratio. Keep full precision until the last step.",
         "Subtracts inflation from nominal productivity growth rather than dividing growth factors.",
         "Uses the 2024 Casework price index instead of the 2025 index.",
         "Uses the average workforce across the two years as the final-year denominator."
@@ -445,6 +451,7 @@ EPSO_BANK.registerSet({
         "Deflate revenue, then compare revenue per FTE using the initial value as base."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Pooled revenue: 410 + 472 = 882; 640 + 754 = 1394 million.",
         "Pooled FTE: 1250 + 1430 = 2680; 1390 + 1536 = 2926.",
         "Real 2025 revenue = 1394 ÷ (112 ÷ 100) = 1,244.642857 million.",
@@ -452,10 +459,11 @@ EPSO_BANK.registerSet({
         "2025 real productivity = 1,244.642857 ÷ 2926 = 0.425373 million/FTE.",
         "Increase = (real 2025 productivity ÷ 2022 productivity − 1) × 100 = 29.25%."
       ],
-      "explanation": "Aggregation, price changes and workforce changes affect different parts of the ratio. Keep full precision until the last step."
+      "explanation": "Aggregation, price changes and workforce changes affect different parts of the ratio. Keep full precision until the last step.",
+      "supersedes": "n05-04"
     },
     {
-      "id": "n05-05",
+      "id": "n05-05-r2",
       "topic": "Linked-index real per-capita change",
       "difficulty": 3,
       "challenge": true,
@@ -551,7 +559,7 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Uses final real expenditure per resident as the percentage base.",
         "Assumes the old-base index in 2021 was 100 instead of its listed value.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. A rebased index cannot be compared directly with the old series. Link ratios through the overlap year, then account for population.",
         "Adds the two period price increases instead of compounding their factors.",
         "Subtracts cumulative inflation from nominal per-capita growth instead of dividing growth factors."
       ],
@@ -560,6 +568,7 @@ EPSO_BANK.registerSet({
         "Multiply the factors, deflate 2025 expenditure, then compare per-capita values."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "2021–2023 price factor = 116 ÷ 103 = 1.12621359.",
         "2023–2025 price factor = 113 ÷ 100 = 1.13000000.",
         "Linked price factor = 116 ÷ 103 × 113 ÷ 100 = 1.27262136.",
@@ -568,10 +577,11 @@ EPSO_BANK.registerSet({
         "2025 real per resident = real spending ÷ 2.1 = 284.377407 EUR.",
         "Increase = (2025 real per resident ÷ 2021 per resident − 1) × 100 = 21.88%."
       ],
-      "explanation": "A rebased index cannot be compared directly with the old series. Link ratios through the overlap year, then account for population."
+      "explanation": "A rebased index cannot be compared directly with the old series. Link ratios through the overlap year, then account for population.",
+      "supersedes": "n05-05"
     },
     {
-      "id": "n05-06",
+      "id": "n05-06-r2",
       "topic": "Recovered-output capacity",
       "difficulty": 3,
       "challenge": true,
@@ -661,7 +671,7 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Treats every gross unit as accepted, ignoring unrecovered rejects.",
         "Accounts for past rejects but uses gross output for future hours.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. A recovery percentage applies to rejects, not to all output. Separate past output from the rate used for future work.",
         "Treats all rejected units as permanently lost.",
         "Uses the other line to calculate the extra hours."
       ],
@@ -670,6 +680,7 @@ EPSO_BANK.registerSet({
         "Subtract what both lines have already produced, then divide by the accepted rate of the continuing line."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Line North permanent loss = 9 ÷ 100 × (1 − 35 ÷ 100) = 0.058500.",
         "Line North accepted rate = 760 × (1 − permanent loss) = 715.540000 units/hour.",
         "Line South permanent loss = 11 ÷ 100 × (1 − 43 ÷ 100) = 0.062700.",
@@ -678,10 +689,11 @@ EPSO_BANK.registerSet({
         "Remaining = 53000 − 19,187.343000 = 33,812.657000.",
         "Extra hours = 33,812.657000 ÷ 815.451000 = 41.46 hours."
       ],
-      "explanation": "A recovery percentage applies to rejects, not to all output. Separate past output from the rate used for future work."
+      "explanation": "A recovery percentage applies to rejects, not to all output. Separate past output from the rate used for future work.",
+      "supersedes": "n05-06"
     },
     {
-      "id": "n05-07",
+      "id": "n05-07-r2",
       "topic": "Reverse stock flow with returns",
       "difficulty": 3,
       "challenge": true,
@@ -777,7 +789,7 @@ EPSO_BANK.registerSet({
         "Omits the closing stock requirement.",
         "Calculates arrivals needed but omits incoming transport losses.",
         "Adds the loss percentage instead of dividing by the surviving fraction.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Place each flow on the correct side of the stock equation. Reverse a delivery loss using division, and avoid counting reusable returns twice.",
         "Ignores reusable returns."
       ],
       "hints": [
@@ -785,16 +797,18 @@ EPSO_BANK.registerSet({
         "Only the returned share times the reusable share goes back into stock; reverse the incoming loss last."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Dispatch = 3200 + 1800 = 5000.",
         "Returns = 5000 × 8 ÷ 100 = 400.000000.",
         "Reusable returns = returns × 60 ÷ 100 = 240.000000.",
         "Required arrivals = 5000 + 850 − 620 − 240.000000 = 4,990.000000.",
         "Gross replenishment = 4,990.000000 ÷ (1 − 6 ÷ 100) = 5,308.51 units."
       ],
-      "explanation": "Place each flow on the correct side of the stock equation. Reverse a delivery loss using division, and avoid counting reusable returns twice."
+      "explanation": "Place each flow on the correct side of the stock equation. Reverse a delivery loss using division, and avoid counting reusable returns twice.",
+      "supersedes": "n05-07"
     },
     {
-      "id": "n05-08",
+      "id": "n05-08-r2",
       "topic": "Hedged exchange-rate threshold",
       "difficulty": 3,
       "challenge": true,
@@ -891,13 +905,14 @@ EPSO_BANK.registerSet({
         "Omits the settlement fee.",
         "Uses another product’s hedge rate.",
         "Reverses a deducted fee by multiplication instead of division.",
-        "Correct. Follow the worked solution, retaining full intermediate precision."
+        "Correct. The unknown rate applies only to the unhedged balance. Solve the receipt equation backward after restoring the fee and target profit."
       ],
       "hints": [
         "Reverse the fee on the total EUR receipt before separating the hedged and unhedged shares.",
         "Subtract the EUR guaranteed by the hedge and divide the remainder by the unhedged USD amount."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Invoice = 1400 × 92 = 128800 USD.",
         "Hedged USD = 128800 × 38 ÷ 100 = 48,944.000000.",
         "Hedged EUR = 48,944.000000 × 0.86 = 42,091.840000.",
@@ -905,10 +920,11 @@ EPSO_BANK.registerSet({
         "Gross EUR needed = (90000 + 13000) ÷ (1 − 2 ÷ 100) = 105,102.040816.",
         "Spot rate = (gross EUR needed − hedged EUR) ÷ unhedged USD = 0.7890 EUR per USD."
       ],
-      "explanation": "The unknown rate applies only to the unhedged balance. Solve the receipt equation backward after restoring the fee and target profit."
+      "explanation": "The unknown rate applies only to the unhedged balance. Solve the receipt equation backward after restoring the fee and target profit.",
+      "supersedes": "n05-08"
     },
     {
-      "id": "n05-09",
+      "id": "n05-09-r2",
       "topic": "Yield-adjusted profit threshold",
       "difficulty": 3,
       "challenge": true,
@@ -999,7 +1015,7 @@ EPSO_BANK.registerSet({
         "Counts VAT receipts as retained revenue.",
         "Ignores unsaleable production when calculating cost per saleable unit.",
         "Rounds the threshold down, leaving profit below the target.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Revenue, cost and yield use different bases. A minimum feasible whole batch must meet the inequality, not simply be the nearest integer.",
         "Divides by saleable yield twice for each product."
       ],
       "hints": [
@@ -1007,6 +1023,7 @@ EPSO_BANK.registerSet({
         "Calculate contribution for a complete batch, add required profit to fixed cost, and round the batch threshold upward."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Kit A net revenue = 91 ÷ (1 + 20 ÷ 100) = 75.833333 EUR.",
         "Kit A cost per saleable unit = 34 ÷ (85 ÷ 100) = 40.000000 EUR.",
         "Kit B net revenue = 128 ÷ (1 + 21 ÷ 100) = 105.785124 EUR.",
@@ -1015,10 +1032,11 @@ EPSO_BANK.registerSet({
         "Contribution required = 28000 + 12500 = 40500 EUR.",
         "Batches = 40500 ÷ 207.706612 = 194.986571; round UP to 195."
       ],
-      "explanation": "Revenue, cost and yield use different bases. A minimum feasible whole batch must meet the inequality, not simply be the nearest integer."
+      "explanation": "Revenue, cost and yield use different bases. A minimum feasible whole batch must meet the inequality, not simply be the nearest integer.",
+      "supersedes": "n05-09"
     },
     {
-      "id": "n05-10",
+      "id": "n05-10-r2",
       "topic": "Reverse pooled success rate",
       "difficulty": 3,
       "challenge": true,
@@ -1102,7 +1120,7 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "optionNotes": [
         "Uses enrolled rather than assessed counts.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Reverse a weighted rate by solving for counts first. An unweighted average of percentages loses the cohort sizes.",
         "Treats the two assessed cohorts as equally large.",
         "Uses another stream’s withdrawal percentage.",
         "Applies the pooled target to enrolments rather than the assessed population."
@@ -1112,6 +1130,7 @@ EPSO_BANK.registerSet({
         "Required passes in the second stream equal the pooled target count minus passes in the first."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
         "Assessed Policy = 840 × (1 − 10 ÷ 100) = 756.000000.",
         "Assessed Digital = 960 × (1 − 13 ÷ 100) = 835.200000.",
         "Required pooled passes = (756.000000 + 835.200000) × 74 ÷ 100 = 1,177.488000.",
@@ -1119,7 +1138,8 @@ EPSO_BANK.registerSet({
         "Required Digital passes = 1,177.488000 − 468.720000 = 708.768000.",
         "Unknown rate = 708.768000 ÷ 835.200000 × 100 = 84.86%."
       ],
-      "explanation": "Reverse a weighted rate by solving for counts first. An unweighted average of percentages loses the cohort sizes."
+      "explanation": "Reverse a weighted rate by solving for counts first. An unweighted average of percentages loses the cohort sizes.",
+      "supersedes": "n05-10"
     }
   ]
 });

@@ -1,0 +1,20 @@
+{
+  "v12-10-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "The pending-release and committed union contains 200 + 300 - 100 = 400 packages, leaving 400 in neither excluded group.",
+      "Every package outside pending release explicitly passed quality release; packages in neither group are also uncommitted. Of these, 150 are explicitly unexpired. All three usable-reserve conditions are therefore established for those 150, giving the lower bound.",
+      "The other 250 in the remainder have unresolved expiry status. They could all be unexpired or all fail that condition, giving inclusive bounds of 150 to 400.",
+      "B subtracts overlapping exclusions twice and asserts an exact total despite unresolved expiry; 300 is possible but is not established.",
+      "C asserts that all 400 are usable even though expiry remains unresolved for 250; this strengthens the evidence without a stated expired counterexample.",
+      "No emergency-purpose allocation or predominance is reported for the 150 packages."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

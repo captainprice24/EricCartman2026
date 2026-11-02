@@ -2,15 +2,15 @@
 EPSO_BANK.registerSet({
   "id": "abstract-05",
   "section": "abstract",
-  "title": "Abstract reasoning · Very hard 1",
-  "description": "10 original series: conditional, alternating, delayed and compositional relationships. Editorial Hard; learner calibration pending.",
-  "version": 1,
+  "title": "Abstract reasoning · Challenge 1",
+  "description": "10 original series with independent and dependent patterns. Reviewed Medium/Hard levels; learner calibration pending. Choose All levels for a complete ten-question round.",
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "a05-01",
-      "topic": "Coupled orbit and conditional transformations",
-      "difficulty": 3,
+      "id": "a05-01-r2",
+      "topic": "Independent orbit tracks",
+      "difficulty": 2,
       "rules": 4,
       "challenge": true,
       "reasoning": {
@@ -1018,20 +1018,27 @@ EPSO_BANK.registerSet({
       "answer": 0,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "the marker alternates moves of 3 places clockwise and 2 places clockwise, beginning with the first move between frames 1 and 2. from frame 2 onward the arrow points 225° clockwise from the previous marker position.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Try short cycles, fixed steps, alternating steps and separate odd/even tracks before assuming one element controls another.",
+        "the marker can be continued independently using alternating signed steps. the arrow can be continued independently using alternating signed steps. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: left; arrow direction: 45° clockwise from up; marker colour: black; number of bottom dots: 2.",
         "Wrong: marker position is lower-left; it should be left; number of bottom dots is 4; it should be 2.",
         "Wrong: marker position is lower-right; it should be left; marker colour is grey; it should be black.",
         "Wrong: marker position is upper-right; it should be left.",
         "Wrong: arrow direction is 90° clockwise from up; it should be 45° clockwise from up; marker colour is grey; it should be black."
       ],
-      "explanation": "Four relationships apply: the marker alternates moves of 3 places clockwise and 2 places clockwise, beginning with the first move between frames 1 and 2; from frame 2 onward the arrow points 225° clockwise from the previous marker position; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 4 → 1 → 2 → 3 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "the marker can be continued independently using alternating signed steps. Frames 1–6, marker position: upper-left → right → bottom → upper-left → upper-right → bottom. Next: left.",
+        "the arrow can be continued independently using alternating signed steps. Frames 1–6, arrow direction: 90° clockwise from up → 180° clockwise from up → 315° clockwise from up → 45° clockwise from up → 180° clockwise from up → 270° clockwise from up. Next: 45° clockwise from up.",
+        "the marker colour cycles black → white → grey and repeats. Frames 1–6, marker colour: black → white → grey → black → white → grey. Next: black.",
+        "the bottom dots cycle 4 → 1 → 2 → 3 and repeat. Frames 1–6, number of bottom dots: 4 → 1 → 2 → 3 → 4 → 1. Next: 2."
+      ],
+      "explanation": "Four independent tracks suffice for this visible series: the marker can be continued independently using alternating signed steps; the arrow can be continued independently using alternating signed steps; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 4 → 1 → 2 → 3 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-01"
     },
     {
-      "id": "a05-02",
+      "id": "a05-02-r2",
       "topic": "Coupled orbit and conditional transformations",
       "difficulty": 3,
       "rules": 4,
@@ -2083,20 +2090,27 @@ EPSO_BANK.registerSet({
       "answer": 2,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "the marker's signed clockwise moves are -2, -3, -4, -5, -6, -7 places; add -1 to the signed move each time (negative means anticlockwise). from frame 2 onward the arrow points 90° clockwise from the previous marker position.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.",
+        "the marker's signed clockwise moves are -2, -3, -4, -5, -6, -7 places; add -1 to the signed move each time (negative means anticlockwise). from frame 2 onward the arrow points 90° clockwise from the previous marker position. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: marker position is upper-right; it should be left; arrow direction is 135° clockwise from up; it should be 315° clockwise from up.",
         "Wrong: arrow direction is 180° clockwise from up; it should be 315° clockwise from up; marker colour is black; it should be grey.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: left; arrow direction: 315° clockwise from up; marker colour: grey; number of bottom dots: 4.",
         "Wrong: marker position is upper-right; it should be left; number of bottom dots is 2; it should be 4.",
         "Wrong: marker position is lower-left; it should be left."
       ],
-      "explanation": "Four relationships apply: the marker's signed clockwise moves are -2, -3, -4, -5, -6, -7 places; add -1 to the signed move each time (negative means anticlockwise); from frame 2 onward the arrow points 90° clockwise from the previous marker position; the marker colour cycles grey → black → white and repeats; the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "the marker's signed clockwise moves are -2, -3, -4, -5, -6, -7 places; add -1 to the signed move each time (negative means anticlockwise). Frames 1–6, marker position: upper-right → upper-left → bottom → top → lower-right → lower-left. Next: left.",
+        "from frame 2 onward the arrow points 90° clockwise from the previous marker position. Frames 1–6, arrow direction: 315° clockwise from up → 135° clockwise from up → 45° clockwise from up → 270° clockwise from up → 90° clockwise from up → 225° clockwise from up. Next: 315° clockwise from up.",
+        "the marker colour cycles grey → black → white and repeats. Frames 1–6, marker colour: grey → black → white → grey → black → white. Next: grey.",
+        "the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Frames 1–6, number of bottom dots: 2 → 3 → 4 → 1 → 2 → 3. Next: 4."
+      ],
+      "explanation": "Four relationships apply: the marker's signed clockwise moves are -2, -3, -4, -5, -6, -7 places; add -1 to the signed move each time (negative means anticlockwise); from frame 2 onward the arrow points 90° clockwise from the previous marker position; the marker colour cycles grey → black → white and repeats; the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-02"
     },
     {
-      "id": "a05-03",
+      "id": "a05-03-r2",
       "topic": "Coupled orbit and conditional transformations",
       "difficulty": 3,
       "rules": 4,
@@ -3113,20 +3127,27 @@ EPSO_BANK.registerSet({
       "answer": 4,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "read odd and even frames separately: the marker moves 3 places anticlockwise between consecutive odd frames and 3 places clockwise between consecutive even frames. from frame 2 onward the arrow points 225° clockwise from the previous marker position.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.",
+        "read odd and even frames separately: the marker moves 3 places anticlockwise between consecutive odd frames and 3 places clockwise between consecutive even frames. from frame 2 onward the arrow points 225° clockwise from the previous marker position. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: marker colour is grey; it should be black; number of bottom dots is 2; it should be 3.",
         "Wrong: arrow direction is 180° clockwise from up; it should be 90° clockwise from up.",
         "Wrong: marker position is upper-left; it should be lower-right; arrow direction is 180° clockwise from up; it should be 90° clockwise from up.",
         "Wrong: arrow direction is 180° clockwise from up; it should be 90° clockwise from up; number of bottom dots is 4; it should be 3.",
-        "Correct: all four relationships continue, including the dependency between elements."
+        "Correct: marker position: lower-right; arrow direction: 90° clockwise from up; marker colour: black; number of bottom dots: 3."
       ],
-      "explanation": "Four relationships apply: read odd and even frames separately: the marker moves 3 places anticlockwise between consecutive odd frames and 3 places clockwise between consecutive even frames; from frame 2 onward the arrow points 225° clockwise from the previous marker position; the marker colour cycles black → grey → white and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "read odd and even frames separately: the marker moves 3 places anticlockwise between consecutive odd frames and 3 places clockwise between consecutive even frames. Frames 1–6, marker position: bottom → upper-left → upper-right → right → left → lower-left. Next: lower-right.",
+        "from frame 2 onward the arrow points 225° clockwise from the previous marker position. Frames 1–6, arrow direction: 315° clockwise from up → 45° clockwise from up → 180° clockwise from up → 270° clockwise from up → 315° clockwise from up → 135° clockwise from up. Next: 90° clockwise from up.",
+        "the marker colour cycles black → grey → white and repeats. Frames 1–6, marker colour: black → grey → white → black → grey → white. Next: black.",
+        "the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Frames 1–6, number of bottom dots: 1 → 2 → 3 → 4 → 1 → 2. Next: 3."
+      ],
+      "explanation": "Four relationships apply: read odd and even frames separately: the marker moves 3 places anticlockwise between consecutive odd frames and 3 places clockwise between consecutive even frames; from frame 2 onward the arrow points 225° clockwise from the previous marker position; the marker colour cycles black → grey → white and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-03"
     },
     {
-      "id": "a05-04",
+      "id": "a05-04-r2",
       "topic": "Coupled orbit and conditional transformations",
       "difficulty": 3,
       "rules": 4,
@@ -4136,20 +4157,27 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "use the marker's colour BEFORE a move: white means 3 places clockwise; grey or black means 2 places clockwise. from frame 2 onward the arrow points 135° clockwise from the previous marker position.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.",
+        "use the marker's colour BEFORE a move: white means 3 places clockwise; grey or black means 2 places clockwise. from frame 2 onward the arrow points 135° clockwise from the previous marker position. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: number of bottom dots is 2; it should be 4.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: right; arrow direction: 135° clockwise from up; marker colour: white; number of bottom dots: 4.",
         "Wrong: marker colour is black; it should be white; number of bottom dots is 2; it should be 4.",
         "Wrong: arrow direction is 180° clockwise from up; it should be 135° clockwise from up; number of bottom dots is 2; it should be 4.",
         "Wrong: marker position is upper-left; it should be right; arrow direction is 90° clockwise from up; it should be 135° clockwise from up."
       ],
-      "explanation": "Four relationships apply: use the marker's colour BEFORE a move: white means 3 places clockwise; grey or black means 2 places clockwise; from frame 2 onward the arrow points 135° clockwise from the previous marker position; the marker colour cycles white → black → grey and repeats; the bottom dots cycle 2 → 1 → 4 → 3 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "use the marker's colour BEFORE a move: white means 3 places clockwise; grey or black means 2 places clockwise. Frames 1–6, marker position: bottom → upper-left → upper-right → lower-right → left → top. Next: right.",
+        "from frame 2 onward the arrow points 135° clockwise from the previous marker position. Frames 1–6, arrow direction: 135° clockwise from up → 315° clockwise from up → 90° clockwise from up → 180° clockwise from up → 270° clockwise from up → 45° clockwise from up. Next: 135° clockwise from up.",
+        "the marker colour cycles white → black → grey and repeats. Frames 1–6, marker colour: white → black → grey → white → black → grey. Next: white.",
+        "the bottom dots cycle 2 → 1 → 4 → 3 and repeat. Frames 1–6, number of bottom dots: 2 → 1 → 4 → 3 → 2 → 1. Next: 4."
+      ],
+      "explanation": "Four relationships apply: use the marker's colour BEFORE a move: white means 3 places clockwise; grey or black means 2 places clockwise; from frame 2 onward the arrow points 135° clockwise from the previous marker position; the marker colour cycles white → black → grey and repeats; the bottom dots cycle 2 → 1 → 4 → 3 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-04"
     },
     {
-      "id": "a05-05",
+      "id": "a05-05-r2",
       "topic": "Coupled orbit and conditional transformations",
       "difficulty": 3,
       "rules": 4,
@@ -5159,22 +5187,29 @@ EPSO_BANK.registerSet({
       "answer": 3,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "use the marker's colour BEFORE a move: white turns the arrow 3 places anticlockwise (45° per place); grey or black turns it 2 places clockwise. use the arrow BEFORE that move: if it points along a cardinal direction the marker moves 3 places anticlockwise; if diagonal the marker moves 2 places clockwise.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.",
+        "use the marker's colour BEFORE a move: white turns the arrow 3 places anticlockwise (45° per place); grey or black turns it 2 places clockwise. use the arrow BEFORE that move: if it points along a cardinal direction the marker moves 3 places anticlockwise; if diagonal the marker moves 2 places clockwise. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: marker position is lower-left; it should be lower-right; arrow direction is 225° clockwise from up; it should be 90° clockwise from up.",
         "Wrong: arrow direction is 45° clockwise from up; it should be 90° clockwise from up; number of bottom dots is 4; it should be 3.",
         "Wrong: marker colour is grey; it should be white; number of bottom dots is 2; it should be 3.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: lower-right; arrow direction: 90° clockwise from up; marker colour: white; number of bottom dots: 3.",
         "Wrong: number of bottom dots is 2; it should be 3."
       ],
-      "explanation": "Four relationships apply: use the marker's colour BEFORE a move: white turns the arrow 3 places anticlockwise (45° per place); grey or black turns it 2 places clockwise; use the arrow BEFORE that move: if it points along a cardinal direction the marker moves 3 places anticlockwise; if diagonal the marker moves 2 places clockwise; the marker colour cycles white → black → grey and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "use the marker's colour BEFORE a move: white turns the arrow 3 places anticlockwise (45° per place); grey or black turns it 2 places clockwise. Frames 1–6, arrow direction: 0° clockwise from up → 225° clockwise from up → 315° clockwise from up → 45° clockwise from up → 270° clockwise from up → 0° clockwise from up. Next: 90° clockwise from up.",
+        "use the arrow BEFORE that move: if it points along a cardinal direction the marker moves 3 places anticlockwise; if diagonal the marker moves 2 places clockwise. Frames 1–6, marker position: left → lower-right → lower-left → upper-left → upper-right → left. Next: lower-right.",
+        "the marker colour cycles white → black → grey and repeats. Frames 1–6, marker colour: white → black → grey → white → black → grey. Next: white.",
+        "the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Frames 1–6, number of bottom dots: 1 → 2 → 3 → 4 → 1 → 2. Next: 3."
+      ],
+      "explanation": "Four relationships apply: use the marker's colour BEFORE a move: white turns the arrow 3 places anticlockwise (45° per place); grey or black turns it 2 places clockwise; use the arrow BEFORE that move: if it points along a cardinal direction the marker moves 3 places anticlockwise; if diagonal the marker moves 2 places clockwise; the marker colour cycles white → black → grey and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-05"
     },
     {
-      "id": "a05-06",
-      "topic": "Coupled orbit and conditional transformations",
-      "difficulty": 3,
+      "id": "a05-06-r2",
+      "topic": "Independent orbit tracks",
+      "difficulty": 2,
       "rules": 4,
       "challenge": true,
       "reasoning": {
@@ -6210,20 +6245,27 @@ EPSO_BANK.registerSet({
       "answer": 0,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "marker moves alternate: 3 places anticlockwise, then reflect position p to (6 − p) modulo 8; number the ring clockwise from 0 at the top. from frame 2 onward the arrow points 225° clockwise from the previous marker position.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Try short cycles, fixed steps, alternating steps and separate odd/even tracks before assuming one element controls another.",
+        "the marker can be continued independently using a 4-frame cycle. the arrow can be continued independently using a 4-frame cycle. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: lower-left; arrow direction: 270° clockwise from up; marker colour: black; number of bottom dots: 3.",
         "Wrong: number of bottom dots is 2; it should be 3.",
         "Wrong: marker position is lower-right; it should be lower-left; arrow direction is 45° clockwise from up; it should be 270° clockwise from up.",
         "Wrong: marker colour is white; it should be black; number of bottom dots is 4; it should be 3.",
         "Wrong: marker position is upper-left; it should be lower-left; number of bottom dots is 4; it should be 3."
       ],
-      "explanation": "Four relationships apply: marker moves alternate: 3 places anticlockwise, then reflect position p to (6 − p) modulo 8; number the ring clockwise from 0 at the top; from frame 2 onward the arrow points 225° clockwise from the previous marker position; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 1 → 4 → 3 → 2 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "the marker can be continued independently using a 4-frame cycle. Frames 1–6, marker position: bottom → upper-right → lower-left → right → bottom → upper-right. Next: lower-left.",
+        "the arrow can be continued independently using a 4-frame cycle. Frames 1–6, arrow direction: 315° clockwise from up → 45° clockwise from up → 270° clockwise from up → 90° clockwise from up → 315° clockwise from up → 45° clockwise from up. Next: 270° clockwise from up.",
+        "the marker colour cycles black → white → grey and repeats. Frames 1–6, marker colour: black → white → grey → black → white → grey. Next: black.",
+        "the bottom dots cycle 1 → 4 → 3 → 2 and repeat. Frames 1–6, number of bottom dots: 1 → 4 → 3 → 2 → 1 → 4. Next: 3."
+      ],
+      "explanation": "Four independent tracks suffice for this visible series: the marker can be continued independently using a 4-frame cycle; the arrow can be continued independently using a 4-frame cycle; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 1 → 4 → 3 → 2 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-06"
     },
     {
-      "id": "a05-07",
+      "id": "a05-07-r2",
       "topic": "Coupled orbit and conditional transformations",
       "difficulty": 3,
       "rules": 4,
@@ -7254,22 +7296,29 @@ EPSO_BANK.registerSet({
       "answer": 2,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "the arrow alternates turns of 45° and 135° clockwise (negative means anticlockwise). from frame 2 onward the marker is 270° clockwise from the PREVIOUS arrow direction.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Test whether position and arrow follow separate patterns. If not, compare the current and previous-frame drivers; distinguish a colour gate from an orientation gate.",
+        "the arrow alternates turns of 45° and 135° clockwise (negative means anticlockwise). from frame 2 onward the marker is 270° clockwise from the PREVIOUS arrow direction. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: marker position is right; it should be upper-left; number of bottom dots is 3; it should be 4.",
         "Wrong: arrow direction is 45° clockwise from up; it should be 180° clockwise from up.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: marker position: upper-left; arrow direction: 180° clockwise from up; marker colour: black; number of bottom dots: 4.",
         "Wrong: marker colour is grey; it should be black; number of bottom dots is 1; it should be 4.",
         "Wrong: marker position is bottom; it should be upper-left; number of bottom dots is 3; it should be 4."
       ],
-      "explanation": "Four relationships apply: the arrow alternates turns of 45° and 135° clockwise (negative means anticlockwise); from frame 2 onward the marker is 270° clockwise from the PREVIOUS arrow direction; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "the arrow alternates turns of 45° and 135° clockwise (negative means anticlockwise). Frames 1–6, arrow direction: 0° clockwise from up → 45° clockwise from up → 180° clockwise from up → 225° clockwise from up → 0° clockwise from up → 45° clockwise from up. Next: 180° clockwise from up.",
+        "from frame 2 onward the marker is 270° clockwise from the PREVIOUS arrow direction. Frames 1–6, marker position: top → left → upper-left → right → lower-right → left. Next: upper-left.",
+        "the marker colour cycles black → white → grey and repeats. Frames 1–6, marker colour: black → white → grey → black → white → grey. Next: black.",
+        "the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Frames 1–6, number of bottom dots: 2 → 3 → 4 → 1 → 2 → 3. Next: 4."
+      ],
+      "explanation": "Four relationships apply: the arrow alternates turns of 45° and 135° clockwise (negative means anticlockwise); from frame 2 onward the marker is 270° clockwise from the PREVIOUS arrow direction; the marker colour cycles black → white → grey and repeats; the bottom dots cycle 2 → 3 → 4 → 1 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-07"
     },
     {
-      "id": "a05-08",
-      "topic": "Coupled orbit and conditional transformations",
-      "difficulty": 3,
+      "id": "a05-08-r2",
+      "topic": "Independent orbit tracks",
+      "difficulty": 2,
       "rules": 4,
       "challenge": true,
       "reasoning": {
@@ -8277,20 +8326,27 @@ EPSO_BANK.registerSet({
       "answer": 4,
       "hints": [
         "Separate position, direction, colour and dot count. Check whether a move depends on a different element or the previous frame.",
-        "the marker moves 3 places anticlockwise each frame. measure the arrow clockwise relative to the marker: its signed changes are -45, 0, 45, 90, 135, 180 degrees; the increment changes by 45° each time.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Try short cycles, fixed steps, alternating steps and separate odd/even tracks before assuming one element controls another.",
+        "the marker can be continued independently using a fixed signed step. the arrow can be continued independently using a steadily changing signed step. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: marker position is left; it should be top; number of bottom dots is 2; it should be 3.",
         "Wrong: arrow direction is 315° clockwise from up; it should be 180° clockwise from up.",
         "Wrong: marker colour is black; it should be grey; number of bottom dots is 2; it should be 3.",
         "Wrong: marker position is lower-left; it should be top; number of bottom dots is 4; it should be 3.",
-        "Correct: all four relationships continue, including the dependency between elements."
+        "Correct: marker position: top; arrow direction: 180° clockwise from up; marker colour: grey; number of bottom dots: 3."
       ],
-      "explanation": "Four relationships apply: the marker moves 3 places anticlockwise each frame; measure the arrow clockwise relative to the marker: its signed changes are -45, 0, 45, 90, 135, 180 degrees; the increment changes by 45° each time; the marker colour cycles grey → black → white and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "the marker can be continued independently using a fixed signed step. Frames 1–6, marker position: right → upper-left → bottom → upper-right → left → lower-right. Next: top.",
+        "the arrow can be continued independently using a steadily changing signed step. Frames 1–6, arrow direction: 225° clockwise from up → 45° clockwise from up → 270° clockwise from up → 180° clockwise from up → 135° clockwise from up → 135° clockwise from up. Next: 180° clockwise from up.",
+        "the marker colour cycles grey → black → white and repeats. Frames 1–6, marker colour: grey → black → white → grey → black → white. Next: grey.",
+        "the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Frames 1–6, number of bottom dots: 1 → 2 → 3 → 4 → 1 → 2. Next: 3."
+      ],
+      "explanation": "Four independent tracks suffice for this visible series: the marker can be continued independently using a fixed signed step; the arrow can be continued independently using a steadily changing signed step; the marker colour cycles grey → black → white and repeats; the bottom dots cycle 1 → 2 → 3 → 4 and repeat. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-08"
     },
     {
-      "id": "a05-09",
+      "id": "a05-09-r2",
       "topic": "Rotating binary panels and composition",
       "difficulty": 3,
       "rules": 4,
@@ -9474,20 +9530,27 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "hints": [
         "Track each mini-grid separately. Then compare corresponding cells across the three grids within a frame; also follow the bottom arrow.",
-        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. the middle mini-grid turns 90° clockwise each frame.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Compare matching cells within each frame. Does black mean either input is black, or exactly one? Check whether the bottom arrow controls a preliminary turn.",
+        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. the middle mini-grid turns 90° clockwise each frame. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: left mini-grid is [black, black, black, white] in reading order; it should be [white, black, white, white] in reading order; right mini-grid is [white, black, black, black] in reading order; it should be [white, white, white, black] in reading order.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: left mini-grid: [white, black, white, white] in reading order; middle mini-grid: [white, black, white, black] in reading order; right mini-grid: [white, white, white, black] in reading order; bottom arrow: 90° clockwise from up.",
         "Wrong: middle mini-grid is [black, white, white, black] in reading order; it should be [white, black, white, black] in reading order; bottom arrow is 180° clockwise from up; it should be 90° clockwise from up.",
         "Wrong: left mini-grid is [black, black, white, black] in reading order; it should be [white, black, white, white] in reading order; right mini-grid is [black, black, black, black] in reading order; it should be [white, white, white, black] in reading order.",
         "Wrong: right mini-grid is [black, black, black, black] in reading order; it should be [white, white, white, black] in reading order."
       ],
-      "explanation": "Four relationships apply: The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn; the middle mini-grid turns 90° clockwise each frame; in each frame the right mini-grid is black exactly where one, but not both, of the first two grids is black (exclusive-or); the bottom arrow turns 90° anticlockwise each frame. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. Frames 1–6, left mini-grid: [white, white, white, black] in reading order → [white, black, white, white] in reading order → [white, white, black, white] in reading order → [black, white, white, white] in reading order → [black, white, white, white] in reading order → [white, white, black, white] in reading order. Next: [white, black, white, white] in reading order.",
+        "the middle mini-grid turns 90° clockwise each frame. Frames 1–6, middle mini-grid: [black, white, black, white] in reading order → [black, black, white, white] in reading order → [white, black, white, black] in reading order → [white, white, black, black] in reading order → [black, white, black, white] in reading order → [black, black, white, white] in reading order. Next: [white, black, white, black] in reading order.",
+        "in each frame the right mini-grid is black exactly where one, but not both, of the first two grids is black (exclusive-or). Frames 1–6, right mini-grid: [black, white, black, black] in reading order → [black, white, white, white] in reading order → [white, black, black, black] in reading order → [black, white, black, black] in reading order → [white, white, black, white] in reading order → [black, black, black, white] in reading order. Next: [white, white, white, black] in reading order. A corresponding cell is black only when the two inputs differ.",
+        "the bottom arrow turns 90° anticlockwise each frame. Frames 1–6, bottom arrow: 270° clockwise from up → 180° clockwise from up → 90° clockwise from up → 0° clockwise from up → 270° clockwise from up → 180° clockwise from up. Next: 90° clockwise from up."
+      ],
+      "explanation": "Four relationships apply: The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn; the middle mini-grid turns 90° clockwise each frame; in each frame the right mini-grid is black exactly where one, but not both, of the first two grids is black (exclusive-or); the bottom arrow turns 90° anticlockwise each frame. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-09"
     },
     {
-      "id": "a05-10",
+      "id": "a05-10-r2",
       "topic": "Rotating binary panels and composition",
       "difficulty": 3,
       "rules": 4,
@@ -10671,17 +10734,24 @@ EPSO_BANK.registerSet({
       "answer": 3,
       "hints": [
         "Track each mini-grid separately. Then compare corresponding cells across the three grids within a frame; also follow the bottom arrow.",
-        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. the middle mini-grid turns 90° clockwise each frame.",
-        "Predict all four features before choosing. Matching only one feature leaves several options."
+        "Compare matching cells within each frame. Does black mean either input is black, or exactly one? Check whether the bottom arrow controls a preliminary turn.",
+        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. the middle mini-grid turns 90° clockwise each frame. Predict the remaining colour/count or panel features before choosing."
       ],
       "optionNotes": [
         "Wrong: middle mini-grid is [white, black, white, white] in reading order; it should be [black, black, white, white] in reading order; bottom arrow is 0° clockwise from up; it should be 270° clockwise from up.",
         "Wrong: left mini-grid is [black, black, white, black] in reading order; it should be [white, black, white, white] in reading order; right mini-grid is [white, white, white, black] in reading order; it should be [black, black, white, black] in reading order.",
         "Wrong: middle mini-grid is [white, black, white, white] in reading order; it should be [black, black, white, white] in reading order; right mini-grid is [white, white, black, white] in reading order; it should be [black, black, white, black] in reading order.",
-        "Correct: all four relationships continue, including the dependency between elements.",
+        "Correct: left mini-grid: [white, black, white, white] in reading order; middle mini-grid: [black, black, white, white] in reading order; right mini-grid: [black, black, white, black] in reading order; bottom arrow: 270° clockwise from up.",
         "Wrong: right mini-grid is [white, black, white, black] in reading order; it should be [black, black, white, black] in reading order."
       ],
-      "explanation": "Four relationships apply: The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn; the middle mini-grid turns 90° clockwise each frame; in each frame first turn the left grid 90° clockwise, then combine its black cells with those of the middle grid: a cell in the right grid is black if either input is black; the bottom arrow turns 90° anticlockwise each frame. Infer from every displayed frame; do not choose from option similarity alone."
+      "solution": [
+        "The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn. Frames 1–6, left mini-grid: [white, white, white, black] in reading order → [white, black, white, white] in reading order → [white, white, black, white] in reading order → [black, white, white, white] in reading order → [black, white, white, white] in reading order → [white, white, black, white] in reading order. Next: [white, black, white, white] in reading order.",
+        "the middle mini-grid turns 90° clockwise each frame. Frames 1–6, middle mini-grid: [white, white, black, black] in reading order → [black, white, black, white] in reading order → [black, black, white, white] in reading order → [white, black, white, black] in reading order → [white, white, black, black] in reading order → [black, white, black, white] in reading order. Next: [black, black, white, white] in reading order.",
+        "in each frame first turn the left grid 90° clockwise, then combine its black cells with those of the middle grid: a cell in the right grid is black if either input is black. Frames 1–6, right mini-grid: [white, white, black, black] in reading order → [black, white, black, black] in reading order → [black, black, white, white] in reading order → [white, black, white, black] in reading order → [white, black, black, black] in reading order → [black, white, black, white] in reading order. Next: [black, black, white, black] in reading order. A corresponding cell is black when at least one input is black, including when both are black.",
+        "the bottom arrow turns 90° anticlockwise each frame. Frames 1–6, bottom arrow: 90° clockwise from up → 0° clockwise from up → 270° clockwise from up → 180° clockwise from up → 90° clockwise from up → 0° clockwise from up. Next: 270° clockwise from up."
+      ],
+      "explanation": "Four relationships apply: The left mini-grid turns anticlockwise by 90°, then 180°, then 270°, then 360° (a full turn), then 90° again; the turn increases by 90° each time modulo a full turn; the middle mini-grid turns 90° clockwise each frame; in each frame first turn the left grid 90° clockwise, then combine its black cells with those of the middle grid: a cell in the right grid is black if either input is black; the bottom arrow turns 90° anticlockwise each frame. Check every displayed transition; option similarity alone does not establish a rule.",
+      "supersedes": "a05-10"
     }
   ]
 });

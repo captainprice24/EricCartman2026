@@ -10,10 +10,11 @@ const run = file => vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8
 run('questions/registry.js'); run('questions/manifest.js'); box.EPSO_BANK = box.window.EPSO_BANK;
 box.window.EPSO_SET_FILES.filter(f => f.startsWith('numerical/')).forEach(f => run('questions/' + f));
 const sets = box.EPSO_BANK.sets, levels = ['', 'Easy', 'Medium', 'Hard'];
+const historical = JSON.parse(fs.readFileSync(path.join(root, 'scripts/generators/numerical-review-revisions.json'))).baseline;
 const items = sets.flatMap(s => s.questions.map(q => ({
   id: q.id, set: s.id, level: levels[numericalDifficulty(q)], challenge: !!q.challenge, topic: q.topic,
   reasoningStages: numericalRubric(q).stages, rationale: numericalRubric(q).reason,
-  workloadScore: numericalScore(q), oldMechanicalLevel: q.challenge ? null : levels[numericalScore(q) <= 2 ? 1 : numericalScore(q) <= 4 ? 2 : 3],
+  workloadScore: numericalScore(q), oldMechanicalLevel: q.challenge ? null : (historical[q.supersedes] || historical[q.id]).oldMechanicalLevel,
   fillerDistractors: q.optionNotes.filter(n => /not derived from a typical mistake/i.test(n)).length
 })));
 const counts = qs => [1, 2, 3].map(d => qs.filter(q => q.difficulty === d).length);
@@ -34,7 +35,7 @@ const lines = [
   `| Original bank after review | ${levels.slice(1).map(l => old.filter(q => q.level === l).length).join(' | ')} | ${old.length} |`,
   `| Challenge sets | 0 | 0 | ${items.length-old.length} | ${items.length-old.length} |`,
   `| Current bank | ${Object.values(inventory.totals).join(' | ')} | ${items.length} |`, '',
-  `${old.filter(q => q.level !== q.oldMechanicalLevel).length} existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. \`scripts/generators/numerical-revisions.json\` records superseded IDs and immutable content hashes. The original forty challenge items are unchanged; sets 09–11 add thirty items across ten further models.`, '',
+  `${old.filter(q => q.level !== q.oldMechanicalLevel).length} existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. \`scripts/generators/numerical-revisions.json\` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.`, '',
   '## Sets', '', '| Set | Easy | Medium | Hard | Purpose |', '|---|---:|---:|---:|---|',
   ...sets.map(s => `| ${s.id} | ${counts(s.questions).join(' | ')} | ${s.challenge ? 'Very hard; 10 questions / 20-minute timed practice' : 'Mixed foundation and exam practice'} |`), '',
   'Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 questions and timed practice for a complete challenge round. The selector applies only to numerical training; random simulations keep the unseen-first difficulty mix. The fixed full-test library assigns non-overlapping questions, with the new challenge content in tests 13–15.', '',

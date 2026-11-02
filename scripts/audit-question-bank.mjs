@@ -36,7 +36,7 @@ const evidence = {
  verbalSemanticSample: { ids: verbalSample, method: 'Original author sample retained for continuity; archived independent blind review covers the foundation and challenge collections; see docs/VERBAL_AUDIT.md and the expansion-15 archive. See docs/research/verbal/blind-review/legacy/.' },
  verificationCoverage: { numericalIndependentKeys: numerical.length, abstractIndependentChallengeKeys: questions.filter(q => q.section === 'abstract' && q.challenge).length,
   verbalArchivedBlindKeys: questions.filter(q => q.section === 'verbal').length, verbalArchivedBlindLabels: questions.filter(q => q.section === 'verbal').reduce((sum, q) => sum + q.options.length - 1, 0),
-  legacyAbstractSemanticKeysNotNewlyResolved: 150, legacyVerbalItemsWithoutNewCompleteBlindReview: 0 }
+  legacyAbstractSemanticKeysNotNewlyResolved: 0, abstractIndependentFoundationKeys: 150, legacyVerbalItemsWithoutNewCompleteBlindReview: 0 }
 };
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 try {

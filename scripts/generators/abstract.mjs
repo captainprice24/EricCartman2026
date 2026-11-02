@@ -1,4 +1,5 @@
-// Generates every abstract reasoning set (questions/abstract/abstract-set-01…04.js, 150 foundation items plus 40 challenge items).
+import { reviewedAbstract } from './abstract-review-revision.mjs';
+// Generates every abstract reasoning set (questions/abstract/abstract-set-01…04.js, 150 foundation items plus 70 challenge items).
 //
 // Five layouts, 30 items each: single figure, grid movement, overlapping shapes, divided circle and
 // rotating hands. Foundation items run 2–4 independent rules; difficulty follows abstract-difficulty.mjs. Other elements
@@ -52,32 +53,26 @@ const cycle = (what, values, periods = [2, 3], label = (v) => v) => () => {
   const p = pick(periods.filter((x) => x <= values.length));
   const cyc = shuffle(values).slice(0, p);
   const val = (i) => cyc[i % p];
-  return {
-    val,
-    wrong: keepWrong([
-      { v: val(4), note: `${what} repeats the previous frame` },
-      { v: val(6), note: `${what} skips a step in its cycle` },
-      ...values.filter((v) => !cyc.includes(v)).map((v) => ({ v, note: `${what} is ${label(v)}, which never appears in the series` }))
-    ], val(5)),
-    describe: `${what} follows a cycle of ${p}: ${cyc.join(" → ")}`
-  };
+  const wrongAt = (i) => keepWrong([
+    { v: val(i - 1), note: `${what} repeats the previous frame` },
+    { v: val(i + 1), note: `${what} skips a step in its cycle` },
+    ...values.filter((v) => !cyc.includes(v)).map((v) => ({ v, note: `${what} is ${label(v)}, which never appears in the series` }))
+  ], val(i));
+  return { val, wrong: wrongAt(5), wrongAt, describe: `${what} follows a cycle of ${p}: ${cyc.join(" → ")}` };
 };
 
 // A position on a ring of n places (corners, sides, cells around the grid edge, segments).
 const ring = (what, n, steps, stepText) => () => {
   const step = pick(steps), start = ri(0, n - 1);
   const val = (i) => mod(start + step * i, n);
-  return {
-    val,
-    wrong: keepWrong([
-      { v: val(4), note: `${what} has not moved` },
-      { v: val(6), note: `${what} moves two steps at once` },
-      { v: mod(val(4) - step, n), note: `${what} moves the wrong way` },
-      { v: mod(val(5) - Math.sign(step), n), note: `${what} stops one place short` },
-      { v: mod(val(5) + Math.sign(step), n), note: `${what} goes one place too far` }
-    ], val(5)),
-    describe: `${what} moves ${stepText(step)} each step`
-  };
+  const wrongAt = (i) => keepWrong([
+    { v: val(i - 1), note: `${what} has not moved` },
+    { v: val(i + 1), note: `${what} moves two steps at once` },
+    { v: mod(val(i - 1) - step, n), note: `${what} moves the wrong way` },
+    { v: mod(val(i) - Math.sign(step), n), note: `${what} stops one place short` },
+    { v: mod(val(i) + Math.sign(step), n), note: `${what} goes one place too far` }
+  ], val(i));
+  return { val, wrong: wrongAt(5), wrongAt, describe: `${what} moves ${stepText(step)} each step` };
 };
 const dirWord = (s) => (s > 0 ? "clockwise" : "anticlockwise");
 const placeSteps = (unit, opposite) => (s) => (opposite && Math.abs(s) === 2 ? `to the opposite ${unit}` : `${WORD[Math.abs(s)]} ${unit}${Math.abs(s) > 1 ? "s" : ""} ${dirWord(s)}`);
@@ -230,11 +225,13 @@ const SIDES = [[50, 10], [93, 50], [50, 90], [7, 50]]; // top, right, bottom, le
 const frontRule = () => {
   const s = pick(["left", "right"]), o = s === "left" ? "right" : "left";
   const p = pick([
-    { seq: [s, o, s, o, s, o], describe: "the two shapes take turns to be in front" },
-    { seq: [s, s, o, o, s, s], describe: "the shape in front changes every two frames" },
-    { seq: [s, s, o, s, s, o], describe: `the ${o} shape comes to the front in every third frame` }
+    { period: 2, seq: [s, o, s, o, s, o], describe: "the two shapes take turns to be in front" },
+    { period: 4, seq: [s, s, o, o, s, s], describe: "the shape in front changes every two frames" },
+    { period: 3, seq: [s, s, o, s, s, o], describe: `the ${o} shape comes to the front in every third frame` }
   ]);
-  return { val: (i) => p.seq[i], wrong: [{ v: p.seq[5] === "left" ? "right" : "left", note: "the wrong shape is in front" }], describe: p.describe };
+  const val = (i) => p.seq[i % p.period];
+  const wrongAt = (i) => [{ v: val(i) === "left" ? "right" : "left", note: "the wrong shape is in front" }];
+  return { val, wrong: wrongAt(5), wrongAt, describe: p.describe };
 };
 const overlap = {
   topic: "Overlapping shapes",
@@ -331,19 +328,20 @@ function buildItem(layoutKey, nRules, target) {
   const trackKeys = Object.keys(L.tracks);
   const keys = shuffle(trackKeys).slice(0, nRules);
   const rules = Object.fromEntries(keys.map((k) => [k, L.tracks[k].rule(ctx)]));
+  const nextIndex = rules.front?.describe.includes("every third frame") ? 6 : 5;
   const base = L.constants(ctx);
   const state = (i, over = {}) => {
     const s = { ...base };
     keys.forEach((k) => { s[k] = rules[k].val(i); });
     return { ...s, ...over };
   };
-  for (let i = 0; i <= 5; i++) if (L.valid && !L.valid(state(i), ctx)) return null;
+  for (let i = 0; i <= nextIndex; i++) if (L.valid && !L.valid(state(i), ctx)) return null;
   const draw = (st) => L.draw(st, ctx);
-  const keyState = state(5), keyFig = draw(keyState), keySig = JSON.stringify(keyFig);
+  const keyState = state(nextIndex), keyFig = draw(keyState), keySig = JSON.stringify(keyFig);
 
   // Candidate distractors: single breaks (rule or constant element) and pairs of breaks.
   const singles = [];
-  keys.forEach((k) => rules[k].wrong.forEach((w) => singles.push({ over: { [k]: w.v }, notes: [w.note], rule: true })));
+  keys.forEach((k) => (rules[k].wrongAt ? rules[k].wrongAt(nextIndex) : rules[k].wrong).forEach((w) => singles.push({ over: { [k]: w.v }, notes: [w.note], rule: true })));
   trackKeys.filter((k) => !keys.includes(k) && base[k] !== null).forEach((k) => {
     L.tracks[k].domain(ctx).filter((v) => !same(v, base[k])).forEach((v) =>
       singles.push({ over: { [k]: v }, notes: [`${L.tracks[k].name} changes, although it is the same in every frame`], rule: false }));
@@ -359,7 +357,7 @@ function buildItem(layoutKey, nRules, target) {
   const seenSig = new Set([keySig]);
   const pool = [];
   for (const c of [...singles, ...doubles]) {
-    const st = state(5, c.over);
+    const st = state(nextIndex, c.over);
     if (L.valid && !L.valid(st, ctx)) continue;
     const fig = draw(st), sig = JSON.stringify(fig);
     if (seenSig.has(sig)) continue;
@@ -392,18 +390,33 @@ function buildItem(layoutKey, nRules, target) {
     if (target !== 5 && asums[0] === Math.max(...asums)) continue;
 
     const names = keys.map((k) => L.tracks[k].name);
+    const labelValue = (k,v) => {
+      if (["arrow","long","short"].includes(k)) return `${v}° clockwise from up`;
+      if (layoutKey === "grid" && k === "circle") return CELL_NAMES[PERIM[v]];
+      if (layoutKey === "grid" && ["star","shade"].includes(k)) return CELL_NAMES[v];
+      if (layoutKey === "single" && k === "corner") return ["upper-left","upper-right","lower-right","lower-left"][v];
+      if (layoutKey === "single" && k === "slot") return ["left","middle","right"][v];
+      if (layoutKey === "segments" && ["black","grey"].includes(k)) return `segment ${v + 1} of ${ctx.n}, counted clockwise from the top boundary`;
+      if (["overlap","segments"].includes(layoutKey) && k === "marker") return ["top","right","bottom","left"][v];
+      return String(v);
+    };
+    const predictions = names.map((name,i) => `${name}: ${labelValue(keys[i],keyState[keys[i]])}`);
+    const constants = trackKeys.filter(k => !keys.includes(k) && base[k] !== null);
+    const solution = keys.map(k => `${rules[k].describe}. Frames 1–${nextIndex}: ${range(nextIndex).map(i => labelValue(k,state(i)[k])).join(" → ")}. Next: ${labelValue(k,keyState[k])}.`);
+    if (constants.length) solution.push("Keep the constant features unchanged: " + constants.map(k => `${L.tracks[k].name}: ${labelValue(k,base[k])}`).join("; ") + ".");
     return {
       topic: L.topic, rules: nRules,
       stem: "Which figure comes next in the series?",
-      sequence: [0, 1, 2, 3, 4].map((i) => draw(state(i))),
-      options: [{ fig: keyFig, note: "Correct: it follows every rule, and the elements without a rule are unchanged." }]
+      sequence: range(nextIndex).map((i) => draw(state(i))),
+      options: [{ fig: keyFig, note: "Correct: " + predictions.join("; ") + ". Constant features stay unchanged." }]
         .concat(ds.map((c) => ({ fig: c.fig, note: `Wrong: ${c.notes.length > 1 ? c.notes.join(", and ") : c.notes[0]}.` }))),
       hints: [
-        `Look at each element separately: ${L.elements}. Some change from frame to frame; others never change.`,
+        `Separate the visible features: ${trackKeys.filter(k => base[k] !== null || keys.includes(k)).map(k => L.tracks[k].name).join(", ")}. Which change, and which stay fixed?`,
         `${NUMCAP[nRules]} elements follow a rule: ${names.join(", ")}. Work out each rule and predict the next frame before you look at the options.`,
-        "Check every option against every rule, including the elements that never change. A wrong option can break one rule or several."
+        "Use the rules to eliminate efficiently, then check the surviving option also preserves constant features."
       ],
-      explanation: `${NUMCAP[nRules]} independent rules apply: ${keys.map((k) => rules[k].describe).join("; ")}. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; looking for the option that resembles the others most does not work.`
+      solution,
+      explanation: `${NUMCAP[nRules]} independent rules apply: ${keys.map((k) => rules[k].describe).join("; ")}. Everything else stays the same in every frame. Predict the answer from the series, then eliminate; option similarity alone is not evidence of a rule.`
     };
   }
   return null;
@@ -416,7 +429,9 @@ const targets = [];
 for (let b = 0; b < N / 5; b++) targets.push(...shuffle([1, 2, 3, 4, 5]));
 const seen = new Set();
 let retries = 0;
+const itemSeeds = JSON.parse(fs.readFileSync(path.join(root, "scripts/generators/abstract-seeds.json")));
 const items = range(N).map((i) => {
+  seed = itemSeeds[i];
   const layout = LAYOUT_KEYS[i % LAYOUT_KEYS.length];
   const n = i % 4 === 0 ? 2 : i % 4 === 3 ? 4 : 3; // 25% two rules, 50% three, 25% four
   for (let attempt = 0; attempt < 400; attempt++) {
@@ -437,12 +452,12 @@ const sizes = [10, 50, 50, 40];
 let start = 0;
 sizes.forEach((size, si) => {
   const n = si + 1, id = String(n).padStart(2, "0");
-  const qs = items.slice(start, start + size).map((q, k) => ({
+  const qs = items.slice(start, start + size).map((q, k) => reviewedAbstract({
     id: `a${id}-${String(k + 1).padStart(2, "0")}`, topic: q.topic, difficulty: q.difficulty, rules: q.rules, stem: q.stem,
-    sequence: q.sequence, options: q.options, answer: q.answer, hints: q.hints, optionNotes: q.optionNotes, explanation: q.explanation
+    sequence: q.sequence, options: q.options, answer: q.answer, hints: q.hints, optionNotes: q.optionNotes, explanation: q.explanation, solution: q.solution
   }));
   start += size;
-  const set = { id: "abstract-" + id, section: "abstract", title: `Abstract reasoning · Set ${n}`, description: `${size} figure series in five layouts, combining 2–4 rules (generated).`, version: 3 };
+  const set = { id: "abstract-" + id, section: "abstract", title: `Abstract reasoning · Set ${n}`, description: `${size} figure series in five layouts, combining 2–4 rules (generated).`, version: 4 };
   const body = JSON.stringify({ ...set, questions: [] }, null, 2).replace('"questions": []', '"questions": [\n' +
     qs.map((q) => "    {\n" + Object.entries(q).map(([k, v]) =>
       k === "sequence" || k === "options"

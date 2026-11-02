@@ -1,0 +1,13 @@
+[
+  {
+    "id": "v12-10-r2",
+    "passage": "A fictional health network defines usable reserve stock as material that is unexpired, has passed quality release and is not already committed to an appointment. The monthly dashboard reports physical stock separately from usable reserve. Moving a package into the central warehouse changes its location but does not establish quality release or remove an existing commitment.\n\nThe central warehouse received 800 packages at the end of March. Of these, 200 awaited quality release and 300 were committed to April appointments. The report does not state the overlap between those groups or the expiry status of the remaining packages. It states that packages awaiting release cannot be used for appointments, even when already booked. Staff must substitute released stock or reschedule the appointment.\n\nPackage-level checking established that exactly 100 packages were in both the pending-release and committed groups. All packages outside the pending-release group had passed quality release. Of the packages in neither excluded group, 150 were confirmed unexpired. Expiry for the others in that remainder was unresolved. These findings concern the same 800-package delivery, and no package was distributed or newly committed before the reserve snapshot. The controller has not inferred expiry from the absence of a flag and has reported each confirmed condition separately.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Usable reserve is bounded between 150 and 400 packages; the known overlap fixes the excluded union but not the remaining expiry status.",
+      "The reserve contains exactly 300 packages, because subtracting both excluded totals avoids counting pending commitments as usable stock.",
+      "Every one of the 400 packages outside both excluded groups is usable, since pending release and appointment commitments are the only recorded exclusions.",
+      "The 150 confirmed unexpired packages were predominantly intended for emergency appointments rather than the already committed April appointments."
+    ]
+  }
+]

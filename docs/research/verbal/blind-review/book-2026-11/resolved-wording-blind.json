@@ -1,0 +1,35 @@
+[
+  {
+    "id": "v05-19-r2",
+    "passage": "In 2015, a large collaboration of researchers published in the journal Science the results of an attempt to repeat 100 experiments that had appeared in three leading psychology journals. Whereas 97 of the original studies had reported statistically significant results, only about 36% of the replications did, and the effects found in the replications were on average about half the size of the original ones. The project did not show that the original findings were wrong: a single failed replication can itself be a false negative, and some replications differed from the originals in their samples or procedures.\n\nNevertheless, the results, together with similar projects in economics and cancer biology, fuelled a debate about a 'replication crisis'. Several causes have been proposed. Journals have tended to favour novel and positive findings, so studies with null results often remain unpublished. Small samples make estimates unstable. Researchers can also, often without any intention to deceive, try several analyses and report the one that crosses the threshold of statistical significance, a practice known as p-hacking.\n\nReforms have followed. In preregistration, researchers publicly record their hypotheses and analysis plan before collecting data. Some journals now offer 'registered reports', giving in-principle acceptance based on design before results are known, with final publication subject to faithful execution and quality checks. Supporters argue that these measures reduce bias, while sceptics worry that they may discourage exploratory research.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "The 2015 project demonstrated that most of the findings published in psychology journals are false.",
+      "Positive results cannot sway initial acceptance of a registered report before outcomes are known.",
+      "Preregistration of hypotheses is now a condition for publication in most psychology journals.",
+      "Supporters claim that preregistration and registered reports eliminate bias from published research."
+    ]
+  },
+  {
+    "id": "v10-07-r2",
+    "passage": "A fictional packaging standard recognises three certification classes. All class P products have passed a pressure test. The test-based waiver route requires both pressure testing and an independent seal check. Class Q registration, by contrast, concerns the maker's reporting system and says nothing about either test. Products can hold more than one class at once.\n\nNo product containing liquid can use the ordinary paperwork-only waiver route. Other products can obtain such a waiver without pressure testing if their paperwork is complete. The register records that a product has a waiver, but does not identify the route used. It records certification classes separately, and the absence of a class Q entry is not evidence that testing failed. The authority registered 90 products in the latest quarter, with overlapping categories.\n\nProduct Pine contains liquid and has an ordinary transport waiver valid for its present shipment. The authority confirms that the waiver was granted through one of the stated routes, with no special dispensation. Pine's class P and Q fields have not been published. Product Cedar is known to hold class P and class Q, but no seal-check finding or waiver decision for Cedar has been released. Both products have completed the maker's internal inspection, a procedure separate from the independent seal check.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Cedar's two published classes establish the independent seal check, so its waiver status can be inferred without a separate decision.",
+      "Pine's waiver entails both tests; Cedar's two classes establish pressure testing and reporting, but do not establish its waiver.",
+      "Every waived product is pressure-tested, since the paperwork-only route is unavailable for the liquid carried in Pine's shipment.",
+      "The standard forbids a product from holding class P and class Q at once, because the two classes cover incompatible routes."
+    ]
+  },
+  {
+    "id": "v11-07-r2",
+    "passage": "A fictional park programme offers evening access to residents with either a local keycard or a permit from a participating school. Every local keycard holder has completed an identity check. A school permit can be issued without that check, but everyone entering on a school permit must enter with a named supervisor from the programme's roster present, including adult permit-holders. Holding both documents is permitted.\n\nAdults can enter without a supervisor when using a local keycard. Children require a rostered supervisor regardless of entry document. A supervisor's presence does not by itself confer an entry document. The gate log lists lawful evening admissions and ages but does not identify the document used. It does not record identity checks or distinguish group visits from solo visits.\n\nThe log includes an adult, Orla, lawfully admitted without any rostered supervisor present, and a child, Ren, lawfully admitted with a supervisor. Orla's and Ren's document files are not released. The programme confirms that no admission used an exception or a document other than the two stated kinds. Their names are not sufficient to identify relationships to the participating schools. The report gives no evidence about whether Ren held one entry document or both, or whether Ren had independently completed an identity check.",
+    "stem": "Which of the following statements is correct?",
+    "options": [
+      "Even an entrant using only a school permit must have completed an identity check, because both entry routes require it.",
+      "Orla's entry entails a keycard and identity check; Ren's supervisor does not distinguish the two permissible entry routes.",
+      "Children entering on a local keycard need no rostered supervisor, so Ren's accompanying supervisor establishes use of a school permit.",
+      "Orla was unrelated to the participating schools because an adult without a supervisor could not have any connection to their permit arrangements."
+    ]
+  }
+]

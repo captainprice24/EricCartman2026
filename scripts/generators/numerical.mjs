@@ -1,3 +1,4 @@
+import { reviewedRevision } from './numerical-review-revision.mjs';
 import { generateExpansion } from './numerical-expansion.mjs';
 // Generates all 190 numerical items: legacy Sets 1–4 and challenge Sets 5–8.
 // Each item is computed here: answer, mistake-based distractors and worked solution come from the same numbers.
@@ -149,7 +150,7 @@ T.shareCombined = (c) => {
     ],
     hints: ["Use only the column the question asks about.", "Add the two countries, then divide by the total of all six."],
     solution: [`${names[x]} + ${names[y]} = ${group(rows[x][c.col], 1)} + ${group(rows[y][c.col], 1)} = ${group(rows[x][c.col] + rows[y][c.col], 1)}`, `Total of six = ${rows.map((r) => group(r[c.col], 1)).join(" + ")} = ${group(tot, 1)}`, `Share = ${group(rows[x][c.col] + rows[y][c.col], 1)} ÷ ${group(tot, 1)} × 100 = ${group(correct, 2)}%`],
-    explanation: "Locate the right column and the right base. Distractors use the neighbouring column or the wrong denominator."
+    explanation: "Locate the named countries and the requested column, then divide their combined amount by the total for all six. Wrong options may substitute another country, column or denominator; check the option-specific explanation."
   };
 };
 
@@ -172,7 +173,7 @@ T.perCapitaChange = (c) => {
       ...rows.map((r, i) => ({ v: ((r[1] / r[3]) / (r[0] / r[2]) - 1) * 100, note: `This is the change for ${names[i]}.` })).filter((d, i) => i !== x)
     ],
     hints: ["Compute GDP per inhabitant for both years first.", "Then calculate the percentage change between the two per-capita values."],
-    solution: [`2020: ${g0} ÷ ${p0} = ${group(g0 / p0, 3)} (EUR thousand per person)`, `2023: ${g1} ÷ ${p1} = ${group(g1 / p1, 3)}`, `Change = ${group(g1 / p1, 3)} ÷ ${group(g0 / p0, 3)} − 1 = ${group(correct, 2)}%`],
+    solution: [`2020: ${g0} ÷ ${p0} = ${group(g0 / p0, 3)} (EUR thousand per person)`, `2023: ${g1} ÷ ${p1} = ${group(g1 / p1, 3)}`, `Change = ((${g1} ÷ ${p1}) ÷ (${g0} ÷ ${p0}) − 1) × 100 ≈ ${group(correct, 2)}%`],
     explanation: "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
   };
 };
@@ -260,7 +261,7 @@ T.currency = (c) => {
       { v: amt * rates[ai][d] / rates[bi][d], note: "This reverses the cross-rate, multiplying by the source rate and dividing by the destination rate." }
     ],
     hints: ["Use only the column for the date in the question.", `Divide by the ${cur[ai][0]} rate to get euros, then multiply by the ${cur[bi][0]} rate.`],
-    solution: [`${group(amt)} ÷ ${rates[ai][d]} = EUR ${group(amt / rates[ai][d], 2)}`, `× ${rates[bi][d]} = ${cur[bi][0]} ${group(correct, 2)}`],
+    solution: [`${group(amt)} ÷ ${rates[ai][d]} = EUR ${group(amt / rates[ai][d], 2)}`, `${group(amt)} × (${rates[bi][d]} ÷ ${rates[ai][d]}) ≈ ${cur[bi][0]} ${group(correct, 2)} (one cross-rate calculation avoids rounding the euro balance)`],
     explanation: "With rates quoted per euro, divide to get into euros and multiply to get out. Check the date column: the other date is a ready-made distractor."
   };
 };
@@ -394,7 +395,7 @@ T.changingBase = (c) => {
       { v: ((n1 - d) / b2) * 100, note: `This applies the change in ${c.countLabel} in the wrong direction.` }
     ],
     hints: [`Turn the ${c.y1} rate into a number of ${c.countLabel} first.`, "Then update both that number and the base before dividing."],
-    solution: [`${c.y1}: ${rate}% × ${group(base)} = ${group(n1, 1)} thousand`, `${c.y2} ${c.countLabel}: ${group(n1, 1)} ${d >= 0 ? "+" : "−"} ${Math.abs(d)} = ${group(n2, 1)}`, `${c.y2} base: ${group(base)} × ${(1 + g / 100).toFixed(3)} = ${group(b2, 1)}`, `Rate = ${group(n2, 1)} ÷ ${group(b2, 1)} × 100 = ${group(correct, 3)}%`],
+    solution: [`${c.y1}: ${rate}% × ${group(base)} = ${group(n1, 1)} thousand`, `${c.y2} ${c.countLabel}: ${group(n1, 1)} ${d >= 0 ? "+" : "−"} ${Math.abs(d)} = ${group(n2, 1)}`, `${c.y2} base: ${group(base)} × ${(1 + g / 100).toFixed(3)} = ${group(b2, 1)}`, `Rate = ((${base} × ${rate} ÷ 100 + (${d})) ÷ (${base} × (1 + (${g}) ÷ 100))) × 100 ≈ ${group(correct, 3)}%`],
     explanation: "When a rate's base moves, recompute both parts of the fraction."
   };
 };
@@ -420,7 +421,7 @@ T.projection = (c) => {
       { v: a[5] * (1 + rate * c.ahead), note: "This applies the rate without compounding." }
     ],
     hints: [`Growth rate = ${years[5]} value ÷ ${years[4]} value − 1.`, `Apply it ${c.ahead} times (compounding).`],
-    solution: [`Rate = ${a[5]} ÷ ${a[4]} − 1 = ${group(rate * 100, 3)}%`, `${a[5]} × (1 + ${rate.toFixed(5)})^${c.ahead} = ${group(correct, 2)}`],
+    solution: [`Rate = ${a[5]} ÷ ${a[4]} − 1 = ${group(rate * 100, 3)}%`, `${a[5]} × (${a[5]} ÷ ${a[4]})^${c.ahead} ≈ ${group(correct, 2)}`],
     explanation: "A constant percentage rate compounds. Linear and non-compounded projections are the usual distractors."
   };
 };
@@ -444,7 +445,7 @@ T.unitPerCapita = (c) => {
       ...rows.map((r, i) => ({ v: r[0] * c.factor / rows[x][1], note: `This uses the total for ${names[i]} with the requested country's population.` })).filter((d, i) => i !== x)
     ],
     hints: [`Convert the units first: ${c.conv}.`, "Then divide by the population (in persons, not millions)."],
-    solution: [`Units: ${c.conv}.`, `${group(rows[x][0])} ${c.tShort} ÷ ${rows[x][1]} million people${c.factor !== 1 ? " × " + group(c.factor, c.factor < 1 ? 3 : 0) : ""} = ${group(correct, 2)} ${c.outUnit} per person`],
+    solution: [`Units: ${c.conv}.`, `${group(rows[x][0])} ÷ ${rows[x][1]}${c.factor !== 1 ? " × " + group(c.factor, c.factor < 1 ? 3 : 0) : ""} ≈ ${group(correct, 2)} ${c.outUnit} per person (conversion factor accounts for both exhibit scales)`],
     unitTrap: c.factor !== 1,
     explanation: `Unit traps are common: ${c.conv}. If your answer is 1,000 times too large or small, recheck the conversion before choosing.`
   };
@@ -459,7 +460,7 @@ T.workload = (c) => {
   return {
     topic: "Rates of work", difficulty: 1,
     exhibits: [{ type: "table", title: c.title, columns: ["Team", "Staff", `${c.unit} per person per day`, `${c.unit} in backlog`], rows: rows.map((rr, i) => [c.teams[i], String(rr[0]), String(rr[1]), group(rr[2])]) }],
-    stem: `If ${c.teams[x]} is given ${add} extra staff working at the same rate, how many working days will it need to clear its backlog?`,
+    stem: `If ${c.teams[x]} is given ${add} extra staff working at the same rate, how many working days will it need to clear its backlog? Assume output is uniform and part of a working day is allowed.`,
     correct, fmt: unitF("days", 1), fillStep: 0.06,
     distractors: [
       { v: back / (t * r), note: "This ignores the extra staff." },
@@ -492,7 +493,7 @@ T.speedStops = (c) => {
     ],
     hints: ["Average speed = total distance ÷ total time.", "Total time includes travel time and every stop."],
     solution: [`Distance = ${D} km`, `Time = ${Tm} + ${S} = ${Tm + S} min`, `${D} ÷ ${Tm + S} × 60 = ${group(correct, 2)} km/h`],
-    explanation: "Read the question for what counts as time. Including or excluding stops changes the answer; averaging speeds is always wrong for unequal legs."
+    explanation: "Read the question for what counts as time. Including or excluding stops changes the answer; use total distance divided by total elapsed time. An unweighted mean of speeds works only for equal time intervals, and excludes the stops here."
   };
 };
 
@@ -529,7 +530,7 @@ T.surveyChain = (c) => {
   return {
     topic: "Percentages of percentages", difficulty: 3,
     exhibits: [{ type: "table", title: c.title, columns: [c.first, "Respondents", c.sLabel + " (%)", `Of those, ${c.rLabel} (%)`], rows: rows.map((rr, i) => [c.groups[i], group(rr[0]), String(rr[1]), String(rr[2])]) }],
-    stem: `How many respondents in the ${c.groups[x]} group ${c.both}?`,
+    stem: `Approximately how many respondents in the ${c.groups[x]} group ${c.both}? Use the reported percentages as estimates.`,
     correct, fmt: (v) => group(v, 0), fillStep: 0.07,
     distractors: [
       { v: (n * rows[(x + 1) % 5][1] * r) / 10000, note: "This takes the first percentage from another group." },
@@ -539,7 +540,7 @@ T.surveyChain = (c) => {
       ...rows.map((r, i) => ({ v: (n * r[1] * r[2]) / 10000, note: `This applies the percentages of the ${c.groups[i]} group.` })).filter((d, i) => i !== x)
     ],
     hints: [`First find how many ${c.sLabel.toLowerCase()}.`, `The second percentage applies only to those people, not to all respondents.`],
-    solution: [`${group(n)} × ${s}% = ${group((n * s) / 100, 1)}`, `${group((n * s) / 100, 1)} × ${r}% = ${group(correct, 1)}`],
+    solution: [`${group(n)} × ${s}% = ${group((n * s) / 100, 1)}`, `${group(n)} × (${s} ÷ 100) × (${r} ÷ 100) ≈ ${group(correct, 1)}`],
     explanation: "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
   };
 };
@@ -699,7 +700,7 @@ T.compound = (c) => {
       ...rows.map((rr, i) => ({ v: A * (1 + r / 100) ** rr[2], note: `This uses the term of ${c.offers[i]}.` })).filter((d, i) => i !== x)
     ],
     hints: ["Each year, multiply the outstanding amount by (1 + rate).", `Do this ${n} times.`],
-    solution: [`Growth factor = ${(1 + r / 100).toFixed(3)}^${n} = ${((1 + r / 100) ** n).toFixed(5)}`, `${group(A)} × ${((1 + r / 100) ** n).toFixed(5)} = EUR ${group(correct, 2)}`],
+    solution: [`Growth factor = ${(1 + r / 100).toFixed(3)}^${n} = ${((1 + r / 100) ** n).toFixed(5)}`, `${group(A)} × (1 + ${r} ÷ 100)^${n} ≈ EUR ${group(correct, 2)}`],
     explanation: "Compound growth multiplies; simple interest adds. Over several years the difference becomes large."
   };
 };
@@ -867,7 +868,7 @@ T.requiredGrowth = (c) => {
       ...rows.map((r, i) => ({ v: ((r[1] / r[0]) ** (1 / n) - 1) * 100, note: `This is the rate for ${names[i]}.` })).filter((d, i) => i !== x)
     ],
     hints: [`Growth factor over the period = target ÷ ${c.startYear} value.`, `The annual factor is its ${n}th root.`],
-    solution: [`Overall factor = ${tgt.toFixed(1)} ÷ ${v.toFixed(1)} = ${(tgt / v).toFixed(4)}`, `Annual factor = ${(tgt / v).toFixed(4)}^(1/${n}) = ${((tgt / v) ** (1 / n)).toFixed(5)}`, `Rate = (${((tgt / v) ** (1 / n)).toFixed(5)} − 1) × 100 = ${group(correct, 2)}%`],
+    solution: [`Overall factor = ${tgt.toFixed(1)} ÷ ${v.toFixed(1)} = ${(tgt / v).toFixed(4)}`, `Annual factor = (${tgt} ÷ ${v})^(1/${n}) ≈ ${((tgt / v) ** (1 / n)).toFixed(5)}`, `Rate = ((${tgt} ÷ ${v})^(1/${n}) − 1) × 100 ≈ ${group(correct, 2)}%`],
     explanation: "Required growth compounds: take the nth root of the overall factor. Dividing the total growth by the number of years overstates the rate needed."
   };
 };
@@ -908,7 +909,7 @@ T.breakEven = (c) => {
     return {
       topic: "Break-even point", difficulty: 3,
       exhibits: [{ type: "table", title: c.title, columns: ["Offer", "Fixed fee per year (EUR)", `Price per ${c.unit} (EUR)`, "Contract length (months)"], rows: rows.map((r, k) => [c.offers[k], group(r[0]), r[1].toFixed(2), String(r[2])]) }],
-      stem: `Above how many ${c.unit}s per year does ${c.offers[i]} become cheaper than ${c.offers[j]}?`,
+      stem: `What is the annual break-even volume between ${c.offers[i]} and ${c.offers[j]}, in ${c.unit}s? Treat volume as continuous; the higher-fixed-fee offer is cheaper strictly above the unrounded threshold.`,
       correct, fmt: (v) => group(v, 1) + " " + c.unit + "s", fillStep: 0.05,
       distractors: [
         { v: (Fa + Fb) / (vb - va), note: "This adds the fixed fees; the break-even uses their difference." },
@@ -944,7 +945,7 @@ T.proportional = (c) => {
       ...rows.map((r, i) => ({ v: (A * r[0]) / P, note: `This is the amount for ${names[i]}.` })).filter((d, i) => i !== x)
     ],
     hints: ["Find the region's share of the total population.", "Apply that share to the amount."],
-    solution: [`Total population = ${rows.map((r) => group(r[0])).join(" + ")} = ${group(P)} thousand`, `Share = ${group(rows[x][0])} ÷ ${group(P)} = ${(rows[x][0] / P).toFixed(4)}`, `${(rows[x][0] / P).toFixed(4)} × ${group(A, A % 1 ? 1 : 0)} = EUR ${group(correct, 2)} million`],
+    solution: [`Total population = ${rows.map((r) => group(r[0])).join(" + ")} = ${group(P)} thousand`, `Share = ${group(rows[x][0])} ÷ ${group(P)} = ${(rows[x][0] / P).toFixed(4)}`, `(${group(rows[x][0])} ÷ ${group(P)}) × ${group(A, A % 1 ? 1 : 0)} ≈ EUR ${group(correct, 2)} million`],
     explanation: "Proportional allocation: each part receives its share of the base. Area and unemployment are there to distract."
   };
 };
@@ -958,7 +959,7 @@ T.discountVat = (c) => {
   return {
     topic: "Discounts and VAT", difficulty: 2,
     exhibits: [{ type: "table", title: c.title, columns: ["Item", "List price excl. VAT (EUR)", "Volume discount (%)", "VAT rate (%)"], rows: rows.map((r, i) => [c.items[i], group(r[0]), String(r[1]), String(r[2])]) }],
-    stem: `A buyer orders ${n} ${c.items[x].toLowerCase()}. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included?`,
+    stem: `A buyer orders ${n} ${c.items[x].toLowerCase()}. The volume discount applies to the list price and VAT is charged on the discounted price. What is the total to pay, VAT included? Calculate VAT on the full discounted order; do not round individual unit prices.`,
     correct, fmt: eur(2), fillStep: 0.03,
     distractors: [
       { v: n * p * (1 - d / 100 + v / 100), note: "This adds and subtracts the percentages; they must be applied one after the other." },
@@ -968,7 +969,7 @@ T.discountVat = (c) => {
       { v: n * p * (1 - rows[(x + 1) % 5][1] / 100) * (1 + v / 100), note: "This uses another item's discount." }
     ],
     hints: ["Apply the discount to the list price first.", "Then add VAT to the discounted price, and multiply by the quantity."],
-    solution: [`Discounted price = ${group(p)} × (1 − ${d}%) = EUR ${group(p * (1 - d / 100), 2)}`, `With VAT = ${group(p * (1 - d / 100), 2)} × ${(1 + v / 100).toFixed(2)} = EUR ${group(p * (1 - d / 100) * (1 + v / 100), 2)}`, `${n} × ${group(p * (1 - d / 100) * (1 + v / 100), 2)} = EUR ${group(correct, 2)}`],
+    solution: [`Discounted price = ${group(p)} × (1 − ${d}%) = EUR ${group(p * (1 - d / 100), 2)}`, `With VAT = ${group(p * (1 - d / 100), 2)} × ${(1 + v / 100).toFixed(2)} = EUR ${group(p * (1 - d / 100) * (1 + v / 100), 2)}`, `${n} × ${p} × (1 − ${d} ÷ 100) × (1 + ${v} ÷ 100) ≈ EUR ${group(correct, 2)}`],
     explanation: "Successive percentages multiply. Netting them (−discount + VAT) gives a slightly wrong total."
   };
 };
@@ -1201,7 +1202,7 @@ rep("unitPerCapita", [
   { title: "Water use (fictional countries)", tLabel: "Water use (million m³)", tShort: "million m³", tMin: 300, tMax: 9000, what: "water use", outUnit: "m³", factor: 1, conv: "million m³ ÷ million people = m³ per person", row: 1 },
   { title: "Household waste (fictional countries)", tLabel: "Household waste (thousand tonnes)", tShort: "thousand t", tMin: 600, tMax: 14000, what: "household waste", outUnit: "kg", factor: 1, conv: "thousand tonnes ÷ million people = kg per person", row: 2 },
   { title: "Gas consumption (fictional countries)", tLabel: "Gas consumption (TWh)", tShort: "TWh", tMin: 20, tMax: 380, what: "gas consumption", outUnit: "kWh", factor: 1000, conv: "1 TWh = 1,000,000,000 kWh", row: 3 },
-  { title: "Public library loans (fictional countries)", tLabel: "Loans (thousand)", tShort: "thousand loans", tMin: 2000, tMax: 60000, what: "the number of library loans", stem: "How many library loans were there per inhabitant in {r}?", outUnit: "loans", factor: 0.001, d: 2, conv: "thousand loans ÷ million people = loans per person × 1/1,000", row: 4 },
+  { title: "Public library loans (fictional countries)", tLabel: "Loans (thousand)", tShort: "thousand loans", tMin: 2000, tMax: 60000, what: "the number of library loans", stem: "How many library loans were there per inhabitant in {r}?", outUnit: "loans", factor: 0.001, d: 2, conv: "(loans in thousands ÷ population in millions) × 0.001 = loans per person", row: 4 },
   { title: "Rail passengers (fictional countries)", tLabel: "Passenger-km (billion)", tShort: "billion pkm", tMin: 4, tMax: 110, what: "rail travel", stem: "How many kilometres did people in {r} travel by rail per inhabitant?", outUnit: "km", factor: 1000, conv: "1 billion km ÷ 1 million people = 1,000 km per person", row: 1 }
 ]);
 rep("workload", [
@@ -1419,6 +1420,14 @@ const built = items.map(({ t, pool, k }) => {
   Object.assign(q, { stem: t.stem, options, answer, hints: t.hints, solution: t.solution, optionNotes, explanation: t.explanation });
   // Difficulty follows the reviewed reasoning model; workload and explanation length are not evidence.
   q.difficulty = numericalDifficulty(q);
+  if (q.answerType !== "category") {
+    const decimals = (options[answer].replace(/,/g, "").match(/\d+\.(\d+)/) || ["", ""])[1].length;
+    const precision = decimals ? decimals + " decimal place" + (decimals === 1 ? "" : "s") : "the nearest whole number";
+    q.stem += " Round only the final result to " + precision + ".";
+    q.solution.unshift("Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.");
+    q.solution.push("Final answer: " + options[answer] + ".");
+    q.optionNotes[answer] = "Correct. Using the requested base and units, with rounding only at the end, gives " + options[answer] + ".";
+  }
   return q;
 });
 
@@ -1433,11 +1442,11 @@ sizes.forEach((size, si) => {
     const hash = crypto.createHash("sha256").update(JSON.stringify(q)).digest("hex");
     if (hash === baseline[oldId]) return { id: oldId, ...q };
     const revision = revisions[oldId];
-    if (!revision || revision.sha256 !== hash) throw new Error(`Substantive edit to ${oldId}: register a fresh revision ID and content hash in numerical-revisions.json.`);
-    return { id: revision.id, supersedes: oldId, ...q };
+    if (!revision) throw new Error(`Missing original revision for ${oldId}.`);
+    return reviewedRevision({ id: revision.id, supersedes: oldId, ...q });
   })());
   start += size;
-  const set = { id: "numerical-" + id, section: "numerical", title: `Numerical reasoning · Set ${n}`, description: `${size} data-interpretation items with worked solutions (generated).`, version: 3, questions: qs };
+  const set = { id: "numerical-" + id, section: "numerical", title: `Numerical reasoning · Set ${n}`, description: `${size} data-interpretation items with worked solutions (generated).`, version: 4, questions: qs };
   fs.writeFileSync(path.join(root, `questions/numerical/numerical-set-${id}.js`), "/* Generated by scripts/generators/numerical.mjs. Edit the generator, not this file. */\nEPSO_BANK.registerSet(" + JSON.stringify(set, null, 2) + ");\n");
 });
 const dist = [0, 0, 0, 0, 0], diff = { 1: 0, 2: 0, 3: 0 };

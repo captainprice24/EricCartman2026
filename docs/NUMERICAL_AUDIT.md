@@ -15,7 +15,7 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 | Challenge sets | 0 | 0 | 70 | 70 |
 | Current bank | 56 | 82 | 82 | 220 |
 
-69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. The original forty challenge items are unchanged; sets 09–11 add thirty items across ten further models.
+69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
 
 ## Sets
 

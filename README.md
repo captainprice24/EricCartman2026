@@ -19,7 +19,7 @@ as in the real exam.
 
 - **Coach (training rounds).** A short lesson on the method for the test type, then
   questions with a method checklist, progressive hints, an explanation of why
-  every option is right or wrong, a worked solution for numerical items, and a key takeaway.
+  every option is right or wrong, a worked solution for numerical and abstract items, and a key takeaway.
 - **Practice.** Answer, then check straight away. Only checked answers count towards the score.
   Options: timing at exam pace, choice of question set, a filter for previous mistakes, and topic labels on or off.
 - **Exam simulation.** The three tests back to back (20 questions in 35 min, 10 in 20 min, 10 in 10 min), or a single
@@ -70,10 +70,12 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 - **Abstract (11 sets):** 150 foundation items plus **seven challenge sets of 10** (Sets 5–11).
   The new series combine alternating, accelerating, conditional, delayed and compositional rules.
   Choose **Abstract difficulty: Easy / Medium / Hard** in Coach or Practice; a timed round takes
-  ten minutes. The revised bank has 29 easy, 121 medium and 70 hard items. Forty-six existing
-  difficulty labels changed; the original figures and answers are preserved. All seventy challenge keys
-  are independently inferred from visible shapes. Difficulty remains editorial pending learner
-  testing. See the [abstract audit](docs/ABSTRACT_AUDIT.md) and
+  ten minutes. Choose All levels for a complete challenge set: these span Medium and Hard.
+  The reviewed bank has 29 easy, 131 medium and 60 hard items. All 220 keys are independently
+  inferred from visible shapes within documented bounded grammars. Ten ambiguous series were
+  repaired, one related series strengthened, and ten challenge difficulty labels corrected.
+  Worked solutions, hints and visual Coach examples were reviewed against the supplied book.
+  Difficulty remains editorial pending learner testing. See the [abstract audit](docs/ABSTRACT_AUDIT.md) and
   [saved research library](docs/research/abstract/README.md).
 
 The [fifteen-test expansion record](docs/research/full-tests-2026-10/README.md) records the supplied TAO guide, new source checks, content coverage and calibration limits. Difficulty names are editorial; individual verbal items were reviewed as hard rather than uniformly extreme.

@@ -158,9 +158,9 @@ depend on another element or the previous frame.
   the key's similarity rank across all five positions.
 - No option may differ from the key only by size **(enforced)**. No two items may share a figure
   series **(enforced)**.
-- Challenge items require independent visible-figure inference in `tests/abstract-oracle.test.mjs`.
+- All abstract items require independent visible-figure inference in `tests/abstract-oracle.test.mjs`.
   The bounded grammar must produce one continuation and exactly one matching option. Tests receive
-  no generator parameters or author model labels. Each feature alone must leave multiple options.
+  no generator parameters or author model labels. For challenge items each feature alone must leave multiple options.
   Supporting cycles together must not select the key: orbit colour plus count, or panel inputs plus
   bottom arrow. A challenge key must not repeat a complete displayed frame.
 - After generating, run `scripts/render-abstract-contact-sheets.mjs` and review figures by eye in
@@ -186,3 +186,5 @@ most valuable next step.
 The validator rejects, across the whole bank: reused ids, identical stems and options, identical
 or near-identical verbal passages (shared 5-word phrasing), identical numerical exhibit data and
 identical abstract figure series.
+
+Foundation series show five frames, or six for every-third-frame front-layer cycles to distinguish competing phases. Challenge sets may include reviewed Medium items where independent patterns suffice. Every abstract item requires a worked solution with observed values and the next prediction.

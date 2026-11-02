@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 7",
   "description": "22 EPSO-level passages on EU energy, transport and environment law, with earth science, ecology and the history of technology.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v07-01-r2",
@@ -60,11 +60,11 @@ EPSO_BANK.registerSet({
       "supersedes": "v07-02"
     },
     {
-      "id": "v07-03",
+      "id": "v07-03-r2",
       "topic": "Trade and climate",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "The Carbon Border Adjustment Mechanism (CBAM) is designed to put a fair price on the carbon emitted during the production of certain goods entering the EU. It addresses 'carbon leakage': the risk that production moves to countries with weaker climate policies, or that EU products are replaced by more carbon-intensive imports, which would shift emissions abroad rather than reduce them. The mechanism covers cement, iron and steel, aluminium, fertilisers, electricity and hydrogen.\n\nDuring a transitional phase from October 2023 to the end of 2025, importers only had to report the emissions embedded in their goods; no payment was due. The definitive regime began in January 2026. Importers must now be authorised and will surrender CBAM certificates whose price follows that of allowances in the EU Emissions Trading System. If a carbon price has already been paid in the country of production, it can be deducted from the amount owed. A simplification adopted in 2025 exempted importers bringing in less than 50 tonnes of covered goods a year, which removed most importers from the scheme while keeping the vast majority of embedded emissions within it.\n\nAt the same time, the free emission allowances that EU producers in the same sectors have received are being phased out gradually between 2026 and 2034, so that domestic and imported goods face a comparable carbon cost.",
+      "passage": "The Carbon Border Adjustment Mechanism (CBAM) is designed to put a fair price on the carbon emitted during the production of certain goods entering the EU. It addresses 'carbon leakage': the risk that production moves to countries with weaker climate policies, or that EU products are replaced by more carbon-intensive imports, which would shift emissions abroad rather than reduce them. The mechanism covers cement, iron and steel, aluminium, fertilisers, electricity and hydrogen.\n\nDuring a transitional phase from October 2023 to the end of 2025, importers only had to report the emissions embedded in their goods; no payment was due. The definitive regime began in January 2026. Importers must now be authorised and will surrender CBAM certificates whose price follows that of allowances in the EU Emissions Trading System. If a carbon price has already been paid in the country of production, it can be deducted from the amount owed. A 2025 simplification introduced an annual net-mass exemption of no more than 50 tonnes for relevant covered goods; electricity and hydrogen are excluded from that exemption. It removed most importers while retaining the vast majority of embedded emissions.\n\nAt the same time, the free emission allowances that EU producers in the same sectors have received are being phased out gradually between 2026 and 2034, so that domestic and imported goods face a comparable carbon cost.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "The mechanism ensures that imported and EU-made goods always bear exactly the same carbon cost, whatever the sector.",
@@ -83,7 +83,8 @@ EPSO_BANK.registerSet({
         "Not supported. The text says nothing about where CBAM revenue goes.",
         "Correct. A carbon price paid 'in the country of production ... can be deducted from the amount owed'."
       ],
-      "explanation": "The key applies the deduction rule to a specific importer. Note the difference between the share of importers and the share of emissions, and between 'comparable' and 'exactly the same'."
+      "explanation": "The key applies the deduction rule to a specific importer. Note the difference between the share of importers and the share of emissions, and between 'comparable' and 'exactly the same'.",
+      "supersedes": "v07-03"
     },
     {
       "id": "v07-04",
@@ -450,15 +451,15 @@ EPSO_BANK.registerSet({
       "explanation": "The key combines a date with a later event. The outside-knowledge trap is true in the real world but not stated, and two options strengthen 'most' and 'some researchers estimate'."
     },
     {
-      "id": "v07-18",
+      "id": "v07-18-r2",
       "topic": "Physics of energy",
       "difficulty": 3,
       "keyType": "inference",
-      "passage": "A solar cell converts light into electricity when photons free electrons in a semiconductor. Each semiconductor has a band gap, the minimum energy a photon must carry to free an electron. Photons with less energy than the band gap pass through without producing current, while photons with more energy produce current but lose the excess as heat. This trade-off sets a ceiling on efficiency.\n\nIn 1961 William Shockley and Hans-Joachim Queisser calculated this ceiling for a cell made of a single semiconductor under unconcentrated sunlight. The limit that bears their names is about 33% and is reached with a band gap of around 1.3 to 1.4 electronvolts. Silicon, which dominates the market, has a band gap of about 1.1 electronvolts; its own theoretical maximum, once other unavoidable losses are included, is usually put at around 29%. Good commercial silicon modules now convert more than 20% of sunlight into electricity.\n\nThe limit does not apply to cells that stack several materials with different band gaps, each capturing a different part of the solar spectrum. Such tandem cells, for example combining silicon with a perovskite layer, have exceeded 33% in the laboratory, although questions remain about how well perovskites withstand years of outdoor use.",
+      "passage": "A solar cell converts light into electricity when photons free electrons in a semiconductor. Each semiconductor has a band gap, the minimum energy a photon must carry to free an electron. Photons with less energy than the band gap pass through without producing current, while photons with more energy produce current but lose the excess as heat. This trade-off sets a ceiling on efficiency.\n\nIn 1961 William Shockley and Hans-Joachim Queisser calculated this ceiling for a conventional cell made of a single semiconductor under unconcentrated sunlight. The limit that bears their names is about 33% and is reached with a band gap of around 1.3 to 1.4 electronvolts. Silicon, which dominates the market, has a band gap of about 1.1 electronvolts; its own theoretical maximum, once other unavoidable losses are included, is usually put at around 29%. Good commercial silicon modules now convert more than 20% of sunlight into electricity.\n\nThe limit does not apply to cells that stack several materials with different band gaps, each capturing a different part of the solar spectrum. Such tandem cells, for example combining silicon with a perovskite layer, have exceeded 33% in the laboratory, although questions remain about how well perovskites withstand years of outdoor use.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Perovskite layers have been found unable to withstand years of outdoor use in tandem solar cells.",
-        "A cell that turns 36% of unconcentrated sunlight into electricity must combine more than one semiconductor.",
+        "A cell converting 36% of unconcentrated sunlight exceeds the stated ceiling for the conventional single-semiconductor model.",
         "Silicon dominates the market because it is cheaper to produce than other suitable semiconductors.",
         "Shockley and Queisser predicted in 1961 that stacked cells would one day be able to exceed the limit they had calculated."
       ],
@@ -469,11 +470,12 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "Overstated. The text raises a doubt: 'questions remain about how well perovskites withstand years of outdoor use'. The option turns that open question into an established finding.",
-        "Correct. A single semiconductor under unconcentrated sunlight is limited to 'about 33%', so a cell reaching 36% must stack 'several materials with different band gaps'.",
+        "Correct. The stated ceiling for that conventional model is about 33%, below 36%. This comparison does not classify every physically possible device architecture.",
         "Not supported. The text says silicon dominates but gives no reason.",
         "Not supported. The text says the limit does not apply to tandem cells but attributes no prediction to its authors."
       ],
-      "explanation": "The key applies a ceiling to a figure above it and draws the only conclusion the text allows. One trap turns an open question into an established fact."
+      "explanation": "The key applies a ceiling to a figure above it and draws the only conclusion the text allows. One trap turns an open question into an established fact.",
+      "supersedes": "v07-18"
     },
     {
       "id": "v07-19",

@@ -1,0 +1,48 @@
+{
+  "v05-19-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "In-principle acceptance is based on design before results are known; unknown eventual positive results cannot influence that initial decision. B does not assert guaranteed final publication.",
+      "The project explicitly did not show that original findings were wrong, contradicting A.",
+      "The prevalence of mandatory preregistration across journals is unstated. Reducing bias does not establish elimination of bias."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "False"
+    },
+    "evidence": [
+      "Pine contains liquid and cannot use the paperwork-only route; its valid waiver through a stated route therefore required pressure testing and an independent seal check.",
+      "Cedar class P establishes pressure testing; Q concerns reporting and says nothing about testing. Neither establishes an independent seal check or waiver.",
+      "Other products can explicitly obtain paperwork-only waivers without pressure testing, refuting C. Cedar explicitly holds both P and Q, refuting D."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Orla entered lawfully without a supervisor; school-permit entry requires one, so she entered using a keycard and has completed the associated identity check.",
+      "Children need a supervisor under either document; Ren’s supervisor does not establish which route was used.",
+      "School permits can explicitly be issued without the identity check, refuting A. Children explicitly require supervisors even on local keycards, refuting C.",
+      "Orla’s entry document does not establish absence of school relationships or inability to also hold a school permit; relationships are expressly not identifiable from the released evidence."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

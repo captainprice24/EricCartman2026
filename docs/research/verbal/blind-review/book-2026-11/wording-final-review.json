@@ -1,0 +1,18 @@
+{
+  "v05-19-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Registered reports receive design-based in-principle acceptance before results are known. Therefore this initial acceptance precedes discovering whether eventual results are positive, as B states. Final publication remains subject to faithful execution and quality checks; B does not claim final publication is guaranteed.",
+      "A contradicts the explicit statement that the project did not show that the original findings were wrong and additionally generalises beyond the sampled studies.",
+      "The passage does not state that most psychology journals require preregistration.",
+      "Supporters claim these measures reduce bias, not that they eliminate it; elimination is stronger than the evidence."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

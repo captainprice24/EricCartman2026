@@ -1,0 +1,256 @@
+{
+  "v05-09": {
+    "C": {
+      "label": "Not supported",
+      "reason": "The ten-year threshold is given for enhanced expulsion protection, not family permanent residence. Derived family rights do not themselves specify a separate qualifying period, so this invents one rather than strengthening a stated family threshold."
+    }
+  },
+  "v05-10": {
+    "B": {
+      "label": "False",
+      "reason": "The passage expressly restricts the right to unrepresented citizens and requires represented travellers to approach their own embassy. That stated exception contradicts the universal assistance duty."
+    }
+  },
+  "v05-14": {
+    "C": {
+      "label": "False",
+      "reason": "Breaches without the required budget link expressly fall outside the regulation. The assertion of power over any rule-of-law breach therefore contradicts a stated exclusion, independently of its excessive all-funding wording."
+    }
+  },
+  "v05-17": {
+    "B": {
+      "label": "False",
+      "reason": "The flat-refusal example explicitly says EU law does not cover age or sexual-orientation discrimination there. These counterexamples directly refute all forms."
+    }
+  },
+  "v05-18": {
+    "C": {
+      "label": "Not supported",
+      "reason": "The critics identify difficulty assigning blame for failed predictions. They are not reported to establish logical impossibility of observational testing; that is a different conclusion, not a measured degree of the stated claim."
+    }
+  },
+  "v05-20": {
+    "A": {
+      "label": "False",
+      "reason": "The text contrasts the 1215 practical settlement with universal principles, restricts the cited protection to free men, and dates the fundamental-liberties reinterpretation to the seventeenth century. The universal guarantee from 1215 conflicts with those limits."
+    }
+  },
+  "v06-07": {
+    "C": {
+      "label": "False",
+      "reason": "Exceptions for contract and supplementary-pension rules expressly remain, and the threshold can be extended to 18 months. Either qualification directly contradicts every rule immediately after 12 months."
+    }
+  },
+  "v06-08": {
+    "D": {
+      "label": "False",
+      "reason": "The passage expressly permits necessary restrictions for mandatory requirements. That exception refutes unrestricted sale of every product."
+    }
+  },
+  "v06-09": {
+    "C": {
+      "label": "Not supported",
+      "reason": "The passage connects online marketplaces with enforcement difficulty and frequent direct shipments from outside the EU. It never gives the purchasing channel of unsafe products found on the market. Changing that population and channel into a majority statistic invents evidence, rather than simply changing some to most for the same stated population."
+    }
+  },
+  "v06-10": {
+    "B": {
+      "label": "False",
+      "reason": "Meeting a financial ceiling is an explicit additional condition. Whatever its finances directly contradicts that condition."
+    }
+  },
+  "v07-01-r2": {
+    "A": {
+      "label": "False",
+      "reason": "Depends partly on average mass explicitly denies that mass is the sole determinant. Direct contradiction takes priority over general overstatement."
+    }
+  },
+  "v07-02-r2": {
+    "D": {
+      "label": "False",
+      "reason": "The exemption described is limited to urban, suburban and regional services and to parts of the regulation. The proposed permission for any service and the whole regulation contradicts both limitations."
+    }
+  },
+  "v07-04": {
+    "A": {
+      "label": "False",
+      "reason": "The text explicitly distinguishes the 40-percent aggregate target from national targets spanning 10 to 50 percent. Those different national targets refute a uniform 40-percent requirement."
+    },
+    "D": {
+      "label": "False",
+      "reason": "All countries receive binding reduction targets, including at least a 10-percent reduction. This directly excludes an entire burden carried only by wealthy states."
+    }
+  },
+  "v07-05": {
+    "A": {
+      "label": "False",
+      "reason": "Longer periods expressly apply to offshore projects, providing a stated exception to a universal twelve-month limit. Also, a procedure should in principle meet a deadline is not a guarantee of actual completion."
+    }
+  },
+  "v07-06": {
+    "A": {
+      "label": "False",
+      "reason": "Food, medicinal products and other categories are expressly excluded. They supply direct counterexamples to each product under this regulation."
+    }
+  },
+  "v07-09": {
+    "B": {
+      "label": "False",
+      "reason": "Postponement depends on modelling of inability despite appropriate measures and an air-quality roadmap. Unilateral postponement just because costs are high contradicts these express conditions."
+    }
+  },
+  "v07-10": {
+    "A": {
+      "label": "False",
+      "reason": "The Commission may expressly allow higher manure-nitrogen amounts by derogation. That permission directly refutes never."
+    }
+  },
+  "v07-12": {
+    "A": {
+      "label": "False",
+      "reason": "The filling rules and obligation were extended to 2027. Flexibility concerns timing and level, so it does not permit abandoning filling altogether."
+    }
+  },
+  "v07-14": {
+    "B": {
+      "label": "False",
+      "reason": "The passage allows certified or public-authority sustainability labels, including labels other than the EU Ecolabel. Those express alternatives refute the exclusive-Ecolabel condition."
+    }
+  },
+  "v07-15": {
+    "B": {
+      "label": "False",
+      "reason": "The text expressly permits departures for specific waste streams following a favourable life-cycle assessment. This directly contradicts always whatever the stream."
+    }
+  },
+  "v08-03": {
+    "A": {
+      "label": "False",
+      "reason": "Employers with 100 to 249 workers expressly have three-year reporting intervals. This contradicts a universal annual duty for employers with at least 100 workers."
+    }
+  },
+  "v08-05-r2": {
+    "C": {
+      "label": "False",
+      "reason": "The passage expressly retains genuinely self-employed workers and says nobody is automatically reclassified. Those statements contradict universal employee status."
+    }
+  },
+  "v08-07": {
+    "C": {
+      "label": "False",
+      "reason": "The Youth Guarantee includes ages 15 to 29, whereas ALMA targets disadvantaged NEETs aged 18 to 29. These express age and eligibility limits exclude some of the proposed any-young-person group."
+    }
+  },
+  "v08-08": {
+    "D": {
+      "label": "False",
+      "reason": "The normal authorised continuation is three months, with six months available only through an extension by employment services. The unconditional six-month entitlement conflicts with that express distinction."
+    }
+  },
+  "v08-09": {
+    "D": {
+      "label": "False",
+      "reason": "The text contrasts the central EMA scientific procedure with national authorisation of most generics and non-prescription medicines. Read as the described alternative authorisation routes, this supplies exceptions to the claim that every medicine must first undergo EMA committee assessment."
+    }
+  },
+  "v08-10": {
+    "B": {
+      "label": "False",
+      "reason": "Outside-EU deployment expressly requires a request from the country. A power to deploy anywhere on the Centres own initiative contradicts that condition."
+    }
+  },
+  "v08-13": {
+    "C": {
+      "label": "False",
+      "reason": "The stated volunteering range begins at two weeks, below the claimed two-month universal minimum. Solidarity projects, which have the two-month minimum, are a separate category."
+    }
+  },
+  "v08-18": {
+    "C": {
+      "label": "False",
+      "reason": "The text expressly mentions victims living farther away who preferred Broad Street water. Those victims contradict every death occurring close to the pump."
+    }
+  },
+  "v08-21": {
+    "C": {
+      "label": "False",
+      "reason": "Immigration is an expressly stated means of offsetting natural decline, and deaths only may eventually exceed births. The immigration exception directly refutes always shrinking."
+    },
+    "D": {
+      "label": "False",
+      "reason": "Education and family choices are explicitly additional contributors alongside improved child survival. They directly contradict solely because of survival."
+    }
+  },
+  "v09-03": {
+    "A": {
+      "label": "False",
+      "reason": "The passage names two shared institutional categories, assembly and Court, and two still-separate categories, executive and council. Within its stated institutional comparison, the shared portion is half, rather than most."
+    }
+  },
+  "v09-04": {
+    "D": {
+      "label": "False",
+      "reason": "The Commission expressly shared the initiative in some cases. This directly contradicts always excluded."
+    }
+  },
+  "v09-05": {
+    "B": {
+      "label": "False",
+      "reason": "Only about one third of the electorate voted at all. No-voters therefore cannot constitute most of the electorate, regardless of the outcome among votes cast."
+    }
+  },
+  "v09-06": {
+    "C": {
+      "label": "Overstated",
+      "reason": "Many early removals and three immediate openings do not numerically establish that fewer than a majority of old Member States retained restrictions for seven years: many is not an exact count. The statement upgrades an initial majority using restrictions and an up-to-seven-year ceiling into a majority lasting the full period, without sufficient support. The current note identifies qualifications but does not logically refute the specific most-country claim."
+    }
+  },
+  "v09-07": {
+    "D": {
+      "label": "False",
+      "reason": "Objections to the treaty text are explicitly reported alongside domestic concerns. Their presence contradicts entirely domestic causation."
+    }
+  },
+  "v09-08": {
+    "B": {
+      "label": "Not supported",
+      "reason": "The first strand is described as research, pilot lines and design support, while production facilities are addressed in the second. No financing breakdown for large-scale plants within the first strand is given; the proposed main expenditure is invented, without an explicit statement excluding all possible construction funding."
+    }
+  },
+  "v09-09": {
+    "C": {
+      "label": "False",
+      "reason": "Small companies generally fall outside the directive, subject to specific exceptions. The express exclusion contradicts every organisation in a listed sector."
+    }
+  },
+  "v09-10": {
+    "A": {
+      "label": "False",
+      "reason": "The Act is limited to connected digital products and expressly excludes products governed by comparable sector-specific requirements; its support period is also normally rather than invariably five years. The universal claim removes those stated scope limits. Noncommercial open source alone would not refute software sold, so that particular example in the current note is insufficient by itself."
+    }
+  },
+  "v09-12": {
+    "C": {
+      "label": "False",
+      "reason": "The design duty is explicitly limited to products newly placed on the market after the specified date and to technically feasible access. An all-products duty without those limitations contradicts the scope described."
+    }
+  },
+  "v09-15": {
+    "D": {
+      "label": "False",
+      "reason": "The passage describes the requisite alignment as almost edge-on, allowing the nonexact alignments excluded by exactly edge-on. The requirement asserted is directly narrower than the stated observational condition."
+    }
+  },
+  "v09-16": {
+    "D": {
+      "label": "False",
+      "reason": "The method removes milligrams and is expressly described as causing minimal damage. That stated damage contradicts without damaging."
+    }
+  },
+  "v09-19": {
+    "A": {
+      "label": "False",
+      "reason": "Occasional mutations are an express exception to unchanged maternal transmission. They directly refute entirely unchanged in every generation."
+    }
+  }
+}

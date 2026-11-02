@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-02",
+  "reviewed": 300,
+  "revised": 97,
+  "initialSupportedKeys": 299,
+  "initialInvalidItems": [
+    "v18-08"
+  ],
+  "finalKeyAgreement": 300,
+  "finalDistractorLabelAgreement": 900,
+  "initialLabelDisagreements": 96,
+  "labelChanges": [
+    {
+      "id": "v01-17-r2",
+      "previousId": "v01-17",
+      "option": "B",
+      "from": "False",
+      "to": "Overstated"
+    },
+    {
+      "id": "v06-09-r2",
+      "previousId": "v06-09",
+      "option": "C",
+      "from": "Overstated",
+      "to": "Not supported"
+    },
+    {
+      "id": "v09-06-r2",
+      "previousId": "v09-06",
+      "option": "C",
+      "from": "False",
+      "to": "Overstated"
+    },
+    {
+      "id": "v10-07-r2",
+      "previousId": "v10-07",
+      "option": "A",
+      "from": "Overstated",
+      "to": "Not supported"
+    },
+    {
+      "id": "v10-07-r2",
+      "previousId": "v10-07",
+      "option": "C",
+      "from": "Overstated",
+      "to": "False"
+    },
+    {
+      "id": "v11-07-r2",
+      "previousId": "v11-07",
+      "option": "A",
+      "from": "Overstated",
+      "to": "False"
+    },
+    {
+      "id": "v12-10-r2",
+      "previousId": "v12-10",
+      "option": "B",
+      "from": "Overstated",
+      "to": "Not supported"
+    },
+    {
+      "id": "v13-10-r2",
+      "previousId": "v13-10",
+      "option": "C",
+      "from": "Overstated",
+      "to": "False"
+    },
+    {
+      "id": "v19-07-r2",
+      "previousId": "v19-07",
+      "option": "B",
+      "from": "Overstated",
+      "to": "False"
+    }
+  ],
+  "freshTextReviews": 14,
+  "mapping": "docs/research/verbal/blind-review/book-2026-11/review-mapping.json",
+  "fixedFormsPreserveOriginalMembership": true,
+  "earlierNumericalRevisionsPreserved": true,
+  "authorClarifications": [
+    "v12-10: absence from pending-release group is not proof of completed release; passage now states release status."
+  ]
+}

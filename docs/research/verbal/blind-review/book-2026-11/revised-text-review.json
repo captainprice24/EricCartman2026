@@ -1,0 +1,153 @@
+{
+  "v01-04-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Tobacco filters are among products whose producers must contribute to litter-cleaning costs.",
+      "The 25% target is limited to covered PET bottles up to three litres, not all plastic drinks bottles.",
+      "B disregards the explicit affordability condition. No outcome evidence about beach lids is provided."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v02-15-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "evidence": [
+      "Standard information requirements increase at tonnage-band boundaries including ten tonnes; ten tonnes therefore requires more information than two.",
+      "Registration explicitly does not apply below one tonne.",
+      "Small-company cost complaints do not establish market exits. Potential listing and subsequent possible authorisation-list transfer do not establish automatic transfer for every carcinogen."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v03-06-r3": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "False"
+    },
+    "evidence": [
+      "Failure ever to inform the consumer extends withdrawal availability twelve months beyond the initial period, encompassing ten months after delivery for an otherwise eligible purchase.",
+      "The passage supplies no observed cancellation timing.",
+      "The presumption stated for first-year defects does not establish a presumption for every defect throughout two years. Explicit product exclusions refute C."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-06-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "States must contribute their fair share while choosing among relocation, money and operational support; declining relocation alone supplies no exemption.",
+      "No Member State can be obliged to relocate.",
+      "The passage attributes the pay-instead criticism to one side, not all critics. No destination or main spending purpose for financial contributions is given."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v05-09-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "Five years of continuous legal residence confers permanent residence no longer subject to the sufficient-resources condition, so six years qualifies.",
+      "No EU-set monthly income threshold is stated. Host states may require registration; universal actual registration requirements are not established.",
+      "No ten-year permanent-residence rule for non-EU family members is stated; the ten-year provision concerns protection against expulsion."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v07-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "A carbon price already paid in the production country can be deducted; cement is covered.",
+      "Comparable costs in the same covered sectors do not establish exact equality at all times and across all sectors.",
+      "The simplification explicitly retained the vast majority of embedded emissions. No certificate-revenue allocation is stated."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v08-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "evidence": [
+      "Starting-pay disclosure applies to all employers; a 30-person company has no reporting duty under the Directive.",
+      "The explicit three-year schedules for 100–249 workers refute universal annual reporting.",
+      "No fines or EU-level fine-setting are stated. Assessment requires an unjustified category-level gap of at least 5% left uncorrected for six months, not simply an overall gap above 5%."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v10-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "Pine cannot use the paperwork-only route because it contains liquid. A valid waiver through a stated route therefore entails the pressure test and independent seal check.",
+      "Cedar class P establishes pressure testing and Q concerns reporting; neither establishes its seal check or waiver decision.",
+      "The passage explicitly allows other products paperwork-only waivers without pressure testing, refuting C. Q says nothing about testing, so testing-dependent waiver status cannot exclude Q."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v11-07-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "evidence": [
+      "School-permit entry always requires a rostered supervisor, so Orla used a local keycard and therefore completed an identity check.",
+      "Children require supervision under either entry document, so Ren’s supervision does not identify the entry route.",
+      "School permits can be issued without identity checks, refuting the universal inference in A. The explicit supervision rule for children refutes C. No school relationship can be inferred for Orla."
+    ],
+    "issues": [],
+    "suggestions": []
+  },
+  "v18-08-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "evidence": [
+      "The changed source makes the meal changed; the new source and lot fall outside the only declaration. Valid service consequently required an on-site review.",
+      "The sole lead’s pre-protocol training required a passed independently assessed supplement, and either allowed review method required verification of the actual changed line.",
+      "Recipe-name identity explicitly does not preserve unchanged status. The supervisor explicitly cannot independently assess the supplement.",
+      "Nothing identifies the assessor or distinguishes live video from direct observation."
+    ],
+    "issues": [],
+    "suggestions": []
+  }
+}

@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 1",
   "description": "20 EPSO-level passages on EU institutions, policy, science and history.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v01-01",
@@ -84,11 +84,11 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies one criterion to a new case. An absolute key is correct here because the text sets a fixed condition. The Bulgaria option is an outside-knowledge trap: a statement can be true in the real world and still be wrong in an EPSO test because the passage does not support it."
     },
     {
-      "id": "v01-04",
+      "id": "v01-04-r2",
       "topic": "Environment",
       "difficulty": 3,
       "keyType": "combination",
-      "passage": "Adopted in 2019, the EU Directive on single-use plastics targets the ten single-use plastic items most often found on European beaches, together with fishing gear. The measures differ according to whether sustainable alternatives exist. Where alternatives are readily available and affordable, products such as plastic cutlery, plates, straws, cotton bud sticks and expanded polystyrene food containers were banned from the EU market from July 2021.\n\nFor products without such alternatives, including tobacco filters and wet wipes, the Directive relies on other tools. Member States must reduce the consumption of plastic food containers and drinks cups, and producers of the products concerned must contribute to the costs of waste management and of cleaning up litter under 'extended producer responsibility' schemes. Certain products must also carry a label informing consumers about the plastic they contain and the appropriate way to dispose of them.\n\nPlastic beverage bottles are subject to specific targets: they must contain at least 25% recycled plastic by 2025 for PET bottles and 30% by 2030 for all such bottles, and Member States must collect 77% of them separately by 2025 and 90% by 2029. Since July 2024, caps and lids have had to remain attached to bottles during use.",
+      "passage": "Adopted in 2019, the EU Directive on single-use plastics targets the ten single-use plastic items most often found on European beaches, together with fishing gear. The measures differ according to whether sustainable alternatives exist. Where alternatives are readily available and affordable, products such as plastic cutlery, plates, straws, cotton bud sticks and expanded polystyrene food containers were banned from the EU market from July 2021.\n\nFor products without such alternatives, including tobacco filters and wet wipes, the Directive relies on other tools. Member States must reduce the consumption of plastic food containers and drinks cups, and producers of the products concerned must contribute to the costs of waste management and of cleaning up litter under 'extended producer responsibility' schemes. Certain products must also carry a label informing consumers about the plastic they contain and the appropriate way to dispose of them.\n\nCovered plastic beverage bottles of up to three litres are subject to specific targets: they must contain at least 25% recycled plastic by 2025 for PET bottles and 30% by 2030 for all such bottles, and Member States must collect 77% of them separately by 2025 and 90% by 2029. Since July 2024, caps and lids have had to remain attached during use on covered beverage containers of up to three litres.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "All plastic drinks bottles had to contain at least 25% recycled plastic by 2025.",
@@ -102,12 +102,13 @@ EPSO_BANK.registerSet({
         "In the last paragraph, check which bottles each recycled-content target applies to, and by when."
       ],
       "optionNotes": [
-        "Overstated. The 25% target for 2025 applies to PET bottles; the target for all such bottles is 30% by 2030.",
+        "Overstated. The 2025 target concerns covered PET bottles of up to three litres; it is not a 25% requirement for every plastic drinks bottle.",
         "False. Bans apply where alternatives are 'readily available and affordable', so price does matter.",
         "Correct. Tobacco filters are among the products without alternatives, and producers of those products 'must contribute to the costs… of cleaning up litter'.",
         "Not supported. The text states the tethered-cap rule but says nothing about its effect on beach litter."
       ],
-      "explanation": "The key combines two sentences. One distractor widens a target from PET bottles to all bottles, another drops the affordability condition, and the hedged option ('largely solved') still asserts an effect that the text never measures."
+      "explanation": "The key combines two sentences. One distractor widens a target from PET bottles to all bottles, another drops the affordability condition, and the hedged option ('largely solved') still asserts an effect that the text never measures.",
+      "supersedes": "v01-04"
     },
     {
       "id": "v01-05",
@@ -162,7 +163,7 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies a numerical rule to a case the text does not mention; 'never' is right because the rule is categorical. Two distractors add details the text never discusses (who chairs the committee, a shift of influence), and the conciliation option ignores the need for approval by both institutions."
     },
     {
-      "id": "v01-07",
+      "id": "v01-07-r2",
       "topic": "Biodiversity",
       "difficulty": 2,
       "keyType": "inference",
@@ -181,11 +182,12 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "Overstated. For several crops wild insects are 'at least as effective as honeybees'; that allows equal effectiveness and does not establish greater effectiveness.",
-        "Correct. One in ten is threatened among the species that can be assessed, and 'for many others the data are too poor', so the true share could be higher.",
+        "Correct. The passage reports a one-in-ten figure but says many species lack adequate assessment. That missing information leaves a higher true share possible; it does not establish that the share is higher.",
         "Overstated. Pesticides are one of several interacting drivers, and the decline is 'difficult to attribute to any single cause'.",
         "Not supported. The 2023 initiative 'set the objective' of reversing the decline by 2030; the text makes no forecast of whether it will succeed."
       ],
-      "explanation": "The key draws a cautious inference from missing data. A hedge such as 'probably' does not make a statement safe: the text sets an objective but makes no forecast. 'At least as effective' does not mean 'more effective', and a listed driver is not 'the main cause'."
+      "explanation": "The key draws a cautious inference from missing data. A hedge such as 'probably' does not make a statement safe: the text sets an objective but makes no forecast. 'At least as effective' does not mean 'more effective', and a listed driver is not 'the main cause'.",
+      "supersedes": "v01-07"
     },
     {
       "id": "v01-08",
@@ -422,7 +424,7 @@ EPSO_BANK.registerSet({
       "explanation": "The key generalises correctly from the confidence paradox. One distractor adds a precise interval the text does not give; another attaches a cause, reduced anxiety, to a short-term effect that the text reports without explaining."
     },
     {
-      "id": "v01-17",
+      "id": "v01-17-r2",
       "topic": "Culture",
       "difficulty": 1,
       "keyType": "paraphrase",
@@ -441,11 +443,12 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "Correct. The prize 'is paid if the city fulfils its commitments'.",
-        "False. The text says the benefits are 'uneven' and that some cities 'struggled to maintain cultural activity once the year was over', so nothing lasting is guaranteed.",
+        "Overstated. The passage establishes possible tourism/regeneration benefits and uneven outcomes, not guaranteed lasting economic gains. Difficulty sustaining cultural activity does not explicitly establish absence of lasting economic benefit, so this is an unjustified strengthening rather than a direct economic counterexample.",
         "False. Two cities hold the title each year; a third city from outside the EU is added only 'every third year'.",
         "Not supported. The text calls the prize 'modest' but gives no amount; any figure comes from outside knowledge."
       ],
-      "explanation": "The key paraphrases a condition. The 'three cities every year' option contradicts the rule that a third city is added only every third year, a small change that is easy to miss on a fast read. The prize option adds a figure the text never gives."
+      "explanation": "The key paraphrases a condition. The 'three cities every year' option contradicts the rule that a third city is added only every third year, a small change that is easy to miss on a fast read. The prize option adds a figure the text never gives.",
+      "supersedes": "v01-17"
     },
     {
       "id": "v01-18",

@@ -90,3 +90,9 @@ All 150 foundation questions were regenerated under new revision IDs; all 190 nu
 ## Fifteen-test expansion
 
 The [follow-up design and research record](../full-tests-2026-10/README.md) covers the addition of three full tests: sixty verbal, thirty numerical and thirty abstract items. The current bank has 300/220/220 questions; new sets are verbal14–19 and numerical/abstract09–11. Existing question content remains unchanged. Refreshed inventories reflect these totals. Very hard is an editorial challenge profile, pending first-attempt learner calibration.
+
+## Supplied-book review (2 November 2026)
+
+The [detailed numerical review](../../NUMERICAL_BOOK_REVIEW.md) records confirmed wording, dimensional and worked-solution defects, with repairs to 200 items under fresh IDs. All 220 keys remain independently verified. The supplied preparation book was used for method comparison only; none of its questions or text was imported. For subsequent teaching revisions, retain original calculation expressions until final rounding, distinguish estimates from integer feasibility, and verify that option explanations describe the selected distractors.
+
+Reviewed content fingerprints are in `scripts/generators/numerical-review-revisions.json`. Generate normally with `node scripts/generators/numerical.mjs`; explicit `--register-review` is only for registering a new, reviewed change against an immutable baseline. Existing registered fingerprints cannot be overwritten by the flag. Regenerate fixed-test references with `node scripts/build-exams.mjs`, then audit, validate and rebuild. Do not reuse an old ID for changed teaching content.

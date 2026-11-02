@@ -1,0 +1,130 @@
+{
+  "v10-03": {
+    "A": {
+      "label": "Not supported",
+      "reason": "Employment-status changes are established, but their direction is absent. Increased employment is an invented direction, not a stronger quantifier on a supported increase."
+    }
+  },
+  "v10-08": {
+    "D": {
+      "label": "Not supported",
+      "reason": "The evidence concerns recombining observed means. No evidence establishes maintenance of category times after an actual workload change; the option adds that unstudied causal prediction."
+    }
+  },
+  "v10-09": {
+    "D": {
+      "label": "Not supported",
+      "reason": "No safety comparison or informal acceptance is reported. Absence of formal method approval does not expressly rule out an officer's informal acceptance or safety discussion, though neither would legalise the bolts."
+    }
+  },
+  "v11-03": {
+    "B": {
+      "label": "False",
+      "reason": "The asserted inference from queue entry to peer-review success directly conflicts with the explicit rule that fast entry is not a peer-review result; documentary completeness cannot constitute that success."
+    }
+  },
+  "v11-04": {
+    "A": {
+      "label": "False",
+      "reason": "The proposed basis is directly contradicted: audits exclude electrical assessment and endorsements attach separately rather than transferring through common ownership."
+    }
+  },
+  "v11-10": {
+    "C": {
+      "label": "Not supported",
+      "reason": "A monthly-input simplified review is an invented procedural event. The absence of monthly approval does not explicitly exclude a review having occurred without that approval, but nothing establishes one."
+    }
+  },
+  "v12-06": {
+    "C": {
+      "label": "Not supported",
+      "reason": "Investigation establishes an in-district service, not the provider's address. The provider could be inside or outside; neither is established for this case."
+    }
+  },
+  "v12-07": {
+    "C": {
+      "label": "Not supported",
+      "reason": "The same individuals can change employment. No linked histories establish that the forty-five were originally employed, and the passage does not establish a counterexample either."
+    }
+  },
+  "v13-03": {
+    "D": {
+      "label": "Not supported",
+      "reason": "Fuel carriage requires inspection, but the cargo of other inspected freight vessels is unstated. The converse classification is unsupported, not explicitly disproved by a known non-fuel arrival."
+    }
+  },
+  "v13-05": {
+    "A": {
+      "label": "Not supported",
+      "reason": "There is no observed saving, stated population decline, or population-only decomposition. This introduces a specific cause and realised outcome rather than merely strengthening an established causal effect."
+    }
+  },
+  "v13-07": {
+    "A": {
+      "label": "Not supported",
+      "reason": "Vale's ordinary bursary supplies no fieldwork qualification and the unpublished oral record establishes no actual absence. Selecting the community-project route is an invented procedural history."
+    },
+    "C": {
+      "label": "Overstated",
+      "reason": "The option strengthens the necessary methods pass into sufficient scholarship qualification, omitting fieldwork credit. No actual methods-pass holder lacking fieldwork is identified, so there is no concrete counterexample to prioritise as False."
+    }
+  },
+  "v13-08": {
+    "C": {
+      "label": "Not supported",
+      "reason": "The record withholds independent validation, not the model's truth value. Necessarily false introduces an unsupported truth judgment; the passage does not establish that the estimate is true either."
+    }
+  },
+  "v13-10": {
+    "C": {
+      "label": "False",
+      "reason": "The all-futures ranking conflicts with the explicitly supplied low-growth scenario in which Red has the lower total estimate. Flexible later maintenance is not shown to remove that counterexample or omitted-effect uncertainty."
+    }
+  },
+  "v15-01": {
+    "D": {
+      "label": "Overstated",
+      "reason": "A valid regional request follows both municipal approvals, but specifying the same calendar day as the second signature strengthens the supported temporal relationship beyond the evidence."
+    }
+  },
+  "v15-08": {
+    "C": {
+      "label": "Overstated",
+      "reason": "Reference certification must follow its membrane replacement. Requiring it also to follow the later controller replacement imposes a stronger lower bound not established or contradicted by the passage."
+    }
+  },
+  "v19-01": {
+    "A": {
+      "label": "Overstated",
+      "reason": "Valid release supports the disjunction of reissued licensing or qualified supervision. The option narrows this established disjunction to reissue alone without excluding supervision."
+    },
+    "B": {
+      "label": "Overstated",
+      "reason": "The passage establishes that reissue or qualified supervision supported release, but this selects converted supervision and excludes independent licensing despite the expressly possible lagging public list."
+    }
+  },
+  "v19-02": {
+    "A": {
+      "label": "False",
+      "reason": "Its explanation directly denies explicitly available public-need routes: a replacement hazard certificate and a tribunal hearing remain possible despite cancellation of the old certificate."
+    }
+  },
+  "v19-04": {
+    "D": {
+      "label": "Overstated",
+      "reason": "Reference calibration is required after reference repair, but imposing the later sensing-element change as its lower bound strengthens the supported chronology without a stated counterexample."
+    }
+  },
+  "v19-07": {
+    "B": {
+      "label": "False",
+      "reason": "The explanation says the old list entry excluded both committee evidence routes, directly conflicting with the rules allowing committee approval and stating that public listing may lag. Necessity alone would overstate, but the explicit exclusion makes this False."
+    }
+  },
+  "v19-08": {
+    "D": {
+      "label": "Overstated",
+      "reason": "Verification must follow the supervisor's name change. Requiring it to follow the merger as well strengthens that supported timing condition; the relationship of those events is not specified."
+    }
+  }
+}

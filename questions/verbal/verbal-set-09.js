@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 9",
   "description": "21 EPSO-level passages on the history of European integration, digital and technology policy, and general science.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v09-01",
@@ -136,7 +136,7 @@ EPSO_BANK.registerSet({
       "explanation": "Two inferences are tested: the leftovers predate the Nice conference, and a majority of votes cast on a low turnout is not a majority of the electorate. The Charter option is an outside-knowledge trap."
     },
     {
-      "id": "v09-06",
+      "id": "v09-06-r2",
       "topic": "Enlargement",
       "difficulty": 3,
       "keyType": "combination",
@@ -156,10 +156,11 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Not supported. The text does not mention Bulgaria or Romania; this is outside knowledge the passage cannot confirm.",
         "Correct. The restrictions could apply to workers from eight of the ten new members and 'did not apply to Cyprus and Malta'.",
-        "False. Restrictions could last 'up to seven years', and many countries 'lifted their restrictions before the period ended'.",
+        "Overstated. Many early removals and three immediate openings do not numerically establish that fewer than a majority of old Member States retained restrictions for seven years: many is not an exact count. The statement upgrades an initial majority using restrictions and an up-to-seven-year ceiling into a majority lasting the full period, without sufficient support. The current note identifies qualifications but does not logically refute the specific most-country claim.",
         "Overstated. Turkish Cypriots 'approved' the plan; the text gives no sign that the vote was unanimous."
       ],
-      "explanation": "The key combines a list of ten countries with a rule that covered eight of them. Here the absolute word 'only' is exactly what the text supports, while the traps turn 'up to' into a fixed period and 'approved' into 'unanimously'."
+      "explanation": "The key combines a list of ten countries with a rule that covered eight of them. Here the absolute word 'only' is exactly what the text supports, while the traps turn 'up to' into a fixed period and 'approved' into 'unanimously'.",
+      "supersedes": "v09-06"
     },
     {
       "id": "v09-07",
@@ -240,7 +241,7 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies an exception to a new case. Careful readers separate the general rule ('as a rule') from its exceptions, and responsibility for failures to comply from responsibility for every incident."
     },
     {
-      "id": "v09-10",
+      "id": "v09-10-r2",
       "topic": "Cybersecurity",
       "difficulty": 2,
       "keyType": "combination",
@@ -258,12 +259,13 @@ EPSO_BANK.registerSet({
         "Check what the text says about the length of the support period and the products excluded."
       ],
       "optionNotes": [
-        "False. The support period is 'normally at least five years' and reflects expected use, and some software, such as non-commercial open source, is excluded.",
+        "False. The Act excludes some sector-regulated products, and the support period is only normally at least five years. Those limits do not support an unconditional duty for all software sold; the non-commercial open-source exclusion alone would not refute a claim about software sold.",
         "False. Only open-source software 'that is not supplied in the course of a commercial activity' is excluded.",
         "Not supported. The text says nothing about penalties.",
         "Correct. Smart toys are covered, and the reporting duty applies 'from September 2026, whereas most other obligations apply from December 2027'."
       ],
-      "explanation": "The key combines the scope of the Act with its timetable. Distractors drop a condition (commercial supply), add a penalty the text never mentions, or harden 'normally' into a rule for all software."
+      "explanation": "The key combines the scope of the Act with its timetable. Distractors drop a condition (commercial supply), add a penalty the text never mentions, or harden 'normally' into a rule for all software.",
+      "supersedes": "v09-10"
     },
     {
       "id": "v09-11",
@@ -474,16 +476,16 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies a statistical principle to a new case. The subtle trap confuses 'this pattern would appear even if X had no effect' with 'X had no effect'."
     },
     {
-      "id": "v09-19",
+      "id": "v09-19-r2",
       "topic": "Genetics",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "Most of a human cell's DNA is packed into the nucleus, but mitochondria, the structures that supply cells with energy, carry a small genome of their own. In humans it is a circular molecule of roughly 16,600 base pairs containing 37 genes, compared with about three billion base pairs in the nuclear genome. A cell may contain hundreds or thousands of copies of mitochondrial DNA but only two copies of the nuclear genome.\n\nMitochondrial DNA is inherited almost exclusively from the mother, because the father's mitochondria are normally eliminated after fertilisation; only a handful of cases of paternal transmission have been reported. It therefore passes down the female line largely unchanged, apart from occasional mutations, and is not reshuffled in each generation as nuclear DNA is.\n\nThese properties make it valuable to forensic scientists and archaeologists. Because there are so many copies, it can often be recovered from old or degraded samples when nuclear DNA cannot. A skeleton found under a car park in Leicester in 2012 was later identified as that of King Richard III, in part by comparing its mitochondrial DNA with that of living descendants of his eldest sister through an unbroken female line. Mitochondrial DNA cannot, however, distinguish between people who share the same maternal ancestry, such as siblings.",
+      "passage": "Most of a human cell's DNA is packed into the nucleus, but mitochondria, the structures that supply cells with energy, carry a small genome of their own. In humans it is a circular molecule of roughly 16,600 base pairs containing 37 genes, compared with about three billion base pairs in the nuclear genome. A cell may contain hundreds or thousands of copies of mitochondrial DNA but only two copies of the nuclear genome.\n\nMitochondrial DNA is inherited almost exclusively from the mother, because the father's mitochondria are normally eliminated after fertilisation; only a handful of cases of paternal transmission have been reported. It therefore passes down the female line largely unchanged, apart from occasional mutations, and is not reshuffled in each generation as nuclear DNA is.\n\nThese properties make it valuable to forensic scientists and archaeologists. Because there are so many copies, it can often be recovered from old or degraded samples when nuclear DNA cannot. A skeleton found under a car park in Leicester in 2012 was later identified as that of King Richard III, in part by comparing its mitochondrial DNA with that of living descendants of his eldest sister through an unbroken female line. Maternal relatives can have matching mitochondrial sequences, although mutations can differentiate some relatives. A shared match alone cannot identify one individual uniquely.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Mitochondrial DNA passes from mother to child entirely unchanged, in every family and every generation.",
         "The identification of Richard III's skeleton also relied on radiocarbon dating of the bones.",
-        "Mitochondrial DNA alone could not show whether the skeleton was Richard III's or a full brother's.",
+        "A mitochondrial match shared by Richard III and a maternal relative could not alone identify which individual the skeleton belonged to.",
         "Mitochondrial DNA can be recovered from old or degraded samples whenever nuclear DNA cannot be."
       ],
       "answer": 2,
@@ -494,10 +496,11 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "False. It passes down 'largely unchanged, apart from occasional mutations'.",
         "Not supported. The identification was made 'in part' by DNA comparison, but the text does not name the other evidence.",
-        "Correct. Mitochondrial DNA 'cannot distinguish between people who share the same maternal ancestry, such as siblings', and a full brother shares Richard III's mother.",
+        "Correct. A shared sequence match does not uniquely identify one maternal relative. The passage also recognises mutations, so this is not a claim that such relatives always have identical sequences.",
         "Overstated. Mitochondrial DNA 'can often be recovered' when nuclear DNA cannot; 'whenever' goes further than the text."
       ],
-      "explanation": "The key applies a stated limitation to a concrete case. The other options either invent the rest of the evidence or turn 'largely' and 'often' into absolutes."
+      "explanation": "The key applies a stated limitation to a concrete case. The other options either invent the rest of the evidence or turn 'largely' and 'often' into absolutes.",
+      "supersedes": "v09-19"
     },
     {
       "id": "v09-20",

@@ -38,7 +38,7 @@ async function axe(page, label) {
   await page.addScriptTag({ path: AXE });
   const r = await page.evaluate(async () => {
     const out = await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"] });
-    return out.violations.map((v) => `${v.impact} ${v.id}: ${v.nodes.length} node(s) – ${v.help}`);
+    return out.violations.map((v) => `${v.impact} ${v.id}: ${v.nodes.length} node(s) – ${v.help} (${v.nodes.map(n => n.target.join(" ")).join(", ")})`);
   });
   assert.deepEqual(r, [], `axe violations on ${label}:\n${r.join("\n")}`);
 }
@@ -210,13 +210,13 @@ async function run(engineName) {
       assert.match(await p.locator('#toast').textContent(), /No abstract reasoning questions match/);
       for (const id of ['05', '06', '07', '08']) {
         await p.selectOption('#opt-set', 'abstract-' + id);
-        await p.selectOption('#opt-abstract-level', '3');
+        await p.selectOption('#opt-abstract-level', 'all');
         await p.selectOption('#opt-count', '10');
         await p.check('#opt-timed');
         await p.locator('[data-act="practice"][data-k="abstract"]').click();
         const round = await p.evaluate(() => {
           const s = window.EPSO_APP.state.session.sections[0];
-          return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => it.q.difficulty === 3 && it.q.challenge) };
+          return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => [2,3].includes(it.q.difficulty) && it.q.challenge) };
         });
         assert.deepEqual(round, { n: 10, limit: 600000, hard: true });
         for (let i = 0; i < 10; i++) {
@@ -313,8 +313,17 @@ async function run(engineName) {
           const p = await newPage(viewport);
           await p.selectOption("#opt-count", "5");
           await p.locator(`[data-act="${mode}"][data-k="${section}"]`).click();
-          if (mode === "coach") await p.locator('[data-act="begin-coach"]').click();
+          if (mode === "coach") {
+            if (section !== "abstract") {
+              assert.equal(await p.locator(".solution h3").count(), 3, `${section} lesson includes three worked examples`);
+              assert.match(await p.locator(".steps").innerText(), section === "numerical" ? /Check the units and the base/ : /Require complete support/);
+              await axe(p, `${section} lesson ${sizeName}`);
+            }
+            if (section === "abstract") { assert.equal(await p.locator(".solution h3").count(), 3); assert.ok(await p.locator(".lesson-figures .fig").count() >= 4); await axe(p, "abstract visual lesson " + sizeName); }
+            await p.locator('[data-act="begin-coach"]').click();
+          }
           assert.equal(await p.locator(".feedback, .opt-note").count(), 0, "no answer feedback before checking");
+          if (section === "verbal") assert.equal(await p.locator("#verbal-evidence-rule").isVisible(), true);
           const expected = await p.evaluate(() => {
             const s = window.EPSO_APP.state.session;
             const item = s.sections[s.si].items[s.qi];
@@ -337,7 +346,10 @@ async function run(engineName) {
           await p.locator('[data-act="check"]').click();
           assert.equal(await p.locator(".opt-note").count(), expected.notes, "explain every option after checking");
           assert.equal(await p.locator(".takeaway").count(), 1);
-          if (section === "numerical") assert.equal(await p.locator(".solution li").count() > 0, true);
+          if (section === "numerical") {
+            assert.equal(await p.locator(".solution li").count() > 0, true);
+            assert.equal(await p.locator('.table-wrap:not([tabindex="0"])').count(), 0);
+          }
           assert.equal(await p.locator('[data-act="hint"]').count(), 0);
           await axe(p, `${mode} ${section} ${sizeName} feedback`);
           assert.deepEqual(p.errors, []);
@@ -346,6 +358,28 @@ async function run(engineName) {
       });
     }
   }
+
+  await check("revised verbal challenge shows worked reasoning only after checking in Coach and Practice", async () => {
+    for (const mode of ["coach", "practice"]) {
+      const p = await newPage(phone, { dark: true });
+      await p.selectOption("#opt-set", "verbal-10");
+      await p.selectOption("#opt-count", "all");
+      await p.locator(`[data-act="${mode}"][data-k="verbal"]`).click();
+      if (mode === "coach") await p.locator('[data-act="begin-coach"]').click();
+      const index = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.findIndex(it => it.q.supersedes === "v10-06"));
+      assert.ok(index >= 0);
+      await p.locator(`.qdot[data-i="${index}"]`).click();
+      assert.equal(await p.locator(".solution").count(), 0, "worked proof stays hidden");
+      await p.locator('[data-act="choose"]').first().click();
+      await p.locator('[data-act="check"]').click();
+      assert.equal(await p.locator(".solution li").count(), 3);
+      assert.match(await p.locator(".solution").innerText(), /40 units.*24 units/s);
+      assert.equal(await p.locator(".opt-note").count(), 4);
+      await axe(p, `${mode} revised verbal proof`);
+      assert.deepEqual(p.errors, []);
+      await p.context().close();
+    }
+  });
 
   await check("W6: a highlight across two paragraphs stays valid and survives navigation", async () => {
     const p = await newPage(desktop);
@@ -763,7 +797,8 @@ async function run(engineName) {
       await p.selectOption("#opt-set", "numerical-04");
       await p.selectOption("#opt-count", "all");
       await p.locator('[data-act="practice"][data-k="numerical"]').click();
-      const i = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.findIndex((it) => it.q.id === "n04-40-r2"));
+      const i = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.findIndex((it) => it.q.id === "n04-40-r2" || it.q.supersedes === "n04-40-r2"));
+      assert.ok(i >= 0, "wide-table question or its reviewed revision exists");
       await p.locator(`.qdot[data-i="${i}"]`).click();
       const wrap = p.locator(".table-wrap").first();
       assert.equal(await wrap.evaluate((el) => el.scrollWidth > el.clientWidth + 2), expectScroll, `scrollable at ${vp.width}px`);

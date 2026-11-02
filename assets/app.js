@@ -832,7 +832,7 @@
         var label = SECTIONS[k].name.split(" ")[0];
         var rounds = k === "verbal" ? "Sets 10–19; 10 questions in 17 min 30 sec" : k === "numerical" ? "Sets 5–11; 10 questions in 20 min" : "Sets 5–11; 10 questions in 10 min";
         return '<div class="field"><span class="field-label small muted"><label for="opt-' + k + '-level">' + label + ' difficulty</label>' +
-          info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose Easy, Medium or Hard. Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice.", "right") + "</span>" +
+          info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose Easy, Medium or Hard. " + (k === "abstract" ? "Challenge sets span Medium and Hard. Choose All levels, a challenge set, 10 questions and timed practice for a complete round." : "Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice."), "right") + "</span>" +
           '<select id="opt-' + k + '-level">' + [["all", "All levels"], ["1", "Easy"], ["2", "Medium"], ["3", "Hard"]].map(function (o) {
             return '<option value="' + o[0] + '"' + (prefs[k + "Level"] === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
           }).join("") + "</select></div>";
@@ -882,6 +882,9 @@
       '<h2>The method</h2><ol class="steps">' + L.steps.map(function (st) {
         return "<li><b>" + esc(st.name) + "</b><span>" + esc(st.text) + "</span></li>";
       }).join("") + "</ol>" +
+      (L.examples ? '<h2>Worked examples</h2>' + L.examples.map(function (example) {
+        return '<section class="solution"><h3>' + esc(example.title) + '</h3>' + (example.figures ? '<div class="lesson-figures">' + example.figures.map(function (figure, i) { return '<figure>' + R.figureSVG(figure, example.labels[i]) + '<figcaption>' + esc(example.labels[i]) + '</figcaption></figure>'; }).join('') + '</div>' : '') + '<ol>' + example.steps.map(function (step) { return '<li>' + esc(step) + '</li>'; }).join('') + '</ol></section>';
+      }).join('') : '') +
       '<h2>Common traps</h2><ul class="traps">' + L.traps.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" +
       '<h2>Pacing</h2><p>' + esc(L.pacing) + "</p>" +
       '<div class="row-actions"><button class="btn" data-act="home">Back</button><button class="btn btn-primary btn-lg" data-act="begin-coach">Start training round (' +
@@ -925,6 +928,7 @@
     var right = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
       (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>" +
       '<h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
+      (q.section === "verbal" ? '<p class="muted small" id="verbal-evidence-rule">Judge every statement using the passage alone.</p>' : "") +
       optionsHTML(item, sec, mode) +
       (mode === "coach" && !checked ? coachPanelHTML(item, sec) : "") +
       (checked ? feedbackHTML(item, sec) : "") +

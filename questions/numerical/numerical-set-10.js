@@ -4,11 +4,11 @@ EPSO_BANK.registerSet({
   "section": "numerical",
   "title": "Numerical reasoning · Set 10 — Very hard",
   "description": "Ten original multi-stage constraint, inverse and changing-base models. Editorial difficulty; calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "n10-01",
+      "id": "n10-01-r2",
       "topic": "Evaporation and replacement mixture",
       "difficulty": 3,
       "challenge": true,
@@ -100,7 +100,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "optionNotes": [
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Draining removes solute and water together; evaporation removes water only. Both additions change the final concentration denominator.",
         "Uses a drain fraction one percentage point lower.",
         "Omits draining before evaporating.",
         "Uses concentrate one percentage point weaker.",
@@ -111,16 +111,17 @@ EPSO_BANK.registerSet({
         "Put the concentrate volume on both sides of the concentration equation."
       ],
       "solution": [
-        "Solute retained = 1010 × 25/100 × (1 − 13/100).",
-        "After evaporation, liquid volume = 1010 × (1 − 13/100) × (1 − 9/100); solute is unchanged.",
-        "Final volume = 1010 × (1 − 13/100) × (1 − 9/100) + 110 + x.",
-        "Equation: retained solute + 43/100 × x = 30/100 × (post-evaporation volume + 110 + x).",
-        "Solving gives x = 409.31 litres; this is positive and is feasible with the specified water addition."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "After draining: solute = 1010 × (25 ÷ 100) × (1 − 13 ÷ 100) ≈ 219.675 litres.",
+        "After evaporation: volume = 1010 × (1 − 13 ÷ 100) × (1 − 9 ÷ 100) ≈ 799.617 litres; solute stays unchanged.",
+        "Final solute = 219.675 + (43 ÷ 100)x; final volume = 799.617 + 110 + x.",
+        "Equate solute to target fraction × volume. Thus x = ((30 ÷ 100) × (799.617 + 110) − 219.675) ÷ ((43 − 30) ÷ 100) ≈ 409.31 litres."
       ],
-      "explanation": "Draining removes solute and water together; evaporation removes water only. Both additions change the final concentration denominator."
+      "explanation": "Draining removes solute and water together; evaporation removes water only. Both additions change the final concentration denominator.",
+      "supersedes": "n10-01"
     },
     {
-      "id": "n10-02",
+      "id": "n10-02-r2",
       "topic": "Fee-sensitive portfolio rebalance",
       "difficulty": 3,
       "challenge": true,
@@ -213,7 +214,7 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "optionNotes": [
         "Lowers the desired allocation by one percentage point.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. A percentage target after transaction costs is not a percentage of the original total.",
         "Uses a fee one percentage point too high.",
         "Raises the desired allocation by one percentage point.",
         "Rebalances at initial rather than changed fund values."
@@ -223,16 +224,17 @@ EPSO_BANK.registerSet({
         "Write the post-fee X value and post-fee total separately."
       ],
       "solution": [
-        "After price changes X = 108,480.00; Y = 107,350.00.",
-        "Selling s adds (1 − 0.03)s to X, so final X = 108,480.00 + (1 − 0.03)s.",
-        "Final total = 215,830.00 − 0.03s.",
-        "Set final X = 61/100 × final total and collect s terms.",
-        "s = 23,450.67; it is positive and below the available Y value."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "After price changes: X = 96000 × (1 + 13 ÷ 100) ≈ EUR 108,480; Y ≈ EUR 107,350.",
+        "After selling s: X = 108,480 + (1 − 0.03)s; total = 215,830 − 0.03s.",
+        "Set X = 0.61 × total, giving (1 − 0.03 + 0.61 × 0.03)s = 0.61 × 215,830 − 108,480.",
+        "Solve s ≈ EUR 23,450.67. It lies between zero and available Y (EUR 107,350), so the transfer is feasible."
       ],
-      "explanation": "A percentage target after transaction costs is not a percentage of the original total."
+      "explanation": "A percentage target after transaction costs is not a percentage of the original total.",
+      "supersedes": "n10-02"
     },
     {
-      "id": "n10-03",
+      "id": "n10-03-r2",
       "topic": "Replacement finance after taxed disposal",
       "difficulty": 3,
       "challenge": true,
@@ -332,7 +334,7 @@ EPSO_BANK.registerSet({
         "Omits tax on the disposal gain.",
         "Depreciates for one year too few.",
         "Uses a loan fee two percentage points too low.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Depreciation is noncash but affects tax. The disposal cash waterfall and the new-loan fee use separate bases.",
         "Depreciates for one additional year."
       ],
       "hints": [
@@ -340,16 +342,17 @@ EPSO_BANK.registerSet({
         "Repay the old liability before computing the new funding gap, then reverse the fee."
       ],
       "solution": [
-        "Book value = 192000 × (1 − 21/100)^4 = 74,784.155520.",
-        "Taxable gain = max(0, sale − book value); multiply by 26/100.",
-        "Usable sale cash = 109000 − gain tax − 23000.",
-        "Funding gap = 238000 − usable sale cash.",
-        "Gross loan = gap ÷ (1 − 4/100) = EUR 167,600.12."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Book value = 192000 × (1 − 21 ÷ 100)^4 ≈ EUR 74,784.15552.",
+        "Positive sale gain = max(0, 109000 − book value) ≈ EUR 34,215.84448; gain tax ≈ EUR 8,896.119565.",
+        "Usable cash = sale proceeds − gain tax − old debt ≈ EUR 77,103.880435. Funding gap = 238000 − usable cash ≈ EUR 160,896.119565.",
+        "Gross loan = gap ÷ (1 − 4 ÷ 100) ≈ EUR 167,600.12. Forward check: loan × surviving fraction supplies the gap before final rounding."
       ],
-      "explanation": "Depreciation is noncash but affects tax. The disposal cash waterfall and the new-loan fee use separate bases."
+      "explanation": "Depreciation is noncash but affects tax. The disposal cash waterfall and the new-loan fee use separate bases.",
+      "supersedes": "n10-03"
     },
     {
-      "id": "n10-04",
+      "id": "n10-04-r2",
       "topic": "Sequential screening posterior",
       "difficulty": 3,
       "challenge": true,
@@ -411,7 +414,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "optionNotes": [
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. A sensitivity is conditional on condition status, not on a positive result. Rebuild the posterior denominator after both tests.",
         "Uses the next district prevalence.",
         "Treats the first sensitivity as 100%.",
         "Treats the second sensitivity as 100%.",
@@ -422,15 +425,18 @@ EPSO_BANK.registerSet({
         "The denominator includes true and false positives, each passing both stages."
       ],
       "solution": [
-        "Use a hypothetical population of 100,000: condition = 9000; no condition = 91000.",
-        "Condition and both positive = 100,000 × 0.09 × 0.87 × 0.82.",
-        "No condition and both positive = 100,000 × 0.91 × 0.13 × 0.1.",
-        "Divide the first joint count by the sum of the two joint counts: 84.44%."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Use 100,000 hypothetical people: 9,000 have the condition; 91,000 do not.",
+        "With the condition and both positive: 9,000 × (87 ÷ 100) × (82 ÷ 100) ≈ 6,420.6.",
+        "Without the condition and both positive: 91,000 × (13 ÷ 100) × (10 ÷ 100) ≈ 1,183.",
+        "Both-positive denominator ≈ 6,420.6 + 1,183 = 7,603.6.",
+        "Required share = true both-positive count ÷ total both-positive count × 100 ≈ 84.44%."
       ],
-      "explanation": "A sensitivity is conditional on condition status, not on a positive result. Rebuild the posterior denominator after both tests."
+      "explanation": "A sensitivity is conditional on condition status, not on a positive result. Rebuild the posterior denominator after both tests.",
+      "supersedes": "n10-04"
     },
     {
-      "id": "n10-05",
+      "id": "n10-05-r2",
       "topic": "Reverse savings with intervening withdrawal",
       "difficulty": 3,
       "challenge": true,
@@ -526,23 +532,25 @@ EPSO_BANK.registerSet({
         "Omits the final balance fee.",
         "Omits tax on interest.",
         "Moves the withdrawal to the end of year 2.",
-        "Correct. Follow the worked solution, retaining full intermediate precision."
+        "Correct. A withdrawal between compounding periods makes the order of rates matter."
       ],
       "hints": [
         "Work backward in reverse chronological order.",
         "Tax applies to interest, while the final fee applies to principal plus retained interest."
       ],
       "solution": [
-        "Reverse the final fee: 63300 ÷ (1 − 3/100).",
-        "Year 2 after-tax interest factor = 1 + 5/100 × (1 − 21/100).",
-        "Divide the pre-fee balance by that factor, then add the EUR 4200 withdrawal back.",
-        "Year 1 factor = 1 + 6/100 × (1 − 21/100).",
-        "Divide by the year 1 factor: initial deposit EUR 63,946.92."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Before the final fee: 63300 ÷ (1 − 3 ÷ 100) ≈ EUR 65,257.731959.",
+        "Year 2 after-tax multiplier = 1 + (5 ÷ 100) × (1 − 21 ÷ 100) = 1.0395.",
+        "Reverse year 2 growth: opening balance ≈ EUR 62,778.000922. Restore the withdrawal: ≈ EUR 66,978.000922.",
+        "Year 1 after-tax multiplier = 1 + (6 ÷ 100) × (1 − 21 ÷ 100) = 1.0474.",
+        "Initial deposit = restored balance ÷ year 1 multiplier ≈ EUR 63,946.92."
       ],
-      "explanation": "A withdrawal between compounding periods makes the order of rates matter."
+      "explanation": "A withdrawal between compounding periods makes the order of rates matter.",
+      "supersedes": "n10-05"
     },
     {
-      "id": "n10-06",
+      "id": "n10-06-r2",
       "topic": "Emissions-constrained minimum journey time",
       "difficulty": 3,
       "challenge": true,
@@ -638,23 +646,24 @@ EPSO_BANK.registerSet({
         "Raises the slow speed by 5 km/h.",
         "Raises the fast speed by 5 km/h.",
         "Averages speeds without using the emissions-determined distances.",
-        "Correct. Follow the worked solution, retaining full intermediate precision."
+        "Correct. The binding resource fixes the distance mix; time must then be summed across the two speeds."
       ],
       "hints": [
         "Allocate the emissions budget before calculating time.",
         "Since fast travel saves time, use the largest feasible fast distance."
       ],
       "solution": [
-        "All-slow emissions = 640 × 83 = 53120 g.",
-        "Additional emissions permitted = 83000 − 53120.",
-        "Each km switched to fast adds 80 g; maximum fast distance = 373.500000 km.",
-        "This is between zero and 640, so the budget binds and all remaining km use slow mode.",
-        "Time = slow km ÷ 62 × 60 + fast km ÷ 92 × 60 + 38 = 539.49 minutes."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "All-slow emissions = 640 × 83 = 53120 g; budget remaining = 29880 g.",
+        "Each fast km adds 80 g, so fast distance = 29880 ÷ 80 ≈ 373.5 km. Slow distance ≈ 266.5 km.",
+        "The fast distance is within the route length; faster travel reduces time, so using the full emissions budget is optimal.",
+        "Total minutes = (slow distance ÷ 62 + fast distance ÷ 92) × 60 + 38 ≈ 539.49 minutes."
       ],
-      "explanation": "The binding resource fixes the distance mix; time must then be summed across the two speeds."
+      "explanation": "The binding resource fixes the distance mix; time must then be summed across the two speeds.",
+      "supersedes": "n10-06"
     },
     {
-      "id": "n10-07",
+      "id": "n10-07-r2",
       "topic": "Indivisible capacity after serial losses",
       "difficulty": 3,
       "challenge": true,
@@ -752,7 +761,7 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Ignores test rejection.",
         "Omits the shared setup outlay.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Serial yield, time availability and indivisibility affect different parts of the capacity calculation.",
         "Adds a module after already rounding the feasible requirement upward.",
         "Charges shared setup twice."
       ],
@@ -761,17 +770,18 @@ EPSO_BANK.registerSet({
         "Determine the integer number of modules before applying the per-module price and one shared setup."
       ],
       "solution": [
-        "Serial delivered yield = (1 − 7/100) × (1 − 9/100).",
-        "Required gross output = 71200 ÷ yield = 84,130.922841.",
-        "Productive hours per module = 7.25 × 20 × (1 − 13/100).",
-        "Gross capacity per module = productive hours × 47 = 5,929.050000.",
-        "Modules = ceil(required gross ÷ module capacity) = 15; one fewer fails.",
-        "Outlay = 13000 + 15 × 6600 = EUR 112,000.00."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Delivered yield = (1 − 7 ÷ 100) × (1 − 9 ÷ 100) = 0.8463.",
+        "Productive hours per module = 7.25 × 20 × (1 − 13 ÷ 100) ≈ 126.15.",
+        "Delivered units per module = productive hours × 47 × yield ≈ 5,017.755015.",
+        "Modules = ceiling(71200 ÷ delivered capacity) = 15. Check: 14 modules deliver ≈ 70,248.57021 < 71200; 15 deliver ≈ 75,266.325225 ≥ 71200.",
+        "Outlay = 13000 + 15 × 6600 = EUR 112,000.00; setup is paid once."
       ],
-      "explanation": "Serial yield, time availability and indivisibility affect different parts of the capacity calculation."
+      "explanation": "Serial yield, time availability and indivisibility affect different parts of the capacity calculation.",
+      "supersedes": "n10-07"
     },
     {
-      "id": "n10-08",
+      "id": "n10-08-r2",
       "topic": "Inverse capped-contribution taxation",
       "difficulty": 3,
       "challenge": true,
@@ -869,7 +879,7 @@ EPSO_BANK.registerSet({
       "answer": 1,
       "optionNotes": [
         "Uses a lower band EUR 2,000 too wide.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. An inverse piecewise calculation needs a regime assumption, an equation and a feasibility check.",
         "Uses a lower band EUR 2,000 too narrow.",
         "Omits the refundable credit.",
         "Omits the tax allowance."
@@ -879,16 +889,18 @@ EPSO_BANK.registerSet({
         "The contribution reduces taxable pay as well as net receipts."
       ],
       "solution": [
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
         "Assume contribution = cap = EUR 4100.",
         "Taxable pay = G − 4100 − 12500.",
         "Tax = 18600 × 21/100 + (G − 4100 − 12500 − 18600) × 36/100.",
-        "Set G − contribution − tax + 900 = 50600; solve G = 70,365.63.",
-        "Check G × 9/100 exceeds 4100, and taxable pay exceeds 18600; both conditions hold."
+        "Solve (1 − 36 ÷ 100)G = 50600 − 900 + 4100 + 18600 × (21 ÷ 100) − (4100 + 12500 + 18600) × (36 ÷ 100).",
+        "Gross pay ≈ EUR 70,365.63. Uncapped contribution ≈ EUR 6,332.90625 > EUR 4100, and taxable pay ≈ EUR 53,765.625 > EUR 18600; both assumed regimes hold."
       ],
-      "explanation": "An inverse piecewise calculation needs a regime assumption, an equation and a feasibility check."
+      "explanation": "An inverse piecewise calculation needs a regime assumption, an equation and a feasibility check.",
+      "supersedes": "n10-08"
     },
     {
-      "id": "n10-09",
+      "id": "n10-09-r2",
       "topic": "Deduplicated workload with conditional rework",
       "difficulty": 3,
       "challenge": true,
@@ -982,7 +994,7 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Uses capacity 10 reviews higher.",
         "Rounds the required days down.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. Overlap and repeat events belong to different stages. Form disjoint groups and count the initial event once.",
         "Gives every reworked person an extra review instead of the listed fraction.",
         "Uses capacity 10 reviews lower."
       ],
@@ -991,16 +1003,17 @@ EPSO_BANK.registerSet({
         "Only a fraction of reworked cases consumes an extra review."
       ],
       "solution": [
-        "Distinct people = 7600 + 5500 − 1900 = 11200.",
-        "Web-only = 5700; desk-only = 3600; both = 1900.",
-        "Expected rework = web-only × 9/100 + desk-only × 13/100 + both × (9 + 13)/200 = 1,190.000000.",
-        "Extra reviews = rework × 23/100; add these to 11200.",
-        "Divide by 113 and round UP: 102 days; one fewer day is insufficient."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Disjoint groups: web-only = 5700; desk-only = 3600; both = 1900. Initial reviews = 11200.",
+        "Expected rework = 5700 × (9 ÷ 100) + 3600 × (13 ÷ 100) + 1900 × ((9 + 13) ÷ 200) ≈ 1,190.",
+        "Extra reviews = rework × (23 ÷ 100) ≈ 273.7. Total expected reviews ≈ 11,473.7.",
+        "Days = ceiling(total reviews ÷ 113) = 102. Check: 101 days cover 11413 reviews, below demand; 102 days cover 11526."
       ],
-      "explanation": "Overlap and repeat events belong to different stages. Form disjoint groups and count the initial event once."
+      "explanation": "Overlap and repeat events belong to different stages. Form disjoint groups and count the initial event once.",
+      "supersedes": "n10-09"
     },
     {
-      "id": "n10-10",
+      "id": "n10-10-r2",
       "topic": "Reverse entrant composition after cohort attrition",
       "difficulty": 3,
       "challenge": true,
@@ -1095,7 +1108,7 @@ EPSO_BANK.registerSet({
         "Uses a target one percentage point too low.",
         "Uses an opening P share one percentage point too high.",
         "Ignores attrition among new entrants.",
-        "Correct. Follow the worked solution, retaining full intermediate precision.",
+        "Correct. The final composition is a weighted result after unequal survival, not a weighted average of opening percentages.",
         "Swaps the opening cohort retention rates."
       ],
       "hints": [
@@ -1103,13 +1116,14 @@ EPSO_BANK.registerSet({
         "Subtract surviving opening P from the target P count before solving the entrant proportion."
       ],
       "solution": [
-        "Retained opening P = 8500 × 66/100 × 89/100.",
-        "Retained opening other = 8500 × (1 − 66/100) × 83/100.",
-        "Retained entrants = 2500 × 93/100.",
-        "Required entrant P = 68/100 × total year-end membership − retained opening P.",
-        "Divide required entrant P by retained entrants × 100 = 69.44%; equal entrant retention makes this also the original entrant P share."
+        "Displayed intermediate decimals are approximations. Retain the original expressions in calculations and round only the final answer.",
+        "Retained opening P = 8500 × (66 ÷ 100) × (89 ÷ 100) ≈ 4,992.9.",
+        "Retained opening other ≈ 2,398.7; retained entrants = 2500 × (93 ÷ 100) ≈ 2,325.",
+        "Final population ≈ 9,716.6; P needed among retained entrants = total × (68 ÷ 100) − retained opening P ≈ 1,614.388.",
+        "Required entrant P share = required P ÷ retained entrants × 100 ≈ 69.44%. Equal retention for both entrant categories preserves their original proportion."
       ],
-      "explanation": "The final composition is a weighted result after unequal survival, not a weighted average of opening percentages."
+      "explanation": "The final composition is a weighted result after unequal survival, not a weighted average of opening percentages.",
+      "supersedes": "n10-10"
     }
   ]
 });

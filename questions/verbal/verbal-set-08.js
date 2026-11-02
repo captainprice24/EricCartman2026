@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 8",
   "description": "21 EPSO-level passages on social policy, employment, health, education and culture, plus psychology, medicine, linguistics and demography.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v08-01",
@@ -58,17 +58,17 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies a general rule to a new case and needs two facts: the rule covers all Member States, and the case falls below the threshold. Two distractors upgrade 'may use' and 'promote' into binding results."
     },
     {
-      "id": "v08-03",
+      "id": "v08-03-r2",
       "topic": "Equal pay",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "The Pay Transparency Directive, adopted in 2023, aims to enforce the principle of equal pay for men and women for equal work or work of equal value. Member States had until June 2026 to bring it into national law. Several of its rights apply to all employers, whatever their size. Job applicants must be told the starting pay, or its range, for the post before the interview, for example in the vacancy notice, and employers may no longer ask candidates how much they earned in previous jobs. Workers may request information on their own pay level and on average pay levels, broken down by sex, for colleagues doing the same work or work of equal value. Contract terms that prevent workers from disclosing their pay in order to enforce equal pay are not allowed.\n\nReporting duties, by contrast, depend on size. Employers with at least 250 workers must report on their gender pay gap every year, those with 150 to 249 workers every three years, and those with 100 to 149 workers also every three years but only from a later date. Smaller employers have no such duty under the Directive, though Member States may impose one. Where reporting reveals a gap of at least 5% in any category of workers that the employer cannot justify on objective, gender-neutral grounds and does not correct within six months, a joint pay assessment must be carried out with workers' representatives.",
+      "passage": "The Pay Transparency Directive, adopted in 2023, aims to enforce the principle of equal pay for men and women for equal work or work of equal value. Member States had until June 2026 to bring it into national law. Several of its rights apply to all employers, whatever their size. Job applicants must be told the starting pay, or its range, early enough for informed, transparent pay negotiation, for example through the vacancy notice or before the interview, and employers may no longer ask candidates how much they earned in previous jobs. Workers may request information on their own pay level and on average pay levels, broken down by sex, for colleagues doing the same work or work of equal value. Contract terms that prevent workers from disclosing their pay in order to enforce equal pay are not allowed.\n\nReporting duties, by contrast, depend on size. Employers with at least 250 workers must report on their gender pay gap every year, those with 150 to 249 workers every three years, and those with 100 to 149 workers also every three years but only from a later date. Smaller employers have no such duty under the Directive, though Member States may impose one. Where reporting reveals a gap of at least 5% in any category of workers that the employer cannot justify on objective, gender-neutral grounds and does not correct within six months, a joint pay assessment must be carried out with workers' representatives.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Employers with 100 or more workers must report annually on the gender pay gap within their organisation.",
         "Employers who ask job candidates about their previous salaries will face fines that are set at EU level.",
         "A joint pay assessment is required wherever the overall gap between men's and women's pay exceeds 5%.",
-        "A firm with only 30 staff must still tell applicants the starting pay, or its range, before interviewing them."
+        "A company with 30 employees still owes candidates early starting-pay information, despite having no reporting duty under the Directive."
       ],
       "answer": 3,
       "hints": [
@@ -79,9 +79,10 @@ EPSO_BANK.registerSet({
         "False. Only employers with 'at least 250 workers' report every year; those with 100 to 249 workers report 'every three years'.",
         "Not supported. The text bans the question but says nothing about penalties or who sets them.",
         "Overstated. The assessment is triggered by a gap of at least 5% 'in any category of workers' that is unjustified and not corrected within six months, not by any overall gap.",
-        "Correct. Information for applicants is among the rights that 'apply to all employers, whatever their size', so a 30-person employer is covered."
+        "Correct. Applicant information applies regardless of employer size, while a 30-person employer has no reporting duty under the Directive itself; national law can impose additional duties."
       ],
-      "explanation": "The key places a small employer on the right side of the passage's main contrast: universal rights versus size-dependent reporting. The traps stretch the annual reporting duty and drop the conditions attached to the 5% trigger."
+      "explanation": "The key places a small employer on the right side of the passage's main contrast: universal rights versus size-dependent reporting. The traps stretch the annual reporting duty and drop the conditions attached to the 5% trigger.",
+      "supersedes": "v08-03"
     },
     {
       "id": "v08-04",

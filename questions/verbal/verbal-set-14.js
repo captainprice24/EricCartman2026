@@ -3,11 +3,11 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 14 — Very hard",
   "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
-  "version": 1,
+  "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v14-01",
+      "id": "v14-01-r2",
       "topic": "Accommodation accreditation",
       "difficulty": 3,
       "challenge": true,
@@ -33,7 +33,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "List the badge, agreement and accommodation-clearance requirements before examining the interruption and conversion dates.",
         "Nine weeks excludes the short-gap waiver."
       ],
       "optionNotes": [
@@ -42,10 +42,11 @@ EPSO_BANK.registerSet({
         "Not supported. The identity of the earlier inspector and later authorising official is unspecified.",
         "Not supported. No expiry before conversion is reported."
       ],
-      "explanation": "Nine weeks excludes the short-gap waiver. Agreement commencement requires clearance still valid. The unlicensed parent cannot borrow its subsidiary’s licence. Conversion cancelled prior property-based clearance. Fresh approval requires an independent post-conversion personal inspection even if approval itself used remote review."
+      "explanation": "Nine weeks excludes the short-gap waiver. Agreement commencement requires clearance still valid. The unlicensed parent cannot borrow its subsidiary’s licence. Conversion cancelled prior property-based clearance. Fresh approval requires an independent post-conversion personal inspection even if approval itself used remote review.",
+      "supersedes": "v14-01"
     },
     {
-      "id": "v14-02",
+      "id": "v14-02-r2",
       "topic": "Restoration funding succession",
       "difficulty": 3,
       "challenge": true,
@@ -71,7 +72,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate inherited eligibility from the consent needed for the current project and use of the building.",
         "Changed use ends the inherited eligibility exception."
       ],
       "optionNotes": [
@@ -80,10 +81,11 @@ EPSO_BANK.registerSet({
         "Not supported. No earlier work by the architect is identified.",
         "Overstated. Elin needs fresh consent after a changed use; the inherited-eligibility exception remains available to custodians whose project and use stay unchanged."
       ],
-      "explanation": "Changed use ends the inherited eligibility exception. No formed partnership exists, leaving listed-building eligibility. Roof replacement is not removable furniture. Conservation consent is required. Both consent routes require an independent architect’s report."
+      "explanation": "Changed use ends the inherited eligibility exception. No formed partnership exists, leaving listed-building eligibility. Roof replacement is not removable furniture. Conservation consent is required. Both consent routes require an independent architect’s report.",
+      "supersedes": "v14-02"
     },
     {
-      "id": "v14-03",
+      "id": "v14-03-r2",
       "topic": "Cross-border archive access",
       "difficulty": 3,
       "challenge": true,
@@ -109,7 +111,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Track research clearance separately from the two possible sources of permission to export.",
         "Unsigned reciprocity excludes acceptance of the partner clearance."
       ],
       "optionNotes": [
@@ -118,10 +120,11 @@ EPSO_BANK.registerSet({
         "Correct. Valid export needs clearance the unsigned partner cannot supply; director permission is ineffective, so unpublished files require the two-assessor public-interest route.",
         "False. Association membership is expressly insufficient without the signed current reciprocity schedule."
       ],
-      "explanation": "Unsigned reciprocity excludes acceptance of the partner clearance. The former director cannot supply valid depositor permission. Only catalogue descriptions were published. The public-interest exception therefore requires two external assessors. Both must have unredacted access, not merely confidentiality declarations."
+      "explanation": "Unsigned reciprocity excludes acceptance of the partner clearance. The former director cannot supply valid depositor permission. Only catalogue descriptions were published. The public-interest exception therefore requires two external assessors. Both must have unredacted access, not merely confidentiality declarations.",
+      "supersedes": "v14-03"
     },
     {
-      "id": "v14-04",
+      "id": "v14-04-r2",
       "topic": "Water permit renewal",
       "difficulty": 3,
       "challenge": true,
@@ -147,7 +150,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check flow compliance and meter assurance independently, using the dates of the intake move and instrument work.",
         "Nursery supply excludes the domestic exemption."
       ],
       "optionNotes": [
@@ -156,10 +159,11 @@ EPSO_BANK.registerSet({
         "Not supported. No comparative accuracy is given.",
         "Correct. Commercial supply excludes the exemption; relocation requires a fresh study, and the broken seal forces a manual log checked against a newly calibrated instrument."
       ],
-      "explanation": "Nursery supply excludes the domestic exemption. Moving the intake invalidates the older gauge study. The unrepaired seal excludes certified-meter assurance. The manual-log route needs a second instrument calibrated after relocation. That calibration must be independent."
+      "explanation": "Nursery supply excludes the domestic exemption. Moving the intake invalidates the older gauge study. The unrepaired seal excludes certified-meter assurance. The manual-log route needs a second instrument calibrated after relocation. That calibration must be independent.",
+      "supersedes": "v14-04"
     },
     {
-      "id": "v14-05",
+      "id": "v14-05-r2",
       "topic": "Competitive award appeals",
       "difficulty": 3,
       "challenge": true,
@@ -185,7 +189,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Distinguish eligibility to appeal from standing, then identify which consortium and registration conditions survive.",
         "The withdrawn lead excludes consortium eligibility."
       ],
       "optionNotes": [
@@ -194,10 +198,11 @@ EPSO_BANK.registerSet({
         "Not supported. The opening date and exact lodging date are not given.",
         "Not supported. Acceptance for hearing does not establish the outcome."
       ],
-      "explanation": "The withdrawn lead excludes consortium eligibility. Direct registration is therefore required. Delivery counts as service, so a timely objection is necessary. Leto did not act personally. The consultant must have explicit appeal authority at timely lodging."
+      "explanation": "The withdrawn lead excludes consortium eligibility. Direct registration is therefore required. Delivery counts as service, so a timely objection is necessary. Leto did not act personally. The consultant must have explicit appeal authority at timely lodging.",
+      "supersedes": "v14-05"
     },
     {
-      "id": "v14-06",
+      "id": "v14-06-r2",
       "topic": "Safety recall traceability",
       "difficulty": 3,
       "challenge": true,
@@ -223,7 +228,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Follow the recall route and repair evidence separately; an accurate recording need not satisfy a witness condition.",
         "The device was not individually recovered."
       ],
       "optionNotes": [
@@ -232,10 +237,11 @@ EPSO_BANK.registerSet({
         "Not supported. Witnessing does not imply performing installation.",
         "Overstated. Closure is defined for the affected device, not every device sharing a crate."
       ],
-      "explanation": "The device was not individually recovered. Changed serial identification requires a fresh matching repair record. The franchise member lacks accreditation. A load-test-only video cannot replace attendance. An independent witness must therefore have attended both stages."
+      "explanation": "The device was not individually recovered. Changed serial identification requires a fresh matching repair record. The franchise member lacks accreditation. A load-test-only video cannot replace attendance. An independent witness must therefore have attended both stages.",
+      "supersedes": "v14-06"
     },
     {
-      "id": "v14-07",
+      "id": "v14-07-r2",
       "topic": "Protected collection loans",
       "difficulty": 3,
       "challenge": true,
@@ -261,7 +267,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 2,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Treat insurance and transport approval as separate conditions, and check the ownership and journey scope of each exception.",
         "Joint ownership excludes the state guarantee."
       ],
       "optionNotes": [
@@ -270,10 +276,11 @@ EPSO_BANK.registerSet({
         "Correct. Joint ownership excludes the guarantee; territorial exclusion defeats the old policy, while suspended carrier accreditation and an intercity route force the two-escort plan.",
         "Not supported. The premium and its determinants are not given."
       ],
-      "explanation": "Joint ownership excludes the state guarantee. The old territorial exclusion requires other valid borrower insurance. Lapsed storage licensing suspends carrier accreditation. Crossing cities excludes the one-city escort exception. Two escorts with post-standard training are consequently required."
+      "explanation": "Joint ownership excludes the state guarantee. The old territorial exclusion requires other valid borrower insurance. Lapsed storage licensing suspends carrier accreditation. Crossing cities excludes the one-city escort exception. Two escorts with post-standard training are consequently required.",
+      "supersedes": "v14-07"
     },
     {
-      "id": "v14-08",
+      "id": "v14-08-r2",
       "topic": "Laboratory release authority",
       "difficulty": 3,
       "challenge": true,
@@ -299,7 +306,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 3,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Check analytical evidence and signing authority separately, including what the detector replacement invalidates.",
         "Broken arrival seal excludes the external certificate."
       ],
       "optionNotes": [
@@ -308,10 +315,11 @@ EPSO_BANK.registerSet({
         "Not supported. No comparative precision evidence is given.",
         "Correct. The external and manual routes fail; detector replacement cancels old calibration, and deputy status independently requires current release authority."
       ],
-      "explanation": "Broken arrival seal excludes the external certificate. No manual method exists, so a local instrument assay is necessary. Detector replacement cancels earlier calibration. Both fresh-calibration routes need a reference certified after installation. The absent usual signatory’s deputy needs separate current release authority."
+      "explanation": "Broken arrival seal excludes the external certificate. No manual method exists, so a local instrument assay is necessary. Detector replacement cancels earlier calibration. Both fresh-calibration routes need a reference certified after installation. The absent usual signatory’s deputy needs separate current release authority.",
+      "supersedes": "v14-08"
     },
     {
-      "id": "v14-09",
+      "id": "v14-09-r2",
       "topic": "Procurement standstill exceptions",
       "difficulty": 3,
       "challenge": true,
@@ -337,7 +345,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 0,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Start with the urgency exception, then follow effective delivery and standstill timing for every unsuccessful bidder.",
         "The stated urgency ground does not qualify."
       ],
       "optionNotes": [
@@ -346,10 +354,11 @@ EPSO_BANK.registerSet({
         "Not supported. The appointment date is not specified.",
         "False. The request cited financial loss alone, which cannot qualify under the stated rule."
       ],
-      "explanation": "The stated urgency ground does not qualify. Every unsuccessful bidder must receive an effective notice. The portal acknowledgment is missing. The former director therefore needs renewed mail authority for postal service. Standstill cannot start before that effective delivery."
+      "explanation": "The stated urgency ground does not qualify. Every unsuccessful bidder must receive an effective notice. The portal acknowledgment is missing. The former director therefore needs renewed mail authority for postal service. Standstill cannot start before that effective delivery.",
+      "supersedes": "v14-09"
     },
     {
-      "id": "v14-10",
+      "id": "v14-10-r2",
       "topic": "Source-code escrow access",
       "difficulty": 3,
       "challenge": true,
@@ -375,7 +384,7 @@ EPSO_BANK.registerSet({
       ],
       "answer": 1,
       "hints": [
-        "Trace the conditions in both directions; distinguish requirements from sufficient evidence.",
+        "Separate the release trigger, beneficiary entitlement and delegated signing authority; each has its own validity rule.",
         "Six days cannot meet the outage trigger."
       ],
       "optionNotes": [
@@ -384,7 +393,8 @@ EPSO_BANK.registerSet({
         "Not supported. The relative timing of ratification and insolvency confirmation is not specified.",
         "Not supported. No cause of insolvency is stated."
       ],
-      "explanation": "Six days cannot meet the outage trigger. Verified insolvency must supply the trigger. Pending payment excludes a current renewal. The surviving clause needs the final contract deposited before termination. The changed legal form requires the new board to ratify Veda’s delegation."
+      "explanation": "Six days cannot meet the outage trigger. Verified insolvency must supply the trigger. Pending payment excludes a current renewal. The surviving clause needs the final contract deposited before termination. The changed legal form requires the new board to ratify Veda’s delegation.",
+      "supersedes": "v14-10"
     }
   ]
 });

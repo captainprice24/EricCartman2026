@@ -1,0 +1,202 @@
+{
+  "date": "2026-11-02",
+  "scope": "All fourteen passage/option revisions in final local artifact, desktop light and phone dark, Practice answer feedback; Coach lifecycle separately covered by full suite.",
+  "results": [
+    {
+      "id": "v01-04-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v02-15-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v03-06-r3",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-06-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-09-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-19-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v07-03-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v07-18-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v08-03-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v09-19-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v10-07-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v11-07-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v12-10-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v18-08-r2",
+      "width": 1366,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v01-04-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v02-15-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v03-06-r3",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-06-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-09-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v05-19-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v07-03-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v07-18-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v08-03-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v09-19-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v10-07-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v11-07-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v12-10-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    },
+    {
+      "id": "v18-08-r2",
+      "width": 390,
+      "passageHashMatches": true,
+      "correctFeedback": true,
+      "allOptionExplanations": true
+    }
+  ]
+}

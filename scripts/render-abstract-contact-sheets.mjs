@@ -10,7 +10,7 @@ for (const file of fs.readdirSync(path.join(root, 'questions/abstract')).sort())
 const groups = sets.filter(s => s.challenge).map(s => ({ id: s.id, questions: s.questions }));
 const old = sets.filter(s => !s.challenge).flatMap(s => Array.from(s.questions));
 const topics = [...new Set(old.map(q => q.topic))];
-groups.push({ id: 'foundation-sample', questions: topics.flatMap(t => old.filter(q => q.topic === t).slice(0, 2)) });
+for (const [i,topic] of topics.entries()) { const qs=old.filter(q=>q.topic===topic); for(let n=0;n<qs.length;n+=10) groups.push({id:'foundation-'+i+'-'+n,questions:qs.slice(n,n+10)}); }
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 try {
  const page = await browser.newPage({ viewport: { width: 1450, height: 1600 } });
@@ -26,7 +26,7 @@ try {
  await page.addScriptTag({ path: path.join(root, 'assets/render.js') });
  await page.evaluate(groups => {
   const R = window.EPSO_RENDER;
-  document.body.innerHTML = '<h1>Abstract visual review</h1><p>Six stimulus frames (five in the foundation sample), followed by five options. The keyed option is outlined for review only. These sheets are separate from the app.</p>' + groups.map(group => '<section class="sheet" id="' + group.id + '"><table class="contact"><caption>' + group.id + '</caption><tbody>' + group.questions.map(q => '<tr><td>' + q.id + '<br>' + R.esc(q.reasoning?.model || q.topic) + '<br>Key: ' + 'ABCDE'[q.answer] + '</td>' + [...q.sequence, ...q.options].map((f, i) => '<td class="' + (i === q.sequence.length ? 'separator ' : '') + (i === q.sequence.length + q.answer ? 'key' : '') + '">' + R.figureSVG(f, q.id + ' ' + (i < q.sequence.length ? 'frame ' + (i + 1) : 'option ' + 'ABCDE'[i - q.sequence.length])) + '</td>').join('') + '</tr>').join('') + '</tbody></table></section>').join('');
+  document.body.innerHTML = '<h1>Abstract visual review</h1><p>Five or six stimulus frames, followed by five options. The keyed option is outlined for review only. These sheets are separate from the app.</p>' + groups.map(group => '<section class="sheet" id="' + group.id + '"><table class="contact"><caption>' + group.id + '</caption><tbody>' + group.questions.map(q => '<tr><td>' + q.id + '<br>' + R.esc(q.reasoning?.model || q.topic) + '<br>Key: ' + 'ABCDE'[q.answer] + '</td>' + [...q.sequence, ...q.options].map((f, i) => '<td class="' + (i === q.sequence.length ? 'separator ' : '') + (i === q.sequence.length + q.answer ? 'key' : '') + '">' + R.figureSVG(f, q.id + ' ' + (i < q.sequence.length ? 'frame ' + (i + 1) : 'option ' + 'ABCDE'[i - q.sequence.length])) + '</td>').join('') + '</tr>').join('') + '</tbody></table></section>').join('');
  }, groups);
  const out = path.join(root, 'test-results/abstract-contact-sheets'); fs.mkdirSync(out, { recursive: true });
  const durable = path.join(root, 'docs/research/abstract/contact-sheets.html'); fs.writeFileSync(durable, await page.content());

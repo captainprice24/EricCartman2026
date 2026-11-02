@@ -1,0 +1,184 @@
+{
+  "v01-01": {
+    "C": {
+      "label": "Not supported",
+      "reason": "Referral to the Court of Justice is an invented procedure. A possible report to Parliament does not expressly exclude another action, so absence of support is not direct contradiction."
+    }
+  },
+  "v01-04": {
+    "B": {
+      "label": "False",
+      "reason": "The passage explicitly conditions bans on affordable, readily available alternatives; whatever the price contradicts that stated qualification."
+    }
+  },
+  "v01-16": {
+    "D": {
+      "label": "False",
+      "reason": "An invariably optimal one-week interval conflicts with the stated dependence of the optimal gap on the required retention period."
+    }
+  },
+  "v01-17": {
+    "B": {
+      "label": "Overstated",
+      "reason": "The passage establishes possible tourism/regeneration benefits and uneven outcomes, not guaranteed lasting economic gains. Difficulty sustaining cultural activity does not explicitly establish absence of lasting economic benefit, so this is an unjustified strengthening rather than a direct economic counterexample."
+    }
+  },
+  "v01-20": {
+    "D": {
+      "label": "Not supported",
+      "reason": "The text supplies neither adoption of the proposed revision nor a five-hour replacement threshold. A past three-hour ruling alone does not explicitly rule out a later revision; the claimed update is unstated."
+    }
+  },
+  "v02-05": {
+    "D": {
+      "label": "False",
+      "reason": "The text explicitly preserves the High Representative's powers and limits the president's representation to that level, contradicting sole responsibility."
+    }
+  },
+  "v02-15": {
+    "A": {
+      "label": "False",
+      "reason": "Registration is expressly defined by a one-tonne annual threshold and market restriction in those quantities; whatever the quantity contradicts the specified scope."
+    }
+  },
+  "v02-17": {
+    "B": {
+      "label": "False",
+      "reason": "Small devices are explicitly excluded, and laptops have a later starting date: both directly contradict every device since 2024."
+    }
+  },
+  "v02-19": {
+    "A": {
+      "label": "False",
+      "reason": "The passage specifies two thirds of votes cast plus a majority of members. Two thirds of all members substitutes a different mandatory threshold."
+    },
+    "D": {
+      "label": "False",
+      "reason": "The European Council explicitly proposes the candidate, so the Parliament is not the sole institution choosing the president."
+    }
+  },
+  "v02-21": {
+    "B": {
+      "label": "False",
+      "reason": "Non-participating states explicitly retain national responsibility, contradicting EPPO prosecution in all Member States."
+    },
+    "C": {
+      "label": "False",
+      "reason": "The stated ten-million-euro cross-border VAT threshold directly refutes every crime whatever the damage."
+    }
+  },
+  "v03-02": {
+    "B": {
+      "label": "False",
+      "reason": "Lisbon explicitly dropped constitutional symbols. It therefore was not simply the same treaty renamed."
+    }
+  },
+  "v03-03": {
+    "B": {
+      "label": "False",
+      "reason": "The passage explicitly identifies own resources, parliamentary powers and majority voting as additional connected issues, contradicting solely farm financing."
+    }
+  },
+  "v03-05": {
+    "C": {
+      "label": "False",
+      "reason": "Explicit opt-outs and exempt categories directly refute coverage of every worker by every limit without exception."
+    }
+  },
+  "v03-06-r2": {
+    "C": {
+      "label": "False",
+      "reason": "Made-to-order, perishable and unsealed hygiene goods are explicitly excluded from withdrawal, contradicting every online product."
+    }
+  },
+  "v03-08": {
+    "D": {
+      "label": "Not supported",
+      "reason": "Seven-day acknowledgement is supported, but the additional one-month full-answer procedure is invented. No full-response deadline is given or expressly ruled out."
+    }
+  },
+  "v03-09": {
+    "B": {
+      "label": "False",
+      "reason": "The explicit grandfathering period for previously installed terminals directly refutes universal compliance since June 2025."
+    }
+  },
+  "v03-10": {
+    "C": {
+      "label": "False",
+      "reason": "The passage explicitly includes food sold without packaging and restricts nutrition declarations to most pre-packed food. A packaging declaration on all food conflicts with this stated scope."
+    }
+  },
+  "v03-11": {
+    "B": {
+      "label": "False",
+      "reason": "The mandatory minimum is ninety-five percent organic agricultural ingredients. Eighty percent fails that explicit threshold."
+    }
+  },
+  "v03-13": {
+    "A": {
+      "label": "False",
+      "reason": "Some data are explicitly subject to restrictions, directly contradicting unrestricted access to all data."
+    }
+  },
+  "v03-17": {
+    "B": {
+      "label": "False",
+      "reason": "The eighty-five-percent emergency procedure is an explicit exception to agreement by all members."
+    }
+  },
+  "v03-21": {
+    "B": {
+      "label": "False",
+      "reason": "Abrupt local thaw is explicitly possible, directly contradicting always gradual everywhere."
+    }
+  },
+  "v03-23": {
+    "B": {
+      "label": "False",
+      "reason": "Shallow waters and nearby large markets are explicitly additional causes alongside winds, contradicting solely winds."
+    }
+  },
+  "v04-06": {
+    "D": {
+      "label": "False",
+      "reason": "Both the state-number and population thresholds must be met. Claiming population alone is enough contradicts the explicit cumulative requirement."
+    }
+  },
+  "v04-07": {
+    "A": {
+      "label": "Not supported",
+      "reason": "The passage reports evidence-based annulments but does not establish automatic annulment on any challenge. Dispute as a sufficient procedural trigger is invented; the text does not expressly enumerate unsuccessful challenges."
+    }
+  },
+  "v04-11": {
+    "D": {
+      "label": "False",
+      "reason": "The passage says three of six eastern partners now have the previously withheld perspective and contrasts Belarus, contradicting every eastern partner."
+    }
+  },
+  "v04-12": {
+    "A": {
+      "label": "False",
+      "reason": "Guarantees explicitly cover only part of project risk, contradicting removal of that risk altogether."
+    }
+  },
+  "v04-13": {
+    "D": {
+      "label": "False",
+      "reason": "The explicitly shared headquarters/common costs are exceptions to costs lying where they fall, contradicting all costs."
+    }
+  },
+  "v04-19": {
+    "D": {
+      "label": "False",
+      "reason": "Explicit civil-jurisdiction exceptions and waiver directly refute complete immunity from every legal action."
+    }
+  },
+  "v04-22": {
+    "A": {
+      "label": "False",
+      "reason": "The arrangement is explicitly limited to participants, directly contradicting restored appeals for every dispute between WTO members."
+    }
+  }
+}

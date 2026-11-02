@@ -322,13 +322,108 @@ test('the entire numerical bank uses named mistake distractors', () => {
 });
 
 
-test('foundation revisions keep fresh IDs and immutable reviewed generator fingerprints', () => {
-  const revisions=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-revisions.json')));
-  const revised=items.filter(q=>q.supersedes);
-  assert.equal(revised.length,150);
-  for(const {id,supersedes,...q} of revised){
-    assert.notEqual(id,supersedes);
-    assert.equal(revisions[supersedes].id,id);
-    assert.equal(crypto.createHash('sha256').update(JSON.stringify(q)).digest('hex'),revisions[supersedes].sha256,id);
+test('all numerical revisions preserve immutable old and new fingerprints', () => {
+  const original=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-revisions.json')));
+  const review=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-review-revisions.json')));
+  const hash=q=>{const content={...q};delete content.id;delete content.supersedes;return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');};
+  for(const q of items){
+    const entry=review.revisions[q.supersedes];
+    if(entry){
+      assert.equal(q.id,entry.id);assert.notEqual(q.id,q.supersedes);
+      assert.equal(hash(q),entry.sha256,q.id);
+      assert.equal(entry.beforeSha256,review.baseline[q.supersedes].sha256);
+      const prior=Object.values(original).find(r=>r.id===q.supersedes);
+      if(prior)assert.equal(prior.sha256,entry.beforeSha256);
+    }else{
+      assert.equal(hash(q),review.baseline[q.id].sha256,q.id);
+    }
   }
+  assert.equal(items.filter(q=>review.revisions[q.supersedes]).length,Object.keys(review.revisions).length);
+});
+
+test('all numerical values have exactly one answer at the stated display precision',()=>{
+  for(const q of items.filter(q=>q.answerType!=='category')){
+    const result=S[q.topic](q),decimals=(q.options[q.answer].replace(/,/g,'').match(/\.(\d+)/)||['',''])[1].length;
+    const tolerance=0.5*10**-decimals+1e-9*Math.abs(result);
+    assert.equal(q.options.filter(o=>Math.abs(num(o)-result)<=tolerance).length,1,q.id);
+  }
+});
+
+test('worked numerical explanations preserve percentage conversion and avoid early rounding',()=>{
+  for(const q of items){
+    if(q.topic==='Per-capita change')assert.match(q.solution.join(' '),/Change = .*× 100 ≈/);
+    if(q.topic==='Discounts and VAT'){
+      assert.match(q.stem,/do not round individual unit prices/);
+      assert.ok(q.solution.some(step=>/×.*×.*×.*≈ EUR/.test(step)),q.id);
+    }
+    if(!q.challenge && q.answerType!=='category'){
+      assert.match(q.stem,/Round only the final result/);
+      assert.ok(q.solution.at(-1).includes(q.options[q.answer]),q.id);
+    }
+    assert.doesNotMatch(q.solution.join(' '),/\d\.\d{12,}/,q.id+' floating-point noise');
+  }
+});
+
+test('threshold assumptions and dimensional units are explicit',()=>{
+  for(const q of items){
+    if(q.topic==='Rates of work')assert.match(q.stem,/part of a working day is allowed/);
+    if(q.topic==='Break-even point')assert.match(q.stem,/continuous.*strictly above the unrounded threshold/);
+    if(q.topic==='Percentages of percentages')assert.match(q.stem,/percentages as estimates/);
+    if(q.topic==='Loss-adjusted emissions substitution'){
+      assert.ok(q.solution.filter(s=>/intensity|Saving per delivered kWh/.test(s)).every(s=>s.includes('g/kWh')),q.id);
+    }
+  }
+});
+
+test('categorical numerical questions have a unique best candidate',()=>{
+  for(const q of items.filter(q=>q.answerType==='category')){
+    const ex=q.exhibits[0];
+    const metric=name=>{
+      if(q.topic==='Per-capita comparison'){
+        const r=ex.rows.find(r=>r[0]===name);return (num(r[1])-num(r[2]))/num(r[3]);
+      }
+      if(q.topic==='Unit price comparison'){
+        const r=ex.rows.find(r=>r[0]===name),kg=/kg$/.test(r[1])?num(r[1]):num(r[1])/1000;
+        return -num(r[2])/kg;
+      }
+      const i=ex.categories.indexOf(name),a=ex.series[0].values[i],b=ex.series[1].values[i];
+      if(q.topic==='Ratios from a chart')return (/lowest/.test(q.stem)?-1:1)*a/b;
+      if(q.topic==='Highest share in a stacked chart'){
+        const part=ex.series.find(s=>q.stem.toLowerCase().includes(s.name.toLowerCase()));
+        return part.values[i]/sumOf(ex.series.map(s=>s.values[i]));
+      }
+      if(q.topic==='Largest relative gap on a line chart')return (a-b)/b;
+      if(q.topic==='Largest gap on a line chart')return a-b;
+      throw Error('Missing categorical comparison '+q.topic);
+    };
+    const values=q.options.map(metric),best=Math.max(...values);
+    assert.equal(values.filter(v=>Math.abs(v-best)<1e-10).length,1,q.id+' tied candidates');
+    assert.ok(Math.abs(values[q.answer]-best)<1e-10,q.id);
+  }
+});
+
+test('key base and omitted-stage distractors match their stated mistakes',()=>{
+  let checked=0;
+  for(const q of items){
+    for(let i=0;i<q.options.length;i++){
+      if(i===q.answer)continue;
+      const note=q.optionNotes[i];let wrong;
+      if(q.topic==='Percentage change of a total' && /divides the change by the .* total/.test(note)){
+        const ex=table(q),[a,b]=yearsIn(q.stem),A=sumOf(col(ex,a)),B=sumOf(col(ex,b));wrong=100*(B-A)/B;
+      }
+      if(q.topic==='Per-capita change' && /divides the change by the 2023/.test(note)){
+        const ex=table(q),r=ex.rows[rowNamed(q,ex)].map(num),old=r[1]/r[3],fresh=r[2]/r[4];wrong=100*(fresh-old)/fresh;
+      }
+      if(q.topic==='Discounts and VAT'){
+        const ex=table(q),r=ex.rows[rowNamed(q,ex)].map(num),n=Number(q.stem.match(/orders (\d+)/)[1]);
+        if(/leaves out the discount/.test(note))wrong=n*r[1]*(1+r[3]/100);
+        if(/leaves out the VAT/.test(note))wrong=n*r[1]*(1-r[2]/100);
+        if(/adds and subtracts the percentages/.test(note))wrong=n*r[1]*(1+(r[3]-r[2])/100);
+      }
+      if(wrong===undefined)continue;
+      const decimals=(q.options[i].replace(/,/g,'').match(/\.(\d+)/)||['',''])[1].length;
+      assert.ok(Math.abs(num(q.options[i])-wrong)<=0.5*10**-decimals+1e-8,q.id+': '+note);checked++;
+    }
+  }
+  assert.ok(checked>=12,'must exercise actual wrong-base and omitted-stage options, not just keys');
 });

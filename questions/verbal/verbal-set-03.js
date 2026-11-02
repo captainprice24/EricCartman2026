@@ -3,7 +3,7 @@ EPSO_BANK.registerSet({
   "section": "verbal",
   "title": "Verbal reasoning · Set 3",
   "description": "25 EPSO-level passages on EU history, consumer rights, finance, research and science.",
-  "version": 4,
+  "version": 5,
   "questions": [
     {
       "id": "v03-01",
@@ -136,11 +136,11 @@ EPSO_BANK.registerSet({
       "explanation": "The key applies a court ruling to a specific case. The payment option ignores the single exception to the rule on leave, and the 'without exception' option ignores both the opt-out and the exemptions."
     },
     {
-      "id": "v03-06-r2",
+      "id": "v03-06-r3",
       "topic": "Consumer rights",
       "difficulty": 2,
       "keyType": "inference",
-      "passage": "When consumers buy goods online or by phone from a trader in the EU, they generally have 14 days to cancel the purchase without giving any reason. For goods, the period usually starts on the day the goods are delivered, and it remains available for twelve months after the original period ends if the trader never informs the consumer of this right. After cancelling, the consumer must return the goods, and the trader must refund all payments received, including standard delivery costs, within 14 days. The consumer may have to pay the cost of sending the goods back if the trader made this clear beforehand.\n\nSome products are excluded from this right of withdrawal, such as goods made to the consumer's specifications, perishable items like fresh food, and sealed hygiene products that have been unsealed after delivery. Digital content such as a downloaded film can also be excluded once the download has started, provided the consumer agreed to this.\n\nSeparately from the right of withdrawal, sellers must provide a legal guarantee of at least two years, under which they must repair, replace or refund goods that turn out to be faulty. For defects that appear within the first year, it is generally presumed that they already existed at the time of delivery.",
+      "passage": "When consumers buy goods online or by phone from a trader in the EU, they generally have 14 days to cancel the purchase without giving any reason. For goods, the period usually starts on the day the goods are delivered, and it remains available for twelve months after the original period ends if the trader never informs the consumer of this right. After cancelling, the consumer must return the goods, and the trader must refund all payments received, including standard delivery costs, within 14 days of being informed of withdrawal. Unless it offers collection, the trader may withhold reimbursement until it receives the goods or evidence of their return. The consumer may have to pay the cost of sending the goods back if the trader made this clear beforehand.\n\nSome products are excluded from this right of withdrawal, such as goods made to the consumer's specifications, perishable items like fresh food, and sealed hygiene products that have been unsealed after delivery. Digital content such as a downloaded film can also be excluded once the download has started, with prior express consent and acknowledgement of losing the withdrawal right.\n\nSeparately from the right of withdrawal, sellers must provide a legal guarantee of at least two years, under which they must repair, replace or refund goods that turn out to be faulty. For defects that appear within the first year, it is generally presumed that they already existed at the time of delivery.",
       "stem": "Which of the following statements is correct?",
       "options": [
         "Most consumers who cancel online purchases do so within the first week.",
@@ -159,8 +159,8 @@ EPSO_BANK.registerSet({
         "False. The 14-day right is the general rule, but some products, such as perishable or made-to-order goods, 'are excluded'.",
         "Correct. For an eligible purchase, never informing the consumer preserves the withdrawal right for twelve months beyond the original period, including ten months after delivery."
       ],
-      "explanation": "The key applies the extension rule to a specific case, so its strong wording is earned. Both overstated options stretch a rule beyond the limits stated in the text.",
-      "supersedes": "v03-06"
+      "explanation": "The extension applies only to otherwise eligible purchases. A two-year guarantee is different from a first-year presumption, and express product exceptions refute a universal withdrawal claim.",
+      "supersedes": "v03-06-r2"
     },
     {
       "id": "v03-07",
