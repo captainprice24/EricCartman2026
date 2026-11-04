@@ -455,11 +455,12 @@
       '<span class="hl-hint">' + (ui.hlMode === "erase" ? "Select text or click a highlight to remove it." : "Select text to highlight it.") + "</span></div>";
   }
 
-  function stimulusHTML(item, sec) {
+  // qhead ("Question n of N") sits on the passage's header row for verbal items, so the passage starts higher.
+  function stimulusHTML(item, sec, qhead) {
     var q = item.q, review = state.session.review;
     var main;
     if (q.section === "verbal") {
-      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span></div>' +
+      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span>' + qhead + "</div>" +
         (state.ui.hl && !review ? highlighterBarHTML(q, sec) : "") +
         '<div class="passage' + (state.ui.hl ? " hl-on hl-" + state.ui.hlMode : "") + '" id="passage">' + passageHTML(q, sec) + "</div>";
     } else if (q.section === "numerical") {
@@ -666,8 +667,13 @@
     }).join("");
     return '<nav class="qnav" aria-label="Questions"><button class="nav-arrow" data-act="nav-prev" aria-label="Previous question"' + (s.qi === 0 ? " disabled" : "") + '>←</button><div class="qdots">' + dots + "</div>" +
       (s.review ? "" : '<button class="btn nav-overview" data-act="overview" aria-expanded="' + state.ui.overview + '" aria-controls="test-overview">Overview' + (flagged ? " · " + flagged + " bookmarked" : "") + "</button>") +
-      '<button class="nav-arrow" data-act="nav-next" aria-label="Next question"' + (s.qi === sec.items.length - 1 ? " disabled" : "") + '>→</button></nav>' +
-      '<div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-unopened"></i>Not opened</span><span><i class="lg lg-opened"></i>Opened, not answered</span><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg lg-flag"></i>Bookmarked</span>' +
+      '<button class="nav-arrow" data-act="nav-next" aria-label="Next question"' + (s.qi === sec.items.length - 1 ? " disabled" : "") + '>→</button></nav>';
+  }
+  // Key to the navigation colours. On laptops the navigation is a bar fixed to the bottom of the screen,
+  // so the key sits under the question instead of taking a row above it.
+  function legendHTML() {
+    var s = state.session;
+    return '<div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-unopened"></i>Not opened</span><span><i class="lg lg-opened"></i>Opened, not answered</span><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg lg-flag"></i>Bookmarked</span>' +
       (s.review || s.mode !== "exam" ? '<span><i class="lg lg-ok">✓</i>Correct</span><span><i class="lg lg-bad">✗</i>Incorrect</span>' : "") + "</div>";
   }
   function overviewHTML(sec) {
@@ -925,10 +931,11 @@
       actions.push('<button class="btn' + ((checked && !review && mode !== "exam") || mode === "exam" ? " btn-primary" : "") + '" data-act="next">Next →</button>');
     }
 
-    var right = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
-      (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>" +
-      '<h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
-      (q.section === "verbal" ? '<p class="muted small" id="verbal-evidence-rule">Judge every statement using the passage alone.</p>' : "") +
+    var qhead = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
+      (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>";
+    var right = (q.section === "verbal" ? "" : qhead) +
+      '<div class="stem-row"><h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
+      (q.section === "verbal" ? '<p class="muted small" id="verbal-evidence-rule">Judge every statement using the passage alone.</p>' : "") + "</div>" +
       optionsHTML(item, sec, mode) +
       (mode === "coach" && !checked ? coachPanelHTML(item, sec) : "") +
       (checked ? feedbackHTML(item, sec) : "") +
@@ -940,7 +947,7 @@
     var panelOpen = !review && (state.ui.overview || state.ui.instructions);
     return head + '<div class="session' + (panelOpen ? " with-panel" : "") + '">' + navHTML(sec) +
       (panelOpen ? '<aside class="side-panels" aria-label="Test overview and instructions">' + panels + "</aside>" : panels) +
-      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>" +
+      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec, qhead) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div>" + legendHTML() + "</div>" +
       toolWindowsHTML(sec) + lineReaderHTML();
   }
 
@@ -1055,7 +1062,7 @@
       case "results": html = viewResults(); break;
       default: html = viewHome();
     }
-    root.className = "app view-" + state.view;
+    root.className = "app view-" + state.view + (state.view === "session" ? " sec-" + state.session.sections[state.session.si].key : "");
     persist();
     var storageNotice = (storageUnavailable ? '<div id="storage-warning" class="alert" role="status">Saving is unavailable. Your progress is kept only in this tab and will be lost when you reload or close it.</div>' : "") +
       (storageRecovered ? '<div class="alert" role="status">Some saved data could not be restored and was reset. Your other saved progress has been kept.</div>' : "");
@@ -1073,6 +1080,14 @@
     positionTips();
     mountTools();
     markScrollableTables();
+    centreCurrentQuestion();
+  }
+  // In the bottom navigation bar a long round scrolls sideways; keep the current question's number in view.
+  function centreCurrentQuestion() {
+    var dots = root.querySelector(".qdots"), current = dots && dots.querySelector(".current");
+    if (!current || dots.scrollWidth <= dots.clientWidth) return;
+    var d = dots.getBoundingClientRect(), c = current.getBoundingClientRect();
+    dots.scrollLeft += (c.left + c.width / 2) - (d.left + d.width / 2);
   }
   // A data table wider than its column gets a visible scroll affordance (see render.js tableHTML).
   function markScrollableTables() {
@@ -1096,6 +1111,7 @@
     state.focus = "q-stem";
     render();
     if (window.innerWidth < 900) { var el = document.querySelector(".session"); if (el) el.scrollIntoView({ block: "start" }); }
+    else window.scrollTo(0, 0); // a new question starts at the top of its passage
   }
 
   function choose(orig) {

@@ -1,5 +1,6 @@
-/* Layout concept: a calm exam console. The home page is a briefing sheet; the session is a two-pane
-   reading desk (stimulus left, answers right) under a TAO-style toolbar strip. */
+/* Layout concept: a calm exam console. The home page is a briefing sheet. The session is one column
+   (passage above, answers below; numerical data keeps its side-by-side desk) between a one-row toolbar
+   at the top and the question navigation fixed to the bottom, so a whole question fits on a laptop. */
 :root {
   --paper: #f3f5fa;
   --surface: #ffffff;
@@ -607,3 +608,71 @@ h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 .lesson-figures figure { margin:0; width:100px; text-align:center; }
 .lesson-figures .fig { width:100px; }
 .lesson-figures figcaption { font-size:.85rem; }
+
+/* ---------- Session layout for laptops: the whole question on one screen ----------
+   One-row toolbar at the top, the passage across the full width with the answers stacked under it,
+   and the question navigation as a bar fixed to the bottom of the window. */
+.view-session { max-width: 1400px; padding-top: 6px; padding-bottom: 24px; }
+/* Numerical keeps its side-by-side data desk at the original width, so the calculator's default place
+   (top right) leaves the answers clear. */
+.view-session.sec-numerical { max-width: 1180px; }
+.view-session .session { margin-top: 10px; gap: 10px; }
+.view-session .exam-bar { padding: 4px 12px; }
+.view-session .exam-bar .btn { min-height: 36px; padding-block: 6px; }
+.view-session .tool { min-height: 32px; }
+.q-verbal { grid-template-columns: minmax(0, 1fr); }
+.q-verbal .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
+.q-verbal .passage { max-width: none; gap: 8px; line-height: calc(1.55 * var(--a11y-lhf, 1)); }
+.view-session .stimulus { padding: 12px 22px 14px; }
+.view-session .answer-pane { padding: 12px 22px 14px; gap: 8px; }
+.view-session .stim-head { margin-bottom: 4px; }
+.stem-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
+.view-session .opts { gap: 6px; }
+.view-session .opt-main { padding: 6px 12px; align-items: center; }
+.view-session .letter { width: 26px; height: 26px; }
+.view-session .opts-fig .opt-main { padding: 10px; }
+.view-session .strike, .view-session .mask { margin-top: 2px; width: 32px; height: 32px; }
+.view-session .q-actions { border-top: 0; padding-top: 2px; }
+.view-session .q-actions .btn { min-height: 38px; padding-block: 7px; }
+.view-session .legend-row { justify-content: center; }
+/* Abstract figures keep their size on wide screens instead of growing with the column. */
+@media (min-width: 900px) {
+  .view-session .series { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 156px); justify-content: center; }
+}
+@media (min-width: 561px) {
+  .view-session .opts-fig { grid-template-columns: repeat(5, minmax(0, 176px)); justify-content: center; }
+}
+@media (min-width: 900px) {
+  .view-session .exam-bar { flex-wrap: nowrap; }
+  .view-session .bar-right { flex-wrap: nowrap; }
+}
+/* Below 1500px the tool buttons show their icons only (the label stays for screen readers and as a tooltip). */
+@media (min-width: 561px) and (max-width: 1499px) {
+  .view-session .tool > span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .view-session .tool { padding: 6px 8px; }
+}
+/* Laptop and desktop: the navigation is a bar along the bottom of the window, previous arrow on the left,
+   question numbers in the middle, Overview and next arrow on the right. */
+@media (min-width: 1100px) and (min-height: 560px) {
+  .view-session { padding-bottom: 40px; }
+  .view-session .qnav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.06);
+    padding: 4px max(16px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  /* One row of numbers, centred; a long round scrolls sideways instead of growing the bar. */
+  .view-session .qdots { flex-wrap: nowrap; gap: 4px; overflow-x: auto; padding: 3px; scrollbar-width: thin; }
+  .view-session .qdot { flex: 0 0 auto; margin: 6px 0 0; }
+  .view-session .qdot:first-child { margin-left: auto; }
+  .view-session .qdot:last-child { margin-right: auto; }
+  .view-session .qdot.current::after { top: -9px; bottom: auto; border-bottom: 0; border-top: 6px solid var(--ink); }
+  .view-session .toast { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  /* Overview and instructions float on the right above the navigation bar, next to the Overview button,
+     so opening them leaves the question exactly where it is. */
+  .view-session .session.with-panel { grid-template-columns: minmax(0, 1fr); }
+  .view-session .session.with-panel .side-panels {
+    position: fixed; z-index: 25; top: auto; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    width: 340px; max-height: calc(100vh - 140px); overflow: auto; padding: 10px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  }
+}

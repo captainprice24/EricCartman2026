@@ -7,8 +7,9 @@
 <meta name="description" content="Practise the EPSO AD5 verbal, numerical and abstract reasoning tests: coach mode, practice and timed exam simulation.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%231d3fa6%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Arial%22 font-size=%2214%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22white%22%3EAD5%3C/text%3E%3C/svg%3E">
 <style>
-/* Layout concept: a calm exam console. The home page is a briefing sheet; the session is a two-pane
-   reading desk (stimulus left, answers right) under a TAO-style toolbar strip. */
+/* Layout concept: a calm exam console. The home page is a briefing sheet. The session is one column
+   (passage above, answers below; numerical data keeps its side-by-side desk) between a one-row toolbar
+   at the top and the question navigation fixed to the bottom, so a whole question fits on a laptop. */
 :root {
   --paper: #f3f5fa;
   --surface: #ffffff;
@@ -616,6 +617,74 @@ h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 .lesson-figures figure { margin:0; width:100px; text-align:center; }
 .lesson-figures .fig { width:100px; }
 .lesson-figures figcaption { font-size:.85rem; }
+
+/* ---------- Session layout for laptops: the whole question on one screen ----------
+   One-row toolbar at the top, the passage across the full width with the answers stacked under it,
+   and the question navigation as a bar fixed to the bottom of the window. */
+.view-session { max-width: 1400px; padding-top: 6px; padding-bottom: 24px; }
+/* Numerical keeps its side-by-side data desk at the original width, so the calculator's default place
+   (top right) leaves the answers clear. */
+.view-session.sec-numerical { max-width: 1180px; }
+.view-session .session { margin-top: 10px; gap: 10px; }
+.view-session .exam-bar { padding: 4px 12px; }
+.view-session .exam-bar .btn { min-height: 36px; padding-block: 6px; }
+.view-session .tool { min-height: 32px; }
+.q-verbal { grid-template-columns: minmax(0, 1fr); }
+.q-verbal .stimulus { border-right: 0; border-bottom: 1px solid var(--line); }
+.q-verbal .passage { max-width: none; gap: 8px; line-height: calc(1.55 * var(--a11y-lhf, 1)); }
+.view-session .stimulus { padding: 12px 22px 14px; }
+.view-session .answer-pane { padding: 12px 22px 14px; gap: 8px; }
+.view-session .stim-head { margin-bottom: 4px; }
+.stem-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
+.view-session .opts { gap: 6px; }
+.view-session .opt-main { padding: 6px 12px; align-items: center; }
+.view-session .letter { width: 26px; height: 26px; }
+.view-session .opts-fig .opt-main { padding: 10px; }
+.view-session .strike, .view-session .mask { margin-top: 2px; width: 32px; height: 32px; }
+.view-session .q-actions { border-top: 0; padding-top: 2px; }
+.view-session .q-actions .btn { min-height: 38px; padding-block: 7px; }
+.view-session .legend-row { justify-content: center; }
+/* Abstract figures keep their size on wide screens instead of growing with the column. */
+@media (min-width: 900px) {
+  .view-session .series { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 156px); justify-content: center; }
+}
+@media (min-width: 561px) {
+  .view-session .opts-fig { grid-template-columns: repeat(5, minmax(0, 176px)); justify-content: center; }
+}
+@media (min-width: 900px) {
+  .view-session .exam-bar { flex-wrap: nowrap; }
+  .view-session .bar-right { flex-wrap: nowrap; }
+}
+/* Below 1500px the tool buttons show their icons only (the label stays for screen readers and as a tooltip). */
+@media (min-width: 561px) and (max-width: 1499px) {
+  .view-session .tool > span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .view-session .tool { padding: 6px 8px; }
+}
+/* Laptop and desktop: the navigation is a bar along the bottom of the window, previous arrow on the left,
+   question numbers in the middle, Overview and next arrow on the right. */
+@media (min-width: 1100px) and (min-height: 560px) {
+  .view-session { padding-bottom: 40px; }
+  .view-session .qnav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.06);
+    padding: 4px max(16px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  /* One row of numbers, centred; a long round scrolls sideways instead of growing the bar. */
+  .view-session .qdots { flex-wrap: nowrap; gap: 4px; overflow-x: auto; padding: 3px; scrollbar-width: thin; }
+  .view-session .qdot { flex: 0 0 auto; margin: 6px 0 0; }
+  .view-session .qdot:first-child { margin-left: auto; }
+  .view-session .qdot:last-child { margin-right: auto; }
+  .view-session .qdot.current::after { top: -9px; bottom: auto; border-bottom: 0; border-top: 6px solid var(--ink); }
+  .view-session .toast { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  /* Overview and instructions float on the right above the navigation bar, next to the Overview button,
+     so opening them leaves the question exactly where it is. */
+  .view-session .session.with-panel { grid-template-columns: minmax(0, 1fr); }
+  .view-session .session.with-panel .side-panels {
+    position: fixed; z-index: 25; top: auto; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    width: 340px; max-height: calc(100vh - 140px); overflow: auto; padding: 10px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  }
+}
 
 </style>
 </head>
@@ -2895,11 +2964,12 @@ window.EPSO_LESSONS = {
       '<span class="hl-hint">' + (ui.hlMode === "erase" ? "Select text or click a highlight to remove it." : "Select text to highlight it.") + "</span></div>";
   }
 
-  function stimulusHTML(item, sec) {
+  // qhead ("Question n of N") sits on the passage's header row for verbal items, so the passage starts higher.
+  function stimulusHTML(item, sec, qhead) {
     var q = item.q, review = state.session.review;
     var main;
     if (q.section === "verbal") {
-      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span></div>' +
+      main = '<div class="stim-head"><span class="eyebrow">Reading passage</span>' + qhead + "</div>" +
         (state.ui.hl && !review ? highlighterBarHTML(q, sec) : "") +
         '<div class="passage' + (state.ui.hl ? " hl-on hl-" + state.ui.hlMode : "") + '" id="passage">' + passageHTML(q, sec) + "</div>";
     } else if (q.section === "numerical") {
@@ -3106,8 +3176,13 @@ window.EPSO_LESSONS = {
     }).join("");
     return '<nav class="qnav" aria-label="Questions"><button class="nav-arrow" data-act="nav-prev" aria-label="Previous question"' + (s.qi === 0 ? " disabled" : "") + '>←</button><div class="qdots">' + dots + "</div>" +
       (s.review ? "" : '<button class="btn nav-overview" data-act="overview" aria-expanded="' + state.ui.overview + '" aria-controls="test-overview">Overview' + (flagged ? " · " + flagged + " bookmarked" : "") + "</button>") +
-      '<button class="nav-arrow" data-act="nav-next" aria-label="Next question"' + (s.qi === sec.items.length - 1 ? " disabled" : "") + '>→</button></nav>' +
-      '<div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-unopened"></i>Not opened</span><span><i class="lg lg-opened"></i>Opened, not answered</span><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg lg-flag"></i>Bookmarked</span>' +
+      '<button class="nav-arrow" data-act="nav-next" aria-label="Next question"' + (s.qi === sec.items.length - 1 ? " disabled" : "") + '>→</button></nav>';
+  }
+  // Key to the navigation colours. On laptops the navigation is a bar fixed to the bottom of the screen,
+  // so the key sits under the question instead of taking a row above it.
+  function legendHTML() {
+    var s = state.session;
+    return '<div class="legend-row small muted" aria-hidden="true"><span><i class="lg lg-unopened"></i>Not opened</span><span><i class="lg lg-opened"></i>Opened, not answered</span><span><i class="lg lg-ans"></i>Answered</span><span><i class="lg lg-flag"></i>Bookmarked</span>' +
       (s.review || s.mode !== "exam" ? '<span><i class="lg lg-ok">✓</i>Correct</span><span><i class="lg lg-bad">✗</i>Incorrect</span>' : "") + "</div>";
   }
   function overviewHTML(sec) {
@@ -3365,10 +3440,11 @@ window.EPSO_LESSONS = {
       actions.push('<button class="btn' + ((checked && !review && mode !== "exam") || mode === "exam" ? " btn-primary" : "") + '" data-act="next">Next →</button>');
     }
 
-    var right = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
-      (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>" +
-      '<h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
-      (q.section === "verbal" ? '<p class="muted small" id="verbal-evidence-rule">Judge every statement using the passage alone.</p>' : "") +
+    var qhead = '<div class="qhead"><span class="qnum">Question ' + (s.qi + 1) + " of " + sec.items.length + "</span>" +
+      (showTopic && q.topic ? '<span class="muted small" id="q-topic">' + esc(topicText) + "</span>" : "") + "</div>";
+    var right = (q.section === "verbal" ? "" : qhead) +
+      '<div class="stem-row"><h2 class="stem" id="q-stem" tabindex="-1">' + esc(T(q.stem) || "Which of the following statements is correct?") + "</h2>" +
+      (q.section === "verbal" ? '<p class="muted small" id="verbal-evidence-rule">Judge every statement using the passage alone.</p>' : "") + "</div>" +
       optionsHTML(item, sec, mode) +
       (mode === "coach" && !checked ? coachPanelHTML(item, sec) : "") +
       (checked ? feedbackHTML(item, sec) : "") +
@@ -3380,7 +3456,7 @@ window.EPSO_LESSONS = {
     var panelOpen = !review && (state.ui.overview || state.ui.instructions);
     return head + '<div class="session' + (panelOpen ? " with-panel" : "") + '">' + navHTML(sec) +
       (panelOpen ? '<aside class="side-panels" aria-label="Test overview and instructions">' + panels + "</aside>" : panels) +
-      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div></div>" +
+      '<div class="q-layout q-' + q.section + '"><section class="stimulus" aria-label="Question material">' + stimulusHTML(item, sec, qhead) + '</section><section class="answer-pane" aria-label="Answer">' + right + "</section></div>" + legendHTML() + "</div>" +
       toolWindowsHTML(sec) + lineReaderHTML();
   }
 
@@ -3495,7 +3571,7 @@ window.EPSO_LESSONS = {
       case "results": html = viewResults(); break;
       default: html = viewHome();
     }
-    root.className = "app view-" + state.view;
+    root.className = "app view-" + state.view + (state.view === "session" ? " sec-" + state.session.sections[state.session.si].key : "");
     persist();
     var storageNotice = (storageUnavailable ? '<div id="storage-warning" class="alert" role="status">Saving is unavailable. Your progress is kept only in this tab and will be lost when you reload or close it.</div>' : "") +
       (storageRecovered ? '<div class="alert" role="status">Some saved data could not be restored and was reset. Your other saved progress has been kept.</div>' : "");
@@ -3513,6 +3589,14 @@ window.EPSO_LESSONS = {
     positionTips();
     mountTools();
     markScrollableTables();
+    centreCurrentQuestion();
+  }
+  // In the bottom navigation bar a long round scrolls sideways; keep the current question's number in view.
+  function centreCurrentQuestion() {
+    var dots = root.querySelector(".qdots"), current = dots && dots.querySelector(".current");
+    if (!current || dots.scrollWidth <= dots.clientWidth) return;
+    var d = dots.getBoundingClientRect(), c = current.getBoundingClientRect();
+    dots.scrollLeft += (c.left + c.width / 2) - (d.left + d.width / 2);
   }
   // A data table wider than its column gets a visible scroll affordance (see render.js tableHTML).
   function markScrollableTables() {
@@ -3536,6 +3620,7 @@ window.EPSO_LESSONS = {
     state.focus = "q-stem";
     render();
     if (window.innerWidth < 900) { var el = document.querySelector(".session"); if (el) el.scrollIntoView({ block: "start" }); }
+    else window.scrollTo(0, 0); // a new question starts at the top of its passage
   }
 
   function choose(orig) {

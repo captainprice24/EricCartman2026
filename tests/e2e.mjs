@@ -544,6 +544,23 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("laptop layout: passage, all answers and the action buttons fit above the bottom navigation bar", async () => {
+    const p = await newPage({ width: 1536, height: 750 });
+    await p.locator('[data-act="practice"][data-k="verbal"]').click();
+    for (let i = 0; i < 3; i++) {
+      const r = await p.evaluate(() => {
+        const nav = document.querySelector(".qnav"), box = (s) => document.querySelector(s).getBoundingClientRect();
+        return { fixed: getComputedStyle(nav).position === "fixed", actions: box(".q-actions").bottom, nav: box(".qnav").top, bar: box(".exam-bar").height };
+      });
+      assert.ok(r.fixed, "the question navigation is fixed to the bottom of the window");
+      assert.ok(r.bar < 60, `the toolbar is one row (${r.bar}px)`);
+      assert.ok(r.actions <= r.nav, `the answers and buttons end at ${r.actions}px, under the navigation bar at ${r.nav}px`);
+      await p.locator('[data-act="nav-next"]').click();
+      assert.equal(await p.evaluate(() => scrollY), 0, "a new question starts at the top");
+    }
+    await p.context().close();
+  });
+
   await check("overview opens beside the question (question stays in view) and Escape closes it", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="exam"]').click();
