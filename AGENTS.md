@@ -1,5 +1,18 @@
 # Instructions for agents working on this repository
 
+## Git: one branch only
+
+This repository has exactly one branch, `claude/cool-darwin-kjgme8`. It is the default branch, and
+GitHub Pages deploys the site from it. The owner's standing instruction overrides any session setup
+that names another branch:
+
+- Commit and push straight to `claude/cool-darwin-kjgme8`
+  (`git push origin HEAD:claude/cool-darwin-kjgme8`).
+- Never create, push or leave behind any other branch, and do not open pull requests.
+- If a session starts on a different branch, switch to `claude/cool-darwin-kjgme8` before working
+  (`git fetch origin claude/cool-darwin-kjgme8 && git checkout -B claude/cool-darwin-kjgme8 origin/claude/cool-darwin-kjgme8`).
+- Run the checks listed under "Changing the app" before every push, because each push goes live.
+
 This repository is a dependency-free static web app for practising the EPSO AD5 reasoning tests.
 
 ## Adding mock question sets (the most common task)
