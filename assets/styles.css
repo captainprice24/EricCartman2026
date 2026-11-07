@@ -651,8 +651,8 @@ h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
   .view-session .exam-bar { flex-wrap: nowrap; }
   .view-session .bar-right { flex-wrap: nowrap; }
 }
-/* Below 1500px the tool buttons show their icons only (the label stays for screen readers and as a tooltip). */
-@media (min-width: 561px) and (max-width: 1499px) {
+/* Below 1700px the tool buttons show their icons only (the label stays for screen readers and as a tooltip). */
+@media (min-width: 561px) and (max-width: 1699px) {
   .view-session .tool > span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .view-session .tool { padding: 6px 8px; }
 }
