@@ -22,6 +22,10 @@ as in the real exam.
   every option is right or wrong, a worked solution for numerical and abstract items, and a key takeaway.
 - **Practice.** Answer, then check straight away. Only checked answers count towards the score.
   Options: timing at exam pace, choice of question set, a filter for previous mistakes, and topic labels on or off.
+- **Coach and Practice clocks.** Next to the round clock, a second clock (marked **Q**) shows the time spent on the
+  question on screen. It restarts from zero on every question and stops when the answer is checked.
+- **Exit.** Every round and simulation has an **Exit** button that leaves straight away after a confirmation. Nothing
+  is scored and nothing is added to the history; in Coach and Practice, answers already checked stay in your statistics.
 - **Exam simulation.** The three tests back to back (20 questions in 35 min, 10 in 20 min, 10 in 10 min), or a single
   test, in the layout of EPSO's TAO platform: each part opens on an instruction page with a countdown and starts by
   itself; a navigation bar with numbered circles, bookmarks and Overview; the clock as minutes and seconds left;

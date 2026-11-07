@@ -156,7 +156,7 @@
       items: questions.map(function (q) {
         return { q: q, order: q.shuffle ? C.shuffle(range(q.options.length)) : range(q.options.length) };
       }),
-      answers: {}, flags: {}, visited: {}, elim: {}, mask: {}, hints: {}, checked: {}, hl: {},
+      answers: {}, flags: {}, visited: {}, elim: {}, mask: {}, hints: {}, checked: {}, hl: {}, qTime: {},
       scratch: C.scratchNormalise(""), scratchUndo: [], scratchRedo: [], limitMs: limitSec ? limitSec * 1000 : null, startedAt: null, deadline: null, usedMs: null,
       done: false, timedOut: false, repeats: 0, warned: {}
     };
@@ -251,7 +251,7 @@
       sections: s.sections.map(function (sec) {
         return {
           key: sec.key, ids: sec.items.map(function (it) { return it.q.id; }), orders: sec.items.map(function (it) { return it.order; }),
-          answers: sec.answers, flags: sec.flags, visited: sec.visited, elim: sec.elim, mask: sec.mask, hints: sec.hints, checked: sec.checked, hl: sec.hl,
+          answers: sec.answers, flags: sec.flags, visited: sec.visited, elim: sec.elim, mask: sec.mask, hints: sec.hints, checked: sec.checked, hl: sec.hl, qTime: sec.qTime,
           scratch: sec.scratch, limitMs: sec.limitMs, startedAt: sec.startedAt, deadline: sec.deadline, usedMs: sec.usedMs,
           done: sec.done, timedOut: sec.timedOut, repeats: sec.repeats, warned: sec.warned
         };
@@ -265,7 +265,7 @@
       var items = x.ids.map(function (id, i) { var q = bank.byId[id]; if (!q) ok = false; return { q: q, order: x.orders[i] }; });
       return {
         key: x.key, items: items, answers: x.answers || {}, flags: x.flags || {}, visited: x.visited || {}, elim: x.elim || {}, mask: x.mask || {}, hints: x.hints || {},
-        checked: x.checked || {}, hl: x.hl || {}, scratch: C.scratchNormalise(x.scratch), scratchUndo: [], scratchRedo: [], limitMs: x.limitMs, startedAt: x.startedAt,
+        checked: x.checked || {}, hl: x.hl || {}, qTime: x.qTime || {}, scratch: C.scratchNormalise(x.scratch), scratchUndo: [], scratchRedo: [], limitMs: x.limitMs, startedAt: x.startedAt,
         deadline: x.deadline, usedMs: x.usedMs, done: !!x.done, timedOut: !!x.timedOut, repeats: x.repeats || 0, warned: x.warned || {}
       };
     });
@@ -381,6 +381,17 @@
   function instructionText(s) {
     return s.instrDeadline ? C.clockText(Math.max(0, s.instrDeadline - Date.now())) : "";
   }
+  // Coach and Practice show a second clock for the question on screen. It starts from zero each time a question
+  // is shown and stops when the answer is checked, keeping the time that question took.
+  var qClock = { key: null, start: 0 };
+  function questionClockOn() { var s = state.session; return !!s && s.mode !== "exam" && !s.review && state.view === "session"; }
+  function questionMs(c) {
+    var id = c.item.q.id, key = c.s.started + ":" + c.s.si + ":" + c.s.qi;
+    if (c.sec.checked[id] && c.sec.qTime[id] != null) return c.sec.qTime[id];
+    if (qClock.key !== key) { qClock.key = key; qClock.start = Date.now(); }
+    return Date.now() - qClock.start;
+  }
+  function questionTimerText(c) { return fmtTime(Math.floor(questionMs(c) / 1000)); }
 
   function tick() {
     var s = state.session;
@@ -397,6 +408,8 @@
     var rem = C.remainingMs(c.sec, Date.now());
     var el = document.getElementById("timer");
     if (el) { el.textContent = timerText(c.sec); el.className = "timer" + timerClass(c.sec); }
+    var qt = questionClockOn() ? document.getElementById("q-timer-value") : null;
+    if (qt) qt.textContent = questionTimerText(c);
     if (rem != null) {
       // Spoken time warnings are not a TAO feature: in the exam they are an opt-in accessibility setting.
       var live = (s.mode !== "exam" || prefs.a11y.announce) ? document.getElementById("timer-live") : null;
@@ -914,10 +927,12 @@
       '<span class="pill">' + (review ? "Review" : modeLabel(mode)) + "</span>" +
       (s.sections.length > 1 ? '<span class="muted small">Test ' + (s.si + 1) + " of " + s.sections.length + "</span>" : "") + "</div>" +
       '<div class="bar-right">' + toolsHTML(sec) +
-      (review ? "" : '<span id="timer" class="timer' + timerClass(sec) + '" role="timer">' + timerText(sec) + '</span><span id="timer-live" class="sr-only" aria-live="polite"></span>') +
+      (review ? "" : '<span id="timer" class="timer' + timerClass(sec) + '" role="timer" aria-label="' + (sec.limitMs ? "Time left" : "Time in this round") + '">' + timerText(sec) + '</span><span id="timer-live" class="sr-only" aria-live="polite"></span>') +
+      (questionClockOn() ? '<span id="q-timer" class="timer timer-q' + (checked ? " stopped" : "") + '" role="timer" aria-label="Time on this question" title="Time on this question"><span class="timer-tag" aria-hidden="true">Q</span><span id="q-timer-value">' + questionTimerText(c) + "</span></span>" : "") +
       (review ? '<button class="btn btn-primary" data-act="results">Back to results</button>'
         : mode === "exam" ? '<button class="btn btn-primary" data-act="submit">Submit test</button>'
           : '<button class="btn" data-act="end">End round</button>') +
+      (review ? "" : '<button class="btn btn-exit" data-act="exit" aria-label="Exit ' + (mode === "exam" ? "the test" : "this round") + ' without scoring">Exit</button>') +
       "</div></header>";
 
     var actions = [];
@@ -958,7 +973,7 @@
       "<p>" + esc(SECTIONS[done.key].name) + " has been submitted" + (done.timedOut ? " because its time ran out" : "") + ". Scores are shown at the end, as in the real exam.</p>" +
       "<p>Next: <b>" + next.items.length + " questions in " + fmtTime(next.limitMs / 1000) + "</b>. Move freely within the part, bookmark questions and submit before the clock reaches zero.</p>" +
       '<p class="instr-count">This part starts automatically in <b id="instr-timer">' + esc(instructionText(s)) + "</b>.</p>" +
-      '<div class="row-actions"><button class="btn btn-primary btn-lg" data-act="next-section">Start ' + esc(SECTIONS[next.key].name.toLowerCase()) + " now</button></div></div>";
+      '<div class="row-actions"><button class="btn btn-exit" data-act="exit">Exit the test</button><button class="btn btn-primary btn-lg" data-act="next-section">Start ' + esc(SECTIONS[next.key].name.toLowerCase()) + " now</button></div></div>";
   }
 
   function viewResults() {
@@ -1125,6 +1140,7 @@
   function check() {
     var c = cur(), id = c.item.q.id;
     if (c.sec.answers[id] === undefined || c.sec.checked[id]) return;
+    c.sec.qTime[id] = questionMs(c);
     c.sec.checked[id] = true;
     recordQuestion(c.item.q, c.sec.answers[id] === c.item.q.answer);
     state.focus = "feedback";
@@ -1484,10 +1500,22 @@
         } else finishSession();
         break;
       }
+      case "exit": {
+        var exitExam = s.mode === "exam";
+        state.ui.confirm = {
+          returnFocus: focusKey(t),
+          title: exitExam ? "Exit the test?" : "Exit this round?",
+          text: exitExam ? "The simulation ends now and is not scored. Your answers in this simulation are discarded and it is not added to your history."
+            : "The round ends now without a results page. Answers you have already checked stay in your statistics; the round is not added to your history.",
+          no: exitExam ? "Continue the test" : "Continue the round", yes: exitExam ? "Exit the test" : "Exit the round", act: "exit"
+        };
+        render(); break;
+      }
       case "cf-no": closeConfirm(); break;
       case "cf-yes": {
         var a = state.ui.confirm && state.ui.confirm.act; state.ui.confirm = null;
         if (a === "submit") submitSection(false); else if (a === "end") finishSession();
+        else if (a === "exit") { var wasExam = s.mode === "exam"; state.session = null; clearSaved(); go("home"); flash(wasExam ? "You exited the test. It was not scored." : "You exited the round."); }
         break;
       }
       case "review": s.review = true; s.si = +t.getAttribute("data-si"); s.qi = +t.getAttribute("data-i"); go("session"); break;

@@ -306,6 +306,57 @@ async function run(engineName) {
     await p.context().close();
   });
 
+  await check("Practice and Coach show a question clock that restarts on each question and stops when checked", async () => {
+    const p = await newPage(desktop, { clock: true });
+    await p.locator('[data-act="practice"][data-k="verbal"]').click();
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:00");
+    await p.clock.fastForward("00:42");
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:42");
+    const k = await answerKey(p);
+    await p.locator('[data-act="choose"]').nth(k.pos).click();
+    await p.locator('[data-act="check"]').click();
+    await p.clock.fastForward("00:30");
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:42", "the clock stops at check");
+    await p.locator('[data-act="next"]').click();
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:00", "a new question restarts the clock");
+    await p.clock.fastForward("00:05");
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:05");
+    assert.match(await p.locator("#timer").textContent(), /^1:1\d$/, "the round clock keeps counting");
+    await p.locator('[data-act="prev"]').click();
+    assert.equal(await p.locator("#q-timer-value").textContent(), "0:42", "a checked question keeps its time");
+    await p.context().close();
+    const e = await newPage(desktop);
+    await e.selectOption("#exam-scope", "verbal");
+    await e.locator('[data-act="exam"]').click();
+    await e.locator('[data-act="begin"]').click();
+    assert.equal(await e.locator("#q-timer").count(), 0, "no question clock in the exam simulation");
+    await e.context().close();
+  });
+
+  await check("Exit leaves a practice round or an exam simulation without scoring it", async () => {
+    const p = await newPage(desktop);
+    await p.locator('[data-act="practice"][data-k="verbal"]').click();
+    await p.locator('.exam-bar [data-act="exit"]').click();
+    await p.locator('[data-act="cf-no"]').click();
+    await p.waitForSelector(".exam-bar");
+    await p.locator('.exam-bar [data-act="exit"]').click();
+    await p.locator("#cf-yes").click();
+    await p.waitForSelector(".home");
+    assert.equal(await p.locator(".resume").count(), 0, "nothing left to resume");
+    await p.selectOption("#exam-scope", "full");
+    await p.selectOption("#exam-form", "random");
+    await p.locator('[data-act="exam"]').click();
+    await p.locator('[data-act="begin"]').click();
+    await p.locator('[data-act="choose"]').first().click();
+    await p.locator('.exam-bar [data-act="exit"]').click();
+    assert.match(await p.locator("#cf-title").textContent(), /Exit the test/);
+    await p.locator("#cf-yes").click();
+    await p.waitForSelector(".home");
+    assert.equal(await p.locator(".resume").count(), 0);
+    assert.equal(await p.evaluate(() => JSON.parse(localStorage.getItem("ad5trainer.history.v1") || "[]").length), 0, "exiting adds no history");
+    await p.context().close();
+  });
+
   for (const [sizeName, viewport] of [["desktop", desktop], ["phone", phone]]) {
     for (const section of ["verbal", "numerical", "abstract"]) {
       await check(`Coach and Practice teaching feedback: ${section} at ${sizeName} width`, async () => {
