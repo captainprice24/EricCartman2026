@@ -1,0 +1,709 @@
+{
+  "method": "One independent reviewer per set saw passages and options only (scripts/blind-review.mjs export). Disagreements were settled by relabelling or rewording; reworded options received a fresh blind recheck.",
+  "keyAgreement": "50/50",
+  "initialLabelAgreement": "142/150",
+  "finalLabelAgreement": "150/150",
+  "items": [
+    {
+      "id": "v20-01",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "False",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "328a766dbf6b170efb2d8455ab45857e258e6ef1bd170629c3baabf77924d624",
+      "optionsSha256": "78d763d5c82dacca231786100f0a95e97907d4abcd23774338b5abfbff25b1e9",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-02",
+      "answer": "B",
+      "labels": {
+        "A": "Overstated",
+        "C": "False",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "277eca378b814899e8bd435d89db53bdc8a35a5ac3ca7312a1951b39a586f400",
+      "optionsSha256": "9d6f1d777fb03f9198e4ddb65db49395e6c99000cd7843d6ff71b7a39b2a0029",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-03",
+      "answer": "D",
+      "labels": {
+        "A": "Not supported",
+        "B": "Not supported",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "0126502b26d44cff4ffb1f96440c28eba07dbf1d5503444dd671c31ba0d7c347",
+      "optionsSha256": "c93fadbe86e591c64dc367f2b0c5e798589a93873e1970c12fb3c76fcc861bad",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-04",
+      "answer": "A",
+      "labels": {
+        "B": "Not supported",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "8b5bf37e98b2222aa0f9e82e76c998a442e65e3f695f4fa27e274d0a2b3190ea",
+      "optionsSha256": "d4d804b5846954f79fba78466b6c642d6dd9efda22b4ed0505e339d0eb5503e1",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-05",
+      "answer": "D",
+      "labels": {
+        "A": "Overstated",
+        "B": "False",
+        "C": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "0f6fc3e73df4bcc11dc83f4a52a1f32c92314a1a6801f7018039ace611e5e83f",
+      "optionsSha256": "0133e0ad7c9cfc831a987ad2fb1bdccc1c96e61231ce2742d7ee62aaf7f39d56",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-06",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "ddced88aa4eee30d22a19c24e1e87ebcbe244aaa0252cb8aa5dba15f411cada0",
+      "optionsSha256": "2ee5706f3a9b16351ceb1e13b59ad4306bb961e710d52d6ab64fa255d97cf0e7",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-07",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "e0059950ba6f36b40142beb981044f33e4b4f1bb2a8ddd05a712e0236a0976b3",
+      "optionsSha256": "0ad0aa518b5614cd20773a72ae7bc3b0d1b647fa625ce86697fa576d54490a9d",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-08",
+      "answer": "A",
+      "labels": {
+        "B": "Overstated",
+        "C": "Overstated",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "534be17a0fda9452cc7db354598a5369a4704c5098e845b3dd16eaac9f88133b",
+      "optionsSha256": "00d5270839e1167b390defeff9f771087150a0f86e2f4cbe63042c8fc9a71019",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-09",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "False",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "1e6fa7cade64f4f14fd1d61a580a872ef27e678947428a1cc233bdfc23cb7989",
+      "optionsSha256": "435cefea7292014aa9edf72cf316ccf25a7516ddc59730375ce1f100697cab75",
+      "reconciliation": null
+    },
+    {
+      "id": "v20-10",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-20-review.json",
+      "passageSha256": "94fd4e1c00e03be6a694ede1d41904a17d4c4d25023b0070d607a54612d46b39",
+      "optionsSha256": "9cef3c5e907ca87956b8173089960dcbeb5d2e6d85f70ed47ab9765344bfa66e",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-01",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "f4936dbb22a2aff51dd5d475aacb595c5bb99e60301c3d67348c3592a8bcbec1",
+      "optionsSha256": "8c8393096f3719ceb6c3366b0bd3b3891ac698bd750f26f943701faac24b253a",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-02",
+      "answer": "D",
+      "labels": {
+        "A": "Not supported",
+        "B": "Not supported",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "511a2b1ace2e247bde3d89b0f3d309cc1a7293c40cc5f5a383dfb6619cdfc462",
+      "optionsSha256": "28a4ddcac3fcf71ec92e211e731184d53e98dbd1a4268ee77ecb3532fa3641b1",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-03",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "False",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "25eccaa1b3672799d6c29542337692f7e6e678cd9e36c946ce0f69f7bf880ae7",
+      "optionsSha256": "4528772fd18c9307ffe5bee0b4b7790d0c4f3b75f6421af56c17b956a7588dbc",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-04",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "26791e7bd17a4ed522dd4c856549075454394dcba66ecb34ec70abd347d7071d",
+      "optionsSha256": "69b8fa4898ce8111ca98191896505c9e62c58ce9d2b138f4c57512989a0604b6",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-05",
+      "answer": "C",
+      "labels": {
+        "A": "Not supported",
+        "B": "Overstated",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "e0183a67d3d1d0c00e13cc8f10d46ba53701aa7fd049f499440589c48d319287",
+      "optionsSha256": "b011cdb5b93326cb378430dfec629fec31c15931983b107591c782e16c33c88e",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-06",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "9a4ff28ee4015e39fc2789235e121871beeca7da12de1248704daec48157a066",
+      "optionsSha256": "7acf268003c718f62b787904a213c72091eb50e26178281a8e6df8eddb870a89",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-07",
+      "answer": "D",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "08ee0de0dd6de55ae03c22b6b04eb7ab90ea115f50820eb002b6acc25ea02060",
+      "optionsSha256": "3cd1cba3f67b1e54776e65a4539364765bc2a1ec636bebccba494cb764914c3b",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-08",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "66a8a99e98d88489c2b39985536512e55cca973f87a681452d839fe1389f6fb1",
+      "optionsSha256": "50303225af49e1a6adbadcfefff26d6ef9624f729d72a2cb1c1accd325f7f03d",
+      "reconciliation": null
+    },
+    {
+      "id": "v21-09",
+      "answer": "A",
+      "labels": {
+        "B": "Not supported",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "b219bfd88a374b291ef2460a8019f703a4239bc09cc5561d98ff5cffaaa173dd",
+      "optionsSha256": "97b3d1cadccf67c94d3446c7d5799884dcfea8e96401b0466468c681a305805c",
+      "reconciliation": {
+        "C": {
+          "from": "Not supported",
+          "to": "False",
+          "how": "relabelled: limited research contradicts general confirmation"
+        }
+      }
+    },
+    {
+      "id": "v21-10",
+      "answer": "D",
+      "labels": {
+        "A": "False",
+        "B": "Overstated",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-21-review.json",
+      "passageSha256": "fc7135ad1d26314644d021f51a9a929cdb6d4f003af60e76410ec58eb77b0da4",
+      "optionsSha256": "7c24d139d9808d4a64260d1082595363381532f0eee82e733cb93b2418d70a33",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-01",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "1961af3011306320728dbaf14df312acd8585e16f3a4d4bd044b535485cbdf75",
+      "optionsSha256": "6f42d79b50c71ce2465ac6300c69acb8fdaf490fe53b7f0c835d5dbcbe942b61",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-02",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "False",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "06359f7c6847e7b1dd0f4eac1eb055aa364917d343d47e345beb3f3bbc40bd93",
+      "optionsSha256": "a4faee01bb8c520b98e7e2256ef66cbb30f72a67af32c665bbc648b2bc6c4c1a",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-03",
+      "answer": "D",
+      "labels": {
+        "A": "Not supported",
+        "B": "Not supported",
+        "C": "Overstated"
+      },
+      "reviewFile": "recheck2-review.json",
+      "passageSha256": "234e58def08a308ca7c7746b87ac451b8fe7d07ff6139b3020dfc67b5903904c",
+      "optionsSha256": "6a0a2c5df291ba2bb26db04914c31a38dc0240771840740d512fee74f6136f48",
+      "reconciliation": {
+        "A": {
+          "from": "Not supported",
+          "reviewer": "Overstated",
+          "how": "reworded to an option about species counts; fresh blind recheck agreed (Not supported)"
+        },
+        "B": {
+          "reviewer": "Overstated (first recheck)",
+          "how": "reworded to a treatment the text never mentions; second recheck agreed (Not supported)"
+        }
+      }
+    },
+    {
+      "id": "v22-04",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "c50db7e5306f060f4982a11c3435bfd5313e1991d4af0730c19aa5a1f1f31509",
+      "optionsSha256": "955d1b026c795cf0d699f3cfd7ff16d50be9875e9cb54f379ebb1bac51a4ec80",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-05",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Overstated",
+        "D": "False"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "4cb0acd48fe1919959f193fca59f21e8ef5e94cf20d2c71f3c8159634c05ee73",
+      "optionsSha256": "68d7f3a2499eaf305dc6a97b8345ab8928b73c721b03543a0c11a86b0473b357",
+      "reconciliation": {
+        "D": {
+          "from": "Overstated",
+          "to": "False",
+          "how": "relabelled: the text makes families a second condition, so public support alone is contradicted"
+        }
+      }
+    },
+    {
+      "id": "v22-06",
+      "answer": "D",
+      "labels": {
+        "A": "Not supported",
+        "B": "Overstated",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "049d16e11afd0d8f2aad298bb5b6ab59f836984ce08fcdf6e6c94ca06a2a1ece",
+      "optionsSha256": "f902b74adf0f42b44d91323ecf802df6a79d181e43136124f724dfb59806da41",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-07",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "9ba42acaf9a3b7eaa92f2182a2bb87e70e3f8448e4592b8fbead3c275dddde60",
+      "optionsSha256": "d70161ef72d4097e52060451a76de4ddeb6b06aa230a3b4be3af8ead31b2e716",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-08",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "f20eb8ba8583abda86006cb1cf1fbb6fe6e16baf8c8baefa75b50c0fb3500b81",
+      "optionsSha256": "19dbf132ac32be505e66aabc9e08a83cd8372a2af5f17ba3bc13a3bfdb37de69",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-09",
+      "answer": "C",
+      "labels": {
+        "A": "Not supported",
+        "B": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "85121cabc88d95e32a296bc66416007b56486444bbc44e8c98c1df2edb17d62f",
+      "optionsSha256": "56f8a563e682444254673e44817eff947fad216ec1edff530f6cdad1b60a043e",
+      "reconciliation": null
+    },
+    {
+      "id": "v22-10",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-22-review.json",
+      "passageSha256": "550ef499be7b636c228c658754b9e0d5801ad8ed058de8979e477561bd27bfbf",
+      "optionsSha256": "6a5721a62b1b28fc24a03eeccb176d2766cd9a3d56e509e6d8ff33df72a40115",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-01",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "recheck-review.json",
+      "passageSha256": "4d38ba0963cbc74caa1641ed33ec24d5f54872af423f45837180cd51ffad586a",
+      "optionsSha256": "4fe0f2a656dae75ce83342f2b7c453339ca39e8780b3739d335111e46b835fa0",
+      "reconciliation": {
+        "A": {
+          "reviewer": "Overstated",
+          "how": "reworded to name Malta explicitly; fresh blind recheck agreed (False)"
+        }
+      }
+    },
+    {
+      "id": "v23-02",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "c5b4fc50808bb233df472cec6011bb9fc6de364cfb916411d093550978ae390a",
+      "optionsSha256": "cb5a0f132a9261b980925e50d882a8fb0fe2ab4a8056b8dcdde47defc546c2c0",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-03",
+      "answer": "B",
+      "labels": {
+        "A": "Not supported",
+        "C": "Not supported",
+        "D": "False"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "8aa1ec3af611863ef93d61363722158e1c71813a7fb4a4d9fc5c351118aabb7d",
+      "optionsSha256": "797a06afe25de2af006fb1ff9f53c6d68addf20e69927134fdfd4ea4aae6d0c5",
+      "reconciliation": {
+        "D": {
+          "from": "Overstated",
+          "to": "False",
+          "how": "relabelled: far less water implies some water"
+        }
+      }
+    },
+    {
+      "id": "v23-04",
+      "answer": "A",
+      "labels": {
+        "B": "Overstated",
+        "C": "False",
+        "D": "False"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "ba740d2ae879a6b0a27168234eb89049d8e3a73b3972ee17a4f871ac271ab64e",
+      "optionsSha256": "4dfdb144b000848c9f7724353ccb612a10162c8c52f1a760e4a8320ec1c10a8a",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-05",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "876945c19af3f83d2dd7d364649041f642ef556af02ac3ddd12e33b911f2c028",
+      "optionsSha256": "bc84398d8887d61ab833ce865807496755094d2e5b494870c92872e0639c640d",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-06",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "39249a203c63be66e364dfd29a07737094665198d9338c288ba40927a5cb522f",
+      "optionsSha256": "8ba0fe9403ce73ce59622ffdac3a425658e33a32bfc4cfa09489d2d46d15fa1f",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-07",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "Overstated",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "570cefd5a627952a2b2e6b95531901bc557c6232d5d3b9902e6ccba42d8e2a74",
+      "optionsSha256": "c207a15dfd0ae480668372a0d65a3db873959dd83d080693f52943f2da51ac7b",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-08",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "b2a069d5309c1c54b9ff45bf8238b1365d0837830286e9228634677a14221206",
+      "optionsSha256": "bb150fb34b956eeca0f09351b2858cd0d8abf7ced34d6276c6816f8a9d389981",
+      "reconciliation": {
+        "C": {
+          "from": "Not supported",
+          "to": "False",
+          "how": "relabelled: the vines were imported for experiments"
+        }
+      }
+    },
+    {
+      "id": "v23-09",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "f0b924a5bfe0b0f4600358aab2921a5b8e6d1425a422307a40b9d51808aef19a",
+      "optionsSha256": "8a82c59b088ede3b2fa6f50e933b2a308f89ca7253f4a5ec8c85f79a6e00070a",
+      "reconciliation": null
+    },
+    {
+      "id": "v23-10",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Overstated",
+        "D": "False"
+      },
+      "reviewFile": "set-23-review.json",
+      "passageSha256": "5f4d756f1684b18a77ecbb5ee5fcaf28056a260874446e9b3a8f4d23365ff912",
+      "optionsSha256": "fa08d3ddc7d4b6aa508d054f260e32c45e64d5a50b59fd02a889e62940b1237d",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-01",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "e8983598679ff03d44eb357941ac78a3f061666ecef0d71b50a4218c6808eb5b",
+      "optionsSha256": "0aa05f4f9ebf2f6118c8b2e976ae4a3da835da891ac3f9610942ddae8a064f06",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-02",
+      "answer": "A",
+      "labels": {
+        "B": "False",
+        "C": "False",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "a050fd3050ccb239289eaca474815361f43fe52438b0cee274caa465ed94e377",
+      "optionsSha256": "5b5b878e670b2f1848422dd9338c721eff923794138205defbe5e42b656118e6",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-03",
+      "answer": "D",
+      "labels": {
+        "A": "Not supported",
+        "B": "Not supported",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "33af3794fd3c4850a25a6668b1a94debda5adaa9d7fe3eac90f847b406dccda8",
+      "optionsSha256": "1ce54520e9413b7c4c4c851d856f462476a6f814c6f750d11a6f7e148e0c4cf7",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-04",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "False"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "eef09db4a9c65f72bbb6b60bc45d3268728db669cda440a01e21af7707539cd6",
+      "optionsSha256": "c50e533b956c046c77465b74950baf4b66ddb92ebc2e161f39ae34d80ca300db",
+      "reconciliation": {
+        "D": {
+          "from": "Not supported",
+          "to": "False",
+          "how": "relabelled: an aspiration that allows balanced land take contradicts a ban"
+        }
+      }
+    },
+    {
+      "id": "v24-05",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "cfc836016df42d7c74b1c5be3ce36689acd8010275223e688a2b5dadae2e374b",
+      "optionsSha256": "f939e53aeac01e4f32e7dfcf7a2827845ac792186f2c2048222c567aa46cbc4a",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-06",
+      "answer": "A",
+      "labels": {
+        "B": "Not supported",
+        "C": "Not supported",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "f6c64e54f79a16928c096ae611a47b43d41499c5e35f7cd2cdafa6a34b1e367a",
+      "optionsSha256": "2e674539f00407d8ca989167bceb7d471418eca9da7fd590c546f10747c5146e",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-07",
+      "answer": "D",
+      "labels": {
+        "A": "False",
+        "B": "False",
+        "C": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "ff6fa02abf3419d7b06b52191531ee733fe51e68593d2e8d7ff018cdeaa86728",
+      "optionsSha256": "daca7536e99af4c014f5847ab2248eea869f2f897e8540e37ffe5e0942c99a57",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-08",
+      "answer": "B",
+      "labels": {
+        "A": "False",
+        "C": "Not supported",
+        "D": "False"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "e76548732fa8d0c6e9538dcbebd7b77ea45a3acec71d813e2477a0e3be725c6a",
+      "optionsSha256": "46eb1fced23dbcd0b35aa1ffbeafa6c9a75008c94b63790a8ddf8de178cfdf13",
+      "reconciliation": {
+        "D": {
+          "from": "Overstated",
+          "to": "False",
+          "how": "relabelled: the text contrasts Ireland with the rest of Europe"
+        }
+      }
+    },
+    {
+      "id": "v24-09",
+      "answer": "A",
+      "labels": {
+        "B": "Not supported",
+        "C": "Overstated",
+        "D": "Overstated"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "9b28bc1404eddcc044bbad83fa2e0f8aa7f741a1c7999e6c68e255343d0a7be8",
+      "optionsSha256": "36ef06ee64441e12d1d8a646b085ba19e7d1c63bd5a030717f1217194373dcd3",
+      "reconciliation": null
+    },
+    {
+      "id": "v24-10",
+      "answer": "C",
+      "labels": {
+        "A": "False",
+        "B": "Not supported",
+        "D": "Not supported"
+      },
+      "reviewFile": "set-24-review.json",
+      "passageSha256": "0b2d3325f19ad919ccf0de709cb141301d3a140e66745ec835bfef6e19cec9ba",
+      "optionsSha256": "a5d0c7e761ff17a2e180f64c7fa3e20f6a4e213d642df9879e2fdfee435e8f14",
+      "reconciliation": null
+    }
+  ]
+}

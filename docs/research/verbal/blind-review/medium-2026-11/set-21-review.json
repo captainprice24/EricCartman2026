@@ -1,0 +1,72 @@
+{
+  "v21-01": {
+    "answer": "B",
+    "labels": { "A": "False", "C": "Not supported", "D": "Overstated" },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Prices fell while Chinese demand slowed and the Russian ban applied, so the end of quotas was not the only factor. Quotas came in 1984, long before the 2014 ban; production rose in some countries, not every one."
+  },
+  "v21-02": {
+    "answer": "D",
+    "labels": { "A": "Not supported", "B": "Not supported", "C": "Overstated" },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "The passage says that because the virus infected only humans it could not survive in animals and return later, so an animal host would have made eradication harder. 'Long-lasting' is not 'for life'; refusal and the place where the ring approach was first used are never mentioned."
+  },
+  "v21-03": {
+    "answer": "A",
+    "labels": { "B": "False", "C": "False", "D": "Not supported" },
+    "issues": ["D borderline: Not supported (no ranking of Spanish uses is given) vs Overstated (irrigation is one stated use, and 'mainly' strengthens it)"],
+    "difficulty": 2,
+    "reasoning": "Reverse osmosis largely replaced thermal plants because it uses much less energy. Desalinated water costs several times more, and plants discharge more than a litre of brine per litre of fresh water."
+  },
+  "v21-04": {
+    "answer": "C",
+    "labels": { "A": "False", "B": "Not supported", "D": "Overstated" },
+    "issues": ["D borderline: Overstated (railways were a stated cause, and 'only' widens it) vs Not supported"],
+    "difficulty": 2,
+    "reasoning": "Public clocks did not always change at once, and a few towns resisted for years. GMT became legal in 1880, after the railways' 1840-1848 switch; the passage gives no figures on collisions."
+  },
+  "v21-05": {
+    "answer": "C",
+    "labels": { "A": "Not supported", "B": "Overstated", "D": "Overstated" },
+    "issues": ["D borderline: Overstated ('weakened' becomes 'killed') vs Not supported"],
+    "difficulty": 3,
+    "reasoning": "Mackay described a whole nation ruined, but archival work found few tulip bankruptcies, so his account may have exaggerated the ruin. Goldgar's findings were about bankruptcies and who took part, not prices; courts were reluctant to enforce contracts, which is not refusing every one."
+  },
+  "v21-06": {
+    "answer": "A",
+    "labels": { "B": "False", "C": "Not supported", "D": "Not supported" },
+    "issues": ["A is phrased as a double negative ('No one disputes that ... do not damage'), which is slightly awkward to parse but matches the passage"],
+    "difficulty": 3,
+    "reasoning": "The passage states that it is not disputed that bilingualism does not damage children's development. Large studies found no consistent advantage; the 2015 analysis was about publication bias, not flawed methods."
+  },
+  "v21-07": {
+    "answer": "D",
+    "labels": { "A": "False", "B": "Not supported", "C": "Overstated" },
+    "issues": [],
+    "difficulty": 2,
+    "reasoning": "Filtering removes plankton, which clears the water but deprives some fish larvae of food. The mussel is native to the Black and Caspian Sea region and reached America from Europe; eradication is 'rarely' possible, not impossible."
+  },
+  "v21-08": {
+    "answer": "B",
+    "labels": { "A": "False", "C": "False", "D": "Overstated" },
+    "issues": ["C borderline: False (critics say the trial could not show the cost) vs Not supported"],
+    "difficulty": 2,
+    "reasoning": "Researchers cautioned that the new 2018 activation rule for the control group made the comparison harder to interpret. The payment continued after recipients found work; reported lower stress is not proof of a great improvement."
+  },
+  "v21-09": {
+    "answer": "A",
+    "labels": { "B": "Not supported", "C": "False", "D": "Overstated" },
+    "issues": ["C borderline: False (the research is described as limited) vs Overstated (it builds on supporters' claim)", "D borderline: Overstated (persecution becomes imprisonment of all) vs Not supported (imprisonment is never mentioned)"],
+    "difficulty": 2,
+    "reasoning": "Zamenhof did not intend Esperanto to replace national languages. Its vocabulary has Romance roots, but nothing is said about who speaks it."
+  },
+  "v21-10": {
+    "answer": "D",
+    "labels": { "A": "False", "B": "Overstated", "C": "Overstated" },
+    "issues": ["A borderline: False rests on inferring that Nightjet launched after buying the German fleet, which happened after the 2016 withdrawal; a strict reader could call it Not supported, since 'bought ... and launched' does not fix the order"],
+    "difficulty": 3,
+    "reasoning": "The Austrian railways bought part of the German fleet for Nightjet. Climate concern 'helped' the revival, which is not 'the reason', and a night train 'can' replace a flight and a hotel, not always."
+  }
+}

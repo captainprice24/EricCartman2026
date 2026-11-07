@@ -1,0 +1,15 @@
+{
+  "v22-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [
+      "B is borderline Not supported / False: the passage never mentions faecal transplants for diabetes, but calling C. difficile the one well-established treatment and saying human evidence is weaker leans against wide use for diabetes. Not supported is the safer label.",
+      "C is borderline Overstated / False: the passage says bacteria digest fibre that human enzymes cannot, which implies human enzymes handle other foods, so 'all' reads as an overextension of a true partial claim rather than a flat contradiction."
+    ],
+    "reasoning": "D: the passage says a disease, or its medicines and diet, may change the microbiome rather than the reverse, so a different gut mix could result from the disease. A: the 2016 recalculation concerned only the cell ratio; species counts are not mentioned. B: faecal transplants are described only for recurrent C. difficile; nothing about diabetes. C: bacteria digest dietary fibre human enzymes cannot; extending this to all foods overstates it."
+  }
+}

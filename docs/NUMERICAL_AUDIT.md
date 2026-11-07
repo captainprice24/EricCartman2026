@@ -1,6 +1,6 @@
 # Numerical question-bank audit
 
-Scope: numerical only. All 220 items are inventoried and independently recalculated by tests/numerical-oracle.test.mjs.
+Scope: numerical only. All 270 items are inventoried and independently recalculated by tests/numerical-oracle.test.mjs.
 
 ## Finding and repair
 
@@ -10,12 +10,12 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 
 | Bank | Easy | Medium | Hard | Total |
 |---|---:|---:|---:|---:|
-| Original bank under former labels | 41 | 85 | 24 | 150 |
-| Original bank after review | 56 | 82 | 12 | 150 |
+| Original bank under former labels | 41 | 85 | 24 | 200 |
+| Original bank after review | 56 | 132 | 12 | 200 |
 | Challenge sets | 0 | 0 | 70 | 70 |
-| Current bank | 56 | 82 | 82 | 220 |
+| Current bank | 56 | 132 | 82 | 270 |
 
-69 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
+119 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
 
 ## Sets
 
@@ -32,6 +32,11 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 | numerical-09 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-10 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-11 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
+| numerical-12 | 0 | 10 | 0 | Mixed foundation and exam practice |
+| numerical-13 | 0 | 10 | 0 | Mixed foundation and exam practice |
+| numerical-14 | 0 | 10 | 0 | Mixed foundation and exam practice |
+| numerical-15 | 0 | 10 | 0 | Mixed foundation and exam practice |
+| numerical-16 | 0 | 10 | 0 | Mixed foundation and exam practice |
 
 Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 questions and timed practice for a complete challenge round. The selector applies only to numerical training; random simulations keep the unseen-first difficulty mix. The fixed full-test library assigns non-overlapping questions, with the new challenge content in tests 13–15.
 
@@ -55,27 +60,27 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 question
 | Shares to amounts | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
 | Undoing a percentage change | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
 | Unit price comparison | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Average speed | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Averaging rates | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Break-even point | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Budget reallocation | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Combined work rates | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Combining two exhibits | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Compound growth | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Currency conversion | 3 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Discounts and VAT | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Fixed and variable costs | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Growth projection | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Multi-step: unit cost | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Per-capita comparison | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Percentage difference between two items | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Percentages of percentages | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Rates of work | 3 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Removing VAT | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Required growth rate | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Successive percentage changes | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Units and per-capita values | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Weighted average | 4 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Average speed | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Averaging rates | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Break-even point | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Budget reallocation | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Combined work rates | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Combining two exhibits | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Compound growth | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Currency conversion | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Discounts and VAT | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Fixed and variable costs | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Growth projection | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Multi-step: unit cost | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Per-capita comparison | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Percentage difference between two items | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Percentages of percentages | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Rates of work | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Removing VAT | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Required growth rate | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Successive percentage changes | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Units and per-capita values | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Weighted average | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Capped weighted redistribution | 4 | Hard (very hard challenge) | Apply sequential deductions, build weights, detect a binding cap and redistribute on a new base. |
 | Cross-currency landed cost | 4 | Hard (very hard challenge) | Separate goods and freight, apply different discounts, convert invoices, apply fees and pool. |
 | Deduplicated workload with conditional rework | 3 | Hard (very hard challenge) | Deduplicate registrations, build three disjoint rework populations, apply conditional repeat fraction and solve a whole-day threshold. |

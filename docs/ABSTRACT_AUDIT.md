@@ -1,8 +1,10 @@
 # Abstract bank audit
 
-All **220 items** reviewed: **29 Easy, 131 Medium, 60 Hard**.
+All **270 items** reviewed: **29 Easy, 181 Medium, 60 Hard**.
 
 The November book-informed review supersedes the earlier structural-only foundation screen. All 150 foundation answers and all 70 challenge answers now have independent visible-figure inference coverage. See [ABSTRACT_BOOK_REVIEW.md](ABSTRACT_BOOK_REVIEW.md) for defects, repairs and limits.
+
+Sets 12–16 (November 2026) add 50 Medium series with patterned figures (hatching, stripes, dots, chequers), calibrated against an owner-supplied commercial practice sample (methods only): alternating row/column grid shifts, counter-rotating quadrants with a fixed black segment, and opposed conveyor rows. Each has three or four independent tracks. `tests/abstract-pattern-solver.mjs` reads only the drawn shapes and finds one continuation and exactly one matching option for every item; content fingerprints lock the new IDs. See [the medium-set record](research/medium-2026-11/README.md).
 
 Difficulty follows the simplest supported path: two familiar independent tracks are Easy; additional independent tracks and phase tracking are Medium; necessary coupled, delayed, conditional and compositional transformations are Hard. Ten challenge items admit simpler independent continuations and are now Medium. Four relationships alone do not establish Hard difficulty.
 
@@ -19,12 +21,17 @@ Difficulty follows the simplest supported path: two familiar independent tracks 
 | abstract-09 | 0 | 1 | 9 | 15.0% | 0.0% | 15.0% |
 | abstract-10 | 0 | 2 | 8 | 15.0% | 0.0% | 8.3% |
 | abstract-11 | 0 | 0 | 10 | 20.0% | 0.0% | 15.0% |
+| abstract-12 | 0 | 10 | 0 | 15.0% | 20.0% | 12.5% |
+| abstract-13 | 0 | 10 | 0 | 15.0% | 20.0% | 8.3% |
+| abstract-14 | 0 | 10 | 0 | 15.0% | 20.0% | 12.5% |
+| abstract-15 | 0 | 10 | 0 | 15.0% | 20.0% | 15.0% |
+| abstract-16 | 0 | 10 | 0 | 20.0% | 20.0% | 15.0% |
 
 ## Verification and limits
 
 - Independent code reads visible shape coordinates, fills, counts and drawing order, not generator states, keys or explanations. Foundation inference enumerates short cycles, modular steps and count alternations. Challenge inference enumerates alternating, accelerating, interleaved, gated, reflected and delayed relationships, panel rotation and Boolean composition. A separate check rejects conflicting simpler position/arrow continuations. Each current item has exactly one matching option within these checked grammars.
 - Regression fixtures preserve the seven ambiguous foundation series and three conflicting challenge series. Revised content has fresh IDs and hash-locked mappings. Per-item random streams preserve unrelated figures; fixed full-test membership is maintained through previous IDs.
-- All 220 series and choices appear in reproducible contact sheets in both themes. Exact raster equality checks complement visual inspection. These checks do not establish resistance to every possible perceptual shortcut.
+- All 270 series and choices appear in reproducible contact sheets in both themes. Exact raster equality checks complement visual inspection. These checks do not establish resistance to every possible perceptual shortcut.
 - All seven challenge rounds retain two keys per answer position and ten model families. Each feature alone leaves several options, and supporting tracks cannot select the answer alone. Named option-only heuristics remain at or below 30% per set.
 - These are editorial bands, not empirical difficulty or score-uplift findings. A finite series can support other invented rules; solver coverage is bounded, not proof of universal uniqueness. Variants create transfer effects.
 

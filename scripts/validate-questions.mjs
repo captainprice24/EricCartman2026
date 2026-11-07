@@ -44,7 +44,7 @@ for (const f of files) {
 }
 
 const SHAPES = new Set(["circle", "rect", "poly", "star", "arrow", "line", "wedge"]);
-const FILLS = new Set(["black", "grey", "white", "none", undefined]);
+const FILLS = new Set(["black", "grey", "white", "none", "hatch", "rhatch", "hlines", "vlines", "dots", "check", undefined]);
 const isStr = (s) => typeof s === "string" && s.trim().length > 0;
 // Item text may be a string or { en, fr, … }; checks run on the English text.
 const en = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v.en : v);
@@ -64,7 +64,7 @@ const checkFigure = (where, fig) => {
   if (!Array.isArray(fig) || fig.length === 0) return err(where, "figure must be a non-empty array of shapes");
   fig.forEach((s, i) => {
     if (!s || !SHAPES.has(s.t)) err(where, `shape ${i}: unknown type '${s && s.t}'`);
-    else if (!FILLS.has(s.fill)) err(where, `shape ${i}: fill must be black|grey|white|none`);
+    else if (!FILLS.has(s.fill)) err(where, `shape ${i}: fill must be black|grey|white|none or a pattern (hatch, rhatch, hlines, vlines, dots, check)`);
     for (const k of ["x", "y", "r", "w", "h", "x1", "y1", "x2", "y2"]) {
       if (s && s[k] !== undefined && (typeof s[k] !== "number" || s[k] < -5 || s[k] > 105)) err(where, `shape ${i}: ${k} must be a number within the 0–100 canvas`);
     }
@@ -115,7 +115,7 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       if (!isStr(passage)) err(where, "verbal questions need a passage");
       else {
         const words = passage.split(/\s+/).filter(Boolean).length;
-        if (words < 170 || words > 260) err(where, `passage has ${words} words; it must have 170–260`);
+        if (words < 130 || words > 260) err(where, `passage has ${words} words; it must have 130–260`);
       }
       const notes = (q.optionNotes || []).map(en);
       const kinds = notes.map((t, i) => (i === q.answer ? "key" : /^False\./.test(t) ? "false" : /^Not supported\./.test(t) ? "unsupported" : /^Overstated\./.test(t) ? "overstated" : "other"));

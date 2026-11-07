@@ -1,0 +1,72 @@
+{
+  "v24-01": {
+    "answer": "C",
+    "labels": { "A": "False", "B": "Not supported", "D": "Overstated" },
+    "issues": ["D borderline: considered Not supported (passage reports trust-building praise, not transformation of 'all' border regions)"],
+    "difficulty": 2,
+    "reasoning": "Non-EU partners such as Switzerland usually finance their own share from national or other sources rather than the Fund. A contradicts the two-country rule; B's frequency claim is absent; D inflates 'building trust' to transforming all border regions."
+  },
+  "v24-02": {
+    "answer": "A",
+    "labels": { "B": "False", "C": "False", "D": "Overstated" },
+    "issues": ["D borderline: considered False, since the passage says the classification says nothing about currents or lifeguards, which arguably contradicts a safety guarantee"],
+    "difficulty": 2,
+    "reasoning": "Classification uses the last four seasons, so earlier results can contribute to a poor rating. B contradicts the four-season rule; C contradicts the Blue Flag being run by a separate private foundation; D stretches a water-quality rating into a safety guarantee."
+  },
+  "v24-03": {
+    "answer": "D",
+    "labels": { "A": "Not supported", "B": "Not supported", "C": "Overstated" },
+    "issues": [],
+    "difficulty": 2,
+    "reasoning": "The passage says that if runs diverge widely the forecast is uncertain. A invents a founding purpose, B invents a comparison, C turns 'confident' into 'proves'."
+  },
+  "v24-04": {
+    "answer": "B",
+    "labels": { "A": "False", "C": "Not supported", "D": "False" },
+    "issues": ["D borderline: considered Not supported (passage simply does not mention a ban), but describing the EU measure as an aspiration allowing balanced new take seems to contradict a ban"],
+    "difficulty": 3,
+    "reasoning": "No net land take means new land taken is balanced by returning other land, so some new building on open land is still allowed. A contradicts 'does not quickly restore'; C's breakdown of uses is not given; D conflicts with an aspiration that permits balanced take."
+  },
+  "v24-05": {
+    "answer": "C",
+    "labels": { "A": "False", "B": "Not supported", "D": "Overstated" },
+    "issues": ["D borderline: considered False, because 'remains debated' directly contradicts 'proved'"],
+    "difficulty": 2,
+    "reasoning": "Some texts existed in noticeably different versions, so some biblical texts may have circulated in more than one version. A contradicts 'mainly in Hebrew' and the date range; B is invented; D hardens a debated link into proof about all scrolls."
+  },
+  "v24-06": {
+    "answer": "A",
+    "labels": { "B": "Not supported", "C": "Not supported", "D": "Overstated" },
+    "issues": [],
+    "difficulty": 2,
+    "reasoning": "Athens hosted the first Games in 1896 (two years after 1894) and women first competed in 1900, four years later. B invents a role for Brookes in founding the IOC; C invents spectator detail; D turns 'partly' into 'solely'."
+  },
+  "v24-07": {
+    "answer": "D",
+    "labels": { "A": "False", "B": "False", "C": "Overstated" },
+    "issues": ["C borderline: considered False, since 'historians treat the tale with caution' contradicts 'historians have shown'"],
+    "difficulty": 2,
+    "reasoning": "Nobel died in 1896 and the first prizes were awarded in 1901. A contradicts 'not part of the will'; B contradicts the Norwegian committee for peace; C converts a popular story treated with caution into a demonstrated cause."
+  },
+  "v24-08": {
+    "answer": "B",
+    "labels": { "A": "False", "C": "Not supported", "D": "False" },
+    "issues": ["D borderline: considered Overstated (blight was a cause, 'alone' extends it), but the passage's point that blight elsewhere caused no comparable deaths and that historians cite Irish conditions contradicts it"],
+    "difficulty": 3,
+    "reasoning": "Grain and cattle continued to be exported, so not all food production was lost. A contradicts 'across Europe'; C's destination is not stated; D contradicts the passage's emphasis on Irish conditions."
+  },
+  "v24-09": {
+    "answer": "A",
+    "labels": { "B": "Not supported", "C": "Overstated", "D": "Overstated" },
+    "issues": [],
+    "difficulty": 2,
+    "reasoning": "The studies suggest reputation shapes how these violins are perceived, so their famed sound may owe something to reputation. B invents a lost recipe; C turns 'could not reliably tell' and 'many preferred' into proof of superiority over all; D turns 'many' into 'every'."
+  },
+  "v24-10": {
+    "answer": "C",
+    "labels": { "A": "False", "B": "Not supported", "D": "Not supported" },
+    "issues": ["D borderline: considered Overstated (Victoria's greeting was among the cable's first messages, the option makes it the first ever sent by any cable)"],
+    "difficulty": 2,
+    "reasoning": "High charges per word meant the early cables served mainly governments, businesses and news agencies rather than private individuals. A contradicts failure after three weeks; B invents the ship's purpose; D is not stated, since the greeting was only one of the first messages."
+  }
+}

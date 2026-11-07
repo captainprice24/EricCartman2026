@@ -1,6 +1,6 @@
 # Verbal bank audit
 
-All 300 items are inventoried: **38 Easy, 105 Medium, 157 Hard**. Eight foundation items were clarified with new revision IDs; label-only repairs preserve IDs. New challenge sets are ten-question practice rounds; difficulty is editorial pending first-attempt learner results.
+All 350 items are inventoried: **38 Easy, 155 Medium, 157 Hard**. Eight foundation items were clarified with new revision IDs; label-only repairs preserve IDs. New challenge sets are ten-question practice rounds; difficulty is editorial pending first-attempt learner results.
 
 The 200 existing labels were retained after structural screening rather than mechanically deriving new levels from word count or key type. The first forty challenge items retain their blind-review trace; sixty additions bring the challenge collection to 100 independently reviewed keys and 300 reconciled distractor labels. Source-batch exports, reviewer reasoning, resolved ambiguities and the final ID/hash mapping are in `docs/research/verbal/blind-review/`. Historical reviews remain archived; the November book-informed review supersedes revised passages and teaching content. Six further ten-item sets add original serial, temporal, route and scope problems; final exports, reviews and hashes are archived in expansion-15/. All 300 verbal keys have independent review traceability. The reviewer judged the reasoning burden variable: some items have strong backward/constraint chains, while others are more moderate. “Very hard” names the editorial challenge collection; it is not a claim that every item has measured extreme difficulty. The project repair independently reviewed all 200 foundation keys and 600 distractor labels, corrected 58 original labels and clarified eight items under new IDs. Initial exports, reviewer reasoning, final answers and content hashes are archived under `legacy/`. The standard cue limits remain unchanged. Four initially medium additions were replaced or strengthened; final independent ratings for the sixty additions remain hard (mostly 3/5, some 4/5), rather than uniformly extreme.
 
@@ -25,6 +25,11 @@ The 200 existing labels were retained after structural screening rather than mec
 | verbal-17 | 0 | 0 | 10 | cue heuristic 30.0%; least/most overlap 10.0% / 40.0%; shortest 25.0% |
 | verbal-18 | 0 | 0 | 10 | cue heuristic 35.0%; least/most overlap 25.0% / 40.0%; shortest 20.0% |
 | verbal-19 | 0 | 0 | 10 | cue heuristic 30.0%; least/most overlap 20.0% / 40.0%; shortest 30.0% |
+| verbal-20 | 0 | 10 | 0 | cue heuristic 15.0%; least/most overlap 20.0% / 23.3%; shortest 10.0% |
+| verbal-21 | 0 | 10 | 0 | cue heuristic 20.0%; least/most overlap 10.0% / 20.0%; shortest 30.0% |
+| verbal-22 | 0 | 10 | 0 | cue heuristic 30.0%; least/most overlap 15.0% / 10.0%; shortest 10.0% |
+| verbal-23 | 0 | 10 | 0 | cue heuristic 10.0%; least/most overlap 10.0% / 20.0%; shortest 30.0% |
+| verbal-24 | 0 | 10 | 0 | cue heuristic 30.0%; least/most overlap 15.0% / 20.0%; shortest 28.3% |
 
 ## Book-informed review
 

@@ -8,12 +8,12 @@ test('fifteen full fixed tests contain 600 distinct existing questions in the co
 test('the three new forms contain exactly120 new challenge questions and no old question variants',()=>{
  const ids=forms.slice(12).flatMap(f=>Object.values(f.sections).flat());assert.equal(ids.length,120);
  for(const id of ids){const q=byId[id];assert.equal(q.challenge,true,id);assert.ok(id.startsWith('a')?[2,3].includes(q.difficulty):q.difficulty===3,id);assert.match(id,/^(v1[4-9]|[na](09|10|11))-/);}
- assert.equal(sets.filter(s=>s.section==='verbal').reduce((n,s)=>n+s.questions.length,0),300);
- for(const key of ['numerical','abstract'])assert.equal(sets.filter(s=>s.section===key).reduce((n,s)=>n+s.questions.length,0),220);
+ assert.equal(sets.filter(s=>s.section==='verbal').reduce((n,s)=>n+s.questions.length,0),350);
+ for(const key of ['numerical','abstract'])assert.equal(sets.filter(s=>s.section===key).reduce((n,s)=>n+s.questions.length,0),270);
 });
-test('the random bank also supports fifteen full unseen draws without recycling any question',()=>{
+test('the random bank supports seventeen full unseen draws without recycling any question',()=>{
  const C=box.EPSO_CORE,stats={},seen=new Set();
- for(let i=0;i<15;i++)for(const [key,count]of [['verbal',20],['numerical',10],['abstract',10]]){
+ for(let i=0;i<17;i++)for(const [key,count]of [['verbal',20],['numerical',10],['abstract',10]]){
   const draw=C.drawExam(Object.values(byId).filter(q=>q.section===key),count,stats);assert.equal(draw.items.length,count);assert.equal(draw.repeats,0);
   for(const q of draw.items){assert.equal(seen.has(q.id),false);seen.add(q.id);stats[q.id]={seen:1,correct:0,shown:1};}
  }

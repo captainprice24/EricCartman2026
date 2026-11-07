@@ -293,6 +293,9 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .fig .f-white { fill: var(--surface); }
 .fig .f-none { fill: none; }
 .fig .f-line { fill: none; stroke-width: 3; }
+.fig pattern .p-bg { fill: var(--surface); stroke: none; }
+.fig pattern .p-line { fill: none; stroke: var(--ink); stroke-width: 1.1; }
+.fig pattern .p-dot { fill: var(--ink); stroke: none; }
 
 .exhibit { margin: 0; display: grid; gap: 10px; }
 .exhibit figcaption { font-weight: 700; }

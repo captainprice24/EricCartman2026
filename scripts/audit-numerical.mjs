@@ -14,7 +14,7 @@ const historical = JSON.parse(fs.readFileSync(path.join(root, 'scripts/generator
 const items = sets.flatMap(s => s.questions.map(q => ({
   id: q.id, set: s.id, level: levels[numericalDifficulty(q)], challenge: !!q.challenge, topic: q.topic,
   reasoningStages: numericalRubric(q).stages, rationale: numericalRubric(q).reason,
-  workloadScore: numericalScore(q), oldMechanicalLevel: q.challenge ? null : (historical[q.supersedes] || historical[q.id]).oldMechanicalLevel,
+  workloadScore: numericalScore(q), oldMechanicalLevel: q.challenge || /^n1[2-6]-/.test(q.id) ? null : (historical[q.supersedes] || historical[q.id]).oldMechanicalLevel,
   fillerDistractors: q.optionNotes.filter(n => /not derived from a typical mistake/i.test(n)).length
 })));
 const counts = qs => [1, 2, 3].map(d => qs.filter(q => q.difficulty === d).length);

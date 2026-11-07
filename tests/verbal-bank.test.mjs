@@ -7,6 +7,7 @@ const bookAnswers=JSON.parse(fs.readFileSync(path.join(root,bookDir,'answers.jso
 const bookRecord=q=>book.items.find(r=>r.id===q.id);
 const sourceId=q=>bookRecord(q).previousId;
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+const isMedium=s=>/^verbal-2[0-4]$/.test(s.id);
 
 test('historical challenge reviews remain traceable for unchanged passages and options',()=>{
  assert.equal(sets.length,10);let total=0;
@@ -30,7 +31,7 @@ test('historical foundation reviews remain traceable for unchanged passages and 
  const dir=path.join(root,'docs/research/verbal/blind-review/legacy');
  const mapping=JSON.parse(fs.readFileSync(path.join(dir,'review-mapping.json'))).items;
  const answers=JSON.parse(fs.readFileSync(path.join(dir,'answers.json')));
- const qs=box.EPSO_BANK.sets.filter(s=>!s.challenge).flatMap(s=>s.questions);
+ const qs=box.EPSO_BANK.sets.filter(s=>!s.challenge&&!isMedium(s)).flatMap(s=>s.questions);
  assert.equal(qs.length,200);assert.equal(mapping.length,200);assert.equal(Object.keys(answers).length,200);
  for(const q of qs){
   const source=sourceId(q),m=mapping.find(m=>m.id===source);assert.ok(m,q.id);
@@ -43,8 +44,8 @@ test('historical foundation reviews remain traceable for unchanged passages and 
  }
 });
 
-test('all 300 current verbal texts match independent blind keys and reconciled distractor labels',()=>{
- const qs=box.EPSO_BANK.sets.flatMap(s=>s.questions);
+test('all 300 earlier verbal texts match independent blind keys and reconciled distractor labels',()=>{
+ const qs=box.EPSO_BANK.sets.filter(s=>!isMedium(s)).flatMap(s=>s.questions);
  assert.equal(qs.length,300);assert.equal(book.items.length,300);assert.equal(Object.keys(bookAnswers).length,300);
  let revised=0,freshText=0,labels=0;
  for(const q of qs){
@@ -75,4 +76,20 @@ test('verbal coaching uses case-specific guidance and respects one-way implicati
  const meal=qs.find(q=>q.supersedes==='v18-08');assert.match(meal.passage,/both its ingredient source and lot changed/);
  assert.match(meal.explanation,/changed ingredient source/);
  const stock=qs.find(q=>q.supersedes==='v12-10');assert.match(stock.passage,/outside the pending-release group had passed quality release/);
+});
+
+test('the 50 medium verbal items match independent blind keys and reconciled labels',()=>{
+ const dir=path.join(root,'docs/research/verbal/blind-review/medium-2026-11'),final=JSON.parse(fs.readFileSync(path.join(dir,'final.json')));
+ const qs=box.EPSO_BANK.sets.filter(isMedium).flatMap(s=>s.questions);
+ assert.equal(qs.length,50);assert.equal(final.items.length,50);
+ for(const q of qs){
+  const r=final.items.find(x=>x.id===q.id);assert.ok(r,q.id);
+  assert.equal(hash(q.passage),r.passageSha256,q.id+' passage changed after review');assert.equal(hash(JSON.stringify(q.options)),r.optionsSha256,q.id+' options changed after review');
+  const review=JSON.parse(fs.readFileSync(path.join(dir,r.reviewFile)))[q.id];
+  assert.equal(review.answer,'ABCD'[q.answer],q.id+' blind key');assert.equal(r.answer,review.answer);
+  for(let j=0;j<4;j++)if(j!==q.answer){const L='ABCD'[j],label=q.optionNotes[j].split('.')[0];
+   assert.equal(label,r.labels[L],q.id+' '+L);
+   if(review.labels[L]!==label)assert.ok(r.reconciliation&&r.reconciliation[L],q.id+' '+L+' disagreement must be reconciled');}
+  assert.equal(q.difficulty,2);const words=q.passage.split(/\s+/).length;assert.ok(words>=130&&words<=170,q.id+' exam-length passage');
+ }
 });

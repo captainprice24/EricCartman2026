@@ -1,0 +1,19 @@
+{
+  "v22-03": {
+    "answer": "D",
+    "labels": { "A": "Not supported", "B": "Overstated", "C": "Overstated" },
+    "issues": [
+      "B is borderline Overstated / Not supported: the C. difficile half is stated, the obesity half is simply absent, so it widens a true claim rather than inflating its strength. A reader could fairly call it Not supported.",
+      "C is borderline Overstated / False: 'all' inflates the fibre point, but the passage also implies that human enzymes digest other foods, which could be read as contradicting C."
+    ],
+    "reasoning": "The passage says a disease, or its medicines and diet, may change the microbiome, so a different mix in sick people could be a result of the disease (D). The 2016 recalculation is described only for the cell ratio; species counts are never mentioned (A). Faecal transplants are said to be effective only against recurrent C. difficile infection; nothing links them to obesity (B). Bacteria digest fibre that human enzymes cannot, not all foods (C)."
+  },
+  "v23-01": {
+    "answer": "B",
+    "labels": { "A": "False", "C": "Not supported", "D": "Overstated" },
+    "issues": [
+      "D is borderline Overstated / False: 'some were moved online' contrasts with 'all', and Flash surveys are 'mainly by telephone or online', but the passage does not say what happened after the pandemic, so Overstated seemed the better fit."
+    ],
+    "reasoning": "Malta is one of the smallest countries, where only about 500 are interviewed, and critics note that results from small national samples carry larger margins of error (B). The passage says only about 500 are interviewed in Malta, which contradicts A. No sample sizes are given for Flash surveys (C). Only some interviews moved online during the pandemic; 'all since' is stronger than that (D)."
+  }
+}

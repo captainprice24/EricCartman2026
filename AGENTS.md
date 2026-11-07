@@ -51,7 +51,7 @@ Quality bar (most of it is enforced by the validator):
 
 - Exactly one correct option. Numerical answers are re-solved independently by
   `tests/numerical-oracle.test.mjs` (`npm test`); add a solver there for every new numerical topic.
-- Verbal items follow `docs/VERBAL_AUTHORING_BRIEF.md`: passages of 170–260 words, 0–2 distractors of
+- Verbal items follow `docs/VERBAL_AUTHORING_BRIEF.md`: passages of 130–260 words (new sets: 130–170), 0–2 distractors of
   each type (False / Not supported / Overstated), and no answer cues. The validator rejects a set whose
   key can be found by form (hedged or absolute wording, length, overlap with the passage) or whose
   distractor structure repeats.

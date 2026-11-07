@@ -16,7 +16,7 @@ try {
     return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',context.getImageData(0,0,100,100).data))).map(v=>v.toString(16).padStart(2,'0')).join('');
    }finally{URL.revokeObjectURL(url);}
   }
-  const result={items:220,size:'100x100',themes:{},paletteMismatches:[]};const light=new Map();
+  const result={items:window.EPSO_APP.bank.bySection.abstract.length,size:'100x100',themes:{},paletteMismatches:[]};const light=new Map();
   for(const theme of ['light','dark']){
    document.documentElement.setAttribute('data-theme',theme);const duplicates=[],repeatedKeys=[];let figures=0;
    for(const q of window.EPSO_APP.bank.bySection.abstract){const hashes=[];for(const f of [...q.sequence,...q.options])hashes.push(await raster(f));figures+=hashes.length;

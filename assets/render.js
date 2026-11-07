@@ -13,9 +13,22 @@
 
   function fillClass(fill) {
     var f = fill || "none";
+    if (PATTERNS[f]) return "f-pat";
     if (["black", "grey", "white", "none"].indexOf(f) === -1) f = "none";
     return "f-" + f;
   }
+
+  // Patterned fills (as in printed EPSO-style figures): drawn with the figure's own ink and surface colours,
+  // so they look the same in every theme. Each figure gets its own pattern ids.
+  var PATTERNS = {
+    hatch: '<path class="p-line" d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2"/>',
+    rhatch: '<path class="p-line" d="M-1,5 l2,2 M0,0 l6,6 M5,-1 l2,2"/>',
+    hlines: '<path class="p-line" d="M0,1.5 h6 M0,4.5 h6"/>',
+    vlines: '<path class="p-line" d="M1.5,0 v6 M4.5,0 v6"/>',
+    dots: '<circle class="p-dot" cx="1.5" cy="1.5" r="0.9"/><circle class="p-dot" cx="4.5" cy="4.5" r="0.9"/>',
+    check: '<rect class="p-dot" x="0" y="0" width="3" height="3"/><rect class="p-dot" x="3" y="3" width="3" height="3"/>'
+  };
+  var figureCount = 0;
 
   function num(v, d) {
     return typeof v === "number" && isFinite(v) ? v : d;
@@ -40,8 +53,9 @@
     return pts.join(" ");
   }
 
-  function shapeSVG(s) {
-    var cls = fillClass(s.fill);
+  function shapeSVG(s, ids) {
+    // For a patterned fill the class is followed by a fill attribute; the caller closes the quote.
+    var cls = fillClass(s.fill) + (PATTERNS[s.fill] && ids && ids[s.fill] ? '" fill="url(#' + ids[s.fill] + ')' : "");
     var x = num(s.x, 50), y = num(s.y, 50), r = num(s.r, 20), rot = num(s.rot, 0);
     switch (s.t) {
       case "circle":
@@ -75,8 +89,15 @@
   }
 
   function figureSVG(items, label) {
-    var body = (items || []).map(shapeSVG).join("");
-    return '<svg class="fig" viewBox="0 0 100 100" role="img" aria-label="' + esc(label || "Figure") + '">' + body + "</svg>";
+    var ids = {}, defs = "", n = ++figureCount;
+    (items || []).forEach(function (s) {
+      if (s && PATTERNS[s.fill] && !ids[s.fill]) {
+        ids[s.fill] = "fp" + n + "-" + s.fill;
+        defs += '<pattern id="' + ids[s.fill] + '" patternUnits="userSpaceOnUse" width="6" height="6"><rect class="p-bg" width="6" height="6"/>' + PATTERNS[s.fill] + "</pattern>";
+      }
+    });
+    var body = (items || []).map(function (s) { return shapeSVG(s, ids); }).join("");
+    return '<svg class="fig" viewBox="0 0 100 100" role="img" aria-label="' + esc(label || "Figure") + '">' + (defs ? "<defs>" + defs + "</defs>" : "") + body + "</svg>";
   }
 
   function tableHTML(ex) {

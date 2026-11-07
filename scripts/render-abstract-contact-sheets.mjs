@@ -7,8 +7,9 @@ import { chromium } from 'playwright';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sets = [], context = vm.createContext({ EPSO_BANK: { registerSet: s => sets.push(s) } });
 for (const file of fs.readdirSync(path.join(root, 'questions/abstract')).sort()) vm.runInContext(fs.readFileSync(path.join(root, 'questions/abstract', file), 'utf8'), context);
-const groups = sets.filter(s => s.challenge).map(s => ({ id: s.id, questions: s.questions }));
-const old = sets.filter(s => !s.challenge).flatMap(s => Array.from(s.questions));
+const isMedium = s => /^abstract-1[2-6]$/.test(s.id);
+const groups = sets.filter(s => s.challenge || isMedium(s)).map(s => ({ id: s.id, questions: s.questions }));
+const old = sets.filter(s => !s.challenge && !isMedium(s)).flatMap(s => Array.from(s.questions));
 const topics = [...new Set(old.map(q => q.topic))];
 for (const [i,topic] of topics.entries()) { const qs=old.filter(q=>q.topic===topic); for(let n=0;n<qs.length;n+=10) groups.push({id:'foundation-'+i+'-'+n,questions:qs.slice(n,n+10)}); }
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});

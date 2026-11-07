@@ -24,7 +24,17 @@ export function simpleOrbitFits(sequence) {
     return marker&&arrow?{p:wrap(Math.round(Math.atan2(marker.x-50,43-marker.y)*4/Math.PI)),a:wrap(arrow.rot/45)}:null;});
   return rows.every(Boolean)?{p:simpleCircularFits(rows.map(r=>r.p)),a:simpleCircularFits(rows.map(r=>r.a))}:null;
 }
+// Patterned medium families (sets 12–16): independent tracks with an alternating phase or one fixed element.
+export const ABSTRACT_PATTERN_MODELS = {
+  'grid-shift': 'Independent tracks: two grid shifts that alternate by step (a repeated phase), an alternating background and a stepping corner marker.',
+  'quadrant-rotation': 'Independent tracks: outer and inner rings turn in opposite directions, one inner segment stays fixed, and the centre alternates.',
+  'opposed-conveyor': 'Independent tracks: two rows slide in opposite directions with wrap-around, a pointer turns, and the background may alternate.'
+};
 export function abstractRubric(q) {
+  if (!q.challenge && q.reasoning && ABSTRACT_PATTERN_MODELS[q.reasoning.model]) {
+    if (![3, 4].includes(q.rules)) throw Error('Pattern model needs three or four tracks: ' + q.reasoning.model);
+    return { level: 2, reason: ABSTRACT_PATTERN_MODELS[q.reasoning.model] };
+  }
   if (q.challenge) {
     if (!ABSTRACT_CHALLENGE_MODELS.has(q.reasoning?.model)) throw Error('Abstract model needs editorial review: ' + q.reasoning?.model);
     const simpler=simpleOrbitFits(q.sequence);

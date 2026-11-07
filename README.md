@@ -52,30 +52,34 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 
 ## Question bank
 
-740 original questions: **verbal 300, numerical 220, abstract 220**. There are 15 complete fixed tests of 40 questions (20/10/10), plus additional practice material. All section timers retain 35/20/10 minutes.
+The November 2026 medium sets are documented in [docs/research/medium-2026-11](docs/research/medium-2026-11/README.md).
 
-- **Verbal (19 sets):** 200 foundation items plus **ten challenge sets of 10** (Sets 10–19).
+890 original questions: **verbal 350, numerical 270, abstract 270**. There are 15 complete fixed tests of 40 questions (20/10/10), plus additional practice material. All section timers retain 35/20/10 minutes.
+
+- **Verbal (24 sets):** 200 foundation items, **ten challenge sets of 10** (Sets 10–19) and **five medium sets of 10**
+  (Sets 20–24, exam-length passages of 130–170 words; all keys and labels blind-reviewed).
   Choose **Verbal difficulty: Easy / Medium / Hard** in Coach or Practice; a timed ten-question
-  round takes 17 min 30 sec. The bank contains 38 easy, 105 medium and 157 hard items.
+  round takes 17 min 30 sec. The bank contains 38 easy, 155 medium and 157 hard items.
   All 100 challenge keys and 300 distractor labels were reconciled with an independent blind reviewer.
   Difficulty remains editorial; the reviewer found variable reasoning burden across the challenge
   collection. The [verbal audit](docs/VERBAL_AUDIT.md) distinguishes structural screening of the
   existing bank from the new blind review. The [research library](docs/research/verbal/README.md)
   preserves sources, rights decisions, licensed reference samples and review records.
-- **Numerical (11 sets):** 150 foundation/exam-practice items plus **seven very hard sets of 10**
-  (Sets 5–11). Challenge items combine changing bases, reverse calculations and constraints, with one or two
+- **Numerical (16 sets):** 150 foundation/exam-practice items, **seven very hard sets of 10**
+  (Sets 5–11) and **five medium sets of 10** (Sets 12–16, ten reviewed Medium models per set). Challenge items combine changing bases, reverse calculations and constraints, with one or two
   exhibits and mistake-based distractors. Choose **Numerical difficulty: Easy / Medium / Hard** in
   Coach or Practice. For a full challenge round, select Set 5–11, 10 questions and timed practice
-  (20 minutes). The bank contains 56 easy, 82 medium and 82 hard items, including 70 challenge items.
+  (20 minutes). The bank contains 56 easy, 132 medium and 82 hard items, including 70 challenge items.
   Levels follow a reviewed reasoning rubric and await learner calibration. Every key is independently
   re-solved by `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records
   every item; the [research library](docs/research/numerical/README.md) saves sources, rights evidence,
   licensed examples and an authoring checklist for future work.
-- **Abstract (11 sets):** 150 foundation items plus **seven challenge sets of 10** (Sets 5–11).
+- **Abstract (16 sets):** 150 foundation items, **seven challenge sets of 10** (Sets 5–11) and **five medium sets of 10**
+  (Sets 12–16: patterned figures with alternating grid shifts, counter-rotating quadrants and conveyor rows).
   The new series combine alternating, accelerating, conditional, delayed and compositional rules.
   Choose **Abstract difficulty: Easy / Medium / Hard** in Coach or Practice; a timed round takes
   ten minutes. Choose All levels for a complete challenge set: these span Medium and Hard.
-  The reviewed bank has 29 easy, 131 medium and 60 hard items. All 220 keys are independently
+  The reviewed bank has 29 easy, 181 medium and 60 hard items. All 270 keys are independently
   inferred from visible shapes within documented bounded grammars. Ten ambiguous series were
   repaired, one related series strengthened, and ten challenge difficulty labels corrected.
   Worked solutions, hints and visual Coach examples were reviewed against the supplied book.

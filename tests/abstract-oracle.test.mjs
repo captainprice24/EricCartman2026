@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {foundationFeatures,inferFoundation} from './abstract-foundation-solver.mjs';
+import {patternFeatures,inferPattern} from './abstract-pattern-solver.mjs';
 import crypto from 'node:crypto';
 import {abstractContentHash} from '../scripts/generators/abstract-review-revision.mjs';
 import { fileURLToPath } from 'node:url';
@@ -159,8 +160,22 @@ function simpleNext(values) {
   for(let period=1;period<=4;period++)if(values.every((v,i)=>i<period||v===values[i-period]))out.push(values[values.length%period]);
   return [...new Set(out.filter(v=>v!==null))];
 }
+const isMedium=q=>/^a1[2-6]-/.test(q.id);
+test('fifty patterned medium series: unique visible continuation, Medium band, balanced keys, unique series and blind strategies within limits',()=>{
+  const medium=bank.filter(s=>/^abstract-1[2-6]$/.test(s.id));assert.equal(medium.length,5);const all=new Set(bank.flatMap(s=>Array.from(s.questions)).map(q=>JSON.stringify(q.sequence)));
+  assert.equal(all.size,bank.reduce((n,s)=>n+s.questions.length,0),'no repeated figure series in the bank');
+  for(const set of medium){assert.equal(set.questions.length,10);for(let key=0;key<5;key++)assert.equal(set.questions.filter(q=>q.answer===key).length,2,set.id);
+    for(const strategy of ['medoid','outlier','majority'])assert.ok(set.questions.reduce((n,q)=>n+abstractBlind(q.options,q.answer)[strategy],0)/10<=.3,set.id+' '+strategy);
+    for(const q of set.questions){assert.equal(q.difficulty,2,q.id);assert.ok([3,4].includes(q.rules),q.id);assert.equal(q.sequence.length,5,q.id);
+      assert.ok(q.sequence.every(f=>!same(f,q.options[q.answer])),q.id+': key does not repeat a displayed frame');
+      const prediction=inferPattern(q.sequence);assert.ok(prediction.next,q.id+' unique continuation '+JSON.stringify(prediction.fits));
+      const matches=Array.from(q.options,(f,i)=>same({layout:prediction.layout,...Object.fromEntries(Object.keys(prediction.next).filter(k=>k!=='layout').map(k=>[k,patternFeatures(f)[k]]))},prediction.next)?i:-1).filter(i=>i>=0);
+      assert.deepEqual(matches,[q.answer],q.id);assert.ok(q.solution.length>=q.rules,q.id);}
+    assert.equal(new Set(set.questions.map(q=>q.reasoning.model)).size,3,set.id+' uses all three patterned families');
+    assert.ok(set.questions.some(q=>q.sequence.flat().some(sh=>['hatch','rhatch','hlines','vlines','dots','check'].includes(sh.fill))),set.id+' uses patterned fills');}
+});
 test('all 150 foundation keys follow uniquely inferred visible tracks',()=>{
-  const qs=bank.filter(s=>!s.challenge).flatMap(s=>Array.from(s.questions));assert.equal(qs.length,150);
+  const qs=bank.filter(s=>!s.challenge).flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q));assert.equal(qs.length,150);
   for(const q of qs){const prediction=inferFoundation(q.sequence);assert.ok(prediction.next,q.id+' unique continuation '+JSON.stringify(prediction.fits));
     const matches=Array.from(q.options,(f,i)=>same(foundationFeatures(f).features,prediction.next)?i:-1).filter(i=>i>=0);
     assert.deepEqual(matches,[q.answer],q.id);assert.ok(q.solution.length>=q.rules);
@@ -175,7 +190,9 @@ test('challenge keys exclude conflicting simple patterns and bands reflect simpl
 });
 test('reviewed IDs and content are immutable and prior ambiguities are regression fixtures',()=>{
   const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
-  for(const q of bank.flatMap(s=>Array.from(s.questions))){const r=registry.revisions[q.supersedes];assert.ok(r,q.id);assert.equal(q.id,r.id);assert.equal(abstractContentHash(q),r.sha256);}
+  const medium=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-medium-fingerprints.json')));
+  for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(isMedium)){const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),medium[id],id);}
+  for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q))){const r=registry.revisions[q.supersedes];assert.ok(r,q.id);assert.equal(q.id,r.id);assert.equal(abstractContentHash(q),r.sha256);}
   const before=JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/abstract-ambiguities.json')));
   for(const q of before.foundation)assert.equal(inferFoundation(q.sequence).next,null,q.id);
   for(const q of before.challenge){const a=simpleNext(q.sequence.map(decode).map(r=>r.a));assert.ok(a.some(v=>v!==decode(q.options[q.answer]).a),q.id);}
@@ -185,6 +202,6 @@ test('figure changes stay confined to the eleven repaired stimuli',()=>{
  const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
  const expected=['a01-03','a02-18','a02-48','a03-23','a03-43','a03-48','a04-08','a04-23','a07-04','a08-05','a11-04'];
  const hash=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
- const changed=[];for(const q of bank.flatMap(s=>Array.from(s.questions))){const b=registry.baseline[q.supersedes];if(hash(q.sequence)!==b.sequenceSha256||hash(q.options)!==b.optionsSha256)changed.push(q.supersedes);}
+ const changed=[];for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q))){const b=registry.baseline[q.supersedes];if(hash(q.sequence)!==b.sequenceSha256||hash(q.options)!==b.optionsSha256)changed.push(q.supersedes);}
  assert.deepEqual(changed,expected);
 });

@@ -13,6 +13,7 @@ import { reviewedAbstract } from './abstract-review-revision.mjs';
 //
 // Usage: node scripts/generators/abstract.mjs
 import { generateHardAbstract } from "./abstract-hard.mjs";
+import { generatePatternSets } from "./abstract-patterns.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -477,3 +478,6 @@ console.log(`abstract: ${N} items; letters A–E ${letters.join("/")}; rules ${J
 console.log(`blind solvers: most central ${pc(medoid)}, odd one out ${pc(outlier)}, majority ${pc(majority)} (chance 20%); rejected drafts ${retries}`);
 
 generateHardAbstract(root);
+
+/* ---------- November 2026 medium sets 12–16: patterned figures (scripts/generators/abstract-patterns.mjs) ---------- */
+generatePatternSets(root);

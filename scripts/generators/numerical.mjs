@@ -1458,3 +1458,172 @@ console.log("numerical: 150 items; answer letters A–E", dist.join("/"), "; dif
 generateHardSets(root);
 
 generateExpansion(root);
+
+/* ---------- November 2026 medium sets 12–16: 50 new items from the 21 reviewed Medium models ----------
+   Every model is one the reviewed rubric (scripts/lib/difficulty.mjs) places at level 2: a familiar model plus
+   weighting, conversion, reverse percentage or successive adjustments. Contexts and data are new; existing items
+   are untouched because this runs after every earlier set has been written. Each set holds ten different models
+   and two keys in each answer position. */
+seed = 20261107;
+const MEDIUM = {
+  weightedSubset: [
+    { title: "Caseworkers and files closed by office", first: "Office", rows: ["Office 1", "Office 2", "Office 3", "Office 4", "Office 5"], nLabel: "Caseworkers", vLabel: "Files closed per caseworker", nMin: 6, nMax: 60, vMin: 40, vMax: 160, vStep: 1, what: "number of files closed", people: "caseworkers", fmt: unitF("files", 2) },
+    { title: "Researchers and publications by institute", first: "Institute", rows: ["Institute A", "Institute B", "Institute C", "Institute D", "Institute E"], nLabel: "Researchers", vLabel: "Publications per researcher", nMin: 15, nMax: 220, vMin: 2, vMax: 14, vStep: 1, what: "number of publications", people: "researchers", fmt: unitF("publications", 2) },
+    { title: "Nurses and overtime by hospital", first: "Hospital", rows: ["Hospital 1", "Hospital 2", "Hospital 3", "Hospital 4", "Hospital 5"], nLabel: "Nurses", vLabel: "Overtime hours per nurse", nMin: 30, nMax: 410, vMin: 6, vMax: 48, vStep: 1, what: "number of overtime hours", people: "nurses", fmt: unitF("hours", 2) }
+  ],
+  successive: [
+    { title: "Prices of laboratory analyses", first: "Analysis", items: ["Blood analysis", "DNA sequencing", "Water testing", "Soil analysis", "Air sampling"], pMin: 40, pMax: 980, row: 2 },
+    { title: "Prices of medical equipment servicing", first: "Service", items: ["Pump servicing", "Monitor servicing", "Defibrillator servicing", "Ventilator servicing", "Scanner servicing"], pMin: 900, pMax: 48000, row: 3 },
+    { title: "Prices of agricultural inputs per tonne", first: "Input", items: ["Wheat seed", "Fertiliser", "Lime", "Animal feed", "Grass seed"], pMin: 300, pMax: 2600, row: 1 }
+  ],
+  surveyChain: [
+    { title: "Survey on energy saving", first: "Household type", groups: ["Single", "Couple", "Family", "Shared", "Retired"], sLabel: "Changed heating habits", rLabel: "lowered the thermostat", both: "changed heating habits by lowering the thermostat", row: 2 },
+    { title: "Survey on public consultations", first: "Region", groups: ["North", "South", "East", "West", "Islands"], sLabel: "Heard of the consultation", rLabel: "submitted a reply", both: "heard of the consultation and submitted a reply", row: 1 },
+    { title: "Survey on digital skills", first: "Age group", groups: ["16–24", "25–34", "35–49", "50–64", "65–74"], sLabel: "Use online banking", rLabel: "use two-factor login", both: "use online banking with two-factor login", row: 3 }
+  ],
+  discountVat: [
+    { title: "Price list for conference equipment", items: ["Microphones", "Interpretation consoles", "Screens", "Cameras", "Speakers"], pMin: 60, pMax: 2400, row: 1, n: 18 },
+    { title: "Price list for field equipment", items: ["GPS units", "Tablets", "Drones", "Radios", "Tents"], pMin: 90, pMax: 3600, row: 2, n: 7 },
+    { title: "Price list for library furniture", items: ["Reading tables", "Shelving units", "Study chairs", "Lockers", "Display cases"], pMin: 70, pMax: 1900, row: 3, n: 34 }
+  ],
+  combinedRate: [
+    { title: "Ballot counting machines", first: "Machine", item: "Ballots", units: ["Counter 1", "Counter 2", "Counter 3", "Counter 4"], rMin: 50, rMax: 220, pair: [1, 2], n: 30000 },
+    { title: "Water treatment pumps", first: "Pump", item: "Cubic metres", units: ["Pump A", "Pump B", "Pump C", "Pump D"], rMin: 20, rMax: 90, pair: [0, 3], n: 14000 },
+    { title: "Data-entry teams", first: "Team", item: "Forms", units: ["Team Alpha", "Team Beta", "Team Gamma", "Team Delta"], rMin: 15, rMax: 70, pair: [3, 1], n: 8000 }
+  ],
+  compound: [
+    { title: "Energy-renovation loan offers", offers: ["Loan 1", "Loan 2", "Loan 3", "Loan 4"], row: 3 },
+    { title: "Equipment finance offers", offers: ["Bank North", "Bank South", "Bank East", "Bank West"], row: 0 },
+    { title: "Municipal loan offers", offers: ["Lender A", "Lender B", "Lender C", "Lender D"], row: 2 }
+  ],
+  fixedVariable: [
+    { title: "Summer school campuses", venues: ["Campus 1", "Campus 2", "Campus 3", "Campus 4"], row: 2, n: 95 },
+    { title: "Workshop venues", venues: ["Venue North", "Venue South", "Venue East", "Venue West"], row: 0, n: 38 },
+    { title: "Exhibition centres", venues: ["Centre A", "Centre B", "Centre C", "Centre D"], row: 3, n: 410 }
+  ],
+  percentMore: [
+    { title: "Education spending (fictional countries)", tLabel: "Education spending (EUR million)", tMin: 1500, tMax: 70000, what: "education spending", pair: [3, 1] },
+    { title: "Rail freight (fictional countries)", tLabel: "Rail freight (million tonne-km)", tMin: 800, tMax: 95000, what: "rail freight", pair: [0, 2] },
+    { title: "Museum visits (fictional countries)", tLabel: "Museum visits (thousand)", tMin: 600, tMax: 40000, what: "the number of museum visits", pair: [4, 3] }
+  ],
+  currency: [
+    { currencies: [["USD", 1.09], ["CHF", 0.94], ["PLN", 4.29], ["SEK", 11.2], ["GBP", 0.85], ["HUF", 389]], pair: [2, 4], date: 1, amount: 42000 },
+    { currencies: [["NOK", 11.5], ["USD", 1.08], ["CZK", 25.1], ["JPY", 161], ["DKK", 7.46], ["RON", 4.97]], pair: [5, 1], date: 0, amount: 9600 }
+  ],
+  netInvoices: [
+    { country: 1, title: "Interpretation services invoices" },
+    { country: 3, title: "Security services invoices" }
+  ],
+  pieRealloc: [
+    { title: "Laboratory operating budget", labels: ["Staff", "Reagents", "Maintenance", "Energy", "Safety", "Training"], total: 7.2, p: 35 },
+    { title: "Heritage restoration budget", labels: ["Masonry", "Roofing", "Surveys", "Scaffolding", "Archives", "Visitors"], total: 18, p: 20 }
+  ],
+  projection: [
+    { title: "Heat pumps installed (thousand)", unit: "thousand", years: ["2019", "2020", "2021", "2022", "2023", "2024"], a: "The installed heat-pump base", b: "Gas boilers", start: 28, g: 14, ahead: 2 },
+    { title: "E-book loans (million)", unit: "million", years: ["2018", "2019", "2020", "2021", "2022", "2023"], a: "E-book lending", b: "Print lending", start: 9, g: 11, ahead: 3 }
+  ],
+  unitPerCapita: [
+    { title: "District heating (fictional countries)", tLabel: "District heating supplied (TWh)", tShort: "TWh", tMin: 4, tMax: 60, what: "district heating supplied", outUnit: "kWh", factor: 1000, conv: "1 TWh = 1,000,000,000 kWh", row: 2 },
+    { title: "Packaging waste (fictional countries)", tLabel: "Packaging waste (thousand tonnes)", tShort: "thousand t", tMin: 200, tMax: 4200, what: "packaging waste", outUnit: "kg", factor: 1, conv: "thousand tonnes ÷ million people = kg per person", row: 4 }
+  ],
+  workload: [
+    { title: "Procurement review teams", teams: ["Team 1", "Team 2", "Team 3", "Team 4"], unit: "Tenders", row: 3, add: 2 },
+    { title: "Visa processing units", teams: ["Unit North", "Unit South", "Unit East", "Unit West"], unit: "Applications", row: 1, add: 4 }
+  ],
+  speedStops: [
+    { title: "Mobile library route", dMin: 9, dMax: 45, tMin: 15, tMax: 70 },
+    { title: "Field inspection by boat", dMin: 14, dMax: 70, tMin: 30, tMax: 110 }
+  ],
+  surplusCategory: [{ title: "Trade with neighbouring economies (fictional)" }, { title: "Services trade, selected partners (fictional)" }],
+  costPerBeneficiary: [
+    { title: "Digital inclusion programmes", progs: ["Connect", "Skills Lab", "Senior Online", "Libraries+"], row: 1 },
+    { title: "Housing support schemes", progs: ["Scheme North", "Scheme South", "Scheme East", "Scheme West"], row: 3 }
+  ],
+  overallRate: [
+    { title: "Pilot licence exams by school", centres: ["Aero 1", "Aero 2", "Aero 3", "Aero 4", "Aero 5"] },
+    { title: "Translation certification results by session", centres: ["March", "May", "July", "September", "November"] }
+  ],
+  twoExhibits: [
+    { title: "School renovation budget", total: 260, row: 1 },
+    { title: "Public library budget", total: 44, row: 3 }
+  ],
+  requiredGrowth: [
+    { title: "Heat pump installations targets (fictional countries)", label: "Installations", unit: "thousand", min: 20, max: 380, startYear: 2025, endYear: 2030, row: 3 },
+    { title: "Public charging points targets (fictional countries)", label: "Charging points", unit: "thousand", min: 3, max: 90, startYear: 2024, endYear: 2029, row: 1 }
+  ],
+  breakEven: [
+    { title: "Courier contracts", offers: ["Courier A", "Courier B", "Courier C", "Courier D"], unit: "parcel", vMin: 1.2, vMax: 6.5, pair: [2, 0] },
+    { title: "Mobile data plans", offers: ["Plan 1", "Plan 2", "Plan 3", "Plan 4"], unit: "gigabyte", vMin: 0.5, vMax: 3.5, pair: [1, 3] }
+  ]
+};
+const mediumTemplates = Object.keys(MEDIUM);
+for (const name of mediumTemplates) if (!T[name]) throw new Error("unknown medium template " + name);
+// Round-robin over the models: the first ten models fill Set 12, and so on, so no set repeats a model.
+const mediumOrder = [];
+for (let round_ = 0; mediumOrder.length < 50; round_++) mediumTemplates.forEach((n) => { if (MEDIUM[n][round_] && mediumOrder.length < 50) mediumOrder.push([n, MEDIUM[n][round_]]); });
+// Sets need ten different models each: deal the ordered list into five sets column-wise when a set would repeat.
+const mediumSets = [[], [], [], [], []];
+mediumOrder.forEach((entry) => {
+  const target = mediumSets.findIndex((s) => s.length < 10 && !s.some(([n]) => n === entry[0]));
+  if (target < 0) throw new Error("cannot place medium model " + entry[0]);
+  mediumSets[target].push(entry);
+});
+const mediumBuilt = mediumSets.map((list) => {
+  // Categorical items take fixed positions; numeric items are regenerated until a free position keeps four named mistakes.
+  const used = [0, 0, 0, 0, 0];
+  const order = list.map((e, i) => i).sort((a, b) => (CATEGORY.has(list[b][0]) ? 1 : 0) - (CATEGORY.has(list[a][0]) ? 1 : 0));
+  const made = [];
+  order.forEach((i) => {
+    const [name, c] = list[i];
+    let lastErr = null;
+    for (let attempt = 0; attempt < 3000; attempt++) {
+      try {
+        if (CATEGORY.has(name)) {
+          const want = [0, 1, 2, 3, 4].filter((k) => used[k] < 2).sort((a, b) => used[a] - used[b])[0];
+          const t = T[name](c, want);
+          used[t.answer]++; made[i] = { t, pool: null }; lastErr = null; break;
+        }
+        const t = T[name](c), pool = assembleNumeric(t);
+        // Keep the answer in a realistic range for exhibits that describe real-world quantities.
+        if (name === "percentMore" && !(t.correct >= 8 && t.correct <= 150)) throw new Error("implausible percentage gap");
+        const free = pool.cands.filter((cand) => cand.real === 4 && used[cand.k] < 2).sort((a, b) => used[a.k] - used[b.k]);
+        if (!free.length) throw new Error("no balanced position with four named mistakes: " + t.stem);
+        used[free[0].k]++; made[i] = { t, pool, k: free[0].k }; lastErr = null; break;
+      } catch (e) { lastErr = e; }
+    }
+    if (lastErr) throw lastErr;
+  });
+  if (used.some((n) => n !== 2)) throw new Error("medium set letters unbalanced " + used.join("/"));
+  return made.map(({ t, pool, k }) => {
+    const { options, answer, optionNotes } = pool ? finalize(pool, k) : t;
+    const q = { topic: t.topic, difficulty: 0 };
+    if (t.answerType) q.answerType = t.answerType;
+    q.exhibits = t.exhibits;
+    Object.assign(q, { stem: t.stem, options, answer, hints: t.hints, solution: t.solution.slice(), optionNotes: optionNotes.slice(), explanation: t.explanation });
+    q.difficulty = numericalDifficulty(q);
+    if (q.difficulty !== 2) throw new Error(`medium set item is level ${q.difficulty}: ${q.topic}`);
+    if (q.answerType !== "category") {
+      const decimals = (options[answer].replace(/,/g, "").match(/\d+\.(\d+)/) || ["", ""])[1].length;
+      const precision = decimals ? decimals + " decimal place" + (decimals === 1 ? "" : "s") : "the nearest whole number";
+      q.stem += " Round only the final result to " + precision + ".";
+      q.solution.unshift("Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.");
+      q.solution.push("Final answer: " + options[answer] + ".");
+      q.optionNotes[answer] = "Correct. Using the requested base and units, with rounding only at the end, gives " + options[answer] + ".";
+    }
+    return q;
+  });
+});
+// New ids are immutable: their content fingerprints are recorded once and checked on every later run.
+const mediumPrintFile = path.join(root, "scripts/generators/numerical-medium-fingerprints.json");
+const mediumPrints = fs.existsSync(mediumPrintFile) ? JSON.parse(fs.readFileSync(mediumPrintFile)) : null;
+const freshPrints = {};
+mediumBuilt.forEach((qs, si) => qs.forEach((q, k) => { freshPrints[`n${12 + si}-${String(k + 1).padStart(2, "0")}`] = crypto.createHash("sha256").update(JSON.stringify(q)).digest("hex"); }));
+if (mediumPrints) Object.entries(freshPrints).forEach(([id, h]) => { if (mediumPrints[id] !== h) throw new Error(`Medium item ${id} changed: give revised content a new id.`); });
+else fs.writeFileSync(mediumPrintFile, JSON.stringify(freshPrints, null, 2) + "\n");
+mediumBuilt.forEach((qs, si) => {
+  const n = 12 + si, id = String(n);
+  const set = { id: "numerical-" + id, section: "numerical", title: `Numerical reasoning · Set ${n} (medium)`, description: "10 medium data-interpretation items: ten different reviewed models, worked solutions (generated, November 2026).", version: 1,
+    questions: qs.map((q, k) => ({ id: `n${id}-${String(k + 1).padStart(2, "0")}`, ...q })) };
+  fs.writeFileSync(path.join(root, `questions/numerical/numerical-set-${id}.js`), "/* Generated by scripts/generators/numerical.mjs. Edit the generator, not this file. */\nEPSO_BANK.registerSet(" + JSON.stringify(set, null, 2) + ");\n");
+});
+console.log("numerical medium sets 12–16: 50 items; topics", new Set(mediumBuilt.flat().map((q) => q.topic)).size);

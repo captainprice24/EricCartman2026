@@ -325,6 +325,7 @@ test('the entire numerical bank uses named mistake distractors', () => {
 test('all numerical revisions preserve immutable old and new fingerprints', () => {
   const original=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-revisions.json')));
   const review=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-review-revisions.json')));
+  const medium=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-medium-fingerprints.json')));
   const hash=q=>{const content={...q};delete content.id;delete content.supersedes;return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');};
   for(const q of items){
     const entry=review.revisions[q.supersedes];
@@ -334,6 +335,8 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
       assert.equal(entry.beforeSha256,review.baseline[q.supersedes].sha256);
       const prior=Object.values(original).find(r=>r.id===q.supersedes);
       if(prior)assert.equal(prior.sha256,entry.beforeSha256);
+    }else if(/^n1[2-6]-/.test(q.id)){
+      const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),medium[id],id);
     }else{
       assert.equal(hash(q),review.baseline[q.id].sha256,q.id);
     }

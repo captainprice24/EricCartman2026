@@ -23,6 +23,11 @@ window.EPSO_SET_FILES = [
   "verbal/verbal-set-17.js",
   "verbal/verbal-set-18.js",
   "verbal/verbal-set-19.js",
+  "verbal/verbal-set-20.js",
+  "verbal/verbal-set-21.js",
+  "verbal/verbal-set-22.js",
+  "verbal/verbal-set-23.js",
+  "verbal/verbal-set-24.js",
   "numerical/numerical-set-01.js",
   "numerical/numerical-set-02.js",
   "numerical/numerical-set-03.js",
@@ -34,6 +39,11 @@ window.EPSO_SET_FILES = [
   "numerical/numerical-set-09.js",
   "numerical/numerical-set-10.js",
   "numerical/numerical-set-11.js",
+  "numerical/numerical-set-12.js",
+  "numerical/numerical-set-13.js",
+  "numerical/numerical-set-14.js",
+  "numerical/numerical-set-15.js",
+  "numerical/numerical-set-16.js",
 
   "abstract/abstract-set-01.js",
   "abstract/abstract-set-02.js",
@@ -45,5 +55,10 @@ window.EPSO_SET_FILES = [
   "abstract/abstract-set-08.js",
   "abstract/abstract-set-09.js",
   "abstract/abstract-set-10.js",
-  "abstract/abstract-set-11.js"
+  "abstract/abstract-set-11.js",
+  "abstract/abstract-set-12.js",
+  "abstract/abstract-set-13.js",
+  "abstract/abstract-set-14.js",
+  "abstract/abstract-set-15.js",
+  "abstract/abstract-set-16.js"
 ];

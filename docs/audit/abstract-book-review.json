@@ -3,10 +3,10 @@
   "method": "Independently decode visible geometry; enumerate bounded feature cycles/steps and coupled/panel grammar; reject conflicting simple continuations; inspect rendered contact sheets. No learner difficulty calibration.",
   "totals": {
     "easy": 29,
-    "medium": 131,
+    "medium": 181,
     "hard": 60
   },
-  "reviewed": 220,
+  "reviewed": 270,
   "revisedIds": 220,
   "geometryChanges": [
     {
@@ -197,12 +197,13 @@
     ],
     "sixthFrameTreatment": "All eight every-third-frame front-layer series now show six observations; seven previously had conflicting short-cycle continuations.",
     "palette": "Figure tiles preserve black/grey/white in both themes; prior dark-mode inversion conflicted with colour names.",
-    "teaching": "All 220 have concrete predictions, feature-by-feature worked solutions and reviewed hints. Coach has three original examples, including rendered figures."
+    "teaching": "All 270 have concrete predictions, feature-by-feature worked solutions and reviewed hints. Coach has three original examples, including rendered figures."
   },
   "verification": {
     "independentFoundation": 150,
+    "independentMedium": 50,
     "independentChallenge": 70,
-    "contactSheetItems": 220,
+    "contactSheetItems": 270,
     "themes": [
       "light",
       "dark"

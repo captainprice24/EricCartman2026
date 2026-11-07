@@ -1,9 +1,9 @@
 {
-  "items": 220,
+  "items": 270,
   "size": "100x100",
   "themes": {
     "light": {
-      "figures": 2278,
+      "figures": 2778,
       "duplicateOptions": [],
       "validCyclicKeyRepeats": [
         "a01-03-r2",
@@ -42,7 +42,7 @@
       ]
     },
     "dark": {
-      "figures": 2278,
+      "figures": 2778,
       "duplicateOptions": [],
       "validCyclicKeyRepeats": [
         "a01-03-r2",
