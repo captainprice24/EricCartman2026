@@ -1,0 +1,123 @@
+{
+  "v20-02-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Most victims died through ensuing famine or disease rather than the blast, so counting blast deaths omits most victims. Other European hardship causes are possible, C reverses the stated death distribution, and scientific recommendations are unstated."
+  },
+  "v20-06-r2": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "An embargo was an available collective response, while the Diet could not compel attendance. Hanseatic names persisted, there was no common treasury, and multiple causes contributed to decline. The former could-to-would strengthening is resolved."
+  },
+  "v20-07-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "The surviving hieroglyphic text has missing portions, so it cannot alone supply the full decree. Decipherment took decades, and neither Young's priority in Demotic nor a French return request is stated."
+  },
+  "v21-06-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Positive advantage findings were more likely to be published, creating a risk that the published evidence exaggerates the advantage. Large studies did not consistently replicate it; current household language use and a majority of flawed methods are unstated."
+  },
+  "v21-09-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Even the low total-speaker estimate is tens of thousands, while only perhaps a thousand grew up with Esperanto at home, supporting some non-home acquisition. Speaker backgrounds are unknown, evidence for easier learning is limited, and persecution does not establish universal imprisonment."
+  },
+  "v22-01-r2": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "0.6% of EUR200bn is EUR1.2bn, below EUR3bn, so the lower threshold requires damage above EUR1.2bn. Health emergencies were added rather than substituted, applicant proportions are unknown, and advances ensure no immediate arrival. The vague-small-economy premise is resolved."
+  },
+  "v23-02-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "A Fresnel lens is lighter than an equal-power solid lens, providing a counterexample to equal power requiring equal weight. Lighthouses remain a backup; Cordouan's previous light source is unstated and colour-alone universal identification is unestablished."
+  },
+  "v23-04-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "False",
+      "D": "False"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Some people with many contacts are lonely, so restricting coverage to people with few contacts omits part of the lonely population. Causality is unresolved, cited surveys do not show older adults more lonely, and Japan followed the UK."
+  },
+  "v23-07-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "The likely English-made embroidery presents a Norman perspective, so manufacture location need not determine an English perspective. Historians do not treat it as neutral; likely commissioning establishes no certain scene design, and the missing ending is unknown."
+  },
+  "v23-08-r2": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Grafting kept European grape varieties while providing resistant American roots. Flooding was among failed remedies, C reverses the stated resistance, and import bans are no stated reason for survival. The former all-False distractor set now includes a clearly unsupported causal claim."
+  },
+  "v24-03-r2": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "difficulty": 2,
+    "issues": [],
+    "reason": "Rain in roughly seven of ten comparable situations leaves dry outcomes possible in the remainder. The founding motive and rain-versus-heat accuracy comparison are unstated; ensemble agreement supports confidence rather than proof."
+  }
+}

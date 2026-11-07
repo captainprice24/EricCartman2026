@@ -25,10 +25,10 @@ The 200 existing labels were retained after structural screening rather than mec
 | verbal-17 | 0 | 0 | 10 | cue heuristic 30.0%; least/most overlap 10.0% / 40.0%; shortest 25.0% |
 | verbal-18 | 0 | 0 | 10 | cue heuristic 35.0%; least/most overlap 25.0% / 40.0%; shortest 20.0% |
 | verbal-19 | 0 | 0 | 10 | cue heuristic 30.0%; least/most overlap 20.0% / 40.0%; shortest 30.0% |
-| verbal-20 | 0 | 10 | 0 | cue heuristic 15.0%; least/most overlap 20.0% / 23.3%; shortest 10.0% |
-| verbal-21 | 0 | 10 | 0 | cue heuristic 20.0%; least/most overlap 10.0% / 20.0%; shortest 30.0% |
-| verbal-22 | 0 | 10 | 0 | cue heuristic 30.0%; least/most overlap 15.0% / 10.0%; shortest 10.0% |
-| verbal-23 | 0 | 10 | 0 | cue heuristic 10.0%; least/most overlap 10.0% / 20.0%; shortest 30.0% |
+| verbal-20 | 0 | 10 | 0 | cue heuristic 10.0%; least/most overlap 40.0% / 13.3%; shortest 20.0% |
+| verbal-21 | 0 | 10 | 0 | cue heuristic 20.0%; least/most overlap 10.0% / 15.0%; shortest 20.0% |
+| verbal-22 | 0 | 10 | 0 | cue heuristic 30.0%; least/most overlap 10.0% / 10.0%; shortest 10.0% |
+| verbal-23 | 0 | 10 | 0 | cue heuristic 10.0%; least/most overlap 20.0% / 10.0%; shortest 20.0% |
 | verbal-24 | 0 | 10 | 0 | cue heuristic 30.0%; least/most overlap 15.0% / 20.0%; shortest 28.3% |
 
 ## Book-informed review

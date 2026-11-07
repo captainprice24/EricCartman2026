@@ -6,31 +6,31 @@ EPSO_BANK.registerSet({
   version: 1,
   questions: [
     {
-      id: "v22-01",
-      topic: "EU disaster aid",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "The European Union Solidarity Fund was created in 2002, after severe floods in central Europe. It helps Member States and accession countries cope with major natural disasters and, since 2020, also with major public health emergencies. It does not compensate individuals or businesses: it reimburses part of the public cost of emergency operations, such as restoring essential infrastructure, providing temporary accommodation and cleaning up, and insured damage is not eligible.\n\nTo count as 'major', direct damage must exceed three billion euros at 2011 prices or 0.6 per cent of the country's gross national income, whichever is lower. A government must apply within twelve weeks; the Commission then assesses the request and the Parliament and Council must approve the amount, so aid has often arrived months after the event. Advance payments were introduced to shorten the delay, but critics say the Fund still suits reconstruction better than immediate relief.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v22-01-r2",
+      "supersedes": "v22-01",
+      "topic": "EU disaster aid",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "The European Union Solidarity Fund was created in 2002, after severe floods in central Europe. It helps Member States and accession countries cope with major natural disasters and, since 2020, also with major public health emergencies. It does not compensate individuals or businesses: it reimburses part of the public cost of emergency operations, such as restoring essential infrastructure, providing temporary accommodation and cleaning up, and insured damage is not eligible.\n\nTo count as 'major', direct damage must exceed three billion euros at 2011 prices or 0.6 per cent of the country's gross national income, whichever is lower. A government must apply within twelve weeks; the Commission then assesses the request and the Parliament and Council must approve the amount, so aid has often arrived months after the event. Advance payments were introduced to shorten the delay, but critics say the Fund still suits reconstruction better than immediate relief.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Since 2020 the Fund has covered health emergencies instead of natural disasters.",
         "Most applications to the Fund have probably come from accession countries.",
-        "For a small economy, the threshold for a major disaster lies below three billion euros.",
+        "At EUR 200 billion GNI, direct damage must exceed EUR 1.2 billion to qualify.",
         "Advance payments ensure that aid now arrives immediately after a disaster."
       ],
-      answer: 2,
-      hints: [
-        "Read the threshold rule carefully: which of the two limits applies?",
-        "What do critics still say about the timing of aid?"
+      "answer": 2,
+      "hints": [
+        "Treat the GNI in the statement as a hypothetical case to which the passage rule applies.",
+        "Calculate 0.6% of 200 billion, then select the lower threshold."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. Since 2020 the Fund helps 'also with major public health emergencies', in addition to natural disasters.",
         "Not supported. Accession countries are eligible, but the text gives no information about who applies most.",
-        "Correct. The threshold is three billion euros or 0.6 per cent of gross national income, 'whichever is lower', so a smaller economy reaches it with less damage.",
+        "Correct. 0.6% of EUR 200 billion is EUR 1.2 billion, below EUR 3 billion. The damage must exceed that lower threshold.",
         "Overstated. Advance payments were introduced 'to shorten the delay', and critics say the Fund still suits reconstruction better than immediate relief."
       ],
-      explanation: "The key applies a 'whichever is lower' rule to a new case. The distractors replace 'also' with 'instead', invent a pattern of applications and turn a shorter delay into immediate aid."
+      "explanation": "Apply the lower-of-two rule to a specified GNI. A precise case avoids relying on an undefined description of an economy as small."
     },
     {
       id: "v22-02",

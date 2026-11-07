@@ -18,17 +18,19 @@
       "reconciliation": null
     },
     {
-      "id": "v20-02",
+      "id": "v20-02-r2",
       "answer": "B",
       "labels": {
         "A": "Overstated",
         "C": "False",
         "D": "Not supported"
       },
-      "reviewFile": "set-20-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "277eca378b814899e8bd435d89db53bdc8a35a5ac3ca7312a1951b39a586f400",
-      "optionsSha256": "9d6f1d777fb03f9198e4ddb65db49395e6c99000cd7843d6ff71b7a39b2a0029",
-      "reconciliation": null
+      "optionsSha256": "94989dbc3bcef1ed4b60a22f8d72aca24599869c99643580d81c07ae8b399f7c",
+      "reconciliation": null,
+      "supersedes": "v20-02",
+      "previousReviewFile": "set-20-review.json"
     },
     {
       "id": "v20-03",
@@ -70,30 +72,34 @@
       "reconciliation": null
     },
     {
-      "id": "v20-06",
+      "id": "v20-06-r2",
       "answer": "B",
       "labels": {
         "A": "False",
         "C": "False",
         "D": "Overstated"
       },
-      "reviewFile": "set-20-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "ddced88aa4eee30d22a19c24e1e87ebcbe244aaa0252cb8aa5dba15f411cada0",
-      "optionsSha256": "2ee5706f3a9b16351ceb1e13b59ad4306bb961e710d52d6ab64fa255d97cf0e7",
-      "reconciliation": null
+      "optionsSha256": "a683f5949c3fd760718f8d552f8d2577f7d1b216bc04bf6d11c430af8d358ef8",
+      "reconciliation": null,
+      "supersedes": "v20-06",
+      "previousReviewFile": "set-20-review.json"
     },
     {
-      "id": "v20-07",
+      "id": "v20-07-r2",
       "answer": "C",
       "labels": {
         "A": "False",
         "B": "Not supported",
         "D": "Not supported"
       },
-      "reviewFile": "set-20-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "e0059950ba6f36b40142beb981044f33e4b4f1bb2a8ddd05a712e0236a0976b3",
-      "optionsSha256": "0ad0aa518b5614cd20773a72ae7bc3b0d1b647fa625ce86697fa576d54490a9d",
-      "reconciliation": null
+      "optionsSha256": "b51a1571153446783cfbef0dcc5200ead927ba4f86f1f65e2287a7563e8fbe3b",
+      "reconciliation": null,
+      "supersedes": "v20-07",
+      "previousReviewFile": "set-20-review.json"
     },
     {
       "id": "v20-08",
@@ -200,17 +206,19 @@
       "reconciliation": null
     },
     {
-      "id": "v21-06",
+      "id": "v21-06-r2",
       "answer": "A",
       "labels": {
         "B": "False",
         "C": "Not supported",
         "D": "Not supported"
       },
-      "reviewFile": "set-21-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "9a4ff28ee4015e39fc2789235e121871beeca7da12de1248704daec48157a066",
-      "optionsSha256": "7acf268003c718f62b787904a213c72091eb50e26178281a8e6df8eddb870a89",
-      "reconciliation": null
+      "optionsSha256": "5157f12df9491de4c40c53a3f22f49b26c4455284ae6f95b8791e7e51e0c9c63",
+      "reconciliation": null,
+      "supersedes": "v21-06",
+      "previousReviewFile": "set-21-review.json"
     },
     {
       "id": "v21-07",
@@ -239,23 +247,19 @@
       "reconciliation": null
     },
     {
-      "id": "v21-09",
+      "id": "v21-09-r2",
       "answer": "A",
       "labels": {
         "B": "Not supported",
-        "C": "False",
+        "C": "Overstated",
         "D": "Overstated"
       },
-      "reviewFile": "set-21-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "b219bfd88a374b291ef2460a8019f703a4239bc09cc5561d98ff5cffaaa173dd",
-      "optionsSha256": "97b3d1cadccf67c94d3446c7d5799884dcfea8e96401b0466468c681a305805c",
-      "reconciliation": {
-        "C": {
-          "from": "Not supported",
-          "to": "False",
-          "how": "relabelled: limited research contradicts general confirmation"
-        }
-      }
+      "optionsSha256": "f35a01cc95c6cbe1fc102478a8b895dfa09a68ac3cd3274d69c0cfd28403d2fb",
+      "reconciliation": null,
+      "supersedes": "v21-09",
+      "previousReviewFile": "set-21-review.json"
     },
     {
       "id": "v21-10",
@@ -271,17 +275,19 @@
       "reconciliation": null
     },
     {
-      "id": "v22-01",
+      "id": "v22-01-r2",
       "answer": "C",
       "labels": {
         "A": "False",
         "B": "Not supported",
         "D": "Overstated"
       },
-      "reviewFile": "set-22-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "1961af3011306320728dbaf14df312acd8585e16f3a4d4bd044b535485cbdf75",
-      "optionsSha256": "6f42d79b50c71ce2465ac6300c69acb8fdaf490fe53b7f0c835d5dbcbe942b61",
-      "reconciliation": null
+      "optionsSha256": "8e9c10e5020780276a2c840fd8972b2c3ea34ebc9e846e1154ae9ef5cce5e809",
+      "reconciliation": null,
+      "supersedes": "v22-01",
+      "previousReviewFile": "set-22-review.json"
     },
     {
       "id": "v22-02",
@@ -435,17 +441,25 @@
       }
     },
     {
-      "id": "v23-02",
+      "id": "v23-02-r2",
       "answer": "A",
       "labels": {
         "B": "False",
         "C": "Not supported",
         "D": "Not supported"
       },
-      "reviewFile": "set-23-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "c5b4fc50808bb233df472cec6011bb9fc6de364cfb916411d093550978ae390a",
-      "optionsSha256": "cb5a0f132a9261b980925e50d882a8fb0fe2ab4a8056b8dcdde47defc546c2c0",
-      "reconciliation": null
+      "optionsSha256": "5e265ef5d307583a45f5a26fe6b3c7d11856e11af7c8f08eb1240f5586598aa0",
+      "reconciliation": {
+        "D": {
+          "initial": "Overstated",
+          "final": "Not supported",
+          "reason": "The passage identifies flash patterns, not colour. The reviewer agreed that substituting an unmentioned mechanism is primarily missing support, rather than a stronger version of a supported colour claim."
+        }
+      },
+      "supersedes": "v23-02",
+      "previousReviewFile": "set-23-review.json"
     },
     {
       "id": "v23-03",
@@ -467,17 +481,19 @@
       }
     },
     {
-      "id": "v23-04",
+      "id": "v23-04-r2",
       "answer": "A",
       "labels": {
         "B": "Overstated",
         "C": "False",
         "D": "False"
       },
-      "reviewFile": "set-23-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "ba740d2ae879a6b0a27168234eb89049d8e3a73b3972ee17a4f871ac271ab64e",
-      "optionsSha256": "4dfdb144b000848c9f7724353ccb612a10162c8c52f1a760e4a8320ec1c10a8a",
-      "reconciliation": null
+      "optionsSha256": "8cc2a8679e522d5690960aff3391708455feb5e85c5a3f153b741e462bcb5d6e",
+      "reconciliation": null,
+      "supersedes": "v23-04",
+      "previousReviewFile": "set-23-review.json"
     },
     {
       "id": "v23-05",
@@ -506,36 +522,34 @@
       "reconciliation": null
     },
     {
-      "id": "v23-07",
+      "id": "v23-07-r2",
       "answer": "A",
       "labels": {
         "B": "False",
         "C": "Overstated",
         "D": "Not supported"
       },
-      "reviewFile": "set-23-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "570cefd5a627952a2b2e6b95531901bc557c6232d5d3b9902e6ccba42d8e2a74",
-      "optionsSha256": "c207a15dfd0ae480668372a0d65a3db873959dd83d080693f52943f2da51ac7b",
-      "reconciliation": null
+      "optionsSha256": "4477ad0b9e5c701729012f53082fa33db28c8e9088e9a5872926c1ea0f20f34e",
+      "reconciliation": null,
+      "supersedes": "v23-07",
+      "previousReviewFile": "set-23-review.json"
     },
     {
-      "id": "v23-08",
+      "id": "v23-08-r2",
       "answer": "A",
       "labels": {
         "B": "False",
         "C": "False",
-        "D": "Overstated"
+        "D": "Not supported"
       },
-      "reviewFile": "set-23-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "b2a069d5309c1c54b9ff45bf8238b1365d0837830286e9228634677a14221206",
-      "optionsSha256": "bb150fb34b956eeca0f09351b2858cd0d8abf7ced34d6276c6816f8a9d389981",
-      "reconciliation": {
-        "C": {
-          "from": "Not supported",
-          "to": "False",
-          "how": "relabelled: the vines were imported for experiments"
-        }
-      }
+      "optionsSha256": "5615f255432ac26b35162e2fc205e39f926d50936269465a54b50c8217d25016",
+      "reconciliation": null,
+      "supersedes": "v23-08",
+      "previousReviewFile": "set-23-review.json"
     },
     {
       "id": "v23-09",
@@ -590,17 +604,19 @@
       "reconciliation": null
     },
     {
-      "id": "v24-03",
+      "id": "v24-03-r2",
       "answer": "D",
       "labels": {
         "A": "Not supported",
         "B": "Not supported",
         "C": "Overstated"
       },
-      "reviewFile": "set-24-review.json",
+      "reviewFile": "follow-up-2026-11-07/review.json",
       "passageSha256": "33af3794fd3c4850a25a6668b1a94debda5adaa9d7fe3eac90f847b406dccda8",
-      "optionsSha256": "1ce54520e9413b7c4c4c851d856f462476a6f814c6f750d11a6f7e148e0c4cf7",
-      "reconciliation": null
+      "optionsSha256": "bfb96a68eed335eed61481f42593596cb10e191ff17e28bd4b4a7b50b20f40b6",
+      "reconciliation": null,
+      "supersedes": "v24-03",
+      "previousReviewFile": "set-24-review.json"
     },
     {
       "id": "v24-04",

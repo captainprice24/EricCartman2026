@@ -60,31 +60,31 @@ EPSO_BANK.registerSet({
       explanation: "The key follows the four-season rule to a consequence. The overstated option turns a water-quality rating into a safety guarantee."
     },
     {
-      id: "v24-03",
-      topic: "Weather forecasting",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "Weather forecasts are produced by computer models that start from the current state of the atmosphere and calculate how it will evolve. Because the atmosphere is chaotic, tiny errors in the starting data grow over time, a property the meteorologist Edward Lorenz described in the 1960s. Forecasters therefore run the same model many times, each run starting from slightly different initial conditions. The European Centre for Medium-Range Weather Forecasts, founded in 1975, runs around fifty such variations twice a day.\n\nIf most runs agree, forecasters can be confident; if they diverge widely, the forecast is uncertain. The spread also allows probabilities to be issued, such as a 70 per cent chance of rain, meaning that rain falls in about seven out of ten comparable situations. For day-to-day weather, useful predictions rarely extend beyond about two weeks, however powerful the computers become.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v24-03-r2",
+      "supersedes": "v24-03",
+      "topic": "Weather forecasting",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Weather forecasts are produced by computer models that start from the current state of the atmosphere and calculate how it will evolve. Because the atmosphere is chaotic, tiny errors in the starting data grow over time, a property the meteorologist Edward Lorenz described in the 1960s. Forecasters therefore run the same model many times, each run starting from slightly different initial conditions. The European Centre for Medium-Range Weather Forecasts, founded in 1975, runs around fifty such variations twice a day.\n\nIf most runs agree, forecasters can be confident; if they diverge widely, the forecast is uncertain. The spread also allows probabilities to be issued, such as a 70 per cent chance of rain, meaning that rain falls in about seven out of ten comparable situations. For day-to-day weather, useful predictions rarely extend beyond about two weeks, however powerful the computers become.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The Centre was founded in 1975 to test Edward Lorenz's theory of chaos.",
         "Ensemble forecasts are generally more accurate for rain than for heat.",
         "Agreement among the runs proves that a forecast will turn out correct.",
-        "Wide disagreement between the runs signals that a forecast is uncertain."
+        "Dry outcomes remain possible under a forecast giving rain a 70 per cent chance."
       ],
-      answer: 3,
-      hints: [
-        "What do forecasters conclude when the runs diverge?",
-        "Compare 'can be confident' with 'proves'."
+      "answer": 3,
+      "hints": [
+        "Translate the stated probability into the comparable situations described in the passage.",
+        "If rain occurs in seven out of ten such situations, what is left among the other outcomes?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Not supported. The text gives the Centre's founding date but not its purpose.",
         "Not supported. The text compares no types of weather.",
         "Overstated. When runs agree, forecasters 'can be confident'; that is not proof.",
-        "Correct. 'If they diverge widely, the forecast is uncertain.'"
+        "Correct. Seven rainy cases out of ten leaves room for dry cases; a 70% probability does not guarantee rain."
       ],
-      explanation: "A paraphrase of a stated rule. 'Confident' is not 'proved', and a founding date is not a purpose."
+      "explanation": "A probability is compatible with outcomes other than its more likely one. It is neither a guarantee for one occasion nor a claim about the forecast’s cause."
     },
     {
       id: "v24-04",

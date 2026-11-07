@@ -74,3 +74,5 @@ contact sheets are in `docs/research/abstract/contact-sheets.html`.
 
 Difficulty labels are editorial until first-attempt learner data exist. The commercial sample is a single practice
 session and is not an official EPSO calibration. A bounded solver proves uniqueness only within its grammar.
+
+The [independent follow-up review](../verbal/blind-review/medium-2026-11/follow-up-2026-11-07/README.md) checked this committed batch instead of adding a duplicate concurrent draft. It preserves the fifty numerical and fifty abstract additions, confirms the verbal length comparison, and improves eleven verbal items under fresh IDs with another blind review.

@@ -33,31 +33,31 @@ EPSO_BANK.registerSet({
       explanation: "The key links the purpose of the old directive with the fear raised about the new proposal. The consultation figures invite assumptions about preferences that the text never reports."
     },
     {
-      id: "v20-02",
-      topic: "Volcanoes and climate history",
-      difficulty: 2,
-      keyType: "combination",
-      passage:
-        "In April 1815 Mount Tambora, on the Indonesian island of Sumbawa, produced the most powerful eruption in recorded history. Tens of thousands of people died, most of them not from the blast itself but from the famine and disease that followed the destruction of crops. The eruption also injected sulphur into the stratosphere, where tiny droplets reflected part of the incoming sunlight.\n\nThe effects reached far away, after a delay. In 1816, the 'year without a summer', frosts struck New England in June and persistent rain ruined harvests across much of Europe, where grain prices soared and food riots broke out. Historians caution against blaming every hardship on the volcano: Europe was still recovering from the Napoleonic Wars, and weak solar activity may have added to the cold. Climate scientists nonetheless treat Tambora as a natural experiment showing how one eruption can cool the Northern Hemisphere for a year or more.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v20-02-r2",
+      "supersedes": "v20-02",
+      "topic": "Volcanoes and climate history",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In April 1815 Mount Tambora, on the Indonesian island of Sumbawa, produced the most powerful eruption in recorded history. Tens of thousands of people died, most of them not from the blast itself but from the famine and disease that followed the destruction of crops. The eruption also injected sulphur into the stratosphere, where tiny droplets reflected part of the incoming sunlight.\n\nThe effects reached far away, after a delay. In 1816, the 'year without a summer', frosts struck New England in June and persistent rain ruined harvests across much of Europe, where grain prices soared and food riots broke out. Historians caution against blaming every hardship on the volcano: Europe was still recovering from the Napoleonic Wars, and weak solar activity may have added to the cold. Climate scientists nonetheless treat Tambora as a natural experiment showing how one eruption can cool the Northern Hemisphere for a year or more.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "The eruption alone explains Europe's cold weather and food riots of 1816.",
-        "The ruined European harvests came in the year after Tambora's eruption.",
+        "Counting blast deaths alone would miss most of the eruption's victims.",
         "Most of the victims on Sumbawa were killed directly by the blast.",
         "Climate scientists generally recommend cooling the planet with particles."
       ],
-      answer: 1,
-      hints: [
-        "Compare the date of the eruption with the year in which European harvests failed.",
-        "Check what historians and climate scientists each say about the volcano's role."
+      "answer": 1,
+      "hints": [
+        "Distinguish direct deaths from deaths following the destruction of crops.",
+        "What does the stated majority imply about a tally restricted to the blast itself?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Overstated. Historians 'caution against blaming every hardship on the volcano'; the war and solar activity may also have played a part.",
-        "Correct. The eruption took place 'in April 1815', and harvests were ruined across much of Europe 'in 1816'.",
+        "Correct. Most victims died from the subsequent famine and disease, so a blast-only tally omits the majority.",
         "False. Most died 'not from the blast itself but from the famine and disease that followed'.",
         "Not supported. Scientists treat Tambora as a natural experiment; the text says nothing about recommendations."
       ],
-      explanation: "Two dates in different paragraphs combine into the key. The distractors drop the historians' caution, reverse the cause of death, or invent a recommendation."
+      "explanation": "Apply the majority statement to a restricted count. Describing a large direct toll does not make it most of the total."
     },
     {
       id: "v20-03",
@@ -141,58 +141,58 @@ EPSO_BANK.registerSet({
       explanation: "The key draws the consequence of a stated mechanism: clay crumbles unless baked. The distractors reverse who held which view, invent a language family and turn 'mostly' into 'nothing other than'."
     },
     {
-      id: "v20-06",
-      topic: "Medieval trade networks",
-      difficulty: 2,
-      keyType: "combination",
-      passage:
-        "The Hanseatic League, a network of merchant towns led by Lübeck, dominated trade in the Baltic and North Seas from the thirteenth to the fifteenth century. Unlike a state, it had no permanent army, no common treasury and no fixed list of members, and its assembly, the Diet, met irregularly and could not compel towns to attend. Its power rested instead on trading privileges in foreign offices such as those in London and Bergen; when a ruler threatened them, the towns could respond with a collective embargo.\n\nFrom the late fifteenth century the League declined, as territorial states grew stronger, Dutch and English merchants competed for Baltic trade and Atlantic routes shifted commerce westwards. The last Diet met in 1669, although Lübeck, Hamburg and Bremen still called themselves Hanseatic cities long afterwards.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v20-06-r2",
+      "supersedes": "v20-06",
+      "topic": "Medieval trade networks",
+      "difficulty": 2,
+      "keyType": "combination",
+      "passage": "The Hanseatic League, a network of merchant towns led by Lübeck, dominated trade in the Baltic and North Seas from the thirteenth to the fifteenth century. Unlike a state, it had no permanent army, no common treasury and no fixed list of members, and its assembly, the Diet, met irregularly and could not compel towns to attend. Its power rested instead on trading privileges in foreign offices such as those in London and Bergen; when a ruler threatened them, the towns could respond with a collective embargo.\n\nFrom the late fifteenth century the League declined, as territorial states grew stronger, Dutch and English merchants competed for Baltic trade and Atlantic routes shifted commerce westwards. The last Diet met in 1669, although Lübeck, Hamburg and Bremen still called themselves Hanseatic cities long afterwards.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "By 1669 Hamburg and Bremen had stopped calling themselves Hanseatic cities.",
-        "Towns would boycott a hostile ruler, yet the Diet had no power to make them attend.",
+        "Towns had an embargo option, but their Diet did not compel attendance.",
         "The League could fund its wars from a common treasury paid into by all its towns.",
         "The League's decline was caused entirely by the new Atlantic trade routes."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Combine what the towns could do against a ruler with what the Diet could do to its members.",
         "Count the reasons the text gives for the League's decline."
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. They 'still called themselves Hanseatic cities long afterwards'.",
-        "Correct. Against rulers the towns 'could respond with a collective embargo', but the Diet 'could not compel towns to attend'.",
+        "Correct. The towns had a possible collective response, while the Diet could not force them to attend. The text does not make an embargo automatic.",
         "False. The League had 'no common treasury'.",
         "Overstated. Atlantic routes were one of three factors, alongside stronger states and Dutch and English competition."
       ],
-      explanation: "The key joins the League's external leverage with its internal weakness. A single cause among several is a classic overstatement."
+      "explanation": "The key joins the League's external leverage with its internal weakness. A single cause among several is a classic overstatement."
     },
     {
-      id: "v20-07",
-      topic: "Decipherment of hieroglyphs",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "The Rosetta Stone was found in 1799 by French soldiers near the town of Rashid, or Rosetta, in the Nile Delta. It carries a decree of 196 BC written three times: in hieroglyphs, in Demotic, the everyday Egyptian script, and in ancient Greek. After the French surrender in Egypt it passed to the British, and it has been in the British Museum since 1802.\n\nBecause scholars could read the Greek, the stone offered a key to the other scripts, but not at once. Thomas Young showed in the 1810s that some hieroglyphs stood for sounds, notably in royal names, and in 1822 Jean-François Champollion demonstrated that the script combined sound signs with signs for whole words, helped by his knowledge of Coptic. The stone's upper portion is missing, so the hieroglyphic text is the least complete of the three; copies of the decree found elsewhere have helped to fill the gaps.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v20-07-r2",
+      "supersedes": "v20-07",
+      "topic": "Decipherment of hieroglyphs",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "The Rosetta Stone was found in 1799 by French soldiers near the town of Rashid, or Rosetta, in the Nile Delta. It carries a decree of 196 BC written three times: in hieroglyphs, in Demotic, the everyday Egyptian script, and in ancient Greek. After the French surrender in Egypt it passed to the British, and it has been in the British Museum since 1802.\n\nBecause scholars could read the Greek, the stone offered a key to the other scripts, but not at once. Thomas Young showed in the 1810s that some hieroglyphs stood for sounds, notably in royal names, and in 1822 Jean-François Champollion demonstrated that the script combined sound signs with signs for whole words, helped by his knowledge of Coptic. The stone's upper portion is missing, so the hieroglyphic text is the least complete of the three; copies of the decree found elsewhere have helped to fill the gaps.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Champollion deciphered the hieroglyphs within months of the stone's discovery.",
         "Thomas Young was probably the first to read the stone's Demotic text.",
-        "Not all of the decree's hieroglyphic text survives on the stone itself.",
+        "The full decree cannot come solely from the surviving hieroglyphic text.",
         "France has formally asked the British Museum to return the stone."
       ],
-      answer: 2,
-      hints: [
-        "What does the last sentence say about the condition of the stone?",
-        "Compare the year of discovery with the year of Champollion's demonstration."
+      "answer": 2,
+      "hints": [
+        "Separate the original decree from the inscriptions that remain on this particular object.",
+        "If part of the hieroglyphic text is missing, what evidence would a complete transcription need?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "False. The stone was found in 1799; Champollion's demonstration came 'in 1822'.",
         "Not supported. Young worked on hieroglyphs in royal names; the text says nothing about who first read the Demotic.",
-        "Correct. The 'upper portion is missing', and copies found elsewhere 'have helped to fill the gaps'.",
+        "Correct. The surviving hieroglyphs are incomplete; recovering the whole wording needs evidence beyond those surviving inscriptions.",
         "Not supported. The text describes how the stone reached the British Museum, not any request for its return."
       ],
-      explanation: "An absolute key can be supported: a missing portion with gaps filled from copies means not all of the text is on the stone. The return request is an outside-knowledge trap."
+      "explanation": "An incomplete surviving object and a reconstructed complete text are different sources of evidence. Missing text cannot be supplied by the surviving fragment alone."
     },
     {
       id: "v20-08",

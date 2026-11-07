@@ -1,0 +1,115 @@
+{
+  "baseCommit": "2e4dd9ca5ba6a60165a8f64c2461949c14b6b4de",
+  "items": [
+    {
+      "id": "v20-02-r2",
+      "supersedes": "v20-02",
+      "beforeContentSha256": "2805acb0f929a939127d210dabdfeadc451f833f4462ef48f8965e8d8d5d88fc",
+      "contentSha256": "edc9548d56eb76098f6e7040973a23025a32b7cf34df833da07684b4a8064cac",
+      "passageSha256": "277eca378b814899e8bd435d89db53bdc8a35a5ac3ca7312a1951b39a586f400",
+      "optionsSha256": "94989dbc3bcef1ed4b60a22f8d72aca24599869c99643580d81c07ae8b399f7c",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v20-06-r2",
+      "supersedes": "v20-06",
+      "beforeContentSha256": "eecddfbfc87b250740bc1fed49a17ac1a71014f74c461ec2126332223e0cc523",
+      "contentSha256": "2c37b4e67e582060ff7973aeaafc915a135d08063b71a205b0d24f42cfa5fad4",
+      "passageSha256": "ddced88aa4eee30d22a19c24e1e87ebcbe244aaa0252cb8aa5dba15f411cada0",
+      "optionsSha256": "a683f5949c3fd760718f8d552f8d2577f7d1b216bc04bf6d11c430af8d358ef8",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v20-07-r2",
+      "supersedes": "v20-07",
+      "beforeContentSha256": "105592e8549de2b6a5da6fa1b791ea452bee638c6c28d5afa5b1dd428b01461b",
+      "contentSha256": "a435e8a7889694f40f7c418d52e18d8f1f5c7fd9fd4903d29e77798fc56ab613",
+      "passageSha256": "e0059950ba6f36b40142beb981044f33e4b4f1bb2a8ddd05a712e0236a0976b3",
+      "optionsSha256": "b51a1571153446783cfbef0dcc5200ead927ba4f86f1f65e2287a7563e8fbe3b",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v21-06-r2",
+      "supersedes": "v21-06",
+      "beforeContentSha256": "344502a711cc4b5131f74b06085b03ce1bcb5a38b9a2bd83f89b054ebfb2b23a",
+      "contentSha256": "cf59baa0ac89eb226433dc046bb946342f99990fb6dfa0bb77db3af9cca6197e",
+      "passageSha256": "9a4ff28ee4015e39fc2789235e121871beeca7da12de1248704daec48157a066",
+      "optionsSha256": "5157f12df9491de4c40c53a3f22f49b26c4455284ae6f95b8791e7e51e0c9c63",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v21-09-r2",
+      "supersedes": "v21-09",
+      "beforeContentSha256": "a28e722229d5534991407898e4e968cc8154cc6fd60f1f8d0c3ac0b005d76573",
+      "contentSha256": "b2e576cc0e53005f850334193c78a45de65bc06e733d84a8eef1ba8ef22edc95",
+      "passageSha256": "b219bfd88a374b291ef2460a8019f703a4239bc09cc5561d98ff5cffaaa173dd",
+      "optionsSha256": "f35a01cc95c6cbe1fc102478a8b895dfa09a68ac3cd3274d69c0cfd28403d2fb",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v22-01-r2",
+      "supersedes": "v22-01",
+      "beforeContentSha256": "582e5bf76bd6e2f7e869fcd2eccecc56e162fd428a0211861be2509e63a0aabd",
+      "contentSha256": "5cef48f3e18807028c16b8c2c9aece48b2153a192e1f80210a60263d1ab7e97c",
+      "passageSha256": "1961af3011306320728dbaf14df312acd8585e16f3a4d4bd044b535485cbdf75",
+      "optionsSha256": "8e9c10e5020780276a2c840fd8972b2c3ea34ebc9e846e1154ae9ef5cce5e809",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v23-02-r2",
+      "supersedes": "v23-02",
+      "beforeContentSha256": "e001feb8a6b8fe8222e48642c60a2f1f91b57a5c4466e4c332290ec31e54fd6d",
+      "contentSha256": "bc7eebb395566aee9894b602892fd008b47479c26cac0beeb266d3acb665414a",
+      "passageSha256": "c5b4fc50808bb233df472cec6011bb9fc6de364cfb916411d093550978ae390a",
+      "optionsSha256": "5e265ef5d307583a45f5a26fe6b3c7d11856e11af7c8f08eb1240f5586598aa0",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v23-04-r2",
+      "supersedes": "v23-04",
+      "beforeContentSha256": "a0dbb597d083e8f33baaa54454489c69d319a00418a0325102788d77c75ac484",
+      "contentSha256": "7838c8f02c0df3116ea4858a8e9fd934cb74c29f30b2577eeac4877432ac5dd4",
+      "passageSha256": "ba740d2ae879a6b0a27168234eb89049d8e3a73b3972ee17a4f871ac271ab64e",
+      "optionsSha256": "8cc2a8679e522d5690960aff3391708455feb5e85c5a3f153b741e462bcb5d6e",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v23-07-r2",
+      "supersedes": "v23-07",
+      "beforeContentSha256": "c91dc2b9e8939c0383b590b759e5c10b03feca19b8673da674703fdba890de5e",
+      "contentSha256": "97d5baa63f7c9c18aa671ea430b3ee1c3c717e0822eb3aa18cc0da871ed09d0c",
+      "passageSha256": "570cefd5a627952a2b2e6b95531901bc557c6232d5d3b9902e6ccba42d8e2a74",
+      "optionsSha256": "4477ad0b9e5c701729012f53082fa33db28c8e9088e9a5872926c1ea0f20f34e",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v23-08-r2",
+      "supersedes": "v23-08",
+      "beforeContentSha256": "35aeb84a6d77ed2ef764894dbe4845eaacb7ca47189ca3c5695b3af4ac4751cd",
+      "contentSha256": "336ccdafae7aa3d086900d09a6fd68842c92c287894b1d290cbfd25b39a910ce",
+      "passageSha256": "b2a069d5309c1c54b9ff45bf8238b1365d0837830286e9228634677a14221206",
+      "optionsSha256": "5615f255432ac26b35162e2fc205e39f926d50936269465a54b50c8217d25016",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    },
+    {
+      "id": "v24-03-r2",
+      "supersedes": "v24-03",
+      "beforeContentSha256": "6aece6dd31d1fee49c6788886db129f144d20fa3773f10c487ee880936d50aaa",
+      "contentSha256": "a3fbdba14f1403086a9d9484a0242f6091defc38daaa9ce111dabaf835670571",
+      "passageSha256": "33af3794fd3c4850a25a6668b1a94debda5adaa9d7fe3eac90f847b406dccda8",
+      "optionsSha256": "bfb96a68eed335eed61481f42593596cb10e191ff17e28bd4b4a7b50b20f40b6",
+      "reviewFile": "review.json",
+      "blindFile": "blind.json"
+    }
+  ]
+}

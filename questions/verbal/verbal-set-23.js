@@ -33,31 +33,31 @@ EPSO_BANK.registerSet({
       explanation: "The key applies a general caution about small samples to the case of one named country. The distractors ignore the exception, swap the roles of two survey types and turn 'some' into 'all'."
     },
     {
-      id: "v23-02",
-      topic: "Lighthouse technology",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "Early lighthouses relied on open fires or lamps backed by metal mirrors, which wasted much of the light they produced. In 1822 the French physicist Augustin Fresnel designed a new kind of lens made of concentric rings of glass prisms. Because each ring bent the light towards a single beam, the lens could be far thinner and lighter than a solid lens of the same power, and it sent a much larger share of the light out to sea. The first was installed at the Cordouan lighthouse in 1823, and the design soon spread around the world.\n\nTo help sailors identify them, lighthouses were given distinctive patterns of flashes, produced by rotating the lens or screening the light. Most lighthouses are now automated, and satellite navigation has reduced reliance on them, but they still serve as a backup when electronic systems fail.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Fresnel's lens was lighter than a solid lens of equal power.",
+      "id": "v23-02-r2",
+      "supersedes": "v23-02",
+      "topic": "Lighthouse technology",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Early lighthouses relied on open fires or lamps backed by metal mirrors, which wasted much of the light they produced. In 1822 the French physicist Augustin Fresnel designed a new kind of lens made of concentric rings of glass prisms. Because each ring bent the light towards a single beam, the lens could be far thinner and lighter than a solid lens of the same power, and it sent a much larger share of the light out to sea. The first was installed at the Cordouan lighthouse in 1823, and the design soon spread around the world.\n\nTo help sailors identify them, lighthouses were given distinctive patterns of flashes, produced by rotating the lens or screening the light. Most lighthouses are now automated, and satellite navigation has reduced reliance on them, but they still serve as a backup when electronic systems fail.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Lighthouse lenses of equal power need not have equal weight.",
         "Satellite navigation has made lighthouses unnecessary for sailors.",
         "Fresnel lenses were probably first used to replace open fires at Cordouan.",
         "Every lighthouse can be identified by the colour of its light alone."
       ],
-      answer: 0,
-      hints: [
-        "What did the rings of prisms make possible?",
-        "What role do lighthouses still play today?"
+      "answer": 0,
+      "hints": [
+        "The comparison holds optical power constant while changing the lens construction.",
+        "What does a lighter lens of the same power show about the relationship between power and weight?"
       ],
-      optionNotes: [
-        "Correct. The lens 'could be far thinner and lighter than a solid lens of the same power'.",
+      "optionNotes": [
+        "Correct. The ring-based design is lighter than a solid lens of the same power, so equal power need not mean equal weight.",
         "False. Lighthouses 'still serve as a backup when electronic systems fail'.",
         "Not supported. The first Fresnel lens was installed at Cordouan in 1823; the text does not say what it replaced there.",
         "Not supported. Lighthouses are identified by 'distinctive patterns of flashes'; colour is not mentioned."
       ],
-      explanation: "A paraphrase of a stated advantage. The distractors contradict the backup role, add a detail about what was replaced and substitute colour for flash patterns."
+      "explanation": "A comparison in which one property stays equal and another differs disproves the assumption that the first property fixes the second."
     },
     {
       id: "v23-03",
@@ -87,31 +87,31 @@ EPSO_BANK.registerSet({
       explanation: "The key follows the energy constraint through to its consequence. 'Far less' and 'none' are not the same, and a focus on lettuce is not a market share."
     },
     {
-      id: "v23-04",
-      topic: "Loneliness and health",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "Researchers distinguish loneliness from social isolation. Isolation is an objective condition, measured by how few contacts a person has, whereas loneliness is the painful feeling that one's relationships are fewer or less satisfying than one would like. The two often occur together, but not always: some people with many contacts feel lonely, while some who live largely alone do not.\n\nStudies have linked persistent loneliness to a higher risk of heart disease, stroke and depression, although it is harder to establish how far loneliness causes these conditions and how far illness leads people to withdraw. Contrary to a common assumption, surveys in several countries find that young adults report loneliness at least as often as older people. Some governments now treat the issue as a public policy matter: the United Kingdom appointed a minister with responsibility for loneliness in 2018, and Japan followed in 2021.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Not all people with few social contacts feel lonely.",
+      "id": "v23-04-r2",
+      "supersedes": "v23-04",
+      "topic": "Loneliness and health",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Researchers distinguish loneliness from social isolation. Isolation is an objective condition, measured by how few contacts a person has, whereas loneliness is the painful feeling that one's relationships are fewer or less satisfying than one would like. The two often occur together, but not always: some people with many contacts feel lonely, while some who live largely alone do not.\n\nStudies have linked persistent loneliness to a higher risk of heart disease, stroke and depression, although it is harder to establish how far loneliness causes these conditions and how far illness leads people to withdraw. Contrary to a common assumption, surveys in several countries find that young adults report loneliness at least as often as older people. Some governments now treat the issue as a public policy matter: the United Kingdom appointed a minister with responsibility for loneliness in 2018, and Japan followed in 2021.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "A survey limited to few contacts would not include all lonely people.",
         "Loneliness has been proven to be the direct cause of heart disease.",
         "Older people usually report more loneliness than young adults do.",
         "Japan appointed a minister for loneliness before the United Kingdom did."
       ],
-      answer: 0,
-      hints: [
-        "How does the text distinguish isolation from loneliness?",
-        "What does the text say about cause and effect?"
+      "answer": 0,
+      "hints": [
+        "Consider the people with many contacts who still feel lonely.",
+        "Can the subjective feeling uniquely identify the objective number of relationships?"
       ],
-      optionNotes: [
-        "Correct. 'Some who live largely alone do not' feel lonely; isolation and loneliness do not always occur together.",
+      "optionNotes": [
+        "Correct. The passage includes lonely people with many contacts, so the feeling alone cannot establish that contacts are few.",
         "Overstated. Loneliness has been 'linked' to a higher risk, but cause and effect are 'harder to establish'.",
         "False. Young adults report loneliness 'at least as often as older people'.",
         "False. The United Kingdom made its appointment in 2018, and Japan 'followed in 2021'."
       ],
-      explanation: "The key paraphrases a stated distinction. The distractors turn an association into proof, reverse a survey finding and invent a causal link between two dates."
+      "explanation": "Related measures are not interchangeable. A stated counterexample defeats an inference from the feeling to the number of contacts."
     },
     {
       id: "v23-05",
@@ -168,58 +168,58 @@ EPSO_BANK.registerSet({
       explanation: "The key reads a numerical ceiling correctly: 65 per cent is a limit, but it still allows a majority. The distractors contradict two explicit statements and inflate a benchmark."
     },
     {
-      id: "v23-07",
-      topic: "Medieval art",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "The Bayeux Tapestry, which tells the story of the Norman conquest of England in 1066, is not strictly a tapestry. Tapestries are woven, whereas this work is an embroidery: coloured wool stitched onto strips of linen. It is about 70 metres long and only half a metre high, and it shows scenes from the events leading up to the Battle of Hastings and from the battle itself, with short Latin captions.\n\nMost historians think it was commissioned by Bishop Odo of Bayeux, William the Conqueror's half-brother, and made in England in the decade after the conquest, probably by English embroiderers. Its final section is missing, so no one knows exactly how the story originally ended. Because it presents events largely from the Norman point of view, historians use it alongside written chronicles, comparing its version with other accounts rather than treating it as a neutral record.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "The work is stitched rather than woven, despite being called a tapestry.",
+      "id": "v23-07-r2",
+      "supersedes": "v23-07",
+      "topic": "Medieval art",
+      "difficulty": 2,
+      "keyType": "combination",
+      "passage": "The Bayeux Tapestry, which tells the story of the Norman conquest of England in 1066, is not strictly a tapestry. Tapestries are woven, whereas this work is an embroidery: coloured wool stitched onto strips of linen. It is about 70 metres long and only half a metre high, and it shows scenes from the events leading up to the Battle of Hastings and from the battle itself, with short Latin captions.\n\nMost historians think it was commissioned by Bishop Odo of Bayeux, William the Conqueror's half-brother, and made in England in the decade after the conquest, probably by English embroiderers. Its final section is missing, so no one knows exactly how the story originally ended. Because it presents events largely from the Norman point of view, historians use it alongside written chronicles, comparing its version with other accounts rather than treating it as a neutral record.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "An embroidery made in England need not present an English view of the conquest.",
         "Historians treat the work as a neutral record of the conquest.",
         "It is known for certain that Bishop Odo designed every scene himself.",
         "The missing final section probably showed William's coronation."
       ],
-      answer: 0,
-      hints: [
-        "How does the text distinguish a tapestry from an embroidery?",
-        "How do historians use the work as a source?"
+      "answer": 0,
+      "hints": [
+        "Compare the proposed place of manufacture with the viewpoint historians find in the narrative.",
+        "Must making a work on one side mean that its story favours that side?"
       ],
-      optionNotes: [
-        "Correct. 'Tapestries are woven, whereas this work is an embroidery: coloured wool stitched onto strips of linen.'",
+      "optionNotes": [
+        "Correct. Historians generally place manufacture in England while describing a predominantly Norman account; the two descriptions are compatible.",
         "False. Historians compare it with other accounts 'rather than treating it as a neutral record'.",
         "Overstated. Most historians 'think' Odo commissioned it; the text does not say he designed any scenes, let alone all of them.",
         "Not supported. 'No one knows exactly how the story originally ended.'"
       ],
-      explanation: "A paraphrase of a definition. The coronation option is an outside-knowledge guess that the text explicitly leaves open."
+      "explanation": "Distinguish the origin of an object from the perspective expressed by its contents. Neither production location nor subject matter alone establishes neutrality."
     },
     {
-      id: "v23-08",
-      topic: "Wine and plant disease",
-      difficulty: 2,
-      keyType: "inference",
-      passage:
-        "In the 1860s vineyards in southern France began to die for no obvious reason. The cause turned out to be phylloxera, a tiny insect native to North America that feeds on the roots of grapevines. It had probably arrived on American vines imported for experiments, and over the next decades it spread across most of Europe's wine regions, destroying a large share of the vineyards.\n\nAmerican vines had evolved alongside the insect and could tolerate it, while European vines could not. After many remedies failed, including flooding vineyards and injecting chemicals into the soil, growers adopted grafting: European varieties were joined onto resistant American roots, so that the grapes remained European while the roots resisted attack. Most European vineyards are grafted today. A few areas escaped, notably those with very sandy soils, in which the insect does not thrive, and some ungrafted vines survive there.",
-      stem: "Which of the following statements is correct?",
-      options: [
+      "id": "v23-08-r2",
+      "supersedes": "v23-08",
+      "topic": "Wine and plant disease",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "In the 1860s vineyards in southern France began to die for no obvious reason. The cause turned out to be phylloxera, a tiny insect native to North America that feeds on the roots of grapevines. It had probably arrived on American vines imported for experiments, and over the next decades it spread across most of Europe's wine regions, destroying a large share of the vineyards.\n\nAmerican vines had evolved alongside the insect and could tolerate it, while European vines could not. After many remedies failed, including flooding vineyards and injecting chemicals into the soil, growers adopted grafting: European varieties were joined onto resistant American roots, so that the grapes remained European while the roots resisted attack. Most European vineyards are grafted today. A few areas escaped, notably those with very sandy soils, in which the insect does not thrive, and some ungrafted vines survive there.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
         "Grafting changed only the roots of European vines, not the grapes they bore.",
         "Flooding vineyards proved the most effective defence against phylloxera.",
-        "American vines were imported to France in order to fight the phylloxera insect.",
-        "Every European vineyard today grows vines grafted onto American roots."
+        "American vines lacked resistance to the pest that European vines had learned to tolerate.",
+        "Ungrafted vineyards survived mainly because their owners had banned American imports."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "What part of the vine did grafting replace, and what part did it keep?",
         "Why were American vines in France in the first place?"
       ],
-      optionNotes: [
+      "optionNotes": [
         "Correct. European varieties were joined onto American roots, 'so that the grapes remained European while the roots resisted attack'.",
         "False. Flooding was among the 'many remedies' that 'failed'.",
-        "False. The vines were 'imported for experiments', and the insect 'probably arrived on' them, so they were not imported to fight it.",
-        "Overstated. 'Most' European vineyards are grafted, and some ungrafted vines survive in sandy areas."
+        "False. American vines could tolerate the insect, while European vines could not; the statement reverses their resistance.",
+        "Not supported. Sandy soils are identified as a reason the insect does not thrive; no owners’ import bans or their relative contribution are reported."
       ],
-      explanation: "The key draws the consequence of grafting: new roots, unchanged grapes. One distractor reverses the order of events; another turns 'most' into 'every'."
+      "explanation": "The key draws the consequence of grafting: new roots, unchanged grapes. One distractor reverses the order of events; another turns 'most' into 'every'."
     },
     {
       id: "v23-09",

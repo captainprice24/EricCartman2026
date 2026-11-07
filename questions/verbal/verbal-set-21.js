@@ -141,31 +141,31 @@ EPSO_BANK.registerSet({
       explanation: "Setting two accounts side by side supports a cautious conclusion about the older one. The distractors misattribute an argument and strengthen 'reluctant' and 'weakened'."
     },
     {
-      id: "v21-06",
-      topic: "Bilingualism research",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "For much of the twentieth century, bilingualism was thought to harm children's development, and some educators advised immigrant parents to speak only the majority language at home. Later studies reversed that view. By the early 2000s, experiments suggested that bilinguals also outperform monolinguals on tasks requiring 'executive control', such as ignoring irrelevant information, supposedly because managing two languages trains the brain.\n\nThat claim has proved hard to replicate. Several large studies found no consistent advantage once income, education and immigration background were taken into account, and a 2015 analysis reported that studies finding an advantage were more likely to be published than those that did not. Defenders reply that effects may appear only in particular groups. What is not disputed is that speaking two languages brings practical and cultural benefits and does not damage children's development.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "No one disputes that two languages do not damage children's development.",
+      "id": "v21-06-r2",
+      "supersedes": "v21-06",
+      "topic": "Bilingualism research",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "For much of the twentieth century, bilingualism was thought to harm children's development, and some educators advised immigrant parents to speak only the majority language at home. Later studies reversed that view. By the early 2000s, experiments suggested that bilinguals also outperform monolinguals on tasks requiring 'executive control', such as ignoring irrelevant information, supposedly because managing two languages trains the brain.\n\nThat claim has proved hard to replicate. Several large studies found no consistent advantage once income, education and immigration background were taken into account, and a 2015 analysis reported that studies finding an advantage were more likely to be published than those that did not. Defenders reply that effects may appear only in particular groups. What is not disputed is that speaking two languages brings practical and cultural benefits and does not damage children's development.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Published studies risk overstating the executive-control advantage.",
         "Large studies have confirmed a clear executive-control advantage.",
         "Immigrant parents often still speak only the majority language at home.",
         "The 2015 analysis found that most published studies used flawed methods."
       ],
-      answer: 0,
-      hints: [
-        "What does the last sentence say is 'not disputed'?",
-        "What exactly did the 2015 analysis report?"
+      "answer": 0,
+      "hints": [
+        "Compare the chances of publication for positive and negative results.",
+        "Would a published-only collection preserve the balance of the studies that were conducted?"
       ],
-      optionNotes: [
-        "Correct. 'What is not disputed is that' speaking two languages 'does not damage children's development'.",
+      "optionNotes": [
+        "Correct. Studies reporting an advantage were more likely to appear in print; a published-only sample therefore risks favouring that result.",
         "False. Several large studies 'found no consistent advantage'.",
         "Not supported. The text reports past advice to parents, not what they do today.",
         "Not supported. The analysis concerned which results were more likely to be published, not the quality of the methods."
       ],
-      explanation: "Separate what is agreed from what is debated. The publication-bias finding is easily confused with a claim about flawed methods."
+      "explanation": "Differential publication can bias a body of visible evidence without showing that every published study is flawed."
     },
     {
       id: "v21-07",
@@ -222,31 +222,31 @@ EPSO_BANK.registerSet({
       explanation: "The key restates the researchers' own caution about the employment result. Self-reported differences are evidence, but not proof of a large general effect."
     },
     {
-      id: "v21-09",
-      topic: "Constructed languages",
-      difficulty: 2,
-      keyType: "paraphrase",
-      passage:
-        "Esperanto was published in 1887 by Ludwik Zamenhof, an eye doctor in Białystok, where Polish, Russian, Yiddish and German speakers lived side by side, often in mistrust. He believed a neutral second language, belonging to no nation, could ease such tensions, and he did not intend it to replace national languages. Its vocabulary draws mainly on Romance and Germanic roots, its spelling is phonetic and its grammar has sixteen rules without exceptions. Supporters claim it can be learned faster than national languages, although the research behind such claims is limited.\n\nThe language attracted an international movement and survived persecution under both Nazi Germany and Stalin's Soviet Union, which regarded its speakers with suspicion. Estimates of speakers today range from tens of thousands to two million, and perhaps a thousand people have grown up speaking it at home.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Zamenhof never intended Esperanto to replace national languages.",
+      "id": "v21-09-r2",
+      "supersedes": "v21-09",
+      "topic": "Constructed languages",
+      "difficulty": 2,
+      "keyType": "inference",
+      "passage": "Esperanto was published in 1887 by Ludwik Zamenhof, an eye doctor in Białystok, where Polish, Russian, Yiddish and German speakers lived side by side, often in mistrust. He believed a neutral second language, belonging to no nation, could ease such tensions, and he did not intend it to replace national languages. Its vocabulary draws mainly on Romance and Germanic roots, its spelling is phonetic and its grammar has sixteen rules without exceptions. Supporters claim it can be learned faster than national languages, although the research behind such claims is limited.\n\nThe language attracted an international movement and survived persecution under both Nazi Germany and Stalin's Soviet Union, which regarded its speakers with suspicion. Estimates of speakers today range from tens of thousands to two million, and perhaps a thousand people have grown up speaking it at home.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Not all Esperanto speakers have grown up speaking the language at home.",
         "Esperanto is used mainly by people who already speak Romance languages.",
         "Research has generally confirmed that Esperanto is learned faster.",
         "Nazi Germany and the Soviet Union imprisoned all Esperanto speakers."
       ],
-      answer: 0,
-      hints: [
-        "What did Zamenhof intend his language to be?",
-        "Distinguish what supporters claim from what research has shown."
+      "answer": 0,
+      "hints": [
+        "Locate the range for all speakers and the separate estimate for home-raised speakers.",
+        "Compare the smallest total estimate with the approximately one thousand home-raised speakers."
       ],
-      optionNotes: [
-        "Correct. 'He did not intend it to replace national languages'; it was meant as a neutral second language.",
+      "optionNotes": [
+        "Correct. Total-speaker estimates begin in the tens of thousands, while about one thousand grew up speaking it at home; the latter group cannot include everyone in the former.",
         "Not supported. Its vocabulary draws on Romance and Germanic roots; the text says nothing about who uses it.",
-        "False. Supporters make this claim, but 'the research behind such claims is limited', so it has not been generally confirmed.",
+        "Overstated. Supporters claim faster learning, but the research behind that claim is limited; general research confirmation goes beyond the stated evidence.",
         "Overstated. Both regimes 'regarded its speakers with suspicion'; the text does not say all speakers were imprisoned."
       ],
-      explanation: "An absolute key can paraphrase a clear negative statement in the text. Note the difference between a claim, limited research and confirmed findings."
+      "explanation": "Compare the quantities actually estimated. Uncertainty about the total does not prevent an ordering that holds even at its lower bound."
     },
     {
       id: "v21-10",

@@ -1,0 +1,17 @@
+{
+  "v21-09-r2": {
+    "C": {
+      "initialAuthor": "False",
+      "reviewer": "Overstated",
+      "final": "Overstated",
+      "reason": "Limited research does not warrant claiming general confirmation; it is not a stated contrary result."
+    }
+  },
+  "v23-02-r2": {
+    "D": {
+      "initial": "Overstated",
+      "final": "Not supported",
+      "reason": "The passage identifies flash patterns, not colour. The reviewer agreed that substituting an unmentioned mechanism is primarily missing support, rather than a stronger version of a supported colour claim."
+    }
+  }
+}

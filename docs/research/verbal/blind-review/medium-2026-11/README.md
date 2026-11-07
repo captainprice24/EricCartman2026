@@ -14,3 +14,5 @@ One independent reviewer per set answered from passages and options only (`set-N
 
 Reviewers rated most items 2–3 on a 1–5 scale (3 = typical exam item), consistent with the Medium band; some found
 individual items easier than a typical exam item. Difficulty remains editorial pending learner data.
+
+The [independent follow-up](follow-up-2026-11-07/README.md) reviewed the published batch after concurrent work was detected. Eleven verbal items received fresh revision IDs, clearer inference targets or more precise wording, and another key-free review. Its original concerns, final answers, label reconciliation and fingerprints remain archived; `final.json` points to the current evidence.

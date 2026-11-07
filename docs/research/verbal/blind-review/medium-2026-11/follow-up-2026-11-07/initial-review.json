@@ -1,0 +1,574 @@
+{
+  "v20-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "National choices could recreate the patchwork the harmonising measure sought to avoid. The directive does not fix time zones, the Council has not adopted a position, and German permanent-time preference is unstated."
+  },
+  "v20-02": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [
+      "difficulty: Correct answer is a direct date lookup; distractors involve sole causation, reversal of the majority-death account, and an unsupported policy recommendation."
+    ],
+    "difficulty": 1,
+    "reason": "The eruption was in 1815 and European harvest destruction in 1816. Other causes are expressly possible, most deaths were subsequent famine/disease, and scientific recommendations are absent."
+  },
+  "v20-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Relief despite known inactive pills challenges the necessity of deception. Rejecting deception does not establish ethicists' open-label acceptance, distrust is not discussed, and some patients does not mean all."
+  },
+  "v20-04": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Light disappears on switch-off and remedies can act quickly, unlike persistent pollutants. Turtle-coast frequency and most-town LED outcomes are unstated; delayed hormone release is not total cessation."
+  },
+  "v20-05": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Most tablets survived because fires hardened otherwise crumbly clay, supporting the counterfactual. Mostly administrative records is not exclusively; Evans denied Greek and Linear A's relation is unknown."
+  },
+  "v20-06": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "issues": [
+      "wording: B replaces the passage's ability to respond (could) with would boycott, which can suggest a stronger regularity. Prefer could boycott to preserve the original force."
+    ],
+    "difficulty": 2,
+    "reason": "The League could collectively embargo rulers despite an assembly unable to compel attendance. Hanseatic names continued after 1669, there was no common treasury, and decline had several causes. B is the sole supported intended reading if would describes possible practice rather than inevitability."
+  },
+  "v20-07": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [
+      "difficulty: C directly paraphrases the missing upper portion and least-complete hieroglyphic text."
+    ],
+    "difficulty": 1,
+    "reason": "The upper portion is missing, so some hieroglyphic decree is absent. Decipherment took decades rather than months; Young's Demotic priority and a French return request are unstated."
+  },
+  "v20-08": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "issues": [
+      "modal_extension: D is a plausible possibility but extrapolates from later test performance to number of sessions needed for mastery, which the experiments do not measure. A alone is explicitly supported."
+    ],
+    "difficulty": 2,
+    "reason": "The passage expressly warns that replacing sleep with late study may impair retention. Typical performance advantages are not guarantees, memory transfer is tentative and not universal, and mastery-session counts are unmeasured."
+  },
+  "v20-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Theory predicts lower employment; New Jersey showed no evidence of a fall. Large rises remain disputed, Pennsylvania did not change its minimum, and offsetting price increases are unreported."
+  },
+  "v20-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Rewetting can stop most emissions while initially emitting methane. Carbon accumulation does not quickly recover; trials establish no end to most drainage, and significant shares in some states is not most emissions everywhere."
+  },
+  "v21-01": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Prices fell amid both post-quota production growth and weakening export demand, so quota abolition alone is insufficient. Quotas predate the Russian ban, lobbying intensity is unknown, and named-country rises do not establish all-country increases."
+  },
+  "v21-02": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "No animal reservoir was an eradication advantage; one would plausibly make it harder. Vaccine refusal and Somalia trial origins are unstated; long-lasting protection is not necessarily lifelong."
+  },
+  "v21-03": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Lower energy use explains reverse osmosis replacing thermal methods. Desalinated water is more costly and brine volume typically exceeds fresh output; Spain's city-versus-irrigation allocation is not quantified."
+  },
+  "v21-04": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Some towns delayed changing clocks after railway adoption. Legal GMT came later, collision proportions are unreported, and railways as a practical cause do not establish exclusive causation."
+  },
+  "v21-05": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Mackay's nation-ruined account contrasts with limited participation and few bankruptcies. Goldgar did not value bulbs, court reluctance is not refusal of every contract, and weakening is not necessarily killing."
+  },
+  "v21-06": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [
+      "difficulty: A closely repeats the final uncontested-development statement; other choices concern absent current behaviour or contradict replication findings."
+    ],
+    "difficulty": 1,
+    "reason": "The text says developmental non-harm is not disputed. Large controlled studies lack a consistent executive advantage; present household language use and most-study methodological flaws are not established by publication bias."
+  },
+  "v21-07": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Filtering removes both clouding plankton and larvae's food. North America was reached from Europe, prevention success is unquantified, and rarely possible eradication does not mean impossible."
+  },
+  "v21-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "The changed control condition complicated interpretation. Payments continued during employment, the restricted trial could not establish universal cost, and reported stress/confidence changes do not prove broad large well-being effects."
+  },
+  "v21-09": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "issues": [
+      "difficulty: A repeats the explicit intention about national languages; other alternatives add unsupported population proportions, research certainty or universal imprisonment."
+    ],
+    "difficulty": 1,
+    "reason": "Zamenhof did not intend displacement of national languages. Speaker language backgrounds are unknown, learning-speed evidence is limited, and persecution does not establish imprisonment of every speaker."
+  },
+  "v21-10": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Austria bought part of Germany's fleet for Nightjet after the German withdrawal. Climate concern helped rather than solely explaining revival, and a possible flight-and-hotel replacement is no universal saving."
+  },
+  "v22-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [
+      "precision: C requires small economy to mean GNI below EUR500bn (in the relevant price basis); the passage does not quantify small. An example GNI would remove this semantic dependency."
+    ],
+    "difficulty": 2,
+    "reason": "The lower of EUR3bn and 0.6% of GNI gives a below-EUR3bn threshold for sufficiently small economies. Health eligibility was added, applicant composition is unknown, and advances promise no immediate arrival."
+  },
+  "v22-02": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Recorded wages rose despite difficult-to-enforce wage restrictions. Western serfdom weakened, seeking better pay by departure was prohibited, and regional labour-shortage rankings are absent."
+  },
+  "v22-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Overstated",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Disease, medication or diet can alter bacteria, so association can run from illness to microbiome. Some vitamin production establishes neither most vitamins nor all-food digestion; obesity transplant efficacy is not established."
+  },
+  "v22-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Dams provide most electricity while geothermal provides about a quarter to a third. Aluminium uses the majority, captured gases are injected into rock, and a fishing-fleet transition is not forecast."
+  },
+  "v22-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Manx regained speakers after losing its last native speaker. Languages usually fade through failed transmission, schooling is no sufficient guarantee for any language, and public support also requires household use."
+  },
+  "v22-06": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Overstated",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Longer summers may shorten suitable-weather windows. Europe-versus-US burned area is unknown, many adapted plants are not every plant recovering on a specified schedule, and reduction is not elimination of wildfire risk."
+  },
+  "v22-07": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Korean metal printing in 1377 predates the Gutenberg Bible around 1455. Bi Sheng used clay, Korean abandonment motives are absent, and several innovations and social factors supplement alphabet effects."
+  },
+  "v22-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Fear rooted in foul-air beliefs drove a useful sewer decision while later evidence supported water transmission. Snow's view did not drive Parliament, discharge went downstream, and convincing sceptics does not establish every doctor's assent."
+  },
+  "v22-09": {
+    "answer": "C",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "AlphaZero was given only rules; Deep Blue had substantial supplied chess knowledge. IBM's motive and players' overall preferences are unstated; largely supplied does not establish all knowledge supplied."
+  },
+  "v22-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Depositors retain ownership and alone can withdraw their samples. Seeds are not tested there, relocation does not establish destruction, and worldwide backup participation does not establish every variety."
+  },
+  "v23-01": {
+    "answer": "B",
+    "labels": {
+      "A": "Overstated",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Malta's approximately 500-person sample falls among the smaller national samples with wider error margins. The 1000-per-state claim ignores stated exceptions, Flash sample sizes are absent, and only some interviews moved online."
+  },
+  "v23-02": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [
+      "difficulty: A repeats the explicit equal-power lighter-lens comparison; other choices invent prior Cordouan technology or extreme claims."
+    ],
+    "difficulty": 1,
+    "reason": "The ring design is lighter than a solid equal-power lens. Lighthouses remain a backup, Cordouan's former light source is unstated, and identification patterns do not imply colour-alone identification for all."
+  },
+  "v23-03": {
+    "answer": "B",
+    "labels": {
+      "A": "Not supported",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Energy cost makes staples unprofitable, so cheaper electricity could broaden viable crops. Market share and retail customer composition are unstated; recycling lowers use rather than eliminating water."
+  },
+  "v23-04": {
+    "answer": "A",
+    "labels": {
+      "B": "Overstated",
+      "C": "False",
+      "D": "False"
+    },
+    "issues": [
+      "difficulty: A restates the opening explicit example of people living largely alone without loneliness."
+    ],
+    "difficulty": 1,
+    "reason": "Low contact and loneliness can diverge. Causality is unresolved, youth report loneliness at least as often in cited surveys, and Japan's appointment followed the UK's."
+  },
+  "v23-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Overstated",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Waves near the source can beat official alerts, making immediate natural signs particularly important. The Pacific already had a system; no zero-death record or majority ignored-alert account is supplied."
+  },
+  "v23-06": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "A single-country allowance up to 65% permits a majority from China. Crustal rarity is denied, company-level binding targets are denied, and a 40% processing benchmark establishes no 100% capability by 2030."
+  },
+  "v23-07": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "issues": [
+      "difficulty: A directly repeats the explicit stitched-versus-woven definition; alternatives deny the stated perspective or add absent design/ending details."
+    ],
+    "difficulty": 1,
+    "reason": "The work is wool stitched on linen, not woven. It has a Norman viewpoint, Odo's commission is uncertain and does not establish scene authorship, and the missing ending's content is unknown."
+  },
+  "v23-08": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Grafting preserves European grapes while adding resistant American roots. Flooding failed; initial imports were experimental before the problem, and ungrafted survivors contradict universal grafting."
+  },
+  "v23-09": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Environmental/fishing objections led to movable gates costing more than a fixed dam. Construction followed 1953, gates normally stay open, and opposition to this design does not establish opposition to every project from the start."
+  },
+  "v23-10": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Bombes tested settings far faster than people. British work built on Polish help, captured books were only part of naval success, and historians disagree about war-shortening magnitude."
+  },
+  "v24-01": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Outside-EU partners such as Switzerland usually fund their own share elsewhere. At least two countries must participate, example ambulance projects establish no modal project type, and limited trust gains do not establish all-region transformation."
+  },
+  "v24-02": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "False",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "A four-season classification can reflect earlier results. Blue Flag belongs to a separate foundation, and a bacteria-based water rating guarantees no current/lifeguard safety."
+  },
+  "v24-03": {
+    "answer": "D",
+    "labels": {
+      "A": "Not supported",
+      "B": "Not supported",
+      "C": "Overstated"
+    },
+    "issues": [
+      "difficulty: D repeats the explicit divergence-means-uncertainty sentence; competing subjects and founding motive are unmeasured."
+    ],
+    "difficulty": 1,
+    "reason": "Wide spread indicates uncertainty. Founding date establishes no founding motive, rain-versus-heat accuracy is unreported, and agreement supports confidence rather than certainty."
+  },
+  "v24-04": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "No net take allows new building if balanced by restoration. Removing pavement does not quickly restore soil, road proportions are unknown, and an aspiration is not a building ban."
+  },
+  "v24-05": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Some biblical texts exist in different versions, supporting plural historical versions. Languages and date ranges contradict A; sales are unstated and debated Essene origins are not universal proof."
+  },
+  "v24-06": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Athens was in 1896 and women's first participation in 1900, four years later. Influence establishes no IOC co-founding help, foreign spectator numbers are absent, and understanding was only part of the motive."
+  },
+  "v24-07": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "First awards in 1901 followed Nobel's 1896 death by five years. Economics was added later, peace is Norwegian-decided, and cautious treatment of an anecdote is not proof of motive."
+  },
+  "v24-08": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Continued grain and cattle exports imply surviving food production. Blight affected Europe, emigrant destinations are unstated, and Irish conditions plus inadequate relief prevent sole-blight explanation."
+  },
+  "v24-09": {
+    "answer": "A",
+    "labels": {
+      "B": "Not supported",
+      "C": "Overstated",
+      "D": "Overstated"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "Studies suggest reputation affects perceived sound. Varnish-recipe loss is unstated; some preferences under limited tests establish neither universal superiority nor every player's preference."
+  },
+  "v24-10": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 2,
+    "reason": "High per-word charges explain mainly institutional rather than private early use. The first cable lasted weeks, the ship's original construction purpose is unstated, and a greeting among first messages is no evidence it was first ever."
+  }
+}
