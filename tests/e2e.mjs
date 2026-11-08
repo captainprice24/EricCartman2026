@@ -444,7 +444,15 @@ async function run(engineName) {
   await check("W6: a highlight across two paragraphs stays valid and survives navigation", async () => {
     const p = await newPage(desktop);
     await p.locator('[data-act="coach"][data-k="verbal"]').click();
+    // Valid bank passages may have one paragraph. This test specifically needs two,
+    // so provide a stable text fixture before the normal Coach renderer opens it.
+    await p.evaluate(() => {
+      window.EPSO_APP.state.session.sections[0].items[0].q.passage =
+        "A coastal research team records the temperature every morning. Each reading is stored with its date and location.\n\n" +
+        "The team checks the sensors before comparing the readings. A faulty sensor is replaced before the next measurement.";
+    });
     await p.locator('[data-act="begin-coach"]').click();
+    assert.equal(await p.locator("#passage p").count(), 2, "explicit two-paragraph fixture");
     await p.locator('[data-act="tool-hl"]').click();
     await p.evaluate(() => {
       const ps = document.querySelectorAll("#passage p");
