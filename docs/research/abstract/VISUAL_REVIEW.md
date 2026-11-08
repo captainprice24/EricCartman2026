@@ -30,3 +30,17 @@ Reviewed every new series and all five choices in the generated light and dark c
 The new contact sheets cover all 220 questions and all options (22 groups, 44 PNGs in two themes). Every item was visually inspected on the light sheets; dark samples cover all five foundation layouts and both challenge layouts. The semantic review independently solves all 220 keys within documented bounded grammars. Eight front-layer series now show six observations and three challenge stimuli were replaced.
 
 A theme-specific teaching defect was found: dark mode reversed filled black and white shapes while explanations retained their colour names. Figure tiles now use a fixed black/grey/white palette in both themes. Revised dark sheets confirm visible outlines, grey separation, front-layer boundaries and arrow directions; figure colours now match the teaching. Grid icons remain compact but identifiable. These are author visual checks, not independent human blind review or empirical difficulty calibration. Earlier statements that foundation items were not re-reviewed and all figures were preserved describe the historical pass only.
+
+## 8 November: commercial-sample follow-up
+
+The current sheets cover all **300 questions**, in 30 groups / 60 light-dark PNGs. All 50 repaired patterned answer sets and all 30 new transfer items were visually inspected in both themes. The unchanged 270 stimuli are protected by exact object hashes; foundation option geometry is also unchanged.
+
+New checks and corrections:
+
+- A symmetric corner glyph initially made a reflection equivalent to a rotation. Its original outline was revised; the independent reader now finds exactly one orientation/reflection and does not depend on vertex order.
+- Boundary fragments now meet at the drawn frame boundaries (coordinates 2 and 98), with matching slope and crossing coordinate. The earlier draft used the SVG canvas edges, two units beyond the drawn frame. Deliberate nonmatching distractors remain distinguishable.
+- Container boxes and token spacing were enlarged. Tokens are solid and separated; small square quantity marks remain outside the boxes. No token is hidden under a transfer arrow.
+- Coverage is represented by quarter bands and circle sectors. Empty/full sectors have no visible starting orientation, which the solver handles explicitly. Stripe directions distinguish foreground from background.
+- All repaired pattern options remain visibly different. Grey/black/white, the fixed black sector, clockwise/anticlockwise changes and patterned tiles retain their meanings in dark mode.
+
+The browser suite now traverses all 80 repaired/new items at desktop and 390px phone widths, checks answer feedback and overflow, and compares actual option raster images for all 30 new items. Accessibility scans cover the new rounds. This remains an author visual review and independent-code check, not an independent human blind trial or measured AD difficulty calibration.

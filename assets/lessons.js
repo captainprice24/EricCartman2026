@@ -62,9 +62,26 @@ window.EPSO_LESSONS = {
       { name: "Find one rule at a time", text: "Track one element across every displayed transition. Start with movement, rotation, fill and count; if a simple rule fails, compare odd and even frames or test whether another element controls the change. Some elements stay constant." },
       { name: "Check the cycle length", text: "Some attributes alternate or repeat after several steps. Check each proposed cycle against the whole series. For a dependency, distinguish the current frame from the previous frame." },
       { name: "Predict, eliminate and verify", text: "Predict a feature from the series, eliminate options that violate it, and check the survivor against the remaining changing and constant features. Similarity alone is not evidence." },
-      { name: "Eliminate by rule", text: "Discard every option that breaks a rule. Usually only one option satisfies all of them." }
+      { name: "Follow identity, not just position", text: "Give each object a name. A shape can move to another corner while turning around its own centre. A mirror flip swaps left and right; a turn moves the whole shape around." },
+      { name: "Compare relationships", text: "Try ‘more than’, ‘fewer than’, ‘inside’ and ‘outside’. Counts may vary while a comparison stays true. Follow lines across opposite edges when the frame wraps." },
+      { name: "Separate useful detail from noise", text: "An arrow count or new input symbol may vary without helping predict the output. Ignore it only after a rule explains every shown transition. Use the simplest sufficient prediction, then verify the other rules." }
     ],
     examples: [
+      { title: "The small input becomes the next large output", steps: [
+        "Imagine the small boxes show: triangle, square, star. In the next frames, the large shapes are triangle, square, star in that order.",
+        "The large shape copies the small symbol ONE frame earlier. It may copy its fill too. Look back one frame; do not compare only within the same picture.",
+        "If the final small input is a grey star, predict a large grey star. A new small input belongs to the following step."
+      ] },
+      { title: "Fewer dots can be the rule", steps: [
+        "Suppose black/grey counts are 5/3, 4/2, 6/3. The exact counts jump around, but grey is always fewer than black.",
+        "If black is inside, outside, inside, the next black group goes outside. Grey goes inside.",
+        "Check BOTH facts: grey fewer than black, and grey inside. Equal counts break the first rule even when placement is correct."
+      ] },
+      { title: "Move tokens using the preceding instruction", steps: [
+        "Suppose three containers hold 5, 4 and 3 tokens. An arrow points from the first to the second, with two small quantity marks.",
+        "For the next picture, take two from the first and give two to the second: 3, 6, 3. The total stays 12.",
+        "Use the arrow and marks in the picture BEFORE the one you predict. Then continue the rule for the new arrow and marks separately."
+      ] },
   {
     "title": "Separate direction from fill",
     "figures": [
@@ -170,7 +187,7 @@ window.EPSO_LESSONS = {
       "Options may satisfy some relationships but miss others. Track each feature and check alternating, conditional and previous-frame relationships as well as simple repetition.",
       "Clockwise versus anticlockwise movement.",
       "Wrapping around a grid or bouncing at the edge.",
-      "Counting series that are not +1 (for example Fibonacci, +2 or doubling).",
+      "Do not force an exact counting sequence when a stable comparison explains the counts. Coverage can grow, reach full, and then shrink.",
       "Off-by-one: repeating the last frame or skipping a step without justification. A valid cycle can return to an earlier frame, so repetition alone does not make an option wrong."
     ],
     pacing: "Allow 60 seconds per item. If no rule appears within 40 seconds, eliminate what you can, guess, flag it and move on."

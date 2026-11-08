@@ -7,7 +7,7 @@ import { chromium } from 'playwright';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sets = [], context = vm.createContext({ EPSO_BANK: { registerSet: s => sets.push(s) } });
 for (const file of fs.readdirSync(path.join(root, 'questions/abstract')).sort()) vm.runInContext(fs.readFileSync(path.join(root, 'questions/abstract', file), 'utf8'), context);
-const isMedium = s => /^abstract-1[2-6]$/.test(s.id);
+const isMedium = s => /^abstract-1[2-9]$/.test(s.id);
 const groups = sets.filter(s => s.challenge || isMedium(s)).map(s => ({ id: s.id, questions: s.questions }));
 const old = sets.filter(s => !s.challenge && !isMedium(s)).flatMap(s => Array.from(s.questions));
 const topics = [...new Set(old.map(q => q.topic))];

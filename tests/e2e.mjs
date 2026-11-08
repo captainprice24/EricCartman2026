@@ -124,7 +124,7 @@ async function run(engineName) {
     for (const section of ['verbal', 'abstract']) {
       await p.locator('[data-act="practice"][data-k="' + section + '"]').click();
       const n = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.length);
-      assert.equal(n, section === 'verbal' ? 350 : 270);
+      assert.equal(n, section === 'verbal' ? 350 : section === 'abstract' ? 300 : 270);
       await p.goto(URL); await p.waitForSelector('.home');
     }
     assert.deepEqual(p.errors, []);
@@ -198,7 +198,7 @@ async function run(engineName) {
   });
 
   for (const [label, vp, dark] of [['desktop', desktop, false], ['phone dark', phone, true]]) {
-    await check(`abstract difficulty and all four challenge rounds work at ${label} width`, async () => {
+    await check(`abstract difficulty, challenge rounds and all 80 revised/new patterned items work at ${label} width`, async () => {
       const p = await newPage(vp, { dark });
       await p.selectOption('#opt-abstract-level', '1');
       await p.selectOption('#opt-count', 'all');
@@ -211,7 +211,7 @@ async function run(engineName) {
       await p.selectOption('#opt-set', 'abstract-05');
       await p.locator('[data-act="practice"][data-k="abstract"]').click();
       assert.match(await p.locator('#toast').textContent(), /No abstract reasoning questions match/);
-      for (const id of ['05', '06', '07', '08']) {
+      for (const id of ['05', '06', '07', '08', '12', '13', '14', '15', '16', '17', '18', '19']) {
         await p.selectOption('#opt-set', 'abstract-' + id);
         await p.selectOption('#opt-abstract-level', 'all');
         await p.selectOption('#opt-count', '10');
@@ -219,18 +219,24 @@ async function run(engineName) {
         await p.locator('[data-act="practice"][data-k="abstract"]').click();
         const round = await p.evaluate(() => {
           const s = window.EPSO_APP.state.session.sections[0];
-          return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => [2,3].includes(it.q.difficulty) && it.q.challenge) };
+          return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => [2,3].includes(it.q.difficulty)) };
         });
         assert.deepEqual(round, { n: 10, limit: 600000, hard: true });
         for (let i = 0; i < 10; i++) {
-          assert.equal(await p.locator('.series .fig').count(), 6);
+          const expectedFrames=await p.evaluate(()=>{const s=window.EPSO_APP.state.session;return s.sections[s.si].items[s.qi].q.sequence.length;});
+          assert.ok([5,6].includes(expectedFrames));assert.equal(await p.locator('.series .fig').count(),expectedFrames);
+          if(Number(id)>=17){
+            const pixels=[];for(const fig of await p.locator('.opts .fig').all())pixels.push((await fig.screenshot()).toString('base64'));
+            assert.equal(new Set(pixels).size,5,'five visibly different options');
+            if(i===0){fs.mkdirSync(path.join(root,'test-results/abstract-transfer'),{recursive:true});await p.screenshot({path:path.join(root,'test-results/abstract-transfer',id+'-'+label.replace(/ /g,'-')+'.png'),fullPage:true});}
+          }
           assert.equal(await p.locator('[role="radio"]').count(), 5);
           assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no horizontal page overflow');
           const key = await answerKey(p);
           await p.locator('[data-act="choose"]').nth(key.pos).click();
           await p.locator('[data-act="check"]').click();
           assert.ok(await p.locator('#feedback').isVisible());
-          if (i === 0 && id === '05') await axe(p, label + ' abstract challenge feedback');
+          if (i === 0 && ['05','17','18','19'].includes(id)) await axe(p, label + ' abstract challenge feedback');
           if (i < 9) await p.locator('[data-act="next"]').click();
         }
         await p.goto(URL); await p.waitForSelector('.home');
@@ -373,7 +379,7 @@ async function run(engineName) {
               assert.match(await p.locator(".steps").innerText(), section === "numerical" ? /Check the units and the base/ : /Require complete support/);
               await axe(p, `${section} lesson ${sizeName}`);
             }
-            if (section === "abstract") { assert.equal(await p.locator(".solution h3").count(), 3); assert.ok(await p.locator(".lesson-figures .fig").count() >= 4); await axe(p, "abstract visual lesson " + sizeName); }
+            if (section === "abstract") { assert.equal(await p.locator(".solution h3").count(), 6); assert.ok(await p.locator(".lesson-figures .fig").count() >= 4); await axe(p, "abstract visual lesson " + sizeName); }
             await p.locator('[data-act="begin-coach"]').click();
           }
           assert.equal(await p.locator(".feedback, .opt-note").count(), 0, "no answer feedback before checking");

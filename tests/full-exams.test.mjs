@@ -9,7 +9,7 @@ test('the three new forms contain exactly120 new challenge questions and no old 
  const ids=forms.slice(12).flatMap(f=>Object.values(f.sections).flat());assert.equal(ids.length,120);
  for(const id of ids){const q=byId[id];assert.equal(q.challenge,true,id);assert.ok(id.startsWith('a')?[2,3].includes(q.difficulty):q.difficulty===3,id);assert.match(id,/^(v1[4-9]|[na](09|10|11))-/);}
  assert.equal(sets.filter(s=>s.section==='verbal').reduce((n,s)=>n+s.questions.length,0),350);
- for(const key of ['numerical','abstract'])assert.equal(sets.filter(s=>s.section===key).reduce((n,s)=>n+s.questions.length,0),270);
+ for(const key of ['numerical','abstract'])assert.equal(sets.filter(s=>s.section===key).reduce((n,s)=>n+s.questions.length,0),key==='abstract'?300:270);
 });
 test('the random bank supports seventeen full unseen draws without recycling any question',()=>{
  const C=box.EPSO_CORE,stats={},seen=new Set();

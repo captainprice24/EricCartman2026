@@ -1,4 +1,6 @@
 import { reviewedAbstract } from './abstract-review-revision.mjs';
+import {applyAbstractTransferReview} from './abstract-transfer-review.mjs';
+import {generateTransferSets} from './abstract-transfer.mjs';
 // Generates every abstract reasoning set (questions/abstract/abstract-set-01…04.js, 150 foundation items plus 70 challenge items).
 //
 // Five layouts, 30 items each: single figure, grid movement, overlapping shapes, divided circle and
@@ -481,3 +483,5 @@ generateHardAbstract(root);
 
 /* ---------- November 2026 medium sets 12–16: patterned figures (scripts/generators/abstract-patterns.mjs) ---------- */
 generatePatternSets(root);
+applyAbstractTransferReview(root);
+generateTransferSets(root);

@@ -13,8 +13,9 @@ for(const r of (fs.existsSync(compactFile)?JSON.parse(fs.readFileSync(compactFil
 // EU-format numerical items (ids ending -eu) take the slot of the item they superseded.
 const euRevs=JSON.parse(fs.readFileSync('scripts/generators/numerical-eu-revisions.json')).revisions;
 for(const q of sets.filter(s=>s.section==='numerical').flatMap(s=>s.questions)){const original=/-eu$/.test(q.id)?q.supersedes:/-eu\d+$/.test(q.id)?euRevs[q.supersedes].replaces:null;if(original)previousId[q.id]=previousId[original]||original;}
+for(const [before,r] of Object.entries(JSON.parse(fs.readFileSync('scripts/generators/abstract-transfer-revisions.json')).revisions))previousId[r.id]=previousId[before]||before;
 const hash=q=>crypto.createHash('sha256').update('forms-v1:'+(previousId[q.id]||q.id)).digest('hex');
-const foundations={};for(const key of ['verbal','numerical','abstract'])foundations[key]=sets.filter(s=>s.section===key&&!s.challenge&&!/^(verbal-2[0-4]|numerical-1[2-6]|abstract-1[2-6])$/.test(s.id)).flatMap(s=>s.questions).sort((a,b)=>hash(a).localeCompare(hash(b))).slice(0,key==='verbal'?200:100);
+const foundations={};for(const key of ['verbal','numerical','abstract'])foundations[key]=sets.filter(s=>s.section===key&&!s.challenge&&!/^(verbal-2[0-4]|numerical-1[2-6]|abstract-1[2-9])$/.test(s.id)).flatMap(s=>s.questions).sort((a,b)=>hash(a).localeCompare(hash(b))).slice(0,key==='verbal'?200:100);
 const ids=(section,numbers)=>numbers.flatMap(n=>{const set=sets.find(s=>s.id===section+'-'+String(n).padStart(2,'0'));if(!set)throw Error('Missing set '+section+n);return set.questions.map(q=>q.id);});
 const forms=Array.from({length:15},(_,i)=>{const number=i+1;let sections;
  if(i<10){sections={};for(const key of ['verbal','numerical','abstract'])sections[key]=foundations[key].filter((q,j)=>j%10===i).map(q=>q.id);}

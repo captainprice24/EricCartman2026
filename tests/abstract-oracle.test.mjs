@@ -4,6 +4,8 @@ import path from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {inferTransfer,readTransfer} from './abstract-transfer-solver.mjs';
+import {abstractPath} from '../scripts/lib/abstract-path.mjs';
 import {foundationFeatures,inferFoundation} from './abstract-foundation-solver.mjs';
 import {patternFeatures,inferPattern} from './abstract-pattern-solver.mjs';
 import crypto from 'node:crypto';
@@ -175,7 +177,7 @@ test('fifty patterned medium series: unique visible continuation, Medium band, b
     assert.ok(set.questions.some(q=>q.sequence.flat().some(sh=>['hatch','rhatch','hlines','vlines','dots','check'].includes(sh.fill))),set.id+' uses patterned fills');}
 });
 test('all 150 foundation keys follow uniquely inferred visible tracks',()=>{
-  const qs=bank.filter(s=>!s.challenge).flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q));assert.equal(qs.length,150);
+  const qs=bank.filter(s=>!s.challenge).flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q)&&!q.reasoning?.transfer);assert.equal(qs.length,150);
   for(const q of qs){const prediction=inferFoundation(q.sequence);assert.ok(prediction.next,q.id+' unique continuation '+JSON.stringify(prediction.fits));
     const matches=Array.from(q.options,(f,i)=>same(foundationFeatures(f).features,prediction.next)?i:-1).filter(i=>i>=0);
     assert.deepEqual(matches,[q.answer],q.id);assert.ok(q.solution.length>=q.rules);
@@ -191,8 +193,9 @@ test('challenge keys exclude conflicting simple patterns and bands reflect simpl
 test('reviewed IDs and content are immutable and prior ambiguities are regression fixtures',()=>{
   const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
   const medium=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-medium-fingerprints.json')));
-  for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(isMedium)){const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),medium[id],id);}
-  for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q))){const r=registry.revisions[q.supersedes];assert.ok(r,q.id);assert.equal(q.id,r.id);assert.equal(abstractContentHash(q),r.sha256);}
+  const published=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-transfer-baseline.json'))).items;
+  for(const q of published.filter(isMedium)){const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),medium[id],id);}
+  for(const q of published.filter(q=>!isMedium(q))){const r=registry.revisions[q.supersedes];assert.ok(r,q.id);assert.equal(q.id,r.id);assert.equal(abstractContentHash(q),r.sha256);}
   const before=JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/abstract-ambiguities.json')));
   for(const q of before.foundation)assert.equal(inferFoundation(q.sequence).next,null,q.id);
   for(const q of before.challenge){const a=simpleNext(q.sequence.map(decode).map(r=>r.a));assert.ok(a.some(v=>v!==decode(q.options[q.answer]).a),q.id);}
@@ -202,6 +205,59 @@ test('figure changes stay confined to the eleven repaired stimuli',()=>{
  const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-review-revisions.json')));
  const expected=['a01-03','a02-18','a02-48','a03-23','a03-43','a03-48','a04-08','a04-23','a07-04','a08-05','a11-04'];
  const hash=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
- const changed=[];for(const q of bank.flatMap(s=>Array.from(s.questions)).filter(q=>!isMedium(q))){const b=registry.baseline[q.supersedes];if(hash(q.sequence)!==b.sequenceSha256||hash(q.options)!==b.optionsSha256)changed.push(q.supersedes);}
+ const published=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-transfer-baseline.json'))).items;
+ const changed=[];for(const q of published.filter(q=>!isMedium(q))){const b=registry.baseline[q.supersedes];if(hash(q.sequence)!==b.sequenceSha256||hash(q.options)!==b.optionsSha256)changed.push(q.supersedes);}
  assert.deepEqual(changed,expected);
+});
+
+const digest=v=>crypto.createHash('sha256').update(JSON.stringify(v)).digest('hex');
+test('transfer review preserves 270 stimuli, revises 200 IDs and closes patterned supporting-cue shortcuts',()=>{
+ const before=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-transfer-baseline.json'))).items;
+ const registry=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-transfer-revisions.json'))).revisions;
+ const all=bank.flatMap(s=>Array.from(s.questions));
+ assert.equal(Object.keys(registry).length,200);
+ for(const old of before){const revision=registry[old.id],q=all.find(q=>q.id===(revision?.id||old.id));assert.ok(q,old.id);
+  assert.equal(digest(q.sequence),digest(old.sequence),old.id+' published stimulus preserved');
+  if(revision){assert.equal(q.supersedes,old.id);assert.equal(digest(old),revision.beforeSha256);assert.equal(digest(q),revision.sha256);}
+  else assert.equal(digest(q),digest(old));
+  if(isMedium(q)){const p=abstractPath(q);assert.deepEqual(p.unique,[],q.id+' single-feature shortcut');assert.ok(p.supportCandidates>=2,q.id+' supporting cues');}
+  else if(!q.challenge)assert.equal(q.difficulty,abstractPath(q).cost<=2?1:2,q.id+' simplest sufficient route');
+ }
+});
+test('30 original transfer items have one visible semantic answer and no single-feature key',()=>{
+ const qs=bank.flatMap(s=>Array.from(s.questions)).filter(q=>q.reasoning?.transfer);
+ const fingerprints=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/abstract-transfer-fingerprints.json')));
+ assert.equal(qs.length,30);assert.equal(new Set(qs.map(q=>q.reasoning.model)).size,6);
+ for(const q of qs){const predicted=inferTransfer(q.sequence),rows=q.options.map(readTransfer),key=rows[q.answer];
+  assert.deepEqual(Array.from(q.options,(f,i)=>predicted.matches(f)?i:-1).filter(i=>i>=0),[q.answer],q.id+' semantic answer');
+  for(const k of Object.keys(predicted.next)){assert.ok(rows.filter(r=>same(r[k],key[k])).length>=2,q.id+' single visible feature '+k);}
+  if(key.layout==='containers'){assert.ok(rows.filter(r=>r.edge===key.edge&&r.amount===key.amount).length>=2,q.id+' count transfer required');assert.equal(new Set(rows.map(r=>r.counts.reduce((a,b)=>a+b,0))).size,1);}
+  assert.equal(digest(q),fingerprints[q.id]);
+ }
+});
+test('visible transfer inference rejects damaged relations and ignores drawing order',()=>{
+ const qs=bank.flatMap(s=>Array.from(s.questions)).filter(q=>q.reasoning?.transfer);
+ for(const q of qs){const scrambled=q.sequence.map(f=>Array.from(f).reverse().map(s=>s.t==='polygon'?{...s,points:Array.from(s.points).reverse()}:s));const p=inferTransfer(scrambled);assert.ok(p.matches(q.options[q.answer]),q.id);}
+ const pick=model=>JSON.parse(JSON.stringify(qs.find(q=>q.reasoning.model===model).sequence));
+ const handoff=pick('identity-handoff');handoff[2].find(s=>s.r===25).fill='black';assert.throws(()=>inferTransfer(handoff));
+ const boundary=pick('boundary-continuation');boundary[2].find(s=>s.t==='line'&&!s.arrowEnd).x2+=3;assert.throws(()=>inferTransfer(boundary));
+ const transfer=pick('conserved-transfer');transfer[2].splice(transfer[2].findIndex(s=>s.t==='circle'),1);assert.throws(()=>inferTransfer(transfer));
+});
+
+test('delayed transfer items reject competing short cycles and independent count progressions',()=>{
+ const qs=bank.flatMap(s=>Array.from(s.questions)).filter(q=>q.reasoning?.transfer);
+ for(const q of qs){const rows=q.sequence.map(readTransfer),key=readTransfer(q.options[q.answer]);
+  if(key.layout==='handoff')for(const k of ['kind','shade'])for(let period=1;period<=4;period++){
+   if(rows.every((r,i)=>i<period||r[k]===rows[i-period][k]))assert.equal(rows[rows.length%period][k],key[k],q.id+' competing '+k+' cycle');
+  }
+  if(key.layout==='containers')for(let c=0;c<3;c++){
+   const vs=rows.map(r=>r.counts[c]),d=vs.slice(1).map((v,i)=>v-vs[i]);
+   const fits=[];
+   if(d.every(x=>x===d[0]))fits.push(vs.at(-1)+d[0]);
+   if(d.every((x,i)=>x===d[i%2]))fits.push(vs.at(-1)+d[d.length%2]);
+   const streams=[0,1].map(p=>vs.filter((_,i)=>i%2===p));
+   if(streams.every(a=>a.slice(1).every((v,i)=>v-a[i]===a[1]-a[0]))){const a=streams[vs.length%2];fits.push(a.at(-1)+a[1]-a[0]);}
+   for(const fit of fits)assert.equal(fit,key.counts[c],q.id+' competing independent container progression');
+  }
+ }
 });

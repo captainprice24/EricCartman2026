@@ -1,3 +1,4 @@
+import {abstractPath} from './abstract-path.mjs';
 // Editorial reasoning rubric, independent of shape count or explanation length.
 const FOUNDATION_TOPICS = new Set(['Single figure', 'Grid movement', 'Overlapping shapes', 'Divided circle', 'Rotating hands']);
 export const ABSTRACT_CHALLENGE_MODELS = new Set(['alternating-orbit', 'accelerating-orbit', 'interleaved-orbits', 'colour-gated-orbit',
@@ -31,6 +32,15 @@ export const ABSTRACT_PATTERN_MODELS = {
   'opposed-conveyor': 'Independent tracks: two rows slide in opposite directions with wrap-around, a pointer turns, and the background may alternate.'
 };
 export function abstractRubric(q) {
+  if(q.reasoning?.transfer){
+    const levels={'identity-handoff':3,'region-inequality':2,'boundary-continuation':2,'persistent-glyphs':2,'reversible-coverage':2,'conserved-transfer':3};
+    const level=levels[q.reasoning.model];if(!level)throw Error('Unreviewed transfer model');
+    return {level,reason:level===3?'A necessary previous-frame identity or transfer relationship; supporting cues alone cannot select the answer.':'Relational comparison or multiple spatial tracks, including region membership, boundary matching, object identity or reversible coverage; multiple features are needed.'};
+  }
+  if(q.reasoning?.model==='reviewed-foundation') {
+    const p=abstractPath(q);
+    return {level:p.cost<=2?1:2,reason:`Shortest sufficient visible-feature route costs ${p.cost}: ${p.routes[0].join(' + ')}. Familiar single/two-feature elimination is Easy; necessary nonuniform phase tracking remains Medium.`};
+  }
   if (!q.challenge && q.reasoning && ABSTRACT_PATTERN_MODELS[q.reasoning.model]) {
     if (![3, 4].includes(q.rules)) throw Error('Pattern model needs three or four tracks: ' + q.reasoning.model);
     return { level: 2, reason: ABSTRACT_PATTERN_MODELS[q.reasoning.model] };

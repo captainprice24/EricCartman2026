@@ -54,7 +54,7 @@ Topic labels are off by default (they can hint at the answer); turn them on unde
 
 The November 2026 medium sets are documented in [docs/research/medium-2026-11](docs/research/medium-2026-11/README.md).
 
-890 original questions: **verbal 350, numerical 270, abstract 270**. There are 15 complete fixed tests of 40 questions (20/10/10), plus additional practice material. All section timers retain 35/20/10 minutes.
+920 original questions: **verbal 350, numerical 270, abstract 300**. There are 15 complete fixed tests of 40 questions (20/10/10), plus additional practice material. All section timers retain 35/20/10 minutes.
 
 - **Verbal (24 sets):** 200 foundation items, **ten challenge sets of 10** (Sets 10–19) and **five medium sets of 10**
   (Sets 20–24). Every passage is exam length, 130–170 words with short options, matching the commercial practice
@@ -82,8 +82,9 @@ The November 2026 medium sets are documented in [docs/research/medium-2026-11](d
   `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records every item;
   the [research library](docs/research/numerical/README.md) saves sources, rights evidence, licensed
   examples and an authoring checklist for future work.
-- **Abstract (16 sets):** 150 foundation items, **seven challenge sets of 10** (Sets 5–11) and **five medium sets of 10**
-  (Sets 12–16: patterned figures with alternating grid shifts, counter-rotating quadrants and conveyor rows).
+- **Abstract (19 sets):** 150 foundation items, **seven challenge sets of 10** (Sets 5–11) and **five medium sets of 10**
+  (Sets 12–16: patterned figures with alternating grid shifts, counter-rotating quadrants and conveyor rows),
+  plus 30 mixed Medium/Hard transfer items (Sets 17–19: identities, regions, wrapping, irregular objects, coverage and containers).
   The new series combine alternating, accelerating, conditional, delayed and compositional rules.
   Choose **Abstract difficulty: Easy / Medium / Hard** in Coach or Practice; a timed round takes
   ten minutes. Choose All levels for a complete challenge set: these span Medium and Hard.
@@ -146,3 +147,5 @@ python -m http.server 8000 --bind 127.0.0.1
 # In another terminal:
 E2E_BASE_URL=http://127.0.0.1:8000 CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e
 ```
+
+The [November abstract review](docs/ABSTRACT_TRANSFER_REVIEW.md) strengthens 50 answer sets, reviews foundation difficulty by the simplest sufficient route, and adds 30 original transfer-practice questions across six families.

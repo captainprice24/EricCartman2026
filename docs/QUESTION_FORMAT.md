@@ -154,8 +154,7 @@ depend on another element or the previous frame.
 
 - `rules`: 2–4 relationships. Difficulty must follow `scripts/lib/abstract-difficulty.mjs`
   **(enforced)**. Four independent familiar changes do not automatically imply Hard. The foundation
-  phase screen recognises reviewed nonuniform-count, repeated-phase and boundary patterns in the
-  generator descriptions; it is not a generic word-count or shape-count score. New models require review.
+  review enumerates sufficient feature subsets from the actual options. Familiar one/two-track elimination is Easy; necessary nonuniform count phases remain Medium. New models require review.
 - Every frame has at least 3 shapes **(enforced)**.
 - Wrong options mix one-rule and two-rule breaks, plausible wrong readings (no step, a double step,
   the wrong direction, a value outside the cycle) and changes to constant elements. At least two of them
@@ -176,9 +175,11 @@ depend on another element or the previous frame.
   new-item inference. The current labels await learner calibration.
 
 Figure shapes (100 × 100 canvas; `fill` is `black`, `grey`, `white`, `none` or one of the six patterns above):
-`circle {x,y,r}`, `rect {x,y,w,h}`, `poly {x,y,r,n,rot}`, `star {x,y,r,rot}`, `arrow {x,y,r,rot}`
-(points up at `rot: 0`, turns clockwise), `line {x1,y1,x2,y2}`, `wedge {x,y,r,a0,a1}` (a sector,
+`circle {x,y,r}`, `rect {x,y,w,h}`, `poly {x,y,r,n,rot}`, `polygon {points:[[x,y],...],fill}`, `star {x,y,r,rot}`, `arrow {x,y,r,rot}`
+(points up at `rot: 0`, turns clockwise), `line {x1,y1,x2,y2,arrowEnd?}`, `wedge {x,y,r,a0,a1}` (a sector,
 angles clockwise from 12 o'clock).
+
+Sets 17–19 add six original transfer families through `abstract-transfer.mjs`. Their independent geometry solver handles irrelevant details and invisible orientations semantically. Each single meaningful feature leaves multiple choices, and container indicators cannot bypass count transfer. `abstract-transfer-review.mjs` post-processes historical generator outputs into fresh IDs and strengthened alternatives; fingerprints forbid silent content changes.
 
 ## Translations
 

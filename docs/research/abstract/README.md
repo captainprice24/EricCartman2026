@@ -76,3 +76,7 @@ The [follow-up design and research record](../full-tests-2026-10/README.md) cove
 ## November book-informed review
 
 The current 220-item review supersedes the earlier foundation-only structural screen and uniformly Hard challenge labels. See [the review](../../ABSTRACT_BOOK_REVIEW.md) and [current audit](../../ABSTRACT_AUDIT.md). All items now have independent visible-figure solver coverage; all figures and choices are included in light/dark contact sheets. The supplied book informed methods only; no content was copied.
+
+## November commercial-sample follow-up
+
+The current bank has **300** abstract questions. The [transfer review](../../ABSTRACT_TRANSFER_REVIEW.md) supersedes the earlier totals and labels above: all 270 prior stimuli preserved, 200 fresh revision IDs, 50 strengthened patterned answer sets, 112 difficulty corrections and 30 original questions across six additional families. All 300 have independent visible-geometry inference and complete contact sheets. The source comparison distinguishes confirmed visible explanations from inferred relationships. Difficulty remains editorial until first-exposure learner trials.

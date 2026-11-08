@@ -65,6 +65,8 @@
           (rot ? ' transform="rotate(' + rot + " " + (x + num(s.w, 20) / 2) + " " + (y + num(s.h, 20) / 2) + ')"' : "") + "/>";
       case "poly":
         return '<polygon class="' + cls + '" points="' + polyPoints(x, y, r, Math.max(3, Math.round(num(s.n, 3))), rot) + '"/>';
+      case "polygon":
+        return '<polygon class="' + cls + '" points="' + (s.points || []).map(function(p){return num(p[0],50)+","+num(p[1],50);}).join(" ") + '"/>';
       case "star":
         return '<polygon class="' + cls + '" points="' + starPoints(x, y, r, rot) + '"/>';
       case "arrow": {
@@ -82,6 +84,11 @@
           " A" + r + "," + r + " 0 " + large + " 1 " + (x + r * Math.cos(a1)).toFixed(2) + "," + (y + r * Math.sin(a1)).toFixed(2) + ' Z"/>';
       }
       case "line":
+        if(s.arrowEnd){
+          var ax=num(s.x2,90),ay=num(s.y2,90),angle=Math.atan2(ay-num(s.y1,10),ax-num(s.x1,10));
+          var backX=ax-5*Math.cos(angle),backY=ay-5*Math.sin(angle);
+          return '<g><line class="f-line" x1="'+num(s.x1,10)+'" y1="'+num(s.y1,10)+'" x2="'+ax+'" y2="'+ay+'"/><polygon class="f-black" points="'+ax+','+ay+' '+(backX+2.8*Math.sin(angle))+','+(backY-2.8*Math.cos(angle))+' '+(backX-2.8*Math.sin(angle))+','+(backY+2.8*Math.cos(angle))+'"/></g>';
+        }
         return '<line class="f-line" x1="' + num(s.x1, 10) + '" y1="' + num(s.y1, 10) + '" x2="' + num(s.x2, 90) + '" y2="' + num(s.y2, 90) + '"/>';
       default:
         return "";

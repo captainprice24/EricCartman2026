@@ -43,7 +43,7 @@ for (const f of files) {
   else ctx.window.EPSO_BANK.sets[before]._file = f;
 }
 
-const SHAPES = new Set(["circle", "rect", "poly", "star", "arrow", "line", "wedge"]);
+const SHAPES = new Set(["circle", "rect", "poly", "polygon", "star", "arrow", "line", "wedge"]);
 const FILLS = new Set(["black", "grey", "white", "none", "hatch", "rhatch", "hlines", "vlines", "dots", "check", undefined]);
 const isStr = (s) => typeof s === "string" && s.trim().length > 0;
 // Item text may be a string or { en, fr, … }; checks run on the English text.
@@ -65,6 +65,7 @@ const checkFigure = (where, fig) => {
   fig.forEach((s, i) => {
     if (!s || !SHAPES.has(s.t)) err(where, `shape ${i}: unknown type '${s && s.t}'`);
     else if (!FILLS.has(s.fill)) err(where, `shape ${i}: fill must be black|grey|white|none or a pattern (hatch, rhatch, hlines, vlines, dots, check)`);
+    if(s&&s.t==='polygon'&&(!Array.isArray(s.points)||s.points.length<3||s.points.some(p=>!Array.isArray(p)||p.length!==2||p.some(v=>!Number.isFinite(v)||v<0||v>100))))err(where,`shape ${i}: polygon points must be finite coordinate pairs on the canvas`);
     for (const k of ["x", "y", "r", "w", "h", "x1", "y1", "x2", "y2"]) {
       if (s && s[k] !== undefined && (typeof s[k] !== "number" || s[k] < -5 || s[k] > 105)) err(where, `shape ${i}: ${k} must be a number within the 0–100 canvas`);
     }
