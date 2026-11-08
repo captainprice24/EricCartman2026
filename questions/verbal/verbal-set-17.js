@@ -2,12 +2,12 @@ EPSO_BANK.registerSet({
   "id": "verbal-17",
   "section": "verbal",
   "title": "Verbal reasoning · Set 17 — Very hard",
-  "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
+  "description": "Ten original, demanding inference problems in exam-length passages. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
   "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v17-01-r2",
+      "id": "v17-01-c",
       "topic": "Export assay licensing",
       "difficulty": 3,
       "challenge": true,
@@ -20,34 +20,34 @@ EPSO_BANK.registerSet({
           "The 1920 inscription alone does not create a modern reproduction.",
           "Withheld consent forces an origin assay.",
           "Unreissued ownership-change licensing forces supervision.",
-          "The supervisor’s superseded method training needs a supplement.",
+          "The supervisor's superseded method training needs a supplement.",
           "That supplement must postdate the method change."
         ]
       },
-      "passage": "A fictional museum can export an unlisted object freely, but a listed object needs a certificate. An object is listed when its carrier dates before 1900, unless it is a modern reproduction. A reproduction means that both carrier and inscription were produced after 1900; a later inscription on an older carrier does not qualify. The exported object had a carrier dated 1880 and an inscription added in 1920.\n\nA certificate requires either owner consent or an origin assay. The object's owner withheld consent. An origin assay is accepted from a licensed laboratory, or from an unlicensed laboratory under external supervision. A laboratory loses its licence when ownership changes unless the regulator reissues it. Supervision requires an assessor with current method training. Training for a superseded method qualifies only if the assessor passed a supplement after the method change. Long experience and attendance at a briefing do not replace that supplement. The certificate register need not publish training documents.\n\nThe export was validly completed. The sole assay laboratory had changed owner and had no reissued licence. Its supervisor had trained under the superseded method and attended a briefing after the change. No other export, assay, supervision or training route applied.",
+      "passage": "A fictional museum may export an unlisted object freely, but a listed object needs a certificate. An object is listed if its carrier dates from before 1900, unless it is a modern reproduction, meaning that both carrier and inscription were made after 1900. A certificate requires the owner's consent or an origin assay. An assay must come from a licensed laboratory or an unlicensed one under external supervision. A laboratory loses its licence when its ownership changes unless the regulator reissues it. A supervising assessor needs current method training; training in a superseded method counts only if the assessor passed a supplement after the method changed. Experience or a briefing cannot replace the supplement.\n\nAn object with a carrier from 1880 and an inscription added in 1920 was validly exported. Its owner had withheld consent. The sole assay laboratory had changed owner without a reissued licence. Its supervisor had trained in the superseded method and attended a briefing after the method change. No other route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The supervisor’s briefing attendance was sufficient because the assay laboratory retained its licence after its change of ownership under external supervision.",
-        "The required method supplement was passed after the change but before the supervisor attended the briefing mentioned in the export record.",
-        "The supervisor had passed a method supplement after the change; the later inscription did not remove the older carrier from certification requirements.",
-        "The supervisor’s practical assessment occurred after the laboratory changed owner, rather than between the method revision and that later ownership transfer."
+        "The briefing sufficed because the laboratory kept its licence after its change of owner.",
+        "The supervisor passed the supplement after the method change but before the briefing.",
+        "The object remained listed, and its supervisor passed a post-change supplement.",
+        "The supervisor passed the supplement after the laboratory changed owner."
       ],
       "answer": 2,
       "hints": [
-        "Classify the whole object, including its carrier, before applying the licence exceptions.",
-        "The 1880 carrier makes the object listed."
+        "Classify the whole object, carrier as well as inscription, before looking at the certificate routes.",
+        "Then follow the assay route step by step to the person who supervised it."
       ],
       "optionNotes": [
-        "False. No reissued licence exists, and a briefing cannot replace the supplement.",
-        "Not supported. The supplement is required but its order relative to the briefing is not stated.",
-        "Correct. The old carrier defeats reproduction, consent fails, the unlicensed assay needs supervision, and superseded training needs a post-change supplement.",
-        "Not supported. The supplement follows the method change; its order relative to the later ownership transfer is not specified."
+        "False. The laboratory 'changed owner without a reissued licence', and a briefing 'cannot replace the supplement'.",
+        "Not supported. The supplement must follow the method change, but its order relative to the briefing is not stated.",
+        "Correct. A reproduction needs 'both carrier and inscription' made after 1900, so the object is listed; without consent or a licence, the supervisor's superseded training needed a post-change supplement.",
+        "Not supported. The supplement must follow the method change; its timing relative to the ownership change is not given."
       ],
-      "explanation": "The 1880 carrier makes the object listed. The 1920 inscription alone does not create a modern reproduction. Withheld consent forces an origin assay. Unreissued ownership-change licensing forces supervision. The supervisor’s superseded method training needs a supplement. That supplement must postdate the method change.",
+      "explanation": "The 1880 carrier makes the object listed despite the later inscription. With consent withheld, an assay was needed, and the laboratory had lost its licence, so the assay required supervision. The supervisor's training was in a superseded method, which counts only with a supplement passed after the method change.",
       "supersedes": "v17-01"
     },
     {
-      "id": "v17-02-r2",
+      "id": "v17-02-c",
       "topic": "Rail wagon admission",
       "difficulty": 3,
       "challenge": true,
@@ -61,33 +61,33 @@ EPSO_BANK.registerSet({
           "The removed second scale prevents a two-scale assessment.",
           "One current scale therefore needs an independent check weight.",
           "Independence excludes the scale-calibrating laboratory.",
-          "Resurfacing requires later certification of the weight’s mass."
+          "Resurfacing requires later certification of the weight's mass."
         ]
       },
-      "passage": "A fictional rail terminal admits a wagon through the ordinary lane unless its cargo is liquid or its axle load exceeds the general limit. Either condition requires specialist admission. Specialist admission needs a sealed load certificate or an on-site balance assessment. A certificate covers only the cargo and axle configuration tested. Altering the number of axles invalidates it even when total cargo mass falls.\n\nAn on-site assessment uses either two current scales or one current scale with an independent check weight. A scale becomes noncurrent after relocation unless recalibrated afterwards. The terminal's sole second scale was removed permanently before the arrival in question. A check weight is independent only when its mass was certified by a laboratory other than the one calibrating the scale. Certification must postdate the weight's latest resurfacing. Neither a weight's engraved original mass nor a supplier declaration supplies that certification. Admission records do not publish laboratory identities.\n\nA liquid-cargo wagon was validly admitted after its axle count changed. Its load certificate predated that change. The sole available scale had been relocated and then recalibrated; the check weight had been resurfaced after its engraved mass was recorded. No other lane, scale or assessment procedure existed.",
+      "passage": "A fictional rail terminal admits a wagon through its ordinary lane unless the cargo is liquid or the axle load exceeds the general limit; either condition requires specialist admission. This needs a sealed load certificate or an on-site balance assessment. A certificate covers only the cargo and axle configuration tested, so changing the number of axles invalidates it even if cargo mass falls. An on-site assessment uses two current scales or one current scale with an independent check weight. A relocated scale is current only if recalibrated afterwards. A check weight is independent only if its mass was certified, after its latest resurfacing, by a laboratory other than the one calibrating the scale. Neither an engraved mass nor a supplier declaration is certification.\n\nA liquid-cargo wagon was validly admitted after its axle count changed; its certificate predated the change. The second scale had been permanently removed, and the remaining scale relocated and then recalibrated. The check weight had been resurfaced since its mass was engraved. No other procedure existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The engraved mass remained sufficient because the terminal’s available scale had already been recalibrated after relocation before the wagon arrived.",
-        "The weight-certifying laboratory also calibrated the terminal’s scale, provided that both operations followed the relocation and resurfacing events.",
-        "The required weight certification probably occurred after the scale calibration, rather than before it, because both events followed the relevant physical changes.",
-        "A laboratory other than the scale’s calibrator established the resurfaced weight’s mass, with certification issued after the surface work was completed."
+        "The engraved mass sufficed because the scale had been recalibrated after relocation.",
+        "The same laboratory both certified the check weight and calibrated the terminal's scale.",
+        "The weight was probably certified after the scale was recalibrated rather than before.",
+        "A laboratory other than the scale's calibrator certified the weight after resurfacing."
       ],
       "answer": 3,
       "hints": [
-        "Check whether cargo type changes the admission route before applying the wagon's mass threshold.",
-        "Liquid cargo requires specialist admission regardless of mass."
+        "Check whether the type of cargo changes the admission route, whatever the wagon's mass.",
+        "Then ask which on-site assessment is still possible with the scales that remain."
       ],
       "optionNotes": [
-        "False. An engraving cannot supply post-resurfacing certification.",
-        "False. The independent weight requires a different laboratory.",
-        "Not supported. Each event has its own lower bound; their mutual ordering is unspecified.",
-        "Correct. Liquid forces specialist admission; changed axles defeat the old certificate, one scale forces an independent check weight, and resurfacing fixes its certification lower bound."
+        "False. 'Neither an engraved mass nor a supplier declaration is certification'.",
+        "False. An independent weight must be certified 'by a laboratory other than the one calibrating the scale'.",
+        "Not supported. Each event must follow its own physical change, but their order relative to each other is not stated.",
+        "Correct. Liquid cargo needs specialist admission, the axle change voids the certificate and only one scale remains, so an independent weight certified after resurfacing was required."
       ],
-      "explanation": "Liquid cargo requires specialist admission regardless of mass. Changed axle count invalidates the old certificate. The removed second scale prevents a two-scale assessment. One current scale therefore needs an independent check weight. Independence excludes the scale-calibrating laboratory. Resurfacing requires later certification of the weight’s mass.",
+      "explanation": "Liquid cargo requires specialist admission. The axle change invalidates the old certificate, so an on-site assessment was used, and with the second scale gone it needed one current scale and an independent check weight. Independence requires a different laboratory, and the resurfacing means the certification had to come afterwards.",
       "supersedes": "v17-02"
     },
     {
-      "id": "v17-03-r2",
+      "id": "v17-03-c",
       "topic": "Adverse-event consent review",
       "difficulty": 3,
       "challenge": true,
@@ -104,30 +104,30 @@ EPSO_BANK.registerSet({
           "With no other physical participant, the clinician must attend completely through a verified live connection."
         ]
       },
-      "passage": "A fictional ethics office permits an unchanged-risk study amendment by administrative notice. An amendment changes risk when it adds donor contact or discloses coded records to a new institution. Both acts count even when a contractor performs them. A changed-risk amendment instead requires committee approval, unless an existing approval expressly covers the same new activity and institution. A general permission to analyse samples does not cover donor contact.\n\nCommittee approval is valid through an ordinary meeting or a delegated chair decision. Delegation excludes amendments involving contact with minors. Ordinary meetings require three eligible members, including an independent clinician. An employed investigator on the study is ineligible, and an attending conflicted member cannot be replaced by an alternate. The clinician can attend remotely only with a verified live connection showing the complete meeting. A recording watched afterwards cannot count as attendance. The public amendment record lists decisions rather than every participant's connection evidence.\n\nAn amendment was validly approved to let a contractor interview minor donors at a newly involved institution. The old approval permitted sample analysis alone. Two eligible nonclinical members attended, alongside an attending investigator and that investigator's alternate. No other person was physically present, and no special approval route applied.",
+      "passage": "In a fictional ethics office, an amendment changes a study's risk when it adds donor contact or discloses coded records to a new institution, even if a contractor does so. Such an amendment needs committee approval unless an existing approval expressly covers the same activity and institution; permission to analyse samples does not cover donor contact. Approval comes from an ordinary meeting or a delegated chair decision, but delegation excludes contact with minors. An ordinary meeting needs three eligible members, including an independent clinician. A study's employed investigator is ineligible, and an attending conflicted member cannot be replaced by an alternate. The clinician may attend remotely only through a verified live connection showing the whole meeting; watching a recording later is not attendance.\n\nAn amendment letting a contractor interview minor donors at a new institution was validly approved. The earlier approval covered sample analysis alone. Two eligible nonclinical members attended, with the investigator and the investigator's alternate. Nobody else was physically present, and no special route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "An eligible independent clinician joined the complete meeting live; a later recording or the conflicted investigator’s alternate could not fill that role.",
-        "The investigator’s alternate counted as the third eligible member, allowing the independent clinician to review the complete meeting only after it ended.",
-        "The independent clinician attended remotely before the contractor began interviewing minors, and also personally approved the contractor’s interview script.",
-        "The independent clinician’s connection was verified by the committee chair rather than another office member before the live meeting began."
+        "An independent clinician took part in the entire meeting by a verified live link.",
+        "The investigator's alternate was the third eligible member, and the clinician watched later.",
+        "The clinician joined remotely and personally approved the contractor's interview questions.",
+        "The committee chair verified the clinician's live connection before the meeting started."
       ],
       "answer": 0,
       "hints": [
-        "Identify what counts as new donor contact and which conditions apply when minors are interviewed.",
-        "Contractor interviews of minors are new donor contact."
+        "Decide whether interviewing minors changes the study's risk, and whether the old approval covers it.",
+        "Then count who could fill the three eligible places at the meeting."
       ],
       "optionNotes": [
-        "Correct. New minor contact changes risk; old approval fails, chair delegation excludes minors, and valid ordinary quorum needs live remote independent clinical attendance.",
-        "False. An attending conflicted member cannot be replaced, and later viewing is not attendance.",
-        "Not supported. Clinical attendance is necessary; personal script approval is not stated.",
-        "Not supported. The verifier’s identity and exact pre-meeting timing are unspecified."
+        "Correct. Minor contact rules out delegation, so a meeting with an independent clinician was needed; with nobody else 'physically present', the clinician must have attended through a verified live connection.",
+        "False. An attending conflicted member 'cannot be replaced by an alternate', and 'watching a recording later is not attendance'.",
+        "Not supported. The passage requires the clinician's attendance but says nothing about approving interview questions.",
+        "Not supported. The passage does not say who verified the connection, or when."
       ],
-      "explanation": "Contractor interviews of minors are new donor contact. The analysis-only approval cannot cover it. Minor contact excludes delegated chair approval. Ordinary approval requires an independent clinician among three eligible members. The attending investigator and alternate cannot fill an eligible place. With no other physical participant, the clinician must attend completely through a verified live connection.",
+      "explanation": "Interviewing donors adds contact, which the analysis-only approval does not cover, and contact with minors excludes delegation. A valid ordinary meeting needs three eligible members including a clinician; the investigator and alternate cannot count. Only two eligible members were present in person, so the clinician must have joined the whole meeting live.",
       "supersedes": "v17-03"
     },
     {
-      "id": "v17-04-r2",
+      "id": "v17-04-c",
       "topic": "Council remote adoption",
       "difficulty": 3,
       "challenge": true,
@@ -144,30 +144,30 @@ EPSO_BANK.registerSet({
           "Effective delivery must precede the full notice start."
         ]
       },
-      "passage": "A fictional council may adopt a routine decision at a short-notice meeting. A decision is nonroutine if it creates a new charge or extends a charge to previously exempt residents. Renaming an existing charge does not prevent that classification. Nonroutine decisions need a full notice period unless every member signs a waiver. A signature counts only if the member had the complete proposed text before signing.\n\nWhen full notice is used, the period starts after effective delivery to every member. Electronic delivery is effective through a designated portal with receipt acknowledgment. Postal delivery requires an authorised recipient at the member's nominated address. A former secretary's authority ends when the member appoints a replacement, unless renewed explicitly afterwards. The public minutes can omit acknowledgments and recipient-authority records. A later vote in favour does not retrospectively validate an earlier signature on an incomplete waiver.\n\nA newly renamed charge was validly adopted after being extended to an exempt residential group. One member signed a waiver before receiving its complete text and did not sign again. That member's portal gave no acknowledgment. A former secretary signed the postal receipt after being replaced. No other delivery, waiver or adoption route existed.",
+      "passage": "A fictional council may adopt a routine decision at a short-notice meeting. A decision is nonroutine if it creates a new charge or extends a charge to previously exempt residents, whatever the charge is called. A nonroutine decision needs a full notice period unless every member signs a waiver, and a signature counts only if the member had the complete text before signing; a later vote in favour does not validate it. The notice period starts after effective delivery to every member. Electronic delivery is effective through a designated portal that acknowledges receipt; postal delivery needs an authorised recipient at the nominated address. A former secretary's authority ends when the member appoints a replacement, unless explicitly renewed afterwards.\n\nA renamed charge was validly adopted after being extended to an exempt group. One member signed the waiver before receiving its complete text and did not sign again. That member's portal gave no acknowledgment, and a former secretary signed the postal receipt after being replaced. No other route existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The later favourable vote validated the incomplete-text waiver, so renewal of the former secretary’s postal authority was unnecessary for valid adoption.",
-        "The member had explicitly renewed the former secretary’s authority, and effective postal delivery preceded the beginning of the full notice period.",
-        "The member’s replacement secretary was forbidden to receive notice after the former secretary’s authority had been renewed for this particular delivery.",
-        "The notice period began when the complete text was first dispatched electronically, although that member’s designated portal never acknowledged its receipt."
+        "The later vote cured the defective waiver, so the old secretary's authority was irrelevant.",
+        "The former secretary's authority was renewed, and the notice period followed delivery.",
+        "The replacement secretary was barred from receiving notices once the renewal took effect.",
+        "The notice period ran from electronic dispatch, though the portal gave no acknowledgment."
       ],
       "answer": 1,
       "hints": [
-        "Apply the definition of a routine charge to who must pay, rather than relying on the charge's name.",
-        "Extension to exempt residents makes the renamed charge nonroutine."
+        "Classify the decision by who must pay, not by the charge's name.",
+        "Then work out which delivery method could have reached the member who signed early."
       ],
       "optionNotes": [
-        "False. A later favourable vote cannot repair the defective waiver.",
-        "Correct. Extending the charge makes it nonroutine, the defective waiver forces full notice, failed portal delivery leaves post, and the replaced secretary needs renewed authority.",
-        "Not supported. Renewing the former secretary does not imply that the replacement lost authority.",
-        "False. Dispatch without acknowledgment is not effective electronic delivery."
+        "False. A later vote in favour 'does not validate' a signature made without the complete text.",
+        "Correct. Extension to exempt residents makes the decision nonroutine and the defective waiver forces full notice; with no portal acknowledgment, postal delivery needed the replaced secretary's renewed authority.",
+        "Not supported. Renewing the former secretary's authority does not imply that the replacement lost authority.",
+        "False. Electronic delivery is effective only 'through a designated portal that acknowledges receipt'."
       ],
-      "explanation": "Extension to exempt residents makes the renamed charge nonroutine. The incomplete-text signature prevents a unanimous valid waiver. Full notice is therefore necessary. No portal acknowledgment leaves postal service. The replaced secretary requires explicit later reauthorisation. Effective delivery must precede the full notice start.",
+      "explanation": "Extending a charge to exempt residents is nonroutine whatever it is called, and one signature was given without the complete text, so the waiver fails and full notice was needed. The portal never acknowledged receipt, leaving postal delivery, which counts only if the replaced secretary's authority was explicitly renewed. The notice period starts after that delivery.",
       "supersedes": "v17-04"
     },
     {
-      "id": "v17-05-r2",
+      "id": "v17-05-c",
       "topic": "Seed accession release",
       "difficulty": 3,
       "challenge": true,
@@ -184,30 +184,30 @@ EPSO_BANK.registerSet({
           "The reused instrument requires sterilisation after its last other-accession use."
         ]
       },
-      "passage": "A fictional seed library releases ordinary accessions on demand but quarantines any accession collected in an area under a current pathogen alert. The alert applies to collection location, not the later storage location. Quarantined accessions can leave through destruction or under a negative pathogen certificate. Moving them to another store does not remove quarantine. The accession at issue was released alive for sowing after being collected inside an active alert area.\n\nA negative certificate requires an approved laboratory using either a freshly drawn sample or a preserved reserve. A reserve qualifies only while its seal remains intact and its storage temperature never exceeds the specified maximum. If either condition fails, a fresh sample must be drawn after the failure. Sampling can be done by library staff or an outside collector; either must use instruments sterilised after their latest use on another accession. A supplier's original sterility seal does not establish sterility after subsequent use. Public release records do not reproduce sampling logs.\n\nThe only reserve had warmed above the maximum before certification. Its seal remained intact. The sole sampling instrument had previously been used on another accession. No alternative reserve, instrument or release exception existed.",
+      "passage": "A fictional seed library releases ordinary accessions on demand but quarantines any accession collected where a pathogen alert was current; the alert concerns the collection site, not the store. A quarantined accession leaves only through destruction or with a negative pathogen certificate, and moving it to another store does not lift quarantine. A certificate requires an approved laboratory to test a freshly drawn sample or a preserved reserve. A reserve qualifies only while its seal is intact and its storage temperature has never exceeded the specified maximum; if either condition fails, a fresh sample must be drawn after the failure. Library staff or an outside collector may take samples, using an instrument sterilised after its latest use on another accession.\n\nAn accession collected inside an active alert area was released alive for sowing. Its only reserve, though still sealed, had warmed above the maximum before certification. The sole sampling instrument had been used on another accession. No other reserve, instrument or exception existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The intact reserve seal preserved its eligibility despite the excessive storage temperature, so a new sample and subsequent sterilisation were unnecessary.",
-        "The fresh sample was collected by outside staff, whose instruments were sterilised after the reserve warmed above its specified temperature maximum.",
-        "After the reserve exceeded its storage limit, a new sample was collected with an instrument sterilised since its most recent use on another accession.",
-        "The required instrument sterilisation probably occurred after its prior use but before the reserve’s temperature failure was discovered by library staff."
+        "The intact seal kept the reserve eligible, so no fresh sample or sterilisation was needed.",
+        "An outside collector took the fresh sample with instruments sterilised after the reserve warmed.",
+        "A new sample was drawn after the warming with an instrument sterilised since its last use.",
+        "The instrument was sterilised before staff discovered that the reserve had warmed."
       ],
       "answer": 2,
       "hints": [
-        "Check the accession's collection location and date against the alert before deciding whether release can use the ordinary route.",
-        "Collection within the active alert area triggers quarantine."
+        "Check where the accession was collected before deciding whether the ordinary release route applies.",
+        "Then ask whether the reserve still qualifies when only one of its two conditions holds."
       ],
       "optionNotes": [
-        "False. Either reserve failure condition disqualifies it.",
-        "Not supported. Staff identity is unrestricted, and sterilisation need not follow the warming event.",
-        "Correct. Alert collection forces quarantine; live release excludes destruction, warmed reserve fails despite intact seal, and fresh sampling needs post-use sterilisation.",
-        "Not supported. The discovery date and its order relative to sterilisation are not stated."
+        "False. A reserve qualifies only while both conditions hold, and 'if either condition fails, a fresh sample must be drawn'.",
+        "Not supported. Either staff or an outside collector may sample, and sterilisation need only follow the instrument's last use, not the warming.",
+        "Correct. Collection in the alert area forces quarantine and live release excludes destruction; the warmed reserve fails, so a fresh sample needed an instrument sterilised 'after its latest use on another accession'.",
+        "Not supported. When the warming was discovered, and how that relates to sterilisation, is not stated."
       ],
-      "explanation": "Collection within the active alert area triggers quarantine. Alive-for-sowing release excludes destruction. A negative certificate is necessary. The warm reserve fails despite its intact seal. The fresh sample must follow that failure. The reused instrument requires sterilisation after its last other-accession use.",
+      "explanation": "Collection in an alert area triggers quarantine, and release alive rules out destruction, so a negative certificate was needed. The reserve fails because it warmed, even though its seal held, so a fresh sample had to be drawn after the failure. The only instrument had been used on another accession and so needed sterilising before that sampling.",
       "supersedes": "v17-05"
     },
     {
-      "id": "v17-06-r2",
+      "id": "v17-06-c",
       "topic": "Treasury grant signature",
       "difficulty": 3,
       "challenge": true,
@@ -224,30 +224,30 @@ EPSO_BANK.registerSet({
           "Professional reactivation under either route requires a post-consulting independence declaration."
         ]
       },
-      "passage": "A fictional treasury pays a capital grant only after an eligible project receives valid financial approval. A project is eligible through public ownership or an approved community lease. Public ownership means the applicant is wholly owned by public bodies; a private minority shareholder excludes that route. A community lease must include a purchase restriction enforceable throughout the grant term. A statement of intended community use does not create that restriction.\n\nFinancial approval follows either a full board decision or a delegated treasurer signature. Delegation excludes leases extending beyond twenty years. Full board approval requires two finance members and an independent auditor, none involved in preparing the application. An auditor's registration becomes inactive on leaving the registered audit firm unless reactivated by the professional body. The firm itself cannot reactivate it. Reactivation can be based on an examination or supervised practice; either route requires a fresh independence declaration after the auditor's latest consulting engagement.\n\nPavo’s audit registration remained inactive until the consulting engagement had ended. A grant was validly paid to a partly privately owned applicant holding a thirty-year community lease. Its board approval included the required finance members and auditor Pavo, who had left the audit firm and then completed a consulting engagement. No other auditor, financial approval or eligibility route existed.",
+      "passage": "A fictional treasury pays a capital grant only to an eligible project with valid financial approval. A project is eligible through public ownership, meaning that public bodies wholly own the applicant, or through a community lease with a purchase restriction enforceable for the whole grant term. Approval comes from a full board decision or a delegated treasurer signature, but delegation excludes leases longer than twenty years. A board decision needs two finance members and an independent auditor, none involved in the application. An auditor's registration becomes inactive on leaving the audit firm unless the professional body reactivates it; the firm itself cannot. Reactivation follows an examination or supervised practice, and either requires a fresh independence declaration made after the auditor's latest consulting engagement.\n\nA grant was validly paid to a partly privately owned applicant with a thirty-year community lease. The board approval included auditor Pavo, who had left the firm and then completed a consulting engagement. Pavo's registration stayed inactive until it ended. No other auditor or route existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The treasurer’s delegation covered the thirty-year lease because public bodies held most of the applicant’s shares despite the remaining private minority ownership.",
-        "Pavo’s former firm reactivated the audit registration after consulting ended, making a further declaration to the professional body unnecessary for board approval.",
-        "The professional body required Pavo to use an examination rather than supervised practice because the consulting engagement followed departure from the former firm.",
-        "Pavo’s registration had been professionally reactivated using an independence declaration made after the consulting engagement, and the lease contained an enforceable purchase restriction."
+        "Delegation covered the thirty-year lease because public bodies held most of the shares.",
+        "Pavo's former firm reactivated the registration, so no new declaration was required.",
+        "The professional body made Pavo sit an examination instead of using supervised practice.",
+        "Pavo's reactivation used a post-consulting declaration; the lease restricted purchases."
       ],
       "answer": 3,
       "hints": [
-        "Separate public ownership from control and check whether an ownership exception requires the entire entity to qualify.",
-        "Private minority ownership excludes the public route."
+        "Check whether partial private ownership leaves the public-ownership route open.",
+        "Then ask which approval route a thirty-year lease allows, and who must take part in it."
       ],
       "optionNotes": [
-        "False. Private minority ownership excludes public ownership and delegation excludes the thirty-year lease.",
-        "False. The firm cannot reactivate registration.",
-        "Not supported. Either reactivation route remains available.",
-        "Correct. Private ownership forces a restricted community lease; its duration excludes delegated approval, and the sole auditor needs professional reactivation with a post-consulting declaration."
+        "False. Public ownership needs public bodies to 'wholly own the applicant', and delegation 'excludes leases longer than twenty years'.",
+        "False. Reactivation is by the professional body; 'the firm itself cannot' reactivate it.",
+        "Not supported. Both an examination and supervised practice are permitted, and the passage does not say which was used.",
+        "Correct. Private ownership leaves the lease route, which needs an enforceable purchase restriction; the long lease forces board approval, so Pavo needed reactivation with a declaration after consulting."
       ],
-      "explanation": "Private minority ownership excludes the public route. The community lease requires an enforceable purchase restriction. Thirty years excludes treasurer delegation. Full board approval needs the sole independent auditor. Leaving the firm makes registration inactive. Professional reactivation under either route requires a post-consulting independence declaration.",
+      "explanation": "A private minority shareholder rules out public ownership, so the lease must have carried an enforceable purchase restriction. A thirty-year lease excludes delegation, so a board decision with an independent auditor was required. Pavo's registration lapsed on leaving the firm, and either reactivation route needs a declaration made after the consulting engagement.",
       "supersedes": "v17-06"
     },
     {
-      "id": "v17-07-r2",
+      "id": "v17-07-c",
       "topic": "Survey drone flight clearance",
       "difficulty": 3,
       "challenge": true,
@@ -264,30 +264,30 @@ EPSO_BANK.registerSet({
           "Revoked backup restoration cannot meet post-revocation generation."
         ]
       },
-      "passage": "A fictional mapping authority exempts a flight from coordination only if it remains inside one district and below the published altitude ceiling. Touching a neighbouring district counts as crossing even when no photograph is taken there. A coordinated flight needs either direct air-traffic approval or an approved automated corridor. A corridor remains approved only while the aircraft's telemetry device uses its certified firmware version.\n\nDirect approval requires the control station to be within continuous radio range. A flight beyond that range must therefore use a qualifying corridor. A firmware change cancels device certification until a fresh compatibility test. Testing can be performed by the device maker or an independent laboratory; either must use an encryption key generated after the most recent key revocation. Restoring an earlier backup does not make a revoked key current. A test summary need not publish the key itself or its generation date.\n\nA flight was validly cleared along a route touching a neighbouring district and passing beyond radio range. Its telemetry firmware had changed, and its former encryption key had been revoked before the compatibility procedure. A backup of the old key remained available. No alternative flight, radio or coordination arrangement applied.",
+      "passage": "A fictional mapping authority exempts a flight from coordination only if it stays inside one district and below the published altitude ceiling. Touching a neighbouring district counts as crossing, even if no photograph is taken there. A coordinated flight needs direct air-traffic approval, which requires the control station to be within continuous radio range, or an approved automated corridor. A corridor remains approved only while the aircraft's telemetry device runs its certified firmware. A firmware change cancels certification until a fresh compatibility test, performed by the device maker or an independent laboratory. Either must use an encryption key generated after the most recent key revocation; restoring an earlier backup does not make a revoked key current.\n\nA flight was validly cleared along a route that touched a neighbouring district and went beyond radio range. Its telemetry firmware had changed, and its encryption key had been revoked before the compatibility test, although a backup of the old key remained. No other arrangement applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The compatibility test used a key generated after the revocation; restoring the old backup could not support the required corridor certification.",
-        "The flight avoided coordination because it photographed only its home district, even though its route touched a neighbouring district beyond radio range.",
-        "The compatibility test was performed by an independent laboratory rather than the device maker because the flight extended beyond continuous radio range.",
-        "The replacement key was generated after the new firmware was installed, rather than before installation but after the previous key was revoked."
+        "The test used a key generated after the revocation, not the restored backup of the old key.",
+        "The flight needed no coordination because it photographed only its home district.",
+        "An independent laboratory, not the maker, ran the test because the flight left radio range.",
+        "The new key was generated after the new firmware was installed, not merely after revocation."
       ],
       "answer": 0,
       "hints": [
-        "Compare the complete flight area with the territorial limits of the exemption.",
-        "Touching another district defeats the exemption."
+        "Compare the whole route with the territorial limits of the exemption.",
+        "Then follow the corridor route through the firmware change to the test that restores it."
       ],
       "optionNotes": [
-        "Correct. Boundary crossing forces coordination; radio range excludes direct approval, changed firmware forces recertification, and either testing route needs a newly generated post-revocation key.",
-        "False. Touching the neighbouring district counts as crossing.",
-        "Not supported. Either testing provider is allowed.",
-        "Not supported. Revocation supplies the lower bound, not firmware installation."
+        "Correct. The route crossed a district and left radio range, so only a corridor remained; the firmware change required a new test, using a key 'generated after the most recent key revocation'.",
+        "False. 'Touching a neighbouring district counts as crossing, even if no photograph is taken there'.",
+        "Not supported. Either 'the device maker or an independent laboratory' may test, and radio range does not decide between them.",
+        "Not supported. The key must postdate the revocation; nothing ties it to the firmware installation."
       ],
-      "explanation": "Touching another district defeats the exemption. Beyond-range flight excludes direct approval. A certified automated corridor is necessary. Changed firmware cancels earlier device certification. Fresh compatibility testing requires a current new key. Revoked backup restoration cannot meet post-revocation generation.",
+      "explanation": "Touching another district removes the exemption, and flying beyond radio range rules out direct approval, so the flight needed a certified corridor. The firmware change cancelled certification until a fresh test, and either tester had to use a key generated after the revocation; restoring the old backup could not satisfy that.",
       "supersedes": "v17-07"
     },
     {
-      "id": "v17-08-r2",
+      "id": "v17-08-c",
       "topic": "Translated diploma recognition",
       "difficulty": 3,
       "challenge": true,
@@ -304,30 +304,30 @@ EPSO_BANK.registerSet({
           "Confirmation needs an identity check after the legal name change."
         ]
       },
-      "passage": "A fictional licensing council recognises a diploma through an automatic list or an individual equivalence decision. The automatic list names institution, campus and teaching language. A listed institution's branch is not covered when its campus or language differs. An individual decision requires a complete authenticated transcript unless a professional regulator has sent a recognised direct verification. An employer's confirmation of employment is not a regulator's verification.\n\nA transcript outside the council's two working languages needs an authorised translation. Translation can be done by a registered translator or under a registered supervisor. Registration ceases on relocation to another jurisdiction unless the receiving jurisdiction confirms it. For either a translator or supervisor, confirmation requires an identity check performed after the person's latest legal name change. An earlier passport check does not establish the later identity. The recognition register may omit translations and identification records.\n\nA diploma was validly recognised from an unlisted branch campus, with its transcript in a third language. No regulator had verified it directly. Translator Mira had relocated and changed legal name after the published passport check. The name change occurred before any receiving-jurisdiction confirmation. Mira worked without a supervisor, and no other translation, verification or recognition route applied.",
+      "passage": "A fictional licensing council recognises a diploma through an automatic list or an individual equivalence decision. The list names institution, campus and teaching language, so a listed institution's branch is not covered if its campus or language differs. An individual decision needs a complete authenticated transcript unless a professional regulator has sent a recognised direct verification. A transcript in neither of the council's two working languages needs an authorised translation by a registered translator or under a registered supervisor. Registration ceases when its holder relocates to another jurisdiction unless the receiving jurisdiction confirms it, which requires an identity check made after the holder's latest legal name change. An earlier passport check does not establish the later identity.\n\nA diploma from an unlisted branch campus, with a transcript in a third language, was validly recognised without direct verification by a regulator. Translator Mira, working without a supervisor, had relocated and changed legal name since the published passport check; the name change preceded any confirmation. No other route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The institution’s entry on the automatic list covered the branch campus because the diploma’s teaching language matched the language of the listed institution.",
-        "Relocation made renewed territorial registration necessary; without a supervising translator, Mira needed identity confirmation under the later legal name.",
-        "The passport check before the name change supplied the identity evidence required after relocation, without any subsequent check under the new legal identity.",
-        "Mira’s identity check under the later legal name took place after relocation, rather than before relocation but after the name change."
+        "The list covered the branch campus because its teaching language matched the institution's.",
+        "Mira needed confirmation from the new jurisdiction, based on a check under the new name.",
+        "The earlier passport check proved Mira's identity, so no check under the new name was needed.",
+        "Mira's identity was checked after relocating, not between the name change and the move."
       ],
       "answer": 1,
       "hints": [
-        "Check whether the specific campus and award are covered, rather than extending recognition from the institution's name.",
-        "Unlisted branch campus excludes automatic recognition."
+        "Check whether the specific campus is covered, rather than extending recognition from the institution's name.",
+        "Then trace the transcript to the person who translated it and the status that person needed."
       ],
       "optionNotes": [
-        "False. Campus differences alone defeat automatic coverage.",
-        "Correct. Unlisted campus forces equivalence; no regulator verification forces a transcript, its language forces translation, and the unsupervised relocated translator needs renewed registration with post-name-change identity.",
-        "False. Earlier identity checks do not establish the later legal identity.",
-        "Not supported. The check must follow the name change, but its order relative to relocation is unspecified."
+        "False. A branch is not covered 'if its campus or language differs', and this campus was unlisted.",
+        "Correct. The unlisted campus and missing verification require a transcript, its language requires translation, and the unsupervised, relocated Mira needed confirmation with a check after the 'latest legal name change'.",
+        "False. 'An earlier passport check does not establish the later identity'.",
+        "Not supported. The check had to follow the name change; its timing relative to the relocation is not given."
       ],
-      "explanation": "Unlisted branch campus excludes automatic recognition. Absent regulator verification requires an authenticated transcript. Its third language requires authorised translation. No supervisor means Mira must hold current registration. Relocation requires confirmation by the receiving jurisdiction. Confirmation needs an identity check after the legal name change.",
+      "explanation": "The unlisted campus rules out automatic recognition, and without a regulator's verification a transcript is needed, which in a third language must be translated. Mira worked without a supervisor, so Mira's own registration had to be current, and after relocation that requires confirmation based on an identity check made after the name change.",
       "supersedes": "v17-08"
     },
     {
-      "id": "v17-09-r2",
+      "id": "v17-09-c",
       "topic": "Port consignment authority",
       "difficulty": 3,
       "challenge": true,
@@ -344,30 +344,30 @@ EPSO_BANK.registerSet({
           "Cash must actually clear into the protected account before release."
         ]
       },
-      "passage": "A fictional port releases a consignment through a domestic-owner channel or an international bonded channel. Domestic-owner status requires the ship's registered owner to be incorporated locally. A local charterer is not its registered owner. The bonded channel requires either the owner or an authorised agent to provide a current cargo guarantee. An agent's authority must name the present owner; a guarantee or mandate for the former owner does not transfer after a sale.\n\nA cargo guarantee may be an insurer bond or a cash deposit. Insurer bonds qualify only while the insurer holds a current licence. A licence suspended during a solvency investigation cannot support a newly issued guarantee, even if the bond is dated before the suspension. Cash deposits are effective only when cleared into the port's protected account. A payment instruction or pending transfer is insufficient. Agents may fund the deposit through a bank or an owner loan; either route still requires cleared funds. Release summaries do not publish all mandates or account entries.\n\nA foreign-owned ship's cargo was validly released after the ship changed registered owner. The charterer was local. Only agent Osa acted, the proposed insurer's licence was suspended, and no other insurer bond existed. No domestic-owner exception or alternative guarantee route applied.",
+      "passage": "A fictional port releases a consignment through a domestic-owner channel or an international bonded channel. The domestic channel requires the ship's registered owner to be incorporated locally; a local charterer is not the registered owner. The bonded channel requires the owner, or an agent whose authority names the present owner, to provide a current cargo guarantee; a former owner's mandate does not transfer after a sale. A guarantee may be an insurer bond or a cash deposit. A bond qualifies only while the insurer's licence is current, and a licence suspended during a solvency investigation cannot support a newly issued guarantee. A cash deposit counts only once cleared into the port's protected account; a payment instruction or pending transfer is insufficient, whether funded by a bank or an owner loan.\n\nThe cargo of a foreign-owned ship was validly released after the ship changed registered owner. Its charterer was local. Only agent Osa acted, the proposed insurer's licence was suspended, and no other bond existed. No other route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The local charterer supplied domestic-owner status, allowing Osa to use the former owner’s mandate without providing a current cargo guarantee.",
-        "The cash deposit was funded through an owner loan rather than a bank because the proposed insurer’s licence remained suspended at release.",
-        "Osa held authority naming the new registered owner, and a cash deposit had cleared into the protected port account before cargo release.",
-        "The protected-account deposit cleared after the new owner issued Osa’s mandate, rather than before the mandate but still before release."
+        "The local charterer gave domestic status, so Osa relied on the former owner's mandate.",
+        "Osa funded the cash deposit through an owner loan rather than through a bank transfer.",
+        "Osa's authority named the new owner, and a cash deposit had cleared before the release.",
+        "The deposit cleared after the new owner issued Osa's mandate rather than before it."
       ],
       "answer": 2,
       "hints": [
-        "Determine the consignment's ownership classification before following the alternative authority routes.",
-        "Registered foreign ownership excludes domestic release."
+        "Decide the ship's ownership status before following the bonded channel.",
+        "Then ask which form of guarantee remains once the insurer is suspended."
       ],
       "optionNotes": [
-        "False. A local charterer does not establish domestic registered ownership.",
-        "Not supported. Either deposit funding route is permitted.",
-        "Correct. Foreign ownership excludes the domestic channel; the sole agent needs new-owner authority, and no licensed insurer bond leaves cleared cash under either funding route.",
-        "Not supported. Both must be effective at release but their mutual order is not fixed."
+        "False. 'A local charterer is not the registered owner', and 'a former owner's mandate does not transfer after a sale'.",
+        "Not supported. Funding by 'a bank or an owner loan' is allowed, and the passage does not say which was used.",
+        "Correct. Foreign ownership leaves the bonded channel, so Osa needed authority naming the present owner; the suspended licence rules out a bond, leaving a deposit 'cleared into the port's protected account'.",
+        "Not supported. Both had to be effective at release, but their order relative to each other is not stated."
       ],
-      "explanation": "Registered foreign ownership excludes domestic release. Only the bonded channel remains. The sole agent needs authority naming the changed owner. The suspended insurer cannot supply a qualifying bond. No other bond exists, leaving cash. Cash must actually clear into the protected account before release.",
+      "explanation": "Foreign registered ownership closes the domestic channel, whatever the charterer's status. Only Osa acted, so Osa's authority had to name the new owner. The suspended insurer could not provide a bond and no other bond existed, so the guarantee must have been a cash deposit that had actually cleared.",
       "supersedes": "v17-09"
     },
     {
-      "id": "v17-10-r2",
+      "id": "v17-10-c",
       "topic": "Sensitive archive publication",
       "difficulty": 3,
       "challenge": true,
@@ -380,30 +380,30 @@ EPSO_BANK.registerSet({
           "The predecessor-only waiver cannot cover the new entity.",
           "Approved redaction is consequently required.",
           "Changed export functionality defeats local certification.",
-          "The outside processor’s moved site needs renewed accreditation.",
+          "The outside processor's moved site needs renewed accreditation.",
           "Either audit route must examine the actual production system after the move."
         ]
       },
-      "passage": "A fictional archive publishes a file openly when it contains neither living-person identifiers nor sealed donor restrictions. Removing names alone does not remove identifiers when stable personal numbers remain. A restricted file can instead be published under a donor waiver or through a legally approved redaction process. A waiver must name the actual recipient institution; a waiver for a predecessor does not transfer when the archive becomes a new legal entity.\n\nApproved redaction requires either a certified local tool or an accredited outside processor. Tool certification ends after a change to its export function. Outside accreditation applies to a named processing site and is suspended when processing moves elsewhere until a fresh site audit. An audit can be conducted in person or remotely with live access; either must examine the production system after the move. A pre-move demonstration copy does not qualify. The archive's publication catalogue need not include site audits or processing agreements.\n\nA file retaining stable personal numbers was validly published after the archive became a new legal entity. Its sole donor waiver named the predecessor. The local tool's export function had changed, without recertification. Its outside processor had moved production sites. No other publication or processing route existed.",
+      "passage": "A fictional archive publishes a file openly if it contains neither living-person identifiers nor sealed donor restrictions. Removing names does not remove identifiers while stable personal numbers remain. A restricted file may instead be published under a donor waiver or through approved redaction. A waiver must name the actual recipient institution; one naming a predecessor does not transfer when the archive becomes a new legal entity. Approved redaction uses a certified local tool or an accredited outside processor. A tool's certification ends when its export function changes. A processor's accreditation covers a named site and is suspended when processing moves, until a fresh site audit. The audit may be in person or remote with live access, but must examine the production system after the move.\n\nAfter becoming a new legal entity, the archive validly published a file that kept stable personal numbers. Its only donor waiver named the predecessor. The local tool's export function had changed without recertification, and the processor had moved production sites. No other route existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The predecessor’s waiver covered the new legal entity because the personal names had been removed even though stable personal numbers remained.",
-        "The processor’s fresh site audit was probably conducted remotely with live access rather than through a personal visit to the new production system.",
-        "The new site audit occurred after publication, allowing the processor’s suspended accreditation to support the earlier redaction retrospectively.",
-        "The outside processor had received a fresh audit examining the production system at the new site after processing moved there."
+        "The predecessor's waiver covered the new entity because the names had been removed.",
+        "The processor's new site audit was probably carried out remotely with live access.",
+        "The site audit followed publication and retrospectively validated the earlier redaction.",
+        "A fresh audit had examined the processor's production system at its new site."
       ],
       "answer": 3,
       "hints": [
-        "Check the definition of restricted information, including identifiers that remain stable after names are removed.",
-        "Stable numbers keep the file restricted."
+        "Check whether removing names is enough to make the file unrestricted.",
+        "Then rule out the publication routes one by one."
       ],
       "optionNotes": [
-        "False. Neither retained identifiers nor legal-entity changes are repaired by removing names.",
-        "Not supported. Either audit route is allowed.",
-        "False. Suspended accreditation cannot support processing before the required fresh audit.",
-        "Correct. Remaining identifiers restrict publication, the old-entity waiver fails, the uncertified local tool fails, and the moved processor needs a fresh post-move production audit."
+        "False. A waiver for a predecessor 'does not transfer when the archive becomes a new legal entity', and removing names does not remove identifiers.",
+        "Not supported. The audit 'may be in person or remote', and the passage does not say which.",
+        "False. Accreditation is 'suspended when processing moves, until a fresh site audit', so a later audit cannot support earlier processing.",
+        "Correct. Stable numbers keep the file restricted, the waiver and the local tool both fail, so the moved processor needed a fresh audit of its production system after the move."
       ],
-      "explanation": "Stable numbers keep the file restricted. The predecessor-only waiver cannot cover the new entity. Approved redaction is consequently required. Changed export functionality defeats local certification. The outside processor’s moved site needs renewed accreditation. Either audit route must examine the actual production system after the move.",
+      "explanation": "Stable personal numbers keep the file restricted, so open publication is impossible. The waiver names the predecessor and does not transfer, and the local tool lost certification, leaving the outside processor. Its accreditation was suspended by the move until a fresh audit examined the production system at the new site.",
       "supersedes": "v17-10"
     }
   ]

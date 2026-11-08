@@ -6,8 +6,12 @@ const teachingRevisions=JSON.parse(fs.readFileSync('scripts/generators/numerical
 const verbalRevisions=JSON.parse(fs.readFileSync('docs/research/verbal/blind-review/book-2026-11/review-mapping.json')).items;
 const abstractRevisions=JSON.parse(fs.readFileSync('scripts/generators/abstract-review-revisions.json')).revisions;
 const previousId=Object.fromEntries([...Object.entries(abstractRevisions).map(([before,entry])=>[entry.id,before]),...Object.entries(teachingRevisions).map(([before,entry])=>[entry.id,before]),...verbalRevisions.map(r=>[r.id,r.previousId])]);
+// The November 2026 medium sets are practice material outside the fixed forms.
+// Condensed verbal items (ids ending -c) take the form slot of the exact version they replaced.
+const compactFile='docs/research/verbal/blind-review/compact-2026-11/final.json';
+for(const r of (fs.existsSync(compactFile)?JSON.parse(fs.readFileSync(compactFile)).items:[]))previousId[r.id]=previousId[r.replaces]||r.replaces;
 const hash=q=>crypto.createHash('sha256').update('forms-v1:'+(previousId[q.id]||q.id)).digest('hex');
-const foundations={};for(const key of ['verbal','numerical','abstract'])foundations[key]=sets.filter(s=>s.section===key&&!s.challenge).flatMap(s=>s.questions).sort((a,b)=>hash(a).localeCompare(hash(b))).slice(0,key==='verbal'?200:100);
+const foundations={};for(const key of ['verbal','numerical','abstract'])foundations[key]=sets.filter(s=>s.section===key&&!s.challenge&&!/^(verbal-2[0-4]|numerical-1[2-6]|abstract-1[2-6])$/.test(s.id)).flatMap(s=>s.questions).sort((a,b)=>hash(a).localeCompare(hash(b))).slice(0,key==='verbal'?200:100);
 const ids=(section,numbers)=>numbers.flatMap(n=>{const set=sets.find(s=>s.id===section+'-'+String(n).padStart(2,'0'));if(!set)throw Error('Missing set '+section+n);return set.questions.map(q=>q.id);});
 const forms=Array.from({length:15},(_,i)=>{const number=i+1;let sections;
  if(i<10){sections={};for(const key of ['verbal','numerical','abstract'])sections[key]=foundations[key].filter((q,j)=>j%10===i).map(q=>q.id);}

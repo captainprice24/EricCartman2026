@@ -1,71 +1,54 @@
 import fs from 'node:fs';import path from 'node:path';import vm from 'node:vm';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';import {test} from 'node:test';import assert from 'node:assert/strict';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const box={window:{}};vm.createContext(box);const run=f=>vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),box);run('questions/registry.js');run('questions/manifest.js');box.EPSO_BANK=box.window.EPSO_BANK;box.window.EPSO_SET_FILES.filter(f=>f.startsWith('verbal/')).forEach(f=>run('questions/'+f));
-const sets=box.EPSO_BANK.sets.filter(s=>s.challenge);const record=JSON.parse(fs.readFileSync(path.join(root,'docs/research/verbal/blind-review/review-mapping.json')));
+const record=JSON.parse(fs.readFileSync(path.join(root,'docs/research/verbal/blind-review/review-mapping.json')));
 const bookDir='docs/research/verbal/blind-review/book-2026-11';
 const book=JSON.parse(fs.readFileSync(path.join(root,bookDir,'review-mapping.json')));
 const bookAnswers=JSON.parse(fs.readFileSync(path.join(root,bookDir,'answers.json')));
-const bookRecord=q=>book.items.find(r=>r.id===q.id);
-const sourceId=q=>bookRecord(q).previousId;
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const isMedium=s=>/^verbal-2[0-4]$/.test(s.id);
 
-test('historical challenge reviews remain traceable for unchanged passages and options',()=>{
- assert.equal(sets.length,10);let total=0;
- for(const set of sets){
-  assert.equal(set.questions.length,10);const counts=[0,0,0,0];
-  const answers=JSON.parse(fs.readFileSync(path.join(root,`docs/research/verbal/blind-review/set-${set.id.split('-')[1]}-answers.json`)));
-  for(const q of set.questions){
-   total++;counts[q.answer]++;const source=sourceId(q),r=record.items.find(r=>r.id===source);assert.ok(r,source);
-   if(!bookRecord(q).changedFields.some(k=>['passage','options'].includes(k))){
-    assert.equal(hash(q.passage),r.passageSha256,q.id);assert.equal(hash(JSON.stringify(q.options)),r.optionsSha256,q.id);
-   }
-   assert.equal(answers[source].answer,'ABCD'[q.answer]);
-   assert.equal(q.difficulty,3);assert.ok(q.reasoning.evidence.length>=3);
-  }
-  assert.ok(counts.every(n=>n>=2&&n<=3));
- }
- assert.equal(total,100);
+// Sets 01–19 were condensed to exam length in November 2026 (ids ending -c). Each condensed item must replace exactly
+// one earlier, independently reviewed version (identified by its content hash in the book-review mapping), and must
+// itself match a fresh blind review of the condensed text.
+const compactDir='docs/research/verbal/blind-review/compact-2026-11';
+const compact=JSON.parse(fs.readFileSync(path.join(root,compactDir,'final.json')));
+const earlier=box.EPSO_BANK.sets.filter(s=>!isMedium(s));
+
+test('historical review archives are intact: 100 challenge, 200 foundation and 300 book-review records',()=>{
+ assert.equal(record.items.length,100);
+ const legacy=JSON.parse(fs.readFileSync(path.join(root,'docs/research/verbal/blind-review/legacy/review-mapping.json'))).items;
+ assert.equal(legacy.length,200);assert.equal(book.items.length,300);assert.equal(Object.keys(bookAnswers).length,300);
+ for(const r of book.items){assert.ok(bookAnswers[r.id],r.id);assert.ok(fs.existsSync(path.join(root,bookDir,r.reviewFile)),r.reviewFile);}
 });
 
-test('historical foundation reviews remain traceable for unchanged passages and options',()=>{
- const dir=path.join(root,'docs/research/verbal/blind-review/legacy');
- const mapping=JSON.parse(fs.readFileSync(path.join(dir,'review-mapping.json'))).items;
- const answers=JSON.parse(fs.readFileSync(path.join(dir,'answers.json')));
- const qs=box.EPSO_BANK.sets.filter(s=>!s.challenge&&!isMedium(s)).flatMap(s=>s.questions);
- assert.equal(qs.length,200);assert.equal(mapping.length,200);assert.equal(Object.keys(answers).length,200);
+test('every condensed item replaces one reviewed earlier version and keeps its original slot',()=>{
+ const qs=earlier.flatMap(s=>s.questions);assert.equal(qs.length,300);assert.equal(compact.items.length,300);
+ const replaced=new Set();
  for(const q of qs){
-  const source=sourceId(q),m=mapping.find(m=>m.id===source);assert.ok(m,q.id);
-  if(!bookRecord(q).changedFields.some(k=>['passage','options'].includes(k))){
-   assert.equal(hash(q.passage),m.passageSha256,q.id);assert.equal(hash(JSON.stringify(q.options)),m.optionsSha256,q.id);
-  }
-  const review=JSON.parse(fs.readFileSync(path.join(dir,m.reviewFile)))[source];
-  assert.deepEqual(review,answers[source]);assert.equal(review.issues.length,0,source+' unresolved historical issue');
-  assert.equal(review.answer,'ABCD'[q.answer]);
+  assert.match(q.id,/-c$/,q.id);const r=compact.items.find(x=>x.id===q.id);assert.ok(r,q.id);
+  const before=book.items.find(b=>b.id===r.replaces);assert.ok(before,q.id+' replaces '+r.replaces);
+  assert.equal(r.replacesContentSha256,before.contentSha256,q.id+' replaced content is the reviewed version');
+  assert.equal(q.supersedes,r.supersedes,q.id);assert.equal(q.id,q.supersedes+'-c',q.id+' id is its root plus -c');const base=x=>x.replace(/-r\d+$/,'');assert.equal(base(q.supersedes),base(r.replaces),q.id+' keeps the original id as its root');assert.equal(bookAnswers[r.replaces].answer,'ABCD'[q.answer],q.id+' same key as the reviewed version');
+  assert.ok(!replaced.has(r.replaces));replaced.add(r.replaces);
  }
+ assert.equal(earlier.filter(s=>s.challenge).length,10);
+ for(const set of earlier.filter(s=>s.challenge)){const counts=[0,0,0,0];for(const q of set.questions){counts[q.answer]++;assert.equal(q.difficulty,3);assert.ok(q.reasoning.evidence.length>=3);}assert.ok(counts.every(n=>n>=2&&n<=3),set.id);}
 });
 
-test('all 300 earlier verbal texts match independent blind keys and reconciled distractor labels',()=>{
- const qs=box.EPSO_BANK.sets.filter(s=>!isMedium(s)).flatMap(s=>s.questions);
- assert.equal(qs.length,300);assert.equal(book.items.length,300);assert.equal(Object.keys(bookAnswers).length,300);
- let revised=0,freshText=0,labels=0;
- for(const q of qs){
-  const r=bookRecord(q);assert.ok(r,q.id);
-  assert.equal(hash(q.passage),r.passageSha256);assert.equal(hash(JSON.stringify(q.options)),r.optionsSha256);
-  assert.equal(hash(JSON.stringify(q)),r.contentSha256,q.id+' teaching fingerprint changed');
-  const blind=JSON.parse(fs.readFileSync(path.join(root,bookDir,r.blindFile))).find(v=>v.id===r.reviewSourceId);
-  assert.ok(blind,q.id);assert.equal(hash(blind.passage),r.passageSha256);assert.equal(hash(JSON.stringify(blind.options)),r.optionsSha256);
-  const review=JSON.parse(fs.readFileSync(path.join(root,bookDir,r.reviewFile)))[r.reviewSourceId];
-  assert.equal(review.answer,'ABCD'[q.answer],q.id);
-  const final=bookAnswers[q.id];assert.equal(final.answer,review.answer,q.id);
-  const reconciled=r.labelReconciliationFile?JSON.parse(fs.readFileSync(path.join(root,bookDir,r.labelReconciliationFile)))[r.reviewSourceId]||{}:{};
-  for(let j=0;j<4;j++)if(j!==q.answer){
-   const letter='ABCD'[j],label=reconciled[letter]?.label||review.labels[letter];
-   assert.equal(q.optionNotes[j].split('.')[0],label,q.id+' '+letter);assert.equal(final.labels[letter],label);labels++;
-  }
-  if(q.id!==r.previousId){assert.equal(q.supersedes,r.previousId);assert.notEqual(r.contentSha256,r.beforeContentSha256);revised++;}
-  if(r.changedFields.some(k=>['passage','options'].includes(k))){assert.equal(r.labelReconciliationFile,null,q.id+' changed text needs fresh blind review');assert.deepEqual(review.issues,[]);freshText++;}
+test('all 300 condensed verbal texts match independent blind keys and reconciled labels at exam length',()=>{
+ let labels=0;
+ for(const q of earlier.flatMap(s=>s.questions)){
+  const r=compact.items.find(x=>x.id===q.id);
+  assert.equal(hash(q.passage),r.passageSha256,q.id+' passage changed after review');assert.equal(hash(JSON.stringify(q.options)),r.optionsSha256,q.id+' options changed after review');
+  const review=JSON.parse(fs.readFileSync(path.join(root,compactDir,r.reviewFile)))[r.reviewSourceId||q.id];assert.ok(review,q.id);
+  assert.equal(review.answer,'ABCD'[q.answer],q.id+' blind key');
+  for(let j=0;j<4;j++)if(j!==q.answer){const L='ABCD'[j],label=q.optionNotes[j].split('.')[0];
+   assert.equal(label,r.labels[L],q.id+' '+L);labels++;
+   if(review.labels[L]!==label)assert.ok(r.reconciliation&&r.reconciliation[L],q.id+' '+L+' label disagreement must be reconciled');}
+  const words=q.passage.split(/\s+/).length;assert.ok(words>=130&&words<=170,q.id+' exam-length passage ('+words+' words)');
+  assert.ok(q.passage.split('\n\n').length<=2,q.id+' one or two paragraphs');assert.ok(q.options.every(o=>o.length<=100),q.id+' short options');
  }
- assert.equal(labels,900);assert.equal(revised,97);assert.equal(freshText,14);
+ assert.equal(labels,900);
 });
 
 test('verbal coaching uses case-specific guidance and respects one-way implications',()=>{

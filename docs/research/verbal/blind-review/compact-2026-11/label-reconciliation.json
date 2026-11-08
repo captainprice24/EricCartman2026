@@ -1,0 +1,511 @@
+{
+  "v01-04-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v01-07-c": {
+    "C": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v01-15-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v01-16-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v01-17-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    },
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v01-19-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label; note rewritten"
+    }
+  },
+  "v02-03-c": {
+    "C": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v02-05-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v02-17-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v03-08-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v03-09-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v03-10-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v03-22-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v04-06-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v04-07-c": {
+    "A": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v04-12-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v04-13-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v05-14-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v05-17-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v05-18-c": {
+    "B": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-01-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-02-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-05-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-06-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-09-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-12-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v07-14-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-03-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-08-c": {
+    "B": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-10-c": {
+    "A": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-12-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-15-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v09-16-c": {
+    "C": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v06-03-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v06-08-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v06-13-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v06-19-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v06-21-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v08-07-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v08-08-c": {
+    "D": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v08-11-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v08-13-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v08-21-c": {
+    "C": {
+      "authorLabel": "False",
+      "reviewerLabel": "Overstated",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v12-04-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v12-07-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "D": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v12-08-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v12-10-c": {
+    "B": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v13-02-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v13-04-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v13-07-c": {
+    "C": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v13-08-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v10-02-c": {
+    "C": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v10-03-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v10-08-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v10-09-c": {
+    "D": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "option reworded as an unstated reason, because a set may not make every distractor a flat contradiction; a second blind check confirmed Not supported"
+    }
+  },
+  "v11-01-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v11-02-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v11-03-c": {
+    "B": {
+      "authorLabel": "False",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v11-10-c": {
+    "C": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "option reworded as an unstated reason, because a set may not make every distractor a flat contradiction; a second blind check confirmed Not supported"
+    }
+  },
+  "v19-01-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v19-04-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v19-06-c": {
+    "A": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v19-08-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v19-09-c": {
+    "B": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v14-06-c": {
+    "C": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    },
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "Not supported",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v15-01-c": {
+    "D": {
+      "authorLabel": "Overstated",
+      "reviewerLabel": "False",
+      "resolution": "relabelled to the reviewer label"
+    }
+  },
+  "v15-09-c": {
+    "D": {
+      "authorLabel": "Not supported",
+      "reviewerLabel": "Not supported",
+      "resolution": "option reworded as an Overstated distractor to keep the set pattern within limits; a second blind check confirmed Overstated"
+    }
+  }
+}

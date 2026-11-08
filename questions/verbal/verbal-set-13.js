@@ -1,152 +1,151 @@
-/* Original hand-authored verbal challenge items; reordered for balanced set-level cues. */
 EPSO_BANK.registerSet({
-  id: "verbal-13",
-  section: "verbal",
-  title: "Verbal reasoning · Set 13 — Very hard",
-  description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 2,
-  challenge: true,
-  questions: [
+  "id": "verbal-13",
+  "section": "verbal",
+  "title": "Verbal reasoning · Set 13 — Very hard",
+  "description": "10 original challenging passages of exam length on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
+  "version": 2,
+  "challenge": true,
+  "questions": [
     {
-      id: "v13-01",
-      topic: "Delegated funding and revocation timing",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional regional fund allows its executive to sign small grants without a full board vote. Larger grants require a board resolution. A grant for emergency repairs can use the small-grant route regardless of amount, but only while the board's emergency declaration remains in force. The declaration does not exempt the executive from verifying that the work is repair rather than new construction.\n\nA resolution signed while the emergency declaration is valid does not extend that declaration. A grant is committed when its contract is signed, not when the application is submitted or approved in principle. Contracts already committed remain valid after an emergency declaration ends. Uncommitted proposals must satisfy the rules applying on their eventual signature date. The fund's public log records approval in principle and contract signature as separate events.\n\nA large repair proposal received executive approval in principle on Monday while the emergency declaration was in force. The declaration ended on Wednesday. The executive signed the contract on Friday without a board resolution. All documents identify the work as repair, and no new declaration or other delegated power was issued. A separate small new-construction proposal was also signed on Friday, after its ordinary requirements had been met. The log contains no missing or disputed dates for either proposal.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "The large repair signature lacked a valid route on Friday; the ordinary small-grant route remained available for construction.",
-        "Both Friday contracts used the emergency-repair exception, because their common signature date made the executive’s delegated route identical for each proposal.",
-        "The large repair contract remained valid as a pre-existing commitment because approval in principle had been recorded before the declaration ended.",
-        "The board would have granted a resolution for the large repair proposal if the executive had requested one after Wednesday."
+      "id": "v13-01-c",
+      "topic": "Delegated funding and revocation timing",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional regional fund allows its executive to sign small grants without a full board vote, while larger grants require a board resolution. A grant for emergency repairs can use the small-grant route regardless of amount, but only while the board's emergency declaration remains in force. A grant is committed when its contract is signed, not when it is submitted or approved in principle. Contracts already committed remain valid after a declaration ends. Uncommitted proposals must satisfy the rules applying on their eventual signature date.\n\nA large repair proposal received executive approval in principle on Monday, while the emergency declaration was in force. The declaration ended on Wednesday. On Friday the executive signed the repair contract without a board resolution; no new declaration or other delegated power had been issued. A separate small new-construction proposal was also signed on Friday, after its ordinary requirements had been met. The fund's log records the approval and signature dates of both proposals, and none is disputed.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "The repair contract lacked a valid route on Friday, but the construction grant had one.",
+        "Both Friday contracts relied on the emergency-repair route, as they were signed together.",
+        "The repair contract was committed, because approval in principle came before Wednesday.",
+        "The board would have passed a resolution for the repair had the executive asked for one."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Identify the event that fixes commitment.",
         "Apply the declaration's expiry to the exceptional route without erasing the ordinary small-grant power."
       ],
-      optionNotes: [
-        "Correct. Large amount requires a board resolution unless the emergency route is live at commitment, which occurs on signature; ordinary small grants have a different route.",
-        "False. The construction proposal is not emergency repair and used ordinary small-grant requirements; the repair exception had expired.",
-        "False. Commitment occurs on signature, not approval in principle.",
-        "Not supported. A hypothetical board decision is unreported."
+      "optionNotes": [
+        "Correct. The repair was uncommitted until Friday, after the declaration ended, so it needed a resolution; small grants can be signed 'without a full board vote'.",
+        "False. The construction grant followed its 'ordinary requirements', and the repair route applies 'only while the board's emergency declaration remains in force'.",
+        "False. A grant is 'committed when its contract is signed', not when 'approved in principle'.",
+        "Not supported. No request was made, and the text reports no view of the board."
       ],
-      explanation: "An exception's expiry changes later decisions without invalidating earlier commitments or extinguishing independent ordinary powers.",
-      reasoning: {
-        model: "Temporal exception and surviving ordinary authority",
-        evidence: [
+      "explanation": "An exception’s expiry changes later decisions without invalidating earlier commitments or removing independent ordinary powers.",
+      "reasoning": {
+        "model": "Temporal exception and surviving ordinary authority",
+        "evidence": [
           "only while the board's emergency declaration remains in force",
           "committed when its contract is signed",
           "Uncommitted proposals must satisfy the rules applying on their eventual signature date",
           "small grants without a full board vote"
         ]
       },
-      reviewedAs: "v10-13"
+      "reviewedAs": "v10-13",
+      "supersedes": "v13-01"
     },
     {
-      id: "v13-02",
-      topic: "Panel opinion changes with attrition",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional transport panel asked the same 100 registered members a binary support-or-oppose question about a tram proposal in March and September. In March every member answered: 40 supported and 60 opposed. In September 80 members answered: 54 supported and 26 opposed. The September respondents were drawn entirely from the original 100, and nobody joined the register between the surveys. The wording and classification of support were unchanged.\n\nA nonresponse was not counted as either support or opposition. The published tables contain no names and do not connect an individual's March and September answers. They also give no September opinions for the 20 nonrespondents. Between surveys, the route was amended and the council ran an information campaign. Neither change was evaluated separately, and the panel's answers were advisory rather than binding on the council.\n\nOrganisers retained the anonymised totals so they could compare expressed opinion without publishing individual positions. A proposed commentary stated that the second survey merely contained a different mix of the original supporters, with no member needing to change sides. Another commentary attributed any switches to the information campaign. No linked interviews, participant histories or separate evaluation of the route amendment accompanied either commentary in the released material.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "More than half of the original opponents expressed support in September, because support formed a majority of the responding group.",
-        "Some original opponents expressed support in September, and the known responses alone establish majority support within the full registered panel.",
-        "The changed respondent mix could account for all 54 supporters without anyone switching sides if the 20 missing replies came from original opponents.",
-        "Exactly 14 original opponents switched to support, since subtracting the first support total from the second isolates every change of position."
+      "id": "v13-02-c",
+      "topic": "Panel opinion changes with attrition",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional transport panel asked the same 100 registered members a binary support-or-oppose question about a tram proposal in March and September, with unchanged wording. In March every member answered: 40 supported and 60 opposed. In September 80 members answered: 54 supported and 26 opposed. The September respondents were drawn entirely from the original 100, nobody joined the register, and a nonresponse counted as neither support nor opposition.\n\nThe published tables contain no names, do not connect an individual's March and September answers and give no September opinions for the 20 nonrespondents. Between the surveys the route was amended and the council ran an information campaign, but neither change was evaluated separately. One commentary claimed that the second survey merely contained a different mix of the original supporters, with nobody changing sides; another attributed any switches to the campaign. Neither commentary was backed by linked interviews or participant histories.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Most of the original opponents switched to support, as supporters were a majority of replies.",
+        "Some original opponents switched, and supporters are now a majority of the full panel.",
+        "Attrition alone could explain the 54 supporters if the 20 missing replies were opponents.",
+        "Exactly 14 original opponents switched, the difference between the two support totals."
       ],
-      answer: 1,
-      hints: [
-        "Compare the largest possible pool of unchanged supporters with the later supporter count.",
-        "Separate the necessary existence of switching from exact flows and their causes."
+      "answer": 1,
+      "hints": [
+        "Compare the largest possible pool of unchanged supporters with the September supporter count.",
+        "Separate the fact that some switching occurred from exact flows and their causes."
       ],
-      optionNotes: [
-        "Overstated. The inference that some opponents switched is expanded to a majority of the 60 original opponents; that need not follow.",
-        "Correct. 54 exceeds the original 40 supporters and also exceeds half of all 100 members, regardless of 20 unknown replies.",
-        "False. At most 40 unchanged supporters were available, so attrition cannot supply 54 without switching.",
-        "Overstated. Fourteen is a lower bound; simultaneous switches and missing supporters can yield a larger gross flow."
+      "optionNotes": [
+        "Overstated. At least 14 of the 60 opponents must have switched, but nothing shows that more than half did.",
+        "Correct. Only 40 members supported in March, so 54 supporters require switching, and 54 exceeds half of all 100 members.",
+        "False. Respondents came 'entirely from the original 100', of whom only 40 supported in March, so 54 supporters cannot arise without switching.",
+        "Not supported. Fourteen is a minimum; the tables 'do not connect an individual's March and September answers', so further switches in both directions are possible."
       ],
-      explanation: "Aggregate counts can force a limited individual-level inference when the cohort and categories are fixed. They do not determine every transition or its cause.",
-      reasoning: {
-        model: "Bounded cohort inference under attrition",
-        evidence: [
+      "explanation": "Aggregate counts can force a limited individual-level inference when the cohort and categories are fixed. They do not determine every transition or its cause.",
+      "reasoning": {
+        "model": "Bounded cohort inference under attrition",
+        "evidence": [
           "40 supported and 60 opposed",
           "54 supported and 26 opposed",
           "drawn entirely from the original 100",
           "do not connect an individual's March and September answers"
         ]
       },
-      reviewedAs: "v10-04"
+      "reviewedAs": "v10-04",
+      "supersedes": "v13-02"
     },
     {
-      id: "v13-03",
-      topic: "Night-freight inspection inference",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "In a fictional harbour, freight vessels entering during the night window require an active emissions sensor and a paid security deposit, unless they hold a current local waiver. Passenger ferries follow a separate procedure. Fuel carriers count as freight vessels, and local waivers are never issued for fuel carriage. A priority certificate affects the order in which eligible vessels enter; it does not waive entry requirements.\n\nA sensor is recorded as active only after it has passed an inspection by an authorised technician. Installing a sensor or booking an inspection does not establish active status. The harbour's public arrivals log records successful admissions but does not list deposits, inspections or priority certificates. On one recorded night it listed 18 arrivals, six of them freight vessels. A vessel can appear in that log more than once during a month.\n\nThe Silver arrived carrying fuel during that night's freight window. The harbour confirms that it admitted the vessel in accordance with the stated entry rules, with no emergency deviation. Its publicly available file contains no priority certificate and no technician's report. The file is a selection of documents released for public inspection rather than a complete record of documents held by the harbour. No rule makes public release of an inspection report a condition of entry.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Silver could lawfully have entered without inspection if its priority certificate was held in the harbour's unreleased records.",
-        "Every freight arrival in the night log required an active sensor, since waivers were unavailable for the Silver's particular cargo.",
-        "Silver's admission entails a passed inspection, but the night log does not establish that every other freight arrival was inspected.",
-        "The inspected freight vessels admitted that night were all fuel carriers, since that cargo category could not receive a local waiver."
+      "id": "v13-03-c",
+      "topic": "Night-freight inspection inference",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "In a fictional harbour, freight vessels entering during the night window require an active emissions sensor and a paid security deposit, unless they hold a current local waiver. Fuel carriers count as freight vessels, and local waivers are never issued for fuel carriage. A priority certificate affects the order in which eligible vessels enter; it does not waive entry requirements. A sensor is recorded as active only after it has passed an inspection by an authorised technician; installing a sensor or booking an inspection is not enough.\n\nThe public arrivals log lists successful admissions but not deposits, inspections or certificates. On one night it listed 18 arrivals, six of them freight vessels. The Silver arrived carrying fuel in that night's freight window, and the harbour confirms that it admitted the vessel in accordance with the stated entry rules, with no emergency deviation. The Silver's public file contains no technician's report, but it is a selection of released documents rather than the harbour's complete record.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "The Silver could have entered uninspected if an unreleased priority certificate existed.",
+        "Every freight arrival that night needed an active sensor, as fuel cargo rules out waivers.",
+        "The Silver's sensor must have passed inspection; the log is silent on the other freight.",
+        "All of the inspected freight vessels admitted that night were fuel carriers."
       ],
-      answer: 2,
-      hints: [
-        "Trace Silver's cargo through the waiver rule before using its lawful admission.",
-        "An active sensor implies an inspection; a selective public file is not the harbour's complete record."
+      "answer": 2,
+      "hints": [
+        "Trace the Silver's cargo through the waiver rule before using its lawful admission.",
+        "An active sensor implies an inspection; a selective public file is not the complete record."
       ],
-      optionNotes: [
-        "False. A priority certificate cannot waive conditions, and fuel cannot receive the local waiver.",
-        "Overstated. The exclusion for fuel is extended to every freight vessel.",
-        "Correct. Fuel excludes Silver from the waiver, lawful admission requires an active sensor, and activity implies inspection. Other freight could have waivers.",
-        "Not supported. This reverses the chain: fuel requires inspection, but inspection need not imply fuel."
+      "optionNotes": [
+        "False. A priority certificate 'does not waive entry requirements', and fuel carriers cannot hold a waiver.",
+        "Overstated. Only fuel carriage is barred from waivers; other freight vessels could have entered under a waiver.",
+        "Correct. No waiver was possible for fuel, so lawful entry needed an active sensor, which is 'active only after it has passed an inspection'.",
+        "Not supported. Fuel cargo requires inspection, but nothing shows that inspection implies fuel cargo."
       ],
-      explanation: "Work backwards from an outcome through a rule after eliminating its exception. Keep the resulting necessary condition separate from facts missing from a selective record.",
-      reasoning: {
-        model: "Eliminated exception and backward implication",
-        evidence: [
+      "explanation": "Work backwards from an outcome through a rule once its exception is eliminated. Keep that necessary condition separate from facts missing from a selective record.",
+      "reasoning": {
+        "model": "Eliminated exception and backward implication",
+        "evidence": [
           "Fuel carriers count as freight vessels",
           "local waivers are never issued for fuel carriage",
           "active only after it has passed an inspection",
           "admitted the vessel in accordance with the stated entry rules"
         ]
       },
-      reviewedAs: "v10-01"
+      "reviewedAs": "v10-01",
+      "supersedes": "v13-03"
     },
     {
-      "id": "v13-04-r2",
+      "id": "v13-04-c",
       "topic": "Recommendation strength and follow-up",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional education review found that schools using a new attendance dashboard had fewer recorded absences after its introduction. The schools volunteered and received training at the same time as the software. The study did not separate the effects of training, dashboard use and pre-existing differences between participating and other schools. The review covered one school year rather than long-term outcomes.\n\nThe reviewers recommended offering the dashboard to another group of schools under a design that could compare outcomes more reliably. They did not recommend compulsory district-wide adoption. Their proposal included common recording definitions, baseline measurements and a record of whether teachers actually used the system. The original report had counted software activation, which did not establish regular classroom use.\n\nThe follow-up gave every enrolled school the same training and randomly assigned access to the dashboard. All schools used common recording definitions and supplied complete outcomes. Analysts retained schools in their assigned access groups whether or not teachers used the dashboard regularly. The schools again volunteered rather than being sampled from the whole district. The study has not yet reported outcomes. The design separates access from training in a way the original combined introduction did not, but includes no separate random assignment to actual classroom use.",
+      "passage": "A fictional education review found that schools using a new attendance dashboard had fewer recorded absences after its introduction. The schools volunteered and received training at the same time as the software, so the study could not separate the effects of training, dashboard use and pre-existing differences. It also counted software activation, which did not establish regular classroom use. The reviewers recommended a more reliable comparison in another group of schools, not compulsory district-wide adoption.\n\nThe follow-up gave every enrolled school the same training and randomly assigned access to the dashboard. All schools used common recording definitions and supplied complete outcomes. Analysts retained schools in their assigned access groups whether or not teachers used the dashboard regularly. The schools again volunteered rather than being sampled from the whole district, and no outcomes have yet been reported. The design separates access from training in a way the original study did not, but includes no separate random assignment to actual classroom use.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "The follow-up separates access assignment from common training, while actual uptake effects and transfer beyond volunteers remain unresolved.",
-        "The follow-up identifies the effect of regular classroom use in every district school because access is random and training is held constant.",
-        "Only the schools regularly using the dashboard remain in the analysis, since random access removes the need to retain nonusers within their assigned groups.",
-        "The district purchased the dashboard after the follow-up found a favourable access effect relative to the original study's combined introduction."
+        "Access is separated from training, but use is not randomised and only volunteers took part.",
+        "The follow-up identifies the effect of regular classroom use in every district school.",
+        "Only schools that use the dashboard regularly stay in the follow-up analysis.",
+        "The district bought the dashboard after the follow-up found a favourable effect of access."
       ],
       "answer": 0,
       "hints": [
-        "Separate random assignment of access from actual software use and from recruitment into the study.",
+        "Separate random assignment of access from actual use of the software and from how schools joined the study.",
         "Which factor is held common in the follow-up, and what has not yet been measured?"
       ],
       "optionNotes": [
-        "Correct. Training is no longer confounded with access assignment, but actual uptake is not separately randomised and recruitment remains selective.",
-        "Overstated. An access design for volunteers is expanded into an actual-use effect for every school.",
-        "False. The analysis explicitly retains schools in assignment groups regardless of use.",
-        "Not supported. No follow-up outcome or purchase decision has been reported."
+        "Correct. All schools got 'the same training and randomly assigned access', but use was not randomised and the schools volunteered.",
+        "False. The design randomises access among volunteers; it includes 'no separate random assignment to actual classroom use'.",
+        "False. Schools stay in their groups 'whether or not teachers used the dashboard regularly'.",
+        "Not supported. 'No outcomes have yet been reported', and no purchase is mentioned."
       ],
-      "explanation": "A stronger design can address one confound without proving a result, a usage effect or population-wide generalisability.",
+      "explanation": "A stronger design can remove one confound without proving a result, a usage effect or district-wide applicability.",
       "reasoning": {
         "model": "Design improvements with remaining exposure and sampling limits",
         "evidence": [
@@ -159,36 +158,36 @@ EPSO_BANK.registerSet({
       "solution": [
         "All enrolled schools receive the same training, so training no longer varies with assigned dashboard access.",
         "Schools remain in their assigned groups regardless of actual use; regular-use effects are not separately randomised.",
-        "Schools volunteer, and outcomes are not yet reported. The design alone establishes neither a favourable result nor transfer to every district school."
+        "Schools volunteer, and no outcomes are yet reported. The design alone establishes neither a favourable result nor transfer to every district school."
       ],
       "supersedes": "v13-04"
     },
     {
-      "id": "v13-05-r2",
+      "id": "v13-05-c",
       "topic": "Forecast revision interpretation",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional water authority issued an early forecast of summer demand based on normal rainfall and the previous year's population estimate. A revised forecast was lower. Between the two releases, the authority updated both the rainfall assumption and the population estimate. It did not publish a decomposition attributing the change to either input.\n\nThe revised forecast also incorporated a planned conservation campaign. Its estimated effect came from a model, not from measured responses to that summer's campaign, which had not yet started. The authority warned that a lower forecast was a conditional expectation of demand, not a record of water already saved. The first forecast projected 40 million cubic metres and the revision projected 36 million, using the same demand definition.\n\nFor a supplementary model check, analysts ran the revised population and rainfall assumptions twice: once with the campaign effect set to zero and once with the planned campaign effect included. The projected demands differed by one million cubic metres. All other inputs were identical in these two runs. The original forecast revision remained four million. Actual summer demand was not yet observed, and no new evidence measured the campaign response. The analysts retained the distinction between changing an assumption in a model and observing its realised effect.",
+      "passage": "A fictional water authority's early forecast of summer demand, based on normal rainfall and the previous year's population estimate, projected 40 million cubic metres. A revised forecast, using the same demand definition, projected 36 million. Between the releases the authority updated both the rainfall assumption and the population estimate, but published no decomposition attributing the change to either input. The revision also incorporated a planned conservation campaign. Its effect came from a model, not from measured responses to that summer's campaign, which had not yet started.\n\nAs a supplementary check, analysts ran the revised model twice: once with the campaign effect set to zero and once with it included. All other inputs were identical in these two runs, and the projected demands differed by one million cubic metres. Actual summer demand has not yet been observed. The authority stressed that a lower forecast is a conditional expectation of demand, not a record of water already saved.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "The remaining three million cubic metres were saved by population decline alone, because the campaign accounts for one million in the paired runs.",
-        "The one-million difference proves the campaign had saved a quarter of the full revision before it began.",
-        "The paired runs isolate one campaign assumption within the revised model, without measuring savings or explaining the full revision.",
-        "Every household reduced use in response to the campaign, since a model with common inputs projected lower demand when its effect was included."
+        "Population decline alone saved the other three million cubic metres of the revision.",
+        "The one-million gap shows the campaign saved a quarter of the revision before it began.",
+        "The paired runs isolate a modelled campaign effect, not savings or the whole revision.",
+        "Every household cut its use because of the campaign, as the run including it was lower."
       ],
       "answer": 2,
       "hints": [
         "Separate the original forecast revision from the later pair of model runs.",
-        "Which input alone changes between the paired runs, and are either run's figures observed savings?"
+        "Which input alone changes between the paired runs, and is either run's figure an observed saving?"
       ],
       "optionNotes": [
-        "Not supported. The remainder also involves rainfall and is not an observed saving or population-only decomposition.",
-        "False. The campaign had not begun and the numbers are prospective model outputs.",
-        "Correct. Only the campaign assumption varies within the paired runs, but the overall revision varied other inputs and actual effects remain unobserved.",
-        "Overstated. An aggregate conditional estimate is expanded to an observed universal household response."
+        "Not supported. The authority 'updated both the rainfall assumption and the population estimate' and gave no decomposition; nor is a forecast a saving.",
+        "False. The campaign 'had not yet started', and the figures are model projections, not savings.",
+        "Correct. 'All other inputs were identical in these two runs', but demand is unobserved and the revision also changed other inputs.",
+        "Overstated. A modelled aggregate difference is turned into an observed response by every household."
       ],
-      "explanation": "Changing one model input isolates a conditional model effect. It does not measure a realised causal effect or explain every difference between separate forecasts.",
+      "explanation": "Changing one model input isolates a conditional model effect. It does not measure a realised effect or explain every difference between separate forecasts.",
       "reasoning": {
         "model": "Isolated model sensitivity versus realised causal contribution",
         "evidence": [
@@ -199,38 +198,38 @@ EPSO_BANK.registerSet({
       },
       "reviewedAs": "v11-14",
       "solution": [
-        "The original forecast falls from 40 to 36 million cubic metres while multiple assumptions change.",
-        "The paired revised-model runs differ only in the campaign assumption, producing a one-million difference within that model.",
-        "Actual demand and campaign responses are unobserved; the paired difference neither measures realised savings nor attributes the full four-million revision."
+        "The forecast falls from 40 to 36 million cubic metres while several assumptions change.",
+        "The paired runs of the revised model differ only in the campaign assumption, producing a one-million difference within that model.",
+        "Actual demand and campaign responses are unobserved; the paired difference neither measures realised savings nor explains the full four-million revision."
       ],
       "supersedes": "v13-05"
     },
     {
-      "id": "v13-06-r2",
+      "id": "v13-06-c",
       "topic": "Refuge-room capacity records",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional fire-safety register records a room as available for refuge when its fire door is operational and its accessible route is unobstructed. The register also lists a design capacity, which is not a count of people currently sheltering there. A room can retain its design capacity in the database while being marked temporarily unavailable.\n\nFacilities staff inspect doors each Monday. Accessibility staff review routes separately after maintenance work. Completing the door inspection does not certify the route, and reopening a route does not establish that a defective door has been repaired. The building has six refuge rooms with a combined design capacity of 48 people. Two rooms are undergoing work, but their individual capacities and the condition of the other rooms are not given in the report.\n\nThe officer later verified that four rooms met both availability conditions and together provided 34 design places. The remaining rooms were Elm, with eight places, and Willow, with six. Elm's door worked but its route was obstructed. Willow's route was clear but its door was defective. No other condition or capacity changed. A contractor can clear Elm's route or repair Willow's door independently; either action leaves the other room's condition unchanged. Neither action has yet occurred.",
+      "passage": "A fictional fire-safety register records a room as available for refuge when its fire door is operational and its accessible route is unobstructed. It also lists each room's design capacity, which is not a count of people sheltering there; a room keeps its design capacity while temporarily unavailable. A door inspection does not certify the route, and reopening a route does not establish that a defective door has been repaired.\n\nA building has six refuge rooms with a combined design capacity of 48 people. The officer verified that four rooms met both availability conditions and together provided 34 design places. The remaining rooms were Elm, with eight places, and Willow, with six. Elm's door worked but its route was obstructed. Willow's route was clear but its door was defective. A contractor can clear Elm's route or repair Willow's door independently; either action leaves the other room's condition unchanged. Neither action has yet occurred, and no other condition or capacity has changed.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "Repairing Willow's door would add eight available places, since Elm's larger capacity is already shown in the combined design total.",
-        "Clearing Elm's route alone would yield 42 available places; repairing Willow alone would yield 40, and both actions would restore all 48.",
-        "Either single repair would make all 48 design places available, because every room would then have passed at least one of the two checks.",
-        "The contractor will clear Elm's route first because its work is quicker and adds more places than the repair to Willow's defective door."
+        "Repairing Willow's door would add eight places, bringing availability to 42 places.",
+        "Clearing only Elm's route gives 42 places, repairing only Willow 40, and both gives 48.",
+        "Either single repair would make all 48 places available, as each room passes one check.",
+        "The contractor will clear Elm's route first, since that work is quicker and adds more."
       ],
       "answer": 1,
       "hints": [
-        "List what is missing for Elm and Willow to meet both availability conditions.",
-        "Add each room's capacity only when the proposed action completes its remaining condition."
+        "List what each of Elm and Willow lacks to meet both availability conditions.",
+        "Add a room's capacity only when an action completes its remaining condition."
       ],
       "optionNotes": [
-        "False. Willow has six places; Elm remains blocked if only Willow is repaired.",
-        "Correct. The four available rooms supply 34; the actions separately complete the remaining condition for eight-place Elm or six-place Willow.",
-        "False. The proposed at-least-one rule contradicts the explicit requirement for both conditions in each available room.",
-        "Not supported. No sequence or work-time comparison is reported."
+        "False. Willow has 'six' places; repairing its door adds six, giving 40, while Elm stays obstructed.",
+        "Correct. The four available rooms give 34; clearing Elm adds eight, repairing Willow adds six, and both together reach 48.",
+        "False. A room is available only if its door 'is operational and its accessible route is unobstructed'; one repair leaves the other room unavailable.",
+        "Not supported. The text reports no order of work or comparison of how long each job takes."
       ],
-      "explanation": "Count capacity only after all conditions for availability are satisfied; stored design capacity is not automatically usable capacity.",
+      "explanation": "Count capacity only after every condition for availability is met; stored design capacity is not automatically usable capacity.",
       "reasoning": {
         "model": "Conjunctive operational capacity across separate repairs",
         "evidence": [
@@ -249,56 +248,56 @@ EPSO_BANK.registerSet({
       "supersedes": "v13-06"
     },
     {
-      id: "v13-07",
-      topic: "Credit recognition across course routes",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional institute awards a fieldwork credit to students completing either a supervised placement or an approved community project. Every approved community project includes a written evaluation, while placements require an oral evaluation. A student can complete both routes. The credit certificate records that a route was completed but does not name the route or reproduce its evaluation.\n\nResearch scholarships are restricted to students holding a fieldwork credit and a research-methods pass. A scholarship offer therefore establishes those two qualifications, but a methods pass alone does not establish fieldwork credit. An ordinary bursary has different conditions and is not treated as a research scholarship. Evaluations cannot be waived on either fieldwork route, though the two evaluation formats are different.\n\nNeri received a research scholarship under these rules. The institute confirms that Neri never completed an oral evaluation for any placement. No community-project evaluation or methods transcript has been publicly released. Another student, Vale, has a published methods pass and an ordinary bursary, but no released fieldwork or scholarship decision. Both students attended a preparatory fieldwork briefing, which the institute does not count as a placement, project or evaluation. Public absence of a record is not being treated as evidence of actual absence except for Neri's expressly confirmed oral-evaluation history.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Vale completed the community-project route rather than a placement because the ordinary bursary was published without an oral-evaluation record.",
-        "Neri's missing public evaluation record permits a placement route with no oral evaluation, since a scholarship certificate does not specify the route.",
-        "All methods-pass holders qualify for research scholarships, as both fieldwork routes include an evaluation and the certificate can omit its format.",
-        "Neri's award entails methods and community-project qualifications; Vale's ordinary bursary establishes no corresponding fieldwork route."
+      "id": "v13-07-c",
+      "topic": "Credit recognition across course routes",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional institute awards a fieldwork credit to students completing either a supervised placement or an approved community project. Placements require an oral evaluation, while every approved project includes a written one. Evaluations cannot be waived on either route, and the credit certificate does not name the route. Research scholarships are restricted to students holding a fieldwork credit and a research-methods pass, so an offer establishes both, but a methods pass alone does not establish fieldwork credit. An ordinary bursary has different conditions.\n\nNeri received a research scholarship under these rules, and the institute confirms that Neri never completed an oral evaluation for any placement. No project evaluation or methods transcript has been released. Another student, Vale, has a published methods pass and an ordinary bursary, but no released fieldwork or scholarship decision. A missing public record is not treated as evidence that a document does not exist, except for Neri's confirmed oral-evaluation history.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Vale took the community-project route, as the bursary record shows no oral evaluation.",
+        "Neri may have done a placement without an oral evaluation, as the certificate is silent.",
+        "A methods pass is enough to qualify for a research scholarship at the institute.",
+        "Neri passed methods and did a project; Vale's bursary shows no fieldwork route."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Work backwards from Neri's type of award.",
-        "Eliminate the fieldwork route incompatible with the confirmed evaluation history, but do not treat Vale's public omissions as equivalent evidence."
+        "Rule out the route that conflicts with Neri's confirmed evaluation history, but do not treat Vale's missing records as equivalent evidence."
       ],
-      optionNotes: [
-        "Not supported. An ordinary bursary and a selective public record do not identify Vale's fieldwork route.",
-        "False. Placement always requires an oral evaluation, and its actual absence for Neri is confirmed.",
-        "Overstated. A necessary methods condition is strengthened into sufficient eligibility without fieldwork credit.",
-        "Correct. Scholarship implies credit and methods pass; no oral evaluation excludes placement, so the unwaivable remaining project route must hold. Vale's different award supplies no credit fact."
+      "optionNotes": [
+        "Not supported. An ordinary bursary 'has different conditions', and Vale has 'no released fieldwork' decision.",
+        "False. 'Placements require an oral evaluation', 'Evaluations cannot be waived', and Neri 'never completed an oral evaluation'.",
+        "False. Scholarships also require fieldwork credit, and 'a methods pass alone does not establish fieldwork credit'.",
+        "Correct. The scholarship requires credit and a methods pass; with no oral evaluation, the credit must come from the project route."
       ],
-      explanation: "An outcome can entail an unreported qualification when alternatives are exhausted. This requires confirmed absence of a prerequisite, not merely a missing public document.",
-      reasoning: {
-        model: "Backward inference through award and route constraints",
-        evidence: [
+      "explanation": "An outcome can entail an unreported qualification once the alternatives are exhausted. That requires confirmed absence of a prerequisite, not merely a missing public document.",
+      "reasoning": {
+        "model": "Backward inference through award and route constraints",
+        "evidence": [
           "either a supervised placement or an approved community project",
           "restricted to students holding a fieldwork credit and a research-methods pass",
           "Evaluations cannot be waived",
           "never completed an oral evaluation"
         ]
       },
-      reviewedAs: "v10-19"
+      "reviewedAs": "v10-19",
+      "supersedes": "v13-07"
     },
     {
-      "id": "v13-08-r2",
+      "id": "v13-08-c",
       "topic": "Source independence in reporting",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional policy observatory reviewed claims that a new freight terminal had reduced road congestion. Three newspapers carried the same estimate of time saved. One cited a press briefing, another cited the first newspaper, and the third used a statement from the terminal operator. The briefing and operator statement both drew on the same consultancy model.\n\nThe model compared observed travel times after opening with a simulated no-terminal scenario. The consultancy had not observed that counterfactual directly. A separate traffic monitor recorded shorter journeys on one route, but did not measure displaced congestion elsewhere or control for an unrelated road closure ending during the period. The observatory did not say the estimate was false; it examined how much independent support the reports provided.\n\nThe supplier later issued a second estimate using a new assumption about displaced congestion. All three newspapers updated their total-saving figure from that release without commissioning another model. The independent monitor continued measuring only its original route. Its latest observation still showed a shorter journey there, but no record linked that local change to the supplier's revised displaced-congestion assumption. The public record therefore contains two versions of one model lineage and a narrower observation series, rather than a new independent network-wide counterfactual comparison.",
+      "passage": "A fictional policy observatory reviewed claims that a new freight terminal had reduced road congestion. Three newspapers carried the same estimate of time saved: one cited a press briefing, another cited the first newspaper, and the third used a statement from the terminal operator. The briefing and operator statement both drew on the same consultancy model, which compared observed travel times with a simulated no-terminal scenario. A separate traffic monitor recorded shorter journeys on one route, but did not measure displaced congestion elsewhere.\n\nThe supplier later issued a second estimate using a new assumption about displaced congestion, and all three newspapers updated their figure from that release without commissioning another model. The monitor still measures only its original route, where journeys remain shorter, and no record links that local change to the revised assumption. The observatory did not say the estimate was false; it examined how much independent support the reports provided.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "The three updated articles provide independent evidence for the revised displacement assumption because they were published separately from the original model report.",
-        "The monitor independently verified the new network-wide saving, since it continued to observe shorter journeys after the newspapers revised their figures.",
-        "The updated total is necessarily false because no independent source established the model's revised assumption about displaced congestion.",
-        "Updated articles still repeat one model lineage; the route monitor does not independently verify network-wide displaced congestion."
+        "The three updated articles independently support the revised displacement assumption.",
+        "The monitor has independently confirmed the new network-wide saving in journey times.",
+        "The updated total must be false, as no independent source checked its new assumption.",
+        "The updated articles rest on one model; the monitor does not measure displacement."
       ],
       "answer": 3,
       "hints": [
@@ -306,12 +305,12 @@ EPSO_BANK.registerSet({
         "Compare the geographic scope of the model with the scope of the independent monitor."
       ],
       "optionNotes": [
-        "Overstated. Separate publication is expanded into independent evidence despite the shared updated input.",
-        "Overstated. The monitor measured only one route, not network displacement or the new total.",
-        "Not supported. Absence of independent validation is not proof of falsehood; the passage expressly distinguishes these.",
-        "Correct. The shared revised assumption and narrow route observation concern different inferential claims."
+        "False. Three publications exist, but all updated from one release 'without commissioning another model'.",
+        "False. The monitor gives independent evidence for 'one route' only, not for displaced congestion or the network total.",
+        "Not supported. Lack of independent checking is not proof of error; the observatory 'did not say the estimate was false'.",
+        "Correct. Both sources 'drew on the same consultancy model', and the monitor 'did not measure displaced congestion elsewhere'."
       ],
-      "explanation": "Count independent evidence sources, not publications, and match each observation's scope to the claim being assessed.",
+      "explanation": "Count independent sources of evidence, not publications, and match the scope of each observation to the claim being assessed.",
       "reasoning": {
         "model": "Versioned source dependence versus narrower independent evidence",
         "evidence": [
@@ -329,29 +328,29 @@ EPSO_BANK.registerSet({
       "supersedes": "v13-08"
     },
     {
-      "id": "v13-09-r2",
+      "id": "v13-09-c",
       "topic": "Diagnostic threshold comparisons",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional occupational clinic reported that the proportion of workers flagged by its hearing screen fell from 18% to 11% over two years. During that interval, the clinic changed the threshold for a flag: the second year's rule required a larger measured loss. The instruments and test-room conditions remained the same. Workers whose results lay between the old and new thresholds would therefore have been flagged under the first rule but not the second.\n\nThe clinic also introduced quieter machinery in several workshops. Managers considered the new equipment a plausible explanation for better hearing outcomes. However, the published figures were based on each year's applicable threshold, and the report did not provide raw hearing measurements or results recalculated under a common rule. The workforce changed through recruitment and retirement, with no analysis identifying people screened in both years.\n\nA separate check reapplied both thresholds to the unchanged raw results of 100 continuing workers. Eighteen received a flag under the old rule and eleven under the new rule. The check used the same measured loss for each worker in both classifications. The seven workers no longer flagged had not been retested between classifications. This check was separate from the published year-to-year workforce comparison, and no common-rule year-to-year result for the full workforce was released.",
+      "passage": "A fictional occupational clinic reported that the share of workers flagged by its hearing screen fell from 18% to 11% over two years. Meanwhile the clinic changed the flag threshold: the second year's rule required a larger measured loss, while instruments and test conditions stayed the same. It also introduced quieter machinery, which managers considered a plausible explanation. The published figures used each year's applicable threshold, without raw measurements or results recalculated under a common rule. The workforce changed through recruitment and retirement, with no analysis identifying people screened in both years.\n\nA separate check reapplied both thresholds to the unchanged raw results of 100 continuing workers, using the same measured loss for each worker in both classifications. Eighteen received a flag under the old rule and eleven under the new one. The seven no longer flagged had not been retested in between. No common-rule comparison for the full workforce was released.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "The seven lost flags in the fixed-data check establish better hearing in those workers, since the stricter rule used the same instruments.",
-        "All seven lost flags in the fixed-data check arise from reclassification; that result does not allocate the workforce-wide annual change.",
-        "Every worker newly unflagged in the fixed-data check had also improved between the two annual screens, because the same people were reclassified.",
-        "The full workforce's lower annual flag rate resulted entirely from the threshold change rather than any change in hearing or membership."
+        "The seven lost flags in the check show that those workers' hearing had genuinely improved.",
+        "The check's seven lost flags all come from the new rule; the annual fall is not apportioned.",
+        "Every worker unflagged in the check had also improved between the two annual screens.",
+        "The workforce's lower annual flag rate stems entirely from the change in threshold."
       ],
       "answer": 1,
       "hints": [
-        "Keep the unchanged-data reclassification separate from the annual workforce comparison.",
-        "Did any measurement change between applying the two thresholds to the fixed dataset?"
+        "Keep the reclassification of unchanged data separate from the annual workforce comparison.",
+        "Did any measurement change between applying the two thresholds to the fixed data?"
       ],
       "optionNotes": [
-        "False. The raw measurements were unchanged and no retest occurred between these classifications.",
-        "Correct. With identical measurements and nested thresholds, fewer flags arise from the classification change. The annual workforce data also changed membership and possibly hearing.",
-        "Not supported. The fixed-data reclassification does not disclose each person's year-to-year hearing history.",
-        "Overstated. A demonstrated effect in the fixed-data exercise is extended into a complete attribution of a different annual comparison."
+        "False. The check used 'unchanged raw results', and the seven 'had not been retested in between'.",
+        "Correct. With identical measurements, the lost flags come from the stricter rule; the workforce data also changed in membership, with no common-rule comparison.",
+        "Not supported. The check reclassifies one set of results and reveals nothing about each worker's hearing between the annual screens.",
+        "Overstated. The check shows a threshold effect on fixed data, but the annual comparison also involved a changed workforce and new machinery."
       ],
       "explanation": "A classification change on fixed evidence can be isolated without explaining a separate comparison whose population and measurements may differ.",
       "reasoning": {
@@ -364,25 +363,25 @@ EPSO_BANK.registerSet({
       },
       "reviewedAs": "v11-01",
       "solution": [
-        "The fixed-data exercise applies two thresholds to exactly the same measurements for 100 continuing workers.",
-        "Flags fall from 18 to 11, so seven flags disappear through reclassification rather than a measured hearing improvement in that exercise.",
-        "The annual workforce comparison also involves changed membership and potentially changed hearing, so this exercise cannot allocate that aggregate annual change."
+        "The check applies two thresholds to exactly the same measurements for 100 continuing workers.",
+        "Flags fall from 18 to 11, so seven flags disappear through reclassification rather than a measured hearing improvement in that check.",
+        "The annual workforce comparison also involves changed membership and possibly changed hearing, so the check cannot apportion that annual change."
       ],
       "supersedes": "v13-09"
     },
     {
-      "id": "v13-10-r2",
+      "id": "v13-10-c",
       "topic": "Long-term maintenance estimates",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional infrastructure committee compared two resurfacing options over ten years. Option Red cost less to install, while Option Blue was expected to need fewer repairs. The initial report estimated total expenditure under a scenario in which traffic grew at a specified rate. It did not claim that the traffic forecast was certain. Under that scenario, Blue had the lower estimated total cost despite its higher initial price.\n\nThe committee then requested a sensitivity analysis. In the low-growth scenario, Red had the lower total estimate. In the high-growth scenario, Blue retained its advantage. Neither analysis valued disruption to road users or environmental effects. The finance office stressed that changing a scenario changed the projection, not the historical installation quotes.\n\nThe council is considering two claims for a public leaflet. One calls Blue preferable under the central expenditure model; the other calls Blue cheaper in every possible future once disruption and environmental effects are included. The council retains the central traffic assumption and the model's cost categories, but has obtained no new valuation of omitted effects. Its selected contract also allows later maintenance decisions to change, and no report estimates the consequences of exercising that option.",
+      "passage": "A fictional infrastructure committee compared two resurfacing options over ten years. Option Red cost less to install, while Option Blue was expected to need fewer repairs. The initial report estimated total expenditure under a scenario of specified traffic growth, without claiming that the forecast was certain. Under that scenario, Blue had the lower estimated total cost despite its higher initial price. In a later sensitivity analysis, Blue kept its advantage in the high-growth scenario. In the low-growth scenario, Red had the lower total estimate. Neither analysis valued disruption to road users or environmental effects.\n\nThe council is considering two claims for a public leaflet: that Blue is preferable under the central expenditure model, and that Blue is cheaper in every possible future once disruption and environmental effects are included. The council keeps the central traffic assumption but has obtained no new valuation of omitted effects. Its chosen contract lets later maintenance decisions change, but no report estimates the consequences of using that flexibility.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "The low-growth scenario is the more likely one, since the council retained flexibility to revise maintenance.",
-        "Adding the unpriced disruption effects would reverse the central expenditure ranking and make Red cheaper than Blue over the same ten-year period.",
-        "Only Blue's maintenance option removes uncertainty over future costs, so choosing that contract converts the central expenditure ranking into an all-futures ranking.",
-        "The central cost model supports Blue conditionally; contract flexibility supplies no value for omitted disruption or environmental effects."
+        "The low-growth scenario is the more likely, as the council kept maintenance flexibility.",
+        "Pricing disruption would reverse the central ranking and make Red cheaper over ten years.",
+        "Blue's contract flexibility makes it the cheaper option in any possible traffic future.",
+        "The central model favours Blue conditionally; flexibility does not price omitted effects."
       ],
       "answer": 3,
       "hints": [
@@ -390,12 +389,12 @@ EPSO_BANK.registerSet({
         "Separate a conditional ranking from a claim about every future or about unvalued effects."
       ],
       "optionNotes": [
-        "Not supported. No probabilities for the scenarios are supplied.",
-        "Not supported. No disruption valuation is given, so neither the direction nor size of a ranking change is established.",
-        "False. The all-futures ranking conflicts with the explicitly supplied low-growth scenario in which Red has the lower total estimate. Flexible later maintenance is not shown to remove that counterexample or omitted-effect uncertainty.",
-        "Correct. The central model gives Blue a conditional included-cost advantage; neither omitted valuations nor the option's effects are quantified."
+        "Not supported. The text gives no probabilities for the scenarios.",
+        "Not supported. 'Neither analysis valued disruption', so neither the direction nor the size of any change is known.",
+        "False. 'In the low-growth scenario, Red had the lower total estimate', and no report estimates the effect of the flexibility.",
+        "Correct. Blue is cheaper 'under that scenario', and there is 'no new valuation of omitted effects' or of the flexibility."
       ],
-      "explanation": "A conditional cost advantage cannot be promoted to an unconditional recommendation by adding unmeasured effects or contractual flexibility.",
+      "explanation": "A conditional cost advantage cannot be turned into an unconditional recommendation by adding unmeasured effects or contractual flexibility.",
       "reasoning": {
         "model": "Conditional dominance versus unpriced decision dimensions",
         "evidence": [

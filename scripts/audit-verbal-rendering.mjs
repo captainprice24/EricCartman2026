@@ -1,5 +1,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';import {chromium} from 'playwright';
-const dir='docs/research/verbal/blind-review/book-2026-11';const cases=JSON.parse(fs.readFileSync(dir+'/review-mapping.json')).items.filter(r=>r.changedFields.some(k=>['passage','options'].includes(k)));
+const dir='docs/research/verbal/blind-review/book-2026-11';const revised=new Set(JSON.parse(fs.readFileSync(dir+'/review-mapping.json')).items.filter(r=>r.changedFields.some(k=>['passage','options'].includes(k))).map(r=>r.id));
+// The fourteen book-review text revisions, in their condensed November 2026 form (compact-2026-11/final.json).
+const cases=JSON.parse(fs.readFileSync('docs/research/verbal/blind-review/compact-2026-11/final.json')).items.filter(r=>revised.has(r.replaces)).map(r=>({...r,previousId:r.supersedes}));
 const base=(process.env.E2E_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const browser=await chromium.launch(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{});const results=[];
 try{for(const width of [1366,390]){
@@ -15,4 +17,4 @@ try{for(const width of [1366,390]){
  }
  await context.close();
 }}finally{await browser.close();}
-fs.writeFileSync('docs/audit/verbal-rendering.json',JSON.stringify({date:'2026-11-02',scope:'All fourteen passage/option revisions in final local artifact, desktop light and phone dark, Practice answer feedback; Coach lifecycle separately covered by full suite.',results},null,2)+'\n');console.log(results.length+' revised-text rendering checks passed.');
+fs.writeFileSync('docs/audit/verbal-rendering.json',JSON.stringify({date:'2026-11-02',scope:'All fourteen book-review passage/option revisions, in their condensed form, in final local artifact, desktop light and phone dark, Practice answer feedback; Coach lifecycle separately covered by full suite.',results},null,2)+'\n');console.log(results.length+' revised-text rendering checks passed.');

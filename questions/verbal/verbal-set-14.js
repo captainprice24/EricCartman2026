@@ -2,12 +2,12 @@ EPSO_BANK.registerSet({
   "id": "verbal-14",
   "section": "verbal",
   "title": "Verbal reasoning · Set 14 — Very hard",
-  "description": "Ten original, demanding inference problems. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
+  "description": "Ten original, demanding inference problems in exam-length passages. Combine dispersed evidence, scope restrictions and alternative explanations. Editorial difficulty; first-attempt calibration pending.",
   "version": 2,
   "challenge": true,
   "questions": [
     {
-      "id": "v14-01-r2",
+      "id": "v14-01-c",
       "topic": "Accommodation accreditation",
       "difficulty": 3,
       "challenge": true,
@@ -16,37 +16,37 @@ EPSO_BANK.registerSet({
         "model": "revoked-route-and-independent-evidence",
         "stages": 5,
         "evidence": [
-          "Nine weeks excludes the short-gap waiver.",
-          "Agreement commencement requires clearance still valid.",
-          "The unlicensed parent cannot borrow its subsidiary’s licence.",
-          "Conversion cancelled prior property-based clearance.",
-          "Fresh approval requires an independent post-conversion personal inspection even if approval itself used remote review."
+          "Nine weeks exceeds the six-week limit, so the waiver is unavailable and a current agreement is needed.",
+          "The agreement needs valid accommodation clearance.",
+          "The unlicensed parent cannot use its subsidiary's licence, so clearance must rest on an approved property.",
+          "Conversion cancelled the earlier approval, so a fresh approval was required.",
+          "A remote review needs an in-person inspection with no conversion since, so either route required an independent visit after conversion."
         ]
       },
-      "passage": "A fictional network issues a badge either for an ordinary placement or under a returning-trainee waiver. The waiver requires the previous placement to have ended within six weeks; otherwise a current agreement is necessary. An agreement takes effect only while its accommodation clearance remains valid. Clearance requires either a directly licensed sponsor or an approved property. A subsidiary's licence cannot be used by its parent.\n\nProperty approval normally requires an independent verifier's personal inspection. A remote review can replace that visit only if an independent verifier personally inspected the same building within the preceding year and the building has not since been converted. Conversion cancels earlier property approval and any clearance based on it. Every fresh approval after conversion must therefore satisfy the inspection rule again; an inspection by the trainee's mentor cannot count as independent. The register may omit supporting documents without invalidating a duly issued badge.\n\nNoor's badge was validly issued nine weeks after her previous placement ended. Her sponsor was an unlicensed parent company with a licensed subsidiary. The property had been inspected eight months earlier, then converted before her new agreement took effect. The public register contains no approval or inspection record dated after the conversion. No other waiver or route exists.",
+      "passage": "A fictional network issues a badge for an ordinary placement or under a returning-trainee waiver, which requires the previous placement to have ended within six weeks; otherwise a current agreement is needed. An agreement takes effect only while its accommodation clearance is valid. Clearance requires a directly licensed sponsor or an approved property; a parent cannot use its subsidiary's licence. Property approval normally requires an independent verifier's personal inspection. A remote review can replace that visit only if an independent verifier inspected the same building in person within the preceding year and it has not been converted since. Conversion cancels earlier approval and any clearance based on it. The trainee's mentor never counts as independent.\n\nNoor's badge was validly issued nine weeks after her previous placement ended. Her sponsor was an unlicensed parent with a licensed subsidiary. The property was inspected eight months earlier, then converted before her agreement took effect. The public register, which may omit documents, shows no approval or inspection after conversion. No other route exists.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "Someone independent of Noor's mentor had inspected the accommodation in person after its conversion, despite the missing public inspection record.",
-        "Her sponsor could use its subsidiary's licence to obtain accommodation clearance without any fresh approval of the property after its conversion.",
-        "The person who authorised the new property approval had also carried out the inspection eight months before the conversion took place.",
-        "The property's earlier approval had expired before the conversion, so the alteration did not itself remove an approval still in force."
+        "Someone other than Noor's mentor inspected the converted property in person.",
+        "Noor's sponsor relied on its subsidiary's licence to obtain accommodation clearance.",
+        "The verifier who approved the converted property had also made the earlier inspection.",
+        "The property's earlier approval had already expired before the building was converted."
       ],
       "answer": 0,
       "hints": [
-        "List the badge, agreement and accommodation-clearance requirements before examining the interruption and conversion dates.",
-        "Nine weeks excludes the short-gap waiver."
+        "Work out which badge route the nine-week gap leaves, and what that route needs to remain in effect.",
+        "Ask which clearance route the sponsor's position excludes, then what the conversion does to the earlier inspection."
       ],
       "optionNotes": [
-        "Correct. Badge validity forces a current agreement, valid clearance and property approval after conversion; both inspection routes require an independent personal visit after that conversion.",
-        "False. A parent cannot use its subsidiary’s licence.",
-        "Not supported. The identity of the earlier inspector and later authorising official is unspecified.",
-        "Not supported. No expiry before conversion is reported."
+        "Correct. Nine weeks rules out the waiver, the parent 'cannot use its subsidiary's licence', and conversion 'cancels earlier approval'; a remote review needs an in-person inspection with no conversion since, so both routes required an independent visit after the conversion, and 'the trainee's mentor never counts as independent'.",
+        "False. The passage states that 'a parent cannot use its subsidiary's licence'.",
+        "Not supported. The passage does not identify who made the earlier inspection or who approved the property afterwards.",
+        "Not supported. No expiry of the earlier approval is mentioned; the passage says only that conversion 'cancels earlier approval'."
       ],
-      "explanation": "Nine weeks excludes the short-gap waiver. Agreement commencement requires clearance still valid. The unlicensed parent cannot borrow its subsidiary’s licence. Conversion cancelled prior property-based clearance. Fresh approval requires an independent post-conversion personal inspection even if approval itself used remote review.",
+      "explanation": "Each route is closed in turn: the gap excludes the waiver, the parent cannot borrow a licence, and conversion cancels the old approval. Because even a remote review depends on an in-person inspection with no conversion since, the valid badge implies an independent visit after the conversion, whatever the public register shows.",
       "supersedes": "v14-01"
     },
     {
-      "id": "v14-02-r2",
+      "id": "v14-02-c",
       "topic": "Restoration funding succession",
       "difficulty": 3,
       "challenge": true,
@@ -55,37 +55,37 @@ EPSO_BANK.registerSet({
         "model": "nested-exceptions-and-consent",
         "stages": 5,
         "evidence": [
-          "Changed use ends the inherited eligibility exception.",
-          "No formed partnership exists, leaving listed-building eligibility.",
-          "Roof replacement is not removable furniture.",
-          "Conservation consent is required.",
-          "Both consent routes require an independent architect’s report."
+          "The change of use ends the inherited eligibility decision.",
+          "The partnership had not been formed, so eligibility rests on the listed building.",
+          "Roof replacement is not confined to removable furniture, so conservation consent is needed.",
+          "The change of use cancelled earlier consent and its supporting report.",
+          "Both consent routes require a report from an independent architect."
         ]
       },
-      "passage": "A fictional heritage fund pays a restoration grant only to a current custodian with an eligible project. A custodian may establish eligibility through a listed building or through a research partnership. A project on a listed building still needs conservation consent unless it is confined to removable furniture. The partnership route instead needs a university guarantee; a museum's promise is insufficient. Announcing an intended partnership does not create one.\n\nCustodians who inherit an existing grant may retain the predecessor's eligibility decision, but only while the project and the building's use remain unchanged. Conversion from storage to public exhibition counts as a change of use even if nothing structural is altered. Changed use also cancels earlier conservation consent and any report supporting it; eligibility and any required consent must be established anew. Conservation consent can be granted after a site hearing or through written consultation; both require a report from an architect independent of the custodian. A contractor employed by the custodian cannot supply that report.\n\nThe fund validly paid Elin after she inherited a warehouse grant. Before payment she converted the building to public exhibition, and her project replaced its roof. The building remained listed. Her proposed university partnership had not been formed. The published payment summary contains no report or consent entry.",
+      "passage": "A fictional heritage fund pays a restoration grant only to a current custodian with an eligible project. Eligibility comes from a listed building or a research partnership; the partnership route needs a university guarantee, and announcing an intended partnership does not create one. A project on a listed building needs conservation consent unless it is confined to removable furniture. A custodian who inherits a grant may keep the predecessor's eligibility decision only while the project and the building's use are unchanged; converting storage to public exhibition is a change of use even without structural work. A change of use also cancels earlier consent and any supporting report. Consent may follow a site hearing or written consultation; both require a report from an architect independent of the custodian.\n\nThe fund validly paid Elin after she inherited a warehouse grant. Before payment she converted the listed warehouse to public exhibition, and her project replaced its roof. Her proposed university partnership had not been formed. The payment summary lists no report or consent.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The proposed university partnership supplied a guarantee sufficient to avoid the conservation procedure for Elin’s replacement roof in the listed warehouse.",
-        "A fresh report by an independent architect was necessary before Elin’s grant could be validly paid for the converted warehouse.",
-        "The architect who assessed the project had also advised the previous custodian when the warehouse was used for storage.",
-        "All custodians inheriting a warehouse grant must obtain fresh conservation consent before continuing the restoration work approved under the original grant."
+        "The proposed university partnership made conservation consent unnecessary for the roof.",
+        "Elin's payment depended on a newly written report by an architect independent of her.",
+        "The architect who reported on the roof had also advised the warehouse's previous custodian.",
+        "Every custodian who inherits a grant must obtain fresh conservation consent for the work."
       ],
       "answer": 1,
       "hints": [
-        "Separate inherited eligibility from the consent needed for the current project and use of the building.",
-        "Changed use ends the inherited eligibility exception."
+        "Check whether the inherited eligibility decision survives what Elin did to the warehouse.",
+        "Then ask whether the roof work falls under the consent requirement, and what the conversion did to any earlier consent."
       ],
       "optionNotes": [
-        "False. An intended partnership is not an established one.",
-        "Correct. The changed use ends inherited eligibility; the unformed partnership cannot qualify, and roof work on the listed building needs fresh consent under either reporting procedure.",
-        "Not supported. No earlier work by the architect is identified.",
-        "Overstated. Elin needs fresh consent after a changed use; the inherited-eligibility exception remains available to custodians whose project and use stay unchanged."
+        "False. The partnership 'had not been formed', and 'announcing an intended partnership does not create one'.",
+        "Correct. Conversion to exhibition is a change of use, ending the inherited decision and cancelling earlier consent; with no partnership, the listed-building route requires consent for the roof, and both consent routes need an independent architect's report.",
+        "Not supported. The passage says nothing about any earlier work by the architect.",
+        "Overstated. Elin needed fresh consent because of a change of use; a custodian may keep the predecessor's decision 'while the project and the building's use are unchanged'."
       ],
-      "explanation": "Changed use ends the inherited eligibility exception. No formed partnership exists, leaving listed-building eligibility. Roof replacement is not removable furniture. Conservation consent is required. Both consent routes require an independent architect’s report.",
+      "explanation": "The inherited exception is conditional, and Elin's conversion breaks the condition. With the partnership never formed, eligibility rests on the listed building, so the roof needs consent anew, and every consent route depends on an independent architect's report.",
       "supersedes": "v14-02"
     },
     {
-      "id": "v14-03-r2",
+      "id": "v14-03-c",
       "topic": "Cross-border archive access",
       "difficulty": 3,
       "challenge": true,
@@ -94,37 +94,37 @@ EPSO_BANK.registerSet({
         "model": "delegation-revocation-and-alternative-proof",
         "stages": 5,
         "evidence": [
-          "Unsigned reciprocity excludes acceptance of the partner clearance.",
-          "The former director cannot supply valid depositor permission.",
-          "Only catalogue descriptions were published.",
-          "The public-interest exception therefore requires two external assessors.",
-          "Both must have unredacted access, not merely confidentiality declarations."
+          "The partner archive had not signed the reciprocity schedule, so its clearance could not be accepted.",
+          "In liquidation only the liquidator can give permission, so the former director's offer is ineffective.",
+          "No permission had been given before liquidation.",
+          "Catalogue descriptions are not publication, so the public-interest route needs two external assessors.",
+          "Both assessors must have access to the unredacted material."
         ]
       },
-      "passage": "A fictional archive permits a restricted-file export when the recipient has a current research clearance and the export has either the depositor's permission or a public-interest authorisation. A clearance from a partner archive is accepted only if that archive has signed the current reciprocity schedule. Membership of the wider archive association is not a substitute. Permission may be delegated, but a change of legal ownership cancels earlier delegations.\n\nThe public-interest route requires two external assessors, except for exports of files already published in full. Publishing a catalogue description is not publication of a file. Both assessors must have access to the unredacted material; a confidentiality declaration alone cannot replace that access. The depositor may alternatively give fresh direct permission, but for a company in liquidation only its appointed liquidator can act. A former director cannot give new permission after liquidation begins.\n\nA restricted export to Mara was validly completed after the depositing company entered liquidation. Mara's partner archive had not signed the reciprocity schedule, and the former director was the sole person offering depositor permission. No depositor permission had been given before liquidation. The files had appeared only as catalogue descriptions. No special exemption or further source of permission existed.",
+      "passage": "A fictional archive permits a restricted-file export when the recipient holds a current research clearance and the export has either the depositor's permission or a public-interest authorisation. A partner archive's clearance is accepted only if that archive has signed the current reciprocity schedule; membership of the wider archive association is no substitute. Once a depositing company is in liquidation, only its appointed liquidator can give fresh permission, and a former director cannot. The public-interest route requires two external assessors, except for files already published in full; publishing a catalogue description is not publication of a file. Both assessors must have access to the unredacted material, and a confidentiality declaration cannot replace that access.\n\nA restricted export to Mara was validly completed after the depositing company entered liquidation. Mara's partner archive had not signed the reciprocity schedule. The former director was the only person offering depositor permission, and none had been given before liquidation. The files had appeared only as catalogue descriptions. No special exemption or other source of permission existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The former director preserved an earlier delegation by signing a fresh permission after the company entered liquidation, without intervention by its appointed liquidator.",
-        "The two external assessors reached the same view about the files’ historical value when they examined the unredacted material.",
-        "Mara’s clearance could not rest on the unsigned arrangement, and both external assessors needed access to the files without redactions.",
-        "Membership of the archive association alone supplied the unsigned partner archive with the recognition necessary for Mara’s existing clearance to be accepted."
+        "The former director was able to give valid depositor permission after liquidation had begun.",
+        "The two external assessors agreed about the historical value of the unredacted files.",
+        "Mara relied on another clearance, and both assessors saw the files without redactions.",
+        "Membership of the wider association was enough for Mara's partner clearance to be accepted."
       ],
       "answer": 2,
       "hints": [
-        "Track research clearance separately from the two possible sources of permission to export.",
-        "Unsigned reciprocity excludes acceptance of the partner clearance."
+        "Treat research clearance and export permission as separate conditions.",
+        "Ask which source of permission remains once the company is in liquidation, and whether the files count as published."
       ],
       "optionNotes": [
-        "False. Only the liquidator can give fresh corporate permission at that stage.",
-        "Not supported. Access is required; agreement about historical value is not stated.",
-        "Correct. Valid export needs clearance the unsigned partner cannot supply; director permission is ineffective, so unpublished files require the two-assessor public-interest route.",
-        "False. Association membership is expressly insufficient without the signed current reciprocity schedule."
+        "False. In liquidation 'only its appointed liquidator can give fresh permission, and a former director cannot'.",
+        "Not supported. The passage requires the assessors' access but says nothing about their views on historical value.",
+        "Correct. The unsigned partner's clearance could not be accepted, so Mara's valid clearance came from elsewhere; with no effective permission and only catalogue descriptions published, the export needed two assessors with unredacted access.",
+        "False. Association membership 'is no substitute' for signing the reciprocity schedule."
       ],
-      "explanation": "Unsigned reciprocity excludes acceptance of the partner clearance. The former director cannot supply valid depositor permission. Only catalogue descriptions were published. The public-interest exception therefore requires two external assessors. Both must have unredacted access, not merely confidentiality declarations.",
+      "explanation": "The valid export forces both conditions to be met by the routes that remain. The unsigned partner cannot supply the clearance, liquidation silences the former director, and catalogue descriptions do not count as publication, which leaves the two-assessor route with its access requirement.",
       "supersedes": "v14-03"
     },
     {
-      "id": "v14-04-r2",
+      "id": "v14-04-c",
       "topic": "Water permit renewal",
       "difficulty": 3,
       "challenge": true,
@@ -133,37 +133,37 @@ EPSO_BANK.registerSet({
         "model": "continuing-validity-and-two-route-intersection",
         "stages": 5,
         "evidence": [
-          "Nursery supply excludes the domestic exemption.",
-          "Moving the intake invalidates the older gauge study.",
-          "The unrepaired seal excludes certified-meter assurance.",
-          "The manual-log route needs a second instrument calibrated after relocation.",
-          "That calibration must be independent."
+          "Supplying the nursery excludes the exclusively domestic exemption.",
+          "The intake move requires a fresh gauge study.",
+          "The broken seal excludes certified-meter assurance.",
+          "The manual log needs a second instrument calibrated after the intake move.",
+          "That calibration must be independent of the permit holder."
         ]
       },
-      "passage": "A fictional basin authority renews an abstraction permit only when both flow compliance and meter assurance are current. Flow compliance follows either a recent gauge study or an ecological exemption. The exemption is available only to sites supplying households exclusively; a site supplying a commercial nursery is not exclusively domestic. Gauge studies remain usable for five years unless the intake is moved, when a fresh study is necessary regardless of distance.\n\nMeter assurance requires either a certified sealed meter or a verified manual log. A broken seal cancels certification until an independent technician reseals the meter. Manual logs qualify only when checked against a second instrument calibrated after the most recent intake move. Both the technician and the calibrator must be independent of the permit holder. An employee's work can be technically accurate without meeting that independence condition. The authority's online summary records permits rather than every piece of supporting evidence.\n\nA valid renewal was issued to a site serving homes and a nursery. Its intake had moved two months earlier, after its last published gauge study and instrument calibration. The meter seal remained broken at renewal, and nobody had resealed it. No exemption, emergency procedure or other assurance route applied.",
+      "passage": "A fictional basin authority renews an abstraction permit only when flow compliance and meter assurance are both current. Flow compliance follows a recent gauge study or an ecological exemption, which is available only to sites supplying households exclusively; also supplying a commercial nursery disqualifies a site. Gauge studies remain usable for five years, but moving the intake requires a fresh study. Meter assurance requires a certified sealed meter or a verified manual log. A broken seal cancels certification until an independent technician reseals the meter. Manual logs qualify only when checked against a second instrument calibrated after the most recent intake move. Technicians and calibrators must be independent of the permit holder; an employee's technically accurate work does not suffice.\n\nA valid renewal was issued to a site serving homes and a nursery. Its intake had moved two months earlier, after the last study and calibration shown in the online summary, which omits some supporting evidence. The meter seal was still broken at renewal. No exemption or other route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The domestic customers allowed the site to use the ecological exemption even though the renewed permit continued to cover supply to the commercial nursery.",
-        "An employee of the permit holder was entitled to provide the independent calibration by certifying that the second instrument’s readings were technically accurate.",
-        "The manual log was probably more accurate than readings from a sealed certified meter would have been at the relocated intake.",
-        "Renewal required a post-relocation gauge study and a second instrument calibrated independently after the intake moved."
+        "Its household customers let the site rely on the ecological exemption despite the nursery.",
+        "An employee of the permit holder validly calibrated the second instrument for the log.",
+        "The manual log was probably more accurate than the certified sealed meter would have been.",
+        "A new gauge study and an independent calibration, both later than the move, were required."
       ],
       "answer": 3,
       "hints": [
-        "Check flow compliance and meter assurance independently, using the dates of the intake move and instrument work.",
-        "Nursery supply excludes the domestic exemption."
+        "Check flow compliance and meter assurance separately.",
+        "For each, ask what the intake move and the unrepaired seal leave available."
       ],
       "optionNotes": [
-        "False. Exclusive domestic use is required.",
-        "False. Technical accuracy does not make an employee independent of the permit holder.",
-        "Not supported. No comparative accuracy is given.",
-        "Correct. Commercial supply excludes the exemption; relocation requires a fresh study, and the broken seal forces a manual log checked against a newly calibrated instrument."
+        "False. The exemption is 'available only to sites supplying households exclusively', and this site also supplies a nursery.",
+        "False. Calibrators 'must be independent of the permit holder', and 'an employee's technically accurate work does not suffice'.",
+        "Not supported. The passage makes no comparison of accuracy between logs and meters.",
+        "Correct. The nursery excludes the exemption and the move requires 'a fresh study'; the broken seal leaves the manual log, which needs an independent calibration after the 'most recent intake move'."
       ],
-      "explanation": "Nursery supply excludes the domestic exemption. Moving the intake invalidates the older gauge study. The unrepaired seal excludes certified-meter assurance. The manual-log route needs a second instrument calibrated after relocation. That calibration must be independent.",
+      "explanation": "Two conditions must both be current. The nursery closes the exemption, so the intake move forces a fresh study; the broken seal closes the certified meter, so the log needs an independently calibrated instrument dated after the move. The online summary does not show everything, so its silence does not contradict this.",
       "supersedes": "v14-04"
     },
     {
-      "id": "v14-05-r2",
+      "id": "v14-05-c",
       "topic": "Competitive award appeals",
       "difficulty": 3,
       "challenge": true,
@@ -172,37 +172,37 @@ EPSO_BANK.registerSet({
         "model": "inverse-procedure-and-standing",
         "stages": 5,
         "evidence": [
-          "The withdrawn lead excludes consortium eligibility.",
-          "Direct registration is therefore required.",
-          "Delivery counts as service, so a timely objection is necessary.",
-          "Leto did not act personally.",
-          "The consultant must have explicit appeal authority at timely lodging."
+          "The lead body's withdrawal ends consortium recognition, so direct registration is needed.",
+          "Delivery to the nominated address counts as service, so a timely objection is needed.",
+          "Leto lodged nothing personally.",
+          "Bid authority is not enough; the consultant needed explicit appeal authority.",
+          "Charity status changes neither the deadline nor the representation rules."
         ]
       },
-      "passage": "A fictional awards board hears an appeal only from an eligible applicant with standing. Eligibility may come from direct registration or a recognised consortium membership. Consortium recognition ends when its lead body withdraws; a former member cannot rely on the consortium's old certificate. Standing requires a timely objection unless the applicant was never served the provisional decision. A notice is served when delivered to the applicant's nominated address, even if staff do not open it.\n\nA timely objection must arrive within ten days of service. It can be lodged by the applicant personally or by an authorised representative. A representative's authority must cover appeals explicitly; authority to submit the original bid is insufficient. A registered charity may use a simplified objection form, but this changes neither the deadline nor representation requirements. An appeal accepted under ordinary procedure has met these conditions, even if the public register omits the objection itself.\n\nThe board accepted Leto's appeal. The former consortium lead had already withdrawn. Notice had reached Leto's nominated address fourteen days before acceptance. Leto had lodged nothing personally; a consultant acted throughout. Leto's charitable status and original bid authority are recorded. No unserved-notice or other exception applied.",
+      "passage": "A fictional awards board hears an appeal only from an eligible applicant with standing. Eligibility comes from direct registration or membership of a recognised consortium. Recognition ends when the consortium's lead body withdraws; former members cannot rely on its old certificate. Standing requires a timely objection unless the applicant was never served the provisional decision. A notice is served when delivered to the nominated address, even if nobody opens it. A timely objection arrives within ten days of service. It may be lodged by the applicant personally or by a representative whose authority covers appeals explicitly; authority to submit the original bid is insufficient. Registered charities may use a simplified form, but this changes neither the deadline nor the representation rules.\n\nThe board accepted Leto's appeal, so these conditions were met. The consortium's lead body had already withdrawn. Notice reached Leto's nominated address fourteen days before acceptance. A consultant acted throughout; Leto lodged nothing personally. Leto is a charity, and the consultant's bid authority is recorded. No exception applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "Direct registration and a timely objection through an explicitly authorised appeal representative were necessary for Leto’s accepted appeal.",
-        "Leto’s charitable status allowed its consultant to appeal using the original bid mandate after the ten-day objection window had closed following delivery of notice.",
-        "The consultant lodged the objection on the same day that Leto’s staff first opened the notice at the nominated address.",
-        "The accepted appeal overturned the award because the board found an error in the unsuccessful applicant’s original assessment."
+        "Leto was registered directly, and an explicitly authorised consultant objected in time.",
+        "Leto's charitable status let its consultant object late using the original bid authority.",
+        "The consultant objected on the same day that Leto's staff first opened the notice.",
+        "The board's acceptance of the appeal meant that the original award was overturned."
       ],
       "answer": 0,
       "hints": [
-        "Distinguish eligibility to appeal from standing, then identify which consortium and registration conditions survive.",
-        "The withdrawn lead excludes consortium eligibility."
+        "Separate eligibility from standing.",
+        "Ask whether the notice was served, and what kind of authority a representative needs."
       ],
       "optionNotes": [
-        "Correct. Consortium recognition is unavailable; service excludes the waiver, and the consultant therefore needs explicit appeal authority and a timely objection.",
-        "False. The simplified form changes neither deadline nor authority.",
-        "Not supported. The opening date and exact lodging date are not given.",
-        "Not supported. Acceptance for hearing does not establish the outcome."
+        "Correct. The withdrawal ends consortium recognition, leaving direct registration; delivery means Leto was served, so a timely objection was needed, and the consultant needed authority that 'covers appeals explicitly'.",
+        "False. The simplified form 'changes neither the deadline nor the representation rules', and bid authority 'is insufficient'.",
+        "Not supported. The passage gives neither the date the notice was opened nor the date of the objection.",
+        "Not supported. The passage concerns acceptance of the appeal for hearing, not its outcome."
       ],
-      "explanation": "The withdrawn lead excludes consortium eligibility. Direct registration is therefore required. Delivery counts as service, so a timely objection is necessary. Leto did not act personally. The consultant must have explicit appeal authority at timely lodging.",
+      "explanation": "Acceptance under ordinary procedure means every condition was met, so the question is which route remains for each. The withdrawn lead leaves direct registration, delivery removes the unserved-notice exception, and since Leto did nothing personally the consultant must have objected in time with explicit appeal authority.",
       "supersedes": "v14-05"
     },
     {
-      "id": "v14-06-r2",
+      "id": "v14-06-c",
       "topic": "Safety recall traceability",
       "difficulty": 3,
       "challenge": true,
@@ -211,37 +211,37 @@ EPSO_BANK.registerSet({
         "model": "serial-identity-and-exhaustive-alternatives",
         "stages": 5,
         "evidence": [
-          "The device was not individually recovered.",
-          "Changed serial identification requires a fresh matching repair record.",
-          "The franchise member lacks accreditation.",
+          "No individual recovery scan existed, so a verified repair was required.",
+          "The franchise member lacked accreditation, so a witnessed mobile visit was needed.",
           "A load-test-only video cannot replace attendance.",
-          "An independent witness must therefore have attended both stages."
+          "An independent witness must therefore have attended both the replacement and the load test.",
+          "The serial number changed, so the repair record had to match the new number."
         ]
       },
-      "passage": "A fictional manufacturer closes a recall case only after every affected device has either been recovered or received a verified repair. A warehouse scan proves recovery only when it records the device's individual serial number; a crate identifier is insufficient. Repairs qualify through an accredited workshop or an independently witnessed mobile visit. Accreditation belongs to the named workshop, not to every member of its franchise.\n\nA mobile witness must see both the component replacement and the final load test. A video can substitute for attendance only if it shows both stages continuously and bears a verified timestamp. A clip of the load test alone does not qualify. If a device was transferred to another owner, a repair record from before transfer remains valid only when the serial number was unchanged. A controller replacement that changes that number requires a fresh matching record. The database's public view can omit valid private repair records.\n\nOne device's recall case was validly closed after its controller and serial number changed. It remained at the customer's site, and no individual warehouse recovery scan existed. The repairer was an unaccredited franchise member. The only video showed the load test. No other recovery or repair route was available.",
+      "passage": "A fictional manufacturer closes a recall case only when every affected device has been recovered or has received a verified repair. Recovery is proved only by a scan of the device's own serial number, not a crate identifier. Repairs qualify through an accredited workshop or an independently witnessed mobile visit. Accreditation belongs to the named workshop, not to every member of its franchise. A mobile witness must see both the component replacement and the final load test. A video can replace attendance only if it shows both stages continuously with a verified timestamp; a clip of the load test alone does not qualify. A controller replacement that changes a device's serial number requires a fresh repair record matching the new number.\n\nOne device's recall case was validly closed after its controller and serial number changed. It stayed at the customer's site, and no individual recovery scan existed. Its repairer was an unaccredited franchise member, and the only video showed the load test. No other route was available.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The repairer relied on another franchise workshop’s accreditation to validate the mobile visit without an independent witness observing the repair and final load test.",
-        "An independent witness had observed the qualifying component replacement and final load test, documented under the device’s new serial identification.",
-        "The witness who attended the component replacement also installed the controller that changed the device’s serial number.",
-        "Every device in the customer’s crate had been repaired before this individual recall case could be marked as complete."
+        "The repairer validly relied on another franchise workshop's accreditation.",
+        "An independent witness attended both stages, recorded under the new serial number.",
+        "The witness at the repair had also installed the controller that changed the serial.",
+        "Every device in the customer's crate had to be repaired before this case was closed."
       ],
       "answer": 1,
       "hints": [
-        "Follow the recall route and repair evidence separately; an accurate recording need not satisfy a witness condition.",
-        "The device was not individually recovered."
+        "Decide first whether the device counts as recovered.",
+        "Then ask which repair route the repairer's status and the video leave available."
       ],
       "optionNotes": [
-        "False. Accreditation belongs to the named workshop.",
-        "Correct. Recovery and accreditation are excluded; the inadequate video leaves direct independent witnessing of both stages, matched to the changed serial.",
-        "Not supported. Witnessing does not imply performing installation.",
-        "Overstated. Closure is defined for the affected device, not every device sharing a crate."
+        "False. 'Accreditation belongs to the named workshop, not to every member of its franchise.'",
+        "Correct. With no individual scan and no accreditation, the repair had to be an independently witnessed visit; the load-test clip cannot replace attendance, and the changed serial required 'a fresh repair record matching the new number'.",
+        "False. The witness had to be independent, so the person who installed the controller could not also act as the witness.",
+        "Not supported. Closure requires every 'affected device' to be dealt with; the passage does not extend this to every device sharing a crate."
       ],
-      "explanation": "The device was not individually recovered. Changed serial identification requires a fresh matching repair record. The franchise member lacks accreditation. A load-test-only video cannot replace attendance. An independent witness must therefore have attended both stages.",
+      "explanation": "Each alternative is closed by a stated fact: no individual scan, no accreditation, an incomplete video. What remains is an independent witness present at both stages, and the serial change means the record must carry the new number.",
       "supersedes": "v14-06"
     },
     {
-      "id": "v14-07-r2",
+      "id": "v14-07-c",
       "topic": "Protected collection loans",
       "difficulty": 3,
       "challenge": true,
@@ -251,36 +251,36 @@ EPSO_BANK.registerSet({
         "stages": 5,
         "evidence": [
           "Joint ownership excludes the state guarantee.",
-          "The old territorial exclusion requires other valid borrower insurance.",
-          "Lapsed storage licensing suspends carrier accreditation.",
-          "Crossing cities excludes the one-city escort exception.",
-          "Two escorts with post-standard training are consequently required."
+          "The earlier policy excluded the destination, so other adequate borrower insurance was needed.",
+          "The lapsed storage licence suspended carrier accreditation.",
+          "Travel across two cities excludes the one-city exception, so two escorts were needed.",
+          "Both escorts had to train after the latest packing standard."
         ]
       },
-      "passage": "A fictional collection lends a protected object only when insurance and transport approval are current. Insurance can be supplied by the borrower or through a state guarantee. The guarantee applies only to objects wholly owned by the collection. A jointly owned object remains ineligible even when the collection owns the larger share. An old borrower policy remains acceptable after renewal only if its territory and replacement-value limits still cover the journey.\n\nTransport approval requires either an accredited carrier or an approved escort plan. Carrier accreditation is suspended whenever its controlled-storage licence lapses. An escort plan needs two trained escorts unless the object is travelling entirely within one city; crossing a municipal boundary ends that exception. Both escorts must have completed training after the most recent packing standard was introduced. The publication of a loan in the collection's newsletter does not publish every authorisation or insurance document.\n\nA joint-owned object was validly lent across two cities. The chosen carrier's storage licence had lapsed and remained lapsed at departure. The borrower's earlier policy excluded the destination territory. One trained staff member is named in the newsletter, but no policy or second escort is mentioned. No special loan route applied.",
+      "passage": "A fictional collection lends a protected object only when insurance and transport approval are current. Insurance may come from the borrower or a state guarantee, which covers only objects wholly owned by the collection; a majority share in a jointly owned object is not enough. An earlier borrower policy remains acceptable only if its territory and value limits cover the journey. Transport approval requires an accredited carrier or an approved escort plan. Carrier accreditation is suspended whenever the carrier's controlled-storage licence lapses. An escort plan needs two trained escorts unless the object travels entirely within one city, and both must have trained after the latest packing standard was introduced. The collection's newsletter does not publish every authorisation or insurance document.\n\nA jointly owned object was validly lent across two cities. The carrier's storage licence had lapsed and was still lapsed at departure. The borrower's earlier policy excluded the destination territory. The newsletter names one trained staff member but mentions no policy or second escort. No special route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The collection’s majority ownership brought the object within the state guarantee despite the remaining ownership share held by another owner throughout the intercity loan.",
-        "The second escort had more transport experience than the staff member named in the collection’s newsletter about the loan.",
-        "Adequate borrower insurance and two escorts trained after the latest packing standard were necessary for the object’s intercity loan.",
-        "The new borrower policy charged a higher premium because two trained escorts were required for the intercity journey."
+        "The collection's larger ownership share brought the object within the state guarantee.",
+        "The second escort was more experienced than the trained staff member named in the newsletter.",
+        "Adequate borrower cover and two escorts trained since the latest standard were required.",
+        "The new borrower policy cost more because the intercity journey required two escorts."
       ],
       "answer": 2,
       "hints": [
-        "Treat insurance and transport approval as separate conditions, and check the ownership and journey scope of each exception.",
-        "Joint ownership excludes the state guarantee."
+        "Treat insurance and transport approval as separate conditions.",
+        "For each exception, check the ownership or journey scope it is limited to."
       ],
       "optionNotes": [
-        "False. Wholly owned objects alone qualify.",
-        "Not supported. Neither comparative experience nor identity is reported.",
-        "Correct. Joint ownership excludes the guarantee; territorial exclusion defeats the old policy, while suspended carrier accreditation and an intercity route force the two-escort plan.",
-        "Not supported. The premium and its determinants are not given."
+        "False. The guarantee covers 'only objects wholly owned by the collection', and 'a majority share in a jointly owned object is not enough'.",
+        "Not supported. The passage gives no comparison of the escorts' experience.",
+        "Correct. Joint ownership excludes the guarantee and the old policy fails on territory; the suspended carrier and intercity route leave an escort plan with two escorts trained 'after the latest packing standard'.",
+        "Not supported. The passage gives no premium or reason for one."
       ],
-      "explanation": "Joint ownership excludes the state guarantee. The old territorial exclusion requires other valid borrower insurance. Lapsed storage licensing suspends carrier accreditation. Crossing cities excludes the one-city escort exception. Two escorts with post-standard training are consequently required.",
+      "explanation": "Each exception is limited in scope: the guarantee to wholly owned objects, the old policy to its territory, the single-escort plan to one city. The lapsed licence removes the carrier, so the valid loan implies other borrower cover and two escorts trained after the latest standard, even though the newsletter does not mention them.",
       "supersedes": "v14-07"
     },
     {
-      "id": "v14-08-r2",
+      "id": "v14-08-c",
       "topic": "Laboratory release authority",
       "difficulty": 3,
       "challenge": true,
@@ -289,37 +289,37 @@ EPSO_BANK.registerSet({
         "model": "validity-at-event-and-converging-paths",
         "stages": 5,
         "evidence": [
-          "Broken arrival seal excludes the external certificate.",
-          "No manual method exists, so a local instrument assay is necessary.",
-          "Detector replacement cancels earlier calibration.",
-          "Both fresh-calibration routes need a reference certified after installation.",
-          "The absent usual signatory’s deputy needs separate current release authority."
+          "The seal broken on arrival excludes the external certificate.",
+          "No validated manual method exists, so a calibrated instrument was needed.",
+          "The detector replacement cancelled the earlier calibration.",
+          "Either fresh-calibration route needs a reference certified after installation.",
+          "The deputy needs a separate current release authorisation."
         ]
       },
-      "passage": "A fictional laboratory releases a batch only with valid analytical evidence and an authorised signatory. Evidence may be a local assay or a recognised external certificate. External certificates lose recognition when the sample's seal is broken before receipt; a photograph of the sealed parcel at dispatch does not preserve recognition. A local assay must use a calibrated instrument, unless a validated manual method exists for that substance.\n\nCalibration remains valid for six months but is cancelled by a detector replacement. A fresh calibration can be performed in-house or externally; either route requires a reference sample certified after the detector's installation. The signatory must hold a current release authorisation. A deputy may sign during the usual signatory's absence, but only if the deputy's separate authorisation is current. Seniority or a general laboratory-access pass cannot substitute. Release records need not display calibration or staff-authorisation documents.\n\nA batch was assayed and validly released after its detector was replaced. The external sample arrived with a broken seal, and no validated manual method existed for the substance. The usual signatory was absent and deputy Anik signed. The public record shows only the batch number, assay result and Anik's name. No alternative procedure applied.",
+      "passage": "A fictional laboratory releases a batch only with valid analytical evidence and an authorised signatory. Evidence may be a local assay or a recognised external certificate. An external certificate loses recognition if the sample's seal is broken before receipt, even if a photograph shows the parcel sealed at dispatch. A local assay must use a calibrated instrument unless a validated manual method exists for the substance. A detector replacement cancels calibration. Fresh calibration, in-house or external, requires a reference sample certified after the detector's installation. A deputy may sign while the usual signatory is absent, but only if the deputy's own release authorisation is current; seniority or a general laboratory-access pass cannot substitute.\n\nA batch was assayed and validly released after its detector was replaced. The external sample arrived with a broken seal, and no validated manual method existed. The usual signatory was absent, and deputy Anik signed. The public record, which need not show supporting documents, gives only the batch number, result and Anik's name.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "Anik’s general laboratory-access pass replaced release authorisation because the usual signatory was absent from the laboratory when the batch was approved for release.",
-        "The external certificate retained its recognition because a photograph showed the parcel sealed at dispatch, despite the seal being broken when the sample arrived.",
-        "The detector replacement improved the assay’s precision compared with the precision obtained before the earlier instrument was removed.",
-        "Anik held release authority, and a reference certified after detector installation had supported the required fresh calibration."
+        "Anik's general laboratory-access pass stood in for a release authorisation.",
+        "A photograph of the sealed parcel at dispatch kept the external certificate recognised.",
+        "The new detector gave more precise assay results than the instrument it replaced.",
+        "Anik held current authority, and the new calibration used a post-installation reference."
       ],
       "answer": 3,
       "hints": [
-        "Check analytical evidence and signing authority separately, including what the detector replacement invalidates.",
-        "Broken arrival seal excludes the external certificate."
+        "Check analytical evidence and signing authority separately.",
+        "Ask what the broken seal and the detector replacement each rule out."
       ],
       "optionNotes": [
-        "False. An access pass cannot substitute for release authorisation.",
-        "False. A dispatch photograph does not preserve recognition after the arrival seal is broken.",
-        "Not supported. No comparative precision evidence is given.",
-        "Correct. The external and manual routes fail; detector replacement cancels old calibration, and deputy status independently requires current release authority."
+        "False. 'Seniority or a general laboratory-access pass cannot substitute' for the deputy's own authorisation.",
+        "False. Recognition is lost if the seal is broken before receipt, 'even if a photograph shows the parcel sealed at dispatch'.",
+        "Not supported. The passage gives no comparison of precision.",
+        "Correct. The broken seal and the absence of a manual method leave a calibrated local assay; the replacement cancels the old calibration, so a reference certified 'after the detector's installation' was needed, and Anik needed a current authorisation."
       ],
-      "explanation": "Broken arrival seal excludes the external certificate. No manual method exists, so a local instrument assay is necessary. Detector replacement cancels earlier calibration. Both fresh-calibration routes need a reference certified after installation. The absent usual signatory’s deputy needs separate current release authority.",
+      "explanation": "The valid release forces both conditions. The external and manual routes fail, so the assay used a freshly calibrated instrument, which requires a post-installation reference; the deputy's signature is valid only with a current authorisation of the deputy's own. The sparse public record does not contradict either inference.",
       "supersedes": "v14-08"
     },
     {
-      "id": "v14-09-r2",
+      "id": "v14-09-c",
       "topic": "Procurement standstill exceptions",
       "difficulty": 3,
       "challenge": true,
@@ -328,37 +328,37 @@ EPSO_BANK.registerSet({
         "model": "quantifier-scope-and-authorisation-chain",
         "stages": 5,
         "evidence": [
-          "The stated urgency ground does not qualify.",
-          "Every unsuccessful bidder must receive an effective notice.",
-          "The portal acknowledgment is missing.",
-          "The former director therefore needs renewed mail authority for postal service.",
-          "Standstill cannot start before that effective delivery."
+          "Financial loss cannot support the urgency exception, so the standstill applied.",
+          "Every unsuccessful bidder needed an effective individual notice.",
+          "The portal gave no acknowledgment, so electronic delivery failed.",
+          "The former director could sign for post only if the administrator had reappointed them.",
+          "The standstill begins after the last effective individual delivery."
         ]
       },
-      "passage": "A fictional procurement unit signs a contract after a standstill period unless a narrow urgency exception applies. Urgency waives the period only when an independent reviewer certifies that delay creates immediate physical danger. Financial loss alone cannot qualify. When the period is observed, signature requires proof that every unsuccessful bidder was notified; a notice posted on the unit's website does not count as individual delivery.\n\nIndividual notices can be delivered electronically or by registered post. Electronic delivery is effective only after the bidder's designated portal acknowledges receipt; an outgoing-message log is insufficient. Registered delivery requires a signed receipt from the bidder or its authorised mail agent. For a bidder in administration, the former directors cease to be authorised mail agents unless the administrator appoints them again. The standstill begins after the last effective individual delivery, not after the first dispatch.\n\nA contract was validly signed under this procedure. Delay posed financial loss but no immediate physical danger, and no reviewer certified such danger. One unsuccessful bidder was in administration; its portal had issued no acknowledgment, and a former director signed its postal receipt. The public award summary contains no appointment by the administrator. No other delivery route or exception existed.",
+      "passage": "A fictional procurement unit signs a contract only after a standstill period, unless an independent reviewer certifies that delay creates immediate physical danger; financial loss alone cannot qualify. Signature then requires proof that every unsuccessful bidder received an individual notice; a notice on the unit's website does not count. Notices may be delivered electronically or by registered post. Electronic delivery is effective only once the bidder's designated portal acknowledges receipt; an outgoing-message log is insufficient. Registered delivery requires a receipt signed by the bidder or its authorised mail agent. Former directors of a bidder in administration stop being authorised mail agents unless the administrator appoints them again. The standstill begins after the last effective individual delivery, not the first dispatch.\n\nA contract was validly signed. Delay threatened financial loss but no physical danger, and no reviewer certified any. One unsuccessful bidder was in administration; its portal issued no acknowledgment, and a former director signed its postal receipt. The public summary records no reappointment. No other route existed.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The former director had regained mail authority, and that notice’s effective delivery preceded the standstill’s beginning.",
-        "The website notice began the standstill before the last unsuccessful bidder received an individually effective notification at its designated portal or through registered post.",
-        "The administrator’s appointment of the former director was probably issued on the day the procurement unit first dispatched the registered notice.",
-        "The contract’s urgency certificate was signed by an independent reviewer who considered the financial losses an immediate physical danger."
+        "The former director was reappointed, and the standstill started after that delivery.",
+        "The standstill period began when the unit posted its notice on its own website.",
+        "The administrator probably reappointed the director on the day the notice was posted.",
+        "An independent reviewer certified that the financial losses posed a physical danger."
       ],
       "answer": 0,
       "hints": [
-        "Start with the urgency exception, then follow effective delivery and standstill timing for every unsuccessful bidder.",
-        "The stated urgency ground does not qualify."
+        "Start by deciding whether the standstill could be waived.",
+        "Then follow the notice to the bidder in administration through each delivery method."
       ],
       "optionNotes": [
-        "Correct. Financial loss cannot waive standstill; the unacknowledged portal cannot deliver, leaving post valid only through a reappointed former director, with timing measured after the final effective notice.",
-        "False. The last effective individual delivery controls the start.",
-        "Not supported. The appointment date is not specified.",
-        "False. The request cited financial loss alone, which cannot qualify under the stated rule."
+        "Correct. Financial loss cannot waive the standstill and the portal never acknowledged receipt, so delivery was by post, valid only if the administrator appointed the director again; the standstill 'begins after the last effective individual delivery'.",
+        "False. A website notice 'does not count', and the standstill begins after the last effective individual delivery.",
+        "Not supported. The passage gives no date for any reappointment.",
+        "False. The passage states that 'no reviewer certified any' physical danger."
       ],
-      "explanation": "The stated urgency ground does not qualify. Every unsuccessful bidder must receive an effective notice. The portal acknowledgment is missing. The former director therefore needs renewed mail authority for postal service. Standstill cannot start before that effective delivery.",
+      "explanation": "With urgency excluded, every bidder needed an effective individual notice. The silent portal leaves registered post, and a former director can sign only after reappointment, so the valid signature implies that reappointment, missing from the public summary, and a standstill running from that delivery.",
       "supersedes": "v14-09"
     },
     {
-      "id": "v14-10-r2",
+      "id": "v14-10-c",
       "topic": "Source-code escrow access",
       "difficulty": 3,
       "challenge": true,
@@ -367,33 +367,33 @@ EPSO_BANK.registerSet({
         "model": "exhaustive-defaults-and-condition-renewal",
         "stages": 5,
         "evidence": [
-          "Six days cannot meet the outage trigger.",
-          "Verified insolvency must supply the trigger.",
-          "Pending payment excludes a current renewal.",
+          "A six-day outage cannot meet the more-than-seven-day trigger.",
+          "Verified insolvency must therefore supply the trigger.",
+          "The pending payment means the subscription was not renewed.",
           "The surviving clause needs the final contract deposited before termination.",
-          "The changed legal form requires the new board to ratify Veda’s delegation."
+          "The change of legal form requires the new board to ratify Veda's delegation."
         ]
       },
-      "passage": "A fictional software escrow agent releases source code only after a verified trigger and a valid beneficiary request. A trigger is either supplier insolvency or a service outage lasting more than seven consecutive days. Planned maintenance does not count towards outage duration, and two shorter outages cannot be joined across a day when service worked. A rumour of insolvency is not a verified trigger.\n\nA beneficiary request requires a current subscription or a surviving perpetual-access clause. The clause survives termination only if the beneficiary had deposited the final contract version before termination. Depositing an earlier draft does not qualify. Subscription renewal is effective only once payment clears; an invoice or pending transfer is not payment. Requests can be signed by a director or a delegated officer. Delegation expires when the requesting company changes legal form, unless the new board ratifies it after that change.\n\nThe agent validly released code to a company that had changed legal form. Its subscription had expired before the renewal payment, which remained pending, and officer Veda signed using a delegation originally given before the change. Its only outage lasted six days excluding maintenance. No other trigger, request route or exception applied. The public release record lists no contract deposit or ratification.",
+      "passage": "A fictional software escrow agent releases source code only after a verified trigger and a valid beneficiary request. A trigger is either verified supplier insolvency or a service outage of more than seven consecutive days; planned maintenance does not count towards the duration. A request requires a current subscription or a surviving perpetual-access clause. The clause survives termination only if the beneficiary deposited the final contract version, not a draft, before termination. Renewal takes effect only once payment clears; a pending transfer is not payment. Requests may be signed by a director or a delegated officer, but a delegation expires when the company changes legal form unless the new board ratifies it afterwards.\n\nThe agent validly released code to a company that had changed legal form. Its subscription had expired, and the renewal payment was still pending. Officer Veda signed under a delegation given before the change. The only outage lasted six days excluding maintenance. The public release record lists no deposit or ratification. No other route applied.",
       "stem": "Which of the following statements is supported by the passage?",
       "options": [
-        "The pending subscription payment supported release because the six-day outage qualified for the outage trigger once the duration of planned maintenance was included.",
-        "Verified insolvency, timely deposit of the final contract, and renewed signing authority were necessary for the release to Veda’s company.",
-        "The new board ratified Veda’s delegation before it received confirmation of the supplier’s insolvency from the escrow agent.",
-        "The supplier became insolvent as a result of the same service outage that prompted the company to request access to the source code."
+        "The outage met the trigger once the planned maintenance time was added to its length.",
+        "Release required insolvency, a timely final-contract deposit and a ratified delegation.",
+        "The new board ratified Veda's delegation before the supplier's insolvency was confirmed.",
+        "The supplier became insolvent because of the six-day outage that affected the service."
       ],
       "answer": 1,
       "hints": [
-        "Separate the release trigger, beneficiary entitlement and delegated signing authority; each has its own validity rule.",
-        "Six days cannot meet the outage trigger."
+        "Separate the trigger, the beneficiary's entitlement and the signing authority.",
+        "For each, ask which route the stated facts leave open."
       ],
       "optionNotes": [
-        "False. Neither pending payment nor maintenance-expanded outage meets the rules.",
-        "Correct. The short outage leaves insolvency; unpaid subscription leaves the preserved clause and timely final-version deposit; changed legal form requires fresh ratification of delegated signature.",
-        "Not supported. The relative timing of ratification and insolvency confirmation is not specified.",
-        "Not supported. No cause of insolvency is stated."
+        "False. 'Planned maintenance does not count towards the duration.'",
+        "Correct. Six days cannot meet the outage trigger, a pending transfer 'is not payment', and the change of legal form ends the delegation unless the new board ratifies it; so release required insolvency, the final-version deposit and ratification.",
+        "Not supported. The passage gives no order for the ratification and the insolvency confirmation.",
+        "Not supported. No cause of the insolvency is stated."
       ],
-      "explanation": "Six days cannot meet the outage trigger. Verified insolvency must supply the trigger. Pending payment excludes a current renewal. The surviving clause needs the final contract deposited before termination. The changed legal form requires the new board to ratify Veda’s delegation.",
+      "explanation": "Three separate conditions each have one route left. The short outage leaves insolvency, the unpaid renewal leaves the perpetual-access clause with its deposit condition, and the change of legal form leaves only a ratified delegation. The public record's silence does not contradict these necessary conditions.",
       "supersedes": "v14-10"
     }
   ]

@@ -1,0 +1,23 @@
+{
+  "v15-03-c": {
+    "answer": "A",
+    "labels": { "B": "False", "C": "Not supported", "D": "Not supported" },
+    "issues": ["D borderline: 'made on 6 June' could be read as Overstated (passage gives only on-or-after 6 June), but the invented shared-workshop claim makes Not supported the better label"],
+    "difficulty": 4,
+    "reasoning": "The cover (paper first available 6 June) was attached before the notebook entered the parcel, and the parcel was sealed by the 9 June photo with no opening until 12 June, so packing fell between 6 and 9 June; the ledger proves only crate dispatch. B is contradicted (reproduction dates nothing, and stamp made on or after 6 June); C and D invent who packed it or a workshop."
+  },
+  "v15-05-c": {
+    "answer": "C",
+    "labels": { "A": "False", "B": "Not supported", "D": "Not supported" },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Resignation ended the appointment, so valid release required a guest mandate naming ecology with written acceptance; the permission-only repository is not public and the provider's promise sets no deadline, so an independent committee bound by the thirty-day obligation must have existed. A contradicts the landing-page rule; B and D add unstated motives and counts."
+  },
+  "v18-04-c": {
+    "answer": "D",
+    "labels": { "A": "False", "B": "False", "C": "Not supported" },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Both routes need an independence declaration made after the lender was identified; the published one predated that, so for the issuance to be valid another qualifying declaration must have been made later. A contradicts the index/minimum and exemption rules; B contradicts the declaration rule; C picks a branch the passage leaves open."
+  }
+}

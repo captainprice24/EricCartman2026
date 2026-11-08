@@ -1,0 +1,224 @@
+{
+  "v16-01-c": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "The register is restricted and analysis-only permission excludes distribution, so distribution permission was needed; stable keys block anonymisation and the export change requires a post-migration independent assessment."
+  },
+  "v16-02-c": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "Buildings on Friday would force accounts onto Thursday, so C<D<E applies; with contracts not on Monday, accounts must be Monday, giving A-B-C-D-E with equipment on Friday."
+  },
+  "v16-03-c": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "With no site reference, only a valid contemporaneous log remains; Ivo signed after moving, so his authority must have been renewed in writing beforehand. B gives an invented reason for the renewal."
+  },
+  "v16-04-c": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "South is barred and the North label lapsed after the unapproved modification, so Central with officer authorisation applied, and the reopening required a fresh accredited seal."
+  },
+  "v16-05-c": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Unequal sampling and differing completion definitions, with no randomisation, mean the accurate shares cannot isolate a route effect; S leads among completed projects, contradicting B."
+  },
+  "v16-06-c": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Overstated",
+      "D": "Not supported"
+    },
+    "issues": [
+      "C borderline: Overstated (turns a release condition into a guarantee) vs False (passage says conditions are not promises)"
+    ],
+    "difficulty": 4,
+    "reasoning": "Released harbour files were inspected and disputed; no order survived appeal, so they relied on consent and therefore on independent mediation by a mediator who read the full file, including the annexes."
+  },
+  "v16-07-c": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "The logger gap forces manual monitoring, so recalibration after the battery change is needed; the refrigerant change requires a supplement; an experimental product needs a specific permit naming the batch."
+  },
+  "v16-08-c": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Vale and Tavi are ineligible, so Neri and Sol were assigned; Neri's qualification had expired, so a written waiver by an independent specialist for this exact field was required. Using one specialist for both is permitted but not stated."
+  },
+  "v16-09-c": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Sponsor payment is commercial, which excludes the heritage exemption, so a certificate reassessed after conversion was needed; the permit ended on transfer, so an individual authorisation with a verified appointment was needed."
+  },
+  "v16-10-c": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "Coral fifth would put Birch fourth, so Coral is not fifth and D>A>E holds; every valid arrangement (BC at 1-2, 2-3 or 3-4) puts Elm fifth."
+  },
+  "v17-01-c": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "The pre-1900 carrier keeps the object listed; with consent withheld and the lab unlicensed, external supervision was needed, and a briefing cannot replace the post-change supplement."
+  },
+  "v17-02-c": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "The certificate was voided by the axle change and only one current scale remained, so an independent check weight was needed: certified after resurfacing by a lab other than the scale's calibrator."
+  },
+  "v17-03-c": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "Minors exclude delegation; the investigator is ineligible and the alternate cannot replace them, so the third eligible member must be an independent clinician on a verified live link covering the whole meeting."
+  },
+  "v17-04-c": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "Not supported",
+      "D": "False"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "The waiver failed, so full notice was needed after effective delivery; with no portal acknowledgment, postal delivery via the former secretary needed an explicit renewal after the replacement."
+  },
+  "v17-05-c": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "A live release needs a certificate; the warmed reserve fails, so a fresh sample had to be drawn after the warming, using the sole instrument sterilised after its last use on another accession."
+  },
+  "v17-06-c": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "False",
+      "C": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 4,
+    "reasoning": "Partial private ownership leaves the restricted community lease route; the 30-year lease excludes delegation, so Pavo's board participation needed reactivation by the professional body with a post-consulting independence declaration."
+  },
+  "v17-07-c": {
+    "answer": "A",
+    "labels": {
+      "B": "False",
+      "C": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Touching a neighbouring district requires coordination; being out of radio range forces the corridor, which after the firmware change needs a test using a key generated after the revocation."
+  },
+  "v17-08-c": {
+    "answer": "B",
+    "labels": {
+      "A": "False",
+      "C": "False",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "The unlisted branch needs an individual decision with an authorised translation; Mira, unsupervised and relocated, needed confirmation from the receiving jurisdiction based on an identity check after the name change."
+  },
+  "v17-09-c": {
+    "answer": "C",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "D": "Not supported"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Foreign ownership leaves the bonded channel; Osa's authority must name the present owner, and with the insurer suspended, a cleared cash deposit was the only guarantee."
+  },
+  "v17-10-c": {
+    "answer": "D",
+    "labels": {
+      "A": "False",
+      "B": "Not supported",
+      "C": "False"
+    },
+    "issues": [],
+    "difficulty": 3,
+    "reasoning": "Identifiers remain and the waiver names the predecessor, so redaction was needed; the tool lost certification, so the processor's accreditation required a fresh audit of its new production site before publication."
+  }
+}

@@ -88,7 +88,7 @@ See `docs/VERBAL_AUDIT.md` and the verbal research library before adding further
 }
 ```
 
-- **Passage:** 130–260 words **(enforced)**. New sets aim for 130–170 words in one or two paragraphs, the length of the commercial practice sample reviewed in November 2026 (see `docs/research/medium-2026-11/README.md`); keep it dense, with qualifiers ("mainly", "in principle"),
+- **Passage:** 130–170 words in one or two paragraphs **(enforced)**, the length of the commercial practice sample reviewed in November 2026 (see `docs/research/medium-2026-11/README.md`). All 350 passages were brought to this length in November 2026; keep options to about 50–90 characters. Keep it dense, with qualifiers ("mainly", "in principle"),
   exceptions ("unless", "however"), two related figures, a contrast or a disagreement. Write
   it yourself, keep facts accurate, and choose a subject not already in the bank.
 - **Key:** never copy 7 or more consecutive words from the passage **(enforced)**. At least 40%

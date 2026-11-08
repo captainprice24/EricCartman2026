@@ -47,7 +47,7 @@ No paid or leaked provider sets were imported. Public access, an academic code l
 - Keep all facts needed for the answer inside the passage. Fictional studies and procedures must be identified as fictional; do not teach invented EU rules as current law.
 - Exactly one option must be entailed. Unknown information is not false, and the possibility of a future event is not evidence that it occurred. Necessary conditions are not sufficient; absence from a selective file is not confirmed absence.
 - Define physical status versus procedural certification precisely: intact is not necessarily inspected; rostered is not necessarily present; a calculated conditional payment is not an actual payment; only-if is not if-and-only-if. Blind review found these exact issues and prompted repairs.
-- Retain the existing 170–260-word range, four options, progressive hints, honest distractor labels and answer-cue limits. A multi-clause correct option must not routinely be the longest.
+- Keep passages at 130–170 words in one or two paragraphs (since November 2026; see `blind-review/compact-2026-11/`), four options, progressive hints, honest distractor labels and answer-cue limits. A multi-clause correct option must not routinely be the longest.
 - Use the blind-review export so a second reviewer sees no keys, notes or author metadata. Reconcile every key and label; the comparison command now fails label disagreement as well as key disagreement.
 - Difficulty remains editorial. Independent review found strong chains and some more moderate items within the challenge collection. Pilot first-attempt correctness and time before claiming uniform extreme difficulty.
 

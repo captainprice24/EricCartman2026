@@ -71,7 +71,7 @@ Copy the layout of `questions/verbal/verbal-set-01.js`. Each item needs:
 - `id`: set prefix plus a number, such as `v04-01`.
 - `topic`, and `difficulty` set by the rubric in `docs/QUESTION_FORMAT.md` (aim for about 25% 1, 50% 2, 25% 3).
 - `keyType`: paraphrase, combination or inference.
-- `passage`: 130–260 words in 1–3 paragraphs separated by `\n\n`. New sets aim for 130–170 words in one or two paragraphs, with options of roughly 50–90 characters, matching the commercial practice sample reviewed in November 2026.
+- `passage`: 130–170 words in one or two paragraphs separated by `\n\n` (enforced), with options of roughly 50–90 characters, matching the commercial practice sample reviewed in November 2026.
 - `stem`: "Which of the following statements is correct?"
 - `options`: 4 options.
 - `answer`

@@ -1,25 +1,24 @@
-/* Original hand-authored verbal challenge items; reordered for balanced set-level cues. */
 EPSO_BANK.registerSet({
-  id: "verbal-11",
-  section: "verbal",
-  title: "Verbal reasoning · Set 11 — Very hard",
-  description: "10 original challenging passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
-  version: 2,
-  challenge: true,
-  questions: [
+  "id": "verbal-11",
+  "section": "verbal",
+  "title": "Verbal reasoning · Set 11 — Very hard",
+  "description": "10 original challenging exam-length passages on fictional procedures and studies. Linked deductions, exceptions, scope and evidence limits. Timed practice: 17 min 30 sec. Editorial difficulty pending learner calibration.",
+  "version": 2,
+  "challenge": true,
+  "questions": [
     {
-      "id": "v11-01-r2",
+      "id": "v11-01-c",
       "topic": "Supplier-comparison composition",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional agency compared the average delivery time of two suppliers. Supplier Birch delivered standard components in an average of four days and specialist components in twelve. Supplier Alder averaged five days for standard components and thirteen for specialist components. The figures covered completed orders in the same quarter, using the same definition of delivery time.\n\nThe agency also published each supplier's overall average, but its short summary omitted the proportions of standard and specialist orders assigned to each. Staff explained that specialist orders generally took longer regardless of supplier. Birch had been used mainly for specialist components, while Alder handled mainly standard components. The exact mix and the overall averages are not supplied in the account available here.\n\nFor an internal planning exercise, the analyst assigned equal numbers of standard and specialist orders to each supplier, retaining each supplier's observed category averages. The exercise did not reassign any actual order and did not predict how delivery times would respond to a changed contract. It excluded every difference other than the mix when recombining the existing category means. No observation established that either supplier could maintain its existing means under a real change in the amount or type of work.",
+      "passage": "A fictional agency compared the delivery times of two suppliers over the same quarter, using one definition of delivery time. Supplier Birch delivered standard components in an average of four days and specialist components in twelve. Supplier Alder averaged five days for standard components and thirteen for specialist components. Specialist orders generally took longer with either supplier. Birch mainly handled specialist work and Alder mainly standard work, but the agency's summary omitted the exact mix and each supplier's overall average.\n For a planning exercise, an analyst recombined each supplier's observed category averages as if it had handled equal numbers of standard and specialist orders. The exercise did not reassign any actual order and did not predict how delivery times would respond to a changed contract. No observation showed whether either supplier could keep its category averages if the amount or type of its work really changed.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "Birch had the lower observed overall average before the common-mix exercise because its advantage was present in each separate category.",
-        "Alder's lower standard-order share follows from Birch being faster in both categories, even though the precise observed category proportions were unpublished.",
-        "The exercise eliminates Birch's category advantages because identical weights make the two suppliers' retained delivery-time figures identical.",
-        "Common category weights preserve Birch's lower stated mean, without establishing its observed aggregate ranking or future workload response."
+        "Birch had the lower observed overall average, as it was faster in each separate category.",
+        "Birch's speed in both categories proves that Alder had the smaller share of standard orders.",
+        "Under equal weights, the two suppliers' recombined averages come out identical.",
+        "With equal order numbers Birch is faster; its overall average and future times are unknown."
       ],
       "answer": 3,
       "hints": [
@@ -27,16 +26,16 @@ EPSO_BANK.registerSet({
         "Ask whether changing weights in an arithmetic exercise establishes what would happen to actual delivery performance."
       ],
       "optionNotes": [
-        "Overstated. The actual mixes and overall means are undisclosed; within-category advantages do not determine the observed aggregate ranking.",
-        "False. Being faster within each category does not by itself establish the observed weights, and the narrative places more specialist work with Birch.",
-        "False. Common weights do not make the distinct category means identical.",
-        "Correct. Birch's lower mean in each category survives identical weights; different observed weights and untested workload responses remain separate questions."
+        "Not supported. Birch was faster in each category, but the summary 'omitted the exact mix and each supplier's overall average', so the observed ranking is unknown.",
+        "False. The passage says Alder 'mainly' handled 'standard work'; category speed does not fix the mix.",
+        "False. With equal numbers Birch averages eight days and Alder nine, because each of Birch's category means is lower.",
+        "Correct. Birch's lower means survive equal weights, but the mix is undisclosed and no observation shows future performance under real change."
       ],
       "explanation": "A standardised comparison can remove a composition difference without measuring the effect of an actual intervention.",
       "reasoning": {
         "model": "Standardised comparison versus intervention prediction",
         "evidence": [
-          "four days for standard components and specialist components in twelve",
+          "standard components in an average of four days and specialist components in twelve",
           "five days for standard components and thirteen for specialist components",
           "equal numbers of standard and specialist orders",
           "did not reassign any actual order"
@@ -51,18 +50,18 @@ EPSO_BANK.registerSet({
       "supersedes": "v11-01"
     },
     {
-      "id": "v11-02-r2",
+      "id": "v11-02-c",
       "topic": "Rare-species survey sensitivity",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional woodland study used sound recorders to search for a rare bird. A recognisable call in a recording was accepted as evidence that the bird had visited the recorder's detection area. The absence of a recognised call was treated differently: birds might remain silent, be masked by other sounds or pass outside the effective detection range. Researchers described the method as capable of confirming some visits rather than proving absence.\n\nIn the first season, recorders operated for two nights at each site. In the second, they operated for eight nights. Recognised calls were found at 14 sites in the first season and 23 in the second. Weather and the number of individual birds were not measured consistently between seasons. The report did not identify which sites had positive recordings in both periods.\n\nBoth surveys covered the same 30 sites. Every site had a usable recording in each season; only the listening duration differed as described. The released totals do not identify sites with positive calls in both years. No additional site was introduced, and the report gives no evidence of whether a previously silent site had previously been visited by the bird. The conservation group is examining what the positive-site totals alone force before interpreting any apparent expansion of occupied habitat.",
+      "passage": "A fictional woodland study used sound recorders to search for a rare bird. A recognised call in a recording was accepted as evidence that the bird had visited the recorder's detection area, but the absence of a call was not taken as evidence of absence: birds might stay silent, be masked by other sounds or pass beyond the effective range. The researchers described the method as capable of confirming some visits rather than proving absence.\n Both seasons covered the same 30 sites, and every site produced a usable recording each time. Recorders ran for two nights per site in the first season and eight in the second. Recognised calls were found at 14 sites in the first season and 23 in the second. Weather and the number of individual birds were not measured consistently, and the report does not say which sites were positive in both seasons.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "Every site positive in the first season also yielded a call in the second, because the longer recording period increased opportunities for detection.",
-        "The same fixed set of sites means only the fourteen previously positive sites could yield calls again.",
-        "At least nine sites newly yielded calls, without establishing nine newly occupied sites or identifying the full overlap.",
-        "The 23 positive sites establish that at least 23 different individual birds were present, because each site yielded a recognised call."
+        "Each first-season positive site yielded a call again, since recording ran for longer.",
+        "With a fixed set of sites, only the fourteen earlier positives could yield calls again.",
+        "At least nine sites newly yielded calls, but this does not show nine newly occupied sites.",
+        "The 23 positive sites prove that at least 23 different birds were present in that season."
       ],
       "answer": 2,
       "hints": [
@@ -70,10 +69,10 @@ EPSO_BANK.registerSet({
         "How many later positives can fit among the earlier positives, and what does a negative recording actually establish?"
       ],
       "optionNotes": [
-        "Overstated. The totals leave the overlap unreported; greater opportunity does not establish every old site's later result.",
-        "False. The fixed set contains other sites, and twenty-three cannot fit into fourteen.",
-        "Correct. Twenty-three positives cannot all fit among fourteen old positives; at least nine come from previously negative sites. Non-detection does not prove prior absence.",
-        "Overstated. A single bird can potentially visit multiple detection areas; the site totals do not identify distinct individuals."
+        "Not supported. Longer recording gave more chances of detection, but the report 'does not say which sites were positive in both seasons'.",
+        "False. Calls came from 23 sites in the second season, which cannot all be among the fourteen earlier positives.",
+        "Correct. At most 14 of the 23 positives were earlier positives, and the method cannot prove 'absence' at the other sites earlier.",
+        "Not supported. A call shows that 'the bird had visited' an area; one bird could visit several, and individuals were not counted."
       ],
       "explanation": "A bound on newly detected sites is not a bound on newly occupied sites when detection is imperfect.",
       "reasoning": {
@@ -93,94 +92,94 @@ EPSO_BANK.registerSet({
       "supersedes": "v11-02"
     },
     {
-      id: "v11-03",
-      topic: "Publication queues and logical selection",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional journal places a submission in its fast review queue when it has both an open-data statement and a complete methods checklist. Otherwise it goes to the standard queue. Fast review changes the order of processing, not the publication standard. Papers in either queue are accepted only after independent peer review; a fast-queue entry is not a peer-review result.\n\nAn author can request transfer from the standard queue by supplying the missing documents before an editor is assigned. Once an editor is assigned, the queue is fixed for that review round even if documents arrive later. A queue entry records the documents' status when the queue decision was made, rather than guaranteeing their continued public availability. The journal has not published comparative acceptance rates for the two queues.\n\nPaper Rowan entered the standard queue and received an editor on Monday. Its missing open-data statement arrived on Tuesday, with the checklist already complete. Paper Hazel's fast-queue entry is confirmed, but no editor or peer-review decision for it has been announced. A statement later disappeared from Hazel's public web page. Both papers remain under consideration. Neither has been withdrawn, and no exceptional queue transfer has been authorised after editorial assignment.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Rowan's completed documents require immediate transfer to fast review, while Hazel's missing web statement proves its original queue decision was invalid.",
-        "Hazel has already passed peer review because its fast-queue entry required complete documentary evidence before an editor was assigned.",
-        "Rowan's queue is fixed for this round; Hazel's entry records earlier documents, not peer-review success or continuing web availability.",
-        "Rowan has a lower acceptance probability than Hazel because standard review applies to incomplete submissions and the fast queue is processed first."
+      "id": "v11-03-c",
+      "topic": "Publication queues and logical selection",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional journal sends a submission to its fast review queue when it has both an open-data statement and a complete methods checklist; otherwise it goes to the standard queue. Fast review changes the order of processing, not the publication standard: papers in either queue are accepted only after independent peer review. An author can move a paper out of the standard queue by supplying the missing documents before an editor is assigned. Once an editor is assigned, the queue is fixed for that review round. A queue entry records the documents' status when the queue decision was made, not their continued public availability. No comparative acceptance rates have been published.\n Paper Rowan entered the standard queue and received an editor on Monday; its missing open-data statement arrived on Tuesday, its checklist already complete. Paper Hazel's fast-queue entry is confirmed, but no editor or review decision has been announced, and a statement has since disappeared from Hazel's web page. No exceptional transfer has been authorised.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Rowan must now move to fast review, and the missing web statement voids Hazel's entry.",
+        "Hazel has already passed peer review, since its fast entry required complete documents.",
+        "Rowan's queue is now fixed; Hazel's entry attests past documents, not review success.",
+        "Rowan is less likely to be accepted than Hazel, as fast-queue papers are processed first."
       ],
-      answer: 2,
-      hints: [
+      "answer": 2,
+      "hints": [
         "Locate the timing cutoff for queue transfer.",
         "Ask which time and which decision Hazel's queue label actually certifies."
       ],
-      optionNotes: [
-        "False. Rowan's editor assignment fixes its queue; a later web change does not prove earlier documentary absence.",
-        "False. Fast entry does not constitute independent peer-review acceptance.",
-        "Correct. The cutoff timing fixes Rowan, while Hazel's label concerns the decision-time documents rather than later events or merit.",
-        "Not supported. No comparative acceptance probabilities are reported."
+      "optionNotes": [
+        "False. Rowan's editor was assigned before the statement arrived, so its queue 'is fixed'; Hazel's entry reflects documents 'when the queue decision was made'.",
+        "Not supported. Papers in either queue 'are accepted only after independent peer review', and no review decision for Hazel has been announced.",
+        "Correct. Rowan's documents came after editor assignment, and a queue entry records documents at decision time, not peer-review results.",
+        "Not supported. 'No comparative acceptance rates have been published', and fast review changes only processing order."
       ],
-      explanation: "A status can certify a historical condition without proving a later condition or a different kind of approval. Process priority is not outcome quality.",
-      reasoning: {
-        model: "Cutoff timing and historical-status interpretation",
-        evidence: [
+      "explanation": "A status can certify a historical condition without proving a later condition or a different kind of approval. Process priority is not outcome quality.",
+      "reasoning": {
+        "model": "Cutoff timing and historical-status interpretation",
+        "evidence": [
           "Once an editor is assigned, the queue is fixed",
           "records the documents' status when the queue decision was made",
           "accepted only after independent peer review",
           "received an editor on Monday"
         ]
       },
-      reviewedAs: "v10-16"
+      "reviewedAs": "v10-16",
+      "supersedes": "v11-03"
     },
     {
-      id: "v11-04",
-      topic: "Counterpart obligations in a repair network",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional repair network recognises workshops as either registered partners or occasional subcontractors. Every registered partner holds a current safety audit. Any workshop performing electrical repairs also needs an electrical endorsement, including a subcontractor that holds no partner registration. Mechanical work does not itself establish or require that endorsement. A current safety audit does not automatically confer an endorsement.\n\nThe network accepts electrical endorsements from either its own assessor or a recognised external board. Both routes require evidence of a supervised electrical repair assessment. Partner audits do not include that assessment. A workshop can hold an external endorsement before joining the network, but it must be current on the date electrical work is performed. The directory publishes partner registration and advertised services rather than all underlying assessment records.\n\nWorkshop Elm appears as a registered partner and has performed an electrical repair under the stated rules, with no exception. The directory does not say which endorsement route Elm used. Workshop Ash also appears as a partner, but the available report records mechanical repairs only and gives no electrical work, endorsement or supervised-assessment evidence for it. The workshops share an owner and premises, yet registrations, audits and endorsements attach separately to each workshop rather than transferring through common ownership.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Ash holds an electrical endorsement because its shared owner and current partner registration supply the same underlying assessment evidence as Elm's compliant repair.",
-        "Elm's repair entails supervised assessment and its registration an audit; Ash's matching registration and owner do not establish an endorsement.",
-        "Every partner audit verifies supervised electrical assessment, since the network requires both safety and electrical safeguards from workshops doing electrical work.",
-        "Elm obtained its endorsement from the external board because no network-assessor record appeared among the directory's advertised services."
+      "id": "v11-04-c",
+      "topic": "Counterpart obligations in a repair network",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional repair network recognises workshops as registered partners or occasional subcontractors. Every registered partner holds a current safety audit. Any workshop performing electrical repairs, subcontractors included, also needs an electrical endorsement, which a safety audit does not confer and mechanical work does not require. Endorsements are issued by the network's own assessor or by a recognised external board. Both routes require evidence of a supervised electrical repair assessment, which partner audits do not include. The network's directory shows registrations and advertised services, not assessment records.\n Workshop Elm is a registered partner and has performed an electrical repair under the stated rules, with no exception; the directory does not say which endorsement route it used. Workshop Ash is also a partner, but the available report records only mechanical repairs and no electrical work, endorsement or assessment for it. The two workshops share an owner and premises, but registrations, audits and endorsements attach separately to each workshop.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Ash holds an endorsement, as its shared owner supplies the assessment evidence behind Elm's.",
+        "Elm's record implies an audit and a supervised assessment; Ash's endorsement is unproven.",
+        "Partner audits include a supervised electrical assessment to secure electrical safety.",
+        "Elm's endorsement came from the external board, since the directory lists no assessor record."
       ],
-      answer: 1,
-      hints: [
+      "answer": 1,
+      "hints": [
         "Find the prerequisite shared by both endorsement routes.",
         "Keep workshop-specific obligations separate from shared ownership and partner status."
       ],
-      optionNotes: [
-        "False. The rules explicitly forbid transfer through ownership and distinguish audit from electrical assessment.",
-        "Correct. Either endorsement route entails supervised assessment; partner status entails an audit. Neither ownership nor partner status supplies Ash's endorsement.",
-        "False. The assessment requirement for electrical work is extended to all partner audits, which do not include it.",
-        "Not supported. A directory that does not list underlying assessments cannot identify the issuing route."
+      "optionNotes": [
+        "False. Endorsements 'attach separately to each workshop', and nothing records an endorsement or assessment for Ash.",
+        "Correct. Elm's partner status entails an audit, and its compliant electrical repair entails an endorsement, which on 'both routes' requires a supervised assessment.",
+        "False. The supervised assessment is something 'partner audits do not include'.",
+        "Not supported. The directory shows 'not assessment records', so it cannot reveal which route Elm used."
       ],
-      explanation: "Combine shared route prerequisites with a separate status obligation. Similar organisations do not inherit each other's authorisations merely through a common owner.",
-      reasoning: {
-        model: "Shared route prerequisites across nontransferable entities",
-        evidence: [
+      "explanation": "Combine shared route prerequisites with a separate status obligation. Similar organisations do not inherit each other's authorisations merely through a common owner.",
+      "reasoning": {
+        "model": "Shared route prerequisites across nontransferable entities",
+        "evidence": [
           "Every registered partner holds a current safety audit",
           "Both routes require evidence of a supervised electrical repair assessment",
           "performed an electrical repair under the stated rules",
           "attach separately to each workshop"
         ]
       },
-      reviewedAs: "v10-15"
+      "reviewedAs": "v10-15",
+      "supersedes": "v11-04"
     },
     {
-      "id": "v11-05-r2",
+      "id": "v11-05-c",
       "topic": "Food-storage inspection domains",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional food depot uses separate checks for room temperature and package integrity. A batch can enter distribution only if its temperature record is acceptable and its packages pass inspection. An acceptable room temperature does not establish an individual batch's complete temperature history, which includes transport before arrival.\n\nThe depot's temperature display shows the current room reading. Its batch file holds a transport logger record and a seal inspection result. A missing logger record can be replaced by an approved supplier certificate, but a current room reading cannot replace it. A certificate concerns temperature history only; it does not waive the package inspection. In one month, 40 batches arrived and six required additional documentation, without the report specifying their eventual decisions.\n\nCedar's supplier certificate has now been approved, and its packages have passed the required inspection. Batch Fern has a complete acceptable transport logger record but failed package inspection. Current room temperature is acceptable for both. Neither batch has an emergency exemption, and there are no additional release requirements in this case. The depot has not published the cause of Fern's package failure or which supplier supplied either batch. Staff are checking whether different kinds of positive evidence cover both criteria for each batch before releasing either one.",
+      "passage": "A fictional food depot checks temperature and packaging separately. A batch can enter distribution only if its temperature record is acceptable and its packages pass inspection. Each batch file holds a transport logger record and a seal inspection result. The room display shows only the current room reading, which does not establish a batch's temperature history before arrival. A missing logger record can be replaced by an approved supplier certificate, but not by a room reading. A certificate covers temperature history only and does not waive package inspection.\n Batch Cedar arrived without a logger record. Cedar's supplier certificate has now been approved, and its packages have passed inspection. Batch Fern has a complete acceptable transport logger record but failed package inspection. The room temperature is acceptable for both. Neither batch has an exemption, and no other release requirement applies. The depot has not published the cause of Fern's package failure or which suppliers provided either batch.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "All batches with acceptable transport records must be released, so Fern's logger overrides the package finding under the same route used for Cedar.",
-        "Both batches remain ineligible because a supplier certificate can never replace a logger record and the room display concerns only current temperature.",
-        "Cedar satisfies all release conditions through packaging and approved history; Fern's satisfactory logger leaves its package failure unresolved.",
-        "Fern's supplier caused its package defect during transport, while Cedar's supplier avoided the same handling failure by providing a certificate."
+        "All batches with acceptable logger records must be released, Fern's included.",
+        "Neither batch qualifies, as a supplier certificate can never stand in for a logger record.",
+        "Cedar meets both release conditions; Fern's logger cannot offset its failed packages.",
+        "Fern's supplier damaged its packages in transport, a failure that Cedar's supplier avoided."
       ],
       "answer": 2,
       "hints": [
@@ -188,10 +187,10 @@ EPSO_BANK.registerSet({
         "Determine exactly which evidence an approved supplier certificate is allowed to replace."
       ],
       "optionNotes": [
-        "False. One satisfied condition is expanded into sufficient release despite the separate package requirement.",
-        "False. An approved supplier certificate is an explicitly permitted substitute.",
-        "Correct. Approved certificate substitutes for history only, completing Cedar's conjunction; Fern meets history but fails the independent package condition.",
-        "Not supported. Neither cause nor supplier identity is reported."
+        "False. A batch is released 'only if' its temperature record is acceptable 'and its packages pass inspection'; Fern failed inspection.",
+        "False. 'A missing logger record can be replaced by an approved supplier certificate'.",
+        "Correct. Cedar's approved certificate replaces its missing logger record and its packages passed; Fern's good history does not cure its package failure.",
+        "Not supported. The depot 'has not published the cause of Fern's package failure' or the suppliers."
       ],
       "explanation": "Alternative evidence for one prerequisite does not remove a separate prerequisite.",
       "reasoning": {
@@ -206,61 +205,61 @@ EPSO_BANK.registerSet({
       "reviewedAs": "v11-18",
       "solution": [
         "Release needs acceptable temperature history and satisfactory packaging.",
-        "Cedar's approved certificate can replace the history record and its packaging passes, so both conditions are satisfied.",
+        "Cedar's approved certificate replaces its missing logger record and its packaging passes, so both conditions are satisfied.",
         "Fern's acceptable logger addresses history, but its packaging failure remains; one condition cannot substitute for the other."
       ],
       "supersedes": "v11-05"
     },
     {
-      id: "v11-06",
-      topic: "Conservation marks and loaned objects",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional collections service uses three distinct labels. An object is classed as conserved only after its treatment dossier has been approved. Every approved treatment dossier receives a digital authenticity mark. The service's rules do not require every marked dossier to describe conservation; marked dossiers can also record examination without treatment. A public loan is not in itself a treatment or a dossier approval.\n\nDuring a temporary transfer, some loaned objects were found to have dossiers without an authenticity mark. The service confirmed that these were genuinely unmarked dossiers, not merely cases where a mark was missing from the public catalogue. No exception allows an approved treatment dossier to remain unmarked. The report did not identify the individual loaned objects, the number of marked dossiers among the loans or the contents of unmarked dossiers.\n\nThe receiving gallery displayed 40 transferred objects, alongside 25 items from its permanent holdings. Its display labels described artists and materials rather than treatment histories. Preparations for the exhibition included cleaning transport cases and checking hanging systems, neither of which the service classifies as conservation of the objects. The gallery's records of those preparations therefore supplied no alternative conservation classification for the objects with unmarked dossiers. The report made no claim that every loaned object was in the same treatment category.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Not every loaned object can be classified as conserved: some lack a dossier mark that conservation approval would require.",
-        "An authenticity mark is sufficient for conservation classification, since a marked dossier cannot concern examination without treatment.",
-        "No loaned object can be classified as conserved, since the service found some unmarked dossiers among the transferred collection.",
-        "Some genuinely unmarked dossiers had received treatment approval, since the absence of a public catalogue mark does not identify their contents."
+      "id": "v11-06-c",
+      "topic": "Conservation marks and loaned objects",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "Under a fictional collections service's rules, an object is classed as conserved only after its treatment dossier has been approved. Every approved treatment dossier receives a digital authenticity mark, and no exception allows an approved dossier to remain unmarked. A mark does not show that conservation took place, however: marked dossiers can also record examination without treatment. Lending an object is not in itself a treatment or a dossier approval.\n During a temporary transfer to a gallery, some loaned objects were found to have dossiers without an authenticity mark. The service confirmed that these dossiers were genuinely unmarked, not merely missing a mark in the public catalogue. The report did not identify the objects concerned, the number of marked dossiers among the loans or the contents of the unmarked ones. Cleaning transport cases and checking hanging systems before the exhibition do not count as conservation, and the report did not claim that the loaned objects shared one treatment category.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Some loaned objects cannot be classed as conserved, as their dossiers lack the required mark.",
+        "A marked dossier is enough to class an object as conserved, as a mark shows treatment.",
+        "None of the loaned objects can be classed as conserved, given the unmarked dossiers found.",
+        "Some of the genuinely unmarked dossiers had nonetheless received treatment approval."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Write the implications in order: conserved, approved dossier, authenticity mark.",
         "Then reason backwards from the confirmed existence of unmarked loan dossiers."
       ],
-      optionNotes: [
-        "Correct. Conserved implies approved, which implies marked. Some confirmed unmarked loan dossiers therefore entail some loaned objects were not conserved.",
-        "False. The passage explicitly allows marked dossiers recording examination without treatment.",
-        "Overstated. Some unmarked loan dossiers are expanded into no conserved loans.",
-        "False. No approved dossier can remain unmarked, and these dossiers were confirmed genuinely unmarked."
+      "optionNotes": [
+        "Correct. Conserved requires an approved dossier, and 'Every approved treatment dossier receives a digital authenticity mark'; unmarked dossiers therefore mean some loans are not conserved.",
+        "False. 'Marked dossiers can also record examination without treatment.'",
+        "Overstated. Only 'some loaned objects' had unmarked dossiers; the others are not shown to be unconserved.",
+        "False. 'No exception allows an approved dossier to remain unmarked', and these dossiers were 'genuinely unmarked'."
       ],
-      explanation: "An implication can be used contrapositively, but not reversed. Existence of one excluded subgroup does not exclude the entire group.",
-      reasoning: {
-        model: "Contrapositive chain with existential information",
-        evidence: [
+      "explanation": "An implication can be used contrapositively, but not reversed. Existence of one excluded subgroup does not exclude the entire group.",
+      "reasoning": {
+        "model": "Contrapositive chain with existential information",
+        "evidence": [
           "classed as conserved only after its treatment dossier has been approved",
           "Every approved treatment dossier receives a digital authenticity mark",
           "some loaned objects were found to have dossiers without an authenticity mark"
         ]
       },
-      reviewedAs: "v10-06"
+      "reviewedAs": "v10-06",
+      "supersedes": "v11-06"
     },
     {
-      "id": "v11-07-r2",
+      "id": "v11-07-c",
       "topic": "Green-space access and group nesting",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional park programme offers evening access to residents with either a local keycard or a permit from a participating school. Every local keycard holder has completed an identity check. A school permit can be issued without that check, but everyone entering on a school permit must enter with a named supervisor from the programme's roster present, including adult permit-holders. Holding both documents is permitted.\n\nAdults can enter without a supervisor when using a local keycard. Children require a rostered supervisor regardless of entry document. A supervisor's presence does not by itself confer an entry document. The gate log lists lawful evening admissions and ages but does not identify the document used. It does not record identity checks or distinguish group visits from solo visits.\n\nThe log includes an adult, Orla, lawfully admitted without any rostered supervisor present, and a child, Ren, lawfully admitted with a supervisor. Orla's and Ren's document files are not released. The programme confirms that no admission used an exception or a document other than the two stated kinds. Their names are not sufficient to identify relationships to the participating schools. The report gives no evidence about whether Ren held one entry document or both, or whether Ren had independently completed an identity check.",
+      "passage": "A fictional park programme offers evening access to residents holding either a local keycard or a permit from a participating school; holding both is allowed. Every local keycard holder has completed an identity check. A school permit can be issued without that check, but everyone entering on a school permit must enter with a named supervisor from the programme's roster present, adults included. Adults using a keycard can enter unsupervised. Children require a rostered supervisor regardless of entry document, and a supervisor's presence does not itself confer a document. The gate log records lawful admissions and ages, not the document used or any identity check.\n The log shows an adult, Orla, lawfully admitted without any rostered supervisor present, and a child, Ren, lawfully admitted with one. Their document files are not released. No admission used an exception or any other kind of document. Nothing in the record shows whether Ren held one document or both, or whether Ren had separately completed an identity check.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "Even an entrant using only a school permit must have completed an identity check, because both entry routes require it.",
-        "Orla's entry entails a keycard and identity check; Ren's supervisor does not distinguish the two permissible entry routes.",
-        "Children entering on a local keycard need no rostered supervisor, so Ren's accompanying supervisor establishes use of a school permit.",
-        "Orla was unrelated to the participating schools because an adult without a supervisor could not have any connection to their permit arrangements."
+        "Even entrants holding just a school permit must have passed an identity check.",
+        "Orla's only possible document was a keycard, with its identity check; Ren's is unknown.",
+        "Children on a keycard need no supervisor, so Ren's supervisor shows a school permit was used.",
+        "Orla has no connection with any participating school, since she entered unsupervised."
       ],
       "answer": 1,
       "hints": [
@@ -268,10 +267,10 @@ EPSO_BANK.registerSet({
         "For Ren, determine whether the supervisor requirement distinguishes the routes or is shared by both."
       ],
       "optionNotes": [
-        "False. A school permit can be issued without an identity check; the check is required for local keycards, not both routes.",
-        "Correct. Without a rostered supervisor Orla cannot use school-permit entry; the remaining keycard route entails an identity check. Ren can use either route.",
-        "False. Children need a rostered supervisor regardless of entry document; presence does not identify school-permit entry.",
-        "Not supported. Entry-route inference does not establish absence of any school relationship."
+        "False. 'A school permit can be issued without that check'; the check is tied to keycards.",
+        "Correct. Without a supervisor Orla cannot have entered on a school permit, so she used a keycard, and every holder 'has completed an identity check'. Children need a supervisor on either route.",
+        "False. 'Children require a rostered supervisor regardless of entry document'.",
+        "Not supported. Her entry route shows only which document she used, not whether she has any link with a school."
       ],
       "explanation": "The same observed accompaniment has different inferential value for adults and children. A necessary condition becomes informative only when it distinguishes the available routes.",
       "reasoning": {
@@ -287,93 +286,93 @@ EPSO_BANK.registerSet({
       "supersedes": "v11-07"
     },
     {
-      id: "v11-08",
-      topic: "Tender-review precedence",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional purchasing authority evaluates bids through a technical screen and a price comparison. A bid enters the price comparison only if it passes the technical screen. Missing a mandatory safety certificate prevents a pass unless the certificate's issuer confirms, before the technical decision, that a valid certificate already existed at the submission deadline. A newly issued certificate cannot satisfy that exception.\n\nThe authority permits clerical corrections after submission, but a correction cannot change the equipment offered. If a bidder changes the equipment, the authority treats the resulting proposal as a new bid, which cannot enter a round whose submission deadline has passed. A lower quoted price does not waive either the technical screen or the submission rules. The round attracted 22 bids, but no ranking has been released.\n\nBid Rowan omitted its certificate. The issuer later confirmed, before the technical decision, that the certificate was valid at the deadline. Rowan also corrected a transposed address without changing its equipment. Bid Hazel included a valid certificate but replaced the offered equipment after the deadline with a model it considered safer. The authority has not announced which technically admissible bids will win or how Rowan's non-certificate technical features were assessed.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "The authority accepted Rowan's address correction because its quoted price was lower than Hazel's revised price for the replacement equipment.",
-        "Rowan passed the entire technical screen, although its omitted certificate needed later issuer confirmation and its submitted address needed correction.",
-        "Hazel's safer replacement remains eligible under the original submission because a valid certificate accompanied that submission before the deadline.",
-        "Rowan is not excluded by the certificate omission or address correction, whereas Hazel's equipment replacement cannot enter this closed round as the original bid."
+      "id": "v11-08-c",
+      "topic": "Tender-review precedence",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional purchasing authority evaluates bids through a technical screen and then a price comparison, which only bids passing the screen can enter. A missing mandatory safety certificate prevents a pass unless the issuer confirms, before the technical decision, that a valid certificate already existed at the submission deadline; a newly issued certificate does not qualify. Clerical corrections are allowed after submission, but a correction cannot change the equipment offered. If a bidder changes the equipment, the authority treats the resulting proposal as a new bid, which cannot enter a round whose deadline has passed. A lower price waives neither the screen nor these rules.\n Bid Rowan omitted its certificate, and the issuer later confirmed, before the technical decision, that it was valid at the deadline. Rowan also corrected a transposed address without changing its equipment. Bid Hazel included a valid certificate but, after the deadline, replaced its equipment with a model it considered safer. The authority has not said how Rowan's other technical features were assessed.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "Rowan's correction was accepted because its price was lower than Hazel's revised price.",
+        "Rowan has passed the technical screen in full, despite its certificate and address issues.",
+        "Hazel's safer model stays in the round as its original bid, which had a valid certificate.",
+        "Rowan's omission and address fix do not exclude it; Hazel's new equipment is a new bid."
       ],
-      answer: 3,
-      hints: [
+      "answer": 3,
+      "hints": [
         "Apply the certificate exception to its existence date, not its confirmation date.",
         "Then distinguish clerical correction from a change to the offered equipment."
       ],
-      optionNotes: [
-        "Not supported. No comparative prices or acceptance motive is supplied.",
-        "Overstated. The report leaves the assessment of Rowan’s other technical features undisclosed.",
-        "False. The replacement is a new bid after the round's deadline regardless of the earlier certificate.",
-        "Correct. Issuer confirmation meets the omission exception, the address correction changes no equipment, and Hazel's replacement is a late new bid."
+      "optionNotes": [
+        "Not supported. No prices are reported, and 'a lower price waives neither the screen nor these rules'.",
+        "Overstated. Rowan's certificate omission is cured, but the authority 'has not said how Rowan's other technical features were assessed'.",
+        "False. Changing the equipment makes the proposal 'a new bid', which cannot enter a round whose deadline has passed.",
+        "Correct. The issuer confirmed validity at the deadline before the decision, the address fix changes no equipment, and Hazel's change creates a new bid after the deadline."
       ],
-      explanation: "An exception can cure missing evidence of an earlier fact without permitting a substantive late change. Removing an exclusion is also weaker than proving eventual selection.",
-      reasoning: {
-        model: "Evidence timing and substantive-versus-clerical change",
-        evidence: [
+      "explanation": "An exception can cure missing evidence of an earlier fact without permitting a substantive late change. Removing an exclusion is also weaker than proving eventual selection.",
+      "reasoning": {
+        "model": "Evidence timing and substantive-versus-clerical change",
+        "evidence": [
           "valid certificate already existed at the submission deadline",
           "a correction cannot change the equipment offered",
           "treats the resulting proposal as a new bid",
           "corrected a transposed address without changing its equipment"
         ]
       },
-      reviewedAs: "v10-05"
+      "reviewedAs": "v10-05",
+      "supersedes": "v11-08"
     },
     {
-      id: "v11-09",
-      topic: "Training exemption provenance",
-      difficulty: 3,
-      challenge: true,
-      keyType: "inference",
-      passage:
-        "A fictional professional college admits candidates to its advanced workshop only after they pass a foundation assessment or receive a valid experience exemption. Attendance at an introductory briefing does not count as advanced admission. An experience exemption requires a current certificate from either the Northern or Southern board; no other bodies' certificates qualify. The two boards use different forms but have equal standing under the college's rules.\n\nBoth boards issue their certificates only after verifying completion of supervised practice. Neither requires the college's foundation assessment. A certificate remains current for two years, and a valid certificate can exist without the college having recorded an exemption, since the candidate must apply for one. The college keeps assessment results and exemption decisions in different systems. Last year 64 candidates entered the advanced workshop, but their entry routes were not published.\n\nLea was admitted to the advanced workshop under these rules. The college confirms that she has never taken its foundation assessment, rather than merely that a result is absent from one system. Her exemption file is not publicly available. She attended a briefing three months before admission and has worked in the profession for several years. The released information does not identify either board as the issuer of her certificate.",
-      stem: "Which of the following statements is correct?",
-      options: [
-        "Lea's admission entails board-verified supervised practice, although neither the briefing nor the released file identifies her certifying board.",
-        "Lea's admission shows that she completed the college assessment indirectly through the board's verification of supervised practice.",
-        "Lea's supervised practice was verified before her introductory briefing, because that briefing could not itself confer an experience exemption.",
-        "Candidates who completed the college assessment had previously obtained a current board certificate, because both routes draw on supervised-practice evidence."
+      "id": "v11-09-c",
+      "topic": "Training exemption provenance",
+      "difficulty": 3,
+      "challenge": true,
+      "keyType": "inference",
+      "passage": "A fictional professional college admits candidates to its advanced workshop only after they pass a foundation assessment or receive a valid experience exemption. Attending an introductory briefing does not count as admission. An exemption requires a current certificate from either the Northern or the Southern board, which have equal standing; no other body's certificate qualifies. Both boards issue their certificates only after verifying completion of supervised practice, and neither requires the college's assessment. Holding a certificate does not by itself create an exemption: the candidate must apply for one.\n Lea was admitted to the advanced workshop under these rules. The college confirms that she has never taken its foundation assessment, rather than merely that no result appears in one of its systems. Her exemption file is not public. She attended a briefing three months before admission and has worked in the profession for several years. The released information does not identify the board that issued her certificate.",
+      "stem": "Which of the following statements is correct?",
+      "options": [
+        "The Northern or Southern board verified Lea's supervised practice; which is unknown.",
+        "Lea's admission shows she completed the college assessment indirectly through her board.",
+        "Lea's supervised practice was verified before she attended the introductory briefing.",
+        "Candidates admitted after the assessment had also obtained a board certificate beforehand."
       ],
-      answer: 0,
-      hints: [
+      "answer": 0,
+      "hints": [
         "Eliminate Lea's unavailable admission route.",
         "Follow the remaining route back through certificate eligibility and both boards' common requirement."
       ],
-      optionNotes: [
-        "Correct. No assessment leaves valid exemption; either qualifying board issues its required certificate only after verifying practice. The briefing does not identify the board or explain the full route.",
-        "False. The college confirms she never took the assessment; board verification is a different condition.",
-        "Not supported. The briefing is irrelevant as an entry route, but this does not establish when practice verification happened.",
-        "Not supported. The assessment route need not involve a board certificate, and its candidates’ prior certification histories are not given."
+      "optionNotes": [
+        "Correct. Without the assessment, Lea needed an exemption and so a certificate from one of the boards, each issued 'only after verifying completion of supervised practice'.",
+        "False. The college confirms 'that she has never taken its foundation assessment'.",
+        "Not supported. The passage gives no date for the verification of Lea's practice, only for her briefing.",
+        "Not supported. Neither board 'requires the college's assessment', but nothing says assessed candidates hold certificates."
       ],
-      explanation: "An observed admission can establish a shared prerequisite of two alternative certification routes without identifying the route actually taken.",
-      reasoning: {
-        model: "Alternative routes with shared prerequisites",
-        evidence: [
+      "explanation": "An observed admission can establish a shared prerequisite of two alternative certification routes without identifying the route actually taken.",
+      "reasoning": {
+        "model": "Alternative routes with shared prerequisites",
+        "evidence": [
           "only after they pass a foundation assessment or receive a valid experience exemption",
           "Both boards issue their certificates only after verifying completion of supervised practice",
           "she has never taken its foundation assessment"
         ]
       },
-      reviewedAs: "v10-02"
+      "reviewedAs": "v10-02",
+      "supersedes": "v11-09"
     },
     {
-      "id": "v11-10-r2",
+      "id": "v11-10-c",
       "topic": "Restricted dataset linkage",
       "difficulty": 3,
       "challenge": true,
       "keyType": "inference",
-      "passage": "A fictional statistics unit permits analysts to use de-identified survey files after completing confidentiality training. Linking those files to employment records requires additional approval from a linkage panel. Completion of training does not imply that linkage has been approved. The panel considers the proposed linkage purpose, the variables to be used and the safeguards in the analysis environment.\n\nAn approval names both a project and a version of its linkage plan. Replacing a variable with a less detailed one does not automatically remove the need to seek approval for an amended plan; the panel decides whether the change can be handled through a simplified review. A simplified review is still a review, not a general exemption. The unit approved 16 linkages last year but gave no average review time.\n\nThe panel approved the team's new seasonal-work project for annual employment status under a revised plan. The decision explicitly excludes monthly status. The original job-change project's earlier annual-data approval also remains valid, but no decision transfers approval between projects. The team now proposes running the seasonal project using monthly observations and publishing only annual totals. It will keep the existing secure environment. No approval specifically covers those monthly inputs, and the panel has not said that annual outputs remove the input restriction.",
+      "passage": "A fictional statistics unit lets analysts use de-identified survey files after confidentiality training, but linking them to employment records also requires approval from a linkage panel. An approval names both a project and a version of its linkage plan. Even replacing a variable with a less detailed one does not remove the need to seek approval for an amended plan; the panel decides whether the change can be handled through a simplified review, which is still a review rather than an exemption.\n The panel has approved a team's new seasonal-work project for annual employment status under a revised plan. The decision explicitly excludes monthly status. The team's older job-change project also holds a valid approval for annual data, but no decision transfers approval between projects. The team now proposes running the seasonal project on monthly observations, publishing only annual totals and keeping its existing secure environment. No approval covers those monthly inputs, and the panel has not said that annual outputs lift the input restriction.",
       "stem": "Which of the following statements is correct?",
       "options": [
-        "Neither annual-data approval covers the monthly inputs; shared safeguards and annual output do not change the named input scope.",
-        "The old project's approval transfers to the new monthly plan when the secure environment is unchanged.",
-        "The seasonal project's approved outputs establish that its monthly inputs underwent a simplified review before the revised decision was issued.",
-        "Publishing annual totals makes monthly input use authorised because the new decision's annual-data condition concerns the final reported figures."
+        "No approval covers the monthly inputs, whatever the secure environment or annual outputs.",
+        "The older approval extends to the monthly plan because the secure environment is unchanged.",
+        "The team chose monthly observations because annual data hid seasonal changes in employment.",
+        "Publishing annual totals makes the use of monthly inputs authorised under the decision."
       ],
       "answer": 0,
       "hints": [
@@ -381,10 +380,10 @@ EPSO_BANK.registerSet({
         "Does summarising monthly inputs into annual outputs change the scope of permission to use those inputs?"
       ],
       "optionNotes": [
-        "Correct. Both decisions cover annual inputs in their named scopes, while the proposed computation uses excluded monthly observations.",
-        "False. Approvals are project/version-specific and no transfer decision exists.",
-        "Not supported. No monthly-input review or approval is reported.",
-        "False. The decision explicitly excludes monthly status; annual output does not change the input named in the plan."
+        "Correct. Both approvals concern annual data, the seasonal decision 'explicitly excludes monthly status', and no ruling says annual outputs lift that restriction.",
+        "False. An approval 'names both a project and a version', and 'no decision transfers approval between projects'.",
+        "Not supported. The passage gives no reason for the team's proposal to use monthly observations.",
+        "False. The decision 'explicitly excludes monthly status', whatever form the published totals take."
       ],
       "explanation": "Permission attaches to its stated inputs and project. Transformation of outputs does not retrospectively authorise excluded inputs.",
       "reasoning": {

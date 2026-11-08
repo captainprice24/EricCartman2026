@@ -115,7 +115,8 @@ for (const set of ctx.window.EPSO_BANK.sets) {
       if (!isStr(passage)) err(where, "verbal questions need a passage");
       else {
         const words = passage.split(/\s+/).filter(Boolean).length;
-        if (words < 130 || words > 260) err(where, `passage has ${words} words; it must have 130–260`);
+        if (words < 130 || words > 170) err(where, `passage has ${words} words; it must have 130–170 (exam length)`);
+        if (passage.split("\n\n").length > 2) err(where, "passage must have one or two paragraphs");
       }
       const notes = (q.optionNotes || []).map(en);
       const kinds = notes.map((t, i) => (i === q.answer ? "key" : /^False\./.test(t) ? "false" : /^Not supported\./.test(t) ? "unsupported" : /^Overstated\./.test(t) ? "overstated" : "other"));

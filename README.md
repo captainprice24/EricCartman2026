@@ -57,7 +57,9 @@ The November 2026 medium sets are documented in [docs/research/medium-2026-11](d
 890 original questions: **verbal 350, numerical 270, abstract 270**. There are 15 complete fixed tests of 40 questions (20/10/10), plus additional practice material. All section timers retain 35/20/10 minutes.
 
 - **Verbal (24 sets):** 200 foundation items, **ten challenge sets of 10** (Sets 10–19) and **five medium sets of 10**
-  (Sets 20–24, exam-length passages of 130–170 words; all keys and labels blind-reviewed).
+  (Sets 20–24). Every passage is exam length, 130–170 words with short options, matching the commercial practice
+  sample reviewed in November 2026; all 350 keys and labels were blind-reviewed after the change
+  ([record](docs/research/verbal/blind-review/compact-2026-11/README.md)).
   Choose **Verbal difficulty: Easy / Medium / Hard** in Coach or Practice; a timed ten-question
   round takes 17 min 30 sec. The bank contains 38 easy, 155 medium and 157 hard items.
   All 100 challenge keys and 300 distractor labels were reconciled with an independent blind reviewer.
