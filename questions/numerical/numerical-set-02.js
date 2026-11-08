@@ -234,76 +234,83 @@ EPSO_BANK.registerSet({
       "explanation": "Unit traps are common: 1 TWh = 1,000,000,000 kWh. If your answer is 1,000 times too large or small, recheck the conversion before choosing."
     },
     {
-      "id": "n02-04-r3",
-      "supersedes": "n02-04-r2",
-      "topic": "Rates of work",
+      "id": "n02-04-eu",
+      "supersedes": "n02-04-r3",
+      "topic": "Weighted average with a ratio",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Translation teams",
-          "columns": [
-            "Team",
-            "Staff",
-            "Pages per person per day",
-            "Pages in backlog"
+          "type": "hbar",
+          "title": "Average ambulance response times (fictional data)",
+          "unit": "minutes",
+          "categories": [
+            "Urban",
+            "Rural",
+            "Overall"
           ],
-          "rows": [
-            [
-              "Team DE",
-              "8",
-              "5",
-              "3,038"
-            ],
-            [
-              "Team FR",
-              "7",
-              "7",
-              "2,370"
-            ],
-            [
-              "Team IT",
-              "7",
-              "9",
-              "2,542"
-            ],
-            [
-              "Team PL",
-              "11",
-              "8",
-              "1,494"
-            ]
+          "series": [
+            {
+              "name": "Pellam",
+              "values": [
+                19,
+                47,
+                26
+              ]
+            },
+            {
+              "name": "Norvale",
+              "values": [
+                12,
+                57,
+                21
+              ]
+            },
+            {
+              "name": "Jorvik",
+              "values": [
+                22,
+                47,
+                27
+              ]
+            },
+            {
+              "name": "Kestrel",
+              "values": [
+                17,
+                52,
+                22
+              ]
+            }
           ]
         }
       ],
-      "stem": "If Team DE is given 3 extra staff working at the same rate, how many working days will it need to clear its backlog? Assume output is uniform and part of a working day is allowed. Round only the final result to 1 decimal place.",
+      "stem": "Pellam had 3 times as many urban as rural calls. If its average rural response time fell to 38 minutes, what would its overall average be (minutes)?",
       "options": [
-        "39.5 days",
-        "47.5 days",
-        "50.6 days",
-        "55.2 days",
-        "60.8 days"
+        "23.00",
+        "23.75",
+        "28.50",
+        "31.67",
+        "33.25"
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
-        "Daily output = staff × output per person per day.",
-        "Days = backlog ÷ daily output with the new headcount."
+        "For every rural call there are 3 urban calls.",
+        "Overall average = (3 × urban + rural) ÷ 4."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "New staff = 8 + 3 = 11",
-        "Daily output = 11 × 5 = 55",
-        "3,038 ÷ 55 = 55.24 days",
-        "Final answer: 55.2 days."
+        "Pellam: urban time 19 minutes (unchanged); new rural time 38 minutes.",
+        "3 urban calls for every rural call means weights 3 : 1, 4 calls in all.",
+        "New overall = (3 × 19 + 38) ÷ 4 = 95 ÷ 4 = 23.75 minutes.",
+        "Answer: 23.75."
       ],
       "optionNotes": [
-        "This uses another team's output per person.",
-        "This adds the extra staff to the daily rate instead of to the headcount.",
-        "One person too many: check the new headcount.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 55.2 days.",
-        "One person short: check the new headcount."
+        "Divides the rural reduction by 3 instead of 4.",
+        "Correct. Each type of call counts in proportion to how many there are, so the urban time carries the larger weight.",
+        "Takes a simple average of urban and rural times.",
+        "Divides by 3 calls instead of 4.",
+        "Puts the larger weight on the rural calls."
       ],
-      "explanation": "Add staff to the headcount, then multiply by the individual rate."
+      "explanation": "Each type of call counts in proportion to how many there are, so the urban time carries the larger weight."
     },
     {
       "id": "n02-05-r3",
@@ -378,165 +385,162 @@ EPSO_BANK.registerSet({
       "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; use total distance divided by total elapsed time. An unweighted mean of speeds works only for equal time intervals, and excludes the stops here."
     },
     {
-      "id": "n02-06-r3",
-      "supersedes": "n02-06-r2",
-      "topic": "Successive percentage changes",
+      "id": "n02-06-eu",
+      "supersedes": "n02-06-r3",
+      "topic": "People from the gap between two lines",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Prices of office supplies",
-          "columns": [
-            "Item",
-            "Price start of 2022 (EUR)",
-            "Change 2022 (%)",
-            "Change 2023 (%)",
-            "Change 2024 (%)"
+          "type": "line",
+          "title": "Survey: should the country introduce a four-day working week? (% of adults; fictional data)",
+          "unit": "% of adults",
+          "categories": [
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"
           ],
-          "rows": [
-            [
-              "Printer paper",
-              "220",
-              "1.1",
-              "4.8",
-              "3.5"
-            ],
-            [
-              "Toner",
-              "217",
-              "-7.6",
-              "-4.2",
-              "-3.5"
-            ],
-            [
-              "Desk chair",
-              "228",
-              "4.0",
-              "10.3",
-              "10.4"
-            ],
-            [
-              "Monitor",
-              "438",
-              "7.8",
-              "10.5",
-              "-7.0"
-            ],
-            [
-              "Headset",
-              "259",
-              "7.8",
-              "8.7",
-              "-6.8"
-            ]
+          "series": [
+            {
+              "name": "In favour",
+              "values": [
+                43,
+                42,
+                44,
+                45,
+                45,
+                44,
+                44,
+                46
+              ]
+            },
+            {
+              "name": "Against",
+              "values": [
+                37,
+                35,
+                32,
+                31,
+                28,
+                29,
+                29,
+                27
+              ]
+            }
           ]
         }
       ],
-      "stem": "What was the price of toner at the end of 2024? Round only the final result to 2 decimal places.",
+      "stem": "There were 50.1 million adults in 2018, and their number grew by 6% by 2020. How many more adults were in favour than against in 2020 (million)?",
       "options": [
-        "EUR 171.28",
-        "EUR 177.58",
-        "EUR 178.88",
-        "EUR 183.80",
-        "EUR 185.36"
+        "6.37",
+        "7.43",
+        "7.97",
+        "8.52",
+        "9.03"
       ],
       "answer": 4,
       "hints": [
-        "Apply each year's change to the price at the end of the previous year.",
-        "Multiply by (1 + change) three times."
+        "Find the 2020 population first.",
+        "The gap between the lines is in percentage points of all adults."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "End of 2022: 217 × 0.924 = EUR 200.51",
-        "End of 2023: × 0.958 = EUR 192.09",
-        "End of 2024: × 0.965 = EUR 185.36",
-        "Final answer: EUR 185.36."
+        "2020 adults = 50.1 × 1.06 = 53.106 million.",
+        "2020 gap = 45% − 28% = 17 percentage points.",
+        "More in favour = 53.106 × 17% ≈ 9.028 million.",
+        "Answer: 9.03."
       ],
       "optionNotes": [
-        "This applies the 2022 change twice.",
-        "This applies the 2023 change twice.",
-        "This applies the 2024 change twice.",
-        "This adds the three percentages; changes compound, so multiply instead.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 185.36."
+        "Uses the 2018 shares.",
+        "Reads the 2019 values.",
+        "Reads the 2021 values.",
+        "Uses the 2018 population.",
+        "Correct. Turn the gap in percentage points into people with the population of the same year."
       ],
-      "explanation": "Successive percentage changes multiply. Adding them is only an approximation, and the error grows with the size of the changes."
+      "explanation": "Turn the gap in percentage points into people with the population of the same year."
     },
     {
-      "id": "n02-07-r3",
-      "supersedes": "n02-07-r2",
-      "topic": "Percentages of percentages",
+      "id": "n02-07-eu",
+      "supersedes": "n02-07-r3",
+      "topic": "Change in a 100% stacked chart",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Survey on public services",
-          "columns": [
-            "Age group",
-            "Respondents",
-            "Satisfied (%)",
-            "Of those, would recommend the service (%)"
+          "type": "stacked",
+          "title": "Calmora: trips by mode of transport (% of all trips; fictional data)",
+          "unit": "% of trips",
+          "categories": [
+            "2013",
+            "2018",
+            "2023"
           ],
-          "rows": [
-            [
-              "18–24",
-              "1,865",
-              "75",
-              "38"
-            ],
-            [
-              "25–39",
-              "556",
-              "69",
-              "48"
-            ],
-            [
-              "40–54",
-              "1,450",
-              "47",
-              "41"
-            ],
-            [
-              "55–64",
-              "815",
-              "75",
-              "71"
-            ],
-            [
-              "65+",
-              "563",
-              "84",
-              "53"
-            ]
-          ]
+          "series": [
+            {
+              "name": "Car",
+              "values": [
+                62,
+                56,
+                55
+              ]
+            },
+            {
+              "name": "Bus",
+              "values": [
+                10,
+                18,
+                11
+              ]
+            },
+            {
+              "name": "Rail",
+              "values": [
+                16,
+                15,
+                19
+              ]
+            },
+            {
+              "name": "Bicycle",
+              "values": [
+                12,
+                11,
+                15
+              ]
+            }
+          ],
+          "note": "Total trips: 204.1 million in 2018 and 218.6 million in 2023."
         }
       ],
-      "stem": "Approximately how many respondents in the 25–39 group were satisfied and would recommend the service? Use the reported percentages as estimates. Round only the final result to the nearest whole number.",
+      "stem": "By how many million did rail trips in Calmora increase from 2018 to 2023?",
       "options": [
-        "157",
-        "158",
-        "184",
-        "186",
-        "248"
+        "8.16",
+        "8.74",
+        "9.83",
+        "10.34",
+        "10.92"
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
-        "First find how many satisfied.",
-        "The second percentage applies only to those people, not to all respondents."
+        "Each percentage applies to its own year's total.",
+        "Work out the trips in each year, then subtract."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "556 × 69% = 383.6",
-        "556 × (69 ÷ 100) × (48 ÷ 100) ≈ 184.1",
-        "Final answer: 184."
+        "2018: 204.1 × 15% = 30.615 million rail trips.",
+        "2023: 218.6 × 19% = 41.534 million.",
+        "Increase = 41.534 − 30.615 = 10.919 million.",
+        "Answer: 10.92."
       ],
       "optionNotes": [
-        "This takes the second percentage from another group.",
-        "This applies the percentages of the 18–24 group.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 184.",
-        "This uses the number of respondents in the 65+ group.",
-        "This applies the percentages of the 65+ group."
+        "Applies the change in percentage points to the 2018 total.",
+        "Applies the change in percentage points to the 2023 total.",
+        "Splits the growth in total trips half-and-half between the two years.",
+        "Reads the bicycle segments.",
+        "Correct. A 100% stacked chart shows shares; turn each into trips with its own year's total before comparing."
       ],
-      "explanation": "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
+      "explanation": "A 100% stacked chart shows shares; turn each into trips with its own year's total before comparing."
     },
     {
       "id": "n02-08-r2",
@@ -625,384 +629,412 @@ EPSO_BANK.registerSet({
       "explanation": "Two steps for every row: a difference, then a division. The largest absolute surplus is the planted trap."
     },
     {
-      "id": "n02-09-eu2",
-      "supersedes": "n02-09-eu",
-      "topic": "Turnout and votes",
+      "id": "n02-09-eu3",
+      "supersedes": "n02-09-eu2",
+      "topic": "Earlier amount from a pie chart",
+      "difficulty": 2,
+      "exhibits": [
+        {
+          "type": "pie",
+          "title": "Municipal waste by material, 2020 (total 199.62 million tonnes; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Paper and card",
+              "value": 15.7
+            },
+            {
+              "label": "Food",
+              "value": 17.3
+            },
+            {
+              "label": "Garden waste",
+              "value": 18.6
+            },
+            {
+              "label": "Plastics",
+              "value": 21.6
+            },
+            {
+              "label": "Metals",
+              "value": 5.5
+            },
+            {
+              "label": "Wood",
+              "value": 1.3
+            },
+            {
+              "label": "Textiles",
+              "value": 5.3
+            },
+            {
+              "label": "Glass",
+              "value": 1.9
+            },
+            {
+              "label": "Rubber and leather",
+              "value": 5.8
+            },
+            {
+              "label": "Electronics",
+              "value": 2
+            },
+            {
+              "label": "Hazardous",
+              "value": 3.6
+            },
+            {
+              "label": "Other",
+              "value": 1.4
+            }
+          ]
+        }
+      ],
+      "stem": "Total waste in 2020 was 9.4 million tonnes more than in 2019. With the same distribution, how much paper and card waste was there in 2019 (million tonnes)?",
+      "options": [
+        "21.94",
+        "29.86",
+        "31.34",
+        "32.82",
+        "35.38"
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the 2019 total first.",
+        "The same distribution means the same percentage applies."
+      ],
+      "solution": [
+        "2020 total 199.62 million tonnes (chart title); Paper and card 15.7%.",
+        "2019 total = 199.62 − 9.4 = 190.22 million tonnes.",
+        "Same distribution, so Paper and card in 2019 = 190.22 × 15.7% ≈ 29.865 million tonnes.",
+        "Answer: 29.86."
+      ],
+      "optionNotes": [
+        "Subtracts the whole 9.4 million tonnes from the paper and card amount.",
+        "Correct. The distribution is unchanged, so the same share applies to the smaller earlier total.",
+        "Gives the 2020 amount.",
+        "Adds the 9.4 million tonnes instead of subtracting them.",
+        "Reads the Garden waste slice."
+      ],
+      "explanation": "The distribution is unchanged, so the same share applies to the smaller earlier total."
+    },
+    {
+      "id": "n02-10-eu",
+      "supersedes": "n02-10-r3",
+      "topic": "Constant annual increase",
+      "difficulty": 2,
+      "exhibits": [
+        {
+          "type": "bar",
+          "title": "Cinema admissions (thousand; fictional data)",
+          "unit": "thousand",
+          "categories": [
+            "Galvia",
+            "Brevania",
+            "Sundra",
+            "Pellam",
+            "Calmora"
+          ],
+          "series": [
+            {
+              "name": "2017",
+              "values": [
+                54867,
+                66898,
+                17031,
+                52976,
+                9259
+              ]
+            },
+            {
+              "name": "2019",
+              "values": [
+                58653,
+                71113,
+                18836,
+                57956,
+                9713
+              ]
+            },
+            {
+              "name": "2022",
+              "values": [
+                81528,
+                99274,
+                25052,
+                75864,
+                13054
+              ]
+            }
+          ]
+        }
+      ],
+      "stem": "Admissions in Galvia grew by the same number each year between 2019 and 2022. If that continued, what would they be in 2024 (thousand)?",
+      "options": [
+        "73,903",
+        "85,314",
+        "89,153",
+        "92,966",
+        "96,778"
+      ],
+      "answer": 4,
+      "hints": [
+        "Count the years between 2019 and 2022.",
+        "Add the annual increase once for every year after the last figure."
+      ],
+      "solution": [
+        "Galvia: 58,653 thousand in 2019 and 81,528 thousand in 2022, which are 3 years apart.",
+        "Annual increase = (81,528 − 58,653) ÷ 3 = 22,875 ÷ 3 = 7,625.0 thousand.",
+        "2024 is two years after 2022: 81,528 + 2 × 7,625.0 = 96,778.0 thousand.",
+        "Answer: 96,778."
+      ],
+      "optionNotes": [
+        "Adds two years' increase to the 2019 figure instead of the 2022 figure.",
+        "Uses the 2017–2019 annual increase.",
+        "Projects only one year ahead, to 2023.",
+        "Counts four years between 2019 and 2022.",
+        "Correct. A constant number per year means a straight-line increase: divide the change by the number of years, then extend it."
+      ],
+      "explanation": "A constant number per year means a straight-line increase: divide the change by the number of years, then extend it."
+    },
+    {
+      "id": "n02-11-eu3",
+      "supersedes": "n02-11-eu2",
+      "topic": "People employed from a rate line",
       "difficulty": 2,
       "exhibits": [
         {
           "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
-          "unit": "votes",
+          "title": "Galvia: working-age population and employment rate by region (fictional data)",
+          "unit": "thousand people",
           "categories": [
-            "District 1",
-            "District 2",
-            "District 3",
-            "District 4"
+            "North",
+            "South",
+            "East",
+            "West",
+            "Centre",
+            "Coast"
           ],
           "series": [
             {
-              "name": "Voted YES",
+              "name": "Working-age population",
               "values": [
-                4463,
-                3740,
-                2946,
-                3884
+                1422,
+                1308,
+                989,
+                998,
+                1616,
+                935
               ]
             },
             {
-              "name": "Voted NO",
+              "name": "Employment rate (%)",
               "values": [
-                3313,
-                2225,
-                3688,
-                3415
-              ]
-            },
-            {
-              "name": "Turnout (%)",
-              "values": [
-                72.39,
-                69.03,
-                78.81,
-                83.65
+                67.5,
+                70.7,
+                63.4,
+                58.7,
+                72.5,
+                68.7
               ],
               "line": true
             }
           ],
-          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
+          "note": "Employment rate = percentage of the working-age population in work."
         }
       ],
-      "stem": "What percentage of the eligible voters of District 1 voted NO in the referendum?",
+      "stem": "In Galvia, how many more people of working age were employed in South than in East (thousand)?",
       "options": [
-        "29.4%",
-        "30.8%",
-        "33.6%",
-        "35.6%",
-        "41.5%"
-      ],
-      "answer": 1,
-      "hints": [
-        "Turnout tells you what share of eligible voters voted at all.",
-        "NO voters as a share of eligible voters = NO share of votes cast × turnout."
-      ],
-      "solution": [
-        "District 1: YES 4,463, NO 3,313, turnout 72.39%.",
-        "NO share of votes cast = 3,313 ÷ (4,463 + 3,313) = 3,313 ÷ 7,776 ≈ 42.605%.",
-        "Only 72.39% of eligible voters voted, so NO share of eligible voters = 42.605% × 72.39% ≈ 30.84%.",
-        "Answer: 30.8%."
-      ],
-      "optionNotes": [
-        "Applies the turnout of District 2 instead of District 1.",
-        "Correct. Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout.",
-        "Applies the turnout of District 3 instead of District 1.",
-        "Applies the turnout of District 4 instead of District 1.",
-        "Uses the YES votes instead of the NO votes."
-      ],
-      "explanation": "Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout."
-    },
-    {
-      "id": "n02-10-r3",
-      "supersedes": "n02-10-r2",
-      "topic": "Multi-step: unit cost",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Support programmes, 2024",
-          "columns": [
-            "Programme",
-            "Budget (EUR million)",
-            "Beneficiaries (thousand)",
-            "Administrative costs (% of budget)"
-          ],
-          "rows": [
-            [
-              "Programme A",
-              "55",
-              "6",
-              "12"
-            ],
-            [
-              "Programme B",
-              "36",
-              "64",
-              "8"
-            ],
-            [
-              "Programme C",
-              "20",
-              "79",
-              "8"
-            ],
-            [
-              "Programme D",
-              "27",
-              "39",
-              "5"
-            ]
-          ]
-        }
-      ],
-      "stem": "Excluding administrative costs, how much was spent per beneficiary under Programme A? Round only the final result to the nearest whole number.",
-      "options": [
-        "EUR 6,967",
-        "EUR 7,167",
-        "EUR 8,067",
-        "EUR 8,433",
-        "EUR 9,167"
+        "213.9",
+        "225.5",
+        "297.7",
+        "319.0",
+        "338.9"
       ],
       "answer": 2,
       "hints": [
-        "Remove the administrative share from the budget first.",
-        "Watch the units: budget in millions, beneficiaries in thousands."
+        "Employed = working-age population × employment rate, region by region.",
+        "Subtract only after both numbers are found."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Programme spending = 55 × (1 − 12%) = EUR 48.40 million",
-        "EUR 48.40 million ÷ 6 thousand = 48,400,000 ÷ 6,000 = EUR 8,066.7",
-        "Final answer: EUR 8,067."
+        "South: 1,308 × 70.7% ≈ 924.76 thousand employed.",
+        "East: 989 × 63.4% ≈ 627.03 thousand employed.",
+        "Difference = 924.76 − 627.03 = 297.73 thousand.",
+        "Answer: 297.7."
       ],
       "optionNotes": [
-        "This removes the administrative share twice.",
-        "This subtracts the percentage as if it were millions of euros.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 8,067.",
-        "This uses another programme's administrative share.",
-        "This includes the administrative costs."
+        "Multiplies the population gap by the average of the two rates.",
+        "Applies South's rate to the population gap.",
+        "Correct. The bars and the line use different scales: combine each region's bar with its own rate before comparing regions.",
+        "Gives the gap in working-age population, ignoring the employment rates.",
+        "Compares with West instead of East."
       ],
-      "explanation": "Check what is excluded and convert millions and thousands carefully before dividing."
+      "explanation": "The bars and the line use different scales: combine each region's bar with its own rate before comparing regions."
     },
     {
-      "id": "n02-11-eu2",
-      "supersedes": "n02-11-eu",
-      "topic": "Funds raised per fundraiser",
+      "id": "n02-12-eu",
+      "supersedes": "n02-12-r3",
+      "topic": "Index change on a line chart",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Fundraising by NGO (fictional data)",
-          "columns": [
-            "NGO",
-            "Fundraisers Y1",
-            "Fundraisers Y2",
-            "Fundraising spending Y1 (EUR thousand)",
-            "Funds raised Y1 (EUR thousand)",
-            "Efficiency Y2 (EUR raised per EUR spent)"
+          "type": "line",
+          "title": "Output index by sector (2015 = 100; fictional data)",
+          "unit": "index, 2015 = 100",
+          "categories": [
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"
           ],
-          "rows": [
-            [
-              "Clean Rivers",
-              "31",
-              "34",
-              "26",
-              "138",
-              "4.24"
-            ],
-            [
-              "Bridge Builders",
-              "46",
-              "51",
-              "21",
-              "137",
-              "5.54"
-            ],
-            [
-              "Bright Start",
-              "39",
-              "42",
-              "28",
-              "136",
-              "4.99"
-            ],
-            [
-              "Open Doors",
-              "29",
-              "33",
-              "39",
-              "163",
-              "6.45"
-            ]
+          "series": [
+            {
+              "name": "Construction",
+              "values": [
+                100,
+                100.8,
+                104.4,
+                109.3,
+                113.9,
+                121.2,
+                123.6,
+                128,
+                131.6
+              ]
+            },
+            {
+              "name": "Retail",
+              "values": [
+                100,
+                107,
+                108.1,
+                114.8,
+                115.3,
+                115.8,
+                121.8,
+                123.7,
+                133.5
+              ]
+            }
           ]
         }
       ],
-      "stem": "If fundraising spending at Clean Rivers rose by 10% from Y1 to Y2, how much was raised per fundraiser at Clean Rivers in Y2 (EUR)?",
+      "stem": "By what percentage did construction output rise from 2017 to 2021?",
       "options": [
-        "EUR 3,242",
-        "EUR 3,567",
-        "EUR 3,912",
-        "EUR 4,059",
-        "EUR 4,465"
+        "16.1%",
+        "18.4%",
+        "19.2%",
+        "22.6%",
+        "23.6%"
       ],
       "answer": 1,
       "hints": [
-        "First find Y2 spending, then what each euro spent raised in Y2.",
-        "Divide by the Y2 number of fundraisers."
+        "An index rise in points equals a rise in per cent only when the start is 100.",
+        "Divide the 2021 value by the 2017 value."
       ],
       "solution": [
-        "Clean Rivers: spending Y1 EUR 26 thousand, efficiency Y2 4.24, fundraisers Y2 34.",
-        "Spending Y2 = 26 × 1.10 = 28.60 thousand EUR.",
-        "Funds raised Y2 = 28.60 × 4.24 = 121.264 thousand EUR = EUR 121,264.",
-        "Per fundraiser = 121,264 ÷ 34 ≈ EUR 3,566.6.",
-        "Answer: EUR 3,567."
+        "Construction index: 2017 104.4, 2021 123.6.",
+        "Rise = (123.6 ÷ 104.4 − 1) × 100 ≈ 18.39%.",
+        "Answer: 18.4%."
       ],
       "optionNotes": [
-        "Leaves out the 10% rise in spending.",
-        "Correct. Grow the spending, convert it into funds raised with the Y2 efficiency, then share it among the Y2 fundraisers.",
-        "Divides by the Y1 number of fundraisers.",
-        "Uses the Y1 funds raised with the Y2 fundraisers.",
-        "Grows the Y1 funds raised instead of using the Y2 efficiency."
+        "Ends in 2020.",
+        "Correct. Index points are not per cent unless the starting value is 100; divide by the earlier index value.",
+        "Gives the rise in index points instead of per cent.",
+        "Starts from 2016.",
+        "Measures the rise from the 2015 base instead of the earlier year."
       ],
-      "explanation": "Grow the spending, convert it into funds raised with the Y2 efficiency, then share it among the Y2 fundraisers."
+      "explanation": "Index points are not per cent unless the starting value is 100; divide by the earlier index value."
     },
     {
-      "id": "n02-12-r3",
-      "supersedes": "n02-12-r2",
-      "topic": "Averaging rates",
+      "id": "n02-13-eu",
+      "supersedes": "n02-13-r3",
+      "topic": "Distance gap at the finish",
       "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
-          "title": "Results by test centre",
+          "title": "200 m swimming finals: times (m:ss.ss) (fictional data)",
           "columns": [
-            "Centre",
-            "Candidates",
-            "Pass rate (%)",
-            "Average score"
+            "Country",
+            "Freestyle",
+            "Backstroke",
+            "Breaststroke",
+            "Butterfly"
           ],
           "rows": [
             [
-              "Centre 1",
-              "835",
-              "70",
-              "54"
+              "Estoria",
+              "1:49.37",
+              "1:59.90",
+              "2:15.88",
+              "2:01.20"
             ],
             [
-              "Centre 2",
-              "653",
-              "43",
-              "63"
+              "Fernland",
+              "1:45.98",
+              "2:00.29",
+              "2:18.21",
+              "1:55.21"
             ],
             [
-              "Centre 3",
-              "477",
-              "48",
-              "78"
+              "Ostland",
+              "1:45.53",
+              "1:56.38",
+              "2:18.09",
+              "1:55.41"
             ],
             [
-              "Centre 4",
-              "147",
-              "36",
-              "54"
+              "Kestrel",
+              "1:49.70",
+              "1:59.47",
+              "2:15.50",
+              "1:54.91"
             ],
             [
-              "Centre 5",
-              "295",
-              "71",
-              "66"
+              "Pellam",
+              "1:47.74",
+              "1:58.46",
+              "2:14.36",
+              "1:59.27"
             ]
-          ]
-        }
-      ],
-      "stem": "What was the overall pass rate across Centre 2, Centre 3 and Centre 5 together? Round only the final result to 1 decimal place.",
-      "options": [
-        "50.5%",
-        "51.7%",
-        "56.4%",
-        "56.8%",
-        "57.7%"
-      ],
-      "answer": 0,
-      "hints": [
-        "Convert each pass rate into a number of passes.",
-        "Total passes ÷ total candidates for the three centres."
-      ],
-      "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Centre 2: 653 × 43% = 280.8",
-        "Centre 3: 477 × 48% = 229.0",
-        "Centre 5: 295 × 71% = 209.4",
-        "Passes ÷ candidates: 719.2 ÷ (653 + 477 + 295) × 100 = 50.47%",
-        "Final answer: 50.5%."
-      ],
-      "optionNotes": [
-        "Correct. Using the requested base and units, with rounding only at the end, gives 50.5%.",
-        "This uses Centre 2, Centre 5: check which centres are named.",
-        "This includes all five centres.",
-        "This uses Centre 3, Centre 5: check which centres are named.",
-        "This uses Centre 1, Centre 2, Centre 3, Centre 5: check which centres are named."
-      ],
-      "explanation": "Rates from groups of different sizes must be weighted. The average score column is irrelevant."
-    },
-    {
-      "id": "n02-13-r3",
-      "supersedes": "n02-13-r2",
-      "topic": "Compound growth",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Loan offers",
-          "columns": [
-            "Offer",
-            "Amount (EUR)",
-            "Annual interest (%)",
-            "Term (years)"
           ],
-          "rows": [
-            [
-              "Offer A",
-              "36,000",
-              "2.8",
-              "3"
-            ],
-            [
-              "Offer B",
-              "46,000",
-              "1.9",
-              "4"
-            ],
-            [
-              "Offer C",
-              "53,000",
-              "2.0",
-              "8"
-            ],
-            [
-              "Offer D",
-              "35,000",
-              "2.2",
-              "6"
-            ]
-          ]
+          "note": "Assume each swimmer keeps a constant speed throughout the race."
         }
       ],
-      "stem": "With interest compounded annually and everything repaid at the end of the term, how much is repayable under Offer A? Round only the final result to 2 decimal places.",
+      "stem": "At the 2015 Alpine championships, in the freestyle final, how far behind the winner (metres) was the last-placed swimmer when the winner finished?",
       "options": [
-        "EUR 39,024.00",
-        "EUR 39,109.46",
-        "EUR 40,204.53",
-        "EUR 42,487.50",
-        "EUR 44,900.11"
+        "5.57 m",
+        "6.50 m",
+        "6.78 m",
+        "7.02 m",
+        "7.60 m"
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
-        "Each year, multiply the outstanding amount by (1 + rate).",
-        "Do this 3 times."
+        "Find the fastest and slowest times in the column.",
+        "Distance covered by the slower swimmer = speed × winner's time."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Growth factor = 1.028^3 = 1.08637",
-        "36,000 × (1 + 2.8 ÷ 100)^3 ≈ EUR 39,109.46",
-        "Final answer: EUR 39,109.46."
+        "Winner (fastest time) Ostland 1:45.53 = 105.53 s; last (slowest) Kestrel 1:49.70 = 109.70 s.",
+        "Last-placed speed = 200 ÷ 109.70 ≈ 1.8232 m/s.",
+        "When the winner finishes after 105.53 s, the last swimmer has covered 1.8232 × 105.53 ≈ 192.40 m.",
+        "Gap = 200 − 192.40 ≈ 7.60 m (exact values kept until the end).",
+        "Answer: 7.60 m."
       ],
       "optionNotes": [
-        "This uses simple interest; with compounding, interest is also charged on earlier interest.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 39,109.46.",
-        "One year too many.",
-        "This uses the term of Offer D.",
-        "This uses the term of Offer C."
+        "Reads the breaststroke column.",
+        "Reads the backstroke column.",
+        "Measures from the second-placed swimmer.",
+        "Uses the fourth-placed swimmer.",
+        "Correct. When the winner finishes, the slower swimmer has covered their own speed multiplied by the winner's time."
       ],
-      "explanation": "Compound growth multiplies; simple interest adds. Over several years the difference becomes large."
+      "explanation": "When the winner finishes, the slower swimmer has covered their own speed multiplied by the winner's time."
     },
     {
       "id": "n02-14-eu2",
@@ -1192,67 +1224,87 @@ EPSO_BANK.registerSet({
       "explanation": "Combine the exhibits row by row and keep the units consistent. The area column is irrelevant."
     },
     {
-      "id": "n02-16-eu2",
-      "supersedes": "n02-16-eu",
+      "id": "n02-16-eu3",
+      "supersedes": "n02-16-eu2",
       "topic": "Best overall rate despite the mix",
       "difficulty": 3,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Cases resolved by office: licensing authority (fictional data)",
-          "columns": [
-            "Office",
-            "Simple cases",
-            "Simple resolved (%)",
-            "Complex cases",
-            "Complex resolved (%)"
+          "type": "stacked",
+          "title": "Licensing authority: cases handled by office (fictional data)",
+          "unit": "cases",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
           ],
-          "rows": [
-            [
-              "Office A",
-              "469",
-              "85.6",
-              "808",
-              "48.3"
-            ],
-            [
-              "Office B",
-              "93",
-              "93.1",
-              "890",
-              "64.0"
-            ],
-            [
-              "Office C",
-              "559",
-              "83.6",
-              "497",
-              "51.0"
-            ],
-            [
-              "Office D",
-              "840",
-              "87.4",
-              "90",
-              "42.1"
-            ],
-            [
-              "Office E",
-              "206",
-              "80.7",
-              "768",
-              "63.0"
-            ]
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                808,
+                774,
+                158,
+                214,
+                768
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                660,
+                123,
+                810,
+                730,
+                480
+              ]
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Share of cases resolved (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
+          ],
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                78.1,
+                89.6,
+                90.6,
+                73.2,
+                89.6
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                43.7,
+                54.4,
+                62.599999999999994,
+                42.3,
+                47.7
+              ]
+            }
           ]
         }
       ],
-      "stem": "In the licensing authority, which office resolved the highest percentage of all its cases?",
+      "stem": "In Jorvik's licensing authority, which office resolved the highest percentage of all its cases?",
       "options": [
-        "Office D",
-        "Office A",
         "Office B",
+        "Office A",
         "Office C",
+        "Office D",
         "Office E"
       ],
       "answer": 0,
@@ -1262,20 +1314,20 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.",
-        "Office D: (840 × 87.4% + 90 × 42.1%) ÷ 930 ≈ 83.02%.",
-        "Office C: (559 × 83.6% + 497 × 51.0%) ÷ 1,056 ≈ 68.26%.",
-        "Office B: (93 × 93.1% + 890 × 64.0%) ÷ 983 ≈ 66.75%.",
-        "Office E: (206 × 80.7% + 768 × 63.0%) ÷ 974 ≈ 66.74%.",
-        "Office A: (469 × 85.6% + 808 × 48.3%) ÷ 1,277 ≈ 62.00%.",
-        "Office D has the highest overall rate; Office B leads in both categories but handles mostly complex cases.",
-        "Answer: Office D."
+        "Office B: (774 × 89.6% + 123 × 54.4%) ÷ 897 ≈ 84.77%.",
+        "Office E: (768 × 89.6% + 480 × 47.7%) ÷ 1,248 ≈ 73.48%.",
+        "Office C: (158 × 90.6% + 810 × 62.6%) ÷ 968 ≈ 67.17%.",
+        "Office A: (808 × 78.1% + 660 × 43.7%) ÷ 1,468 ≈ 62.63%.",
+        "Office D: (214 × 73.2% + 730 × 42.3%) ÷ 944 ≈ 49.30%.",
+        "Office B has the highest overall rate; Office C leads in both categories but handles mostly complex cases.",
+        "Answer: Office B."
       ],
       "optionNotes": [
-        "Correct. Office D resolves 83.0% of all its cases, the highest overall rate.",
-        "Office A's overall rate is 62.0%.",
-        "Office B has the highest rate in both categories, but 91% of its cases are complex, so its overall rate is only 66.8%.",
-        "Office C's overall rate is 68.3%.",
-        "Office E's overall rate is 66.7%."
+        "Correct. Office B resolves 84.8% of all its cases, the highest overall rate.",
+        "Office A's overall rate is 62.6%.",
+        "Office C has the highest rate in both categories, but 84% of its cases are complex, so its overall rate is only 67.2%.",
+        "Office D's overall rate is 49.3%.",
+        "Office E's overall rate is 73.5%."
       ],
       "explanation": "An overall rate is weighted by the case mix, so leading in every category does not guarantee leading overall."
     },
@@ -1443,231 +1495,263 @@ EPSO_BANK.registerSet({
       "explanation": "A firm can grow and still lose share if the market grows faster. Shares need each year's own total."
     },
     {
-      "id": "n02-19-r3",
-      "supersedes": "n02-19-r2",
-      "topic": "Required growth rate",
+      "id": "n02-19-eu",
+      "supersedes": "n02-19-r3",
+      "topic": "Total from shares in a stacked chart",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Renewable electricity and 2030 targets (fictional countries)",
-          "columns": [
-            "Country",
-            "Output 2024 (TWh)",
-            "Target for 2030 (TWh)",
-            "Share of public funding (%)"
+          "type": "stacked",
+          "title": "Opinion on a four-day working week by age group (fictional data)",
+          "unit": "% of respondents",
+          "categories": [
+            "18–34",
+            "35–59",
+            "60 and over"
           ],
-          "rows": [
-            [
-              "Ostland",
-              "42.7",
-              "55.9",
-              "57"
-            ],
-            [
-              "Calmora",
-              "102.8",
-              "148.0",
-              "44"
-            ],
-            [
-              "Estoria",
-              "50.4",
-              "85.7",
-              "37"
-            ],
-            [
-              "Pellam",
-              "44.3",
-              "55.8",
-              "34"
-            ],
-            [
-              "Sundra",
-              "36.5",
-              "67.5",
-              "88"
-            ]
+          "series": [
+            {
+              "name": "Agree very much",
+              "values": [
+                12,
+                13,
+                25
+              ]
+            },
+            {
+              "name": "Agree somewhat",
+              "values": [
+                21,
+                30,
+                47
+              ]
+            },
+            {
+              "name": "Disagree somewhat",
+              "values": [
+                13,
+                13,
+                20
+              ]
+            },
+            {
+              "name": "Disagree very much",
+              "values": [
+                54,
+                44,
+                8
+              ]
+            }
           ]
         }
       ],
-      "stem": "What constant annual growth rate would Ostland need from 2024 to reach its 2030 target? Round only the final result to 2 decimal places.",
+      "stem": "The adult population was 11.1 million: 28% aged 18–34, 34% aged 35–59 and the rest 60 and over. How many adults agreed somewhat (million)?",
       "options": [
-        "3.94%",
-        "4.59%",
-        "5.15%",
-        "5.54%",
-        "6.26%"
+        "3.05",
+        "3.48",
+        "3.63",
+        "3.77",
+        "5.22"
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
-        "Growth factor over the period = target ÷ 2024 value.",
-        "The annual factor is its 6th root."
+        "Each percentage applies to its own age group.",
+        "Find the size of the oldest group first."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Overall factor = 55.9 ÷ 42.7 = 1.3091",
-        "Annual factor = (55.9 ÷ 42.7)^(1/6) ≈ 1.04592",
-        "Rate = ((55.9 ÷ 42.7)^(1/6) − 1) × 100 ≈ 4.59%",
-        "Final answer: 4.59%."
+        "Agree somewhat: 21% (18–34), 30% (35–59), 47% (60 and over); group sizes 28%, 34% and 100 − 28 − 34 = 38% of 11.1 million.",
+        "18–34: 11.1 × 28% × 21% ≈ 0.6527 million.",
+        "35–59: 11.1 × 34% × 30% = 1.1322 million; 60 and over: 11.1 × 38% × 47% ≈ 1.9825 million.",
+        "Total ≈ 3.767 million.",
+        "Answer: 3.77."
       ],
       "optionNotes": [
-        "This divides the gap by the target and spreads it evenly over the years.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 4.59%.",
-        "This divides the total growth by the number of years; growth compounds, so take the root instead.",
-        "This counts 5 years of growth; from 2024 to 2030 there are 6.",
-        "This is the rate for Calmora."
+        "Uses the middle group's share for those aged 60 and over.",
+        "Swaps the sizes of the youngest and oldest groups.",
+        "Takes a simple average of the three age groups' shares.",
+        "Correct. Each group's share applies to that group's own size, so the result is a weighted, not simple, average.",
+        "Applies the share of the oldest group to everyone."
       ],
-      "explanation": "Required growth compounds: take the nth root of the overall factor. Dividing the total growth by the number of years overstates the rate needed."
+      "explanation": "Each group's share applies to that group's own size, so the result is a weighted, not simple, average."
     },
     {
-      "id": "n02-20-r3",
-      "supersedes": "n02-20-r2",
-      "topic": "Fixed and variable costs",
+      "id": "n02-20-eu",
+      "supersedes": "n02-20-r3",
+      "topic": "Difference between two pie slices",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Conference venues",
-          "columns": [
-            "Venue",
-            "Room hire per day (EUR)",
-            "Catering per person (EUR)",
-            "Materials per person (EUR)",
-            "Capacity"
-          ],
-          "rows": [
-            [
-              "Venue A",
-              "1,900",
-              "59",
-              "17",
-              "232"
-            ],
-            [
-              "Venue B",
-              "3,400",
-              "23",
-              "13",
-              "572"
-            ],
-            [
-              "Venue C",
-              "2,000",
-              "43",
-              "13",
-              "162"
-            ],
-            [
-              "Venue D",
-              "2,000",
-              "47",
-              "21",
-              "139"
-            ]
+          "type": "pie",
+          "title": "Sundra: public spending by area, 2024 (total EUR 54.9 billion; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Health",
+              "value": 20.2
+            },
+            {
+              "label": "Education",
+              "value": 17.1
+            },
+            {
+              "label": "Pensions",
+              "value": 19.9
+            },
+            {
+              "label": "Defence",
+              "value": 4
+            },
+            {
+              "label": "Transport",
+              "value": 5
+            },
+            {
+              "label": "Housing",
+              "value": 2.7
+            },
+            {
+              "label": "Culture",
+              "value": 3
+            },
+            {
+              "label": "Environment",
+              "value": 6.5
+            },
+            {
+              "label": "Justice",
+              "value": 5.2
+            },
+            {
+              "label": "Research",
+              "value": 3.5
+            },
+            {
+              "label": "Agriculture",
+              "value": 4.8
+            },
+            {
+              "label": "Other",
+              "value": 8.1
+            }
           ]
         }
       ],
-      "stem": "For a one-day event with 120 participants at Venue B, what is the average cost per participant? Round only the final result to 2 decimal places.",
+      "stem": "If total spending rises by 10% in 2025 with the same shares, how much more will Sundra spend on health than on defence (EUR billion)?",
       "options": [
-        "EUR 51.33",
-        "EUR 64.33",
-        "EUR 72.67",
-        "EUR 77.33",
-        "EUR 84.67"
+        "7.91",
+        "8.27",
+        "8.89",
+        "9.30",
+        "9.78"
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
-        "Total cost = fixed cost + participants × cost per person.",
-        "Then divide by the number of participants."
+        "With the same shares, both areas grow by the same percentage.",
+        "Find the 2025 total first, then apply the difference in shares."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Per person: 23 + 13 = EUR 36",
-        "Total = 3,400 + 120 × 36 = EUR 7,720",
-        "Per participant = 7,720 ÷ 120 = EUR 64.33",
-        "Final answer: EUR 64.33."
+        "2025 total = 54.9 × 1.10 = 60.390 EUR billion.",
+        "Difference in shares = 20.2% − 4.0% = 16.2 points.",
+        "Difference = 60.390 × 16.2% ≈ 9.783 EUR billion.",
+        "Answer: 9.78."
       ],
       "optionNotes": [
-        "This leaves out the materials.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 64.33.",
-        "This uses the prices of Venue C.",
-        "This counts the materials cost twice.",
-        "This uses the prices of Venue D."
+        "Reads the education slice instead of health.",
+        "Reads the environment slice instead of defence.",
+        "Leaves out the 10% rise.",
+        "Reads the agriculture slice instead of defence.",
+        "Correct. With unchanged shares, the gap between two slices grows with the total."
       ],
-      "explanation": "Fixed costs are spread over everyone, so the average cost per person falls as numbers rise. Variable costs are paid per person."
+      "explanation": "With unchanged shares, the gap between two slices grows with the total."
     },
     {
-      "id": "n02-21-r3",
-      "supersedes": "n02-21-r2",
-      "topic": "Break-even point",
+      "id": "n02-21-eu",
+      "supersedes": "n02-21-r3",
+      "topic": "Amount needed for a target share",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Printing contracts",
-          "columns": [
-            "Offer",
-            "Fixed fee per year (EUR)",
-            "Price per page (EUR)",
-            "Contract length (months)"
+          "type": "bar",
+          "title": "Freight carried (thousand tonnes; fictional data)",
+          "unit": "thousand tonnes",
+          "categories": [
+            "Hollen",
+            "Calmora",
+            "Dunmark",
+            "Jorvik",
+            "Norvale"
           ],
-          "rows": [
-            [
-              "Offer A",
-              "1,400",
-              "0.02",
-              "16"
-            ],
-            [
-              "Offer B",
-              "100",
-              "0.08",
-              "18"
-            ],
-            [
-              "Offer C",
-              "1,850",
-              "0.06",
-              "13"
-            ],
-            [
-              "Offer D",
-              "600",
-              "0.06",
-              "28"
-            ]
+          "series": [
+            {
+              "name": "2008",
+              "values": [
+                7837,
+                68061,
+                32221,
+                57348,
+                35622
+              ]
+            },
+            {
+              "name": "2012",
+              "values": [
+                9077,
+                57932,
+                32449,
+                52273,
+                30394
+              ]
+            },
+            {
+              "name": "2016",
+              "values": [
+                9439,
+                55708,
+                33683,
+                56197,
+                31628
+              ]
+            },
+            {
+              "name": "2020",
+              "values": [
+                8948,
+                59229,
+                32156,
+                48610,
+                31400
+              ]
+            }
           ]
         }
       ],
-      "stem": "What is the annual break-even volume between Offer A and Offer B, in pages? Treat volume as continuous; the higher-fixed-fee offer is cheaper strictly above the unrounded threshold. Round only the final result to 1 decimal place.",
+      "stem": "How much freight (thousand tonnes) would Hollen have needed to carry in 2016 to account for exactly one third of the five countries' total?",
       "options": [
-        "16,250.0 pages",
-        "20,000.0 pages",
-        "21,666.7 pages",
-        "23,333.3 pages",
-        "25,000.0 pages"
+        "62,218",
+        "79,169",
+        "85,698",
+        "88,608",
+        "93,328"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
-        "At the break-even point both offers cost the same: fixed fee + price × volume.",
-        "Volume = difference in fixed fees ÷ difference in unit prices."
+        "If Hollen has one third of the total, the other four have the rest.",
+        "Hollen's amount = others × 1 ÷ 2."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Fixed fees: 1,400 − 100 = 1,300",
-        "Unit prices: 0.08 − 0.02 = 0.06",
-        "1,300 ÷ 0.06 = 21,666.67 pages",
-        "Final answer: 21,666.7 pages."
+        "2016 freight of the other four countries: 55,708 + 33,683 + 56,197 + 31,628 = 177,216.",
+        "One third of the total means Hollen has 1 part and the others 2 parts.",
+        "Hollen = 177,216 × 1 ÷ 2 = 88,608.0 thousand tonnes.",
+        "Answer: 88,608."
       ],
       "optionNotes": [
-        "This divides by one price instead of the difference in prices.",
-        "This compares with Offer D.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 21,666.7 pages.",
-        "This ignores the fixed fee of Offer B.",
-        "This adds the fixed fees; the break-even uses their difference."
+        "Takes one third of the actual total, forgetting that Hollen's extra freight also raises the total.",
+        "Gives the extra freight needed rather than the total amount.",
+        "Reads the 2020 column.",
+        "Correct. A larger amount for one country also raises the total, so the target is set against the other countries' freight.",
+        "Applies the ratio to the total including Hollen."
       ],
-      "explanation": "Set the two total costs equal. The offer with the higher fixed fee wins only above the break-even volume. Contract length is irrelevant here."
+      "explanation": "A larger amount for one country also raises the total, so the target is set against the other countries' freight."
     },
     {
       "id": "n02-22-eu2",
@@ -1829,68 +1913,64 @@ EPSO_BANK.registerSet({
       "explanation": "Successive percentages multiply. Netting them (−discount + VAT) gives a slightly wrong total."
     },
     {
-      "id": "n02-24-eu2",
-      "supersedes": "n02-24-eu",
+      "id": "n02-24-eu3",
+      "supersedes": "n02-24-eu2",
       "topic": "Top speed from a race time",
       "difficulty": 3,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Athletics finals: times by country (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "100 m",
-            "200 m",
-            "400 m",
-            "800 m"
+          "type": "hbar",
+          "title": "Athletics finals: times by country (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Kestrel",
+            "Pellam",
+            "Marrow",
+            "Dunmark",
+            "Galvia"
           ],
-          "rows": [
-            [
-              "Istrada",
-              "10.74",
-              "20.22",
-              "47.07",
-              "106.1"
-            ],
-            [
-              "Calmora",
-              "10.04",
-              "20.38",
-              "45.69",
-              "103.6"
-            ],
-            [
-              "Lunaria",
-              "11.14",
-              "20.30",
-              "45.80",
-              "108.0"
-            ],
-            [
-              "Sundra",
-              "11.55",
-              "20.69",
-              "46.49",
-              "106.7"
-            ],
-            [
-              "Hollen",
-              "10.35",
-              "20.22",
-              "46.62",
-              "106.1"
-            ]
+          "series": [
+            {
+              "name": "100 m",
+              "values": [
+                10.42,
+                11.15,
+                11.5,
+                10.78,
+                10.05
+              ]
+            },
+            {
+              "name": "200 m",
+              "values": [
+                20.38,
+                20.7,
+                20.16,
+                20.72,
+                20.57
+              ]
+            },
+            {
+              "name": "400 m",
+              "values": [
+                46.01,
+                44.89,
+                45.73,
+                47.3,
+                47.28
+              ]
+            }
           ],
-          "note": "Assume each sprinter accelerates uniformly from rest over the first 36 m of the 100 m, then runs at a constant top speed."
+          "note": "Assume each sprinter accelerates uniformly from rest over the first 32 m of the 100 m, then runs at a constant top speed."
         }
       ],
-      "stem": "What was the top speed (m/s) of the second-placed athlete in the 100 m?",
+      "stem": "At the Lakeland championships, what was the top speed (m/s) of the second-placed athlete in the 100 m?",
       "options": [
-        "9.66 m/s",
-        "11.40 m/s",
-        "12.66 m/s",
-        "13.14 m/s",
-        "13.55 m/s"
+        "9.60 m/s",
+        "11.13 m/s",
+        "12.24 m/s",
+        "12.67 m/s",
+        "13.13 m/s"
       ],
       "answer": 3,
       "hints": [
@@ -1898,11 +1978,11 @@ EPSO_BANK.registerSet({
         "Write the race time as acceleration time + constant-speed time and solve for top speed."
       ],
       "solution": [
-        "The second-fastest 100 m time is Hollen's 10.35 s.",
-        "Accelerating uniformly from rest, the average speed over the first 36 m is v ÷ 2, so that stretch takes 36 ÷ (v ÷ 2) = 72 ÷ v.",
-        "The remaining 64 m at top speed take 64 ÷ v.",
-        "10.35 = (72 + 64) ÷ v = 136 ÷ v, so v = 136 ÷ 10.35 ≈ 13.140 m/s.",
-        "Answer: 13.14 m/s."
+        "The second-fastest 100 m time is Kestrel's 10.42 s.",
+        "Accelerating uniformly from rest, the average speed over the first 32 m is v ÷ 2, so that stretch takes 32 ÷ (v ÷ 2) = 64 ÷ v.",
+        "The remaining 68 m at top speed take 68 ÷ v.",
+        "10.42 = (64 + 68) ÷ v = 132 ÷ v, so v = 132 ÷ 10.42 ≈ 12.668 m/s.",
+        "Answer: 12.67 m/s."
       ],
       "optionNotes": [
         "Gives the average speed over the whole race.",
@@ -1914,159 +1994,157 @@ EPSO_BANK.registerSet({
       "explanation": "Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator."
     },
     {
-      "id": "n02-25-eu2",
-      "supersedes": "n02-25-eu",
-      "topic": "Population from per-capita change",
+      "id": "n02-25-eu3",
+      "supersedes": "n02-25-eu2",
+      "topic": "Percentage difference from a bar chart",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "E-book sales and population (fictional data)",
-          "columns": [
-            "Country",
-            "Population 2016 (thousand)",
-            "Sales 2016 (thousand)",
-            "Sales 2017 (thousand)",
-            "Sales 2019 (thousand)"
+          "type": "bar",
+          "title": "Hospital beds (fictional data)",
+          "unit": "number",
+          "categories": [
+            "Lunaria",
+            "Calmora",
+            "Galvia",
+            "Istrada",
+            "Kestrel",
+            "Brevania"
           ],
-          "rows": [
-            [
-              "Fernland",
-              "8,521",
-              "55,344",
-              "58,222",
-              "60,657"
-            ],
-            [
-              "Norvale",
-              "3,393",
-              "10,308",
-              "10,638",
-              "11,432"
-            ],
-            [
-              "Marrow",
-              "13,532",
-              "49,284",
-              "51,748",
-              "51,452"
-            ],
-            [
-              "Istrada",
-              "17,271",
-              "86,079",
-              "88,661",
-              "92,879"
-            ],
-            [
-              "Sundra",
-              "18,184",
-              "115,087",
-              "119,806",
-              "123,603"
-            ]
+          "series": [
+            {
+              "name": "2018",
+              "values": [
+                822,
+                683,
+                379,
+                433,
+                630,
+                605
+              ]
+            },
+            {
+              "name": "2023",
+              "values": [
+                894,
+                697,
+                365,
+                491,
+                669,
+                578
+              ]
+            }
           ]
         }
       ],
-      "stem": "Assuming e-book sales per inhabitant in Fernland rose by 5% from 2016 to 2019, what was its population in 2019 (thousand)?",
+      "stem": "In 2023, by what percentage was the number of hospital beds in Kestrel higher than in Istrada?",
       "options": [
-        "8,115",
-        "8,537",
-        "8,894",
-        "9,339",
-        "9,831"
+        "26.6%",
+        "28.3%",
+        "30.7%",
+        "36.3%",
+        "45.5%"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
-        "Find sales per inhabitant in 2016 first.",
-        "Population = sales ÷ sales per inhabitant."
+        "The country after \"than\" is the base.",
+        "Read the 2023 bars only."
       ],
       "solution": [
-        "Fernland: population 8,521 thousand and sales 55,344 thousand in 2016; sales 60,657 thousand in 2019.",
-        "Sales per inhabitant 2016 = 55,344 ÷ 8,521 ≈ 6.4950.",
-        "Sales per inhabitant 2019 = 6.4950 × 1.05 ≈ 6.8198.",
-        "Population 2019 = sales ÷ sales per inhabitant = 60,657 ÷ 6.8198 ≈ 8,894.3 thousand.",
-        "Answer: 8,894."
+        "2023 bars: Kestrel 669, Istrada 491.",
+        "Difference = 669 − 491 = 178.",
+        "Percentage = 178 ÷ 491 × 100 ≈ 36.25%.",
+        "Answer: 36.3%."
       ],
       "optionNotes": [
-        "Divides the 2016 population by the 5% rise.",
-        "Uses the 2017 sales instead of 2019.",
-        "Correct. Population follows from dividing the later sales by the later sales per inhabitant.",
-        "Leaves out the 5% rise in sales per inhabitant.",
-        "Applies the 5% change as a fall."
+        "Divides by Kestrel's figure instead of Istrada's.",
+        "Uses Kestrel's 2018 bar.",
+        "Divides by the average of the two figures.",
+        "Correct. A percentage difference is measured against the figure after \"than\".",
+        "Reads the 2018 bars."
       ],
-      "explanation": "Population follows from dividing the later sales by the later sales per inhabitant."
+      "explanation": "A percentage difference is measured against the figure after \"than\"."
     },
     {
-      "id": "n02-26-r3",
-      "supersedes": "n02-26-r2",
-      "topic": "Combined work rates",
+      "id": "n02-26-eu",
+      "supersedes": "n02-26-r3",
+      "topic": "NO share of all eligible voters",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Document scanners",
-          "columns": [
-            "Scanner",
-            "Pages per hour",
-            "Years in service",
-            "Operators needed"
+          "type": "combo",
+          "title": "Ostland: referendum votes and turnout by district (fictional data)",
+          "unit": "votes",
+          "categories": [
+            "District 1",
+            "District 2",
+            "District 3",
+            "District 4"
           ],
-          "rows": [
-            [
-              "Scanner A",
-              "1,110",
-              "2",
-              "2"
-            ],
-            [
-              "Scanner B",
-              "1,010",
-              "2",
-              "3"
-            ],
-            [
-              "Scanner C",
-              "700",
-              "5",
-              "2"
-            ],
-            [
-              "Scanner D",
-              "740",
-              "8",
-              "4"
-            ]
-          ]
+          "series": [
+            {
+              "name": "Voted YES",
+              "values": [
+                4045,
+                4153,
+                3841,
+                3462
+              ]
+            },
+            {
+              "name": "Voted NO",
+              "values": [
+                4329,
+                4201,
+                3955,
+                3246
+              ]
+            },
+            {
+              "name": "Turnout (%)",
+              "values": [
+                71.99,
+                78.55,
+                82.24,
+                72.71
+              ],
+              "line": true
+            }
+          ],
+          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
         }
       ],
-      "stem": "Working together at their usual rates, how many minutes do Scanner A and Scanner C need for 12,000 pages? Round only the final result to 1 decimal place.",
+      "stem": "In Ostland's referendum, what percentage of all eligible voters in the four districts voted NO?",
       "options": [
-        "397.8 minutes",
-        "419.3 minutes",
-        "421.1 minutes",
-        "500.0 minutes",
-        "514.3 minutes"
+        "36.3%",
+        "38.4%",
+        "39.6%",
+        "41.4%",
+        "50.4%"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
-        "When two units work together, add their hourly rates.",
-        "Time = amount ÷ combined rate; convert hours to minutes."
+        "Rebuild each district's eligible voters from its own turnout.",
+        "Divide all NO votes by all eligible voters."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Combined rate = 1,110 + 700 = 1,810 per hour",
-        "12,000 ÷ 1,810 × 60 = 397.79 minutes",
-        "Final answer: 397.8 minutes."
+        "Eligible voters = votes cast ÷ turnout, district by district.",
+        "District 1: (4,045 + 4,329) ÷ 71.99% ≈ 11,632.2.",
+        "District 2: (4,153 + 4,201) ÷ 78.55% ≈ 10,635.3.",
+        "District 3: (3,841 + 3,955) ÷ 82.24% ≈ 9,479.6.",
+        "District 4: (3,462 + 3,246) ÷ 72.71% ≈ 9,225.7.",
+        "All eligible voters ≈ 40,972.7; all NO votes = 4,329 + 4,201 + 3,955 + 3,246 = 15,731.",
+        "NO share = 15,731 ÷ 40,972.7 × 100 ≈ 38.39%.",
+        "Answer: 38.4%."
       ],
       "optionNotes": [
-        "Correct. Using the requested base and units, with rounding only at the end, gives 397.8 minutes.",
-        "This halves the average of the two separate times; rates add, times do not.",
-        "This pairs Scanner C with Scanner B.",
-        "This pairs Scanner C with Scanner D.",
-        "This assumes both units work at the rate of Scanner C."
+        "Uses the turnout of District 1 for all four districts.",
+        "Correct. Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them.",
+        "Uses the turnout of District 2 for all four districts.",
+        "Uses the turnout of District 3 for all four districts.",
+        "Gives NO as a share of votes cast, ignoring turnout."
       ],
-      "explanation": "Rates add; times do not. Averaging the separate times is the classic mistake."
+      "explanation": "Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them."
     },
     {
       "id": "n02-27-r3",
@@ -2147,142 +2225,157 @@ EPSO_BANK.registerSet({
       "explanation": "In \"how much higher than the other country\", the country after \"than\" is the base. Reversing the base gives a smaller, wrong percentage."
     },
     {
-      "id": "n02-28-eu2",
-      "supersedes": "n02-28-eu",
-      "topic": "Constant annual increase",
+      "id": "n02-28-eu3",
+      "supersedes": "n02-28-eu2",
+      "topic": "Share change in a stacked chart",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Cinema admissions (fictional data)",
-          "columns": [
-            "Country",
-            "2017 (thousand)",
-            "2019 (thousand)",
-            "2022 (thousand)"
+          "type": "stacked",
+          "title": "Brevania: electricity generated by source (TWh; fictional data)",
+          "unit": "TWh",
+          "categories": [
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"
           ],
-          "rows": [
-            [
-              "Galvia",
-              "54,867",
-              "58,653",
-              "81,528"
-            ],
-            [
-              "Brevania",
-              "66,898",
-              "71,113",
-              "99,274"
-            ],
-            [
-              "Sundra",
-              "17,031",
-              "18,836",
-              "25,052"
-            ],
-            [
-              "Pellam",
-              "52,976",
-              "57,956",
-              "75,864"
-            ],
-            [
-              "Calmora",
-              "9,259",
-              "9,713",
-              "13,054"
-            ]
+          "series": [
+            {
+              "name": "Gas",
+              "values": [
+                102,
+                93,
+                89,
+                87,
+                78
+              ]
+            },
+            {
+              "name": "Wind",
+              "values": [
+                21,
+                25,
+                28,
+                32,
+                35
+              ]
+            },
+            {
+              "name": "Solar",
+              "values": [
+                24,
+                27,
+                29,
+                34,
+                35
+              ]
+            },
+            {
+              "name": "Hydro",
+              "values": [
+                37,
+                39,
+                45,
+                53,
+                58
+              ]
+            }
           ]
         }
       ],
-      "stem": "Admissions in Galvia grew by the same number each year between 2019 and 2022. If that continued, what would they be in 2024 (thousand)?",
+      "stem": "By how many percentage points did wind's share of Brevania's electricity rise from 2019 to 2022?",
       "options": [
-        "73,903",
-        "85,314",
-        "89,153",
-        "92,966",
-        "96,778"
+        "3.25",
+        "3.46",
+        "4.12",
+        "5.34",
+        "5.62"
       ],
-      "answer": 4,
+      "answer": 2,
       "hints": [
-        "Count the years between 2019 and 2022.",
-        "Add the annual increase once for every year after the last figure."
+        "A share is the source divided by that year's total (the top of the bar).",
+        "Compute both shares, then subtract."
       ],
       "solution": [
-        "Galvia: 58,653 thousand in 2019 and 81,528 thousand in 2022, which are 3 years apart.",
-        "Annual increase = (81,528 − 58,653) ÷ 3 = 22,875 ÷ 3 = 7,625.0 thousand.",
-        "2024 is two years after 2022: 81,528 + 2 × 7,625.0 = 96,778.0 thousand.",
-        "Answer: 96,778."
+        "2019: 21 ÷ 184 × 100 ≈ 11.413%.",
+        "2022: 32 ÷ 206 × 100 ≈ 15.534%.",
+        "Change = 15.534 − 11.413 ≈ 4.121 percentage points.",
+        "Answer: 4.12."
       ],
       "optionNotes": [
-        "Adds two years' increase to the 2019 figure instead of the 2022 figure.",
-        "Uses the 2017–2019 annual increase.",
-        "Projects only one year ahead, to 2023.",
-        "Counts four years between 2019 and 2022.",
-        "Correct. A constant number per year means a straight-line increase: divide the change by the number of years, then extend it."
+        "Ends in 2021.",
+        "Reads the solar segments.",
+        "Correct. Shares must be computed with each year's own total before the change in percentage points is found.",
+        "Divides the rise in TWh by the 2022 total.",
+        "Reads the hydro segments."
       ],
-      "explanation": "A constant number per year means a straight-line increase: divide the change by the number of years, then extend it."
+      "explanation": "Shares must be computed with each year's own total before the change in percentage points is found."
     },
     {
-      "id": "n02-29-eu2",
-      "supersedes": "n02-29-eu",
+      "id": "n02-29-eu3",
+      "supersedes": "n02-29-eu2",
       "topic": "Year one overtakes another",
       "difficulty": 3,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Exports (fictional data)",
-          "columns": [
-            "Country",
-            "Exports 2019 (EUR billion)",
-            "Exports 2024 (EUR billion)",
-            "Annual growth from 2024 (%)"
+          "type": "combo",
+          "title": "Exports and expected annual growth (fictional data)",
+          "unit": "EUR billion",
+          "categories": [
+            "Aldoria",
+            "Norvale",
+            "Kestrel",
+            "Lunaria",
+            "Pellam"
           ],
-          "rows": [
-            [
-              "Aldoria",
-              "81.3",
-              "101.6",
-              "4.9"
-            ],
-            [
-              "Norvale",
-              "40.5",
-              "48.8",
-              "8.3"
-            ],
-            [
-              "Kestrel",
-              "124.6",
-              "144.9",
-              "6.5"
-            ],
-            [
-              "Lunaria",
-              "65.1",
-              "73.1",
-              "1.5"
-            ],
-            [
-              "Pellam",
-              "54.7",
-              "59.5",
-              "4.2"
-            ]
+          "series": [
+            {
+              "name": "Exports 2019",
+              "values": [
+                81.3,
+                40.5,
+                124.6,
+                65.1,
+                54.7
+              ]
+            },
+            {
+              "name": "Exports 2024",
+              "values": [
+                101.6,
+                48.8,
+                144.9,
+                73.1,
+                59.5
+              ]
+            },
+            {
+              "name": "Annual growth from 2024 (%)",
+              "values": [
+                4.9,
+                8.3,
+                6.5,
+                1.5,
+                4.2
+              ],
+              "line": true
+            }
           ],
           "note": "Assume each country keeps growing at its annual rate (compound growth)."
         }
       ],
       "stem": "In which year would Norvale's exports first exceed Pellam's?",
       "options": [
-        "2026",
-        "2027",
-        "2028",
         "2029",
-        "2030"
+        "2030",
+        "2031",
+        "2032",
+        "2033"
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Growth compounds: each year multiplies by (1 + rate).",
         "Compare the ratio of the two values with the ratio of their growth factors, year by year."
@@ -2295,11 +2388,11 @@ EPSO_BANK.registerSet({
         "Answer: 2030."
       ],
       "optionNotes": [
-        "In 2026 Norvale is still behind: EUR 57.2 billion against EUR 64.6 billion.",
-        "In 2027 Norvale is still behind: EUR 62.0 billion against EUR 67.3 billion.",
-        "In 2028 Norvale is still behind: EUR 67.1 billion against EUR 70.1 billion.",
         "In 2029 Norvale is still behind: EUR 72.7 billion against EUR 73.1 billion.",
-        "Correct. Norvale first exceeds Pellam in 2030: EUR 78.7 billion against EUR 76.2 billion."
+        "Correct. Norvale first exceeds Pellam in 2030: EUR 78.7 billion against EUR 76.2 billion.",
+        "Norvale has already overtaken Pellam in 2030. Simple instead of compound growth gives this year.",
+        "Norvale has already overtaken Pellam in 2030.",
+        "Norvale has already overtaken Pellam in 2030."
       ],
       "explanation": "With compound growth the faster-growing country closes the gap by the ratio of the growth factors each year."
     },
@@ -2546,8 +2639,8 @@ EPSO_BANK.registerSet({
       "explanation": "The remainder share must be turned into people with each year's population before the change is measured."
     },
     {
-      "id": "n02-33-eu2",
-      "supersedes": "n02-33-eu",
+      "id": "n02-33-eu3",
+      "supersedes": "n02-33-eu2",
       "topic": "Projected share against a past amount",
       "difficulty": 3,
       "exhibits": [
@@ -2637,7 +2730,7 @@ EPSO_BANK.registerSet({
           ]
         }
       ],
-      "stem": "In 2022, total waste grows by 5% and the garden waste share rises by 1.9 percentage points. By what percentage would garden waste waste then exceed its 2019 level?",
+      "stem": "In 2022, total waste grows by 5% and the garden waste share rises by 1.9 percentage points. By what percentage would garden waste then exceed its 2019 level?",
       "options": [
         "24.3%",
         "25.8%",
@@ -2667,81 +2760,82 @@ EPSO_BANK.registerSet({
       "explanation": "A percentage-point change in share and a percentage growth in the total must be applied as separate factors."
     },
     {
-      "id": "n02-34-r3",
-      "supersedes": "n02-34-r2",
-      "topic": "Currency conversion",
+      "id": "n02-34-eu",
+      "supersedes": "n02-34-r3",
+      "topic": "Population from an unchanged group",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Exchange rates: units of currency per 1 EUR",
-          "columns": [
-            "Currency",
-            "1 January",
-            "1 July"
+          "type": "line",
+          "title": "Survey: should the country introduce a national rail pass? (fictional data)",
+          "unit": "% of adults",
+          "categories": [
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021"
           ],
-          "rows": [
-            [
-              "USD",
-              "1.1118",
-              "1.0162"
-            ],
-            [
-              "GBP",
-              "0.8703",
-              "0.8207"
-            ],
-            [
-              "DKK",
-              "7.6092",
-              "7.0309"
-            ],
-            [
-              "CZK",
-              "25.7796",
-              "26.9655"
-            ],
-            [
-              "HUF",
-              "388.1",
-              "416"
-            ],
-            [
-              "NOK",
-              "11.89",
-              "11.0696"
-            ]
-          ],
-          "note": "Assume conversions go through the euro, with no fees."
+          "series": [
+            {
+              "name": "In favour",
+              "values": [
+                32,
+                31,
+                34,
+                38,
+                38,
+                37,
+                41,
+                45
+              ]
+            },
+            {
+              "name": "Against",
+              "values": [
+                41,
+                39,
+                40,
+                37,
+                34,
+                31,
+                27,
+                25
+              ]
+            }
+          ]
         }
       ],
-      "stem": "On 1 January, a company converted USD 18,000 into CZK. How much did it receive? Round only the final result to 2 decimal places.",
+      "stem": "There were 55.43 million adults in 2016. If the number in favour did not change from 2016 to 2017, how many adults were against in 2017 (million)?",
       "options": [
-        "CZK 411,700.75",
-        "CZK 417,370.75",
-        "CZK 436,570.43",
-        "CZK 456,635.31",
-        "CZK 477,641.21"
+        "18.35",
+        "19.84",
+        "20.51",
+        "22.17",
+        "22.92"
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
-        "Use only the column for the date in the question.",
-        "Divide by the USD rate to get euros, then multiply by the CZK rate."
+        "If the number in favour is fixed, the population changes in inverse proportion to the share in favour.",
+        "Find the 2017 population first."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "18,000 ÷ 1.1118 = EUR 16,189.96",
-        "18,000 × (25.7796 ÷ 1.1118) ≈ CZK 417,370.75 (one cross-rate calculation avoids rounding the euro balance)",
-        "Final answer: CZK 417,370.75."
+        "In favour 2016 = 34% × 55.43 = 18.8462 million; this number is unchanged in 2017.",
+        "It is 38% of the 2017 population, so population = 18.8462 ÷ 38% ≈ 49.5953 million.",
+        "Against in 2017 = 49.5953 × 37% ≈ 18.350 million.",
+        "Answer: 18.35."
       ],
       "optionNotes": [
-        "This adjusts the other date's conversion by subtracting the two percentage changes; the exact cross-rate requires dividing the rate multipliers.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives CZK 417,370.75.",
-        "This mixes the two dates.",
-        "This mixes the two dates.",
-        "This uses the 1 July rates."
+        "Correct. A fixed number with a changing share reveals the new population, which then gives the number against.",
+        "Uses the 2016 share against.",
+        "Uses the 2016 population.",
+        "Keeps the number against unchanged instead of the number in favour.",
+        "Inverts the ratio of the two shares."
       ],
-      "explanation": "With rates quoted per euro, divide to get into euros and multiply to get out. Check the date column: the other date is a ready-made distractor."
+      "explanation": "A fixed number with a changing share reveals the new population, which then gives the number against."
     },
     {
       "id": "n02-35-r3",
@@ -2823,88 +2917,100 @@ EPSO_BANK.registerSet({
       "explanation": "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
     },
     {
-      "id": "n02-36-r3",
-      "supersedes": "n02-36-r2",
-      "topic": "Removing VAT",
+      "id": "n02-36-eu",
+      "supersedes": "n02-36-r3",
+      "topic": "Rank of percentage increases",
       "difficulty": 2,
+      "answerType": "category",
       "exhibits": [
         {
           "type": "table",
-          "title": "Supplier invoices, Q2",
+          "title": "Aldoria: share of total power generated (%) (fictional data)",
           "columns": [
-            "Invoice",
-            "Supplier country",
-            "Amount including VAT (EUR)",
-            "VAT rate (%)"
+            "Source",
+            "2006",
+            "2011",
+            "2016",
+            "2021"
           ],
           "rows": [
             [
-              "No. 101",
-              "Brevania",
-              "913",
-              "19"
+              "Fossil fuel",
+              "74.4",
+              "68.5",
+              "66.9",
+              "60.7"
             ],
             [
-              "No. 102",
-              "Calmora",
-              "5,574",
-              "23"
+              "Wind",
+              "3.3",
+              "4.6",
+              "5.0",
+              "7.8"
             ],
             [
-              "No. 103",
-              "Dunmark",
-              "2,803",
-              "25"
+              "Solar",
+              "5.5",
+              "6.4",
+              "7.1",
+              "10.0"
             ],
             [
-              "No. 104",
-              "Brevania",
-              "9,035",
-              "19"
+              "Hydro",
+              "5.5",
+              "7.0",
+              "7.4",
+              "11.2"
             ],
             [
-              "No. 105",
-              "Aldoria",
-              "2,183",
-              "21"
+              "Nuclear",
+              "9.8",
+              "10.4",
+              "10.8",
+              "14.1"
             ],
             [
-              "No. 106",
-              "Calmora",
-              "1,855",
-              "23"
+              "Biomass",
+              "1.7",
+              "2.9",
+              "3.7",
+              "6.0"
             ]
-          ]
+          ],
+          "note": "Assume total power generated did not change over the period."
         }
       ],
-      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Brevania? Round only the final result to 2 decimal places.",
+      "stem": "In Aldoria, which source showed the second-largest percentage increase in generation between 2016 and 2021?",
       "options": [
-        "EUR 7,958.40",
-        "EUR 8,057.88",
-        "EUR 8,087.80",
-        "EUR 8,290.00",
-        "EUR 8,359.66"
+        "Wind",
+        "Solar",
+        "Hydro",
+        "Nuclear",
+        "Biomass"
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
-        "Select the invoices from that country only.",
-        "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
+        "Compare each change with its own starting value, not in percentage points.",
+        "Rank the sources by (new − old) ÷ old."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "913 ÷ 1.19 = 767.23",
-        "9,035 ÷ 1.19 = 7,592.44",
-        "Total = 767.23 + 7,592.44 = EUR 8,359.66",
-        "Final answer: EUR 8,359.66."
+        "With an unchanged total, each share moves in proportion to generation, so percentage increase = (2021 share − 2016 share) ÷ 2016 share.",
+        "Biomass: (6.0 − 3.7) ÷ 3.7 = 62.2%.",
+        "Wind: (7.8 − 5.0) ÷ 5.0 = 56.0%.",
+        "Hydro: (11.2 − 7.4) ÷ 7.4 = 51.4%.",
+        "Solar: (10.0 − 7.1) ÷ 7.1 = 40.8%.",
+        "Nuclear: (14.1 − 10.8) ÷ 10.8 = 30.6%.",
+        "The second-largest increase is Wind.",
+        "Answer: Wind."
       ],
       "optionNotes": [
-        "This applies another country's VAT rate.",
-        "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
-        "This applies another country's VAT rate.",
-        "This applies a flat 20% instead of the rate shown for each invoice.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 8,359.66."
+        "Correct. Wind has the required rank by percentage increase.",
+        "Solar ranks fourth by percentage increase (40.8%).",
+        "Hydro ranks third by percentage increase (51.4%).",
+        "Nuclear ranks fifth by percentage increase (30.6%); it is second only in percentage points.",
+        "Biomass ranks first by percentage increase (62.2%)."
       ],
-      "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
+      "explanation": "Percentage increase compares each source with its own 2016 level; the largest change in points is not necessarily the largest in per cent."
     },
     {
       "id": "n02-37-r3",
@@ -3015,8 +3121,8 @@ EPSO_BANK.registerSet({
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n02-38-eu2",
-      "supersedes": "n02-38-eu",
+      "id": "n02-38-eu3",
+      "supersedes": "n02-38-eu2",
       "topic": "Estimate from an unlabelled chart",
       "difficulty": 3,
       "answerType": "category",
@@ -3065,13 +3171,13 @@ EPSO_BANK.registerSet({
       ],
       "stem": "On the Fernland exchange, which quarter had the largest percentage rise in the aluminium price compared with the same quarter a year earlier?",
       "options": [
-        "Q1 22",
         "Q2 22",
+        "Q1 22",
         "Q3 22",
         "Q4 22",
         "Q1 23"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Compare each quarter with the same quarter one year (four points) earlier.",
         "A percentage rise depends on the starting price, not only on the size of the rise."
@@ -3087,8 +3193,8 @@ EPSO_BANK.registerSet({
         "Answer: Q1 22."
       ],
       "optionNotes": [
-        "Correct. Q1 22: 2,000 → 4,000 EUR per tonne, +100.0%, the largest year-on-year rise.",
         "Q2 22: 2,500 → 4,750, +90.0%.",
+        "Correct. Q1 22: 2,000 → 4,000 EUR per tonne, +100.0%, the largest year-on-year rise.",
         "Q3 22 has the largest rise in euros (EUR 2,500), but only 90.9% on its higher starting price.",
         "Q4 22: 3,500 → 5,500, +57.1%.",
         "Q1 23: 4,000 → 5,000, +25.0%."
@@ -3323,76 +3429,81 @@ EPSO_BANK.registerSet({
       "explanation": "Unit traps are common: million m³ ÷ million people = m³ per person. If your answer is 1,000 times too large or small, recheck the conversion before choosing."
     },
     {
-      "id": "n02-42-r3",
-      "supersedes": "n02-42-r2",
-      "topic": "Rates of work",
+      "id": "n02-42-eu",
+      "supersedes": "n02-42-r3",
+      "topic": "Equivalent ticket price",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Grant evaluation panels",
-          "columns": [
-            "Team",
-            "Staff",
-            "Proposals per person per day",
-            "Proposals in backlog"
+          "type": "bar",
+          "title": "Billiard hall: groups by day (fictional data)",
+          "unit": "groups",
+          "categories": [
+            "Groups of 2",
+            "Groups of 3",
+            "Groups of 4",
+            "Groups of 5"
           ],
-          "rows": [
-            [
-              "Panel 1",
-              "7",
-              "5",
-              "1,577"
-            ],
-            [
-              "Panel 2",
-              "4",
-              "5",
-              "2,222"
-            ],
-            [
-              "Panel 3",
-              "12",
-              "7",
-              "1,188"
-            ],
-            [
-              "Panel 4",
-              "5",
-              "8",
-              "1,331"
-            ]
-          ]
+          "series": [
+            {
+              "name": "Friday",
+              "values": [
+                9,
+                9,
+                4,
+                13
+              ]
+            },
+            {
+              "name": "Saturday",
+              "values": [
+                10,
+                9,
+                3,
+                13
+              ]
+            },
+            {
+              "name": "Sunday",
+              "values": [
+                10,
+                9,
+                5,
+                15
+              ]
+            }
+          ],
+          "note": "Each group rents one table at EUR 6.00 per hour for an average of 3.0 hours. Every player also pays an entry fee of EUR 2.00."
         }
       ],
-      "stem": "If Panel 3 is given 2 extra staff working at the same rate, how many working days will it need to clear its backlog? Assume output is uniform and part of a working day is allowed. Round only the final result to 1 decimal place.",
+      "stem": "The hall could instead host a concert on Saturday for 90 paying guests, with costs of EUR 120. What ticket price would give the same net income as the billiards?",
       "options": [
-        "11.0 days",
-        "11.3 days",
-        "12.1 days",
-        "13.1 days",
-        "14.1 days"
+        "EUR 8.33",
+        "EUR 9.11",
+        "EUR 9.76",
+        "EUR 11.09",
+        "EUR 12.29"
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
-        "Daily output = staff × output per person per day.",
-        "Days = backlog ÷ daily output with the new headcount."
+        "Count groups for table income and players for entry fees.",
+        "Ticket income minus costs must equal the billiards income."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "New staff = 12 + 2 = 14",
-        "Daily output = 14 × 7 = 98",
-        "1,188 ÷ 98 = 12.12 days",
-        "Final answer: 12.1 days."
+        "Saturday groups: 10 of 2, 9 of 3, 3 of 4, 13 of 5.",
+        "Groups = 10 + 9 + 3 + 13 = 35; players = 10 × 2 + 9 × 3 + 3 × 4 + 13 × 5 = 124.",
+        "Billiards income = 35 × 3.0 h × EUR 6.00 + 124 × EUR 2.00 = EUR 878.00.",
+        "Ticket price = (878.00 + 120) ÷ 90 ≈ EUR 11.09.",
+        "Answer: EUR 11.09."
       ],
       "optionNotes": [
-        "This adds the extra staff to the daily rate instead of to the headcount.",
-        "One person too many: check the new headcount.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 12.1 days.",
-        "One person short: check the new headcount.",
-        "This ignores the extra staff."
+        "Leaves out the players' entry fees.",
+        "Charges the entry fee per group instead of per player.",
+        "Leaves out the concert costs.",
+        "Correct. Table income depends on groups, entry fees on players; the concert must cover its costs on top.",
+        "Reads the Sunday bars."
       ],
-      "explanation": "Add staff to the headcount, then multiply by the individual rate."
+      "explanation": "Table income depends on groups, entry fees on players; the concert must cover its costs on top."
     },
     {
       "id": "n02-43-r3",
@@ -3467,165 +3578,164 @@ EPSO_BANK.registerSet({
       "explanation": "Read the question for what counts as time. Including or excluding stops changes the answer; use total distance divided by total elapsed time. An unweighted mean of speeds works only for equal time intervals, and excludes the stops here."
     },
     {
-      "id": "n02-44-r3",
-      "supersedes": "n02-44-r2",
-      "topic": "Successive percentage changes",
+      "id": "n02-44-eu",
+      "supersedes": "n02-44-r3",
+      "topic": "Time to reach top speed",
       "difficulty": 2,
       "exhibits": [
         {
           "type": "table",
-          "title": "Prices of laboratory items",
+          "title": "Athletics finals: winning times by country (seconds) (fictional data)",
           "columns": [
-            "Item",
-            "Price start of 2022 (EUR)",
-            "Change 2022 (%)",
-            "Change 2023 (%)",
-            "Change 2024 (%)"
+            "Country",
+            "100 m",
+            "200 m",
+            "400 m",
+            "800 m"
           ],
           "rows": [
             [
-              "Microscope",
-              "5,794",
-              "1.9",
-              "-0.1",
-              "-3.8"
+              "Marrow",
+              "10.57",
+              "20.90",
+              "45.32",
+              "106.6"
             ],
             [
-              "Centrifuge",
-              "8,176",
-              "3.2",
-              "5.4",
-              "-5.4"
+              "Galvia",
+              "10.00",
+              "20.86",
+              "47.35",
+              "107.3"
             ],
             [
-              "Pipette set",
-              "3,748",
-              "2.6",
-              "-5.2",
-              "-3.0"
+              "Norvale",
+              "10.17",
+              "20.28",
+              "45.56",
+              "104.3"
             ],
             [
-              "Freezer",
-              "3,020",
-              "9.6",
-              "9.0",
-              "3.8"
+              "Brevania",
+              "10.31",
+              "20.10",
+              "45.85",
+              "104.5"
             ],
             [
-              "Scale",
-              "7,531",
-              "6.8",
-              "12.6",
-              "-7.9"
+              "Tavel",
+              "10.46",
+              "20.19",
+              "46.72",
+              "105.9"
             ]
           ]
         }
       ],
-      "stem": "What was the price of freezer at the end of 2024? Round only the final result to 2 decimal places.",
+      "stem": "The 100 m winner accelerated to top speed over the first 30 m, then held it, crossing the line at 11.62 m/s. How long (seconds) did the winner take to reach top speed?",
       "options": [
-        "EUR 3,416.89",
-        "EUR 3,435.70",
-        "EUR 3,607.81",
-        "EUR 3,696.48",
-        "EUR 3,744.91"
+        "3.98 s",
+        "4.15 s",
+        "4.29 s",
+        "4.44 s",
+        "5.16 s"
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
-        "Apply each year's change to the price at the end of the previous year.",
-        "Multiply by (1 + change) three times."
+        "The winner has the lowest 100 m time.",
+        "The last 70 m were run at top speed."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "End of 2022: 3,020 × 1.096 = EUR 3,309.92",
-        "End of 2023: × 1.090 = EUR 3,607.81",
-        "End of 2024: × 1.038 = EUR 3,744.91",
-        "Final answer: EUR 3,744.91."
+        "The 100 m winner has the lowest 100 m time: Galvia, 10.00 s.",
+        "After the first 30 m the winner ran the remaining 70 m at 11.62 m/s: 70 ÷ 11.62 ≈ 6.024 s.",
+        "Time to reach top speed = 10.00 − 6.024 ≈ 3.976 s.",
+        "Answer: 3.98 s."
       ],
       "optionNotes": [
-        "This leaves out the 2022 change.",
-        "This leaves out the 2023 change.",
-        "This stops at the end of 2023.",
-        "This adds the three percentages; changes compound, so multiply instead.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 3,744.91."
+        "Correct. Subtract the time spent at top speed over the rest of the race from the winner's total time.",
+        "Uses Norvale's time, which did not win the 100 m.",
+        "Uses Brevania's time, which did not win the 100 m.",
+        "Uses Tavel's time, which did not win the 100 m.",
+        "Assumes uniform acceleration from rest instead of using the race time."
       ],
-      "explanation": "Successive percentage changes multiply. Adding them is only an approximation, and the error grows with the size of the changes."
+      "explanation": "Subtract the time spent at top speed over the rest of the race from the winner's total time."
     },
     {
-      "id": "n02-45-r3",
-      "supersedes": "n02-45-r2",
-      "topic": "Percentages of percentages",
+      "id": "n02-45-eu",
+      "supersedes": "n02-45-r3",
+      "topic": "Turnout and votes",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Survey on remote work",
-          "columns": [
-            "Sector",
-            "Respondents",
-            "Working remotely (%)",
-            "Of those, want to continue (%)"
+          "type": "combo",
+          "title": "Fernland: referendum votes and turnout by district (fictional data)",
+          "unit": "votes",
+          "categories": [
+            "District 1",
+            "District 2",
+            "District 3",
+            "District 4"
           ],
-          "rows": [
-            [
-              "Public",
-              "1,743",
-              "83",
-              "65"
-            ],
-            [
-              "Finance",
-              "1,032",
-              "74",
-              "54"
-            ],
-            [
-              "Industry",
-              "2,107",
-              "85",
-              "34"
-            ],
-            [
-              "Retail",
-              "1,364",
-              "49",
-              "63"
-            ],
-            [
-              "Health",
-              "2,083",
-              "48",
-              "48"
-            ]
-          ]
+          "series": [
+            {
+              "name": "Voted YES",
+              "values": [
+                2546,
+                2535,
+                3378,
+                4119
+              ]
+            },
+            {
+              "name": "Voted NO",
+              "values": [
+                3250,
+                4497,
+                4354,
+                3027
+              ]
+            },
+            {
+              "name": "Turnout (%)",
+              "values": [
+                82.03,
+                74.06,
+                71.08,
+                76.44
+              ],
+              "line": true
+            }
+          ],
+          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
         }
       ],
-      "stem": "Approximately how many respondents in the Industry group work remotely and want to continue? Use the reported percentages as estimates. Round only the final result to the nearest whole number.",
+      "stem": "In Fernland's 2020 referendum, what percentage of the eligible voters of District 2 voted NO?",
       "options": [
-        "485",
-        "504",
-        "602",
-        "609",
-        "650"
+        "45.5%",
+        "47.4%",
+        "48.9%",
+        "52.5%",
+        "64.0%"
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
-        "First find how many working remotely.",
-        "The second percentage applies only to those people, not to all respondents."
+        "Turnout tells you what share of eligible voters voted at all.",
+        "NO voters as a share of eligible voters = NO share of votes cast × turnout."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "2,107 × 85% = 1,791.0",
-        "2,107 × (85 ÷ 100) × (34 ÷ 100) ≈ 608.9",
-        "Final answer: 609."
+        "District 2: YES 2,535, NO 4,497, turnout 74.06%.",
+        "NO share of votes cast = 4,497 ÷ (2,535 + 4,497) = 4,497 ÷ 7,032 ≈ 63.951%.",
+        "Only 74.06% of eligible voters voted, so NO share of eligible voters = 63.951% × 74.06% ≈ 47.36%.",
+        "Answer: 47.4%."
       ],
       "optionNotes": [
-        "This applies the percentages of the Health group.",
-        "This uses the number of respondents in the Public group.",
-        "This uses the number of respondents in the Health group.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives 609.",
-        "This applies the percentages of the Retail group."
+        "Applies the turnout of District 3 instead of District 2.",
+        "Correct. Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout.",
+        "Applies the turnout of District 4 instead of District 2.",
+        "Applies the turnout of District 1 instead of District 2.",
+        "Gives NO as a share of the votes cast, ignoring that only the turnout share of eligible voters voted."
       ],
-      "explanation": "When a percentage is 'of those', apply it to the subgroup. Applying it to everyone is the standard trap."
+      "explanation": "Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout."
     },
     {
       "id": "n02-46-r2",
@@ -3714,162 +3824,106 @@ EPSO_BANK.registerSet({
       "explanation": "Two steps for every row: a difference, then a division. The largest absolute surplus is the planted trap."
     },
     {
-      "id": "n02-47-eu2",
-      "supersedes": "n02-47-eu",
-      "topic": "Missing value from a known share",
+      "id": "n02-47-eu3",
+      "supersedes": "n02-47-eu2",
+      "topic": "Largest gap on an unlabelled chart",
       "difficulty": 2,
+      "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Pianos owned (fictional data)",
-          "columns": [
-            "Country",
-            "Population (thousand)",
-            "Upright",
-            "Grand",
-            "Electric"
+          "type": "line",
+          "title": "Lunaria exchange: copper and nickel prices, 2023 (EUR per tonne; fictional data)",
+          "unit": "EUR per tonne",
+          "categories": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
           ],
-          "rows": [
-            [
-              "Sundra",
-              "10,295",
-              "6,497",
-              "—",
-              "2,162"
-            ],
-            [
-              "Galvia",
-              "8,488",
-              "3,485",
-              "1,808",
-              "2,547"
-            ],
-            [
-              "Ostland",
-              "9,846",
-              "4,904",
-              "2,283",
-              "2,434"
-            ],
-            [
-              "Kestrel",
-              "11,014",
-              "3,891",
-              "1,971",
-              "1,547"
-            ],
-            [
-              "Norvale",
-              "7,661",
-              "2,698",
-              "3,787",
-              "1,500"
-            ]
-          ]
+          "labels": false,
+          "step": 500,
+          "series": [
+            {
+              "name": "Copper",
+              "values": [
+                3000,
+                2750,
+                2750,
+                3000,
+                3000,
+                3000,
+                3500,
+                3250,
+                2750,
+                2500,
+                2500,
+                2250
+              ]
+            },
+            {
+              "name": "Nickel",
+              "values": [
+                3500,
+                3500,
+                3750,
+                3750,
+                3250,
+                3500,
+                4000,
+                4000,
+                4000,
+                4000,
+                4250,
+                4750
+              ]
+            }
+          ],
+          "note": "Values are not labelled: read them from the gridlines (every EUR 500; points lie on or halfway between gridlines)."
         }
       ],
-      "stem": "Exactly 40% of all grand pianos in the five countries were in Sundra. How many pianos of all types were there in Sundra?",
+      "stem": "On the Lunaria exchange, in which month of 2023 was the difference between the copper and nickel prices largest?",
       "options": [
-        "11,473",
-        "12,599",
-        "13,063",
-        "14,011",
-        "15,225"
+        "Nov",
+        "Oct",
+        "Jul",
+        "Sep",
+        "Dec"
       ],
       "answer": 4,
       "hints": [
-        "The other four countries hold the remaining 60% of grand pianos.",
-        "Find the missing grand-piano figure, then add the other types for Sundra."
+        "Read both lines for each month and compare the vertical distance between them.",
+        "The month with the highest price is not necessarily the month with the largest gap."
       ],
       "solution": [
-        "Grand pianos in the other four countries: 1,808 + 2,283 + 1,971 + 3,787 = 9,849.",
-        "These are the other 60%, so Sundra's 40% = 9,849 × 40 ÷ 60 = 6,566.0.",
-        "All types in Sundra = 6,497 upright + 6,566.0 grand + 2,162 electric = 15,225.0.",
-        "Answer: 15,225."
+        "Read both prices from the gridlines for the candidate months and subtract.",
+        "Dec: 2,250 − 4,750 → gap EUR 2,500.",
+        "Nov: 2,500 − 4,250 → gap EUR 1,750.",
+        "Oct: 2,500 − 4,000 → gap EUR 1,500.",
+        "Jul: 3,500 − 4,000 → gap EUR 500.",
+        "Sep: 2,750 − 4,000 → gap EUR 1,250.",
+        "The largest gap is in Dec.",
+        "Answer: Dec."
       ],
       "optionNotes": [
-        "Divides by 140% instead of 60%.",
-        "Takes 40% of the other four countries' grand pianos.",
-        "Leaves out the electric pianos.",
-        "Applies the share to the electric column.",
-        "Correct. The other countries hold 60% of grand pianos, which gives the missing figure."
+        "Nov: gap EUR 1,750.",
+        "Oct: gap EUR 1,500.",
+        "Jul has the highest copper price, but the gap is only EUR 500.",
+        "Sep: gap EUR 1,250.",
+        "Correct. In Dec the two prices are EUR 2,500 apart, the largest gap."
       ],
-      "explanation": "The other countries hold 60% of grand pianos, which gives the missing figure."
+      "explanation": "Compare the distance between the lines month by month; the peak of one line is a distraction."
     },
     {
-      "id": "n02-48-r3",
-      "supersedes": "n02-48-r2",
-      "topic": "Multi-step: unit cost",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Mobility schemes",
-          "columns": [
-            "Programme",
-            "Budget (EUR million)",
-            "Beneficiaries (thousand)",
-            "Administrative costs (% of budget)"
-          ],
-          "rows": [
-            [
-              "Scheme 1",
-              "36",
-              "77",
-              "13"
-            ],
-            [
-              "Scheme 2",
-              "166",
-              "83",
-              "5"
-            ],
-            [
-              "Scheme 3",
-              "107",
-              "24",
-              "12"
-            ],
-            [
-              "Scheme 4",
-              "42",
-              "57",
-              "5"
-            ]
-          ]
-        }
-      ],
-      "stem": "Excluding administrative costs, how much was spent per beneficiary under Scheme 3? Round only the final result to the nearest whole number.",
-      "options": [
-        "EUR 3,388",
-        "EUR 3,923",
-        "EUR 3,958",
-        "EUR 4,235",
-        "EUR 4,458"
-      ],
-      "answer": 1,
-      "hints": [
-        "Remove the administrative share from the budget first.",
-        "Watch the units: budget in millions, beneficiaries in thousands."
-      ],
-      "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Programme spending = 107 × (1 − 12%) = EUR 94.16 million",
-        "EUR 94.16 million ÷ 24 thousand = 94,160,000 ÷ 24,000 = EUR 3,923.3",
-        "Final answer: EUR 3,923."
-      ],
-      "optionNotes": [
-        "This removes the administrative share twice.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 3,923.",
-        "This subtracts the percentage as if it were millions of euros.",
-        "This uses another programme's administrative share.",
-        "This includes the administrative costs."
-      ],
-      "explanation": "Check what is excluded and convert millions and thousands carefully before dividing."
-    },
-    {
-      "id": "n02-49-eu2",
-      "supersedes": "n02-49-eu",
+      "id": "n02-48-eu",
+      "supersedes": "n02-48-r3",
       "topic": "Weighted average with a ratio",
       "difficulty": 2,
       "exhibits": [
@@ -3884,146 +3938,225 @@ EPSO_BANK.registerSet({
           ],
           "series": [
             {
-              "name": "Pellam",
+              "name": "Estoria",
               "values": [
-                19,
-                47,
-                26
+                13,
+                38,
+                18
               ]
             },
             {
-              "name": "Norvale",
+              "name": "Brevania",
               "values": [
-                12,
-                57,
-                21
+                14,
+                44,
+                20
               ]
             },
             {
-              "name": "Jorvik",
+              "name": "Istrada",
               "values": [
-                22,
-                47,
-                27
+                23,
+                59,
+                29
               ]
             },
             {
-              "name": "Kestrel",
+              "name": "Galvia",
               "values": [
-                17,
+                20,
                 52,
-                22
+                28
               ]
             }
           ]
         }
       ],
-      "stem": "Pellam had 3 times as many urban as rural calls. If its average rural response time fell to 38 minutes, what would its overall average be (minutes)?",
+      "stem": "Brevania had 4 times as many urban as rural calls. If its average rural response time fell to 33 minutes, what would its overall average be (minutes)?",
       "options": [
-        "23.00",
-        "23.75",
-        "28.50",
-        "31.67",
-        "33.25"
+        "15.00",
+        "17.25",
+        "17.80",
+        "22.25",
+        "23.50"
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
-        "For every rural call there are 3 urban calls.",
-        "Overall average = (3 × urban + rural) ÷ 4."
+        "For every rural call there are 4 urban calls.",
+        "Overall average = (4 × urban + rural) ÷ 5."
       ],
       "solution": [
-        "Pellam: urban time 19 minutes (unchanged); new rural time 38 minutes.",
-        "3 urban calls for every rural call means weights 3 : 1, 4 calls in all.",
-        "New overall = (3 × 19 + 38) ÷ 4 = 95 ÷ 4 = 23.75 minutes.",
-        "Answer: 23.75."
+        "Brevania: urban time 14 minutes (unchanged); new rural time 33 minutes.",
+        "4 urban calls for every rural call means weights 4 : 1, 5 calls in all.",
+        "New overall = (4 × 14 + 33) ÷ 5 = 89 ÷ 5 = 17.80 minutes.",
+        "Answer: 17.80."
       ],
       "optionNotes": [
-        "Divides the rural reduction by 3 instead of 4.",
+        "Scales the overall average by the same proportion as the rural time.",
+        "Divides the rural reduction by 4 instead of 5.",
         "Correct. Each type of call counts in proportion to how many there are, so the urban time carries the larger weight.",
-        "Takes a simple average of urban and rural times.",
-        "Divides by 3 calls instead of 4.",
-        "Puts the larger weight on the rural calls."
+        "Divides by 4 calls instead of 5.",
+        "Takes a simple average of urban and rural times."
       ],
       "explanation": "Each type of call counts in proportion to how many there are, so the urban time carries the larger weight."
     },
     {
-      "id": "n02-50-r3",
-      "supersedes": "n02-50-r2",
-      "topic": "Averaging rates",
+      "id": "n02-49-eu3",
+      "supersedes": "n02-49-eu2",
+      "topic": "People from the gap between two lines",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Driving test results by centre",
-          "columns": [
-            "Centre",
-            "Candidates",
-            "Pass rate (%)",
-            "Average score"
+          "type": "line",
+          "title": "Survey: should the country introduce free public transport? (% of adults; fictional data)",
+          "unit": "% of adults",
+          "categories": [
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"
           ],
-          "rows": [
-            [
-              "Riverside",
-              "272",
-              "59",
-              "61"
-            ],
-            [
-              "Hilltop",
-              "81",
-              "38",
-              "57"
-            ],
-            [
-              "Lakeside",
-              "86",
-              "63",
-              "52"
-            ],
-            [
-              "Parkview",
-              "808",
-              "31",
-              "69"
-            ],
-            [
-              "Harbour",
-              "362",
-              "38",
-              "76"
-            ]
+          "series": [
+            {
+              "name": "In favour",
+              "values": [
+                41,
+                40,
+                40,
+                42,
+                42,
+                44,
+                47,
+                47
+              ]
+            },
+            {
+              "name": "Against",
+              "values": [
+                38,
+                37,
+                38,
+                35,
+                32,
+                32,
+                32,
+                30
+              ]
+            }
           ]
         }
       ],
-      "stem": "What was the overall pass rate across Hilltop, Lakeside and Harbour together? Round only the final result to 1 decimal place.",
+      "stem": "There were 40.2 million adults in 2018, and their number grew by 4% by 2021. How many more adults were in favour than against in 2021 (million)?",
       "options": [
-        "42.1%",
-        "42.8%",
-        "46.3%",
-        "47.8%",
-        "50.9%"
+        "4.18",
+        "4.82",
+        "5.02",
+        "6.27",
+        "6.43"
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
-        "Convert each pass rate into a number of passes.",
-        "Total passes ÷ total candidates for the three centres."
+        "Find the 2021 population first.",
+        "The gap between the lines is in percentage points of all adults."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "Hilltop: 81 × 38% = 30.8",
-        "Lakeside: 86 × 63% = 54.2",
-        "Harbour: 362 × 38% = 137.6",
-        "Passes ÷ candidates: 222.5 ÷ (81 + 86 + 362) × 100 = 42.06%",
-        "Final answer: 42.1%."
+        "2021 adults = 40.2 × 1.04 = 41.808 million.",
+        "2021 gap = 44% − 32% = 12 percentage points.",
+        "More in favour = 41.808 × 12% ≈ 5.017 million.",
+        "Answer: 5.02."
       ],
       "optionNotes": [
-        "Correct. Using the requested base and units, with rounding only at the end, gives 42.1%.",
-        "This uses Lakeside, Harbour: check which centres are named.",
-        "This is the simple average of the three rates; centres with more candidates must count more.",
-        "This uses Riverside, Hilltop, Lakeside, Harbour: check which centres are named.",
-        "This uses Hilltop, Lakeside: check which centres are named."
+        "Reads the 2020 values.",
+        "Uses the 2018 population.",
+        "Correct. Turn the gap in percentage points into people with the population of the same year.",
+        "Reads the 2022 values.",
+        "Adds the 4% growth to the gap in percentage points."
       ],
-      "explanation": "Rates from groups of different sizes must be weighted. The average score column is irrelevant."
+      "explanation": "Turn the gap in percentage points into people with the population of the same year."
+    },
+    {
+      "id": "n02-50-eu",
+      "supersedes": "n02-50-r3",
+      "topic": "Change in a 100% stacked chart",
+      "difficulty": 2,
+      "exhibits": [
+        {
+          "type": "stacked",
+          "title": "Ostland: trips by mode of transport (% of all trips; fictional data)",
+          "unit": "% of trips",
+          "categories": [
+            "2013",
+            "2018",
+            "2023"
+          ],
+          "series": [
+            {
+              "name": "Car",
+              "values": [
+                71,
+                64,
+                48
+              ]
+            },
+            {
+              "name": "Bus",
+              "values": [
+                12,
+                18,
+                17
+              ]
+            },
+            {
+              "name": "Rail",
+              "values": [
+                10,
+                11,
+                20
+              ]
+            },
+            {
+              "name": "Bicycle",
+              "values": [
+                7,
+                7,
+                15
+              ]
+            }
+          ],
+          "note": "Total trips: 389.6 million in 2018 and 420.8 million in 2023."
+        }
+      ],
+      "stem": "By how many million did bicycle trips in Ostland increase from 2018 to 2023?",
+      "options": [
+        "31.17",
+        "33.66",
+        "34.76",
+        "35.85",
+        "41.30"
+      ],
+      "answer": 3,
+      "hints": [
+        "Each percentage applies to its own year's total.",
+        "Work out the trips in each year, then subtract."
+      ],
+      "solution": [
+        "2018: 389.6 × 7% = 27.272 million bicycle trips.",
+        "2023: 420.8 × 15% = 63.120 million.",
+        "Increase = 63.120 − 27.272 = 35.848 million.",
+        "Answer: 35.85."
+      ],
+      "optionNotes": [
+        "Applies the change in percentage points to the 2018 total.",
+        "Applies the change in percentage points to the 2023 total.",
+        "Splits the growth in total trips half-and-half between the two years.",
+        "Correct. A 100% stacked chart shows shares; turn each into trips with its own year's total before comparing.",
+        "Reads the rail segments."
+      ],
+      "explanation": "A 100% stacked chart shows shares; turn each into trips with its own year's total before comparing."
     }
   ]
 });

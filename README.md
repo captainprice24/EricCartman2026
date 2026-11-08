@@ -75,7 +75,7 @@ The November 2026 medium sets are documented in [docs/research/medium-2026-11](d
   reversing a ranking, base rates, reading an unlabelled chart, tiered prices, a fee charged twice,
   closing speeds); 28 retired hard items of borderline length were restored, giving 27 hard models
   used four or five times each. Charts include bars with a turnout line on a second scale, horizontal bars, stacked bars, pies
-  and long line series. Choose **Numerical difficulty: Medium / Hard** in Coach or Practice (there is no
+  and long line series; about two in three Medium and Hard items use a chart, across bar, horizontal-bar, bar-and-line, stacked, 100% stacked, pie, line and unlabelled line charts. Choose **Numerical difficulty: Medium / Hard** in Coach or Practice (there is no
   Easy level). For a full challenge round, select Set 5–11, 10 questions and timed practice (20 minutes).
   The bank contains 148 medium and 122 hard items, including 70 very hard challenge items. Levels follow
   a reviewed reasoning rubric and await learner calibration. Every key is independently re-solved by

@@ -335,7 +335,10 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
   const euPrints=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-fingerprints.json')));
   const euFile=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-revisions.json'))),euRevs=euFile.revisions,restored=euFile.restored||{};
   // Every recorded EU-format id is still in the bank, replaced by its registered revision, or gave its slot back to a restored item.
-  for(const id of Object.keys(euPrints))assert.ok(items.some(q=>q.id===id)||items.some(q=>q.id===euRevs[id]?.id&&q.supersedes===id)||items.some(q=>q.id===restored[id]),id);
+  const latest=id=>{while(euRevs[id])id=euRevs[id].id;return id;};
+  for(const id of Object.keys(euPrints))assert.ok(items.some(q=>q.id===latest(id))||items.some(q=>q.id===restored[id]),id);
+  // Each revision records the fingerprint of the version it replaced.
+  for(const [prev,entry] of Object.entries(euRevs)){const before=euPrints[prev]??Object.values(euRevs).find(r=>r.id===prev)?.sha256;assert.equal(entry.beforeSha256,before,prev);}
   const hash=q=>{const content={...q};delete content.id;delete content.supersedes;return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');};
   for(const q of items){
     const entry=review.revisions[q.supersedes];
@@ -347,7 +350,7 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
       if(prior)assert.equal(prior.sha256,entry.beforeSha256);
     }else if(/-eu\d+$/.test(q.id)){
       const entry=euRevs[q.supersedes],{id,...content}=q;
-      assert.equal(entry.id,id);assert.equal(entry.beforeSha256,euPrints[q.supersedes],id);
+      assert.equal(entry.id,id);
       assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),entry.sha256,id);
     }else if(/-eu$/.test(q.id)){
       const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),euPrints[id],id);
@@ -397,7 +400,7 @@ test('threshold assumptions and dimensional units are explicit',()=>{
 });
 
 test('categorical numerical questions have a unique best candidate',()=>{
-  const euCategory=['Rank of percentage increases','Year one overtakes another','Best overall rate despite the mix','Estimate from an unlabelled chart','Largest change in tonnes from two pie charts'];
+  const euCategory=['Largest gap on an unlabelled chart','Rank of percentage increases','Year one overtakes another','Best overall rate despite the mix','Estimate from an unlabelled chart','Largest change in tonnes from two pie charts'];
   for(const q of items.filter(q=>q.answerType==='category'&&!euCategory.includes(q.topic))){
     const ex=q.exhibits[0];
     const metric=name=>{
@@ -452,7 +455,7 @@ test('key base and omitted-stage distractors match their stated mistakes',()=>{
 
 test('EU-format items: short stems, no rounding instruction, spaced options and Medium or Hard only',()=>{
   const eu=items.filter(q=>/-eu\d*$/.test(q.id)),revs=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-revisions.json'))).revisions;
-  assert.equal(eu.length,110);
+  assert.equal(eu.length,185);
   for(const q of eu){
     assert.ok([2,3].includes(q.difficulty),q.id);
     assert.ok(q.stem.split(/\s+/).length<=45,q.id+' stem too long');
@@ -471,7 +474,10 @@ test('EU-format items: short stems, no rounding instruction, spaced options and 
   }
   const physics=['Distance gap at the finish','Time to reach top speed','Top speed from a race time','Catching up at constant speeds','Speed needed to win','Speed for a target average','Meeting point of two travellers'];
   assert.ok(eu.filter(q=>physics.includes(q.topic)).length>=18,'physics items');
-  assert.ok(eu.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=35,'chart items');
+  assert.ok(eu.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=75,'chart items');
+  for(const level of [2,3]){const lv=items.filter(q=>q.difficulty===level);assert.ok(lv.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=0.6*lv.length,'at least 60% of level '+level+' items use a chart');}
+  // EU Training uses many kinds of chart; so does the bank.
+  const kinds=new Set(items.flatMap(q=>q.exhibits.map(e=>e.type+(e.labels===false?'-unlabelled':'')))); for(const k of ['bar','hbar','combo','stacked','pie','line','line-unlabelled'])assert.ok(kinds.has(k),k);
   // Hard practice should not lean on a few models: at most five items per hard model across the bank (most have three or four).
   const hard={};items.filter(q=>q.difficulty===3).forEach(q=>{hard[q.topic]=(hard[q.topic]||0)+1;});
   assert.ok(Object.keys(hard).length>=27,'hard models');assert.ok(Object.values(hard).every(n=>n<=5),JSON.stringify(hard));

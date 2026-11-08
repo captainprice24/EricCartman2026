@@ -17,6 +17,8 @@ const g = (n, d = 0) => { const [i, f] = Math.abs(n).toFixed(d).split('.'); retu
 const sum = (a) => a.reduce((s, x) => s + x, 0);
 // '=' when the shown value is exact, '≈' when it is rounded.
 const ap = (x, d) => (Math.abs(x - Number(x.toFixed(d))) < 1e-9 ? '= ' : '≈ ') + g(x, d);
+const wasteOf = (name) => name.toLowerCase().replace(/ waste$/, '') + ' waste';
+const an = (w) => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
 const mmss = (t) => `${Math.floor(t / 60)}:${(t % 60).toFixed(2).padStart(5, '0')}`;
 const NAMES = ['Aldoria', 'Brevania', 'Calmora', 'Dunmark', 'Estoria', 'Fernland', 'Galvia', 'Hollen', 'Istrada', 'Jorvik', 'Kestrel', 'Lunaria', 'Marrow', 'Norvale', 'Ostland', 'Pellam', 'Quarta', 'Rosmark', 'Sundra', 'Tavel'];
 const mk = (rnd) => {
@@ -39,14 +41,14 @@ MED['Turnout and votes'] = (R, v) => {
   const ds = ['District 1', 'District 2', 'District 3', 'District 4'];
   const yes = ds.map(() => R.i(22, 46) * 100 + R.i(0, 99)), no = ds.map(() => R.i(22, 46) * 100 + R.i(0, 99));
   const t = ds.map(() => R.f(68, 86, 2));
-  const k = v % 4, share = no[k] / (yes[k] + no[k]);
+  const k = v % 4, share = no[k] / (yes[k] + no[k]), land = R.pick(NAMES), year = R.i(2016, 2024);
   const key = t[k] * share;
   const others = ds.map((_, i) => i).filter((i) => i !== k);
   return {
-    exhibits: [{ type: 'combo', title: 'Referendum results: votes and turnout by district (fictional data)', unit: 'votes', categories: ds,
+    exhibits: [{ type: 'combo', title: `${land}: referendum votes and turnout by district (fictional data)`, unit: 'votes', categories: ds,
       series: [{ name: 'Voted YES', values: yes }, { name: 'Voted NO', values: no }, { name: 'Turnout (%)', values: t, line: true }],
       note: 'Turnout = percentage of eligible voters who voted (YES or NO).' }],
-    stem: `What percentage of the eligible voters of ${ds[k]} voted NO in the referendum?`,
+    stem: `In ${land}'s ${year} referendum, what percentage of the eligible voters of ${ds[k]} voted NO?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
       M(100 * share, 'Gives NO as a share of the votes cast, ignoring that only the turnout share of eligible voters voted.'),
@@ -126,7 +128,7 @@ MED['Constant annual increase'] = (R, v) => {
   const k = v % 5, [S1, S2, S4] = rows[k], D = S4 - S2, step = D / 3;
   const key = S4 + 2 * step;
   return {
-    exhibits: [table('Cinema admissions', ['Country', `${yrs[0]} (thousand)`, `${yrs[1]} (thousand)`, `${yrs[2]} (thousand)`], rows.map((r, i) => [cs[i], ...r.map((x) => g(x))]))],
+    exhibits: [{ type: 'bar', title: 'Cinema admissions (thousand; fictional data)', unit: 'thousand', categories: cs, series: yrs.map((y, j) => ({ name: String(y), values: rows.map((r) => r[j]) })) }],
     stem: `Admissions in ${cs[k]} grew by the same number each year between ${yrs[1]} and ${yrs[2]}. If that continued, what would they be in ${yrs[2] + 2} (thousand)?`,
     key, fmt: (x) => g(x),
     mistakes: [
@@ -242,7 +244,7 @@ MED['Amount needed for a target share'] = (R, v) => {
   const X = rows[k][y], O = colS(y), T = O + X, f = s[0] / (s[1] - s[0]);
   const key = O * f;
   return {
-    exhibits: [table('Freight carried (thousand tonnes)', ['Country', ...yrs.map(String)], rows.map((r, i) => [cs[i], ...r.map((x) => g(x))]))],
+    exhibits: [{ type: 'bar', title: 'Freight carried (thousand tonnes; fictional data)', unit: 'thousand tonnes', categories: cs, series: yrs.map((y, j) => ({ name: String(y), values: rows.map((r) => r[j]) })) }],
     stem: `How much freight (thousand tonnes) would ${cs[k]} have needed to carry in ${yrs[y]} to account for exactly ${frac} of the five countries' total?`,
     key, fmt: (x) => g(x),
     mistakes: [
@@ -335,7 +337,7 @@ MED['Earlier amount from a pie chart'] = (R, v) => {
   const near = sh.map((x, j) => j).filter((j) => j !== i && sh[j] > 8);
   return {
     exhibits: [{ type: 'pie', title: `Municipal waste by material, ${yr} (total ${g(T, 2)} million tonnes; fictional data)`, unit: '%', slices: PIE_ITEMS.map((l, j) => ({ label: l, value: sh[j] })) }],
-    stem: `Total waste in ${yr} was ${g(d, 1)} million tonnes more than in ${yr - 1}. With the same distribution, how much ${name.toLowerCase()} waste was there in ${yr - 1} (million tonnes)?`,
+    stem: `Total waste in ${yr} was ${g(d, 1)} million tonnes more than in ${yr - 1}. With the same distribution, how much ${wasteOf(name)} was there in ${yr - 1} (million tonnes)?`,
     key, fmt: (x) => g(x, 2),
     mistakes: [
       M(T * sh[i] / 100 - d, `Subtracts the whole ${g(d, 1)} million tonnes from the ${name.toLowerCase()} amount.`),
@@ -356,7 +358,7 @@ const STROKES = ['Freestyle', 'Backstroke', 'Breaststroke', 'Butterfly'];
 MED['Distance gap at the finish'] = (R, v) => {
   const cs = R.pickN(NAMES, 5), base = [105, 116, 131, 114].map((b) => b + R.f(-1, 1, 2));
   const times = cs.map(() => base.map((b) => Math.round((b + R.f(0, 6.5, 2)) * 100) / 100));
-  const sIdx = v % 4, col = times.map((r) => r[sIdx]);
+  const sIdx = v % 4, col = times.map((r) => r[sIdx]), meet = R.pick(['Northern', 'Coastal', 'Alpine', 'Island', 'Lakeland', 'Capital', 'Valley', 'Border']);
   if (new Set(col).size < 5) return null;
   const order = col.map((t, i) => i).sort((a, b) => col[a] - col[b]);
   const gap = (a, b, c = col) => 200 * (1 - c[order[a]] / c[order[b]]);
@@ -364,7 +366,7 @@ MED['Distance gap at the finish'] = (R, v) => {
   const other = (sIdx + 1) % 4, col2 = times.map((r) => r[other]), o2 = col2.slice().sort((a, b) => a - b);
   return {
     exhibits: [table('200 m swimming finals: times (m:ss.ss)', ['Country', ...STROKES], times.map((r, i) => [cs[i], ...r.map(mmss)]), 'Assume each swimmer keeps a constant speed throughout the race.')],
-    stem: `In the ${STROKES[sIdx].toLowerCase()} final, how far behind the winner (metres) was the last-placed swimmer when the winner finished?`,
+    stem: `At the ${R.i(2015, 2024)} ${meet} championships, in the ${STROKES[sIdx].toLowerCase()} final, how far behind the winner (metres) was the last-placed swimmer when the winner finished?`,
     key, fmt: (x) => g(x, 2) + ' m',
     mistakes: [
       M(gap(0, 3), 'Uses the fourth-placed swimmer.'),
@@ -416,13 +418,13 @@ MED['Time to reach top speed'] = (R) => {
 HARD['NO share of all eligible voters'] = (R) => {
   const ds = ['District 1', 'District 2', 'District 3', 'District 4'];
   const yes = ds.map(() => R.i(2200, 4600)), no = ds.map(() => R.i(2200, 4600)), t = ds.map(() => R.f(62, 88, 2));
-  const elig = ds.map((_, i) => (yes[i] + no[i]) * 100 / t[i]), E = sum(elig), votes = sum(yes) + sum(no);
+  const elig = ds.map((_, i) => (yes[i] + no[i]) * 100 / t[i]), E = sum(elig), votes = sum(yes) + sum(no), land = R.pick(NAMES);
   const key = 100 * sum(no) / E, avgT = sum(t) / 4;
   return {
-    exhibits: [{ type: 'combo', title: 'Referendum results: votes and turnout by district (fictional data)', unit: 'votes', categories: ds,
+    exhibits: [{ type: 'combo', title: `${land}: referendum votes and turnout by district (fictional data)`, unit: 'votes', categories: ds,
       series: [{ name: 'Voted YES', values: yes }, { name: 'Voted NO', values: no }, { name: 'Turnout (%)', values: t, line: true }],
       note: 'Turnout = percentage of eligible voters who voted (YES or NO).' }],
-    stem: 'What percentage of all eligible voters in the four districts voted NO?',
+    stem: `In ${land}'s referendum, what percentage of all eligible voters in the four districts voted NO?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
       M(100 * sum(no) / votes, 'Gives NO as a share of votes cast, ignoring turnout.'),
@@ -505,11 +507,12 @@ HARD['Top speed from a race time'] = (R, v) => {
   const rows = cs.map((c, i) => [t100[sh[i]], R.f(20.1, 21, 2), R.f(44.8, 47.5, 2), R.f(103.5, 108, 1)]);
   const d = R.pick([24, 28, 30, 32, 36]), place = 1 + (v % 3);
   const col = rows.map((r) => r[0]), order = col.map((t, i) => i).sort((a, b) => col[a] - col[b]), T = col[order[place]];
-  const key = (100 + d) / T, word = ['winning', 'second', 'third', 'fourth'][place];
+  const key = (100 + d) / T, word = ['winning', 'second', 'third', 'fourth'][place], meet = R.pick(['Northern', 'Coastal', 'Alpine', 'Island', 'Lakeland', 'Capital', 'Valley', 'Border']);
   return {
-    exhibits: [table('Athletics finals: times by country (seconds)', ['Country', ...evs], rows.map((r, i) => [cs[i], ...r.map((x, j) => g(x, j === 3 ? 1 : 2))]),
-      `Assume each sprinter accelerates uniformly from rest over the first ${d} m of the 100 m, then runs at a constant top speed.`)],
-    stem: `What was the top speed (m/s) of the ${word}-placed athlete in the 100 m?`,
+    exhibits: [{ type: 'hbar', title: 'Athletics finals: times by country (fictional data)', unit: 'seconds', categories: cs,
+      series: evs.slice(0, 3).map((e, j) => ({ name: e, values: rows.map((r) => r[j]) })),
+      note: `Assume each sprinter accelerates uniformly from rest over the first ${d} m of the 100 m, then runs at a constant top speed.` }],
+    stem: `At the ${meet} championships, what was the top speed (m/s) of the ${word}-placed athlete in the 100 m?`,
     key, fmt: (x) => g(x, 2) + ' m/s',
     mistakes: [
       M(100 / T, 'Gives the average speed over the whole race.'),
@@ -519,7 +522,8 @@ HARD['Top speed from a race time'] = (R, v) => {
       M((100 + d) / col[order[place + 1]], 'Uses the next athlete\'s time.'),
       M((100 + d) / col[order[place - 1]], 'Uses the previous athlete\'s time.'),
       M((100 + d) / rows[order[place]][1] * 2, 'Uses the 200 m time.'),
-    ],
+      M((100 + d) / rows[order[place]][2] * 4, 'Uses a quarter of the 400 m time.'),
+    ].filter((m) => m.v <= 13.5),
     hints: ['During uniform acceleration from rest, the average speed is half the top speed.', 'Write the race time as acceleration time + constant-speed time and solve for top speed.'],
     solution: [
       `The ${word}-fastest 100 m time is ${cs[order[place]]}'s ${g(T, 2)} s.`,
@@ -671,7 +675,7 @@ HARD['Projected share against a past amount'] = (R, v) => {
   const tab = table(`Waste in ${yr - 2} (million tonnes)`, ['Material', `${yr - 2}`], [0, 1, 2, 3, 4].map((j) => [PIE_ITEMS[j], g(pastAll[j], 1)]));
   return {
     exhibits: [{ type: 'pie', title: `Municipal waste by material, ${yr} (total ${g(T, 2)} million tonnes; fictional data)`, unit: '%', slices: PIE_ITEMS.map((l, j) => ({ label: l, value: sh[j] })) }, tab],
-    stem: `In ${yr + 1}, total waste grows by ${q}% and the ${name.toLowerCase()} share rises by ${g(r, 1)} percentage points. By what percentage would ${name.toLowerCase()} waste then exceed its ${yr - 2} level?`,
+    stem: `In ${yr + 1}, total waste grows by ${q}% and the ${name.toLowerCase()} share rises by ${g(r, 1)} percentage points. By what percentage would ${wasteOf(name)} then exceed its ${yr - 2} level?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
       M((T * (1 + q / 100) * sh[i] / 100 / past - 1) * 100, 'Leaves out the rise in share.'),
@@ -700,8 +704,8 @@ HARD['Growth needed to hold a share'] = (R, v) => {
   const target = O * (1 + q / 100) * s[0] / (s[1] - s[0]), key = (target / X - 1) * 100;
   if (key < 8 || key > 90) return null;
   return {
-    exhibits: [table('Rail freight (thousand tonnes)', ['Country', ...yrs.map(String)], rows.map((r, i) => [cs[i], ...r.map((x) => g(x))]),
-      `From ${yrs[2]} to 2025, every other country's freight grows by ${q}%.`)],
+    exhibits: [{ type: 'bar', title: 'Rail freight (thousand tonnes; fictional data)', unit: 'thousand tonnes', categories: cs,
+      series: yrs.map((y, j) => ({ name: String(y), values: rows.map((r) => r[j]) })), note: `From ${yrs[2]} to 2025, every other country's freight grows by ${q}%.` }],
     stem: `By what percentage would ${cs[k]}'s freight have to grow from ${yrs[2]} to 2025 for it to carry exactly ${frac} of the five countries' total in 2025?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
@@ -728,13 +732,13 @@ HARD['Turnout needed to change the result'] = (R, v) => {
   const ds = ['District 1', 'District 2', 'District 3', 'District 4'];
   const yes = ds.map(() => R.i(2200, 4300)), no = ds.map(() => R.i(2400, 4600)), t = ds.map(() => R.f(58, 74, 2));
   const k = v % 4, deficit = sum(no) - sum(yes);
-  const votes = sum(yes) + sum(no), elig = (yes[k] + no[k]) * 100 / t[k], key = t[k] + 100 * deficit / elig;
+  const votes = sum(yes) + sum(no), elig = (yes[k] + no[k]) * 100 / t[k], key = t[k] + 100 * deficit / elig, land = R.pick(NAMES);
   if (deficit < 300 || key > 96) return null;
   return {
-    exhibits: [{ type: 'combo', title: 'Referendum results: votes and turnout by district (fictional data)', unit: 'votes', categories: ds,
+    exhibits: [{ type: 'combo', title: `${land}: referendum votes and turnout by district (fictional data)`, unit: 'votes', categories: ds,
       series: [{ name: 'Voted YES', values: yes }, { name: 'Voted NO', values: no }, { name: 'Turnout (%)', values: t, line: true }],
       note: 'Turnout = percentage of eligible voters who voted (YES or NO). The side with more votes in all four districts combined wins.' }],
-    stem: `If every additional voter in ${ds[k]} had voted YES, what turnout (%) in ${ds[k]} would have produced a tie overall?`,
+    stem: `In ${land}'s referendum, if every additional voter in ${ds[k]} had voted YES, what turnout (%) in ${ds[k]} would have produced a tie overall?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
       M(t[k] + 100 * deficit / (yes[k] + no[k]), 'Measures the extra votes against the votes cast instead of the eligible voters.'),
@@ -743,7 +747,7 @@ HARD['Turnout needed to change the result'] = (R, v) => {
       M(t[k] + 100 * deficit / (votes * 100 / t[k]), `Spreads the NO lead over all four districts' eligible voters.`),
       M(t[k] * (1 + deficit / (yes[k] + no[k])), 'Raises the turnout in proportion to the votes needed.'),
       M(t[k] + 200 * deficit / elig, 'Doubles the NO lead.'),
-    ],
+    ].filter((m) => m.v < 100),
     hints: ['YES needs as many extra votes as the overall NO lead.', `Turn those votes into percentage points of ${ds[k]}'s eligible voters.`],
     solution: [
       `Overall NO lead = (${no.map((x) => g(x)).join(' + ')}) − (${yes.map((x) => g(x)).join(' + ')}) = ${g(sum(no))} − ${g(sum(yes))} = ${g(deficit)}.`,
@@ -847,32 +851,246 @@ HARD['Pension spending in euros'] = (R) => {
   };
 };
 
+/* ---------- further Medium chart models (November 2026): the range of EU Training chart types ---------- */
+MED['Largest gap on an unlabelled chart'] = (R, v) => {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], pair = [['Cocoa', 'Coffee'], ['Copper', 'Nickel'], ['Wheat', 'Maize'], ['Sugar', 'Rice']][v % 4], market = R.pick(NAMES);
+  for (let t = 0; t < 80; t++) {
+    const walk = (x) => months.map(() => { const y = x; x = Math.max(1000, Math.min(5500, x + R.i(-2, 2) * 250)); return y; });
+    const a = walk(R.i(8, 14) * 250), b = walk(R.i(8, 14) * 250), gap = months.map((_, i) => Math.abs(a[i] - b[i]));
+    const ord = gap.map((x, i) => i).sort((x, y) => gap[y] - gap[x]), key = ord[0];
+    if (gap[ord[0]] - gap[ord[1]] < 250) continue;
+    const hi = a.indexOf(Math.max(...a)), pick = [key, ...ord.slice(1, 3), hi, ...ord.slice(3)].filter((x, i, arr) => arr.indexOf(x) === i).slice(0, 5);
+    if (pick.length < 5) continue;
+    const names = pick.map((i) => months[i]);
+    const notes = pick.map((i) => (i === hi && i !== key ? `${months[i]} has the highest ${pair[0].toLowerCase()} price, but the gap is only EUR ${g(gap[i])}.` : `${months[i]}: gap EUR ${g(gap[i])}.`));
+    return {
+      category: { names, key: 0, notes, keyNote: `Correct. In ${months[key]} the two prices are EUR ${g(gap[key])} apart, the largest gap.` },
+      exhibits: [{ type: 'line', title: `${market} exchange: ${pair[0].toLowerCase()} and ${pair[1].toLowerCase()} prices, 2023 (EUR per tonne; fictional data)`, unit: 'EUR per tonne', categories: months, labels: false, step: 500, series: [{ name: pair[0], values: a }, { name: pair[1], values: b }],
+        note: 'Values are not labelled: read them from the gridlines (every EUR 500; points lie on or halfway between gridlines).' }],
+      stem: `On the ${market} exchange, in which month of 2023 was the difference between the ${pair[0].toLowerCase()} and ${pair[1].toLowerCase()} prices largest?`,
+      hints: ['Read both lines for each month and compare the vertical distance between them.', 'The month with the highest price is not necessarily the month with the largest gap.'],
+      solution: ['Read both prices from the gridlines for the candidate months and subtract.',
+        ...pick.map((i) => `${months[i]}: ${g(a[i])} − ${g(b[i])} → gap EUR ${g(gap[i])}.`),
+        `The largest gap is in ${months[key]}.`],
+      explanation: 'Compare the distance between the lines month by month; the peak of one line is a distraction.',
+    };
+  }
+  return null;
+};
+
+const SURVEY2 = ['a four-day working week', 'free public transport', 'a sugar tax', 'longer school days'];
+MED['People from the gap between two lines'] = (R, v) => {
+  const years = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'];
+  let a = R.i(34, 46), b = R.i(30, 42); const fav = [], ag = [];
+  years.forEach(() => { fav.push(a); ag.push(b); a = Math.min(68, a + R.i(-1, 3)); b = Math.max(18, b + R.i(-3, 1)); if (a + b > 95) b = 95 - a; });
+  const i2 = R.i(4, 7), i1 = R.i(0, 2), P1 = R.f(20, 80, 1), gr = R.pick([2, 3, 4, 5, 6, 8]);
+  const P2 = P1 * (1 + gr / 100), key = P2 * (fav[i2] - ag[i2]) / 100;
+  if (fav[i2] - ag[i2] < 6) return null;
+  return {
+    exhibits: [{ type: 'line', title: `Survey: should the country introduce ${SURVEY2[v % 4]}? (% of adults; fictional data)`, unit: '% of adults', categories: years, series: [{ name: 'In favour', values: fav }, { name: 'Against', values: ag }] }],
+    stem: `There were ${g(P1, 1)} million adults in ${years[i1]}, and their number grew by ${gr}% by ${years[i2]}. How many more adults were in favour than against in ${years[i2]} (million)?`,
+    key, fmt: (x) => g(x, 2),
+    mistakes: [
+      M(P1 * (fav[i2] - ag[i2]) / 100, `Uses the ${years[i1]} population.`),
+      M(P2 * (fav[i1] - ag[i1]) / 100, `Uses the ${years[i1]} shares.`),
+      ...[i2 - 1, i2 + 1].filter((i) => i < years.length).map((i) => M(P2 * (fav[i] - ag[i]) / 100, `Reads the ${years[i]} values.`)),
+      M(P1 * (fav[i2] - ag[i2] + gr) / 100, `Adds the ${gr}% growth to the gap in percentage points.`),
+    ],
+    hints: [`Find the ${years[i2]} population first.`, 'The gap between the lines is in percentage points of all adults.'],
+    solution: [`${years[i2]} adults = ${g(P1, 1)} × ${g(1 + gr / 100, 2)} ${ap(P2, 3)} million.`,
+      `${years[i2]} gap = ${fav[i2]}% − ${ag[i2]}% = ${fav[i2] - ag[i2]} percentage points.`,
+      `More in favour = ${g(P2, 3)} × ${fav[i2] - ag[i2]}% ${ap(key, 3)} million.`],
+    explanation: 'Turn the gap in percentage points into people with the population of the same year.',
+  };
+};
+
+MED['Change in a 100% stacked chart'] = (R, v) => {
+  const modes = ['Car', 'Bus', 'Rail', 'Bicycle'], city = R.pick(NAMES);
+  const split = () => { const r = R.i(10, 24), bb = R.i(10, 20), c = R.i(6, 16); return [100 - r - bb - c, bb, r, c]; };
+  const s0 = split(), s1 = split(), s2 = split(), T1 = R.f(180, 420, 1), T2 = Math.round(T1 * R.f(1.04, 1.2, 3) * 10) / 10;
+  const k = [2, 3, 1][v % 3], key = T2 * s2[k] / 100 - T1 * s1[k] / 100;
+  if (key <= 0 || (s2[k] - s1[k]) <= 0) return null;
+  return {
+    exhibits: [{ type: 'stacked', title: `${city}: trips by mode of transport (% of all trips; fictional data)`, unit: '% of trips', categories: ['2013', '2018', '2023'], series: modes.map((m, i) => ({ name: m, values: [s0[i], s1[i], s2[i]] })),
+      note: `Total trips: ${g(T1, 1)} million in 2018 and ${g(T2, 1)} million in 2023.` }],
+    stem: `By how many million did ${modes[k].toLowerCase()} trips in ${city} increase from 2018 to 2023?`,
+    key, fmt: (x) => g(x, 2),
+    mistakes: [
+      M(T2 * (s2[k] - s1[k]) / 100, 'Applies the change in percentage points to the 2023 total.'),
+      M(T1 * (s2[k] - s1[k]) / 100, 'Applies the change in percentage points to the 2018 total.'),
+      M((T2 - T1) * s2[k] / 100, 'Applies the 2023 share to the growth in total trips only.'),
+      M(T2 * s2[k] / 100 - T1 * s2[k] / 100, 'Uses the 2023 share for both years.'),
+      ...[0, 1, 2, 3].filter((i) => i !== k && i !== 0).map((i) => M(T2 * s2[i] / 100 - T1 * s1[i] / 100, `Reads the ${modes[i].toLowerCase()} segments.`)),
+      M(T2 * (s2[k] - s1[k]) / 100 + (T2 - T1) * s1[k] / 200, 'Splits the growth in total trips half-and-half between the two years.'),
+    ].filter((m) => m.v > 0),
+    hints: ['Each percentage applies to its own year\'s total.', 'Work out the trips in each year, then subtract.'],
+    solution: [`2018: ${g(T1, 1)} × ${s1[k]}% ${ap(T1 * s1[k] / 100, 3)} million ${modes[k].toLowerCase()} trips.`,
+      `2023: ${g(T2, 1)} × ${s2[k]}% ${ap(T2 * s2[k] / 100, 3)} million.`,
+      `Increase = ${g(T2 * s2[k] / 100, 3)} − ${g(T1 * s1[k] / 100, 3)} ${ap(key, 3)} million.`],
+    explanation: 'A 100% stacked chart shows shares; turn each into trips with its own year\'s total before comparing.',
+  };
+};
+
+MED['People employed from a rate line'] = (R, v) => {
+  const regs = ['North', 'South', 'East', 'West', 'Centre', 'Coast'];
+  const pop = regs.map(() => R.i(900, 1700)), rate = regs.map(() => R.f(58, 79, 1));
+  const [x, z] = R.pickN([0, 1, 2, 3, 4, 5], 2), emp = (i) => pop[i] * rate[i] / 100, key = emp(x) - emp(z), land = R.pick(NAMES);
+  if (key < 80) return null;
+  return {
+    exhibits: [{ type: 'combo', title: `${land}: working-age population and employment rate by region (fictional data)`, unit: 'thousand people', categories: regs,
+      series: [{ name: 'Working-age population', values: pop }, { name: 'Employment rate (%)', values: rate, line: true }],
+      note: 'Employment rate = percentage of the working-age population in work.' }],
+    stem: `In ${land}, how many more people of working age were employed in ${regs[x]} than in ${regs[z]} (thousand)?`,
+    key, fmt: (y) => g(y, 1),
+    mistakes: [
+      M((pop[x] - pop[z]) * (rate[x] + rate[z]) / 200, 'Multiplies the population gap by the average of the two rates.'),
+      M((pop[x] - pop[z]) * rate[x] / 100, `Applies ${regs[x]}'s rate to the population gap.`),
+      M(pop[x] * rate[z] / 100 - pop[z] * rate[x] / 100, 'Swaps the two employment rates.'),
+      M((pop[x] - pop[z]) * rate[z] / 100, `Applies ${regs[z]}'s rate to the population gap.`),
+      M(pop[x] * (rate[x] - rate[z]) / 100, `Applies the gap in rates to ${regs[x]}'s population only.`),
+      M(pop[x] - pop[z], 'Gives the gap in working-age population, ignoring the employment rates.'),
+      ...regs.map((_, i) => i).filter((i) => i !== x && i !== z).slice(0, 2).map((i) => M(emp(x) - emp(i), `Compares with ${regs[i]} instead of ${regs[z]}.`)),
+    ].filter((m) => m.v > 0),
+    hints: ['Employed = working-age population × employment rate, region by region.', 'Subtract only after both numbers are found.'],
+    solution: [`${regs[x]}: ${g(pop[x])} × ${g(rate[x], 1)}% ${ap(emp(x), 2)} thousand employed.`,
+      `${regs[z]}: ${g(pop[z])} × ${g(rate[z], 1)}% ${ap(emp(z), 2)} thousand employed.`,
+      `Difference = ${g(emp(x), 2)} − ${g(emp(z), 2)} ${ap(key, 2)} thousand.`],
+    explanation: 'The bars and the line use different scales: combine each region\'s bar with its own rate before comparing regions.',
+  };
+};
+
+MED['Difference between two pie slices'] = (R, v) => {
+  const items = ['Health', 'Education', 'Pensions', 'Defence', 'Transport', 'Housing', 'Culture', 'Environment', 'Justice', 'Research', 'Agriculture', 'Other'];
+  for (let t = 0; t < 60; t++) {
+    const raw = items.map((_, i) => (i < 3 ? R.f(13, 21, 1) : R.f(2.5, 6.5, 1))), last = Math.round((100 - sum(raw.slice(0, -1))) * 10) / 10;
+    if (last < 2.5 || last > 9) continue;
+    raw[11] = last;
+    if (new Set(raw).size !== raw.length) continue;
+    const T = R.f(40, 180, 1), q = R.pick([6, 8, 10, 12]), [a, b] = [[0, 3], [1, 4], [2, 5], [0, 6]][v % 4];
+    if (raw[a] - raw[b] < 3) continue;
+    const key = T * (1 + q / 100) * (raw[a] - raw[b]) / 100, land = R.pick(NAMES);
+    return {
+      exhibits: [{ type: 'pie', title: `${land}: public spending by area, 2024 (total EUR ${g(T, 1)} billion; fictional data)`, unit: '%', slices: items.map((l, i) => ({ label: l, value: raw[i] })) }],
+      stem: `If total spending rises by ${q}% in 2025 with the same shares, how much more will ${land} spend on ${items[a].toLowerCase()} than on ${items[b].toLowerCase()} (EUR billion)?`,
+      key, fmt: (x) => g(x, 2),
+      mistakes: [
+        M(T * (raw[a] - raw[b]) / 100, `Leaves out the ${q}% rise.`),
+        M(T * (raw[a] - raw[b] + q) / 100, `Adds the ${q}% to the gap in percentage points.`),
+        M(T * (1 + q / 100) * raw[a] / 100 - T * raw[b] / 100, `Applies the rise to ${items[a].toLowerCase()} only.`),
+        ...items.map((_, j) => j).filter((j) => j !== a && j !== b).map((j) => M(T * (1 + q / 100) * (raw[a] - raw[j]) / 100, `Reads the ${items[j].toLowerCase()} slice instead of ${items[b].toLowerCase()}.`)),
+        ...items.map((_, j) => j).filter((j) => j !== a && j !== b).map((j) => M(T * (1 + q / 100) * (raw[j] - raw[b]) / 100, `Reads the ${items[j].toLowerCase()} slice instead of ${items[a].toLowerCase()}.`)),
+      ].filter((m) => m.v > 0),
+      hints: ['With the same shares, both areas grow by the same percentage.', 'Find the 2025 total first, then apply the difference in shares.'],
+      solution: [`2025 total = ${g(T, 1)} × ${g(1 + q / 100, 2)} ${ap(T * (1 + q / 100), 3)} EUR billion.`,
+        `Difference in shares = ${g(raw[a], 1)}% − ${g(raw[b], 1)}% = ${g(raw[a] - raw[b], 1)} points.`,
+        `Difference = ${g(T * (1 + q / 100), 3)} × ${g(raw[a] - raw[b], 1)}% ${ap(key, 3)} EUR billion.`],
+      explanation: 'With unchanged shares, the gap between two slices grows with the total.',
+    };
+  }
+  return null;
+};
+
+MED['Percentage difference from a bar chart'] = (R, v) => {
+  const cs = R.pickN(NAMES, 6), yrs = ['2018', '2023'];
+  const vals = cs.map(() => { const a = R.i(300, 900); return [a, Math.round(a * R.f(0.9, 1.15, 3))]; });
+  const [x, z] = R.pickN([0, 1, 2, 3, 4, 5], 2);
+  if (vals[x][1] < vals[z][1] * 1.15 || vals[x][1] > vals[z][1] * 1.45) return null;
+  const key = (vals[x][1] / vals[z][1] - 1) * 100, theme = ['Hospital beds', 'Electric cars registered', 'Libraries', 'Start-ups founded'][v % 4];
+  return {
+    exhibits: [{ type: 'bar', title: `${theme} (fictional data)`, unit: 'number', categories: cs, series: yrs.map((y, j) => ({ name: y, values: vals.map((r) => r[j]) })) }],
+    stem: `In 2023, by what percentage was the number of ${theme.toLowerCase()} in ${cs[x]} higher than in ${cs[z]}?`,
+    key, fmt: (y) => g(y, 1) + '%',
+    mistakes: [
+      M((1 - vals[z][1] / vals[x][1]) * 100, `Divides by ${cs[x]}'s figure instead of ${cs[z]}'s.`),
+      M((vals[x][0] / vals[z][0] - 1) * 100, 'Reads the 2018 bars.'),
+      M((vals[x][1] - vals[z][1]) / ((vals[x][1] + vals[z][1]) / 2) * 100, 'Divides by the average of the two figures.'),
+      M((vals[x][1] / vals[z][0] - 1) * 100, `Uses ${cs[z]}'s 2018 bar.`),
+      M((vals[x][0] / vals[z][1] - 1) * 100, `Uses ${cs[x]}'s 2018 bar.`),
+    ].filter((m) => m.v > 0),
+    hints: ['The country after "than" is the base.', 'Read the 2023 bars only.'],
+    solution: [`2023 bars: ${cs[x]} ${g(vals[x][1])}, ${cs[z]} ${g(vals[z][1])}.`,
+      `Difference = ${g(vals[x][1])} − ${g(vals[z][1])} = ${g(vals[x][1] - vals[z][1])}.`,
+      `Percentage = ${g(vals[x][1] - vals[z][1])} ÷ ${g(vals[z][1])} × 100 ${ap(key, 2)}%.`],
+    explanation: 'A percentage difference is measured against the figure after "than".',
+  };
+};
+
+MED['Index change on a line chart'] = (R, v) => {
+  const years = ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'], sect = [['Construction', 'Retail'], ['Tourism', 'Farming'], ['Energy', 'Transport'], ['Housing', 'Health']][v % 4];
+  const walk = () => { let x = 100; return years.map(() => { const y = Math.round(x * 10) / 10; x = x * R.f(0.98, 1.09, 3); return y; }); };
+  const A = walk(), B = walk(), i1 = R.i(2, 4), i2 = R.i(6, 8), key = (A[i2] / A[i1] - 1) * 100;
+  if (key < 8) return null;
+  return {
+    exhibits: [{ type: 'line', title: 'Output index by sector (2015 = 100; fictional data)', unit: 'index, 2015 = 100', categories: years, series: [{ name: sect[0], values: A }, { name: sect[1], values: B }] }],
+    stem: `By what percentage did ${sect[0].toLowerCase()} output rise from ${years[i1]} to ${years[i2]}?`,
+    key, fmt: (y) => g(y, 1) + '%',
+    mistakes: [
+      M(A[i2] - A[i1], 'Gives the rise in index points instead of per cent.'),
+      M(A[i2] - 100, 'Measures the rise from the 2015 base instead of the earlier year.'),
+      M((A[i2] / A[i1 - 1] - 1) * 100, `Starts from ${years[i1 - 1]}.`),
+      M((A[i2 - 1] / A[i1] - 1) * 100, `Ends in ${years[i2 - 1]}.`),
+      M((B[i2] / B[i1] - 1) * 100, `Reads the ${sect[1].toLowerCase()} line.`),
+    ].filter((m) => m.v > 0),
+    hints: ['An index rise in points equals a rise in per cent only when the start is 100.', `Divide the ${years[i2]} value by the ${years[i1]} value.`],
+    solution: [`${sect[0]} index: ${years[i1]} ${g(A[i1], 1)}, ${years[i2]} ${g(A[i2], 1)}.`,
+      `Rise = (${g(A[i2], 1)} ÷ ${g(A[i1], 1)} − 1) × 100 ${ap(key, 2)}%.`],
+    explanation: 'Index points are not per cent unless the starting value is 100; divide by the earlier index value.',
+  };
+};
+
+MED['Share change in a stacked chart'] = (R, v) => {
+  const src = ['Gas', 'Wind', 'Solar', 'Hydro'], years = ['2019', '2020', '2021', '2022', '2023'], land = R.pick(NAMES);
+  const data = src.map((_, i) => { let x = i === 0 ? R.i(60, 110) : R.i(10, 45); return years.map(() => { const y = x; x = Math.max(5, Math.round(x * (i === 0 ? R.f(0.88, 1.02, 3) : R.f(1, 1.2, 3)))); return y; }); });
+  const tot = years.map((_, j) => sum(data.map((r) => r[j]))), k = 1 + (v % 3), i1 = R.i(0, 1), i2 = R.i(3, 4);
+  const sh = (j) => 100 * data[k][j] / tot[j], key = sh(i2) - sh(i1);
+  if (key < 2.5) return null;
+  return {
+    exhibits: [{ type: 'stacked', title: `${land}: electricity generated by source (TWh; fictional data)`, unit: 'TWh', categories: years, series: src.map((n, i) => ({ name: n, values: data[i] })) }],
+    stem: `By how many percentage points did ${src[k].toLowerCase()}'s share of ${land}'s electricity rise from ${years[i1]} to ${years[i2]}?`,
+    key, fmt: (y) => g(y, 2),
+    mistakes: [
+      M(100 * (data[k][i2] - data[k][i1]) / tot[i2], `Divides the rise in TWh by the ${years[i2]} total.`),
+      M(100 * (data[k][i2] - data[k][i1]) / tot[i1], `Divides the rise in TWh by the ${years[i1]} total.`),
+      M(sh(i2) - sh(i1 + 1), `Starts from ${years[i1 + 1]}.`),
+      M(sh(i2 - 1) - sh(i1), `Ends in ${years[i2 - 1]}.`),
+      M(100 * data[k][i2] / tot[i1] - sh(i1), `Uses the ${years[i1]} total for both years.`),
+      ...[1, 2, 3].filter((i) => i !== k).map((i) => M(100 * data[i][i2] / tot[i2] - 100 * data[i][i1] / tot[i1], `Reads the ${src[i].toLowerCase()} segments.`)),
+    ].filter((m) => m.v > 0),
+    hints: ['A share is the source divided by that year\'s total (the top of the bar).', 'Compute both shares, then subtract.'],
+    solution: [`${years[i1]}: ${data[k][i1]} ÷ ${tot[i1]} × 100 ${ap(sh(i1), 3)}%.`,
+      `${years[i2]}: ${data[k][i2]} ÷ ${tot[i2]} × 100 ${ap(sh(i2), 3)}%.`,
+      `Change = ${g(sh(i2), 3)} − ${g(sh(i1), 3)} ${ap(key, 3)} percentage points.`],
+    explanation: 'Shares must be computed with each year\'s own total before the change in percentage points is found.',
+  };
+};
+
 /* ---------- hard models added after review: one real insight each, short stem, trap-based distractors ---------- */
-const REG5 = ['North', 'South', 'East', 'West', 'Centre'];
+const REG5 = ['North', 'South', 'East', 'West', 'Centre', 'Islands'];
 HARD['Capped proportional allocation'] = (R, v) => {
-  const pop = REG5.map(() => R.i(700, 2200)), bigI = R.i(0, 4);
+  const pop = REG5.map(() => R.i(700, 2200)), bigI = R.i(0, REG5.length - 1);
   pop[bigI] = Math.round(Math.max(...pop) * R.f(1.6, 2.3, 2));
   const big = bigI, P = sum(pop), X = R.i(12, 40) * 10;
   const C = Math.round(X * pop[big] / P * R.f(0.72, 0.9, 2));
   const rest = P - pop[big], share = (i) => (X - C) * pop[i] / rest;
   if (REG5.some((_, i) => i !== big && share(i) >= C)) return null;
-  const k = [0, 1, 2, 3, 4].filter((i) => i !== big)[v % 4], excess = X * pop[big] / P - C, key = share(k);
+  const others = REG5.map((_, i) => i).filter((i) => i !== big), k = others[v % others.length], excess = X * pop[big] / P - C, key = share(k), n = others.length;
   return {
-    exhibits: [table('Population by region (thousand)', ['Region', 'Population (thousand)', 'Area (km²)', 'Schools'], REG5.map((r, i) => [r, g(pop[i]), g(R.i(900, 9000)), String(R.i(40, 300))]),
-      `EUR ${X} million is shared in proportion to population, but no region may receive more than EUR ${C} million. Any excess is shared among the other regions in proportion to their populations.`)],
-    stem: `How much does ${REG5[k]} receive (EUR million)?`,
+    exhibits: [{ type: 'bar', title: 'Population by region (thousand; fictional data)', unit: 'thousand people', categories: REG5,
+      series: [{ name: '2015', values: pop.map((x) => Math.round(x * R.f(0.88, 0.98, 3))) }, { name: '2025', values: pop }],
+      note: `A regional fund of EUR ${X} million is shared in proportion to 2025 population, but no region may receive more than EUR ${C} million. Any excess is shared among the other regions in proportion to their 2025 populations.` }],
+    stem: `From the regional fund, how much does ${REG5[k]} receive (EUR million)?`,
     key, fmt: (x) => 'EUR ' + g(x, 2) + ' million',
     mistakes: [
       M(X * pop[k] / P, 'Ignores the cap.'),
-      M(X * pop[k] / P + excess / 4, 'Shares the excess equally among the four other regions.'),
+      M(X * pop[k] / P + excess / n, `Shares the excess equally among the ${n} other regions.`),
       M((X - C) * pop[k] / P, 'Keeps the capped region in the population base when sharing the rest.'),
-      M(X * pop[k] / P + excess * pop[k] / P, 'Shares the excess among all five regions, including the capped one.'),
-      M(X * pop[k] / rest, 'Shares the whole budget among the four other regions.'),
-      M((X - C) / 4, 'Splits the remainder equally among the four other regions.'),
+      M(X * pop[k] / P + excess * pop[k] / P, 'Shares the excess among all regions, including the capped one.'),
+      M(X * pop[k] / rest, `Shares the whole budget among the ${n} other regions.`),
+      M((X - C) / n, `Splits the remainder equally among the ${n} other regions.`),
       M(C * pop[k] / pop[big], 'Scales the cap by the ratio of the two populations.'),
     ],
     hints: ['Check first which region would exceed the cap.', 'That region gets exactly the cap; the rest of the money is shared among the others.'],
-    solution: [`Total population = ${pop.map((x) => g(x)).join(' + ')} = ${g(P)} thousand.`,
+    solution: [`Total 2025 population = ${pop.map((x) => g(x)).join(' + ')} = ${g(P)} thousand.`,
       `${REG5[big]} would get ${X} × ${g(pop[big])} ÷ ${g(P)} ${ap(X * pop[big] / P, 2)}, above the cap, so it receives EUR ${C} million.`,
       `The other regions share ${X} − ${C} = EUR ${X - C} million over ${g(P)} − ${g(pop[big])} = ${g(rest)} thousand people; none of them reaches the cap.`,
       `${REG5[k]} = ${X - C} × ${g(pop[k])} ÷ ${g(rest)} ${ap(key, 2)} EUR million.`],
@@ -901,8 +1119,9 @@ HARD['Year one overtakes another'] = (R) => {
         return y < Y ? `In ${y} ${cs[x]} is still behind: EUR ${g(val(x, n), 1)} billion against EUR ${g(val(z, n), 1)} billion.${extra}` : `${cs[x]} has already overtaken ${cs[z]} in ${Y}.${extra}`;
       }) };
     } },
-    exhibits: [table('Exports', ['Country', 'Exports 2019 (EUR billion)', 'Exports 2024 (EUR billion)', 'Annual growth from 2024 (%)'], rows.map((r, i) => [cs[i], g(r[0] * (0.8 + 0.03 * i), 1), g(r[0], 1), g(r[1], 1)]),
-      'Assume each country keeps growing at its annual rate (compound growth).')],
+    exhibits: [{ type: 'combo', title: 'Exports and expected annual growth (fictional data)', unit: 'EUR billion', categories: cs,
+      series: [{ name: 'Exports 2019', values: rows.map((r, i) => Math.round(r[0] * (0.8 + 0.03 * i) * 10) / 10) }, { name: 'Exports 2024', values: rows.map((r) => r[0]) }, { name: 'Annual growth from 2024 (%)', values: rows.map((r) => r[1]), line: true }],
+      note: 'Assume each country keeps growing at its annual rate (compound growth).' }],
     stem: `In which year would ${cs[x]}'s exports first exceed ${cs[z]}'s?`,
     hints: ['Growth compounds: each year multiplies by (1 + rate).', `Compare the ratio of the two values with the ratio of their growth factors, year by year.`],
     solution: [`${cs[x]}: EUR ${g(rows[x][0], 1)} billion growing ${g(rows[x][1], 1)}% a year; ${cs[z]}: EUR ${g(rows[z][0], 1)} billion growing ${g(rows[z][1], 1)}% a year.`,
@@ -914,7 +1133,7 @@ HARD['Year one overtakes another'] = (R) => {
 };
 
 HARD['Best overall rate despite the mix'] = (R) => {
-  const cs = R.pickN(['Office A', 'Office B', 'Office C', 'Office D', 'Office E'], 5).sort(), agency = R.pick(['tax agency', 'land registry', 'benefits service', 'licensing authority', 'consumer ombudsman', 'customs service']);
+  const cs = R.pickN(['Office A', 'Office B', 'Office C', 'Office D', 'Office E'], 5).sort(), agency = R.pick(['tax agency', 'land registry', 'benefits service', 'licensing authority', 'consumer ombudsman', 'customs service']), land = R.pick(NAMES);
   for (let t = 0; t < 40; t++) {
     const rows = cs.map(() => { const n1 = R.i(80, 900), n2 = R.i(80, 900); return [n1, R.f(70, 92, 1), n2, R.f(38, 66, 1)]; });
     const best = R.i(0, 4), mixFav = (best + 1 + R.i(0, 3)) % 5;
@@ -926,8 +1145,9 @@ HARD['Best overall rate despite the mix'] = (R) => {
     const notes = cs.map((c, i) => (i === best ? `${c} has the highest rate in both categories, but ${g(100 * rows[i][2] / (rows[i][0] + rows[i][2]), 0)}% of its cases are complex, so its overall rate is only ${g(overall[i], 1)}%.` : `${c}'s overall rate is ${g(overall[i], 1)}%.`));
     return {
       category: { names: cs, key, notes, keyNote: `Correct. ${cs[key]} resolves ${g(overall[key], 1)}% of all its cases, the highest overall rate.` },
-      exhibits: [table(`Cases resolved by office: ${agency}`, ['Office', 'Simple cases', 'Simple resolved (%)', 'Complex cases', 'Complex resolved (%)'], rows.map((r, i) => [cs[i], g(r[0]), g(r[1], 1), g(r[2]), g(r[3], 1)]))],
-      stem: `In the ${agency}, which office resolved the highest percentage of all its cases?`,
+      exhibits: [{ type: 'stacked', title: `${agency[0].toUpperCase() + agency.slice(1)}: cases handled by office (fictional data)`, unit: 'cases', categories: cs, series: [{ name: 'Simple cases', values: rows.map((r) => r[0]) }, { name: 'Complex cases', values: rows.map((r) => r[2]) }] },
+        { type: 'bar', title: 'Share of cases resolved (%; fictional data)', unit: '%', categories: cs, series: [{ name: 'Simple cases', values: rows.map((r) => r[1]) }, { name: 'Complex cases', values: rows.map((r) => r[3]) }] }],
+      stem: `In ${land}'s ${agency}, which office resolved the highest percentage of all its cases?`,
       hints: ['Turn each percentage into a number of resolved cases first.', 'An office can lead in each category and still trail overall if most of its cases are the harder kind.'],
       solution: ['Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.',
         ...order.map((i) => `${cs[i]}: (${g(rows[i][0])} × ${g(rows[i][1], 1)}% + ${g(rows[i][2])} × ${g(rows[i][3], 1)}%) ÷ ${g(rows[i][0] + rows[i][2])} ${ap(overall[i], 2)}%.`),
@@ -941,10 +1161,11 @@ HARD['Best overall rate despite the mix'] = (R) => {
 HARD['True share of positive results'] = (R, v) => {
   const labs = ['Lab 1', 'Lab 2', 'Lab 3', 'Lab 4'];
   const rows = labs.map(() => [R.f(4, 24, 1), R.f(80, 97, 1), R.f(2, 12, 1)]);
-  const k = v % 4, [p, sn, f] = rows[k], tp = p * sn, fp = (100 - p) * f, key = 100 * tp / (tp + fp);
+  const k = v % 4, [p, sn, f] = rows[k], tp = p * sn, fp = (100 - p) * f, key = 100 * tp / (tp + fp), land = R.pick(NAMES);
   return {
-    exhibits: [table('Screening test results', ['Laboratory', 'People with the condition (%)', 'Detected when present (%)', 'Positive when absent (%)'], rows.map((r, i) => [labs[i], ...r.map((x) => g(x, 1))]))],
-    stem: `At ${labs[k]}, what percentage of positive results come from people who have the condition?`,
+    exhibits: [{ type: 'bar', title: 'Screening test results by laboratory (%; fictional data)', unit: '%', categories: labs,
+      series: [{ name: 'People with the condition', values: rows.map((r) => r[0]) }, { name: 'Detected when present', values: rows.map((r) => r[1]) }, { name: 'Positive when absent', values: rows.map((r) => r[2]) }] }],
+    stem: `In the ${land} screening programme, what percentage of positive results at ${labs[k]} come from people who have the condition?`,
     key, fmt: (x) => g(x, 1) + '%',
     mistakes: [
       M(100 * tp / (tp + 100 * f), 'Applies the false-positive rate to everyone tested, not only to those without the condition.'),
@@ -995,7 +1216,8 @@ HARD['Speed needed to win'] = (R, v) => {
   if (left < 21) return null;
   const key = 200 / left;
   return {
-    exhibits: [table('400 m final: split and finishing times (seconds)', ['Country', 'Time at 100 m', 'Time at 200 m', 'Finishing time'], rows.map((r, i) => [cs[i], g(r[0] * 0.5 + 0.3, 2), g(r[0], 2), g(r[1], 2)]))],
+    exhibits: [{ type: 'hbar', title: '400 m final: split and finishing times (fictional data)', unit: 'seconds', categories: cs,
+      series: [{ name: 'Time at 100 m', values: rows.map((r) => Math.round((r[0] * 0.5 + 0.3) * 100) / 100) }, { name: 'Time at 200 m', values: rows.map((r) => r[0]) }, { name: 'Finishing time', values: rows.map((r) => r[1]) }] }],
     stem: `Over the second 200 m, what average speed (m/s) would ${cs[k]}'s runner have needed to finish level with the winner?`,
     key, fmt: (x) => g(x, 2) + ' m/s',
     mistakes: [
@@ -1017,7 +1239,7 @@ HARD['Speed needed to win'] = (R, v) => {
 HARD['Speed for a target average'] = (R, v) => {
   const d = [0, 1, 2, 3, 4].map(() => R.i(12, 60));
   const sp = ['Rider A', 'Rider B'].map(() => d.map(() => R.f(26, 50, 1)));
-  const k = v % 2, V = R.pick([38, 39, 40, 41, 42]);
+  const k = v % 2, V = R.pick([38, 39, 40, 41, 42]), land = R.pick(NAMES);
   const D = sum(d), used = sum([0, 1, 2, 3].map((i) => d[i] / sp[k][i])), left = D / V - used;
   if (left <= 0) return null;
   const key = d[4] / left;
@@ -1026,7 +1248,7 @@ HARD['Speed for a target average'] = (R, v) => {
   return {
     exhibits: [table('Cycling stages: distance and average speed', ['Stage', 'Distance (km)', 'Rider A (km/h)', 'Rider B (km/h)'], d.map((x, i) => [`Stage ${i + 1}`, String(x), i === 4 && k === 0 ? '—' : g(sp[0][i], 1), i === 4 && k === 1 ? '—' : g(sp[1][i], 1)]),
       `${['Rider A', 'Rider B'][k]} wants an average speed of exactly ${V} km/h over all five stages.`)],
-    stem: `What average speed (km/h) does ${['Rider A', 'Rider B'][k]} need on stage 5?`,
+    stem: `In the Tour of ${land}, what average speed (km/h) does ${['Rider A', 'Rider B'][k]} need on stage 5?`,
     key, fmt: (x) => g(x, 1) + ' km/h',
     mistakes: [
       M(5 * V - sum(sp[k].slice(0, 4)), 'Averages the five stage speeds instead of using total distance ÷ total time.'),
@@ -1076,8 +1298,10 @@ HARD['Average price under tiered rates'] = (R, v) => {
   const cost = F + 200 * a + 300 * b + (N - 500) * c, key = cost / N;
   const o = [0, 1, 2, 3].filter((i) => i !== k);
   return {
-    exhibits: [table('Electricity tariffs (EUR)', ['Supplier', 'Standing charge per month', 'First 200 kWh (per kWh)', 'Next 300 kWh (per kWh)', 'Above 500 kWh (per kWh)'], rows.map((r, i) => [sup[i], g(r[0], 2), g(r[1], 3), g(r[2], 3), g(r[3], 3)]),
-      'Each band price applies only to the kilowatt-hours inside that band.')],
+    exhibits: [{ type: 'bar', title: 'Electricity prices per kWh by consumption band (EUR; fictional data)', unit: 'EUR per kWh', categories: sup,
+      series: [{ name: 'First 200 kWh', values: rows.map((r) => r[1]) }, { name: 'Next 300 kWh', values: rows.map((r) => r[2]) }, { name: 'Above 500 kWh', values: rows.map((r) => r[3]) }],
+      note: 'Each band price applies only to the kilowatt-hours inside that band.' },
+      table('Standing charges', ['Supplier', 'Standing charge (EUR per month)'], rows.map((r, i) => [sup[i], g(r[0], 2)]))],
     stem: `A household uses ${g(N)} kWh in a month with ${sup[k]}. What is its average cost per kWh, including the standing charge (EUR)?`,
     key, fmt: (x) => 'EUR ' + g(x, 3),
     mistakes: [
@@ -1130,18 +1354,21 @@ HARD['Price change needed for a target inflation'] = (R, v) => {
   for (let t = 0; t < 40; t++) {
     const w = cats.map(() => R.i(8, 30)), tot = sum(w);
     const wp = w.map((x) => Math.round(x / tot * 1000) / 10); wp[5] = Math.round((100 - sum(wp.slice(0, 5))) * 10) / 10;
-    const ch = cats.map(() => R.f(-1.5, 7.5, 1)), k = v % 6, T = R.pick([2.5, 3, 3.5, 4, 4.5]);
+    const ch = cats.map(() => R.f(0.3, 7.5, 1)), prev = cats.map(() => R.f(0.5, 6, 1)), k = v % 6, T = R.pick([2.5, 3, 3.5, 4, 4.5]);
     const known = sum(cats.map((_, i) => (i === k ? 0 : wp[i] * ch[i] / 100)));
     const key = (T - known) / (wp[k] / 100);
-    if (key < 2 || key > 14 || wp[k] < 10) continue;
     const o = cats.map((_, i) => i).filter((i) => i !== k);
+    if (key < 2 || key > 14 || wp[k] < 10) continue;
     return {
-      exhibits: [table('Consumer prices', ['Category', 'Weight in the price index (%)', 'Price change (%)'], cats.map((c, i) => [c, g(wp[i], 1), i === k ? '—' : g(ch[i], 1)]),
-        'Overall inflation is the weighted average of the category price changes.')],
+      exhibits: [{ type: 'pie', title: 'Weights in the consumer price index (%; fictional data)', unit: '%', slices: cats.map((c, i) => ({ label: c, value: wp[i] })) },
+        { type: 'bar', title: `Price changes by category (%; ${cats[k].toLowerCase()} not yet published; fictional data)`, unit: '%', categories: o.map((i) => cats[i]),
+          series: [{ name: 'Last year', values: o.map((i) => prev[i]) }, { name: 'This year', values: o.map((i) => ch[i]) }],
+          note: 'Overall inflation this year is the weighted average of the category price changes.' }],
       stem: `What price change (%) for ${cats[k].toLowerCase()} would make overall inflation exactly ${g(T, 1)}%?`,
       key, fmt: (x) => g(x, 1) + '%',
       mistakes: [
         M(6 * T - sum(o.map((i) => ch[i])), 'Treats overall inflation as a simple average of the six categories.'),
+        M((T - sum(o.map((i) => wp[i] * prev[i] / 100))) / (wp[k] / 100), 'Uses last year\'s price changes.'),
         M(T, 'Assumes the missing category must simply change by the target rate.'),
         ...o.map((i) => M((T - known) / (wp[i] / 100), `Divides by the weight of ${cats[i].toLowerCase()}.`)),
       ],
@@ -1164,7 +1391,7 @@ HARD['Meeting point of two travellers'] = (R, v) => {
   return {
     exhibits: [{ type: 'hbar', title: 'Average speeds by road type (fictional data)', unit: 'km/h', categories: ['Urban', 'Rural', 'Motorway or main road'],
       series: kinds.map((n, i) => ({ name: n, values: rows[i] })), note: 'Both travellers keep their average speed for the road type throughout.' }],
-    stem: `A ${kinds[fastI].toLowerCase()} and a ${kinds[slowI].toLowerCase()} set off at the same time towards each other from the two ends of a ${L} km rural road. How far from the ${kinds[fastI].toLowerCase()}'s start do they meet (km)?`,
+    stem: `${an(kinds[fastI].toLowerCase()).replace(/^a/, 'A')} and ${an(kinds[slowI].toLowerCase())} set off at the same time towards each other from the two ends of a ${L} km rural road. How far from the ${kinds[fastI].toLowerCase()}'s start do they meet (km)?`,
     key, fmt: (x) => g(x, 2) + ' km',
     mistakes: [
       M(L / 2, 'Assumes they meet halfway.'),
@@ -1232,6 +1459,13 @@ function layout(t) {
 
 /* ---------- placement ---------- */
 const MED_NAMES = Object.keys(MED);
+// Medium models in use: mostly charts of the kinds EU Training uses, plus race-time tables and one ranking table.
+const MED_ACTIVE = ['Turnout and votes', 'Largest gap on an unlabelled chart', 'Weighted average with a ratio', 'People from the gap between two lines', 'Change in a 100% stacked chart',
+  'Earlier amount from a pie chart', 'Constant annual increase', 'People employed from a rate line', 'Index change on a line chart', 'Distance gap at the finish',
+  'Total from shares in a stacked chart', 'Difference between two pie slices', 'Amount needed for a target share', 'Percentage difference from a bar chart', 'NO share of all eligible voters',
+  'Share change in a stacked chart', 'Population from an unchanged group', 'Rank of percentage increases', 'Equivalent ticket price', 'Time to reach top speed'];
+// Older Medium topics that are arithmetic drills rather than data interpretation are replaced by chart-based items.
+const REPLACE_MEDIUM = new Set(['Removing VAT', 'Break-even point', 'Fixed and variable costs', 'Combined work rates', 'Rates of work', 'Currency conversion', 'Multi-step: unit cost', 'Compound growth', 'Successive percentage changes', 'Percentages of percentages', 'Required growth rate', 'Averaging rates']);
 // Category-answer models can take any key letter; spread them through the rotation so every set can balance its keys.
 const FLEX = ['Best overall rate despite the mix', 'Year one overtakes another', 'Estimate from an unlabelled chart', 'Largest change in tonnes from two pie charts'];
 const HARD_NAMES = (() => { const rest = Object.keys(HARD).filter((n) => !FLEX.includes(n)), out = []; rest.forEach((n, i) => { if (i % 3 === 0 && FLEX[i / 3]) out.push(FLEX[i / 3]); out.push(n); }); FLEX.forEach((n) => { if (!out.includes(n)) out.push(n); }); return out; })();
@@ -1271,24 +1505,25 @@ function assign(items, targets) {
 
 export function applyEuFormat(root) {
   const dir = path.join(root, 'questions/numerical');
-  const files = Array.from({ length: 11 }, (_, i) => path.join(dir, `numerical-set-${String(i + 1).padStart(2, '0')}.js`));
+  const files = Array.from({ length: 16 }, (_, i) => path.join(dir, `numerical-set-${String(i + 1).padStart(2, '0')}.js`));
   const sets = files.map(loadSet);
   const used = {};
   const slots = [];
   // Challenge sets first: set s uses ten consecutive hard models (mod 14), so no model repeats inside a set.
   sets.forEach((set, si) => set.questions.forEach((q, qi) => {
+    if (q.difficulty === 2 && REPLACE_MEDIUM.has(q.topic)) return slots.push({ si, qi, level: 2, challenge: false, fromEasy: false });
     if (q.difficulty === 2 || RESTORED.has(q.topic)) return;
-    slots.push({ si, qi, level: q.difficulty === 1 ? 2 : 3, challenge: !!set.challenge });
+    slots.push({ si, qi, level: q.difficulty === 1 ? 2 : 3, challenge: !!set.challenge, fromEasy: q.difficulty === 1 });
   }));
   // November 2026: 40 of the 56 former Easy slots become Hard (five in every seven, spread through Sets 01–04).
-  slots.filter((s) => s.level === 2).forEach((s, j) => { if (j % 7 < 5) s.level = 3; });
+  slots.filter((s) => s.fromEasy).forEach((s, j) => { if (j % 7 < 5) s.level = 3; });
   const chall = slots.filter((s) => s.challenge), hard0 = slots.filter((s) => !s.challenge && s.level === 3), med = slots.filter((s) => s.level === 2);
   const bySet = {};
   chall.forEach((s) => { (bySet[s.si] = bySet[s.si] || []).push(s); });
   let offset = 0;
   Object.values(bySet).forEach((list) => { list.forEach((s, j) => { s.name = HARD_NAMES[(offset + j) % HARD_NAMES.length]; }); offset += list.length; });
   hard0.forEach((s, j) => { s.name = HARD_NAMES[(offset + j) % HARD_NAMES.length]; });
-  med.forEach((s, j) => { s.name = MED_NAMES[j % MED_NAMES.length]; });
+  med.forEach((s, j) => { s.name = MED_ACTIVE[j % MED_ACTIVE.length]; });
   for (const s of [...chall, ...hard0, ...med]) { s.variant = used[s.name] = (used[s.name] ?? -1) + 1; s.attempt = 0; }
   // Build and place per set with balanced key letters.
   sets.forEach((set, si) => {
@@ -1321,7 +1556,7 @@ export function applyEuFormat(root) {
       // Last resort for a hard set: swap the most constrained model for a flexible one not yet in the set.
       if (round % 50 === 49) {
         const x = mine.slice().sort((a, b) => a.built.lay.ks.length - b.built.lay.ks.length)[0];
-        const pool = (x.level === 3 ? HARD_NAMES : MED_NAMES).filter((n) => !mine.some((y) => y.name === n)).sort((a, b) => (used[a] ?? -1) - (used[b] ?? -1));
+        const pool = (x.level === 3 ? HARD_NAMES : MED_ACTIVE).filter((n) => !mine.some((y) => y.name === n)).sort((a, b) => (used[a] ?? -1) - (used[b] ?? -1));
         for (const name of pool) {
           const alt = makeItem(name, x.level, (used[name] ?? -1) + 1, 0, need);
           if (alt) { x.name = name; x.variant = used[name] = (used[name] ?? -1) + 1; x.built = alt; x.attempt = alt.attempt; break; }
@@ -1350,7 +1585,7 @@ export function applyEuFormat(root) {
   const revFile = path.join(root, 'scripts/generators/numerical-eu-revisions.json');
   const prints = fs.existsSync(printFile) ? JSON.parse(fs.readFileSync(printFile)) : null, fresh = {};
   const revs = fs.existsSync(revFile) ? JSON.parse(fs.readFileSync(revFile)) : { revisions: {} };
-  let registered = 0;
+  let registered = 0, newPrints = 0;
   sets.forEach((set, si) => {
     let changed = false;
     set.questions = set.questions.map((q) => {
@@ -1358,15 +1593,26 @@ export function applyEuFormat(root) {
       const h = contentHash(q);
       if (!prints) { fresh[q.id] = h; return q; }
       if (prints[q.id] === h) return q;
-      let entry = revs.revisions[q.id];
-      const { id, supersedes, ...rest } = q;
-      const nextId = id + '2', revised = { id: nextId, supersedes: id, ...rest };
-      if (!entry) {
-        if (!process.env.REGISTER_EU_REVISIONS) throw Error(`EU-format item ${id} changed: register the revision with REGISTER_EU_REVISIONS=1`);
-        entry = revs.revisions[id] = { id: nextId, replaces: supersedes, beforeSha256: prints[id], sha256: contentHash(revised) };
-        registered++;
+      if (!(q.id in prints)) {
+        if (!process.env.REGISTER_EU_REVISIONS) throw Error(`new EU-format item ${q.id}: register it with REGISTER_EU_REVISIONS=1`);
+        prints[q.id] = h; newPrints++; return q;
       }
-      if (entry.id !== nextId || entry.sha256 !== contentHash(revised)) throw Error(`EU-format revision ${entry.id} changed: give it a new id`);
+      // Follow the chain of registered revisions (-eu → -eu2 → -eu3 …); published versions are never edited.
+      const { id: firstId, supersedes: original, ...rest } = q;
+      let prevId = firstId, prevSha = prints[firstId], revised = null;
+      for (;;) {
+        const entry = revs.revisions[prevId];
+        const nextId = firstId + String((Number((prevId.match(/-eu(\d*)$/) || [])[1]) || 1) + 1);
+        const candidate = { id: nextId, supersedes: prevId, ...rest };
+        if (!entry) {
+          if (!process.env.REGISTER_EU_REVISIONS) throw Error(`EU-format item ${prevId} changed: register the revision with REGISTER_EU_REVISIONS=1`);
+          revs.revisions[prevId] = { id: nextId, replaces: original, beforeSha256: prevSha, sha256: contentHash(candidate) };
+          registered++; revised = candidate; break;
+        }
+        if (entry.id !== nextId) throw Error(`EU-format revision chain broken at ${prevId}`);
+        if (entry.sha256 === contentHash(candidate)) { revised = candidate; break; }
+        prevId = entry.id; prevSha = entry.sha256;
+      }
       changed = true;
       return revised;
     });
@@ -1383,6 +1629,7 @@ export function applyEuFormat(root) {
     revs.restored[euId] = q.id; registered++;
   }));
   if (!prints) fs.writeFileSync(printFile, JSON.stringify(fresh, null, 2) + '\n');
+  else if (newPrints) fs.writeFileSync(printFile, JSON.stringify(prints, null, 2) + '\n');
   if (registered) fs.writeFileSync(revFile, JSON.stringify(revs, null, 2) + '\n');
   console.log('numerical EU format:', med.length + chall.length + hard0.length, 'items (', med.length, 'medium,', chall.length + hard0.length, 'hard );', Object.keys(revs.revisions).length, 'revised');
 }

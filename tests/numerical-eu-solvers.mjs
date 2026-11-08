@@ -42,11 +42,12 @@ export const EU_SOLVERS = {
     return num(r[column(ex, 'Sales ' + b)]) / (perHead * (1 + p / 100));
   },
   'Constant annual increase': (q) => {
-    const ex = tableOf(q), r = firstRow(q, ex);
+    const ex = chartOf(q, 'bar'), i = ex.categories.findIndex((c) => q.stem.includes(c));
     const [, a, b] = m1(/between (\d{4}) and (\d{4})/, q.stem), target = num(m1(/be in (\d{4})/, q.stem)[1]);
-    const va = num(r[column(ex, a)]), vb = num(r[column(ex, b)]);
+    const va = ex.series.find((s) => s.name === a).values[i], vb = ex.series.find((s) => s.name === b).values[i];
     return vb + (vb - va) / (b - a) * (target - b);
   },
+
   'Missing value from a known share': (q) => {
     const ex = tableOf(q), p = num(m1(/Exactly (\d+)%/, q.stem)[1]), j = column(ex, 'Grand');
     const row = ex.rows.find((r) => r[j] === '—');
@@ -66,10 +67,11 @@ export const EU_SOLVERS = {
     return ranked[rank].n;
   },
   'Amount needed for a target share': (q) => {
-    const ex = tableOf(q), y = m1(/carry in (\d{4})/, q.stem)[1], j = column(ex, y), r = firstRow(q, ex), s = shareWord(q.stem);
-    const others = total(ex.rows.filter((x) => x !== r).map((x) => num(x[j])));
-    return others * s / (1 - s);
+    const ex = chartOf(q, 'bar'), y = m1(/carry in (\d{4})/, q.stem)[1], v = ex.series.find((s) => s.name === y).values;
+    const i = ex.categories.findIndex((c) => q.stem.includes(c)), s = shareWord(q.stem);
+    return total(v.filter((_, j) => j !== i)) * s / (1 - s);
   },
+
   'Total from shares in a stacked chart': (q) => {
     const ex = chartOf(q, 'stacked'), P = num(m1(/was ([\d.]+) million/, q.stem)[1]);
     const [, a, b] = m1(/: (\d+)% aged 18–34, (\d+)% aged 35–59/, q.stem), w = [num(a), num(b)];
@@ -83,11 +85,11 @@ export const EU_SOLVERS = {
   },
   'Earlier amount from a pie chart': (q) => {
     const pie = chartOf(q, 'pie'), T = num(m1(/total ([\d.,]+) million/, pie.title)[1]), d = num(m1(/was ([\d.]+) million tonnes more/, q.stem)[1]);
-    const sl = pie.slices.find((s) => lc(q.stem).includes('much ' + lc(s.label) + ' waste'));
+    const sl = pie.slices.find((s) => lc(q.stem).includes('much ' + lc(s.label).replace(/ waste$/, '') + ' waste was'));
     return (T - d) * sl.value / 100;
   },
   'Distance gap at the finish': (q) => {
-    const ex = tableOf(q), stroke = m1(/In the (\w+) final/, q.stem)[1];
+    const ex = tableOf(q), stroke = lc(m1(/in the (\w+) final/i, q.stem)[1]);
     const j = ex.columns.findIndex((c) => lc(c) === stroke), t = ex.rows.map((r) => secs(r[j]));
     return 200 * (1 - Math.min(...t) / Math.max(...t));
   },
@@ -112,11 +114,12 @@ export const EU_SOLVERS = {
     return (n * (U + up) + r) / (n + 1);
   },
   'Top speed from a race time': (q) => {
-    const ex = tableOf(q), d = num(m1(/first (\d+) m/, notes(q))[1]);
+    const ex = chartOf(q, 'hbar'), d = num(m1(/first (\d+) m/, notes(q))[1]);
     const place = { winning: 0, second: 1, third: 2, fourth: 3 }[m1(/the (\w+)-placed/, q.stem)[1]];
-    const t = ex.rows.map((r) => num(r[column(ex, '100 m')])).sort((a, b) => a - b);
+    const t = ex.series.find((s) => s.name === '100 m').values.slice().sort((a, b) => a - b);
     return (100 + d) / t[place];
   },
+
   'Catching up at constant speeds': (q) => {
     const ex = tableOf(q), L = num(m1(/starts (\d+) m ahead/, q.stem)[1]), ev = m1(/their ([\d,]+ m) race speeds/, q.stem)[1];
     const j = ex.columns.indexOf(ev), d = num(ev), [slow, fast] = rowsIn(q.stem, ex).map((i) => ex.rows[i]);
@@ -147,10 +150,12 @@ export const EU_SOLVERS = {
     return (proj / num(row[column(tab, past)]) - 1) * 100;
   },
   'Growth needed to hold a share': (q) => {
-    const ex = tableOf(q), g = num(m1(/grows by (\d+)%/, notes(q))[1]), y = m1(/from (\d{4}) to 2025/, q.stem)[1], j = column(ex, y);
-    const row = firstRow(q, ex), s = shareWord(q.stem), others = total(ex.rows.filter((r) => r !== row).map((r) => num(r[j])));
-    return (others * (1 + g / 100) * s / (1 - s) / num(row[j]) - 1) * 100;
+    const ex = chartOf(q, 'bar'), gr = num(m1(/grows by (\d+)%/, notes(q))[1]), y = m1(/from (\d{4}) to 2025/, q.stem)[1];
+    const v = ex.series.find((s) => s.name === y).values, i = ex.categories.findIndex((c) => q.stem.includes(c + "'s")), s = shareWord(q.stem);
+    const others = total(v.filter((_, j) => j !== i));
+    return (others * (1 + gr / 100) * s / (1 - s) / v[i] - 1) * 100;
   },
+
   'Turnout needed to change the result': (q) => {
     const { ex, yes, no, t } = votes(q), i = ex.categories.indexOf(m1(/in (District \d) had voted/, q.stem)[1]);
     const lead = total(no) - total(yes), eligible = (yes[i] + no[i]) * 100 / t[i];
@@ -177,8 +182,8 @@ export const EU_SOLVERS = {
     }));
   },
   'Capped proportional allocation': (q) => {
-    const ex = tableOf(q), n = notes(q), X = num(m1(/EUR (\d+) million is shared/, n)[1]), C = num(m1(/more than EUR (\d+) million/, n)[1]);
-    const pop = Object.fromEntries(ex.rows.map((r) => [r[0], num(r[1])])), capped = new Set();
+    const ex = chartOf(q, 'bar'), n = notes(q), X = num(m1(/EUR (\d+) million is shared/, n)[1]), C = num(m1(/more than EUR (\d+) million/, n)[1]);
+    const v = ex.series.find((s) => s.name === '2025').values, pop = Object.fromEntries(ex.categories.map((c, i) => [c, v[i]])), capped = new Set();
     for (;;) {
       const free = Object.keys(pop).filter((r) => !capped.has(r)), budget = X - C * capped.size, base = total(free.map((r) => pop[r]));
       const over = free.filter((r) => budget * pop[r] / base > C);
@@ -186,30 +191,39 @@ export const EU_SOLVERS = {
       over.forEach((r) => capped.add(r));
     }
   },
+
   'Year one overtakes another': (q) => {
-    const ex = tableOf(q), [, a, b] = m1(/would (.+?)'s exports first exceed (.+?)'s\?/, q.stem);
-    const get = (name) => { const r = ex.rows.find((x) => x[0] === name); return [num(r[column(ex, 'Exports 2024')]), num(r[column(ex, 'growth')])]; };
+    const ex = chartOf(q, 'combo'), [, a, b] = m1(/would (.+?)'s exports first exceed (.+?)'s\?/, q.stem);
+    const ex24 = ex.series.find((s) => s.name === 'Exports 2024').values, gr = ex.series.find((s) => s.line).values;
+    const get = (name) => { const i = ex.categories.indexOf(name); return [ex24[i], gr[i]]; };
     const [va, ga] = get(a), [vb, gb] = get(b);
     let n = 1; while (va * (1 + ga / 100) ** n <= vb * (1 + gb / 100) ** n) n++;
     return String(2024 + n);
   },
+
   'Best overall rate despite the mix': (q) => {
-    const ex = tableOf(q), rate = (r) => (num(r[1]) * num(r[2]) + num(r[3]) * num(r[4])) / (num(r[1]) + num(r[3]));
-    return ex.rows.slice().sort((x, y) => rate(y) - rate(x))[0][0];
+    const st = chartOf(q, 'stacked'), br = chartOf(q, 'bar'), ser = (ex, n) => ex.series.find((s) => s.name === n).values;
+    const ns = ser(st, 'Simple cases'), nc = ser(st, 'Complex cases'), rs = ser(br, 'Simple cases'), rc = ser(br, 'Complex cases');
+    const rate = (i) => (ns[i] * rs[i] + nc[i] * rc[i]) / (ns[i] + nc[i]);
+    return st.categories[st.categories.map((_, i) => i).sort((x, y) => rate(y) - rate(x))[0]];
   },
+
   'True share of positive results': (q) => {
-    const ex = tableOf(q), r = ex.rows.find((x) => q.stem.includes(x[0] + ',')), [p, sn, f] = r.slice(1).map(num);
+    const ex = chartOf(q, 'bar'), i = ex.categories.findIndex((c) => new RegExp(c + '\\b').test(q.stem)), ser = (n) => ex.series.find((s) => s.name === n).values[i];
+    const p = ser('People with the condition'), sn = ser('Detected when present'), f = ser('Positive when absent');
     return 100 * p * sn / (p * sn + (100 - p) * f);
   },
+
   'Estimate from an unlabelled chart': (q) => {
     const ex = chartOf(q, 'line'), v = ex.series[0].values, change = (o) => { const i = ex.categories.indexOf(o); return v[i] / v[i - 4] - 1; };
     return q.options.slice().sort((a, b) => change(b) - change(a))[0];
   },
   'Speed needed to win': (q) => {
-    const ex = tableOf(q), fin = column(ex, 'Finishing'), half = column(ex, 'Time at 200 m');
-    const winner = Math.min(...ex.rows.map((r) => num(r[fin]))), r = firstRow(q, ex);
-    return 200 / (winner - num(r[half]));
+    const ex = chartOf(q, 'hbar'), fin = ex.series.find((s) => s.name === 'Finishing time').values, half = ex.series.find((s) => s.name === 'Time at 200 m').values;
+    const i = ex.categories.findIndex((c) => q.stem.includes(c + "'s"));
+    return 200 / (Math.min(...fin) - half[i]);
   },
+
   'Speed for a target average': (q) => {
     const ex = tableOf(q), [, rider, V] = m1(/(Rider [AB]) wants an average speed of exactly (\d+) km\/h/, notes(q));
     const j = column(ex, rider), d = ex.rows.map((r) => num(r[1])), last = ex.rows.findIndex((r) => r[j] === '—');
@@ -222,23 +236,65 @@ export const EU_SOLVERS = {
     return q.options.slice().sort((a, b) => change(b) - change(a))[0];
   },
   'Average price under tiered rates': (q) => {
-    const ex = tableOf(q), r = firstRow(q, ex), N = num(m1(/uses ([\d,]+) kWh/, q.stem)[1]);
-    const [F, a, b, c] = r.slice(1).map(num);
-    return (F + Math.min(N, 200) * a + Math.max(0, Math.min(N, 500) - 200) * b + Math.max(0, N - 500) * c) / N;
+    const br = chartOf(q, 'bar'), tab = tableOf(q), N = num(m1(/uses ([\d,]+) kWh/, q.stem)[1]);
+    const i = br.categories.findIndex((c) => q.stem.includes(c)), band = (n) => br.series.find((s) => s.name === n).values[i];
+    const F = num(tab.rows.find((r) => r[0] === br.categories[i])[1]);
+    return (F + Math.min(N, 200) * band('First 200 kWh') + Math.max(0, Math.min(N, 500) - 200) * band('Next 300 kWh') + Math.max(0, N - 500) * band('Above 500 kWh')) / N;
   },
+
   'Currency round trip with fees': (q) => {
     const ex = chartOf(q, 'line'), A = num(m1(/converted EUR ([\d,]+) into/, q.stem)[1]), cur = m1(/ into (\w+) on 1 March/, q.stem)[1];
     const f = num(m1(/fee of ([\d.]+)%/, notes(q))[1]) / 100, v = ex.series.find((x) => x.name === cur).values;
     return A * (1 - f) * v[ex.categories.indexOf('1 Mar')] * (1 - f) / v[ex.categories.indexOf('1 Sep')];
   },
   'Price change needed for a target inflation': (q) => {
-    const ex = tableOf(q), T = num(m1(/inflation exactly ([\d.]+)%/, q.stem)[1]);
-    const missing = ex.rows.find((r) => r[2] === '—'), known = total(ex.rows.filter((r) => r !== missing).map((r) => num(r[1]) * num(r[2]) / 100));
-    return (T - known) / (num(missing[1]) / 100);
+    const pie = chartOf(q, 'pie'), br = chartOf(q, 'bar'), T = num(m1(/inflation exactly ([\d.]+)%/, q.stem)[1]);
+    const now = br.series.find((s) => s.name === 'This year').values;
+    const known = total(br.categories.map((c, i) => pie.slices.find((s) => s.label === c).value * now[i] / 100));
+    const missing = pie.slices.find((s) => !br.categories.includes(s.label));
+    return (T - known) / (missing.value / 100);
   },
+
   'Meeting point of two travellers': (q) => {
     const ex = chartOf(q, 'hbar'), L = num(m1(/ends of a (\d+) km rural road/, q.stem)[1]), j = ex.categories.indexOf('Rural');
-    const [, a, b] = m1(/^A (.+?) and a (.+?) set off/, q.stem), sp = (n) => ex.series.find((x) => lc(x.name) === n).values[j];
+    const [, a, b] = m1(/^An? (.+?) and an? (.+?) set off/, q.stem), sp = (n) => ex.series.find((x) => lc(x.name) === n).values[j];
     return L * sp(a) / (sp(a) + sp(b));
+  },
+  'Largest gap on an unlabelled chart': (q) => {
+    const ex = chartOf(q, 'line'), [a, b] = ex.series.map((s) => s.values), gap = (m) => { const i = ex.categories.indexOf(m); return Math.abs(a[i] - b[i]); };
+    return q.options.slice().sort((x, y) => gap(y) - gap(x))[0];
+  },
+  'People from the gap between two lines': (q) => {
+    const ex = chartOf(q, 'line'), [, P, , gr, y2] = m1(/There were ([\d.]+) million adults in (\d{4}), and their number grew by (\d+)% by (\d{4})/, q.stem);
+    const i = ex.categories.indexOf(y2), fav = ex.series.find((s) => s.name === 'In favour').values[i], ag = ex.series.find((s) => s.name === 'Against').values[i];
+    return num(P) * (1 + num(gr) / 100) * (fav - ag) / 100;
+  },
+  'Change in a 100% stacked chart': (q) => {
+    const ex = chartOf(q, 'stacked'), n = notes(q), [, T1, T2] = m1(/([\d.,]+) million in 2018 and ([\d.,]+) million in 2023/, n);
+    const mode = m1(/many million did (\w+) trips/, q.stem)[1], v = ex.series.find((s) => lc(s.name) === mode).values;
+    return num(T2) * v[ex.categories.indexOf('2023')] / 100 - num(T1) * v[ex.categories.indexOf('2018')] / 100;
+  },
+  'People employed from a rate line': (q) => {
+    const ex = chartOf(q, 'combo'), [, x, z] = m1(/employed in (\w+) than in (\w+)/, q.stem);
+    const pop = ex.series.find((s) => !s.line).values, rate = ex.series.find((s) => s.line).values, e = (r) => { const i = ex.categories.indexOf(r); return pop[i] * rate[i] / 100; };
+    return e(x) - e(z);
+  },
+  'Difference between two pie slices': (q) => {
+    const pie = chartOf(q, 'pie'), T = num(m1(/total EUR ([\d.,]+) billion/, pie.title)[1]), r = num(m1(/rises by (\d+)%/, q.stem)[1]);
+    const [, a, b] = m1(/spend on (.+?) than on (.+?) \(EUR billion\)/, q.stem), sh = (n) => pie.slices.find((s) => lc(s.label) === n).value;
+    return T * (1 + r / 100) * (sh(a) - sh(b)) / 100;
+  },
+  'Percentage difference from a bar chart': (q) => {
+    const ex = chartOf(q, 'bar'), [, x, z] = m1(/ in (\w+) higher than in (\w+)\?/, q.stem), v = ex.series.find((s) => s.name === '2023').values;
+    return (v[ex.categories.indexOf(x)] / v[ex.categories.indexOf(z)] - 1) * 100;
+  },
+  'Index change on a line chart': (q) => {
+    const ex = chartOf(q, 'line'), [, sector, a, b] = m1(/did (.+?) output rise from (\d{4}) to (\d{4})/, q.stem), v = ex.series.find((s) => lc(s.name) === sector).values;
+    return (v[ex.categories.indexOf(b)] / v[ex.categories.indexOf(a)] - 1) * 100;
+  },
+  'Share change in a stacked chart': (q) => {
+    const ex = chartOf(q, 'stacked'), [, src, a, b] = m1(/did (\w+)'s share of .+? rise from (\d{4}) to (\d{4})/, q.stem);
+    const share = (y) => { const j = ex.categories.indexOf(y); return 100 * ex.series.find((s) => lc(s.name) === src).values[j] / total(ex.series.map((s) => s.values[j])); };
+    return share(b) - share(a);
   },
 };

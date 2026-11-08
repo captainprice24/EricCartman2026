@@ -129,3 +129,9 @@ topics(2, 2, "A short chain of familiar steps applied to the right rows; workloa
   ["Price change needed for a target inflation", "Form the weighted contributions of known categories, find the shortfall and divide by the missing weight."],
   ["Meeting point of two travellers", "Choose the right speeds, add them as a closing speed, solve the meeting time and convert it into a distance."],
 ].forEach(([topic, reason]) => { NUMERICAL_RUBRIC[topic] = { level: 3, stages: 4, reason }; });
+
+// Medium chart models covering the EU Training chart types (November 2026).
+topics(2, 2, "Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base.", [
+  "Largest gap on an unlabelled chart", "People from the gap between two lines", "Change in a 100% stacked chart", "People employed from a rate line",
+  "Difference between two pie slices", "Percentage difference from a bar chart", "Index change on a line chart", "Share change in a stacked chart"
+]);

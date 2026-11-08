@@ -217,50 +217,54 @@ EPSO_BANK.registerSet({
       "explanation": "When the total changes, the largest rise in share is not necessarily the largest rise in tonnes."
     },
     {
-      "id": "n07-03-eu2",
-      "supersedes": "n07-03-eu",
+      "id": "n07-03-eu3",
+      "supersedes": "n07-03-eu2",
       "topic": "True share of positive results",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Screening test results (fictional data)",
-          "columns": [
-            "Laboratory",
-            "People with the condition (%)",
-            "Detected when present (%)",
-            "Positive when absent (%)"
+          "type": "bar",
+          "title": "Screening test results by laboratory (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Lab 1",
+            "Lab 2",
+            "Lab 3",
+            "Lab 4"
           ],
-          "rows": [
-            [
-              "Lab 1",
-              "20.5",
-              "87.8",
-              "3.8"
-            ],
-            [
-              "Lab 2",
-              "18.7",
-              "96.2",
-              "7.4"
-            ],
-            [
-              "Lab 3",
-              "9.2",
-              "92.3",
-              "2.4"
-            ],
-            [
-              "Lab 4",
-              "22.4",
-              "86.8",
-              "6.1"
-            ]
+          "series": [
+            {
+              "name": "People with the condition",
+              "values": [
+                20.5,
+                18.7,
+                9.2,
+                22.4
+              ]
+            },
+            {
+              "name": "Detected when present",
+              "values": [
+                87.8,
+                96.2,
+                92.3,
+                86.8
+              ]
+            },
+            {
+              "name": "Positive when absent",
+              "values": [
+                3.8,
+                7.4,
+                2.4,
+                6.1
+              ]
+            }
           ]
         }
       ],
-      "stem": "At Lab 1, what percentage of positive results come from people who have the condition?",
+      "stem": "In the Galvia screening programme, what percentage of positive results at Lab 1 come from people who have the condition?",
       "options": [
         "65.0%",
         "70.1%",
@@ -290,52 +294,54 @@ EPSO_BANK.registerSet({
       "explanation": "Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones."
     },
     {
-      "id": "n07-04-eu2",
-      "supersedes": "n07-04-eu",
+      "id": "n07-04-eu3",
+      "supersedes": "n07-04-eu2",
       "topic": "Speed needed to win",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "400 m final: split and finishing times (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "Time at 100 m",
-            "Time at 200 m",
-            "Finishing time"
+          "type": "hbar",
+          "title": "400 m final: split and finishing times (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Galvia",
+            "Ostland",
+            "Lunaria",
+            "Kestrel",
+            "Jorvik"
           ],
-          "rows": [
-            [
-              "Galvia",
-              "10.90",
-              "21.20",
-              "44.59"
-            ],
-            [
-              "Ostland",
-              "11.45",
-              "22.30",
-              "45.26"
-            ],
-            [
-              "Lunaria",
-              "12.04",
-              "23.49",
-              "50.61"
-            ],
-            [
-              "Kestrel",
-              "12.53",
-              "24.45",
-              "52.70"
-            ],
-            [
-              "Jorvik",
-              "12.38",
-              "24.15",
-              "52.46"
-            ]
+          "series": [
+            {
+              "name": "Time at 100 m",
+              "values": [
+                10.9,
+                11.45,
+                12.05,
+                12.53,
+                12.38
+              ]
+            },
+            {
+              "name": "Time at 200 m",
+              "values": [
+                21.2,
+                22.3,
+                23.49,
+                24.45,
+                24.15
+              ]
+            },
+            {
+              "name": "Finishing time",
+              "values": [
+                44.59,
+                45.26,
+                50.61,
+                52.7,
+                52.46
+              ]
+            }
           ]
         }
       ],
@@ -603,8 +609,8 @@ EPSO_BANK.registerSet({
       "supersedes": "n07-06"
     },
     {
-      "id": "n07-07-eu2",
-      "supersedes": "n07-07-eu",
+      "id": "n07-07-eu3",
+      "supersedes": "n07-07-eu2",
       "topic": "Speed for a target average",
       "difficulty": 3,
       "challenge": true,
@@ -653,7 +659,7 @@ EPSO_BANK.registerSet({
           "note": "Rider A wants an average speed of exactly 40 km/h over all five stages."
         }
       ],
-      "stem": "What average speed (km/h) does Rider A need on stage 5?",
+      "stem": "In the Tour of Istrada, what average speed (km/h) does Rider A need on stage 5?",
       "options": [
         "26.3 km/h",
         "30.2 km/h",
@@ -799,53 +805,78 @@ EPSO_BANK.registerSet({
       "supersedes": "n07-08"
     },
     {
-      "id": "n07-09-eu2",
-      "supersedes": "n07-09-eu",
+      "id": "n07-09-eu3",
+      "supersedes": "n07-09-eu2",
       "topic": "Average price under tiered rates",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
+          "type": "bar",
+          "title": "Electricity prices per kWh by consumption band (EUR; fictional data)",
+          "unit": "EUR per kWh",
+          "categories": [
+            "Evergreen Supply",
+            "Aurora Energy",
+            "Delta Grid",
+            "Fjord Electric"
+          ],
+          "series": [
+            {
+              "name": "First 200 kWh",
+              "values": [
+                0.194,
+                0.249,
+                0.239,
+                0.19
+              ]
+            },
+            {
+              "name": "Next 300 kWh",
+              "values": [
+                0.241,
+                0.331,
+                0.322,
+                0.272
+              ]
+            },
+            {
+              "name": "Above 500 kWh",
+              "values": [
+                0.321,
+                0.432,
+                0.399,
+                0.365
+              ]
+            }
+          ],
+          "note": "Each band price applies only to the kilowatt-hours inside that band."
+        },
+        {
           "type": "table",
-          "title": "Electricity tariffs (EUR) (fictional data)",
+          "title": "Standing charges (fictional data)",
           "columns": [
             "Supplier",
-            "Standing charge per month",
-            "First 200 kWh (per kWh)",
-            "Next 300 kWh (per kWh)",
-            "Above 500 kWh (per kWh)"
+            "Standing charge (EUR per month)"
           ],
           "rows": [
             [
               "Evergreen Supply",
-              "7.40",
-              "0.194",
-              "0.241",
-              "0.321"
+              "7.40"
             ],
             [
               "Aurora Energy",
-              "10.96",
-              "0.249",
-              "0.331",
-              "0.432"
+              "10.96"
             ],
             [
               "Delta Grid",
-              "7.30",
-              "0.239",
-              "0.322",
-              "0.399"
+              "7.30"
             ],
             [
               "Fjord Electric",
-              "8.08",
-              "0.190",
-              "0.272",
-              "0.365"
+              "8.08"
             ]
-          ],
-          "note": "Each band price applies only to the kilowatt-hours inside that band."
+          ]
         }
       ],
       "stem": "A household uses 850 kWh in a month with Evergreen Supply. What is its average cost per kWh, including the standing charge (EUR)?",

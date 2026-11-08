@@ -7,85 +7,87 @@ EPSO_BANK.registerSet({
   "version": 4,
   "questions": [
     {
-      "id": "n01-01-eu2",
-      "supersedes": "n01-01-eu",
+      "id": "n01-01-eu3",
+      "supersedes": "n01-01-eu2",
       "topic": "Speed needed to win",
       "difficulty": 3,
       "exhibits": [
         {
-          "type": "table",
-          "title": "400 m final: split and finishing times (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "Time at 100 m",
-            "Time at 200 m",
-            "Finishing time"
+          "type": "hbar",
+          "title": "400 m final: split and finishing times (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Hollen",
+            "Sundra",
+            "Jorvik",
+            "Quarta",
+            "Aldoria"
           ],
-          "rows": [
-            [
-              "Dunmark",
-              "12.51",
-              "24.42",
-              "47.17"
-            ],
-            [
-              "Jorvik",
-              "11.06",
-              "21.52",
-              "47.10"
-            ],
-            [
-              "Norvale",
-              "12.42",
-              "24.23",
-              "46.82"
-            ],
-            [
-              "Brevania",
-              "11.78",
-              "22.95",
-              "47.58"
-            ],
-            [
-              "Istrada",
-              "10.87",
-              "21.14",
-              "48.82"
-            ]
+          "series": [
+            {
+              "name": "Time at 100 m",
+              "values": [
+                12.41,
+                10.89,
+                11.88,
+                12.22,
+                11.27
+              ]
+            },
+            {
+              "name": "Time at 200 m",
+              "values": [
+                24.22,
+                21.17,
+                23.15,
+                23.84,
+                21.93
+              ]
+            },
+            {
+              "name": "Finishing time",
+              "values": [
+                49.06,
+                45.68,
+                47.86,
+                47.41,
+                49.62
+              ]
+            }
           ]
         }
       ],
-      "stem": "Over the second 200 m, what average speed (m/s) would Istrada's runner have needed to finish level with the winner?",
+      "stem": "Over the second 200 m, what average speed (m/s) would Aldoria's runner have needed to finish level with the winner?",
       "options": [
-        "7.23 m/s",
-        "7.79 m/s",
-        "8.13 m/s",
-        "8.54 m/s",
-        "8.85 m/s"
+        "7.22 m/s",
+        "7.85 m/s",
+        "8.16 m/s",
+        "8.42 m/s",
+        "8.76 m/s"
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "The winner has the lowest finishing time.",
-        "Istrada's runner has the winner's finishing time minus its own 200 m time left for the second half."
+        "Aldoria's runner has the winner's finishing time minus its own 200 m time left for the second half."
       ],
       "solution": [
-        "Winner: Norvale, 46.82 s. Istrada reached 200 m in 21.14 s.",
-        "Time available for the second 200 m = 46.82 − 21.14 = 25.68 s.",
-        "Speed needed = 200 ÷ 25.68 ≈ 7.788 m/s.",
-        "Answer: 7.79 m/s."
+        "Winner: Sundra, 45.68 s. Aldoria reached 200 m in 21.93 s.",
+        "Time available for the second 200 m = 45.68 − 21.93 = 23.75 s.",
+        "Speed needed = 200 ÷ 23.75 ≈ 8.421 m/s.",
+        "Answer: 8.42 m/s."
       ],
       "optionNotes": [
-        "Gives Istrada's actual second-half speed.",
+        "Gives Aldoria's actual second-half speed.",
+        "Aims for the second-placed time instead of the winner's.",
+        "Gives the winner's second-half speed.",
         "Correct. The time left is the winner's finishing time minus the runner's own split, not the winner's split.",
-        "Subtracts the winner's split from its own finishing time.",
-        "Gives the winner's average speed over the whole race.",
-        "Gives the winner's second-half speed."
+        "Gives the winner's average speed over the whole race."
       ],
       "explanation": "The time left is the winner's finishing time minus the runner's own split, not the winner's split."
     },
     {
-      "id": "n01-02-eu2",
-      "supersedes": "n01-02-eu",
+      "id": "n01-02-eu3",
+      "supersedes": "n01-02-eu2",
       "topic": "Speed for a target average",
       "difficulty": 3,
       "exhibits": [
@@ -133,15 +135,15 @@ EPSO_BANK.registerSet({
           "note": "Rider A wants an average speed of exactly 39 km/h over all five stages."
         }
       ],
-      "stem": "What average speed (km/h) does Rider A need on stage 5?",
+      "stem": "In the Tour of Sundra, what average speed (km/h) does Rider A need on stage 5?",
       "options": [
-        "24.3 km/h",
         "30.4 km/h",
         "33.4 km/h",
         "35.0 km/h",
-        "37.1 km/h"
+        "37.1 km/h",
+        "39.0 km/h"
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Average speed = total distance ÷ total time.",
         "Find the total time allowed, subtract the time already used, and divide stage 5 by what is left."
@@ -154,11 +156,11 @@ EPSO_BANK.registerSet({
         "Answer: 30.4 km/h."
       ],
       "optionNotes": [
-        "Weights the stage speeds by distance instead of working with time.",
         "Correct. An average speed is total distance over total time; averaging the stage speeds gives the wrong answer.",
         "Averages the five stage speeds instead of using total distance ÷ total time.",
         "Uses the other rider's stage times.",
-        "Makes up the shortfall in speed one-for-one instead of in time."
+        "Makes up the shortfall in speed one-for-one instead of in time.",
+        "Assumes stage 5 must simply be ridden at the target average."
       ],
       "explanation": "An average speed is total distance over total time; averaging the stage speeds gives the wrong answer."
     },
@@ -247,86 +249,111 @@ EPSO_BANK.registerSet({
       "explanation": "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
     },
     {
-      "id": "n01-04-eu2",
-      "supersedes": "n01-04-eu",
+      "id": "n01-04-eu3",
+      "supersedes": "n01-04-eu2",
       "topic": "Average price under tiered rates",
       "difficulty": 3,
       "exhibits": [
         {
+          "type": "bar",
+          "title": "Electricity prices per kWh by consumption band (EUR; fictional data)",
+          "unit": "EUR per kWh",
+          "categories": [
+            "Evergreen Supply",
+            "Cedar Utilities",
+            "Fjord Electric",
+            "Aurora Energy"
+          ],
+          "series": [
+            {
+              "name": "First 200 kWh",
+              "values": [
+                0.245,
+                0.186,
+                0.228,
+                0.182
+              ]
+            },
+            {
+              "name": "Next 300 kWh",
+              "values": [
+                0.302,
+                0.233,
+                0.294,
+                0.223
+              ]
+            },
+            {
+              "name": "Above 500 kWh",
+              "values": [
+                0.365,
+                0.316,
+                0.359,
+                0.282
+              ]
+            }
+          ],
+          "note": "Each band price applies only to the kilowatt-hours inside that band."
+        },
+        {
           "type": "table",
-          "title": "Electricity tariffs (EUR) (fictional data)",
+          "title": "Standing charges (fictional data)",
           "columns": [
             "Supplier",
-            "Standing charge per month",
-            "First 200 kWh (per kWh)",
-            "Next 300 kWh (per kWh)",
-            "Above 500 kWh (per kWh)"
+            "Standing charge (EUR per month)"
           ],
           "rows": [
             [
-              "Delta Grid",
-              "12.29",
-              "0.220",
-              "0.266",
-              "0.355"
+              "Evergreen Supply",
+              "8.39"
+            ],
+            [
+              "Cedar Utilities",
+              "12.53"
             ],
             [
               "Fjord Electric",
-              "16.29",
-              "0.249",
-              "0.294",
-              "0.409"
+              "6.16"
             ],
             [
               "Aurora Energy",
-              "16.84",
-              "0.247",
-              "0.322",
-              "0.419"
-            ],
-            [
-              "Evergreen Supply",
-              "13.44",
-              "0.198",
-              "0.255",
-              "0.342"
+              "12.89"
             ]
-          ],
-          "note": "Each band price applies only to the kilowatt-hours inside that band."
+          ]
         }
       ],
-      "stem": "A household uses 1,150 kWh in a month with Aurora Energy. What is its average cost per kWh, including the standing charge (EUR)?",
+      "stem": "A household uses 700 kWh in a month with Fjord Electric. What is its average cost per kWh, including the standing charge (EUR)?",
       "options": [
-        "EUR 0.319",
-        "EUR 0.344",
-        "EUR 0.364",
-        "EUR 0.378",
-        "EUR 0.395"
+        "EUR 0.247",
+        "EUR 0.261",
+        "EUR 0.303",
+        "EUR 0.321",
+        "EUR 0.368"
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Split the consumption into the three bands first.",
         "Only the kWh above 500 are charged at the top price."
       ],
       "solution": [
-        "1,150 kWh = 200 (first band) + 300 (second band) + 650 (above 500 kWh).",
-        "Energy cost = 200 × 0.247 + 300 × 0.322 + 650 × 0.419 = 49.40 + 96.60 + 272.35 = EUR 418.35.",
-        "Total with the standing charge = 418.35 + 16.84 = EUR 435.19.",
-        "Average = 435.19 ÷ 1,150 ≈ EUR 0.3784 per kWh.",
-        "Answer: EUR 0.378."
+        "700 kWh = 200 (first band) + 300 (second band) + 200 (above 500 kWh).",
+        "Energy cost = 200 × 0.228 + 300 × 0.294 + 200 × 0.359 = 45.60 + 88.20 + 71.80 = EUR 205.60.",
+        "Total with the standing charge = 205.60 + 6.16 = EUR 211.76.",
+        "Average = 211.76 ÷ 700 ≈ EUR 0.3025 per kWh.",
+        "Answer: EUR 0.303."
       ],
       "optionNotes": [
-        "Uses Delta Grid's tariff.",
-        "Averages the three band prices instead of weighting them by the kWh in each band.",
-        "Leaves out the standing charge.",
+        "Uses Aurora Energy's tariff.",
+        "Uses Cedar Utilities's tariff.",
         "Correct. Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours.",
-        "Treats the second band as ending at 300 kWh."
+        "Treats the second band as ending at 300 kWh.",
+        "Charges every kWh at the top band price."
       ],
       "explanation": "Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours."
     },
     {
-      "id": "n01-05-eu2",
-      "supersedes": "n01-05-eu",
+      "id": "n01-05-eu3",
+      "supersedes": "n01-05-eu2",
       "topic": "Currency round trip with fees",
       "difficulty": 3,
       "exhibits": [
@@ -347,147 +374,147 @@ EPSO_BANK.registerSet({
             {
               "name": "BRV",
               "values": [
-                7.24,
-                7.16,
-                7.21,
-                6.99,
-                7.24,
-                7.17,
-                7.03
+                11.19,
+                10.78,
+                10.66,
+                10.23,
+                9.87,
+                9.66,
+                9.78
               ]
             },
             {
-              "name": "HLN",
+              "name": "EST",
               "values": [
-                12.97,
-                12.85,
-                13.21,
-                13.49,
-                13.15,
-                13.56,
-                12.98
+                12.17,
+                11.88,
+                11.98,
+                11.54,
+                11.98,
+                11.88,
+                11.73
               ]
             },
             {
-              "name": "GLV",
+              "name": "CLM",
               "values": [
-                14.91,
-                15.51,
-                16.08,
-                16.58,
-                16.02,
-                15.88,
-                16.13
+                14.32,
+                14.92,
+                15.53,
+                16.07,
+                16.76,
+                17.13,
+                16.51
               ]
             }
           ],
           "note": "Each conversion costs a fee of 1.5% of the amount converted."
         }
       ],
-      "stem": "An investor converted EUR 5,000 into GLV on 1 March and converted all of it back into euros on 1 September. How many euros did the investor end with?",
+      "stem": "An investor converted EUR 12,000 into CLM on 1 March and converted all of it back into euros on 1 September. How many euros did the investor end with?",
       "options": [
-        "EUR 4,484.21",
-        "EUR 4,621.82",
-        "EUR 4,847.39",
-        "EUR 4,996.04",
-        "EUR 5,248.06"
+        "EUR 9,732.84",
+        "EUR 10,098.33",
+        "EUR 10,408.24",
+        "EUR 12,079.43",
+        "EUR 13,423.25"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Rates are units of currency per euro: multiply going in, divide coming back.",
         "The fee is charged on each of the two conversions."
       ],
       "solution": [
-        "1 March: 5,000 × (1 − 1.5%) = EUR 4,925.00 is converted at 14.91: 73,431.75 GLV.",
-        "1 September: the fee leaves 73,431.75 × (1 − 1.5%) ≈ 72,330.27 GLV to convert.",
-        "Back into euros: 72,330.27 ÷ 16.13 ≈ EUR 4,484.21.",
-        "Answer: EUR 4,484.21."
+        "1 March: 12,000 × (1 − 1.5%) = EUR 11,820.00 is converted at 14.32: 169,262.40 CLM.",
+        "1 September: the fee leaves 169,262.40 × (1 − 1.5%) ≈ 166,723.46 CLM to convert.",
+        "Back into euros: 166,723.46 ÷ 16.51 ≈ EUR 10,098.33.",
+        "Answer: EUR 10,098.33."
       ],
       "optionNotes": [
+        "Converts back at the 1 August rate.",
         "Correct. With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice.",
         "Leaves out both conversion fees.",
-        "Uses the HLN rates.",
-        "Uses the BRV rates.",
+        "Uses the EST rates.",
         "Inverts the exchange-rate ratio (units per EUR must be divided on the way back)."
       ],
       "explanation": "With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice."
     },
     {
-      "id": "n01-06-r3",
-      "supersedes": "n01-06-r2",
-      "topic": "Currency conversion",
+      "id": "n01-06-eu",
+      "supersedes": "n01-06-r3",
+      "topic": "Turnout and votes",
       "difficulty": 2,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Exchange rates: units of currency per 1 EUR",
-          "columns": [
-            "Currency",
-            "1 January",
-            "1 July"
+          "type": "combo",
+          "title": "Sundra: referendum votes and turnout by district (fictional data)",
+          "unit": "votes",
+          "categories": [
+            "District 1",
+            "District 2",
+            "District 3",
+            "District 4"
           ],
-          "rows": [
-            [
-              "USD",
-              "1.0714",
-              "1.0178"
-            ],
-            [
-              "GBP",
-              "0.8322",
-              "0.8738"
-            ],
-            [
-              "CHF",
-              "0.9709",
-              "1.0437"
-            ],
-            [
-              "SEK",
-              "11.6736",
-              "12.374"
-            ],
-            [
-              "PLN",
-              "4.3891",
-              "4.0906"
-            ],
-            [
-              "JPY",
-              "165.6",
-              "177.4"
-            ]
+          "series": [
+            {
+              "name": "Voted YES",
+              "values": [
+                3569,
+                3835,
+                4220,
+                3986
+              ]
+            },
+            {
+              "name": "Voted NO",
+              "values": [
+                2399,
+                3233,
+                2212,
+                4131
+              ]
+            },
+            {
+              "name": "Turnout (%)",
+              "values": [
+                84.92,
+                71.69,
+                80.2,
+                68.73
+              ],
+              "line": true
+            }
           ],
-          "note": "Assume conversions go through the euro, with no fees."
+          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
         }
       ],
-      "stem": "On 1 July, a company converted PLN 25,000 into SEK. How much did it receive? Round only the final result to 2 decimal places.",
+      "stem": "In Sundra's 2022 referendum, what percentage of the eligible voters of District 1 voted NO?",
       "options": [
-        "SEK 66,491.99",
-        "SEK 70,481.42",
-        "SEK 71,344.06",
-        "SEK 75,003.50",
-        "SEK 75,624.60"
+        "27.6%",
+        "28.8%",
+        "32.2%",
+        "34.1%",
+        "40.2%"
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
-        "Use only the column for the date in the question.",
-        "Divide by the PLN rate to get euros, then multiply by the SEK rate."
+        "Turnout tells you what share of eligible voters voted at all.",
+        "NO voters as a share of eligible voters = NO share of votes cast × turnout."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "25,000 ÷ 4.0906 = EUR 6,111.57",
-        "25,000 × (12.374 ÷ 4.0906) ≈ SEK 75,624.60 (one cross-rate calculation avoids rounding the euro balance)",
-        "Final answer: SEK 75,624.60."
+        "District 1: YES 3,569, NO 2,399, turnout 84.92%.",
+        "NO share of votes cast = 2,399 ÷ (3,569 + 2,399) = 2,399 ÷ 5,968 ≈ 40.198%.",
+        "Only 84.92% of eligible voters voted, so NO share of eligible voters = 40.198% × 84.92% ≈ 34.14%.",
+        "Answer: 34.1%."
       ],
       "optionNotes": [
-        "This uses the 1 January rates.",
-        "This mixes the two dates.",
-        "This mixes the two dates.",
-        "This adjusts the other date's conversion by subtracting the two percentage changes; the exact cross-rate requires dividing the rate multipliers.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives SEK 75,624.60."
+        "Applies the turnout of District 4 instead of District 1.",
+        "Applies the turnout of District 2 instead of District 1.",
+        "Applies the turnout of District 3 instead of District 1.",
+        "Correct. Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout.",
+        "Gives NO as a share of the votes cast, ignoring that only the turnout share of eligible voters voted."
       ],
-      "explanation": "With rates quoted per euro, divide to get into euros and multiply to get out. Check the date column: the other date is a ready-made distractor."
+      "explanation": "Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout."
     },
     {
       "id": "n01-07-r3",
@@ -569,88 +596,102 @@ EPSO_BANK.registerSet({
       "explanation": "An average over several groups must be weighted by group size. The simple mean of the averages is the standard trap."
     },
     {
-      "id": "n01-08-r3",
-      "supersedes": "n01-08-r2",
-      "topic": "Removing VAT",
+      "id": "n01-08-eu",
+      "supersedes": "n01-08-r3",
+      "topic": "Largest gap on an unlabelled chart",
       "difficulty": 2,
+      "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Supplier invoices, March",
-          "columns": [
-            "Invoice",
-            "Supplier country",
-            "Amount including VAT (EUR)",
-            "VAT rate (%)"
+          "type": "line",
+          "title": "Aldoria exchange: cocoa and coffee prices, 2023 (EUR per tonne; fictional data)",
+          "unit": "EUR per tonne",
+          "categories": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
           ],
-          "rows": [
-            [
-              "No. 101",
-              "Aldoria",
-              "8,638",
-              "21"
-            ],
-            [
-              "No. 102",
-              "Brevania",
-              "7,834",
-              "19"
-            ],
-            [
-              "No. 103",
-              "Calmora",
-              "3,214",
-              "23"
-            ],
-            [
-              "No. 104",
-              "Aldoria",
-              "8,378",
-              "21"
-            ],
-            [
-              "No. 105",
-              "Dunmark",
-              "8,780",
-              "25"
-            ],
-            [
-              "No. 106",
-              "Brevania",
-              "4,597",
-              "19"
-            ]
-          ]
+          "labels": false,
+          "step": 500,
+          "series": [
+            {
+              "name": "Cocoa",
+              "values": [
+                3500,
+                3750,
+                4000,
+                3500,
+                4000,
+                3750,
+                3750,
+                4000,
+                3500,
+                3750,
+                3500,
+                3500
+              ]
+            },
+            {
+              "name": "Coffee",
+              "values": [
+                2000,
+                2500,
+                2250,
+                2750,
+                3250,
+                3750,
+                4000,
+                4250,
+                4500,
+                4250,
+                4500,
+                4750
+              ]
+            }
+          ],
+          "note": "Values are not labelled: read them from the gridlines (every EUR 500; points lie on or halfway between gridlines)."
         }
       ],
-      "stem": "What is the total amount excluding VAT of the invoices from suppliers in Aldoria? Round only the final result to 2 decimal places.",
+      "stem": "On the Aldoria exchange, in which month of 2023 was the difference between the cocoa and coffee prices largest?",
       "options": [
-        "EUR 13,442.64",
-        "EUR 13,722.04",
-        "EUR 13,834.15",
-        "EUR 14,062.81",
-        "EUR 14,180.00"
+        "Jan",
+        "Feb",
+        "Dec",
+        "Sep",
+        "Mar"
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
-        "Select the invoices from that country only.",
-        "Net = gross ÷ (1 + VAT rate). Do not subtract the rate from the gross amount."
+        "Read both lines for each month and compare the vertical distance between them.",
+        "The month with the highest price is not necessarily the month with the largest gap."
       ],
       "solution": [
-        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
-        "8,638 ÷ 1.21 = 7,138.84",
-        "8,378 ÷ 1.21 = 6,923.97",
-        "Total = 7,138.84 + 6,923.97 = EUR 14,062.81",
-        "Final answer: EUR 14,062.81."
+        "Read both prices from the gridlines for the candidate months and subtract.",
+        "Mar: 4,000 − 2,250 → gap EUR 1,750.",
+        "Jan: 3,500 − 2,000 → gap EUR 1,500.",
+        "Feb: 3,750 − 2,500 → gap EUR 1,250.",
+        "Dec: 3,500 − 4,750 → gap EUR 1,250.",
+        "Sep: 3,500 − 4,500 → gap EUR 1,000.",
+        "The largest gap is in Mar.",
+        "Answer: Mar."
       ],
       "optionNotes": [
-        "This subtracts the VAT rate from the gross amount; VAT was added to the net amount, so divide instead.",
-        "This includes an invoice from another country.",
-        "This applies another country's VAT rate.",
-        "Correct. Using the requested base and units, with rounding only at the end, gives EUR 14,062.81.",
-        "This applies a flat 20% instead of the rate shown for each invoice."
+        "Jan: gap EUR 1,500.",
+        "Feb: gap EUR 1,250.",
+        "Dec: gap EUR 1,250.",
+        "Sep: gap EUR 1,000.",
+        "Correct. In Mar the two prices are EUR 1,750 apart, the largest gap."
       ],
-      "explanation": "To remove VAT, divide by (1 + rate). Subtracting the rate from the gross figure understates the net amount."
+      "explanation": "Compare the distance between the lines month by month; the peak of one line is a distraction."
     },
     {
       "id": "n01-09-r3",
@@ -761,80 +802,104 @@ EPSO_BANK.registerSet({
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n01-10-eu2",
-      "supersedes": "n01-10-eu",
+      "id": "n01-10-eu3",
+      "supersedes": "n01-10-eu2",
       "topic": "Price change needed for a target inflation",
       "difficulty": 3,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Consumer prices (fictional data)",
-          "columns": [
-            "Category",
-            "Weight in the price index (%)",
-            "Price change (%)"
+          "type": "pie",
+          "title": "Weights in the consumer price index (%; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Food",
+              "value": 6.6
+            },
+            {
+              "label": "Housing",
+              "value": 18.9
+            },
+            {
+              "label": "Transport",
+              "value": 24.6
+            },
+            {
+              "label": "Energy",
+              "value": 20.5
+            },
+            {
+              "label": "Health",
+              "value": 17.2
+            },
+            {
+              "label": "Leisure",
+              "value": 12.2
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Price changes by category (%; transport not yet published; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Food",
+            "Housing",
+            "Energy",
+            "Health",
+            "Leisure"
           ],
-          "rows": [
-            [
-              "Food",
-              "18.7",
-              "0.0"
-            ],
-            [
-              "Housing",
-              "11.3",
-              "−0.9"
-            ],
-            [
-              "Transport",
-              "18.0",
-              "—"
-            ],
-            [
-              "Energy",
-              "18.0",
-              "6.0"
-            ],
-            [
-              "Health",
-              "14.7",
-              "7.1"
-            ],
-            [
-              "Leisure",
-              "19.3",
-              "1.9"
-            ]
+          "series": [
+            {
+              "name": "Last year",
+              "values": [
+                1.4,
+                4.3,
+                5.5,
+                5.3,
+                1.1
+              ]
+            },
+            {
+              "name": "This year",
+              "values": [
+                6.6,
+                4.7,
+                4.9,
+                4.9,
+                2.5
+              ]
+            }
           ],
-          "note": "Overall inflation is the weighted average of the category price changes."
+          "note": "Overall inflation this year is the weighted average of the category price changes."
         }
       ],
-      "stem": "What price change (%) for transport would make overall inflation exactly 3.0%?",
+      "stem": "What price change (%) for transport would make overall inflation exactly 4.5%?",
       "options": [
-        "3.0%",
-        "3.2%",
         "3.4%",
-        "3.9%",
-        "4.2%"
+        "4.2%",
+        "4.5%",
+        "5.0%",
+        "5.4%"
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Work out how much the five known categories already contribute to inflation.",
         "The rest must come from transport, in proportion to its weight."
       ],
       "solution": [
         "Contribution of a category = weight × price change.",
-        "Known contributions: 18.7% × 0.0% + 11.3% × −0.9% + 18.0% × 6.0% + 14.7% × 7.1% + 19.3% × 1.9% ≈ 2.389 points.",
-        "Transport must add 3.0 − 2.389 ≈ 0.611 points.",
-        "Price change = 0.611 ÷ 18.0% ≈ 3.40%.",
-        "Answer: 3.4%."
+        "Known contributions: 6.6% × 6.6% + 18.9% × 4.7% + 20.5% × 4.9% + 17.2% × 4.9% + 12.2% × 2.5% ≈ 3.476 points.",
+        "Transport must add 4.5 − 3.476 ≈ 1.024 points.",
+        "Price change = 1.024 ÷ 24.6% ≈ 4.16%.",
+        "Answer: 4.2%."
       ],
       "optionNotes": [
-        "Assumes the missing category must simply change by the target rate.",
-        "Divides by the weight of leisure.",
-        "Correct. Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight.",
         "Treats overall inflation as a simple average of the six categories.",
-        "Divides by the weight of health."
+        "Correct. Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight.",
+        "Assumes the missing category must simply change by the target rate.",
+        "Divides by the weight of energy.",
+        "Divides by the weight of housing."
       ],
       "explanation": "Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight."
     }

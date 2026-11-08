@@ -10,17 +10,17 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 
 | Bank | Easy | Medium | Hard | Total |
 |---|---:|---:|---:|---:|
-| Kept items of Sets 01–04, former mechanical labels | 19 | 55 | 20 | 94 |
-| Kept items of Sets 01–04, after review | 0 | 82 | 12 | 94 |
+| Kept items of Sets 01–04, former mechanical labels | 8 | 24 | 16 | 48 |
+| Kept items of Sets 01–04, after review | 0 | 36 | 12 | 48 |
 | Medium Sets 12–16 | 0 | 50 | 0 | 50 |
-| EU Training-format replacements (November 2026) | 0 | 16 | 94 | 110 |
+| EU Training-format replacements (November 2026) | 0 | 91 | 94 | 185 |
 | Current bank | 0 | 148 | 122 | 270 |
 
-35 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
+20 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
 
 ## EU Training format (November 2026)
 
-Every Easy and Hard item in Sets 01–11 was replaced by an EU Training-format item with a new id ending `-eu` (generator: `scripts/generators/numerical-eu.mjs`). The 16 Easy items became Medium two-step questions, and the 94 Hard and very hard items became four-stage questions whose conditions sit in a note under the exhibit. The bank therefore has no Easy numerical items. Stems are at most 45 words; options are named mistakes at least 3% of the key apart, so no rounding instruction is needed; 43 of the new items use a chart (bars with a turnout line on a second scale, horizontal bars, stacked bars, pies and long line series), and 20 are physics questions on race times (speed, acceleration and catching up). Medium Sets 12–16 and the Medium items of Sets 01–04 are unchanged. Fingerprints: `scripts/generators/numerical-eu-fingerprints.json`. After review, six Hard models that needed little insight became Medium, eight insight-based Hard models were added, and 28 retired Hard items of borderline length (Per-capita change, Rates with changing base, Market share in percentage points, Cross-currency landed cost, Real pooled productivity, Linked-index real per-capita change, Reverse pooled success rate) were restored in their original slots, so the bank has 27 Hard models. The worked solutions of all 110 EU-format items were later rewritten so that every step shows where its numbers come from (unit conversions shown, no fractional counts of people, exact values marked with = and rounded ones with ≈); they carry ids ending `-eu2` recorded in `scripts/generators/numerical-eu-revisions.json`.
+Every Easy and Hard item in Sets 01–11 was replaced by an EU Training-format item with a new id ending `-eu` (generator: `scripts/generators/numerical-eu.mjs`). The 91 Easy items became Medium two-step questions, and the 94 Hard and very hard items became four-stage questions whose conditions sit in a note under the exhibit. The bank therefore has no Easy numerical items. Stems are at most 45 words; options are named mistakes at least 3% of the key apart, so no rounding instruction is needed; 158 of the new items use a chart (bars with a turnout line on a second scale, horizontal bars, stacked bars, pies and long line series), and 27 are physics questions on race times (speed, acceleration and catching up). Medium Sets 12–16 and the Medium items of Sets 01–04 are unchanged. Fingerprints: `scripts/generators/numerical-eu-fingerprints.json`. After review, six Hard models that needed little insight became Medium, eight insight-based Hard models were added, and 28 retired Hard items of borderline length (Per-capita change, Rates with changing base, Market share in percentage points, Cross-currency landed cost, Real pooled productivity, Linked-index real per-capita change, Reverse pooled success rate) were restored in their original slots, so the bank has 27 Hard models. Later, 75 older Medium arithmetic drills were replaced by chart-based Medium items, and more Hard models were drawn as charts: 96 of 148 Medium and 80 of 122 Hard items now use a chart. The worked solutions of all 185 EU-format items were later rewritten so that every step shows where its numbers come from (unit conversions shown, no fractional counts of people, exact values marked with = and rounded ones with ≈); they carry ids ending `-eu2` recorded in `scripts/generators/numerical-eu-revisions.json`.
 
 ## Sets
 
@@ -49,51 +49,43 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 question
 
 | Topic | Items | Band | Reasoning rationale |
 |---|---:|---|---|
-| Amount needed for a target share | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Amount needed for a target share | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Average speed | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Averaging rates | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Break-even point | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Budget reallocation | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Combined work rates | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Change in a 100% stacked chart | 5 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
 | Combining two exhibits | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Compound growth | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Constant annual increase | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Currency conversion | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Constant annual increase | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Difference between two pie slices | 4 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
 | Discounts and VAT | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Distance gap at the finish | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Earlier amount from a pie chart | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Efficiency needed to keep a ratio | 1 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
-| Fixed and variable costs | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Funds raised per fundraiser | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Distance gap at the finish | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Earlier amount from a pie chart | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Equivalent ticket price | 4 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
 | Growth projection | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Missing value from a known share | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Missing value from a share of all types | 1 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
-| Monthly pension payments | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Multi-step: unit cost | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Index change on a line chart | 5 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
+| Largest gap on an unlabelled chart | 5 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
+| NO share of all eligible voters | 4 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
+| People employed from a rate line | 5 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
+| People from the gap between two lines | 5 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
 | Per-capita comparison | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Percentage difference between two items | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Percentages of percentages | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Population from an unchanged group | 1 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
-| Population from per-capita change | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Rank of percentage increases | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Rates of work | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Removing VAT | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Required growth rate | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Successive percentage changes | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Time to reach top speed | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Total from shares in a stacked chart | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Turnout and votes | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Percentage difference from a bar chart | 4 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
+| Population from an unchanged group | 4 | Medium | A short chain of familiar steps applied to the right rows; workload rather than insight. |
+| Rank of percentage increases | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Share change in a stacked chart | 4 | Medium | Two linked steps read from a chart: compare two lines or segments, convert shares into amounts with the right total, or measure a change against the right base. |
+| Time to reach top speed | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Total from shares in a stacked chart | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Turnout and votes | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Units and per-capita values | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Weighted average | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Weighted average with a ratio | 1 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
-| Average after two changes | 4 | Hard | Recover the call mix from three averages, apply both changes and weight them by the mix. |
-| Average price under tiered rates | 5 | Hard | Split consumption into bands, price each band separately, add the standing charge and spread it over all units. |
+| Weighted average with a ratio | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Average after two changes | 5 | Hard | Recover the call mix from three averages, apply both changes and weight them by the mix. |
+| Average price under tiered rates | 4 | Hard | Split consumption into bands, price each band separately, add the standing charge and spread it over all units. |
 | Best overall rate despite the mix | 5 | Hard | Turn category rates into resolved cases, pool them per office and see that case mix can reverse the ranking. |
 | Capped proportional allocation | 5 | Hard | Detect the binding cap, fix that amount, rebuild the population base without it and share the remainder. |
 | Catching up at constant speeds | 5 | Hard | Convert two race times into speeds, form the closing speed, solve the catch-up time and the distance. |
 | Change in a remainder group | 5 | Hard | Derive the remainder share in two years, convert both into people with changing populations and compare. |
 | Cross-currency landed cost | 4 | Hard (very hard challenge) | Separate goods and freight, apply different discounts, convert invoices, apply fees and pool. |
-| Currency round trip with fees | 5 | Hard | Apply the fee twice, multiply by units per euro going in, divide coming back and compare the two rates. |
+| Currency round trip with fees | 4 | Hard | Apply the fee twice, multiply by units per euro going in, divide coming back and compare the two rates. |
 | Estimate from an unlabelled chart | 5 | Hard | Read the right extremes from gridlines, locate them in the right years and compare against the starting value. |
 | Growth needed to hold a share | 5 | Hard | Grow the other countries, convert the share into a target and solve the required growth. |
 | Largest change in tonnes from two pie charts | 5 | Hard | Convert both years' shares into tonnes with their own totals and compare the changes, not the shares. |
@@ -101,7 +93,7 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 question
 | Market share in percentage points | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
 | Meeting point of two travellers | 4 | Hard | Choose the right speeds, add them as a closing speed, solve the meeting time and convert it into a distance. |
 | Per-capita change | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
-| Per-capita gap after population change | 4 | Hard | Update two populations, form both per-capita values and compare them on the correct base. |
+| Per-capita gap after population change | 5 | Hard | Update two populations, form both per-capita values and compare them on the correct base. |
 | Price change needed for a target inflation | 4 | Hard | Form the weighted contributions of known categories, find the shortfall and divide by the missing weight. |
 | Projected share against a past amount | 5 | Hard | Grow the total, add percentage points to the share, combine them and compare with a past amount. |
 | Rates with changing base | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |

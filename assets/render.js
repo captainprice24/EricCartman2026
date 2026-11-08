@@ -141,6 +141,7 @@
     var all = [];
     series.forEach(function (s) { all = all.concat(s.values); });
     var scale = niceMax(Math.max.apply(null, all) * 1.08);
+    if (ex.unit === "%" && scale.max > 100 && Math.max.apply(null, all) <= 100) scale = { max: 100, step: 25 };
     var W = 560, H = 280, L = 44, R = 12, T = 16, B = 34;
     var plotW = W - L - R, plotH = H - T - B;
     var groupW = plotW / cats.length;
@@ -175,7 +176,9 @@
   }
 
   function fmtVal(v) {
-    return typeof v === "number" ? String(+v.toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : esc(v);
+    if (typeof v !== "number") return esc(v);
+    var p = String(+v.toFixed(3)).split(".");
+    return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (p[1] ? "." + p[1] : "");
   }
 
   function legendHTML(series) {
@@ -197,6 +200,8 @@
     var cats = ex.categories, series = ex.series;
     var totals = cats.map(function (c, ci) { return series.reduce(function (t, s) { return t + s.values[ci]; }, 0); });
     var scale = niceMax(Math.max.apply(null, totals) * 1.1);
+    // 100% stacked charts stop at 100.
+    if (totals.every(function (t) { return Math.abs(t - 100) < 0.05; })) scale = { max: 100, step: 25 };
     var W = 560, H = 290, L = 48, Rr = 12, T = 18, B = 34;
     var plotW = W - L - Rr, plotH = H - T - B;
     var groupW = plotW / cats.length, barW = Math.min(54, groupW * 0.6);
@@ -254,7 +259,7 @@
     if (totals) rows.push({ name: "Total", values: totals });
     return '<div class="table-wrap" tabindex="0" role="region" aria-label="' + esc(ex.title || 'Chart data table') + '"><table class="exhibit-table compact"><thead><tr><th scope="col"><span class="sr-only">Series</span></th>' + ex.categories.map(function (c) { return '<th scope="col" class="num">' + esc(c) + "</th>"; }).join("") +
       "</tr></thead><tbody>" + rows.map(function (s) {
-        return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(+(+v).toFixed(2)) + "</td>"; }).join("") + "</tr>";
+        return '<tr><th scope="row">' + esc(s.name) + "</th>" + s.values.map(function (v) { return '<td class="num">' + fmtVal(+(+v).toFixed(3)) + "</td>"; }).join("") + "</tr>";
       }).join("") + "</tbody></table></div>";
   }
 
@@ -265,11 +270,11 @@
       var a1 = a0 + (s.value / total) * Math.PI * 2;
       var large = a1 - a0 > Math.PI ? 1 : 0;
       var p0 = [cx + r * Math.cos(a0), cy + r * Math.sin(a0)], p1 = [cx + r * Math.cos(a1), cy + r * Math.sin(a1)];
-      out += '<path class="slice p' + (i % 6) + '" d="M' + cx + "," + cy + " L" + p0[0].toFixed(1) + "," + p0[1].toFixed(1) + " A" + r + "," + r + " 0 " + large + " 1 " + p1[0].toFixed(1) + "," + p1[1].toFixed(1) + ' Z"/>';
+      out += '<path class="slice p' + (i % 12) + '" d="M' + cx + "," + cy + " L" + p0[0].toFixed(1) + "," + p0[1].toFixed(1) + " A" + r + "," + r + " 0 " + large + " 1 " + p1[0].toFixed(1) + "," + p1[1].toFixed(1) + ' Z"/>';
       a0 = a1;
     });
     var legend = '<ul class="pie-legend">' + ex.slices.map(function (s, i) {
-      return '<li><i class="sw p' + (i % 6) + '"></i><span>' + esc(s.label) + "</span><b>" + fmtVal(s.value) + (ex.unit === "%" ? "%" : "") + "</b></li>";
+      return '<li><i class="sw p' + (i % 12) + '"></i><span>' + esc(s.label) + "</span><b>" + fmtVal(s.value) + (ex.unit === "%" ? "%" : "") + "</b></li>";
     }).join("") + "</ul>";
     return '<div class="pie-wrap"><svg class="pie" viewBox="0 0 220 220" role="img" aria-label="' + esc(ex.title || "Pie chart") + '">' + out + "</svg>" + legend + "</div>" +
       (ex.unit && ex.unit !== "%" ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "");
@@ -281,21 +286,23 @@
     var all = [];
     bars.forEach(function (s) { all = all.concat(s.values); });
     var scale = niceMax(Math.max.apply(null, all) * 1.1);
-    var lmin = Math.floor(Math.min.apply(null, line.values) / 5) * 5 - 5, lmax = Math.ceil(Math.max.apply(null, line.values) / 5) * 5 + 5;
+    var lstep = Math.max.apply(null, line.values) <= 15 ? 1 : 5;
+    var lmin = Math.max(0, Math.floor(Math.min.apply(null, line.values) / lstep) * lstep - lstep), lmax = Math.ceil(Math.max.apply(null, line.values) / lstep) * lstep + lstep;
     var W = 560, H = 290, L = 50, R = 50, T = 18, B = 34;
     var plotW = W - L - R, plotH = H - T - B, groupW = plotW / cats.length;
     var barW = Math.min(40, (groupW * 0.62) / bars.length);
     var y = function (v) { return T + plotH - (v / scale.max) * plotH; };
     var y2 = function (v) { return T + plotH - ((v - lmin) / (lmax - lmin)) * plotH; };
     var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Bar and line chart") + '">' + axisHTML(scale, y, L, R, W);
-    for (var g = lmin; g <= lmax + 1e-9; g += 5) out += '<text class="tick" x="' + (W - R + 6) + '" y="' + (y2(g) + 4).toFixed(1) + '" text-anchor="start">' + g + "%</text>";
+    for (var g = lmin; g <= lmax + 1e-9; g += lstep) out += '<text class="tick" x="' + (W - R + 6) + '" y="' + (y2(g) + 4).toFixed(1) + '" text-anchor="start">' + g + "%</text>";
     var cx = function (ci) { return L + ci * groupW + groupW / 2; };
+    var labels = "";
     cats.forEach(function (c, ci) {
       var gx = L + ci * groupW + (groupW - barW * bars.length) / 2;
       bars.forEach(function (s, si) {
         var v = s.values[ci], bx = gx + si * barW;
         out += '<rect class="bar s' + (si % 4) + '" x="' + (bx + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + (barW - 2).toFixed(1) + '" height="' + (T + plotH - y(v)).toFixed(1) + '"/>';
-        out += '<text class="val" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(v) + "</text>";
+        labels += '<text class="val halo" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(v) + "</text>";
       });
       out += '<text class="cat" x="' + cx(ci).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
     });
@@ -305,6 +312,7 @@
       out += '<circle class="pt s' + li + '" cx="' + cx(i).toFixed(1) + '" cy="' + y2(v).toFixed(1) + '" r="4"/>';
       out += '<text class="val lv halo s' + li + '" x="' + (cx(i) + 8).toFixed(1) + '" y="' + (y2(v) + 16).toFixed(1) + '" text-anchor="start">' + fmtVal(v) + "%</text>";
     });
+    out += labels;
     out += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
     var legend = bars.concat([line]);
     return '<div class="chart-wrap">' + legendHTML(legend) + out + chartTables(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "; line: right-hand scale (%)</div>" : "") + "</div>";

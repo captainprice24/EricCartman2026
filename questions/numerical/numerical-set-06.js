@@ -408,82 +408,84 @@ EPSO_BANK.registerSet({
       "explanation": "The biggest rise in euros is not the biggest percentage rise when it starts from a higher price."
     },
     {
-      "id": "n06-05-eu2",
-      "supersedes": "n06-05-eu",
+      "id": "n06-05-eu3",
+      "supersedes": "n06-05-eu2",
       "topic": "Growth needed to hold a share",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Rail freight (thousand tonnes) (fictional data)",
-          "columns": [
-            "Country",
-            "2010",
-            "2015",
-            "2020"
+          "type": "bar",
+          "title": "Rail freight (thousand tonnes; fictional data)",
+          "unit": "thousand tonnes",
+          "categories": [
+            "Aldoria",
+            "Quarta",
+            "Fernland",
+            "Dunmark",
+            "Tavel"
           ],
-          "rows": [
-            [
-              "Istrada",
-              "44,973",
-              "44,458",
-              "50,448"
-            ],
-            [
-              "Norvale",
-              "7,008",
-              "7,815",
-              "7,265"
-            ],
-            [
-              "Galvia",
-              "53,807",
-              "58,460",
-              "53,753"
-            ],
-            [
-              "Calmora",
-              "4,596",
-              "5,060",
-              "4,582"
-            ],
-            [
-              "Jorvik",
-              "62,012",
-              "62,671",
-              "59,795"
-            ]
+          "series": [
+            {
+              "name": "2010",
+              "values": [
+                40312,
+                4448,
+                43612,
+                9171,
+                41336
+              ]
+            },
+            {
+              "name": "2015",
+              "values": [
+                43485,
+                4745,
+                45431,
+                9013,
+                41469
+              ]
+            },
+            {
+              "name": "2020",
+              "values": [
+                41384,
+                4331,
+                42858,
+                9818,
+                47781
+              ]
+            }
           ],
-          "note": "From 2020 to 2025, every other country's freight grows by 6%."
+          "note": "From 2020 to 2025, every other country's freight grows by 10%."
         }
       ],
-      "stem": "By what percentage would Istrada's freight have to grow from 2020 to 2025 for it to carry exactly one third of the five countries' total in 2025?",
+      "stem": "By what percentage would Aldoria's freight have to grow from 2020 to 2025 for it to carry exactly one third of the five countries' total in 2025?",
       "options": [
-        "23.2%",
-        "24.3%",
-        "30.3%",
-        "31.7%",
-        "39.6%"
+        "29.5%",
+        "32.5%",
+        "33.8%",
+        "36.6%",
+        "39.3%"
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
-        "If Istrada carries one third, the others carry the rest.",
+        "If Aldoria carries one third, the others carry the rest.",
         "Grow the others first, then find the target and compare it with today's figure."
       ],
       "solution": [
-        "2020: Istrada 50,448; the other four 125,395.",
-        "Others in 2025 = 125,395 × 1.06 = 132,918.7.",
-        "One third of the total means 1 part for Istrada to 2 parts for the others: target = 132,918.7 ÷ 2 ≈ 66,459.4.",
-        "Required growth = (66,459.4 ÷ 50,448 − 1) × 100 ≈ 31.74%.",
-        "Answer: 31.7%."
+        "2020: Aldoria 41,384; the other four 104,788.",
+        "Others in 2025 = 104,788 × 1.10 = 115,266.8.",
+        "One third of the total means 1 part for Aldoria to 2 parts for the others: target = 115,266.8 ÷ 2 = 57,633.4.",
+        "Required growth = (57,633.4 ÷ 41,384 − 1) × 100 ≈ 39.26%.",
+        "Answer: 39.3%."
       ],
       "optionNotes": [
-        "Takes one third of the grown total, as if Istrada also grew by 6%.",
-        "Leaves out the 6% growth of the other countries.",
+        "Takes one third of the grown total, as if Aldoria also grew by 10%.",
+        "Compares the target with Aldoria's 2015 figure.",
+        "Reads the other countries' 2015 figures.",
         "Adds the others' growth to the required growth.",
-        "Correct. The target share is set against the others' grown freight, so their growth enters before the required growth is found.",
-        "Applies the 6% growth twice."
+        "Correct. The target share is set against the others' grown freight, so their growth enters before the required growth is found."
       ],
       "explanation": "The target share is set against the others' grown freight, so their growth enters before the required growth is found."
     },
@@ -594,15 +596,15 @@ EPSO_BANK.registerSet({
       "supersedes": "n06-06"
     },
     {
-      "id": "n06-07-eu2",
-      "supersedes": "n06-07-eu",
+      "id": "n06-07-eu3",
+      "supersedes": "n06-07-eu2",
       "topic": "Turnout needed to change the result",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
           "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
+          "title": "Aldoria: referendum votes and turnout by district (fictional data)",
           "unit": "votes",
           "categories": [
             "District 1",
@@ -643,7 +645,7 @@ EPSO_BANK.registerSet({
           "note": "Turnout = percentage of eligible voters who voted (YES or NO). The side with more votes in all four districts combined wins."
         }
       ],
-      "stem": "If every additional voter in District 1 had voted YES, what turnout (%) in District 1 would have produced a tie overall?",
+      "stem": "In Aldoria's referendum, if every additional voter in District 1 had voted YES, what turnout (%) in District 1 would have produced a tie overall?",
       "options": [
         "62.6%",
         "69.6%",
@@ -790,82 +792,77 @@ EPSO_BANK.registerSet({
       "supersedes": "n06-08"
     },
     {
-      "id": "n06-09-eu2",
-      "supersedes": "n06-09-eu",
+      "id": "n06-09-eu3",
+      "supersedes": "n06-09-eu2",
       "topic": "Capped proportional allocation",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Population by region (thousand) (fictional data)",
-          "columns": [
-            "Region",
-            "Population (thousand)",
-            "Area (km²)",
-            "Schools"
+          "type": "bar",
+          "title": "Population by region (thousand; fictional data)",
+          "unit": "thousand people",
+          "categories": [
+            "North",
+            "South",
+            "East",
+            "West",
+            "Centre",
+            "Islands"
           ],
-          "rows": [
-            [
-              "North",
-              "1,824",
-              "8,357",
-              "73"
-            ],
-            [
-              "South",
-              "1,303",
-              "3,805",
-              "110"
-            ],
-            [
-              "East",
-              "1,379",
-              "7,024",
-              "150"
-            ],
-            [
-              "West",
-              "975",
-              "3,001",
-              "298"
-            ],
-            [
-              "Centre",
-              "3,265",
-              "6,771",
-              "297"
-            ]
+          "series": [
+            {
+              "name": "2015",
+              "values": [
+                886,
+                1996,
+                4097,
+                1382,
+                1232,
+                2033
+              ]
+            },
+            {
+              "name": "2025",
+              "values": [
+                931,
+                2156,
+                4463,
+                1415,
+                1333,
+                2109
+              ]
+            }
           ],
-          "note": "EUR 270 million is shared in proportion to population, but no region may receive more than EUR 80 million. Any excess is shared among the other regions in proportion to their populations."
+          "note": "A regional fund of EUR 370 million is shared in proportion to 2025 population, but no region may receive more than EUR 105 million. Any excess is shared among the other regions in proportion to their 2025 populations."
         }
       ],
-      "stem": "How much does North receive (EUR million)?",
+      "stem": "From the regional fund, how much does North receive (EUR million)?",
       "options": [
-        "EUR 44.69 million",
-        "EUR 47.50 million",
-        "EUR 56.31 million",
-        "EUR 60.65 million",
-        "EUR 63.23 million"
+        "EUR 21.90 million",
+        "EUR 27.76 million",
+        "EUR 29.87 million",
+        "EUR 31.06 million",
+        "EUR 33.38 million"
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Check first which region would exceed the cap.",
         "That region gets exactly the cap; the rest of the money is shared among the others."
       ],
       "solution": [
-        "Total population = 1,824 + 1,303 + 1,379 + 975 + 3,265 = 8,746 thousand.",
-        "Centre would get 270 × 3,265 ÷ 8,746 ≈ 100.79, above the cap, so it receives EUR 80 million.",
-        "The other regions share 270 − 80 = EUR 190 million over 8,746 − 3,265 = 5,481 thousand people; none of them reaches the cap.",
-        "North = 190 × 1,824 ÷ 5,481 ≈ 63.23 EUR million.",
-        "Answer: EUR 63.23 million."
+        "Total 2025 population = 931 + 2,156 + 4,463 + 1,415 + 1,333 + 2,109 = 12,407 thousand.",
+        "East would get 370 × 4,463 ÷ 12,407 ≈ 133.10, above the cap, so it receives EUR 105 million.",
+        "The other regions share 370 − 105 = EUR 265 million over 12,407 − 4,463 = 7,944 thousand people; none of them reaches the cap.",
+        "North = 265 × 931 ÷ 7,944 ≈ 31.06 EUR million.",
+        "Answer: EUR 31.06 million."
       ],
       "optionNotes": [
         "Scales the cap by the ratio of the two populations.",
-        "Splits the remainder equally among the four other regions.",
         "Ignores the cap.",
-        "Shares the excess among all five regions, including the capped one.",
-        "Correct. A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
+        "Shares the excess among all regions, including the capped one.",
+        "Correct. A binding cap fixes one region's amount; the remainder is then shared on a smaller population base.",
+        "Shares the excess equally among the 5 other regions."
       ],
       "explanation": "A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
     },

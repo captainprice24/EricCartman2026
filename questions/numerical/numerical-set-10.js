@@ -8,52 +8,54 @@ EPSO_BANK.registerSet({
   "challenge": true,
   "questions": [
     {
-      "id": "n10-01-eu2",
-      "supersedes": "n10-01-eu",
+      "id": "n10-01-eu3",
+      "supersedes": "n10-01-eu2",
       "topic": "Speed needed to win",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "400 m final: split and finishing times (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "Time at 100 m",
-            "Time at 200 m",
-            "Finishing time"
+          "type": "hbar",
+          "title": "400 m final: split and finishing times (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Kestrel",
+            "Galvia",
+            "Dunmark",
+            "Sundra",
+            "Rosmark"
           ],
-          "rows": [
-            [
-              "Kestrel",
-              "10.99",
-              "21.37",
-              "49.78"
-            ],
-            [
-              "Galvia",
-              "11.70",
-              "22.79",
-              "49.38"
-            ],
-            [
-              "Dunmark",
-              "11.35",
-              "22.10",
-              "46.45"
-            ],
-            [
-              "Sundra",
-              "11.89",
-              "23.17",
-              "48.16"
-            ],
-            [
-              "Rosmark",
-              "11.55",
-              "22.50",
-              "49.98"
-            ]
+          "series": [
+            {
+              "name": "Time at 100 m",
+              "values": [
+                10.99,
+                11.7,
+                11.35,
+                11.89,
+                11.55
+              ]
+            },
+            {
+              "name": "Time at 200 m",
+              "values": [
+                21.37,
+                22.79,
+                22.1,
+                23.17,
+                22.5
+              ]
+            },
+            {
+              "name": "Finishing time",
+              "values": [
+                49.78,
+                49.38,
+                46.45,
+                48.16,
+                49.98
+              ]
+            }
           ]
         }
       ],
@@ -86,8 +88,8 @@ EPSO_BANK.registerSet({
       "explanation": "The time left is the winner's finishing time minus the runner's own split, not the winner's split."
     },
     {
-      "id": "n10-02-eu2",
-      "supersedes": "n10-02-eu",
+      "id": "n10-02-eu3",
+      "supersedes": "n10-02-eu2",
       "topic": "Speed for a target average",
       "difficulty": 3,
       "challenge": true,
@@ -104,115 +106,140 @@ EPSO_BANK.registerSet({
           "rows": [
             [
               "Stage 1",
-              "59",
-              "37.4",
-              "41.6"
+              "12",
+              "26.2",
+              "29.0"
             ],
             [
               "Stage 2",
-              "57",
-              "29.9",
-              "31.5"
+              "46",
+              "48.0",
+              "47.2"
             ],
             [
               "Stage 3",
-              "13",
-              "47.9",
-              "37.8"
+              "20",
+              "41.6",
+              "35.9"
             ],
             [
               "Stage 4",
-              "33",
-              "49.3",
-              "44.6"
+              "20",
+              "27.8",
+              "37.0"
             ],
             [
               "Stage 5",
-              "57",
-              "41.3",
+              "51",
+              "45.5",
               "—"
             ]
           ],
-          "note": "Rider B wants an average speed of exactly 40 km/h over all five stages."
+          "note": "Rider B wants an average speed of exactly 38 km/h over all five stages."
         }
       ],
-      "stem": "What average speed (km/h) does Rider B need on stage 5?",
+      "stem": "In the Tour of Aldoria, what average speed (km/h) does Rider B need on stage 5?",
       "options": [
-        "40.0 km/h",
-        "42.4 km/h",
-        "44.5 km/h",
-        "49.0 km/h",
-        "54.3 km/h"
+        "35.5 km/h",
+        "36.6 km/h",
+        "38.0 km/h",
+        "39.1 km/h",
+        "40.9 km/h"
       ],
-      "answer": 3,
+      "answer": 0,
       "hints": [
         "Average speed = total distance ÷ total time.",
         "Find the total time allowed, subtract the time already used, and divide stage 5 by what is left."
       ],
       "solution": [
-        "Total distance = 59 + 57 + 13 + 33 + 57 = 219 km; at 40 km/h the allowed time is 219 ÷ 40 = 5.4750 h.",
-        "Time used on stages 1–4 = 59 ÷ 41.6 + 57 ÷ 31.5 + 13 ÷ 37.8 + 33 ÷ 44.6 ≈ 4.3116 h.",
-        "Time left for stage 5 = 5.4750 − 4.3116 ≈ 1.1634 h.",
-        "Speed needed = 57 ÷ 1.1634 ≈ 49.00 km/h.",
-        "Answer: 49.0 km/h."
+        "Total distance = 12 + 46 + 20 + 20 + 51 = 149 km; at 38 km/h the allowed time is 149 ÷ 38 ≈ 3.9211 h.",
+        "Time used on stages 1–4 = 12 ÷ 29.0 + 46 ÷ 47.2 + 20 ÷ 35.9 + 20 ÷ 37.0 ≈ 2.4860 h.",
+        "Time left for stage 5 = 3.9211 − 2.4860 ≈ 1.4350 h.",
+        "Speed needed = 51 ÷ 1.4350 ≈ 35.54 km/h.",
+        "Answer: 35.5 km/h."
       ],
       "optionNotes": [
-        "Assumes stage 5 must simply be ridden at the target average.",
-        "Makes up the shortfall in speed one-for-one instead of in time.",
-        "Averages the five stage speeds instead of using total distance ÷ total time.",
         "Correct. An average speed is total distance over total time; averaging the stage speeds gives the wrong answer.",
-        "Uses the other rider's stage times."
+        "Makes up the shortfall in speed one-for-one instead of in time.",
+        "Assumes stage 5 must simply be ridden at the target average.",
+        "Uses the other rider's stage times.",
+        "Averages the five stage speeds instead of using total distance ÷ total time."
       ],
       "explanation": "An average speed is total distance over total time; averaging the stage speeds gives the wrong answer."
     },
     {
-      "id": "n10-03-eu2",
-      "supersedes": "n10-03-eu",
+      "id": "n10-03-eu3",
+      "supersedes": "n10-03-eu2",
       "topic": "Average price under tiered rates",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
+          "type": "bar",
+          "title": "Electricity prices per kWh by consumption band (EUR; fictional data)",
+          "unit": "EUR per kWh",
+          "categories": [
+            "Cedar Utilities",
+            "Evergreen Supply",
+            "Delta Grid",
+            "Bluefield Power"
+          ],
+          "series": [
+            {
+              "name": "First 200 kWh",
+              "values": [
+                0.232,
+                0.255,
+                0.232,
+                0.197
+              ]
+            },
+            {
+              "name": "Next 300 kWh",
+              "values": [
+                0.302,
+                0.299,
+                0.277,
+                0.271
+              ]
+            },
+            {
+              "name": "Above 500 kWh",
+              "values": [
+                0.363,
+                0.412,
+                0.334,
+                0.359
+              ]
+            }
+          ],
+          "note": "Each band price applies only to the kilowatt-hours inside that band."
+        },
+        {
           "type": "table",
-          "title": "Electricity tariffs (EUR) (fictional data)",
+          "title": "Standing charges (fictional data)",
           "columns": [
             "Supplier",
-            "Standing charge per month",
-            "First 200 kWh (per kWh)",
-            "Next 300 kWh (per kWh)",
-            "Above 500 kWh (per kWh)"
+            "Standing charge (EUR per month)"
           ],
           "rows": [
             [
               "Cedar Utilities",
-              "9.62",
-              "0.232",
-              "0.302",
-              "0.363"
+              "9.62"
             ],
             [
               "Evergreen Supply",
-              "17.36",
-              "0.255",
-              "0.299",
-              "0.412"
+              "17.36"
             ],
             [
               "Delta Grid",
-              "6.79",
-              "0.232",
-              "0.277",
-              "0.334"
+              "6.79"
             ],
             [
               "Bluefield Power",
-              "16.78",
-              "0.197",
-              "0.271",
-              "0.359"
+              "16.78"
             ]
-          ],
-          "note": "Each band price applies only to the kilowatt-hours inside that band."
+          ]
         }
       ],
       "stem": "A household uses 1,150 kWh in a month with Evergreen Supply. What is its average cost per kWh, including the standing charge (EUR)?",
@@ -334,62 +361,86 @@ EPSO_BANK.registerSet({
       "explanation": "With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice."
     },
     {
-      "id": "n10-05-eu2",
-      "supersedes": "n10-05-eu",
+      "id": "n10-05-eu3",
+      "supersedes": "n10-05-eu2",
       "topic": "Price change needed for a target inflation",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Consumer prices (fictional data)",
-          "columns": [
-            "Category",
-            "Weight in the price index (%)",
-            "Price change (%)"
+          "type": "pie",
+          "title": "Weights in the consumer price index (%; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Food",
+              "value": 17.6
+            },
+            {
+              "label": "Housing",
+              "value": 15.1
+            },
+            {
+              "label": "Transport",
+              "value": 13.8
+            },
+            {
+              "label": "Energy",
+              "value": 17.6
+            },
+            {
+              "label": "Health",
+              "value": 17.6
+            },
+            {
+              "label": "Leisure",
+              "value": 18.3
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Price changes by category (%; housing not yet published; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Food",
+            "Transport",
+            "Energy",
+            "Health",
+            "Leisure"
           ],
-          "rows": [
-            [
-              "Food",
-              "17.6",
-              "0.2"
-            ],
-            [
-              "Housing",
-              "15.1",
-              "—"
-            ],
-            [
-              "Transport",
-              "13.8",
-              "1.0"
-            ],
-            [
-              "Energy",
-              "17.6",
-              "6.9"
-            ],
-            [
-              "Health",
-              "17.6",
-              "3.1"
-            ],
-            [
-              "Leisure",
-              "18.3",
-              "−1.3"
-            ]
+          "series": [
+            {
+              "name": "Last year",
+              "values": [
+                2.8,
+                5,
+                4.1,
+                4.6,
+                3.3
+              ]
+            },
+            {
+              "name": "This year",
+              "values": [
+                1.7,
+                2.3,
+                7,
+                4,
+                0.4
+              ]
+            }
           ],
-          "note": "Overall inflation is the weighted average of the category price changes."
+          "note": "Overall inflation this year is the weighted average of the category price changes."
         }
       ],
-      "stem": "What price change (%) for housing would make overall inflation exactly 3.5%?",
+      "stem": "What price change (%) for housing would make overall inflation exactly 4.0%?",
       "options": [
-        "9.9%",
-        "10.3%",
-        "11.1%",
-        "12.0%",
-        "13.1%"
+        "7.5%",
+        "7.8%",
+        "8.6%",
+        "9.1%",
+        "10.0%"
       ],
       "answer": 3,
       "hints": [
@@ -398,10 +449,10 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Contribution of a category = weight × price change.",
-        "Known contributions: 17.6% × 0.2% + 13.8% × 1.0% + 17.6% × 6.9% + 17.6% × 3.1% + 18.3% × −1.3% ≈ 1.695 points.",
-        "Housing must add 3.5 − 1.695 ≈ 1.805 points.",
-        "Price change = 1.805 ÷ 15.1% ≈ 11.95%.",
-        "Answer: 12.0%."
+        "Known contributions: 17.6% × 1.7% + 13.8% × 2.3% + 17.6% × 7.0% + 17.6% × 4.0% + 18.3% × 0.4% ≈ 2.626 points.",
+        "Housing must add 4.0 − 2.626 ≈ 1.374 points.",
+        "Price change = 1.374 ÷ 15.1% ≈ 9.10%.",
+        "Answer: 9.1%."
       ],
       "optionNotes": [
         "Divides by the weight of leisure.",
@@ -413,8 +464,8 @@ EPSO_BANK.registerSet({
       "explanation": "Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight."
     },
     {
-      "id": "n10-06-eu2",
-      "supersedes": "n10-06-eu",
+      "id": "n10-06-eu3",
+      "supersedes": "n10-06-eu2",
       "topic": "Meeting point of two travellers",
       "difficulty": 3,
       "challenge": true,
@@ -473,7 +524,7 @@ EPSO_BANK.registerSet({
           "note": "Both travellers keep their average speed for the road type throughout."
         }
       ],
-      "stem": "A bus and a e-scooter set off at the same time towards each other from the two ends of a 36 km rural road. How far from the bus's start do they meet (km)?",
+      "stem": "A bus and an e-scooter set off at the same time towards each other from the two ends of a 36 km rural road. How far from the bus's start do they meet (km)?",
       "options": [
         "18.00 km",
         "22.70 km",
@@ -502,91 +553,111 @@ EPSO_BANK.registerSet({
       "explanation": "Travelling towards each other, the closing speed is the sum of the speeds, and each covers a distance in proportion to its own speed."
     },
     {
-      "id": "n10-07-eu2",
-      "supersedes": "n10-07-eu",
+      "id": "n10-07-eu3",
+      "supersedes": "n10-07-eu2",
       "topic": "Best overall rate despite the mix",
       "difficulty": 3,
       "challenge": true,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Cases resolved by office: land registry (fictional data)",
-          "columns": [
-            "Office",
-            "Simple cases",
-            "Simple resolved (%)",
-            "Complex cases",
-            "Complex resolved (%)"
+          "type": "stacked",
+          "title": "Land registry: cases handled by office (fictional data)",
+          "unit": "cases",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
           ],
-          "rows": [
-            [
-              "Office A",
-              "119",
-              "87.1",
-              "659",
-              "51.9"
-            ],
-            [
-              "Office B",
-              "774",
-              "79.1",
-              "109",
-              "53.6"
-            ],
-            [
-              "Office C",
-              "646",
-              "80.8",
-              "727",
-              "38.8"
-            ],
-            [
-              "Office D",
-              "128",
-              "93.4",
-              "859",
-              "64.1"
-            ],
-            [
-              "Office E",
-              "163",
-              "91.8",
-              "772",
-              "63.4"
-            ]
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                659,
+                823,
+                727,
+                149,
+                772
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                719,
+                101,
+                481,
+                710,
+                892
+              ]
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Share of cases resolved (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
+          ],
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                80.9,
+                82.3,
+                70.6,
+                90.7,
+                90
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                56,
+                57.3,
+                45.5,
+                58.699999999999996,
+                56
+              ]
+            }
           ]
         }
       ],
-      "stem": "In the land registry, which office resolved the highest percentage of all its cases?",
+      "stem": "In Aldoria's land registry, which office resolved the highest percentage of all its cases?",
       "options": [
-        "Office B",
         "Office A",
+        "Office B",
         "Office C",
         "Office D",
         "Office E"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Turn each percentage into a number of resolved cases first.",
         "An office can lead in each category and still trail overall if most of its cases are the harder kind."
       ],
       "solution": [
         "Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.",
-        "Office B: (774 × 79.1% + 109 × 53.6%) ÷ 883 ≈ 75.95%.",
-        "Office E: (163 × 91.8% + 772 × 63.4%) ÷ 935 ≈ 68.35%.",
-        "Office D: (128 × 93.4% + 859 × 64.1%) ÷ 987 ≈ 67.90%.",
-        "Office C: (646 × 80.8% + 727 × 38.8%) ÷ 1,373 ≈ 58.56%.",
-        "Office A: (119 × 87.1% + 659 × 51.9%) ÷ 778 ≈ 57.28%.",
+        "Office B: (823 × 82.3% + 101 × 57.3%) ÷ 924 ≈ 79.57%.",
+        "Office E: (772 × 90.0% + 892 × 56.0%) ÷ 1,664 ≈ 71.77%.",
+        "Office A: (659 × 80.9% + 719 × 56.0%) ÷ 1,378 ≈ 67.91%.",
+        "Office D: (149 × 90.7% + 710 × 58.7%) ÷ 859 ≈ 64.25%.",
+        "Office C: (727 × 70.6% + 481 × 45.5%) ÷ 1,208 ≈ 60.61%.",
         "Office B has the highest overall rate; Office D leads in both categories but handles mostly complex cases.",
         "Answer: Office B."
       ],
       "optionNotes": [
-        "Correct. Office B resolves 76.0% of all its cases, the highest overall rate.",
-        "Office A's overall rate is 57.3%.",
-        "Office C's overall rate is 58.6%.",
-        "Office D has the highest rate in both categories, but 87% of its cases are complex, so its overall rate is only 67.9%.",
-        "Office E's overall rate is 68.4%."
+        "Office A's overall rate is 67.9%.",
+        "Correct. Office B resolves 79.6% of all its cases, the highest overall rate.",
+        "Office C's overall rate is 60.6%.",
+        "Office D has the highest rate in both categories, but 83% of its cases are complex, so its overall rate is only 64.3%.",
+        "Office E's overall rate is 71.8%."
       ],
       "explanation": "An overall rate is weighted by the case mix, so leading in every category does not guarantee leading overall."
     },
@@ -758,71 +829,67 @@ EPSO_BANK.registerSet({
       "explanation": "The three averages reveal the mix of calls, which then weights the two new times."
     },
     {
-      "id": "n10-10-eu2",
-      "supersedes": "n10-10-eu",
+      "id": "n10-10-eu3",
+      "supersedes": "n10-10-eu2",
       "topic": "Top speed from a race time",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Athletics finals: times by country (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "100 m",
-            "200 m",
-            "400 m",
-            "800 m"
+          "type": "hbar",
+          "title": "Athletics finals: times by country (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Istrada",
+            "Lunaria",
+            "Jorvik",
+            "Fernland",
+            "Kestrel"
           ],
-          "rows": [
-            [
-              "Istrada",
-              "11.49",
-              "20.35",
-              "47.24",
-              "104.1"
-            ],
-            [
-              "Lunaria",
-              "11.13",
-              "20.22",
-              "45.93",
-              "106.7"
-            ],
-            [
-              "Jorvik",
-              "10.01",
-              "20.64",
-              "46.05",
-              "105.9"
-            ],
-            [
-              "Fernland",
-              "10.35",
-              "20.66",
-              "46.51",
-              "103.5"
-            ],
-            [
-              "Kestrel",
-              "10.71",
-              "20.32",
-              "46.34",
-              "107.8"
-            ]
+          "series": [
+            {
+              "name": "100 m",
+              "values": [
+                11.49,
+                11.13,
+                10.01,
+                10.35,
+                10.71
+              ]
+            },
+            {
+              "name": "200 m",
+              "values": [
+                20.35,
+                20.22,
+                20.64,
+                20.66,
+                20.32
+              ]
+            },
+            {
+              "name": "400 m",
+              "values": [
+                47.24,
+                45.93,
+                46.05,
+                46.51,
+                46.34
+              ]
+            }
           ],
           "note": "Assume each sprinter accelerates uniformly from rest over the first 28 m of the 100 m, then runs at a constant top speed."
         }
       ],
-      "stem": "What was the top speed (m/s) of the fourth-placed athlete in the 100 m?",
+      "stem": "At the Valley championships, what was the top speed (m/s) of the fourth-placed athlete in the 100 m?",
       "options": [
+        "8.98 m/s",
+        "10.24 m/s",
         "11.14 m/s",
         "11.50 m/s",
-        "11.95 m/s",
-        "12.79 m/s",
-        "14.02 m/s"
+        "11.95 m/s"
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "During uniform acceleration from rest, the average speed is half the top speed.",
         "Write the race time as acceleration time + constant-speed time and solve for top speed."
@@ -835,11 +902,11 @@ EPSO_BANK.registerSet({
         "Answer: 11.50 m/s."
       ],
       "optionNotes": [
+        "Gives the average speed over the whole race.",
+        "Takes the average speed while accelerating as two thirds of top speed.",
         "Uses the next athlete's time.",
         "Correct. Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator.",
-        "Uses the previous athlete's time.",
-        "Uses the winner's time.",
-        "Doubles the acceleration distance."
+        "Uses the previous athlete's time."
       ],
       "explanation": "Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator."
     }

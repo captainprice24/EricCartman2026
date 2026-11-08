@@ -8,53 +8,56 @@ EPSO_BANK.registerSet({
   "challenge": true,
   "questions": [
     {
-      "id": "n09-01-eu2",
-      "supersedes": "n09-01-eu",
+      "id": "n09-01-eu3",
+      "supersedes": "n09-01-eu2",
       "topic": "Year one overtakes another",
       "difficulty": 3,
       "challenge": true,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Exports (fictional data)",
-          "columns": [
-            "Country",
-            "Exports 2019 (EUR billion)",
-            "Exports 2024 (EUR billion)",
-            "Annual growth from 2024 (%)"
+          "type": "combo",
+          "title": "Exports and expected annual growth (fictional data)",
+          "unit": "EUR billion",
+          "categories": [
+            "Hollen",
+            "Aldoria",
+            "Rosmark",
+            "Estoria",
+            "Sundra"
           ],
-          "rows": [
-            [
-              "Hollen",
-              "58.7",
-              "73.4",
-              "2.0"
-            ],
-            [
-              "Aldoria",
-              "57.4",
-              "69.2",
-              "2.6"
-            ],
-            [
-              "Rosmark",
-              "39.1",
-              "45.5",
-              "5.2"
-            ],
-            [
-              "Estoria",
-              "126.2",
-              "141.8",
-              "2.6"
-            ],
-            [
-              "Sundra",
-              "136.7",
-              "148.6",
-              "4.1"
-            ]
+          "series": [
+            {
+              "name": "Exports 2019",
+              "values": [
+                58.7,
+                57.4,
+                39.1,
+                126.2,
+                136.7
+              ]
+            },
+            {
+              "name": "Exports 2024",
+              "values": [
+                73.4,
+                69.2,
+                45.5,
+                141.8,
+                148.6
+              ]
+            },
+            {
+              "name": "Annual growth from 2024 (%)",
+              "values": [
+                2,
+                2.6,
+                5.2,
+                2.6,
+                4.1
+              ],
+              "line": true
+            }
           ],
           "note": "Assume each country keeps growing at its annual rate (compound growth)."
         }
@@ -371,8 +374,8 @@ EPSO_BANK.registerSet({
       "explanation": "A percentage-point change in share and a percentage growth in the total must be applied as separate factors."
     },
     {
-      "id": "n09-05-eu2",
-      "supersedes": "n09-05-eu",
+      "id": "n09-05-eu3",
+      "supersedes": "n09-05-eu2",
       "topic": "Estimate from an unlabelled chart",
       "difficulty": 3,
       "challenge": true,
@@ -422,13 +425,13 @@ EPSO_BANK.registerSet({
       ],
       "stem": "On the Ostland exchange, which quarter had the largest percentage rise in the cocoa price compared with the same quarter a year earlier?",
       "options": [
-        "Q3 22",
         "Q1 22",
+        "Q3 22",
         "Q2 22",
         "Q4 22",
         "Q1 23"
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Compare each quarter with the same quarter one year (four points) earlier.",
         "A percentage rise depends on the starting price, not only on the size of the rise."
@@ -444,8 +447,8 @@ EPSO_BANK.registerSet({
         "Answer: Q3 22."
       ],
       "optionNotes": [
-        "Correct. Q3 22: 1,250 → 1,750 EUR per tonne, +40.0%, the largest year-on-year rise.",
         "Q1 22 has the largest rise in euros (EUR 500), but only 28.6% on its higher starting price.",
+        "Correct. Q3 22: 1,250 → 1,750 EUR per tonne, +40.0%, the largest year-on-year rise.",
         "Q2 22: 1,750 → 1,500, −14.3%.",
         "Q4 22: 1,250 → 1,500, +20.0%.",
         "Q1 23: 2,250 → 1,750, −22.2%."
@@ -453,52 +456,54 @@ EPSO_BANK.registerSet({
       "explanation": "The biggest rise in euros is not the biggest percentage rise when it starts from a higher price."
     },
     {
-      "id": "n09-06-eu2",
-      "supersedes": "n09-06-eu",
+      "id": "n09-06-eu3",
+      "supersedes": "n09-06-eu2",
       "topic": "Growth needed to hold a share",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Rail freight (thousand tonnes) (fictional data)",
-          "columns": [
-            "Country",
-            "2010",
-            "2015",
-            "2020"
+          "type": "bar",
+          "title": "Rail freight (thousand tonnes; fictional data)",
+          "unit": "thousand tonnes",
+          "categories": [
+            "Aldoria",
+            "Marrow",
+            "Istrada",
+            "Calmora",
+            "Rosmark"
           ],
-          "rows": [
-            [
-              "Aldoria",
-              "5,394",
-              "5,854",
-              "5,870"
-            ],
-            [
-              "Marrow",
-              "36,539",
-              "35,387",
-              "36,287"
-            ],
-            [
-              "Istrada",
-              "38,242",
-              "34,224",
-              "35,336"
-            ],
-            [
-              "Calmora",
-              "57,797",
-              "57,023",
-              "57,354"
-            ],
-            [
-              "Rosmark",
-              "37,800",
-              "38,230",
-              "39,559"
-            ]
+          "series": [
+            {
+              "name": "2010",
+              "values": [
+                5394,
+                36539,
+                38242,
+                57797,
+                37800
+              ]
+            },
+            {
+              "name": "2015",
+              "values": [
+                5854,
+                35387,
+                34224,
+                57023,
+                38230
+              ]
+            },
+            {
+              "name": "2020",
+              "values": [
+                5870,
+                36287,
+                35336,
+                57354,
+                39559
+              ]
+            }
           ],
           "note": "From 2020 to 2025, every other country's freight grows by 10%."
         }
@@ -533,15 +538,15 @@ EPSO_BANK.registerSet({
       "explanation": "The target share is set against the others' grown freight, so their growth enters before the required growth is found."
     },
     {
-      "id": "n09-07-eu2",
-      "supersedes": "n09-07-eu",
+      "id": "n09-07-eu3",
+      "supersedes": "n09-07-eu2",
       "topic": "Turnout needed to change the result",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
           "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
+          "title": "Lunaria: referendum votes and turnout by district (fictional data)",
           "unit": "votes",
           "categories": [
             "District 1",
@@ -553,28 +558,28 @@ EPSO_BANK.registerSet({
             {
               "name": "Voted YES",
               "values": [
-                3909,
-                2652,
-                3381,
-                3148
+                2557,
+                3167,
+                3093,
+                2543
               ]
             },
             {
               "name": "Voted NO",
               "values": [
-                4043,
-                4077,
-                4150,
-                3216
+                2449,
+                3072,
+                3978,
+                2579
               ]
             },
             {
               "name": "Turnout (%)",
               "values": [
-                61.39,
-                60.46,
-                69.55,
-                70.94
+                70.01,
+                66.98,
+                58.09,
+                65.88
               ],
               "line": true
             }
@@ -582,13 +587,13 @@ EPSO_BANK.registerSet({
           "note": "Turnout = percentage of eligible voters who voted (YES or NO). The side with more votes in all four districts combined wins."
         }
       ],
-      "stem": "If every additional voter in District 2 had voted YES, what turnout (%) in District 2 would have produced a tie overall?",
+      "stem": "In Lunaria's referendum, if every additional voter in District 2 had voted YES, what turnout (%) in District 2 would have produced a tie overall?",
       "options": [
-        "65.5%",
-        "71.2%",
-        "82.0%",
-        "96.1%",
-        "103.5%"
+        "66.0%",
+        "70.8%",
+        "74.7%",
+        "78.5%",
+        "82.4%"
       ],
       "answer": 2,
       "hints": [
@@ -596,14 +601,14 @@ EPSO_BANK.registerSet({
         "Turn those votes into percentage points of District 2's eligible voters."
       ],
       "solution": [
-        "Overall NO lead = (4,043 + 4,077 + 4,150 + 3,216) − (3,909 + 2,652 + 3,381 + 3,148) = 15,486 − 13,090 = 2,396.",
-        "District 2 eligible voters = (2,652 + 4,077) ÷ 60.46% ≈ 11,129.7.",
-        "2,396 extra YES votes = 2,396 ÷ 11,129.7 × 100 ≈ 21.53 points of turnout.",
-        "Required turnout = 60.46 + 21.53 ≈ 81.99%.",
-        "Answer: 82.0%."
+        "Overall NO lead = (2,449 + 3,072 + 3,978 + 2,579) − (2,557 + 3,167 + 3,093 + 2,543) = 12,078 − 11,360 = 718.",
+        "District 2 eligible voters = (3,167 + 3,072) ÷ 66.98% ≈ 9,314.7.",
+        "718 extra YES votes = 718 ÷ 9,314.7 × 100 ≈ 7.71 points of turnout.",
+        "Required turnout = 66.98 + 7.71 ≈ 74.69%.",
+        "Answer: 74.7%."
       ],
       "optionNotes": [
-        "Spreads the NO lead over all four districts' eligible voters.",
+        "Uses only District 2's NO lead.",
         "Halves the NO lead, as if each extra vote also removed a NO vote.",
         "Correct. The extra YES votes must cover the overall NO lead, and each percentage point of turnout is one hundredth of the district's eligible voters.",
         "Measures the extra votes against the votes cast instead of the eligible voters.",
@@ -612,63 +617,58 @@ EPSO_BANK.registerSet({
       "explanation": "The extra YES votes must cover the overall NO lead, and each percentage point of turnout is one hundredth of the district's eligible voters."
     },
     {
-      "id": "n09-08-eu2",
-      "supersedes": "n09-08-eu",
+      "id": "n09-08-eu3",
+      "supersedes": "n09-08-eu2",
       "topic": "Capped proportional allocation",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Population by region (thousand) (fictional data)",
-          "columns": [
-            "Region",
-            "Population (thousand)",
-            "Area (km²)",
-            "Schools"
+          "type": "bar",
+          "title": "Population by region (thousand; fictional data)",
+          "unit": "thousand people",
+          "categories": [
+            "North",
+            "South",
+            "East",
+            "West",
+            "Centre",
+            "Islands"
           ],
-          "rows": [
-            [
-              "North",
-              "1,363",
-              "8,411",
-              "267"
-            ],
-            [
-              "South",
-              "1,881",
-              "4,083",
-              "105"
-            ],
-            [
-              "East",
-              "1,509",
-              "2,995",
-              "68"
-            ],
-            [
-              "West",
-              "816",
-              "7,035",
-              "253"
-            ],
-            [
-              "Centre",
-              "3,630",
-              "4,365",
-              "142"
-            ]
+          "series": [
+            {
+              "name": "2015",
+              "values": [
+                1308,
+                1628,
+                1910,
+                845,
+                1070,
+                4708
+              ]
+            },
+            {
+              "name": "2025",
+              "values": [
+                1457,
+                1725,
+                2015,
+                923,
+                1129,
+                4940
+              ]
+            }
           ],
-          "note": "EUR 280 million is shared in proportion to population, but no region may receive more than EUR 94 million. Any excess is shared among the other regions in proportion to their populations."
+          "note": "A regional fund of EUR 210 million is shared in proportion to 2025 population, but no region may receive more than EUR 68 million. Any excess is shared among the other regions in proportion to their 2025 populations."
         }
       ],
-      "stem": "How much does South receive (EUR million)?",
+      "stem": "From the regional fund, how much does South receive (EUR million)?",
       "options": [
-        "EUR 46.50 million",
-        "EUR 48.71 million",
-        "EUR 57.25 million",
-        "EUR 60.63 million",
-        "EUR 62.82 million"
+        "EUR 23.74 million",
+        "EUR 28.40 million",
+        "EUR 29.72 million",
+        "EUR 32.14 million",
+        "EUR 33.79 million"
       ],
       "answer": 4,
       "hints": [
@@ -676,17 +676,17 @@ EPSO_BANK.registerSet({
         "That region gets exactly the cap; the rest of the money is shared among the others."
       ],
       "solution": [
-        "Total population = 1,363 + 1,881 + 1,509 + 816 + 3,630 = 9,199 thousand.",
-        "Centre would get 280 × 3,630 ÷ 9,199 ≈ 110.49, above the cap, so it receives EUR 94 million.",
-        "The other regions share 280 − 94 = EUR 186 million over 9,199 − 3,630 = 5,569 thousand people; none of them reaches the cap.",
-        "South = 186 × 1,881 ÷ 5,569 ≈ 62.82 EUR million.",
-        "Answer: EUR 62.82 million."
+        "Total 2025 population = 1,457 + 1,725 + 2,015 + 923 + 1,129 + 4,940 = 12,189 thousand.",
+        "Islands would get 210 × 4,940 ÷ 12,189 ≈ 85.11, above the cap, so it receives EUR 68 million.",
+        "The other regions share 210 − 68 = EUR 142 million over 12,189 − 4,940 = 7,249 thousand people; none of them reaches the cap.",
+        "South = 142 × 1,725 ÷ 7,249 ≈ 33.79 EUR million.",
+        "Answer: EUR 33.79 million."
       ],
       "optionNotes": [
-        "Splits the remainder equally among the four other regions.",
         "Scales the cap by the ratio of the two populations.",
+        "Splits the remainder equally among the 5 other regions.",
         "Ignores the cap.",
-        "Shares the excess among all five regions, including the capped one.",
+        "Shares the excess among all regions, including the capped one.",
         "Correct. A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
       ],
       "explanation": "A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
@@ -795,75 +795,79 @@ EPSO_BANK.registerSet({
       "explanation": "When the total changes, the largest rise in share is not necessarily the largest rise in tonnes."
     },
     {
-      "id": "n09-10-eu2",
-      "supersedes": "n09-10-eu",
+      "id": "n09-10-eu3",
+      "supersedes": "n09-10-eu2",
       "topic": "True share of positive results",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Screening test results (fictional data)",
-          "columns": [
-            "Laboratory",
-            "People with the condition (%)",
-            "Detected when present (%)",
-            "Positive when absent (%)"
+          "type": "bar",
+          "title": "Screening test results by laboratory (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Lab 1",
+            "Lab 2",
+            "Lab 3",
+            "Lab 4"
           ],
-          "rows": [
-            [
-              "Lab 1",
-              "15.2",
-              "83.8",
-              "10.3"
-            ],
-            [
-              "Lab 2",
-              "11.7",
-              "96.5",
-              "6.4"
-            ],
-            [
-              "Lab 3",
-              "17.1",
-              "89.9",
-              "8.2"
-            ],
-            [
-              "Lab 4",
-              "14.4",
-              "82.8",
-              "8.2"
-            ]
+          "series": [
+            {
+              "name": "People with the condition",
+              "values": [
+                22,
+                12.1,
+                12.9,
+                16.3
+              ]
+            },
+            {
+              "name": "Detected when present",
+              "values": [
+                88.3,
+                92.4,
+                80.1,
+                83.3
+              ]
+            },
+            {
+              "name": "Positive when absent",
+              "values": [
+                3.6,
+                9.1,
+                6.5,
+                10.3
+              ]
+            }
           ]
         }
       ],
-      "stem": "At Lab 2, what percentage of positive results come from people who have the condition?",
+      "stem": "In the Tavel screening programme, what percentage of positive results at Lab 2 come from people who have the condition?",
       "options": [
-        "63.8%",
-        "66.6%",
-        "73.0%",
-        "75.7%",
-        "78.5%"
+        "58.3%",
+        "60.1%",
+        "62.6%",
+        "66.4%",
+        "74.1%"
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Imagine 10,000 people tested and split them into those with and without the condition.",
         "Positives = true positives + false positives."
       ],
       "solution": [
-        "Out of 10,000 tested at Lab 2: 1,170 have the condition and 8,830 do not.",
-        "True positives = 1,170 × 96.5% ≈ 1,129.0; false positives = 8,830 × 6.4% ≈ 565.1.",
-        "All positives = 1,129.0 + 565.1 ≈ 1,694.2.",
-        "Share from people with the condition = 1,129.0 ÷ 1,694.2 × 100 ≈ 66.64%.",
-        "Answer: 66.6%."
+        "Out of 10,000 tested at Lab 2: 1,210 have the condition and 8,790 do not.",
+        "True positives = 1,210 × 92.4% ≈ 1,118.0; false positives = 8,790 × 9.1% ≈ 799.9.",
+        "All positives = 1,118.0 + 799.9 ≈ 1,917.9.",
+        "Share from people with the condition = 1,118.0 ÷ 1,917.9 × 100 ≈ 58.29%.",
+        "Answer: 58.3%."
       ],
       "optionNotes": [
-        "Applies the false-positive rate to everyone tested, not only to those without the condition.",
         "Correct. Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones.",
-        "Uses the prevalence of Lab 1.",
         "Uses the prevalence of Lab 3.",
-        "Uses the share missed when present instead of the false-positive rate."
+        "Uses the share missed when present instead of the false-positive rate.",
+        "Uses the prevalence of Lab 4.",
+        "Uses the prevalence of Lab 1."
       ],
       "explanation": "Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones."
     }

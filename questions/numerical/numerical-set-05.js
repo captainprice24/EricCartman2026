@@ -8,69 +8,89 @@ EPSO_BANK.registerSet({
   "challenge": true,
   "questions": [
     {
-      "id": "n05-01-eu2",
-      "supersedes": "n05-01-eu",
+      "id": "n05-01-eu3",
+      "supersedes": "n05-01-eu2",
       "topic": "Best overall rate despite the mix",
       "difficulty": 3,
       "challenge": true,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Cases resolved by office: consumer ombudsman (fictional data)",
-          "columns": [
-            "Office",
-            "Simple cases",
-            "Simple resolved (%)",
-            "Complex cases",
-            "Complex resolved (%)"
+          "type": "stacked",
+          "title": "Consumer ombudsman: cases handled by office (fictional data)",
+          "unit": "cases",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
           ],
-          "rows": [
-            [
-              "Office A",
-              "144",
-              "88.1",
-              "698",
-              "51.6"
-            ],
-            [
-              "Office B",
-              "194",
-              "76.8",
-              "215",
-              "44.0"
-            ],
-            [
-              "Office C",
-              "89",
-              "87.5",
-              "880",
-              "42.2"
-            ],
-            [
-              "Office D",
-              "796",
-              "84.5",
-              "121",
-              "50.2"
-            ],
-            [
-              "Office E",
-              "351",
-              "86.3",
-              "866",
-              "39.9"
-            ]
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                555,
+                215,
+                880,
+                106,
+                853
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                267,
+                334,
+                733,
+                744,
+                101
+              ]
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Share of cases resolved (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
+          ],
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                76.9,
+                74.7,
+                73.3,
+                81,
+                71.5
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                41.9,
+                38.3,
+                41.4,
+                49,
+                40
+              ]
+            }
           ]
         }
       ],
-      "stem": "In the consumer ombudsman, which office resolved the highest percentage of all its cases?",
+      "stem": "In Fernland's consumer ombudsman, which office resolved the highest percentage of all its cases?",
       "options": [
         "Office A",
         "Office B",
         "Office C",
-        "Office D",
-        "Office E"
+        "Office E",
+        "Office D"
       ],
       "answer": 3,
       "hints": [
@@ -79,20 +99,20 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.",
-        "Office D: (796 × 84.5% + 121 × 50.2%) ÷ 917 ≈ 79.97%.",
-        "Office B: (194 × 76.8% + 215 × 44.0%) ÷ 409 ≈ 59.56%.",
-        "Office A: (144 × 88.1% + 698 × 51.6%) ÷ 842 ≈ 57.84%.",
-        "Office E: (351 × 86.3% + 866 × 39.9%) ÷ 1,217 ≈ 53.28%.",
-        "Office C: (89 × 87.5% + 880 × 42.2%) ÷ 969 ≈ 46.36%.",
-        "Office D has the highest overall rate; Office A leads in both categories but handles mostly complex cases.",
-        "Answer: Office D."
+        "Office E: (853 × 71.5% + 101 × 40.0%) ÷ 954 ≈ 68.17%.",
+        "Office A: (555 × 76.9% + 267 × 41.9%) ÷ 822 ≈ 65.53%.",
+        "Office C: (880 × 73.3% + 733 × 41.4%) ÷ 1,613 ≈ 58.80%.",
+        "Office D: (106 × 81.0% + 744 × 49.0%) ÷ 850 ≈ 52.99%.",
+        "Office B: (215 × 74.7% + 334 × 38.3%) ÷ 549 ≈ 52.56%.",
+        "Office E has the highest overall rate; Office D leads in both categories but handles mostly complex cases.",
+        "Answer: Office E."
       ],
       "optionNotes": [
-        "Office A has the highest rate in both categories, but 83% of its cases are complex, so its overall rate is only 57.8%.",
-        "Office B's overall rate is 59.6%.",
-        "Office C's overall rate is 46.4%.",
-        "Correct. Office D resolves 80.0% of all its cases, the highest overall rate.",
-        "Office E's overall rate is 53.3%."
+        "Office A's overall rate is 65.5%.",
+        "Office B's overall rate is 52.6%.",
+        "Office C's overall rate is 58.8%.",
+        "Correct. Office E resolves 68.2% of all its cases, the highest overall rate.",
+        "Office D has the highest rate in both categories, but 88% of its cases are complex, so its overall rate is only 53.0%."
       ],
       "explanation": "An overall rate is weighted by the case mix, so leading in every category does not guarantee leading overall."
     },
@@ -214,83 +234,89 @@ EPSO_BANK.registerSet({
       "supersedes": "n05-02"
     },
     {
-      "id": "n05-03-eu2",
-      "supersedes": "n05-03-eu",
-      "topic": "Average price under tiered rates",
+      "id": "n05-03-eu3",
+      "supersedes": "n05-03-eu2",
+      "topic": "Per-capita gap after population change",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
           "type": "table",
-          "title": "Electricity tariffs (EUR) (fictional data)",
+          "title": "Theatre tickets and population (fictional data)",
           "columns": [
-            "Supplier",
-            "Standing charge per month",
-            "First 200 kWh (per kWh)",
-            "Next 300 kWh (per kWh)",
-            "Above 500 kWh (per kWh)"
+            "Country",
+            "Population 2015 (thousand)",
+            "Population change 2015–2020 (%)",
+            "Tickets 2015 (thousand)",
+            "Tickets 2020 (thousand)"
           ],
           "rows": [
             [
-              "Delta Grid",
-              "11.22",
-              "0.213",
-              "0.255",
-              "0.335"
+              "Calmora",
+              "4,862",
+              "−2.9",
+              "16,920",
+              "21,167"
             ],
             [
-              "Bluefield Power",
-              "15.23",
-              "0.228",
-              "0.286",
-              "0.361"
+              "Dunmark",
+              "13,561",
+              "−5.0",
+              "81,298",
+              "94,224"
             ],
             [
-              "Cedar Utilities",
-              "10.97",
-              "0.257",
-              "0.329",
-              "0.383"
+              "Tavel",
+              "6,047",
+              "+1.7",
+              "22,737",
+              "22,737"
             ],
             [
-              "Evergreen Supply",
-              "7.60",
-              "0.253",
-              "0.305",
-              "0.391"
+              "Marrow",
+              "13,723",
+              "+6.9",
+              "74,749",
+              "99,416"
+            ],
+            [
+              "Istrada",
+              "12,273",
+              "+7.9",
+              "64,801",
+              "86,509"
             ]
-          ],
-          "note": "Each band price applies only to the kilowatt-hours inside that band."
+          ]
         }
       ],
-      "stem": "A household uses 650 kWh in a month with Delta Grid. What is its average cost per kWh, including the standing charge (EUR)?",
+      "stem": "By what percentage were tickets per inhabitant in Istrada higher than in Calmora in 2020?",
       "options": [
-        "EUR 0.278",
-        "EUR 0.302",
-        "EUR 0.321",
-        "EUR 0.336",
-        "EUR 0.352"
+        "45.7%",
+        "50.1%",
+        "51.7%",
+        "57.2%",
+        "61.9%"
       ],
       "answer": 0,
       "hints": [
-        "Split the consumption into the three bands first.",
-        "Only the kWh above 500 are charged at the top price."
+        "Update both populations to 2020 first.",
+        "Calmora is the base of the comparison."
       ],
       "solution": [
-        "650 kWh = 200 (first band) + 300 (second band) + 150 (above 500 kWh).",
-        "Energy cost = 200 × 0.213 + 300 × 0.255 + 150 × 0.335 = 42.60 + 76.50 + 50.25 = EUR 169.35.",
-        "Total with the standing charge = 169.35 + 11.22 = EUR 180.57.",
-        "Average = 180.57 ÷ 650 = EUR 0.2778 per kWh.",
-        "Answer: EUR 0.278."
+        "2020 populations (thousand): Istrada 12,273 × 1.079 ≈ 13,242.6; Calmora 4,862 × 0.971 ≈ 4,721.0.",
+        "Tickets per inhabitant in 2020: Istrada 86,509 ÷ 13,242.6 ≈ 6.5326; Calmora 21,167 ÷ 4,721.0 ≈ 4.4836.",
+        "Calmora follows \"than\", so it is the base.",
+        "Difference = (6.5326 ÷ 4.4836 − 1) × 100 ≈ 45.70%.",
+        "Answer: 45.7%."
       ],
       "optionNotes": [
-        "Correct. Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours.",
-        "Treats the second band as ending at 300 kWh.",
-        "Uses Evergreen Supply's tariff.",
-        "Uses Cedar Utilities's tariff.",
-        "Charges every kWh at the top band price."
+        "Correct. Both per-capita values need the later populations; the country after \"than\" is the base.",
+        "Updates only Istrada's population.",
+        "Uses 2015 tickets.",
+        "Updates only Calmora's population.",
+        "Uses the 2015 populations without the change."
       ],
-      "explanation": "Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours."
+      "explanation": "Both per-capita values need the later populations; the country after \"than\" is the base."
     },
     {
       "id": "n05-04-r2",
@@ -527,228 +553,220 @@ EPSO_BANK.registerSet({
       "supersedes": "n05-05"
     },
     {
-      "id": "n05-06-eu2",
-      "supersedes": "n05-06-eu",
-      "topic": "Currency round trip with fees",
+      "id": "n05-06-eu3",
+      "supersedes": "n05-06-eu2",
+      "topic": "Average after two changes",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "line",
-          "title": "Exchange rates on the first day of each month (fictional data)",
-          "unit": "units of currency per EUR",
+          "type": "hbar",
+          "title": "Average response times of emergency services (fictional data)",
+          "unit": "minutes",
           "categories": [
-            "1 Mar",
-            "1 Apr",
-            "1 May",
-            "1 Jun",
-            "1 Jul",
-            "1 Aug",
-            "1 Sep"
+            "Urban",
+            "Rural",
+            "Overall"
           ],
           "series": [
             {
-              "name": "HLN",
+              "name": "Tavel",
               "values": [
-                11.91,
-                11.45,
-                11.48,
-                11.23,
-                11.48,
-                11.97,
-                12.51
+                15,
+                31,
+                19
               ]
             },
             {
-              "name": "ALD",
+              "name": "Norvale",
               "values": [
-                14.64,
-                14.41,
-                14.48,
-                14.05,
-                13.42,
-                13.15,
-                12.64
+                14,
+                39,
+                19
               ]
             },
             {
-              "name": "DNK",
+              "name": "Aldoria",
               "values": [
-                5.16,
-                5.39,
-                5.46,
-                5.54,
-                5.81,
-                5.57,
-                5.66
+                16,
+                48,
+                20
+              ]
+            },
+            {
+              "name": "Jorvik",
+              "values": [
+                19,
+                51,
+                27
               ]
             }
           ],
-          "note": "Each conversion costs a fee of 0.5% of the amount converted."
+          "note": "Overall = average over all calls (urban and rural). Call numbers do not change."
         }
       ],
-      "stem": "An investor converted EUR 5,000 into ALD on 1 March and converted all of it back into euros on 1 September. How many euros did the investor end with?",
+      "stem": "If Tavel's urban times rose by 4 minutes and its rural average fell to 16 minutes, what would its overall average be (minutes)?",
       "options": [
-        "EUR 4,273.88",
-        "EUR 4,512.83",
-        "EUR 4,712.71",
-        "EUR 5,511.01",
-        "EUR 5,733.37"
+        "15.25",
+        "16.75",
+        "17.50",
+        "18.25",
+        "22.00"
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
-        "Rates are units of currency per euro: multiply going in, divide coming back.",
-        "The fee is charged on each of the two conversions."
+        "Work out how many urban calls there are per rural call from the three averages.",
+        "Apply both changes, then weight them by the call mix."
       ],
       "solution": [
-        "1 March: 5,000 × (1 − 0.5%) = EUR 4,975.00 is converted at 14.64: 72,834.00 ALD.",
-        "1 September: the fee leaves 72,834.00 × (1 − 0.5%) = 72,469.83 ALD to convert.",
-        "Back into euros: 72,469.83 ÷ 12.64 ≈ EUR 5,733.37.",
-        "Answer: EUR 5,733.37."
+        "Tavel: urban 15, rural 31, overall 19 minutes.",
+        "Urban calls per rural call = (31 − 19) ÷ (19 − 15) = 12 ÷ 4 = 3.",
+        "New times: urban 15 + 4 = 19; rural 16.",
+        "New overall = (3 × 19 + 16) ÷ 4 = 73 ÷ 4 = 18.25 minutes.",
+        "Answer: 18.25."
       ],
       "optionNotes": [
-        "Inverts the exchange-rate ratio (units per EUR must be divided on the way back).",
-        "Uses the DNK rates.",
-        "Uses the HLN rates.",
-        "Converts back at the 1 August rate.",
-        "Correct. With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice."
+        "Leaves out the rise in urban times.",
+        "Puts the larger weight on the rural calls.",
+        "Assumes equal numbers of urban and rural calls.",
+        "Correct. The three averages reveal the mix of calls, which then weights the two new times.",
+        "Leaves out the fall in rural times."
       ],
-      "explanation": "With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice."
+      "explanation": "The three averages reveal the mix of calls, which then weights the two new times."
     },
     {
-      "id": "n05-07-eu2",
-      "supersedes": "n05-07-eu",
+      "id": "n05-07-eu3",
+      "supersedes": "n05-07-eu2",
       "topic": "Top speed from a race time",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Athletics finals: times by country (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "100 m",
-            "200 m",
-            "400 m",
-            "800 m"
+          "type": "hbar",
+          "title": "Athletics finals: times by country (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Norvale",
+            "Kestrel",
+            "Ostland",
+            "Marrow",
+            "Galvia"
           ],
-          "rows": [
-            [
-              "Rosmark",
-              "10.38",
-              "20.88",
-              "45.57",
-              "107.4"
-            ],
-            [
-              "Sundra",
-              "10.04",
-              "20.90",
-              "45.64",
-              "105.8"
-            ],
-            [
-              "Fernland",
-              "10.74",
-              "20.38",
-              "45.37",
-              "105.5"
-            ],
-            [
-              "Brevania",
-              "11.52",
-              "20.76",
-              "44.95",
-              "107.3"
-            ],
-            [
-              "Ostland",
-              "11.15",
-              "20.40",
-              "46.39",
-              "105.7"
-            ]
+          "series": [
+            {
+              "name": "100 m",
+              "values": [
+                10.05,
+                11.1,
+                10.75,
+                11.49,
+                10.38
+              ]
+            },
+            {
+              "name": "200 m",
+              "values": [
+                20.5,
+                20.72,
+                20.84,
+                20.46,
+                20.25
+              ]
+            },
+            {
+              "name": "400 m",
+              "values": [
+                45.8,
+                47.34,
+                44.94,
+                45.17,
+                45.12
+              ]
+            }
           ],
-          "note": "Assume each sprinter accelerates uniformly from rest over the first 28 m of the 100 m, then runs at a constant top speed."
+          "note": "Assume each sprinter accelerates uniformly from rest over the first 30 m of the 100 m, then runs at a constant top speed."
         }
       ],
-      "stem": "What was the top speed (m/s) of the second-placed athlete in the 100 m?",
+      "stem": "At the Capital championships, what was the top speed (m/s) of the second-placed athlete in the 100 m?",
       "options": [
         "9.63 m/s",
-        "10.98 m/s",
-        "11.92 m/s",
-        "12.33 m/s",
-        "12.75 m/s"
+        "11.08 m/s",
+        "11.52 m/s",
+        "12.09 m/s",
+        "12.52 m/s"
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
         "During uniform acceleration from rest, the average speed is half the top speed.",
         "Write the race time as acceleration time + constant-speed time and solve for top speed."
       ],
       "solution": [
-        "The second-fastest 100 m time is Rosmark's 10.38 s.",
-        "Accelerating uniformly from rest, the average speed over the first 28 m is v ÷ 2, so that stretch takes 28 ÷ (v ÷ 2) = 56 ÷ v.",
-        "The remaining 72 m at top speed take 72 ÷ v.",
-        "10.38 = (56 + 72) ÷ v = 128 ÷ v, so v = 128 ÷ 10.38 ≈ 12.331 m/s.",
-        "Answer: 12.33 m/s."
+        "The second-fastest 100 m time is Galvia's 10.38 s.",
+        "Accelerating uniformly from rest, the average speed over the first 30 m is v ÷ 2, so that stretch takes 30 ÷ (v ÷ 2) = 60 ÷ v.",
+        "The remaining 70 m at top speed take 70 ÷ v.",
+        "10.38 = (60 + 70) ÷ v = 130 ÷ v, so v = 130 ÷ 10.38 ≈ 12.524 m/s.",
+        "Answer: 12.52 m/s."
       ],
       "optionNotes": [
         "Gives the average speed over the whole race.",
         "Takes the average speed while accelerating as two thirds of top speed.",
+        "Uses a quarter of the 400 m time.",
         "Uses the next athlete's time.",
-        "Correct. Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator.",
-        "Uses the winner's time."
+        "Correct. Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator."
       ],
       "explanation": "Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator."
     },
     {
-      "id": "n05-08-eu2",
-      "supersedes": "n05-08-eu",
+      "id": "n05-08-eu3",
+      "supersedes": "n05-08-eu2",
       "topic": "Year one overtakes another",
       "difficulty": 3,
       "challenge": true,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Exports (fictional data)",
-          "columns": [
-            "Country",
-            "Exports 2019 (EUR billion)",
-            "Exports 2024 (EUR billion)",
-            "Annual growth from 2024 (%)"
+          "type": "combo",
+          "title": "Exports and expected annual growth (fictional data)",
+          "unit": "EUR billion",
+          "categories": [
+            "Lunaria",
+            "Marrow",
+            "Jorvik",
+            "Istrada",
+            "Pellam"
           ],
-          "rows": [
-            [
-              "Lunaria",
-              "44.3",
-              "55.4",
-              "1.3"
-            ],
-            [
-              "Marrow",
-              "95.8",
-              "115.4",
-              "8.6"
-            ],
-            [
-              "Jorvik",
-              "128.9",
-              "149.9",
-              "5.2"
-            ],
-            [
-              "Istrada",
-              "126.8",
-              "142.5",
-              "6.3"
-            ],
-            [
-              "Pellam",
-              "121.6",
-              "132.2",
-              "3.2"
-            ]
+          "series": [
+            {
+              "name": "Exports 2019",
+              "values": [
+                44.3,
+                95.8,
+                128.9,
+                126.8,
+                121.6
+              ]
+            },
+            {
+              "name": "Exports 2024",
+              "values": [
+                55.4,
+                115.4,
+                149.9,
+                142.5,
+                132.2
+              ]
+            },
+            {
+              "name": "Annual growth from 2024 (%)",
+              "values": [
+                1.3,
+                8.6,
+                5.2,
+                6.3,
+                3.2
+              ],
+              "line": true
+            }
           ],
           "note": "Assume each country keeps growing at its annual rate (compound growth)."
         }

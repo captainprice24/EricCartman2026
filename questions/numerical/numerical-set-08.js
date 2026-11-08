@@ -242,62 +242,86 @@ EPSO_BANK.registerSet({
       "supersedes": "n08-02"
     },
     {
-      "id": "n08-03-eu2",
-      "supersedes": "n08-03-eu",
+      "id": "n08-03-eu3",
+      "supersedes": "n08-03-eu2",
       "topic": "Price change needed for a target inflation",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Consumer prices (fictional data)",
-          "columns": [
-            "Category",
-            "Weight in the price index (%)",
-            "Price change (%)"
+          "type": "pie",
+          "title": "Weights in the consumer price index (%; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Food",
+              "value": 18.7
+            },
+            {
+              "label": "Housing",
+              "value": 23.4
+            },
+            {
+              "label": "Transport",
+              "value": 17.8
+            },
+            {
+              "label": "Energy",
+              "value": 15.9
+            },
+            {
+              "label": "Health",
+              "value": 15
+            },
+            {
+              "label": "Leisure",
+              "value": 9.2
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Price changes by category (%; food not yet published; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Housing",
+            "Transport",
+            "Energy",
+            "Health",
+            "Leisure"
           ],
-          "rows": [
-            [
-              "Food",
-              "22.6",
-              "—"
-            ],
-            [
-              "Housing",
-              "9.7",
-              "4.6"
-            ],
-            [
-              "Transport",
-              "16.1",
-              "0.8"
-            ],
-            [
-              "Energy",
-              "17.2",
-              "3.7"
-            ],
-            [
-              "Health",
-              "21.5",
-              "6.1"
-            ],
-            [
-              "Leisure",
-              "12.9",
-              "2.6"
-            ]
+          "series": [
+            {
+              "name": "Last year",
+              "values": [
+                1.3,
+                3.3,
+                4.3,
+                3.4,
+                5.2
+              ]
+            },
+            {
+              "name": "This year",
+              "values": [
+                2,
+                7.3,
+                0.5,
+                2.5,
+                5.4
+              ]
+            }
           ],
-          "note": "Overall inflation is the weighted average of the category price changes."
+          "note": "Overall inflation this year is the weighted average of the category price changes."
         }
       ],
       "stem": "What price change (%) for food would make overall inflation exactly 4.0%?",
       "options": [
-        "5.1%",
-        "5.3%",
-        "6.2%",
-        "6.6%",
-        "7.1%"
+        "6.9%",
+        "7.2%",
+        "7.7%",
+        "8.1%",
+        "8.5%"
       ],
       "answer": 0,
       "hints": [
@@ -306,23 +330,23 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Contribution of a category = weight × price change.",
-        "Known contributions: 9.7% × 4.6% + 16.1% × 0.8% + 17.2% × 3.7% + 21.5% × 6.1% + 12.9% × 2.6% ≈ 2.858 points.",
-        "Food must add 4.0 − 2.858 ≈ 1.142 points.",
-        "Price change = 1.142 ÷ 22.6% ≈ 5.05%.",
-        "Answer: 5.1%."
+        "Known contributions: 23.4% × 2.0% + 17.8% × 7.3% + 15.9% × 0.5% + 15.0% × 2.5% + 9.2% × 5.4% ≈ 2.719 points.",
+        "Food must add 4.0 − 2.719 ≈ 1.281 points.",
+        "Price change = 1.281 ÷ 18.7% ≈ 6.85%.",
+        "Answer: 6.9%."
       ],
       "optionNotes": [
         "Correct. Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight.",
-        "Divides by the weight of health.",
-        "Treats overall inflation as a simple average of the six categories.",
+        "Divides by the weight of transport.",
+        "Uses last year's price changes.",
         "Divides by the weight of energy.",
-        "Divides by the weight of transport."
+        "Divides by the weight of health."
       ],
       "explanation": "Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight."
     },
     {
-      "id": "n08-04-eu2",
-      "supersedes": "n08-04-eu",
+      "id": "n08-04-eu3",
+      "supersedes": "n08-04-eu2",
       "topic": "Meeting point of two travellers",
       "difficulty": 3,
       "challenge": true,
@@ -340,41 +364,41 @@ EPSO_BANK.registerSet({
             {
               "name": "Delivery van",
               "values": [
-                25.6,
-                52.1,
-                77.8
+                27,
+                42.8,
+                82.7
               ]
             },
             {
               "name": "Bus",
               "values": [
-                27.2,
-                39.6,
-                79.2
+                28,
+                39.1,
+                85.9
               ]
             },
             {
               "name": "Cyclist",
               "values": [
-                18.5,
-                21.4,
-                21.4
+                18.1,
+                18.3,
+                22.7
               ]
             },
             {
               "name": "E-scooter",
               "values": [
-                14.4,
-                21.5,
-                22.9
+                13.7,
+                20.8,
+                23.9
               ]
             },
             {
               "name": "Lorry",
               "values": [
-                26.1,
-                45.1,
-                73.1
+                31.3,
+                44,
+                72.7
               ]
             }
           ],
@@ -383,11 +407,11 @@ EPSO_BANK.registerSet({
       ],
       "stem": "A delivery van and a cyclist set off at the same time towards each other from the two ends of a 42 km rural road. How far from the delivery van's start do they meet (km)?",
       "options": [
-        "24.38 km",
-        "27.27 km",
-        "28.48 km",
-        "29.77 km",
-        "32.94 km"
+        "21.00 km",
+        "25.14 km",
+        "28.26 km",
+        "29.42 km",
+        "32.95 km"
       ],
       "answer": 3,
       "hints": [
@@ -395,15 +419,15 @@ EPSO_BANK.registerSet({
         "Each covers a share of the road in proportion to its speed."
       ],
       "solution": [
-        "Rural speeds: delivery van 52.1 km/h, cyclist 21.4 km/h.",
-        "They close the gap at 52.1 + 21.4 = 73.5 km/h, so they meet after 42 ÷ 73.5 ≈ 0.5714 h.",
-        "Distance from the delivery van's start = 52.1 × 0.5714 = 42 × 52.1 ÷ 73.5 ≈ 29.77 km.",
-        "Answer: 29.77 km."
+        "Rural speeds: delivery van 42.8 km/h, cyclist 18.3 km/h.",
+        "They close the gap at 42.8 + 18.3 = 61.1 km/h, so they meet after 42 ÷ 61.1 ≈ 0.6874 h.",
+        "Distance from the delivery van's start = 42.8 × 0.6874 = 42 × 42.8 ÷ 61.1 ≈ 29.42 km.",
+        "Answer: 29.42 km."
       ],
       "optionNotes": [
+        "Assumes they meet halfway.",
         "Uses the urban speeds.",
-        "Uses the speed of the bus.",
-        "Uses the speed of the lorry.",
+        "Uses the speed of the e-scooter.",
         "Correct. Travelling towards each other, the closing speed is the sum of the speeds, and each covers a distance in proportion to its own speed.",
         "Uses the motorway or main-road speeds."
       ],
@@ -516,63 +540,83 @@ EPSO_BANK.registerSet({
       "supersedes": "n08-05"
     },
     {
-      "id": "n08-06-eu2",
-      "supersedes": "n08-06-eu",
+      "id": "n08-06-eu3",
+      "supersedes": "n08-06-eu2",
       "topic": "Best overall rate despite the mix",
       "difficulty": 3,
       "challenge": true,
       "answerType": "category",
       "exhibits": [
         {
-          "type": "table",
-          "title": "Cases resolved by office: benefits service (fictional data)",
-          "columns": [
-            "Office",
-            "Simple cases",
-            "Simple resolved (%)",
-            "Complex cases",
-            "Complex resolved (%)"
+          "type": "stacked",
+          "title": "Benefits service: cases handled by office (fictional data)",
+          "unit": "cases",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
           ],
-          "rows": [
-            [
-              "Office A",
-              "724",
-              "83.1",
-              "112",
-              "61.7"
-            ],
-            [
-              "Office B",
-              "122",
-              "90.5",
-              "857",
-              "62.5"
-            ],
-            [
-              "Office C",
-              "569",
-              "82.5",
-              "387",
-              "54.2"
-            ],
-            [
-              "Office D",
-              "659",
-              "89.4",
-              "856",
-              "52.2"
-            ],
-            [
-              "Office E",
-              "261",
-              "77.7",
-              "268",
-              "49.6"
-            ]
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                748,
+                829,
+                387,
+                856,
+                149
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                568,
+                88,
+                546,
+                802,
+                636
+              ]
+            }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Share of cases resolved (%; fictional data)",
+          "unit": "%",
+          "categories": [
+            "Office A",
+            "Office B",
+            "Office C",
+            "Office D",
+            "Office E"
+          ],
+          "series": [
+            {
+              "name": "Simple cases",
+              "values": [
+                88.6,
+                70.3,
+                82.7,
+                81.2,
+                89.39999999999999
+              ]
+            },
+            {
+              "name": "Complex cases",
+              "values": [
+                62.2,
+                54.7,
+                57.8,
+                44.2,
+                63.5
+              ]
+            }
           ]
         }
       ],
-      "stem": "In the benefits service, which office resolved the highest percentage of all its cases?",
+      "stem": "In Sundra's benefits service, which office resolved the highest percentage of all its cases?",
       "options": [
         "Office B",
         "Office C",
@@ -587,26 +631,26 @@ EPSO_BANK.registerSet({
       ],
       "solution": [
         "Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.",
-        "Office A: (724 × 83.1% + 112 × 61.7%) ÷ 836 ≈ 80.23%.",
-        "Office C: (569 × 82.5% + 387 × 54.2%) ÷ 956 ≈ 71.04%.",
-        "Office D: (659 × 89.4% + 856 × 52.2%) ÷ 1,515 ≈ 68.38%.",
-        "Office B: (122 × 90.5% + 857 × 62.5%) ÷ 979 ≈ 65.99%.",
-        "Office E: (261 × 77.7% + 268 × 49.6%) ÷ 529 ≈ 63.46%.",
-        "Office A has the highest overall rate; Office B leads in both categories but handles mostly complex cases.",
+        "Office A: (748 × 88.6% + 568 × 62.2%) ÷ 1,316 ≈ 77.21%.",
+        "Office B: (829 × 70.3% + 88 × 54.7%) ÷ 917 ≈ 68.80%.",
+        "Office E: (149 × 89.4% + 636 × 63.5%) ÷ 785 ≈ 68.42%.",
+        "Office C: (387 × 82.7% + 546 × 57.8%) ÷ 933 ≈ 68.13%.",
+        "Office D: (856 × 81.2% + 802 × 44.2%) ÷ 1,658 ≈ 63.30%.",
+        "Office A has the highest overall rate; Office E leads in both categories but handles mostly complex cases.",
         "Answer: Office A."
       ],
       "optionNotes": [
-        "Office B has the highest rate in both categories, but 88% of its cases are complex, so its overall rate is only 66.0%.",
-        "Office C's overall rate is 71.0%.",
-        "Office D's overall rate is 68.4%.",
-        "Office E's overall rate is 63.5%.",
-        "Correct. Office A resolves 80.2% of all its cases, the highest overall rate."
+        "Office B's overall rate is 68.8%.",
+        "Office C's overall rate is 68.1%.",
+        "Office D's overall rate is 63.3%.",
+        "Office E has the highest rate in both categories, but 81% of its cases are complex, so its overall rate is only 68.4%.",
+        "Correct. Office A resolves 77.2% of all its cases, the highest overall rate."
       ],
       "explanation": "An overall rate is weighted by the case mix, so leading in every category does not guarantee leading overall."
     },
     {
-      "id": "n08-07-eu2",
-      "supersedes": "n08-07-eu",
+      "id": "n08-07-eu3",
+      "supersedes": "n08-07-eu2",
       "topic": "Per-capita gap after population change",
       "difficulty": 3,
       "challenge": true,
@@ -623,68 +667,68 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Marrow",
-              "22,027",
-              "+6.2",
-              "70,398",
-              "74,411"
+              "Pellam",
+              "18,142",
+              "−3.4",
+              "70,536",
+              "93,954"
             ],
             [
               "Sundra",
-              "15,108",
-              "+2.2",
-              "60,810",
-              "76,195"
+              "22,485",
+              "−5.7",
+              "45,442",
+              "58,302"
+            ],
+            [
+              "Kestrel",
+              "9,831",
+              "−2.9",
+              "48,870",
+              "59,670"
+            ],
+            [
+              "Lunaria",
+              "21,254",
+              "+6.1",
+              "42,529",
+              "49,759"
             ],
             [
               "Norvale",
-              "5,902",
-              "−0.8",
-              "24,086",
-              "30,469"
-            ],
-            [
-              "Ostland",
-              "3,785",
-              "+2.1",
-              "16,805",
-              "17,763"
-            ],
-            [
-              "Pellam",
-              "15,699",
-              "+4.0",
-              "73,550",
-              "78,699"
+              "18,012",
+              "+2.8",
+              "93,230",
+              "109,172"
             ]
           ]
         }
       ],
-      "stem": "By what percentage were tickets per inhabitant in Norvale higher than in Ostland in 2020?",
+      "stem": "By what percentage were tickets per inhabitant in Kestrel higher than in Lunaria in 2020?",
       "options": [
-        "10.0%",
-        "10.9%",
-        "11.7%",
-        "12.3%",
-        "13.2%"
+        "148.4%",
+        "159.3%",
+        "167.0%",
+        "175.1%",
+        "183.3%"
       ],
       "answer": 4,
       "hints": [
         "Update both populations to 2020 first.",
-        "Ostland is the base of the comparison."
+        "Lunaria is the base of the comparison."
       ],
       "solution": [
-        "2020 populations (thousand): Norvale 5,902 × 0.992 ≈ 5,854.8; Ostland 3,785 × 1.021 ≈ 3,864.5.",
-        "Tickets per inhabitant in 2020: Norvale 30,469 ÷ 5,854.8 ≈ 5.2041; Ostland 17,763 ÷ 3,864.5 ≈ 4.5965.",
-        "Ostland follows \"than\", so it is the base.",
-        "Difference = (5.2041 ÷ 4.5965 − 1) × 100 ≈ 13.22%.",
-        "Answer: 13.2%."
+        "2020 populations (thousand): Kestrel 9,831 × 0.971 ≈ 9,545.9; Lunaria 21,254 × 1.061 ≈ 22,550.5.",
+        "Tickets per inhabitant in 2020: Kestrel 59,670 ÷ 9,545.9 ≈ 6.2509; Lunaria 49,759 ÷ 22,550.5 ≈ 2.2066.",
+        "Lunaria follows \"than\", so it is the base.",
+        "Difference = (6.2509 ÷ 2.2066 − 1) × 100 ≈ 183.28%.",
+        "Answer: 183.3%."
       ],
       "optionNotes": [
+        "Uses 2015 tickets.",
         "Uses the 2015 populations without the change.",
-        "Updates only Norvale's population.",
-        "Divides the difference by Norvale's value instead of Ostland's.",
-        "Updates only Ostland's population.",
+        "Updates only Kestrel's population.",
+        "Updates only Lunaria's population.",
         "Correct. Both per-capita values need the later populations; the country after \"than\" is the base."
       ],
       "explanation": "Both per-capita values need the later populations; the country after \"than\" is the base."
@@ -772,69 +816,65 @@ EPSO_BANK.registerSet({
       "explanation": "The three averages reveal the mix of calls, which then weights the two new times."
     },
     {
-      "id": "n08-09-eu2",
-      "supersedes": "n08-09-eu",
+      "id": "n08-09-eu3",
+      "supersedes": "n08-09-eu2",
       "topic": "Top speed from a race time",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
         {
-          "type": "table",
-          "title": "Athletics finals: times by country (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "100 m",
-            "200 m",
-            "400 m",
-            "800 m"
+          "type": "hbar",
+          "title": "Athletics finals: times by country (fictional data)",
+          "unit": "seconds",
+          "categories": [
+            "Kestrel",
+            "Hollen",
+            "Estoria",
+            "Tavel",
+            "Brevania"
           ],
-          "rows": [
-            [
-              "Estoria",
-              "10.38",
-              "20.21",
-              "46.93",
-              "105.5"
-            ],
-            [
-              "Istrada",
-              "10.73",
-              "20.69",
-              "45.02",
-              "105.7"
-            ],
-            [
-              "Rosmark",
-              "11.53",
-              "20.89",
-              "45.89",
-              "104.6"
-            ],
-            [
-              "Calmora",
-              "11.14",
-              "20.72",
-              "46.49",
-              "107.0"
-            ],
-            [
-              "Aldoria",
-              "10.05",
-              "20.21",
-              "45.99",
-              "105.1"
-            ]
+          "series": [
+            {
+              "name": "100 m",
+              "values": [
+                10.78,
+                10.41,
+                10.02,
+                11.52,
+                11.14
+              ]
+            },
+            {
+              "name": "200 m",
+              "values": [
+                20.45,
+                20.73,
+                20.57,
+                20.61,
+                20.25
+              ]
+            },
+            {
+              "name": "400 m",
+              "values": [
+                47.27,
+                46.44,
+                45.3,
+                45.3,
+                46.72
+              ]
+            }
           ],
           "note": "Assume each sprinter accelerates uniformly from rest over the first 32 m of the 100 m, then runs at a constant top speed."
         }
       ],
-      "stem": "What was the top speed (m/s) of the third-placed athlete in the 100 m?",
+      "stem": "At the Coastal championships, what was the top speed (m/s) of the third-placed athlete in the 100 m?",
       "options": [
-        "9.32 m/s",
-        "10.81 m/s",
+        "10.76 m/s",
+        "11.17 m/s",
         "11.85 m/s",
-        "12.30 m/s",
-        "12.72 m/s"
+        "12.24 m/s",
+        "12.68 m/s"
       ],
       "answer": 3,
       "hints": [
@@ -842,15 +882,15 @@ EPSO_BANK.registerSet({
         "Write the race time as acceleration time + constant-speed time and solve for top speed."
       ],
       "solution": [
-        "The third-fastest 100 m time is Istrada's 10.73 s.",
+        "The third-fastest 100 m time is Kestrel's 10.78 s.",
         "Accelerating uniformly from rest, the average speed over the first 32 m is v ÷ 2, so that stretch takes 32 ÷ (v ÷ 2) = 64 ÷ v.",
         "The remaining 68 m at top speed take 68 ÷ v.",
-        "10.73 = (64 + 68) ÷ v = 132 ÷ v, so v = 132 ÷ 10.73 ≈ 12.302 m/s.",
-        "Answer: 12.30 m/s."
+        "10.78 = (64 + 68) ÷ v = 132 ÷ v, so v = 132 ÷ 10.78 ≈ 12.245 m/s.",
+        "Answer: 12.24 m/s."
       ],
       "optionNotes": [
-        "Gives the average speed over the whole race.",
         "Takes the average speed while accelerating as two thirds of top speed.",
+        "Uses a quarter of the 400 m time.",
         "Uses the next athlete's time.",
         "Correct. Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator.",
         "Uses the previous athlete's time."
