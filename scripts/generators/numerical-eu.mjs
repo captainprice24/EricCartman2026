@@ -931,7 +931,7 @@ MED['Change in a 100% stacked chart'] = (R, v) => {
   };
 };
 
-MED['People employed from a rate line'] = (R, v) => {
+MED['People employed from a rate line'] = (R) => {
   const regs = ['North', 'South', 'East', 'West', 'Centre', 'Coast'];
   const pop = regs.map(() => R.i(900, 1700)), rate = regs.map(() => R.f(58, 79, 1));
   const [x, z] = R.pickN([0, 1, 2, 3, 4, 5], 2), emp = (i) => pop[i] * rate[i] / 100, key = emp(x) - emp(z), land = R.pick(NAMES);
@@ -1458,7 +1458,6 @@ function layout(t) {
 }
 
 /* ---------- placement ---------- */
-const MED_NAMES = Object.keys(MED);
 // Medium models in use: mostly charts of the kinds EU Training uses, plus race-time tables and one ranking table.
 const MED_ACTIVE = ['Turnout and votes', 'Largest gap on an unlabelled chart', 'Weighted average with a ratio', 'People from the gap between two lines', 'Change in a 100% stacked chart',
   'Earlier amount from a pie chart', 'Constant annual increase', 'People employed from a rate line', 'Index change on a line chart', 'Distance gap at the finish',
