@@ -171,10 +171,22 @@
     if (sec.usedMs == null) sec.usedMs = C.elapsedMs(sec, Date.now());
   }
 
+  // Difficulty levels that exist in a section; the numerical bank has no Easy items.
+  var LEVEL_NAMES = { "1": "Easy", "2": "Medium", "3": "Hard" };
+  function levelsIn(key) {
+    var seen = {};
+    bank.bySection[key].forEach(function (q) { seen[String(q.difficulty)] = true; });
+    return ["1", "2", "3"].filter(function (l) { return seen[l]; });
+  }
+  function levelPref(key) {
+    var v = prefs[key + "Level"];
+    return v === "all" || levelsIn(key).indexOf(v) > -1 ? v : "all";
+  }
+
   function pickPractice(key) {
     var pool = bank.bySection[key].slice();
     if (prefs.setId !== "all") pool = pool.filter(function (q) { return q.setId === prefs.setId; });
-    if (prefs[key + "Level"] !== "all") pool = pool.filter(function (q) { return q.difficulty === +prefs[key + "Level"]; });
+    if (levelPref(key) !== "all") pool = pool.filter(function (q) { return q.difficulty === +levelPref(key); });
     if (prefs.mistakesOnly) {
       var stats = load(KEY_STATS, {});
       var wrong = pool.filter(function (q) { return stats[q.id] && stats[q.id].last === false; });
@@ -851,9 +863,9 @@
         var label = SECTIONS[k].name.split(" ")[0];
         var rounds = k === "verbal" ? "Sets 10–19; 10 questions in 17 min 30 sec" : k === "numerical" ? "Sets 5–11; 10 questions in 20 min" : "Sets 5–11; 10 questions in 10 min";
         return '<div class="field"><span class="field-label small muted"><label for="opt-' + k + '-level">' + label + ' difficulty</label>' +
-          info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose Easy, Medium or Hard. " + (k === "abstract" ? "Challenge sets span Medium and Hard. Choose All levels, a challenge set, 10 questions and timed practice for a complete round." : "Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice."), "right") + "</span>" +
-          '<select id="opt-' + k + '-level">' + [["all", "All levels"], ["1", "Easy"], ["2", "Medium"], ["3", "Hard"]].map(function (o) {
-            return '<option value="' + o[0] + '"' + (prefs[k + "Level"] === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+          info(k + "-level", label.toLowerCase() + " difficulty", "Applies to " + label.toLowerCase() + " Coach and Practice only. Choose " + levelsIn(k).map(function (l) { return LEVEL_NAMES[l]; }).join(", ").replace(/, ([^,]*)$/, " or $1") + ". " + (k === "numerical" ? "Numerical questions follow the EU Training format, so there is no Easy level. " : "") + (k === "abstract" ? "Challenge sets span Medium and Hard. Choose All levels, a challenge set, 10 questions and timed practice for a complete round." : "Very hard challenge rounds are included in Hard: " + rounds + ". Select a set, 10 questions and timed practice."), "right") + "</span>" +
+          '<select id="opt-' + k + '-level">' + [["all", "All levels"]].concat(levelsIn(k).map(function (l) { return [l, LEVEL_NAMES[l]]; })).map(function (o) {
+            return '<option value="' + o[0] + '"' + (levelPref(k) === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
           }).join("") + "</select></div>";
       }).join("") +
       '<div class="check-row"><label class="check"><input type="checkbox" id="opt-timed"' + (prefs.timed ? " checked" : "") + "> Timed practice at exam pace</label>" +

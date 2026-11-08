@@ -86,3 +86,28 @@ topics(3, 4, "Build baseline emissions, solve the binding fast-distance constrai
 topics(3, 4, "Compound depreciation, tax only positive disposal gain, repay old debt and reverse the fee on the replacement funding gap.", ["Replacement finance after taxed disposal"]);
 topics(3, 4, "Split opening cohorts, apply unequal attrition, rebuild final denominator and solve surviving entrant composition.", ["Reverse entrant composition after cohort attrition"]);
 topics(3, 4, "Invert serial yield, reconstruct productive module-hours, solve an integer capacity bound and add one shared setup.", ["Indivisible capacity after serial losses"]);
+
+// EU Training-format models (November 2026). Medium: two linked steps on one exhibit.
+topics(2, 2, "Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation.", [
+  "Turnout and votes", "Funds raised per fundraiser", "Population from per-capita change", "Constant annual increase",
+  "Missing value from a known share", "Weighted average with a ratio", "Rank of percentage increases", "Amount needed for a target share",
+  "Total from shares in a stacked chart", "Monthly pension payments",
+  "Earlier amount from a pie chart", "Distance gap at the finish", "Time to reach top speed"
+]);
+// Hard: four dependent stages, with the conditions in a note under the exhibit rather than in a long question.
+[
+  ["NO share of all eligible voters", "Rebuild each district's eligible voters from its own turnout, add them and compare all NO votes with the total."],
+  ["Per-capita gap after population change", "Update two populations, form both per-capita values and compare them on the correct base."],
+  ["Average after two changes", "Recover the call mix from three averages, apply both changes and weight them by the mix."],
+  ["Top speed from a race time", "Identify the athlete, model uniform acceleration as half top speed, split the time and solve for speed."],
+  ["Catching up at constant speeds", "Convert two race times into speeds, form the closing speed, solve the catch-up time and the distance."],
+  ["Missing value from a share of all types", "Total the other countries, convert the share into a country total and remove the known types."],
+  ["Change in a remainder group", "Derive the remainder share in two years, convert both into people with changing populations and compare."],
+  ["Population from an unchanged group", "Fix the unchanged group, solve the new population from its share and apply another share."],
+  ["Projected share against a past amount", "Grow the total, add percentage points to the share, combine them and compare with a past amount."],
+  ["Growth needed to hold a share", "Grow the other countries, convert the share into a target and solve the required growth."],
+  ["Turnout needed to change the result", "Compute the overall lead, rebuild eligible voters from turnout, convert the lead into turnout points and add."],
+  ["Efficiency needed to keep a ratio", "Hold funds per fundraiser, grow fundraisers and spending separately and solve the efficiency."],
+  ["Equivalent ticket price", "Count groups and players, build table and entry income, add concert costs and divide by guests."],
+  ["Pension spending in euros", "Count pensioners, apply each country's pension and payments, convert each currency and add."],
+].forEach(([topic, reason]) => { NUMERICAL_RUBRIC[topic] = { level: 3, stages: 4, reason }; });

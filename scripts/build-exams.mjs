@@ -10,6 +10,8 @@ const previousId=Object.fromEntries([...Object.entries(abstractRevisions).map(([
 // Condensed verbal items (ids ending -c) take the form slot of the exact version they replaced.
 const compactFile='docs/research/verbal/blind-review/compact-2026-11/final.json';
 for(const r of (fs.existsSync(compactFile)?JSON.parse(fs.readFileSync(compactFile)).items:[]))previousId[r.id]=previousId[r.replaces]||r.replaces;
+// EU-format numerical items (ids ending -eu) take the slot of the item they superseded.
+for(const q of sets.filter(s=>s.section==='numerical').flatMap(s=>s.questions))if(/-eu$/.test(q.id))previousId[q.id]=previousId[q.supersedes]||q.supersedes;
 const hash=q=>crypto.createHash('sha256').update('forms-v1:'+(previousId[q.id]||q.id)).digest('hex');
 const foundations={};for(const key of ['verbal','numerical','abstract'])foundations[key]=sets.filter(s=>s.section===key&&!s.challenge&&!/^(verbal-2[0-4]|numerical-1[2-6]|abstract-1[2-6])$/.test(s.id)).flatMap(s=>s.questions).sort((a,b)=>hash(a).localeCompare(hash(b))).slice(0,key==='verbal'?200:100);
 const ids=(section,numbers)=>numbers.flatMap(n=>{const set=sets.find(s=>s.id===section+'-'+String(n).padStart(2,'0'));if(!set)throw Error('Missing set '+section+n);return set.questions.map(q=>q.id);});

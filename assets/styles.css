@@ -340,6 +340,7 @@ select { background: var(--surface); border: 1px solid var(--line); border-radiu
 .chart .axis { stroke: var(--muted); stroke-width: 1.2; }
 .chart text { fill: var(--muted); font: 11px var(--font-mono); }
 .chart .val { fill: var(--ink); font-size: 10.5px; }
+.chart .halo { paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; font-weight: 600; }
 .chart .cat { fill: var(--ink); font: 600 11.5px var(--font-ui); }
 .bar.s0, .sw.s0 { fill: var(--s1); background: var(--s1); }
 .bar.s1, .sw.s1 { fill: var(--s2); background: var(--s2); }

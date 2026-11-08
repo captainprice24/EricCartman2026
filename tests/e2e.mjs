@@ -102,14 +102,16 @@ async function run(engineName) {
 
   await check("numerical difficulty filters persist, combine with sets, and leave other sections available", async () => {
     const p = await newPage(desktop);
-    await p.selectOption('#opt-numerical-level', '1');
+    assert.deepEqual(await p.$$eval('#opt-numerical-level option', (o) => o.map((x) => x.value)), ['all', '2', '3'], 'numerical has no Easy level');
+    await p.selectOption('#opt-numerical-level', '3');
     await p.selectOption('#opt-count', 'all');
     await p.reload(); await p.waitForSelector('.home');
-    assert.equal(await p.inputValue('#opt-numerical-level'), '1');
+    assert.equal(await p.inputValue('#opt-numerical-level'), '3');
     await p.locator('[data-act="practice"][data-k="numerical"]').click();
-    const easy = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
-    assert.equal(easy.length, 56); assert.ok(easy.every(d => d === 1));
+    const hardAll = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
+    assert.equal(hardAll.length, 82); assert.ok(hardAll.every(d => d === 3));
     await p.goto(URL); await p.waitForSelector('.home');
+    await p.selectOption('#opt-numerical-level', '2');
     await p.selectOption('#opt-set', 'numerical-05');
     await p.locator('[data-act="practice"][data-k="numerical"]').click();
     assert.match(await p.locator('#toast').textContent(), /No numerical reasoning questions match/);
@@ -140,7 +142,8 @@ async function run(engineName) {
         await p.locator('[data-act="practice"][data-k="numerical"]').click();
         assert.equal(await p.evaluate(() => window.EPSO_APP.state.session.sections[0].limitMs), 20 * 60 * 1000);
         for (let i = 0; i < 10; i++) {
-          assert.equal(await p.locator('.exhibit-table').count(), 2);
+          const shown = await p.evaluate(() => { const S = window.EPSO_APP.state.session; return S.sections[S.si].items[S.qi].q.exhibits.length; });
+          assert.equal(await p.locator('figure.exhibit').count(), shown, 'every exhibit renders');
           assert.equal(await p.locator('[role="radio"]').count(), 5);
           assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no page overflow');
           const key = await answerKey(p);
@@ -865,8 +868,12 @@ async function run(engineName) {
       await p.selectOption("#opt-set", "numerical-04");
       await p.selectOption("#opt-count", "all");
       await p.locator('[data-act="practice"][data-k="numerical"]').click();
-      const i = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.findIndex((it) => it.q.id === "n04-40-r2" || it.q.supersedes === "n04-40-r2"));
-      assert.ok(i >= 0, "wide-table question or its reviewed revision exists");
+      // The bank no longer holds a 13-column table, so one is injected to test the layout behaviour itself.
+      await p.evaluate(() => {
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        window.EPSO_APP.state.session.sections[0].items[1].q.exhibits = [{ type: "table", title: "Monthly arrivals (test)", columns: ["Region", ...months], rows: ["North", "South", "East"].map((r, k) => [r, ...months.map((_, m) => String(1000 + 37 * m + k))]) }];
+      });
+      const i = 1;
       await p.locator(`.qdot[data-i="${i}"]`).click();
       const wrap = p.locator(".table-wrap").first();
       assert.equal(await wrap.evaluate((el) => el.scrollWidth > el.clientWidth + 2), expectScroll, `scrollable at ${vp.width}px`);

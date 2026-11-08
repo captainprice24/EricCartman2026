@@ -68,14 +68,17 @@ The November 2026 medium sets are documented in [docs/research/medium-2026-11](d
   existing bank from the new blind review. The [research library](docs/research/verbal/README.md)
   preserves sources, rights decisions, licensed reference samples and review records.
 - **Numerical (16 sets):** 150 foundation/exam-practice items, **seven very hard sets of 10**
-  (Sets 5–11) and **five medium sets of 10** (Sets 12–16, ten reviewed Medium models per set). Challenge items combine changing bases, reverse calculations and constraints, with one or two
-  exhibits and mistake-based distractors. Choose **Numerical difficulty: Easy / Medium / Hard** in
-  Coach or Practice. For a full challenge round, select Set 5–11, 10 questions and timed practice
-  (20 minutes). The bank contains 56 easy, 132 medium and 82 hard items, including 70 challenge items.
-  Levels follow a reviewed reasoning rubric and await learner calibration. Every key is independently
-  re-solved by `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records
-  every item; the [research library](docs/research/numerical/README.md) saves sources, rights evidence,
-  licensed examples and an authoring checklist for future work.
+  (Sets 5–11) and **five medium sets of 10** (Sets 12–16). Every former Easy and Hard item now follows
+  the EU Training format: a question of at most 45 words on a table or chart, conditions in a note under
+  the exhibit, options spaced so that no rounding instruction is needed, and physics questions on race
+  times. Charts include bars with a turnout line on a second scale, horizontal bars, stacked bars, pies
+  and long line series. Choose **Numerical difficulty: Medium / Hard** in Coach or Practice (there is no
+  Easy level). For a full challenge round, select Set 5–11, 10 questions and timed practice (20 minutes).
+  The bank contains 188 medium and 82 hard items, including 70 very hard challenge items. Levels follow
+  a reviewed reasoning rubric and await learner calibration. Every key is independently re-solved by
+  `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records every item;
+  the [research library](docs/research/numerical/README.md) saves sources, rights evidence, licensed
+  examples and an authoring checklist for future work.
 - **Abstract (16 sets):** 150 foundation items, **seven challenge sets of 10** (Sets 5–11) and **five medium sets of 10**
   (Sets 12–16: patterned figures with alternating grid shifts, counter-rotating quadrants and conveyor rows).
   The new series combine alternating, accelerating, conditional, delayed and compositional rules.

@@ -10,6 +10,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { numericalDifficulty, numericalRubric } from "../scripts/lib/difficulty.mjs";
 import { fileURLToPath } from "node:url";
+import { EU_SOLVERS } from "./numerical-eu-solvers.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ctx = { window: {} };
@@ -264,6 +265,8 @@ S['Replacement finance after taxed disposal']=q=>{const [,original,dep,years,sal
 S['Reverse entrant composition after cohort attrition']=q=>{const [,opening,p,pr,other,entrants]=expansionRow(q),[,target,er]=q.exhibits[1].rows[0];const retainedP=opening*p/100*pr/100,retainedOther=opening*(1-p/100)*other/100,retainedEntrants=entrants*er/100;const required=(retainedP+retainedOther+retainedEntrants)*target/100;const share=100*(required-retainedP)/retainedEntrants;assert.ok(share>0&&share<100);return share;};
 S['Indivisible capacity after serial losses']=q=>{const [,demand,loss,reject,rate,down]=expansionRow(q),[,hours,days,price,setup]=q.exhibits[1].rows[0];const deliveredPerModule=hours*days*(1-down/100)*rate*(1-loss/100)*(1-reject/100);let modules=0;while(modules*deliveredPerModule<demand)modules++;assert.ok((modules-1)*deliveredPerModule<demand);return setup+modules*price;};
 
+Object.assign(S, EU_SOLVERS);
+
 test("every numerical topic has an independent solver", () => {
   const missing = [...new Set(items.map((q) => q.topic))].filter((t) => !S[t]);
   assert.deepEqual(missing, []);
@@ -309,7 +312,9 @@ test("seven challenge sets have ten distinct models, balanced keys and genuine m
 });
 
 test("numerical level follows reviewed reasoning, never table size or solution verbosity", () => {
-  const easy = items.find(q => q.topic === 'Percentage change of a total');
+  // Easy topics stay reviewed in the rubric even though the bank no longer uses them.
+  const easy = { topic: 'Percentage change of a total', solution: ['1 + 2 = 3'], exhibits: [{ type: 'table', columns: ['A', 'B'], rows: [['x', '1']] }] };
+  assert.equal(items.filter(q => q.difficulty === 1).length, 0, 'the numerical bank has no Easy items');
   assert.equal(numericalDifficulty(easy), 1);
   assert.equal(numericalDifficulty({ ...easy, solution: Array(30).fill('1 + 2 = 3'), exhibits: [...easy.exhibits, ...easy.exhibits] }), 1);
   assert.throws(() => numericalDifficulty({ topic: 'Unreviewed topic' }), /editorial difficulty review/);
@@ -326,6 +331,8 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
   const original=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-revisions.json')));
   const review=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-review-revisions.json')));
   const medium=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-medium-fingerprints.json')));
+  const euPrints=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-fingerprints.json')));
+  assert.equal(Object.keys(euPrints).length,items.filter(q=>/-eu$/.test(q.id)).length);
   const hash=q=>{const content={...q};delete content.id;delete content.supersedes;return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');};
   for(const q of items){
     const entry=review.revisions[q.supersedes];
@@ -335,13 +342,17 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
       assert.equal(entry.beforeSha256,review.baseline[q.supersedes].sha256);
       const prior=Object.values(original).find(r=>r.id===q.supersedes);
       if(prior)assert.equal(prior.sha256,entry.beforeSha256);
+    }else if(/-eu$/.test(q.id)){
+      const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),euPrints[id],id);
     }else if(/^n1[2-6]-/.test(q.id)){
       const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),medium[id],id);
     }else{
       assert.equal(hash(q),review.baseline[q.id].sha256,q.id);
     }
   }
-  assert.equal(items.filter(q=>review.revisions[q.supersedes]).length,Object.keys(review.revisions).length);
+  // Every registered review revision is either still in the bank or was itself replaced by an EU-format item.
+  const replaced=new Set(items.filter(q=>/-eu$/.test(q.id)).map(q=>q.supersedes));
+  for(const [old,entry] of Object.entries(review.revisions))assert.ok(items.some(q=>q.id===entry.id&&q.supersedes===old)||replaced.has(entry.id),old);
 });
 
 test('all numerical values have exactly one answer at the stated display precision',()=>{
@@ -359,7 +370,7 @@ test('worked numerical explanations preserve percentage conversion and avoid ear
       assert.match(q.stem,/do not round individual unit prices/);
       assert.ok(q.solution.some(step=>/×.*×.*×.*≈ EUR/.test(step)),q.id);
     }
-    if(!q.challenge && q.answerType!=='category'){
+    if(!q.challenge && q.answerType!=='category' && !/-eu$/.test(q.id)){
       assert.match(q.stem,/Round only the final result/);
       assert.ok(q.solution.at(-1).includes(q.options[q.answer]),q.id);
     }
@@ -379,7 +390,7 @@ test('threshold assumptions and dimensional units are explicit',()=>{
 });
 
 test('categorical numerical questions have a unique best candidate',()=>{
-  for(const q of items.filter(q=>q.answerType==='category')){
+  for(const q of items.filter(q=>q.answerType==='category'&&q.topic!=='Rank of percentage increases')){
     const ex=q.exhibits[0];
     const metric=name=>{
       if(q.topic==='Per-capita comparison'){
@@ -429,4 +440,26 @@ test('key base and omitted-stage distractors match their stated mistakes',()=>{
     }
   }
   assert.ok(checked>=12,'must exercise actual wrong-base and omitted-stage options, not just keys');
+});
+
+test('EU-format items: short stems, no rounding instruction, spaced options and Medium or Hard only',()=>{
+  const eu=items.filter(q=>/-eu$/.test(q.id));
+  assert.equal(eu.length,138);
+  for(const q of eu){
+    assert.ok([2,3].includes(q.difficulty),q.id);
+    assert.ok(q.stem.split(/\s+/).length<=45,q.id+' stem too long');
+    assert.doesNotMatch(q.stem,/Round only/,q.id);
+    assert.ok(q.supersedes&&!/-eu$/.test(q.supersedes),q.id);
+    if(q.answerType==='category'){
+      const ex=table(q),[a,b]=q.stem.match(/(\d{4}) and (\d{4})/).slice(1);
+      const ch=ex.rows.map(r=>num(r[ex.columns.indexOf(b)])/num(r[ex.columns.indexOf(a)])-1).sort((x,y)=>y-x);
+      for(let i=1;i<ch.length;i++)assert.ok(ch[i-1]-ch[i]>0.01,q.id+' ranks must be clearly separated');
+      continue;
+    }
+    const v=q.options.map(num),key=v[q.answer];
+    for(let i=1;i<v.length;i++)assert.ok((v[i]-v[i-1])/key>=0.029,q.id+' options must be at least 3% of the key apart');
+  }
+  const physics=['Distance gap at the finish','Time to reach top speed','Top speed from a race time','Catching up at constant speeds'];
+  assert.ok(eu.filter(q=>physics.includes(q.topic)).length>=20,'physics items');
+  assert.ok(eu.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=55,'chart items');
 });

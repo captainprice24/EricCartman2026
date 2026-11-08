@@ -48,7 +48,7 @@ const FILLS = new Set(["black", "grey", "white", "none", "hatch", "rhatch", "hli
 const isStr = (s) => typeof s === "string" && s.trim().length > 0;
 // Item text may be a string or { en, fr, … }; checks run on the English text.
 const en = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v.en : v);
-const EXHIBITS = ["table", "bar", "stacked", "line", "pie"];
+const EXHIBITS = ["table", "bar", "hbar", "combo", "stacked", "line", "pie"];
 const numberOf = (s) => {
   if (typeof s === "number") return s;
   const m = String(s).replace(/[−–]/g, "-").replace(/,/g, "").match(/-?\d+(\.\d+)?/);

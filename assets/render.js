@@ -266,9 +266,71 @@
       (ex.unit && ex.unit !== "%" ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "");
   }
 
+  // Bars for counts on the left scale and one percentage line on a right-hand scale (e.g. votes and turnout).
+  function comboHTML(ex) {
+    var cats = ex.categories, bars = ex.series.filter(function (s) { return !s.line; }), line = ex.series.filter(function (s) { return s.line; })[0];
+    var all = [];
+    bars.forEach(function (s) { all = all.concat(s.values); });
+    var scale = niceMax(Math.max.apply(null, all) * 1.1);
+    var lmin = Math.floor(Math.min.apply(null, line.values) / 5) * 5 - 5, lmax = Math.ceil(Math.max.apply(null, line.values) / 5) * 5 + 5;
+    var W = 560, H = 290, L = 50, R = 50, T = 18, B = 34;
+    var plotW = W - L - R, plotH = H - T - B, groupW = plotW / cats.length;
+    var barW = Math.min(40, (groupW * 0.62) / bars.length);
+    var y = function (v) { return T + plotH - (v / scale.max) * plotH; };
+    var y2 = function (v) { return T + plotH - ((v - lmin) / (lmax - lmin)) * plotH; };
+    var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Bar and line chart") + '">' + axisHTML(scale, y, L, R, W);
+    for (var g = lmin; g <= lmax + 1e-9; g += 5) out += '<text class="tick" x="' + (W - R + 6) + '" y="' + (y2(g) + 4).toFixed(1) + '" text-anchor="start">' + g + "%</text>";
+    var cx = function (ci) { return L + ci * groupW + groupW / 2; };
+    cats.forEach(function (c, ci) {
+      var gx = L + ci * groupW + (groupW - barW * bars.length) / 2;
+      bars.forEach(function (s, si) {
+        var v = s.values[ci], bx = gx + si * barW;
+        out += '<rect class="bar s' + (si % 4) + '" x="' + (bx + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + (barW - 2).toFixed(1) + '" height="' + (T + plotH - y(v)).toFixed(1) + '"/>';
+        out += '<text class="val" x="' + (bx + barW / 2).toFixed(1) + '" y="' + (y(v) - 4).toFixed(1) + '" text-anchor="middle">' + fmtVal(v) + "</text>";
+      });
+      out += '<text class="cat" x="' + cx(ci).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle">' + esc(c) + "</text>";
+    });
+    var li = bars.length % 4;
+    out += '<path class="ln s' + li + '" d="' + line.values.map(function (v, i) { return (i ? "L" : "M") + cx(i).toFixed(1) + "," + y2(v).toFixed(1); }).join(" ") + '"/>';
+    line.values.forEach(function (v, i) {
+      out += '<circle class="pt s' + li + '" cx="' + cx(i).toFixed(1) + '" cy="' + y2(v).toFixed(1) + '" r="4"/>';
+      out += '<text class="val lv halo s' + li + '" x="' + (cx(i) + 8).toFixed(1) + '" y="' + (y2(v) + 16).toFixed(1) + '" text-anchor="start">' + fmtVal(v) + "%</text>";
+    });
+    out += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + plotH) + '" y2="' + (T + plotH) + '"/></svg>';
+    var legend = bars.concat([line]);
+    return '<div class="chart-wrap">' + legendHTML(legend) + out + chartTables(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "; line: right-hand scale (%)</div>" : "") + "</div>";
+  }
+
+  // Horizontal grouped bars: one group per category, one bar per series.
+  function hbarHTML(ex) {
+    var cats = ex.categories, series = ex.series, all = [];
+    series.forEach(function (s) { all = all.concat(s.values); });
+    var scale = niceMax(Math.max.apply(null, all) * 1.1);
+    var barH = 13, groupH = series.length * barH + 14;
+    var W = 560, L = 84, R = 30, T = 8, B = 26, H = T + B + groupH * cats.length;
+    var plotW = W - L - R;
+    var x = function (v) { return L + (v / scale.max) * plotW; };
+    var out = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(ex.title || "Horizontal bar chart") + '">';
+    for (var g = 0; g <= scale.max + 1e-9; g += scale.step) {
+      out += '<line class="grid" x1="' + x(g).toFixed(1) + '" x2="' + x(g).toFixed(1) + '" y1="' + T + '" y2="' + (H - B) + '"/>';
+      out += '<text class="tick" x="' + x(g).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + fmtVal(+g.toFixed(2)) + "</text>";
+    }
+    cats.forEach(function (c, ci) {
+      var gy = T + ci * groupH + 7;
+      series.forEach(function (s, si) {
+        var v = s.values[ci], by = gy + si * barH;
+        out += '<rect class="bar s' + (si % 4) + '" x="' + L + '" y="' + (by + 1) + '" width="' + (x(v) - L).toFixed(1) + '" height="' + (barH - 2) + '"/>';
+        out += '<text class="val" x="' + (x(v) + 4).toFixed(1) + '" y="' + (by + barH - 3) + '" text-anchor="start">' + fmtVal(v) + "</text>";
+      });
+      out += '<text class="cat" x="' + (L - 8) + '" y="' + (gy + (series.length * barH) / 2 + 4).toFixed(1) + '" text-anchor="end">' + esc(c) + "</text>";
+    });
+    out += '<line class="axis" x1="' + L + '" x2="' + L + '" y1="' + T + '" y2="' + (H - B) + '"/></svg>';
+    return '<div class="chart-wrap">' + legendHTML(series) + out + chartTables(ex) + (ex.unit ? '<div class="unit">Unit: ' + esc(ex.unit) + "</div>" : "") + "</div>";
+  }
+
   function exhibitHTML(ex) {
     if (!ex) return "";
-    var inner = ex.type === "bar" ? barHTML(ex) : ex.type === "stacked" ? stackedHTML(ex) : ex.type === "line" ? lineHTML(ex) : ex.type === "pie" ? pieHTML(ex) : tableHTML(ex);
+    var inner = ex.type === "bar" ? barHTML(ex) : ex.type === "combo" ? comboHTML(ex) : ex.type === "hbar" ? hbarHTML(ex) : ex.type === "stacked" ? stackedHTML(ex) : ex.type === "line" ? lineHTML(ex) : ex.type === "pie" ? pieHTML(ex) : tableHTML(ex);
     return '<figure class="exhibit">' +
       (ex.title ? "<figcaption>" + esc(ex.title) + "</figcaption>" : "") + inner +
       (ex.note ? '<p class="exhibit-note">' + esc(ex.note) + "</p>" : "") + "</figure>";

@@ -10,21 +10,26 @@ The replacement rubric in `scripts/lib/difficulty.mjs` reviews each numerical to
 
 | Bank | Easy | Medium | Hard | Total |
 |---|---:|---:|---:|---:|
-| Original bank under former labels | 41 | 85 | 24 | 200 |
-| Original bank after review | 56 | 132 | 12 | 200 |
-| Challenge sets | 0 | 0 | 70 | 70 |
-| Current bank | 56 | 132 | 82 | 270 |
+| Kept items of Sets 01–04, former mechanical labels | 19 | 51 | 12 | 82 |
+| Kept items of Sets 01–04, after review | 0 | 82 | 0 | 82 |
+| Medium Sets 12–16 | 0 | 50 | 0 | 50 |
+| EU Training-format replacements (November 2026) | 0 | 56 | 82 | 138 |
+| Current bank | 0 | 188 | 82 | 270 |
 
-119 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
+31 existing items changed difficulty. The later project repair regenerated all 150 foundation items with genuine mistake models under new revision IDs. `scripts/generators/numerical-revisions.json` records superseded IDs and immutable content hashes. Sets 09–11 add thirty items across ten further models. The later book-informed numerical review revises teaching and wording under fresh IDs; see docs/NUMERICAL_BOOK_REVIEW.md and scripts/generators/numerical-review-revisions.json.
+
+## EU Training format (November 2026)
+
+Every Easy and Hard item in Sets 01–11 was replaced by an EU Training-format item with a new id ending `-eu` (generator: `scripts/generators/numerical-eu.mjs`). The 56 Easy items became Medium two-step questions, and the 82 Hard and very hard items became four-stage questions whose conditions sit in a note under the exhibit. The bank therefore has no Easy numerical items. Stems are at most 45 words; options are named mistakes at least 3% of the key apart, so no rounding instruction is needed; 58 of the new items use a chart (bars with a turnout line on a second scale, horizontal bars, stacked bars, pies and long line series), and 20 are physics questions on race times (speed, acceleration and catching up). Medium Sets 12–16 and the Medium items of Sets 01–04 are unchanged. Fingerprints: `scripts/generators/numerical-eu-fingerprints.json`.
 
 ## Sets
 
 | Set | Easy | Medium | Hard | Purpose |
 |---|---:|---:|---:|---|
-| numerical-01 | 5 | 4 | 1 | Mixed foundation and exam practice |
-| numerical-02 | 16 | 30 | 4 | Mixed foundation and exam practice |
-| numerical-03 | 19 | 27 | 4 | Mixed foundation and exam practice |
-| numerical-04 | 16 | 21 | 3 | Mixed foundation and exam practice |
+| numerical-01 | 0 | 9 | 1 | Mixed foundation and exam practice |
+| numerical-02 | 0 | 46 | 4 | Mixed foundation and exam practice |
+| numerical-03 | 0 | 46 | 4 | Mixed foundation and exam practice |
+| numerical-04 | 0 | 37 | 3 | Mixed foundation and exam practice |
 | numerical-05 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-06 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
 | numerical-07 | 0 | 0 | 10 | Very hard; 10 questions / 20-minute timed practice |
@@ -44,22 +49,7 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 question
 
 | Topic | Items | Band | Reasoning rationale |
 |---|---:|---|---|
-| Averages over part of a period | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Highest share in a stacked chart | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Index numbers: percentage change | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Index numbers: values | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Largest gap on a line chart | 2 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Largest relative gap on a line chart | 2 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Percentage change of a total | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Percentage points | 2 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Proportional allocation | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Ratios from a chart | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Relative change | 2 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Share of a total | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Shares in a stacked chart | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Shares to amounts | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Undoing a percentage change | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
-| Unit price comparison | 4 | Easy | One direct difference, ratio, sum or mean; extra rows do not add conceptual demand. |
+| Amount needed for a target share | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Average speed | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Averaging rates | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Break-even point | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
@@ -67,51 +57,54 @@ Choose Numerical difficulty in Coach or Practice. Select Set 5–11, 10 question
 | Combined work rates | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Combining two exhibits | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Compound growth | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Constant annual increase | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Currency conversion | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Discounts and VAT | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Distance gap at the finish | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Earlier amount from a pie chart | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Fixed and variable costs | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Funds raised per fundraiser | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Growth projection | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Missing value from a known share | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Monthly pension payments | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Multi-step: unit cost | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Per-capita comparison | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Percentage difference between two items | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Percentages of percentages | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Population from per-capita change | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Rank of percentage increases | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Rates of work | 5 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Removing VAT | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Required growth rate | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Successive percentage changes | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
+| Time to reach top speed | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Total from shares in a stacked chart | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Turnout and votes | 5 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
 | Units and per-capita values | 6 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
 | Weighted average | 7 | Medium | A familiar model with weighting, unit conversion, reverse percentage, or successive adjustments. |
-| Capped weighted redistribution | 4 | Hard (very hard challenge) | Apply sequential deductions, build weights, detect a binding cap and redistribute on a new base. |
-| Cross-currency landed cost | 4 | Hard (very hard challenge) | Separate goods and freight, apply different discounts, convert invoices, apply fees and pool. |
-| Deduplicated workload with conditional rework | 3 | Hard (very hard challenge) | Deduplicate registrations, build three disjoint rework populations, apply conditional repeat fraction and solve a whole-day threshold. |
-| Emissions-constrained minimum journey time | 3 | Hard (very hard challenge) | Build baseline emissions, solve the binding fast-distance constraint, pool separate travel times and add the stop. |
-| Evaporation and replacement mixture | 3 | Hard (very hard challenge) | Drain solute, evaporate water, rebuild volume after fixed dilution and solve a concentrate equation with a moving denominator. |
-| Fee-sensitive portfolio rebalance | 3 | Hard (very hard challenge) | Apply asymmetric price changes, track sale fees in both numerator and denominator, and solve the post-fee allocation. |
-| Hedged exchange-rate threshold | 4 | Hard (very hard challenge) | Reverse a fee, separate fixed hedged proceeds, solve the unknown rate on the unhedged balance. |
-| Indivisible capacity after serial losses | 3 | Hard (very hard challenge) | Invert serial yield, reconstruct productive module-hours, solve an integer capacity bound and add one shared setup. |
-| Inverse capped-contribution taxation | 3 | Hard (very hard challenge) | Choose contribution cap and marginal tax regime, invert net receipts and verify both binding inequalities. |
-| Linked-index real per-capita change | 4 | Hard (very hard challenge) | Bridge rebased indices, compound price factors, deflate spending and compare changing population bases. |
-| Loss-adjusted emissions substitution | 4 | Hard (very hard challenge) | Build the system target, compare delivered-energy intensities, solve substitution and invert delivery loss. |
-| Market share in percentage points | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
-| Per-capita change | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
-| Rates with changing base | 4 | Hard | Construct and compare ratios with changing bases; the denominator must be rebuilt. |
-| Real pooled productivity | 4 | Hard (very hard challenge) | Pool two offices, deflate revenue, rebuild both FTE bases, then compare real ratios. |
-| Recovered-output capacity | 4 | Hard (very hard challenge) | Compose rejection and recovery rates, reconstruct past output, solve remaining line time. |
-| Replacement finance after taxed disposal | 3 | Hard (very hard challenge) | Compound depreciation, tax only positive disposal gain, repay old debt and reverse the fee on the replacement funding gap. |
-| Reverse entrant composition after cohort attrition | 3 | Hard (very hard challenge) | Split opening cohorts, apply unequal attrition, rebuild final denominator and solve surviving entrant composition. |
-| Reverse pooled success rate | 4 | Hard (very hard challenge) | Rebuild assessed populations, derive target passes, subtract known passes, solve the missing rate. |
-| Reverse savings with intervening withdrawal | 3 | Hard (very hard challenge) | Reverse the final whole-balance fee, reverse taxed second-period interest, restore withdrawal and reverse first-period growth. |
-| Reverse stock flow with returns | 4 | Hard (very hard challenge) | Compose reusable-return shares, solve the stock equation, then reverse incoming losses. |
-| Sequential screening posterior | 3 | Hard (very hard challenge) | Build disjoint condition populations, pass each through two conditional screens and reconstruct the posterior denominator. |
-| Yield-adjusted profit threshold | 4 | Hard (very hard challenge) | Remove VAT, invert yields, build mixed-batch contribution, solve and round a profit inequality. |
+| Weighted average with a ratio | 4 | Medium | Two linked steps on one exhibit: a rate or share applied to the right base, a reverse percentage, a weighted mean or a speed–time relation. |
+| Average after two changes | 6 | Hard | Recover the call mix from three averages, apply both changes and weight them by the mix. |
+| Catching up at constant speeds | 6 | Hard | Convert two race times into speeds, form the closing speed, solve the catch-up time and the distance. |
+| Change in a remainder group | 6 | Hard | Derive the remainder share in two years, convert both into people with changing populations and compare. |
+| Efficiency needed to keep a ratio | 6 | Hard | Hold funds per fundraiser, grow fundraisers and spending separately and solve the efficiency. |
+| Equivalent ticket price | 5 | Hard (very hard challenge) | Count groups and players, build table and entry income, add concert costs and divide by guests. |
+| Growth needed to hold a share | 6 | Hard | Grow the other countries, convert the share into a target and solve the required growth. |
+| Missing value from a share of all types | 6 | Hard | Total the other countries, convert the share into a country total and remove the known types. |
+| NO share of all eligible voters | 6 | Hard | Rebuild each district's eligible voters from its own turnout, add them and compare all NO votes with the total. |
+| Pension spending in euros | 5 | Hard (very hard challenge) | Count pensioners, apply each country's pension and payments, convert each currency and add. |
+| Per-capita gap after population change | 6 | Hard | Update two populations, form both per-capita values and compare them on the correct base. |
+| Population from an unchanged group | 6 | Hard | Fix the unchanged group, solve the new population from its share and apply another share. |
+| Projected share against a past amount | 6 | Hard | Grow the total, add percentage points to the share, combine them and compare with a past amount. |
+| Top speed from a race time | 6 | Hard | Identify the athlete, model uniform acceleration as half top speed, split the time and solve for speed. |
+| Turnout needed to change the result | 6 | Hard | Compute the overall lead, rebuild eligible voters from turnout, convert the lead into turnout points and add. |
 
 ## Quality and remaining limits
 
 - Each challenge set has 10 different models, 2 keys in each answer position, 5 sorted numeric options and a mistake explanation for every distractor. Every challenge item supplies at least twelve data values in one or two exhibits and at least four dependent transformations. No generic filler distractors are allowed anywhere in the numerical bank.
 - 0 original items retain at least one generic filler distractor (0 fillers in all). The generator now rejects layouts without four usable, named mistakes and regenerates data instead of inventing filler values.
-- The first ten challenge models have four variants each; the ten added models have three variants each. These seventy items are not seventy unrelated reasoning structures. Previously practising a model can improve later-set performance.
+- The fourteen hard EU-format models have five or six variants each, spread so that no very hard set repeats a model. These items are not 82 unrelated reasoning structures. Previously practising a model can improve later-set performance.
 - The current validator checks schemas, exhibit uniqueness, options and numerical rubric consistency. Independent solvers check the displayed data and final rounding. Additional checks cover binding caps, feasible substitution, rate bounds and the whole-batch profit inequality.
-- Complexity is intentionally above the original numerical bank. No claim is made that these items reproduce official EPSO difficulty; the official sample website could not be inspected in this environment.
+- The EU-format items were checked against twenty EU Training numerical samples supplied by the owner (question length, exhibit types, notes, physics); no sample question or data set was copied. No claim is made that these items reproduce official EPSO difficulty; the official sample website could not be inspected in this environment.
 
 ## Calibration after release
 
