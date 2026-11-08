@@ -15,6 +15,8 @@ const mkRng = (s) => { let x = s >>> 0; return () => { x = (x + 0x6d2b79f5) | 0;
 const strSeed = (s) => [...s].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
 const g = (n, d = 0) => { const [i, f] = Math.abs(n).toFixed(d).split('.'); return (n < 0 ? '−' : '') + i.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (f ? '.' + f : ''); };
 const sum = (a) => a.reduce((s, x) => s + x, 0);
+// '=' when the shown value is exact, '≈' when it is rounded.
+const ap = (x, d) => (Math.abs(x - Number(x.toFixed(d))) < 1e-9 ? '= ' : '≈ ') + g(x, d);
 const mmss = (t) => `${Math.floor(t / 60)}:${(t % 60).toFixed(2).padStart(5, '0')}`;
 const NAMES = ['Aldoria', 'Brevania', 'Calmora', 'Dunmark', 'Estoria', 'Fernland', 'Galvia', 'Hollen', 'Istrada', 'Jorvik', 'Kestrel', 'Lunaria', 'Marrow', 'Norvale', 'Ostland', 'Pellam', 'Quarta', 'Rosmark', 'Sundra', 'Tavel'];
 const mk = (rnd) => {
@@ -53,9 +55,10 @@ MED['Turnout and votes'] = (R, v) => {
       M(100 * share - (100 - t[k]), 'Subtracts the non-voters\' percentage points from the NO share of votes cast.'),
     ],
     hints: ['Turnout tells you what share of eligible voters voted at all.', 'NO voters as a share of eligible voters = NO share of votes cast × turnout.'],
-    solution: [`Data needed: ${ds[k]} — YES ${g(yes[k])}, NO ${g(no[k])}, turnout ${g(t[k], 2)}%.`,
-      `NO share of votes cast = ${g(no[k])} ÷ (${g(yes[k])} + ${g(no[k])}) = ${g(100 * share, 3)}%.`,
-      `Share of eligible voters = ${g(100 * share, 3)}% × ${g(t[k], 2)}% ≈ ${g(key, 2)}%.`],
+    solution: [
+      `${ds[k]}: YES ${g(yes[k])}, NO ${g(no[k])}, turnout ${g(t[k], 2)}%.`,
+      `NO share of votes cast = ${g(no[k])} ÷ (${g(yes[k])} + ${g(no[k])}) = ${g(no[k])} ÷ ${g(yes[k] + no[k])} ${ap(100 * share, 3)}%.`,
+      `Only ${g(t[k], 2)}% of eligible voters voted, so NO share of eligible voters = ${g(100 * share, 3)}% × ${g(t[k], 2)}% ${ap(key, 2)}%.`],
     explanation: 'Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout.',
   };
 };
@@ -79,10 +82,11 @@ MED['Funds raised per fundraiser'] = (R, v) => {
       M(x.r * 1000 / x.f2, 'Uses the Y1 funds raised with the Y2 fundraisers.'),
     ],
     hints: ['First find Y2 spending, then what each euro spent raised in Y2.', 'Divide by the Y2 number of fundraisers.'],
-    solution: [`Data needed: ${orgs[k]} — spending Y1 EUR ${x.e} thousand, efficiency Y2 ${g(x.eff, 2)}, fundraisers Y2 ${x.f2}.`,
-      `Spending Y2 = ${x.e} × ${g(1 + p / 100, 2)} = EUR ${g(x.e * (1 + p / 100), 2)} thousand.`,
-      `Funds raised Y2 = ${g(x.e * (1 + p / 100), 2)} × ${g(x.eff, 2)} = EUR ${g(x.e * (1 + p / 100) * x.eff, 3)} thousand.`,
-      `Per fundraiser = ${g(raised(x.e * (1 + p / 100)), 1)} ÷ ${x.f2} ≈ EUR ${g(key, 1)}.`],
+    solution: [
+      `${orgs[k]}: spending Y1 EUR ${x.e} thousand, efficiency Y2 ${g(x.eff, 2)}, fundraisers Y2 ${x.f2}.`,
+      `Spending Y2 = ${x.e} × ${g(1 + p / 100, 2)} ${ap(x.e * (1 + p / 100), 2)} thousand EUR.`,
+      `Funds raised Y2 = ${g(x.e * (1 + p / 100), 2)} × ${g(x.eff, 2)} ${ap(x.e * (1 + p / 100) * x.eff, 3)} thousand EUR = EUR ${g(raised(x.e * (1 + p / 100)), 0)}.`,
+      `Per fundraiser = ${g(raised(x.e * (1 + p / 100)), 0)} ÷ ${x.f2} ${ap(key, 1).replace(/[\d,.]+$/, (m) => 'EUR ' + m)}.`],
     explanation: 'Grow the spending, convert it into funds raised with the Y2 efficiency, then share it among the Y2 fundraisers.',
   };
 };
@@ -107,10 +111,11 @@ MED['Population from per-capita change'] = (R, v) => {
       M(S3 / (pc * (1 + 2 * p / 100)), `Applies the ${p}% rise twice.`),
     ],
     hints: [`Find sales per inhabitant in ${yrs[0]} first.`, 'Population = sales ÷ sales per inhabitant.'],
-    solution: [`Data needed: ${cs[k]} — population ${g(P)} thousand and sales ${g(S1)} thousand in ${yrs[0]}; sales ${g(S3)} thousand in ${yrs[2]}.`,
-      `Sales per inhabitant ${yrs[0]} = ${g(S1)} ÷ ${g(P)} = ${g(pc, 4)}.`,
-      `Sales per inhabitant ${yrs[2]} = ${g(pc, 4)} × ${g(1 + p / 100, 2)} = ${g(pc * (1 + p / 100), 4)}.`,
-      `Population ${yrs[2]} = ${g(S3)} ÷ ${g(pc * (1 + p / 100), 4)} ≈ ${g(key, 1)} thousand.`],
+    solution: [
+      `${cs[k]}: population ${g(P)} thousand and sales ${g(S1)} thousand in ${yrs[0]}; sales ${g(S3)} thousand in ${yrs[2]}.`,
+      `Sales per inhabitant ${yrs[0]} = ${g(S1)} ÷ ${g(P)} ${ap(pc, 4)}.`,
+      `Sales per inhabitant ${yrs[2]} = ${g(pc, 4)} × ${g(1 + p / 100, 2)} ${ap(pc * (1 + p / 100), 4)}.`,
+      `Population ${yrs[2]} = sales ÷ sales per inhabitant = ${g(S3)} ÷ ${g(pc * (1 + p / 100), 4)} ${ap(key, 1)} thousand.`],
     explanation: 'Population follows from dividing the later sales by the later sales per inhabitant.',
   };
 };
@@ -134,9 +139,10 @@ MED['Constant annual increase'] = (R, v) => {
       M(S4 + 4 * step, `Projects four years ahead, to ${yrs[2] + 4}.`),
     ],
     hints: [`Count the years between ${yrs[1]} and ${yrs[2]}.`, 'Add the annual increase once for every year after the last figure.'],
-    solution: [`Data needed: ${cs[k]} — ${g(S2)} thousand in ${yrs[1]} and ${g(S4)} thousand in ${yrs[2]}.`,
-      `Annual increase = (${g(S4)} − ${g(S2)}) ÷ 3 = ${g(step, 3)} thousand.`,
-      `${yrs[2] + 2}: ${g(S4)} + 2 × ${g(step, 3)} ≈ ${g(key, 1)} thousand.`],
+    solution: [
+      `${cs[k]}: ${g(S2)} thousand in ${yrs[1]} and ${g(S4)} thousand in ${yrs[2]}, which are ${yrs[2] - yrs[1]} years apart.`,
+      `Annual increase = (${g(S4)} − ${g(S2)}) ÷ 3 = ${g(D)} ÷ 3 ${ap(step, 1)} thousand.`,
+      `${yrs[2] + 2} is two years after ${yrs[2]}: ${g(S4)} + 2 × ${g(step, 1)} ${ap(key, 1)} thousand.`],
     explanation: 'A constant number per year means a straight-line increase: divide the change by the number of years, then extend it.',
   };
 };
@@ -162,9 +168,10 @@ MED['Missing value from a known share'] = (R, v) => {
       M(U + E + O / 4, 'Uses the average of the other countries\' grand pianos.'),
     ],
     hints: [`The other four countries hold the remaining ${100 - p}% of grand pianos.`, `Find the missing grand-piano figure, then add the other types for ${cs[k]}.`],
-    solution: [`Data needed: grand pianos in the other four countries = ${g(O)}; ${cs[k]}'s upright ${g(U)} and electric ${g(E)}.`,
-      `${100 - p}% = ${g(O)}, so ${p}% = ${g(O)} × ${p} ÷ ${100 - p} = ${g(G, 2)}.`,
-      `All types = ${g(U)} + ${g(G, 2)} + ${g(E)} ≈ ${g(key, 1)}.`],
+    solution: [
+      `Grand pianos in the other four countries: ${rows.map((r, i) => i).filter((i) => i !== k).map((i) => g(rows[i][2])).join(' + ')} = ${g(O)}.`,
+      `These are the other ${100 - p}%, so ${cs[k]}'s ${p}% = ${g(O)} × ${p} ÷ ${100 - p} ${ap(G, 1)}.`,
+      `All types in ${cs[k]} = ${g(U)} upright + ${g(G, 1)} grand + ${g(E)} electric ${ap(key, 1)}.`],
     explanation: `The other countries hold ${100 - p}% of grand pianos, which gives the missing figure.`,
   };
 };
@@ -188,8 +195,10 @@ MED['Weighted average with a ratio'] = (R, v) => {
       M((x.n * x.U + r) / x.n, `Divides by ${x.n} calls instead of ${x.n + 1}.`),
     ],
     hints: [`For every rural call there are ${x.n} urban calls.`, `Overall average = (${x.n} × urban + rural) ÷ ${x.n + 1}.`],
-    solution: [`Data needed: ${cs[k]} urban time ${x.U} minutes; new rural time ${r} minutes; weights ${x.n} : 1.`,
-      `New overall = (${x.n} × ${x.U} + ${r}) ÷ ${x.n + 1} = ${x.n * x.U + r} ÷ ${x.n + 1} ≈ ${g(key, 3)} minutes.`],
+    solution: [
+      `${cs[k]}: urban time ${x.U} minutes (unchanged); new rural time ${r} minutes.`,
+      `${x.n} urban calls for every rural call means weights ${x.n} : 1, ${x.n + 1} calls in all.`,
+      `New overall = (${x.n} × ${x.U} + ${r}) ÷ ${x.n + 1} = ${x.n * x.U + r} ÷ ${x.n + 1} ${ap(key, 2)} minutes.`],
     explanation: 'Each type of call counts in proportion to how many there are, so the urban time carries the larger weight.',
   };
 };
@@ -217,7 +226,7 @@ MED['Rank of percentage increases'] = (R, v) => {
       exhibits: [table(`${land}: share of total power generated (%)`, ['Source', ...yrs.map(String)], rowsAll, 'Assume total power generated did not change over the period.')],
       stem: `In ${land}, which source showed the ${word}-largest percentage increase in generation between ${yrs[2]} and ${yrs[3]}?`,
       hints: ['Compare each change with its own starting value, not in percentage points.', 'Rank the sources by (new − old) ÷ old.'],
-      solution: [`Data needed: the ${yrs[2]} and ${yrs[3]} shares; with an unchanged total, shares move in proportion to generation.`,
+      solution: [`With an unchanged total, each share moves in proportion to generation, so percentage increase = (${yrs[3]} share − ${yrs[2]} share) ÷ ${yrs[2]} share.`,
         ...order.map((i) => `${names[i]}: (${g(b[i], 1)} − ${g(a[i], 1)}) ÷ ${g(a[i], 1)} = ${g(100 * rel[i], 1)}%.`),
         `The ${word}-largest increase is ${names[keyI]}.`],
       explanation: `Percentage increase compares each source with its own ${yrs[2]} level; the largest change in points is not necessarily the largest in per cent.`,
@@ -245,9 +254,10 @@ MED['Amount needed for a target share'] = (R, v) => {
       M(O * f - X, `Gives the extra freight needed rather than the total amount.`),
     ],
     hints: [`If ${cs[k]} has ${frac} of the total, the other four have the rest.`, `${cs[k]}'s amount = others × ${s[0]} ÷ ${s[1] - s[0]}.`],
-    solution: [`Data needed: ${yrs[y]} column without ${cs[k]}: others = ${g(O)}.`,
-      `The others would hold ${s[1] - s[0]} parts out of ${s[1]}, ${cs[k]} ${s[0]} part.`,
-      `${cs[k]} = ${g(O)} × ${s[0]} ÷ ${s[1] - s[0]} ≈ ${g(key, 1)} thousand tonnes.`],
+    solution: [
+      `${yrs[y]} freight of the other four countries: ${rows.map((r, i) => i).filter((i) => i !== k).map((i) => g(rows[i][y])).join(' + ')} = ${g(O)}.`,
+      `${frac[0].toUpperCase() + frac.slice(1)} of the total means ${cs[k]} has ${s[0]} part and the others ${s[1] - s[0]} parts.`,
+      `${cs[k]} = ${g(O)} × ${s[0]} ÷ ${s[1] - s[0]} ${ap(key, 1)} thousand tonnes.`],
     explanation: 'A larger amount for one country also raises the total, so the target is set against the other countries\' freight.',
   };
 };
@@ -275,10 +285,11 @@ MED['Total from shares in a stacked chart'] = (R, v) => {
       M(P * (q[0] * A[1] + q[1] * B[1]) / 10000 + P * (100 - q[0] - q[1]) * B[1] / 10000, 'Uses the middle group\'s share for those aged 60 and over.'),
     ],
     hints: ['Each percentage applies to its own age group.', 'Find the size of the oldest group first.'],
-    solution: [`Data needed: agree somewhat — ${A[1]}%, ${B[1]}% and ${C[1]}%; population ${g(P, 1)} million; group sizes ${q[0]}%, ${q[1]}% and ${q[2]}%.`,
-      `18–34: ${g(P, 1)} × ${q[0]}% × ${A[1]}% = ${g(P * q[0] * A[1] / 10000, 4)} million.`,
-      `35–59: ${g(P, 1)} × ${q[1]}% × ${B[1]}% = ${g(P * q[1] * B[1] / 10000, 4)} million; 60 and over: ${g(P, 1)} × ${q[2]}% × ${C[1]}% = ${g(P * q[2] * C[1] / 10000, 4)} million.`,
-      `Total ≈ ${g(key, 3)} million.`],
+    solution: [
+      `Agree somewhat: ${A[1]}% (18–34), ${B[1]}% (35–59), ${C[1]}% (60 and over); group sizes ${q[0]}%, ${q[1]}% and 100 − ${q[0]} − ${q[1]} = ${q[2]}% of ${g(P, 1)} million.`,
+      `18–34: ${g(P, 1)} × ${q[0]}% × ${A[1]}% ${ap(P * q[0] * A[1] / 10000, 4)} million.`,
+      `35–59: ${g(P, 1)} × ${q[1]}% × ${B[1]}% ${ap(P * q[1] * B[1] / 10000, 4)} million; 60 and over: ${g(P, 1)} × ${q[2]}% × ${C[1]}% ${ap(P * q[2] * C[1] / 10000, 4)} million.`,
+      `Total ${ap(key, 3)} million.`],
     explanation: 'Each group\'s share applies to that group\'s own size, so the result is a weighted, not simple, average.',
   };
 };
@@ -297,9 +308,10 @@ MED['Monthly pension payments'] = (R, v) => {
       ...o.map((i) => M(P * sh / 100 * rows[i][2], `Uses ${cs[i]}'s average pension.`)),
     ],
     hints: ['Pensioners = population × pensioner share.', 'Monthly spending = pensioners × average monthly pension.'],
-    solution: [`Data needed: ${cs[k]} — population ${g(P, 1)} million, pensioners ${g(sh, 1)}%, pension EUR ${g(pen)}.`,
-      `Pensioners = ${g(P, 1)} × ${g(sh, 1)}% = ${g(P * sh / 100, 4)} million.`,
-      `Spending = ${g(P * sh / 100, 4)} × ${g(pen)} ≈ EUR ${g(key, 2)} million.`],
+    solution: [
+      `${cs[k]}: population ${g(P, 1)} million, pensioners ${g(sh, 1)}%, average monthly pension EUR ${g(pen)}.`,
+      `Pensioners = ${g(P, 1)} million × ${g(sh, 1)}% ${ap(P * sh / 100, 4)} million.`,
+      `Monthly spending = ${g(P * sh / 100, 4)} million × EUR ${g(pen)} ${ap(key, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)} million.`],
     explanation: 'Only pensioners receive a pension, so the population is first reduced to the pensioner share.',
   };
 };
@@ -332,7 +344,10 @@ MED['Earlier amount from a pie chart'] = (R, v) => {
       ...near.map((j) => M((T - d) * sh[j] / 100, `Reads the ${PIE_ITEMS[j]} slice.`)),
     ],
     hints: [`Find the ${yr - 1} total first.`, 'The same distribution means the same percentage applies.'],
-    solution: [`Data needed: total ${g(T, 2)}; ${name} ${g(sh[i], 1)}%.`, `${yr - 1} total = ${g(T, 2)} − ${g(d, 1)} = ${g(T - d, 2)} million tonnes.`, `${name}: ${g(T - d, 2)} × ${g(sh[i], 1)}% ≈ ${g(key, 3)} million tonnes.`],
+    solution: [
+      `${yr} total ${g(T, 2)} million tonnes (chart title); ${name} ${g(sh[i], 1)}%.`,
+      `${yr - 1} total = ${g(T, 2)} − ${g(d, 1)} ${ap(T - d, 2)} million tonnes.`,
+      `Same distribution, so ${name} in ${yr - 1} = ${g(T - d, 2)} × ${g(sh[i], 1)}% ${ap(key, 3)} million tonnes.`],
     explanation: 'The distribution is unchanged, so the same share applies to the smaller earlier total.',
   };
 };
@@ -362,10 +377,11 @@ MED['Distance gap at the finish'] = (R, v) => {
       M(200 * (1 - col[0] / col[4]), 'Takes the first and last rows of the table instead of the fastest and slowest times.'),
     ],
     hints: ['Find the fastest and slowest times in the column.', 'Distance covered by the slower swimmer = speed × winner\'s time.'],
-    solution: [`Data needed: winner ${cs[order[0]]} ${mmss(col[order[0]])}; last ${cs[order[4]]} ${mmss(col[order[4]])}.`,
-      `Last-placed speed = 200 ÷ ${g(col[order[4]], 2)} = ${g(200 / col[order[4]], 5)} m/s.`,
-      `Distance after ${g(col[order[0]], 2)} s = ${g(200 / col[order[4]], 5)} × ${g(col[order[0]], 2)} = ${g(200 - key, 3)} m.`,
-      `Gap = 200 − ${g(200 - key, 3)} ≈ ${g(key, 3)} m.`],
+    solution: [
+      `Winner (fastest time) ${cs[order[0]]} ${mmss(col[order[0]])} = ${g(col[order[0]], 2)} s; last (slowest) ${cs[order[4]]} ${mmss(col[order[4]])} = ${g(col[order[4]], 2)} s.`,
+      `Last-placed speed = 200 ÷ ${g(col[order[4]], 2)} ${ap(200 / col[order[4]], 4)} m/s.`,
+      `When the winner finishes after ${g(col[order[0]], 2)} s, the last swimmer has covered ${g(200 / col[order[4]], 4)} × ${g(col[order[0]], 2)} ${ap(200 - key, 2)} m.`,
+      `Gap = 200 − ${g(200 - key, 2)} ${ap(key, 2)} m (exact values kept until the end).`],
     explanation: 'When the winner finishes, the slower swimmer has covered their own speed multiplied by the winner\'s time.',
   };
 };
@@ -388,9 +404,10 @@ MED['Time to reach top speed'] = (R) => {
       ...order.slice(1).map((i) => M(col[i] - run, `Uses ${cs[i]}'s time, which did not win the 100 m.`)),
     ],
     hints: ['The winner has the lowest 100 m time.', `The last ${100 - d} m were run at top speed.`],
-    solution: [`Data needed: 100 m winner ${cs[order[0]]}, ${g(Tw, 2)} s.`,
-      `Time at top speed = ${100 - d} ÷ ${g(vmax, 2)} = ${g(run, 4)} s.`,
-      `Time to reach top speed = ${g(Tw, 2)} − ${g(run, 4)} ≈ ${g(key, 3)} s.`],
+    solution: [
+      `The 100 m winner has the lowest 100 m time: ${cs[order[0]]}, ${g(Tw, 2)} s.`,
+      `After the first ${d} m the winner ran the remaining ${100 - d} m at ${g(vmax, 2)} m/s: ${100 - d} ÷ ${g(vmax, 2)} ${ap(run, 3)} s.`,
+      `Time to reach top speed = ${g(Tw, 2)} − ${g(run, 3)} ${ap(key, 3)} s.`],
     explanation: 'Subtract the time spent at top speed over the rest of the race from the winner\'s total time.',
   };
 };
@@ -415,10 +432,11 @@ HARD['NO share of all eligible voters'] = (R) => {
       M(100 * sum(yes) / E, 'Uses the YES votes.'),
     ],
     hints: ['Rebuild each district\'s eligible voters from its own turnout.', 'Divide all NO votes by all eligible voters.'],
-    solution: ['Data needed: YES, NO and turnout for each district.',
-      ...ds.map((d, i) => `${d}: eligible = (${g(yes[i])} + ${g(no[i])}) ÷ ${g(t[i], 2)}% = ${g(elig[i], 2)}.`),
-      `All eligible = ${g(E, 2)}; all NO = ${g(sum(no))}.`,
-      `Share = ${g(sum(no))} ÷ ${g(E, 2)} × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      'Eligible voters = votes cast ÷ turnout, district by district.',
+      ...ds.map((d, i) => `${d}: (${g(yes[i])} + ${g(no[i])}) ÷ ${g(t[i], 2)}% ${ap(elig[i], 1)}.`),
+      `All eligible voters ${ap(E, 1)}; all NO votes = ${no.map((x) => g(x)).join(' + ')} = ${g(sum(no))}.`,
+      `NO share = ${g(sum(no))} ÷ ${g(E, 1)} × 100 ${ap(key, 2)}%.`],
     explanation: 'Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them.',
   };
 };
@@ -444,10 +462,11 @@ HARD['Per-capita gap after population change'] = (R) => {
       M(((rows[x][2] / rows[x][0]) / (rows[z][2] / rows[z][0]) - 1) * 100, `Uses ${y[0]} tickets.`),
     ],
     hints: [`Update both populations to ${y[1]} first.`, `${cs[z]} is the base of the comparison.`],
-    solution: [`Data needed: ${y[1]} tickets, ${y[0]} populations and the population changes for ${cs[x]} and ${cs[z]}.`,
-      `${cs[x]}: ${g(rows[x][3])} ÷ (${g(rows[x][0])} × ${g(1 + rows[x][1] / 100, 3)}) = ${g(pc(x), 5)}.`,
-      `${cs[z]}: ${g(rows[z][3])} ÷ (${g(rows[z][0])} × ${g(1 + rows[z][1] / 100, 3)}) = ${g(pc(z), 5)}.`,
-      `Difference = (${g(pc(x), 5)} ÷ ${g(pc(z), 5)} − 1) × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      `${y[1]} populations (thousand): ${cs[x]} ${g(rows[x][0])} × ${g(1 + rows[x][1] / 100, 3)} ${ap(rows[x][0] * (1 + rows[x][1] / 100), 1)}; ${cs[z]} ${g(rows[z][0])} × ${g(1 + rows[z][1] / 100, 3)} ${ap(rows[z][0] * (1 + rows[z][1] / 100), 1)}.`,
+      `Tickets per inhabitant in ${y[1]}: ${cs[x]} ${g(rows[x][3])} ÷ ${g(rows[x][0] * (1 + rows[x][1] / 100), 1)} ${ap(pc(x), 4)}; ${cs[z]} ${g(rows[z][3])} ÷ ${g(rows[z][0] * (1 + rows[z][1] / 100), 1)} ${ap(pc(z), 4)}.`,
+      `${cs[z]} follows "than", so it is the base.`,
+      `Difference = (${g(pc(x), 4)} ÷ ${g(pc(z), 4)} − 1) × 100 ${ap(key, 2)}%.`],
     explanation: 'Both per-capita values need the later populations; the country after "than" is the base.',
   };
 };
@@ -470,10 +489,11 @@ HARD['Average after two changes'] = (R, v) => {
       M(x.A + up - (x.Rr - r), 'Adds and subtracts the changes in full.'),
     ],
     hints: ['Work out how many urban calls there are per rural call from the three averages.', 'Apply both changes, then weight them by the call mix.'],
-    solution: [`Data needed: ${cs[k]} urban ${x.U}, rural ${x.Rr}, overall ${x.A} minutes.`,
-      `Urban calls per rural call = (${x.Rr} − ${x.A}) ÷ (${x.A} − ${x.U}) = ${x.n}.`,
-      `New times: urban ${x.U + up}, rural ${r}.`,
-      `Overall = (${x.n} × ${x.U + up} + ${r}) ÷ ${x.n + 1} ≈ ${g(key, 3)} minutes.`],
+    solution: [
+      `${cs[k]}: urban ${x.U}, rural ${x.Rr}, overall ${x.A} minutes.`,
+      `Urban calls per rural call = (${x.Rr} − ${x.A}) ÷ (${x.A} − ${x.U}) = ${x.Rr - x.A} ÷ ${x.A - x.U} = ${x.n}.`,
+      `New times: urban ${x.U} + ${up} = ${x.U + up}; rural ${r}.`,
+      `New overall = (${x.n} × ${x.U + up} + ${r}) ÷ ${x.n + 1} = ${x.n * (x.U + up) + r} ÷ ${x.n + 1} ${ap(key, 2)} minutes.`],
     explanation: 'The three averages reveal the mix of calls, which then weights the two new times.',
   };
 };
@@ -501,10 +521,11 @@ HARD['Top speed from a race time'] = (R, v) => {
       M((100 + d) / rows[order[place]][1] * 2, 'Uses the 200 m time.'),
     ],
     hints: ['During uniform acceleration from rest, the average speed is half the top speed.', 'Write the race time as acceleration time + constant-speed time and solve for top speed.'],
-    solution: [`Data needed: ${word}-placed ${cs[order[place]]}, ${g(T, 2)} s.`,
-      `Acceleration time = ${d} ÷ (v ÷ 2) = ${2 * d} ÷ v.`,
-      `Constant-speed time = ${100 - d} ÷ v.`,
-      `${g(T, 2)} = (${2 * d} + ${100 - d}) ÷ v, so v = ${100 + d} ÷ ${g(T, 2)} ≈ ${g(key, 3)} m/s.`],
+    solution: [
+      `The ${word}-fastest 100 m time is ${cs[order[place]]}'s ${g(T, 2)} s.`,
+      `Accelerating uniformly from rest, the average speed over the first ${d} m is v ÷ 2, so that stretch takes ${d} ÷ (v ÷ 2) = ${2 * d} ÷ v.`,
+      `The remaining ${100 - d} m at top speed take ${100 - d} ÷ v.`,
+      `${g(T, 2)} = (${2 * d} + ${100 - d}) ÷ v = ${100 + d} ÷ v, so v = ${100 + d} ÷ ${g(T, 2)} ${ap(key, 3)} m/s.`],
     explanation: 'Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator.',
   };
 };
@@ -533,10 +554,11 @@ HARD['Catching up at constant speeds'] = (R, v) => {
       M(L * dist[e] / (ts - tf), 'Divides the race distance by the time gap and multiplies by the head start.'),
     ],
     hints: ['The gap closes at the difference between the two speeds.', 'Time to draw level = head start ÷ speed difference; distance = faster speed × that time.'],
-    solution: [`Data needed: ${evs[e]} times — ${cs[fast]} ${mmss(tf)}, ${cs[slow]} ${mmss(ts)}.`,
-      `Speeds: ${dist[e]} ÷ ${g(tf, 2)} = ${g(dist[e] / tf, 5)} m/s and ${dist[e]} ÷ ${g(ts, 2)} = ${g(dist[e] / ts, 5)} m/s.`,
-      `Time to draw level = ${L} ÷ ${g(dist[e] / tf - dist[e] / ts, 6)} = ${g(L / (dist[e] / tf - dist[e] / ts), 3)} s.`,
-      `Distance = ${g(dist[e] / tf, 5)} × ${g(L / (dist[e] / tf - dist[e] / ts), 3)} ≈ ${g(key, 2)} m.`],
+    solution: [
+      `Shown values are rounded; keep exact values until the end. ${evs[e]} times in seconds: ${cs[fast]} ${mmss(tf)} = ${g(tf, 2)} s; ${cs[slow]} ${mmss(ts)} = ${g(ts, 2)} s.`,
+      `Speeds: ${g(dist[e])} ÷ ${g(tf, 2)} ${ap(dist[e] / tf, 4)} m/s and ${g(dist[e])} ÷ ${g(ts, 2)} ${ap(dist[e] / ts, 4)} m/s; the gap closes at ${ap(dist[e] / tf - dist[e] / ts, 4)} m/s.`,
+      `Time to draw level = ${L} ÷ ${g(dist[e] / tf - dist[e] / ts, 4)} ${ap(L / (dist[e] / tf - dist[e] / ts), 1)} s.`,
+      `Distance = ${g(dist[e] / tf, 4)} × ${g(L / (dist[e] / tf - dist[e] / ts), 1)} ${ap(key, 1)} m.`],
     explanation: 'The faster swimmer gains the speed difference every second; the head start sets how long that takes.',
   };
 };
@@ -562,10 +584,11 @@ HARD['Missing value from a share of all types'] = (R, v) => {
       M(othersAll * p / (100 + p) - U - E, `Divides by ${100 + p}% instead of ${100 - p}%.`),
     ],
     hints: [`The other four countries account for ${100 - p}% of all pianos.`, `Find ${cs[k]}'s total first, then remove the types you know.`],
-    solution: [`Data needed: all pianos in the other four countries = ${g(othersAll)}; ${cs[k]} upright ${g(U)}, digital ${g(E)}.`,
-      `${100 - p}% = ${g(othersAll)}, so ${cs[k]}'s total = ${g(othersAll)} × ${p} ÷ ${100 - p} = ${g(total, 2)}.`,
-      `Known types in ${cs[k]} = ${g(U)} + ${g(E)} = ${g(U + E)}.`,
-      `Grand pianos = ${g(total, 2)} − ${g(U + E)} ≈ ${g(key, 1)}.`],
+    solution: [
+      `Other four countries, all types: ${rows.map((r, i) => i).filter((i) => i !== k).map((i) => g(sum(rows[i]))).join(' + ')} = ${g(othersAll)}.`,
+      `They hold ${100 - p}% of all pianos, so ${cs[k]}'s total = ${g(othersAll)} × ${p} ÷ ${100 - p} ${ap(total, 1)}.`,
+      `Known types in ${cs[k]}: ${g(U)} upright + ${g(E)} digital = ${g(U + E)}.`,
+      `Grand pianos = ${g(total, 1)} − ${g(U + E)} ${ap(key, 1)}, about ${g(key)}.`],
     explanation: 'The share is of all piano types, so rebuild the country total before isolating the missing type.',
   };
 };
@@ -603,10 +626,10 @@ HARD['Change in a remainder group'] = (R, v) => {
       M((n2 / n1 * (P2 / P1) ** 2 - 1) * 100, 'Applies the population growth twice.'),
     ],
     hints: ['No opinion = 100% − in favour − against.', 'Turn both shares into numbers of people before comparing.'],
-    solution: [`Data needed: ${years[i1]} — ${s[i1]}% and ${o[i1]}%; ${years[i2]} — ${s[i2]}% and ${o[i2]}%.`,
-      `No opinion: ${n1}% and ${n2}%.`,
-      `People: ${n1}% × ${g(P1, 2)} = ${g(n1 * P1 / 100, 4)} million; ${n2}% × ${g(P2, 2)} = ${g(n2 * P2 / 100, 4)} million.`,
-      `Change = (${g(n2 * P2 / 100, 4)} ÷ ${g(n1 * P1 / 100, 4)} − 1) × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      `No opinion = 100% − in favour − against: ${years[i1]} 100 − ${s[i1]} − ${o[i1]} = ${n1}%; ${years[i2]} 100 − ${s[i2]} − ${o[i2]} = ${n2}%.`,
+      `People with no opinion: ${years[i1]} ${n1}% × ${g(P1, 2)} ${ap(n1 * P1 / 100, 4)} million; ${years[i2]} ${n2}% × ${g(P2, 2)} ${ap(n2 * P2 / 100, 4)} million.`,
+      `Change = (${g(n2 * P2 / 100, 4)} ÷ ${g(n1 * P1 / 100, 4)} − 1) × 100 ${ap(key, 2)}%.`],
     explanation: 'The remainder share must be turned into people with each year\'s population before the change is measured.',
   };
 };
@@ -631,10 +654,10 @@ HARD['Population from an unchanged group'] = (R, v) => {
       M(P1 * s[i1] / s[i2 - 1 >= 0 ? i2 - 1 : i2] * o[i2] / 100 * (i2 - 1 === i1 ? 0 : 1) || 0, `Reads the ${years[i1]} share in favour twice.`),
     ].filter((m) => m.v > 0),
     hints: ['If the number in favour is fixed, the population changes in inverse proportion to the share in favour.', `Find the ${years[i2]} population first.`],
-    solution: [`Data needed: in favour ${s[i1]}% (${years[i1]}) and ${s[i2]}% (${years[i2]}); against ${o[i2]}% (${years[i2]}).`,
-      `In favour = ${s[i1]}% × ${g(P1, 2)} = ${g(P1 * s[i1] / 100, 4)} million.`,
-      `${years[i2]} population = ${g(P1 * s[i1] / 100, 4)} ÷ ${s[i2]}% = ${g(P2, 4)} million.`,
-      `Against = ${g(P2, 4)} × ${o[i2]}% ≈ ${g(key, 3)} million.`],
+    solution: [
+      `In favour ${years[i1]} = ${s[i1]}% × ${g(P1, 2)} ${ap(P1 * s[i1] / 100, 4)} million; this number is unchanged in ${years[i2]}.`,
+      `It is ${s[i2]}% of the ${years[i2]} population, so population = ${g(P1 * s[i1] / 100, 4)} ÷ ${s[i2]}% ${ap(P2, 4)} million.`,
+      `Against in ${years[i2]} = ${g(P2, 4)} × ${o[i2]}% ${ap(key, 3)} million.`],
     explanation: 'A fixed number with a changing share reveals the new population, which then gives the number against.',
   };
 };
@@ -660,10 +683,11 @@ HARD['Projected share against a past amount'] = (R, v) => {
       M((T * (1 + q / 100) ** 2 * (sh[i] + r) / 100 / past - 1) * 100, 'Applies the growth in total waste twice.'),
     ],
     hints: [`Build the ${yr + 1} total and the ${yr + 1} share separately.`, `Compare with the ${yr - 2} figure from the table.`],
-    solution: [`Data needed: total ${g(T, 2)} million tonnes; ${name} ${g(sh[i], 1)}%; ${yr - 2} amount ${g(past, 1)} million tonnes.`,
-      `${yr + 1} total = ${g(T, 2)} × ${g(1 + q / 100, 2)} = ${g(T * (1 + q / 100), 4)}.`,
-      `${yr + 1} share = ${g(sh[i], 1)} + ${g(r, 1)} = ${g(sh[i] + r, 1)}%, so ${name} = ${g(proj, 4)} million tonnes.`,
-      `Change = (${g(proj, 4)} ÷ ${g(past, 1)} − 1) × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      `${yr + 1} total = ${g(T, 2)} × ${g(1 + q / 100, 2)} ${ap(T * (1 + q / 100), 2)} million tonnes.`,
+      `${yr + 1} ${name.toLowerCase()} share = ${g(sh[i], 1)}% + ${g(r, 1)} points = ${g(sh[i] + r, 1)}%.`,
+      `${yr + 1} ${name.toLowerCase()} = ${g(T * (1 + q / 100), 2)} × ${g(sh[i] + r, 1)}% ${ap(proj, 3)} million tonnes; ${yr - 2} (table) = ${g(past, 1)}.`,
+      `Change = (${g(proj, 3)} ÷ ${g(past, 1)} − 1) × 100 ${ap(key, 2)}%.`],
     explanation: 'A percentage-point change in share and a percentage growth in the total must be applied as separate factors.',
   };
 };
@@ -691,10 +715,11 @@ HARD['Growth needed to hold a share'] = (R, v) => {
       M((O * (1 + q / 100) ** 2 * s[0] / (s[1] - s[0]) / X - 1) * 100, `Applies the ${q}% growth twice.`),
     ],
     hints: [`If ${cs[k]} carries ${frac}, the others carry the rest.`, 'Grow the others first, then find the target and compare it with today\'s figure.'],
-    solution: [`Data needed: ${yrs[2]} column — ${cs[k]} ${g(X)}, others ${g(O)}.`,
-      `Others in 2025 = ${g(O)} × ${g(1 + q / 100, 2)} = ${g(O * (1 + q / 100), 2)}.`,
-      `${cs[k]}'s target = ${g(O * (1 + q / 100), 2)} × ${s[0]} ÷ ${s[1] - s[0]} = ${g(target, 2)}.`,
-      `Required growth = (${g(target, 2)} ÷ ${g(X)} − 1) × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      `${yrs[2]}: ${cs[k]} ${g(X)}; the other four ${g(O)}.`,
+      `Others in 2025 = ${g(O)} × ${g(1 + q / 100, 2)} ${ap(O * (1 + q / 100), 1)}.`,
+      `${frac[0].toUpperCase() + frac.slice(1)} of the total means ${s[0]} part for ${cs[k]} to ${s[1] - s[0]} parts for the others: target = ${g(O * (1 + q / 100), 1)} ÷ ${s[1] - s[0]} ${ap(target, 1)}.`,
+      `Required growth = (${g(target, 1)} ÷ ${g(X)} − 1) × 100 ${ap(key, 2)}%.`],
     explanation: 'The target share is set against the others\' grown freight, so their growth enters before the required growth is found.',
   };
 };
@@ -720,10 +745,11 @@ HARD['Turnout needed to change the result'] = (R, v) => {
       M(t[k] + 200 * deficit / elig, 'Doubles the NO lead.'),
     ],
     hints: ['YES needs as many extra votes as the overall NO lead.', `Turn those votes into percentage points of ${ds[k]}'s eligible voters.`],
-    solution: [`Data needed: all YES and NO votes; ${ds[k]} turnout ${g(t[k], 2)}%.`,
-      `Overall NO lead = ${g(sum(no))} − ${g(sum(yes))} = ${g(deficit)}.`,
-      `${ds[k]} eligible = ${g(yes[k] + no[k])} ÷ ${g(t[k], 2)}% = ${g(elig, 2)}.`,
-      `Required turnout = ${g(t[k], 2)} + ${g(deficit)} ÷ ${g(elig, 2)} × 100 ≈ ${g(key, 2)}%.`],
+    solution: [
+      `Overall NO lead = (${no.map((x) => g(x)).join(' + ')}) − (${yes.map((x) => g(x)).join(' + ')}) = ${g(sum(no))} − ${g(sum(yes))} = ${g(deficit)}.`,
+      `${ds[k]} eligible voters = (${g(yes[k])} + ${g(no[k])}) ÷ ${g(t[k], 2)}% ${ap(elig, 1)}.`,
+      `${g(deficit)} extra YES votes = ${g(deficit)} ÷ ${g(elig, 1)} × 100 ${ap(100 * deficit / elig, 2)} points of turnout.`,
+      `Required turnout = ${g(t[k], 2)} + ${g(100 * deficit / elig, 2)} ${ap(key, 2)}%.`],
     explanation: 'The extra YES votes must cover the overall NO lead, and each percentage point of turnout is one hundredth of the district\'s eligible voters.',
   };
 };
@@ -747,10 +773,11 @@ HARD['Efficiency needed to keep a ratio'] = (R, v) => {
       M(F / E * (1 + (a - b) / 100), 'Adjusts by the difference of the two percentages.'),
     ],
     hints: ['Funds raised = efficiency × spending.', 'Keeping funds per fundraiser fixed means funds raised must grow with the number of fundraisers.'],
-    solution: [`Data needed: ${orgs[k]} — ${n} fundraisers, spending EUR ${g(E)} thousand, funds raised EUR ${g(F)} thousand.`,
-      `Funds per fundraiser now = ${g(F)} ÷ ${n} = ${g(F / n, 4)}.`,
-      `Next year funds needed = ${g(F / n, 4)} × ${g(n * (1 + a / 100), 2)} = ${g(F * (1 + a / 100), 2)}; spending = ${g(E * (1 + b / 100), 2)}.`,
-      `Efficiency = ${g(F * (1 + a / 100), 2)} ÷ ${g(E * (1 + b / 100), 2)} ≈ ${g(key, 3)}.`],
+    solution: [
+      `${orgs[k]} now: ${n} fundraisers, spending EUR ${g(E)} thousand, funds raised EUR ${g(F)} thousand.`,
+      `To keep funds per fundraiser unchanged with ${a}% more fundraisers, funds raised must also rise by ${a}%: ${g(F)} × ${g(1 + a / 100, 2)} ${ap(F * (1 + a / 100), 2)} thousand.`,
+      `Spending next year = ${g(E)} × ${g(1 + b / 100, 2)} ${ap(E * (1 + b / 100), 2)} thousand.`,
+      `Efficiency = ${g(F * (1 + a / 100), 2)} ÷ ${g(E * (1 + b / 100), 2)} ${ap(key, 3)}.`],
     explanation: 'Funds raised must grow with the fundraisers while spending grows by its own rate; efficiency is their ratio.',
   };
 };
@@ -781,10 +808,11 @@ HARD['Equivalent ticket price'] = (R) => {
       M((groups * h * c + people * fee + 2 * K) / N, 'Counts the concert costs twice.'),
     ].filter((m) => m.v > 0),
     hints: ['Count groups for table income and players for entry fees.', 'Ticket income minus costs must equal the billiards income.'],
-    solution: [`Data needed: Saturday groups ${cnt.join(', ')} (sizes ${sizes.join(', ')}).`,
-      `Groups = ${groups}; players = ${people}.`,
-      `Billiards income = ${groups} × ${g(h, 1)} × ${g(c, 2)} + ${people} × ${g(fee, 2)} = EUR ${g(income, 2)}.`,
-      `Ticket price = (${g(income, 2)} + ${K}) ÷ ${N} ≈ EUR ${g(key, 3)}.`],
+    solution: [
+      `Saturday groups: ${cnt.map((n, i) => `${n} of ${sizes[i]}`).join(', ')}.`,
+      `Groups = ${cnt.join(' + ')} = ${groups}; players = ${cnt.map((n, i) => `${n} × ${sizes[i]}`).join(' + ')} = ${people}.`,
+      `Billiards income = ${groups} × ${g(h, 1)} h × EUR ${g(c, 2)} + ${people} × EUR ${g(fee, 2)} = EUR ${g(income, 2)}.`,
+      `Ticket price = (${g(income, 2)} + ${K}) ÷ ${N} ${ap(key, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)}.`],
     explanation: 'Table income depends on groups, entry fees on players; the concert must cover its costs on top.',
   };
 };
@@ -811,13 +839,353 @@ HARD['Pension spending in euros'] = (R) => {
       M(spend(a) + spend(b) * rows[a][1] / rows[b][1], `Applies ${cs[a]}'s pensioner share to both countries.`),
     ],
     hints: ['Pensioners = population × share; spending = pensioners × pension × payments.', 'Divide by units per euro to convert.'],
-    solution: [`Data needed: both countries' population, pensioner share, pension, payments and exchange rate.`,
-      `${cs[a]}: ${g(rows[a][0], 1)} × ${g(rows[a][1], 1)}% × ${g(rows[a][2])} × ${pay[a]} ÷ ${g(rate[a], 2)} = EUR ${g(spend(a), 3)} million.`,
-      `${cs[b]}: ${g(rows[b][0], 1)} × ${g(rows[b][1], 1)}% × ${g(rows[b][2])} × ${pay[b]} ÷ ${g(rate[b], 2)} = EUR ${g(spend(b), 3)} million.`,
-      `Total ≈ EUR ${g(key, 2)} million.`],
+    solution: [
+      ...[a, b].map((i) => `${cs[i]}: pensioners = ${g(rows[i][0], 1)} million × ${g(rows[i][1], 1)}% ${ap(rows[i][0] * rows[i][1] / 100, 4)} million.`),
+      ...[a, b].map((i) => `${cs[i]}: ${g(rows[i][0] * rows[i][1] / 100, 4)} × ${g(rows[i][2])} × ${pay[i]} payments ÷ ${g(rate[i], 2)} per EUR ${ap(spend(i), 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)} million.`),
+      `Total = EUR ${g(spend(a), 2)} million + EUR ${g(spend(b), 2)} million ${ap(key, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)} million.`],
     explanation: 'Each country needs its own pensioner count, number of payments and exchange rate before the totals are added.',
   };
 };
+
+/* ---------- hard models added after review: one real insight each, short stem, trap-based distractors ---------- */
+const REG5 = ['North', 'South', 'East', 'West', 'Centre'];
+HARD['Capped proportional allocation'] = (R, v) => {
+  const pop = REG5.map(() => R.i(700, 2200)), bigI = R.i(0, 4);
+  pop[bigI] = Math.round(Math.max(...pop) * R.f(1.6, 2.3, 2));
+  const big = bigI, P = sum(pop), X = R.i(12, 40) * 10;
+  const C = Math.round(X * pop[big] / P * R.f(0.72, 0.9, 2));
+  const rest = P - pop[big], share = (i) => (X - C) * pop[i] / rest;
+  if (REG5.some((_, i) => i !== big && share(i) >= C)) return null;
+  const k = [0, 1, 2, 3, 4].filter((i) => i !== big)[v % 4], excess = X * pop[big] / P - C, key = share(k);
+  return {
+    exhibits: [table('Population by region (thousand)', ['Region', 'Population (thousand)', 'Area (km²)', 'Schools'], REG5.map((r, i) => [r, g(pop[i]), g(R.i(900, 9000)), String(R.i(40, 300))]),
+      `EUR ${X} million is shared in proportion to population, but no region may receive more than EUR ${C} million. Any excess is shared among the other regions in proportion to their populations.`)],
+    stem: `How much does ${REG5[k]} receive (EUR million)?`,
+    key, fmt: (x) => 'EUR ' + g(x, 2) + ' million',
+    mistakes: [
+      M(X * pop[k] / P, 'Ignores the cap.'),
+      M(X * pop[k] / P + excess / 4, 'Shares the excess equally among the four other regions.'),
+      M((X - C) * pop[k] / P, 'Keeps the capped region in the population base when sharing the rest.'),
+      M(X * pop[k] / P + excess * pop[k] / P, 'Shares the excess among all five regions, including the capped one.'),
+      M(X * pop[k] / rest, 'Shares the whole budget among the four other regions.'),
+      M((X - C) / 4, 'Splits the remainder equally among the four other regions.'),
+      M(C * pop[k] / pop[big], 'Scales the cap by the ratio of the two populations.'),
+    ],
+    hints: ['Check first which region would exceed the cap.', 'That region gets exactly the cap; the rest of the money is shared among the others.'],
+    solution: [`Total population = ${pop.map((x) => g(x)).join(' + ')} = ${g(P)} thousand.`,
+      `${REG5[big]} would get ${X} × ${g(pop[big])} ÷ ${g(P)} ${ap(X * pop[big] / P, 2)}, above the cap, so it receives EUR ${C} million.`,
+      `The other regions share ${X} − ${C} = EUR ${X - C} million over ${g(P)} − ${g(pop[big])} = ${g(rest)} thousand people; none of them reaches the cap.`,
+      `${REG5[k]} = ${X - C} × ${g(pop[k])} ÷ ${g(rest)} ${ap(key, 2)} EUR million.`],
+    explanation: 'A binding cap fixes one region\'s amount; the remainder is then shared on a smaller population base.',
+  };
+};
+
+HARD['Year one overtakes another'] = (R) => {
+  const cs = R.pickN(NAMES, 5);
+  const rows = cs.map(() => [R.f(40, 160, 1), R.f(0.5, 6.5, 1)]);
+  const [x, z] = R.pickN([0, 1, 2, 3, 4], 2);
+  rows[x][0] = Math.round(rows[z][0] * R.f(0.6, 0.85, 2) * 10) / 10; rows[x][1] = Math.round((rows[z][1] + R.f(2, 4.5, 1)) * 10) / 10;
+  const val = (i, n) => rows[i][0] * (1 + rows[i][1] / 100) ** n;
+  let N = 1; while (val(x, N) <= val(z, N) && N < 60) N++;
+  if (N < 4 || N > 16 || val(x, N) / val(z, N) < 1.004 || val(z, N - 1) / val(x, N - 1) < 1.004) return null;
+  const lin = (i, n) => rows[i][0] * (1 + n * rows[i][1] / 100);
+  let NL = 1; while (lin(x, NL) <= lin(z, NL) && NL < 60) NL++;
+  const Y = 2024 + N;
+  return {
+    category: { build: (k) => {
+      const years = [0, 1, 2, 3, 4].map((j) => Y - k + j);
+      if (years[0] <= 2024) return null;
+      return { options: years.map(String), answer: k, optionNotes: years.map((y) => {
+        if (y === Y) return `Correct. ${cs[x]} first exceeds ${cs[z]} in ${Y}: EUR ${g(val(x, N), 1)} billion against EUR ${g(val(z, N), 1)} billion.`;
+        const n = y - 2024, extra = y === 2024 + NL ? ' Simple instead of compound growth gives this year.' : '';
+        return y < Y ? `In ${y} ${cs[x]} is still behind: EUR ${g(val(x, n), 1)} billion against EUR ${g(val(z, n), 1)} billion.${extra}` : `${cs[x]} has already overtaken ${cs[z]} in ${Y}.${extra}`;
+      }) };
+    } },
+    exhibits: [table('Exports', ['Country', 'Exports 2019 (EUR billion)', 'Exports 2024 (EUR billion)', 'Annual growth from 2024 (%)'], rows.map((r, i) => [cs[i], g(r[0] * (0.8 + 0.03 * i), 1), g(r[0], 1), g(r[1], 1)]),
+      'Assume each country keeps growing at its annual rate (compound growth).')],
+    stem: `In which year would ${cs[x]}'s exports first exceed ${cs[z]}'s?`,
+    hints: ['Growth compounds: each year multiplies by (1 + rate).', `Compare the ratio of the two values with the ratio of their growth factors, year by year.`],
+    solution: [`${cs[x]}: EUR ${g(rows[x][0], 1)} billion growing ${g(rows[x][1], 1)}% a year; ${cs[z]}: EUR ${g(rows[z][0], 1)} billion growing ${g(rows[z][1], 1)}% a year.`,
+      `Each year the gap ratio ${cs[z]} ÷ ${cs[x]} shrinks by the factor ${g(1 + rows[z][1] / 100, 3)} ÷ ${g(1 + rows[x][1] / 100, 3)} ${ap((1 + rows[z][1] / 100) / (1 + rows[x][1] / 100), 4)}.`,
+      `Start ratio = ${g(rows[z][0], 1)} ÷ ${g(rows[x][0], 1)} ${ap(rows[z][0] / rows[x][0], 4)}; it falls below 1 after ${N} years.`,
+      `${2024 + N - 1}: ${g(val(x, N - 1), 1)} against ${g(val(z, N - 1), 1)}; ${Y}: ${g(val(x, N), 1)} against ${g(val(z, N), 1)}, so the answer is ${Y}.`],
+    explanation: 'With compound growth the faster-growing country closes the gap by the ratio of the growth factors each year.',
+  };
+};
+
+HARD['Best overall rate despite the mix'] = (R) => {
+  const cs = R.pickN(['Office A', 'Office B', 'Office C', 'Office D', 'Office E'], 5).sort(), agency = R.pick(['tax agency', 'land registry', 'benefits service', 'licensing authority', 'consumer ombudsman', 'customs service']);
+  for (let t = 0; t < 40; t++) {
+    const rows = cs.map(() => { const n1 = R.i(80, 900), n2 = R.i(80, 900); return [n1, R.f(70, 92, 1), n2, R.f(38, 66, 1)]; });
+    const best = R.i(0, 4), mixFav = (best + 1 + R.i(0, 3)) % 5;
+    rows[best][1] = Math.max(...rows.map((r) => r[1])) + R.f(0.5, 2, 1); rows[best][3] = Math.max(...rows.map((r) => r[3])) + R.f(0.5, 2, 1);
+    rows[best][0] = R.i(80, 160); rows[best][2] = R.i(600, 900); rows[mixFav][0] = R.i(700, 900); rows[mixFav][2] = R.i(60, 140);
+    const overall = rows.map((r) => (r[0] * r[1] + r[2] * r[3]) / (r[0] + r[2]));
+    const order = overall.map((o, i) => i).sort((a, b) => overall[b] - overall[a]), key = order[0];
+    if (key === best || overall[order[0]] - overall[order[1]] < 0.8) continue;
+    const notes = cs.map((c, i) => (i === best ? `${c} has the highest rate in both categories, but ${g(100 * rows[i][2] / (rows[i][0] + rows[i][2]), 0)}% of its cases are complex, so its overall rate is only ${g(overall[i], 1)}%.` : `${c}'s overall rate is ${g(overall[i], 1)}%.`));
+    return {
+      category: { names: cs, key, notes, keyNote: `Correct. ${cs[key]} resolves ${g(overall[key], 1)}% of all its cases, the highest overall rate.` },
+      exhibits: [table(`Cases resolved by office: ${agency}`, ['Office', 'Simple cases', 'Simple resolved (%)', 'Complex cases', 'Complex resolved (%)'], rows.map((r, i) => [cs[i], g(r[0]), g(r[1], 1), g(r[2]), g(r[3], 1)]))],
+      stem: `In the ${agency}, which office resolved the highest percentage of all its cases?`,
+      hints: ['Turn each percentage into a number of resolved cases first.', 'An office can lead in each category and still trail overall if most of its cases are the harder kind.'],
+      solution: ['Overall rate = (simple cases × simple rate + complex cases × complex rate) ÷ all cases.',
+        ...order.map((i) => `${cs[i]}: (${g(rows[i][0])} × ${g(rows[i][1], 1)}% + ${g(rows[i][2])} × ${g(rows[i][3], 1)}%) ÷ ${g(rows[i][0] + rows[i][2])} ${ap(overall[i], 2)}%.`),
+        `${cs[key]} has the highest overall rate; ${cs[best]} leads in both categories but handles mostly complex cases.`],
+      explanation: 'An overall rate is weighted by the case mix, so leading in every category does not guarantee leading overall.',
+    };
+  }
+  return null;
+};
+
+HARD['True share of positive results'] = (R, v) => {
+  const labs = ['Lab 1', 'Lab 2', 'Lab 3', 'Lab 4'];
+  const rows = labs.map(() => [R.f(4, 24, 1), R.f(80, 97, 1), R.f(2, 12, 1)]);
+  const k = v % 4, [p, sn, f] = rows[k], tp = p * sn, fp = (100 - p) * f, key = 100 * tp / (tp + fp);
+  return {
+    exhibits: [table('Screening test results', ['Laboratory', 'People with the condition (%)', 'Detected when present (%)', 'Positive when absent (%)'], rows.map((r, i) => [labs[i], ...r.map((x) => g(x, 1))]))],
+    stem: `At ${labs[k]}, what percentage of positive results come from people who have the condition?`,
+    key, fmt: (x) => g(x, 1) + '%',
+    mistakes: [
+      M(100 * tp / (tp + 100 * f), 'Applies the false-positive rate to everyone tested, not only to those without the condition.'),
+      M(100 * sn / (sn + f), 'Ignores how common the condition is.'),
+      ...labs.map((_, i) => i).filter((i) => i !== k).map((i) => M(100 * rows[i][0] * sn / (rows[i][0] * sn + (100 - rows[i][0]) * f), `Uses the prevalence of ${labs[i]}.`)),
+      M(100 * tp / (tp + (100 - p) * (100 - sn)), 'Uses the share missed when present instead of the false-positive rate.'),
+    ],
+    hints: ['Imagine 10,000 people tested and split them into those with and without the condition.', 'Positives = true positives + false positives.'],
+    solution: [`Out of 10,000 tested at ${labs[k]}: ${g(100 * p)} have the condition and ${g(100 * (100 - p))} do not.`,
+      `True positives = ${g(100 * p)} × ${g(sn, 1)}% ${ap(tp, 1)}; false positives = ${g(100 * (100 - p))} × ${g(f, 1)}% ${ap(fp, 1)}.`,
+      `All positives = ${g(tp, 1)} + ${g(fp, 1)} ${ap(tp + fp, 1)}.`,
+      `Share from people with the condition = ${g(tp, 1)} ÷ ${g(tp + fp, 1)} × 100 ${ap(key, 2)}%.`],
+    explanation: 'Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones.',
+  };
+};
+
+HARD['Estimate from an unlabelled chart'] = (R, v) => {
+  const qs = ['2021', '2022', '2023'].flatMap((y) => ['Q1', 'Q2', 'Q3', 'Q4'].map((q) => `${q} ${y.slice(2)}`));
+  const items = ['copper', 'cocoa', 'coffee', 'aluminium'], market = R.pick(NAMES);
+  for (let t = 0; t < 80; t++) {
+    const vals = []; let x = R.i(6, 12) * 250;
+    qs.forEach(() => { vals.push(x); x = Math.max(1250, Math.min(5500, x + R.i(-3, 4) * 250)); });
+    const cand = [4, 5, 6, 7, 8], yoy = cand.map((i) => vals[i] / vals[i - 4] - 1), abs = cand.map((i) => vals[i] - vals[i - 4]);
+    const ord = yoy.map((y, i) => i).sort((a, b) => yoy[b] - yoy[a]), key = ord[0], trap = abs.indexOf(Math.max(...abs));
+    if (trap === key || yoy[ord[0]] - yoy[ord[1]] < 0.03 || yoy[key] <= 0) continue;
+    const names = cand.map((i) => qs[i]);
+    const notes = cand.map((i, j) => (j === trap ? `${qs[i]} has the largest rise in euros (EUR ${g(abs[j])}), but only ${g(100 * yoy[j], 1)}% on its higher starting price.` : `${qs[i]}: ${g(vals[i - 4])} → ${g(vals[i])}, ${yoy[j] >= 0 ? '+' : ''}${g(100 * yoy[j], 1)}%.`));
+    return {
+      category: { names, key, notes, keyNote: `Correct. ${names[key]}: ${g(vals[cand[key] - 4])} → ${g(vals[cand[key]])} EUR per tonne, +${g(100 * yoy[key], 1)}%, the largest year-on-year rise.` },
+      exhibits: [{ type: 'line', title: `${market} exchange: price of ${items[v % 4]} (fictional data)`, unit: 'EUR per tonne', categories: qs, labels: false, step: 500, series: [{ name: 'Price', values: vals }],
+        note: 'Values are not labelled: read them from the gridlines (every EUR 500; points lie on or halfway between gridlines).' }],
+      stem: `On the ${market} exchange, which quarter had the largest percentage rise in the ${items[v % 4]} price compared with the same quarter a year earlier?`,
+      hints: ['Compare each quarter with the same quarter one year (four points) earlier.', 'A percentage rise depends on the starting price, not only on the size of the rise.'],
+      solution: ['Read each price from the gridlines and compare it with the same quarter a year earlier.',
+        ...cand.map((i, j) => `${qs[i]}: (${g(vals[i])} − ${g(vals[i - 4])}) ÷ ${g(vals[i - 4])} ${ap(100 * yoy[j], 1)}%.`),
+        `The largest percentage rise is in ${names[key]}.`],
+      explanation: 'The biggest rise in euros is not the biggest percentage rise when it starts from a higher price.',
+    };
+  }
+  return null;
+};
+
+HARD['Speed needed to win'] = (R, v) => {
+  const cs = R.pickN(NAMES, 5);
+  const rows = cs.map(() => { const a = R.f(20.8, 24.6, 2); return [a, Math.round((a + R.f(22.4, 28.5, 2)) * 100) / 100]; });
+  const order = rows.map((r, i) => i).sort((a, b) => rows[a][1] - rows[b][1]), w = order[0], k = order[2 + (v % 3)];
+  const left = rows[w][1] - rows[k][0];
+  if (left < 21) return null;
+  const key = 200 / left;
+  return {
+    exhibits: [table('400 m final: split and finishing times (seconds)', ['Country', 'Time at 100 m', 'Time at 200 m', 'Finishing time'], rows.map((r, i) => [cs[i], g(r[0] * 0.5 + 0.3, 2), g(r[0], 2), g(r[1], 2)]))],
+    stem: `Over the second 200 m, what average speed (m/s) would ${cs[k]}'s runner have needed to finish level with the winner?`,
+    key, fmt: (x) => g(x, 2) + ' m/s',
+    mistakes: [
+      M(200 / (rows[k][1] - rows[k][0]), `Gives ${cs[k]}'s actual second-half speed.`),
+      M(200 / (rows[w][1] - rows[w][0]), 'Gives the winner\'s second-half speed.'),
+      M(400 / rows[w][1], 'Gives the winner\'s average speed over the whole race.'),
+      M(200 / (rows[k][1] - rows[w][0]), 'Subtracts the winner\'s split from its own finishing time.'),
+      M(200 / (rows[order[1]][1] - rows[k][0]), 'Aims for the second-placed time instead of the winner\'s.'),
+      M(400 / (rows[w][1] - rows[k][0]), 'Divides the whole 400 m by the time left.'),
+    ].filter((m) => m.v > 0),
+    hints: ['The winner has the lowest finishing time.', `${cs[k]}'s runner has the winner's finishing time minus its own 200 m time left for the second half.`],
+    solution: [`Winner: ${cs[w]}, ${g(rows[w][1], 2)} s. ${cs[k]} reached 200 m in ${g(rows[k][0], 2)} s.`,
+      `Time available for the second 200 m = ${g(rows[w][1], 2)} − ${g(rows[k][0], 2)} = ${g(left, 2)} s.`,
+      `Speed needed = 200 ÷ ${g(left, 2)} ${ap(key, 3)} m/s.`],
+    explanation: 'The time left is the winner\'s finishing time minus the runner\'s own split, not the winner\'s split.',
+  };
+};
+
+HARD['Speed for a target average'] = (R, v) => {
+  const d = [0, 1, 2, 3, 4].map(() => R.i(12, 60));
+  const sp = ['Rider A', 'Rider B'].map(() => d.map(() => R.f(26, 50, 1)));
+  const k = v % 2, V = R.pick([38, 39, 40, 41, 42]);
+  const D = sum(d), used = sum([0, 1, 2, 3].map((i) => d[i] / sp[k][i])), left = D / V - used;
+  if (left <= 0) return null;
+  const key = d[4] / left;
+  if (key < 30 || key > 56) return null;
+  const otherUsed = sum([0, 1, 2, 3].map((i) => d[i] / sp[1 - k][i]));
+  return {
+    exhibits: [table('Cycling stages: distance and average speed', ['Stage', 'Distance (km)', 'Rider A (km/h)', 'Rider B (km/h)'], d.map((x, i) => [`Stage ${i + 1}`, String(x), i === 4 && k === 0 ? '—' : g(sp[0][i], 1), i === 4 && k === 1 ? '—' : g(sp[1][i], 1)]),
+      `${['Rider A', 'Rider B'][k]} wants an average speed of exactly ${V} km/h over all five stages.`)],
+    stem: `What average speed (km/h) does ${['Rider A', 'Rider B'][k]} need on stage 5?`,
+    key, fmt: (x) => g(x, 1) + ' km/h',
+    mistakes: [
+      M(5 * V - sum(sp[k].slice(0, 4)), 'Averages the five stage speeds instead of using total distance ÷ total time.'),
+      M((D * V - sum([0, 1, 2, 3].map((i) => d[i] * sp[k][i]))) / d[4], 'Weights the stage speeds by distance instead of working with time.'),
+      M(d[4] / (D / V - otherUsed), `Uses the other rider's stage times.`),
+      M(V, 'Assumes stage 5 must simply be ridden at the target average.'),
+      M(2 * V - (D - d[4]) / used, 'Makes up the shortfall in speed one-for-one instead of in time.'),
+    ].filter((m) => m.v > 0),
+    hints: ['Average speed = total distance ÷ total time.', 'Find the total time allowed, subtract the time already used, and divide stage 5 by what is left.'],
+    solution: [`Total distance = ${d.join(' + ')} = ${D} km; at ${V} km/h the allowed time is ${D} ÷ ${V} ${ap(D / V, 4)} h.`,
+      `Time used on stages 1–4 = ${[0, 1, 2, 3].map((i) => `${d[i]} ÷ ${g(sp[k][i], 1)}`).join(' + ')} ${ap(used, 4)} h.`,
+      `Time left for stage 5 = ${g(D / V, 4)} − ${g(used, 4)} ${ap(left, 4)} h.`,
+      `Speed needed = ${d[4]} ÷ ${g(left, 4)} ${ap(key, 2)} km/h.`],
+    explanation: 'An average speed is total distance over total time; averaging the stage speeds gives the wrong answer.',
+  };
+};
+
+HARD['Largest change in tonnes from two pie charts'] = (R) => {
+  const mats = ['Paper', 'Food', 'Plastics', 'Metals', 'Glass', 'Other'], land = R.pick(NAMES);
+  const mk6 = () => { for (;;) { const a = [0, 1, 2, 3, 4].map(() => R.f(8, 26, 1)); const o = Math.round((100 - sum(a)) * 10) / 10; if (o >= 4 && o <= 20) return [...a, o]; } };
+  for (let t = 0; t < 60; t++) {
+    const s1 = mk6(), s2 = mk6(), T1 = R.f(120, 220, 1), T2 = Math.round(T1 * R.f(1.15, 1.35, 3) * 10) / 10;
+    const ton = [0, 1, 2, 3, 4].map((i) => T2 * s2[i] / 100 - T1 * s1[i] / 100), pp = [0, 1, 2, 3, 4].map((i) => s2[i] - s1[i]);
+    const ord = ton.map((x, i) => i).sort((a, b) => ton[b] - ton[a]), key = ord[0], trap = pp.indexOf(Math.max(...pp));
+    if (trap === key || ton[ord[0]] - ton[ord[1]] < 0.6 || ton[key] <= 0) continue;
+    const notes = mats.slice(0, 5).map((m, i) => (i === trap ? `${m} has the largest rise in share (${g(pp[i], 1)} points), but its tonnage changes by only ${g(ton[i], 2)} million tonnes.` : `${m} changes by ${g(ton[i], 2)} million tonnes.`));
+    return {
+      category: { names: mats.slice(0, 5), key, notes, keyNote: `Correct. ${mats[key]} rises by ${g(ton[key], 2)} million tonnes, the largest increase.` },
+      exhibits: [
+        { type: 'pie', title: `${land}: waste by material, 2018 (total ${g(T1, 1)} million tonnes; fictional data)`, unit: '%', slices: mats.map((m, i) => ({ label: m, value: s1[i] })) },
+        { type: 'pie', title: `${land}: waste by material, 2023 (total ${g(T2, 1)} million tonnes; fictional data)`, unit: '%', slices: mats.map((m, i) => ({ label: m, value: s2[i] })) }],
+      stem: `In ${land}, which material increased the most in tonnes from 2018 to 2023?`,
+      hints: ['A share applies to its own year\'s total.', 'Convert both years\' shares into tonnes before comparing.'],
+      solution: ['Tonnes = total × share, for each year separately.',
+        ...ord.map((i) => `${mats[i]}: ${g(T2, 1)} × ${g(s2[i], 1)}% − ${g(T1, 1)} × ${g(s1[i], 1)}% ${ap(ton[i], 2)} million tonnes.`),
+        `${mats[key]} has the largest increase in tonnes.`],
+      explanation: 'When the total changes, the largest rise in share is not necessarily the largest rise in tonnes.',
+    };
+  }
+  return null;
+};
+
+HARD['Average price under tiered rates'] = (R, v) => {
+  const sup = R.pickN(['Aurora Energy', 'Bluefield Power', 'Cedar Utilities', 'Delta Grid', 'Evergreen Supply', 'Fjord Electric'], 4);
+  const rows = sup.map(() => { const a = R.f(0.18, 0.26, 3); const b = Math.round((a + R.f(0.04, 0.09, 3)) * 1000) / 1000; const c = Math.round((b + R.f(0.05, 0.12, 3)) * 1000) / 1000; return [R.f(6, 18, 2), a, b, c]; });
+  const k = v % 4, [F, a, b, c] = rows[k], N = R.pick([650, 700, 780, 850, 920, 1000, 1150]);
+  const cost = F + 200 * a + 300 * b + (N - 500) * c, key = cost / N;
+  const o = [0, 1, 2, 3].filter((i) => i !== k);
+  return {
+    exhibits: [table('Electricity tariffs (EUR)', ['Supplier', 'Standing charge per month', 'First 200 kWh (per kWh)', 'Next 300 kWh (per kWh)', 'Above 500 kWh (per kWh)'], rows.map((r, i) => [sup[i], g(r[0], 2), g(r[1], 3), g(r[2], 3), g(r[3], 3)]),
+      'Each band price applies only to the kilowatt-hours inside that band.')],
+    stem: `A household uses ${g(N)} kWh in a month with ${sup[k]}. What is its average cost per kWh, including the standing charge (EUR)?`,
+    key, fmt: (x) => 'EUR ' + g(x, 3),
+    mistakes: [
+      M((F + N * c) / N, 'Charges every kWh at the top band price.'),
+      M((200 * a + 300 * b + (N - 500) * c) / N, 'Leaves out the standing charge.'),
+      M((F + 200 * a + 100 * b + (N - 300) * c) / N, 'Treats the second band as ending at 300 kWh.'),
+      M(F / N + (a + b + c) / 3, 'Averages the three band prices instead of weighting them by the kWh in each band.'),
+      ...o.map((i) => M((rows[i][0] + 200 * rows[i][1] + 300 * rows[i][2] + (N - 500) * rows[i][3]) / N, `Uses ${sup[i]}'s tariff.`)),
+    ],
+    hints: ['Split the consumption into the three bands first.', 'Only the kWh above 500 are charged at the top price.'],
+    solution: [`${g(N)} kWh = 200 (first band) + 300 (second band) + ${g(N - 500)} (above 500 kWh).`,
+      `Energy cost = 200 × ${g(a, 3)} + 300 × ${g(b, 3)} + ${g(N - 500)} × ${g(c, 3)} = ${g(200 * a, 2)} + ${g(300 * b, 2)} + ${g((N - 500) * c, 2)} ${ap(cost - F, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)}.`,
+      `Total with the standing charge = ${g(cost - F, 2)} + ${g(F, 2)} ${ap(cost, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)}.`,
+      `Average = ${g(cost, 2)} ÷ ${g(N)} ${ap(key, 4).replace(/[\d,.]+$/, (m) => 'EUR ' + m)} per kWh.`],
+    explanation: 'Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours.',
+  };
+};
+
+HARD['Currency round trip with fees'] = (R, v) => {
+  const cur = R.pickN(['ALD', 'BRV', 'CLM', 'DNK', 'EST', 'FRN', 'GLV', 'HLN'], 3), months = ['1 Mar', '1 Apr', '1 May', '1 Jun', '1 Jul', '1 Aug', '1 Sep'];
+  const series = cur.map(() => { let x = R.f(4, 16, 2); return months.map(() => { const y = x; x = Math.round(x * R.f(0.95, 1.05, 3) * 100) / 100; return y; }); });
+  const rows = series.map((sr) => [sr[0], sr[6]]);
+  const k = v % 3, [r1, r2] = rows[k], f = R.pick([0.5, 0.8, 1, 1.2, 1.5, 2]), A = R.pick([5000, 8000, 10000, 12000, 20000]);
+  if (Math.abs(r1 / r2 - 1) < 0.04) return null;
+  const key = A * (1 - f / 100) ** 2 * r1 / r2;
+  const o = [0, 1, 2].filter((i) => i !== k);
+  return {
+    exhibits: [{ type: 'line', title: 'Exchange rates on the first day of each month (fictional data)', unit: 'units of currency per EUR', categories: months,
+      series: cur.map((c, i) => ({ name: c, values: series[i] })), note: `Each conversion costs a fee of ${g(f, 1)}% of the amount converted.` }],
+    stem: `An investor converted EUR ${g(A)} into ${cur[k]} on 1 March and converted all of it back into euros on 1 September. How many euros did the investor end with?`,
+    key, fmt: (x) => 'EUR ' + g(x, 2),
+    mistakes: [
+      M(A * r1 / r2, 'Leaves out both conversion fees.'),
+      M(A * (1 - f / 100) * r1 / r2, 'Charges the fee on only one of the two conversions.'),
+      M(A * (1 - f / 100) ** 2 * r2 / r1, 'Inverts the exchange-rate ratio (units per EUR must be divided on the way back).'),
+      M(A * (1 - f / 100) ** 2 * r1 / series[k][5], 'Converts back at the 1 August rate.'),
+      M(A * (1 - f / 100) ** 2 * series[k][1] / r2, 'Converts in at the 1 April rate.'),
+      ...o.map((i) => M(A * (1 - f / 100) ** 2 * rows[i][0] / rows[i][1], `Uses the ${cur[i]} rates.`)),
+    ],
+    hints: ['Rates are units of currency per euro: multiply going in, divide coming back.', 'The fee is charged on each of the two conversions.'],
+    solution: [`1 March: ${g(A)} × (1 − ${g(f, 1)}%) = EUR ${g(A * (1 - f / 100), 2)} is converted at ${g(r1, 2)}: ${g(A * (1 - f / 100) * r1, 2)} ${cur[k]}.`,
+      `1 September: the fee leaves ${g(A * (1 - f / 100) * r1, 2)} × (1 − ${g(f, 1)}%) ${ap(A * (1 - f / 100) ** 2 * r1, 2)} ${cur[k]} to convert.`,
+      `Back into euros: ${g(A * (1 - f / 100) ** 2 * r1, 2)} ÷ ${g(r2, 2)} ${ap(key, 2).replace(/[\d,.]+$/, (m) => 'EUR ' + m)}.`],
+    explanation: 'With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice.',
+  };
+};
+
+HARD['Price change needed for a target inflation'] = (R, v) => {
+  const cats = ['Food', 'Housing', 'Transport', 'Energy', 'Health', 'Leisure'];
+  for (let t = 0; t < 40; t++) {
+    const w = cats.map(() => R.i(8, 30)), tot = sum(w);
+    const wp = w.map((x) => Math.round(x / tot * 1000) / 10); wp[5] = Math.round((100 - sum(wp.slice(0, 5))) * 10) / 10;
+    const ch = cats.map(() => R.f(-1.5, 7.5, 1)), k = v % 6, T = R.pick([2.5, 3, 3.5, 4, 4.5]);
+    const known = sum(cats.map((_, i) => (i === k ? 0 : wp[i] * ch[i] / 100)));
+    const key = (T - known) / (wp[k] / 100);
+    if (key < 2 || key > 14 || wp[k] < 10) continue;
+    const o = cats.map((_, i) => i).filter((i) => i !== k);
+    return {
+      exhibits: [table('Consumer prices', ['Category', 'Weight in the price index (%)', 'Price change (%)'], cats.map((c, i) => [c, g(wp[i], 1), i === k ? '—' : g(ch[i], 1)]),
+        'Overall inflation is the weighted average of the category price changes.')],
+      stem: `What price change (%) for ${cats[k].toLowerCase()} would make overall inflation exactly ${g(T, 1)}%?`,
+      key, fmt: (x) => g(x, 1) + '%',
+      mistakes: [
+        M(6 * T - sum(o.map((i) => ch[i])), 'Treats overall inflation as a simple average of the six categories.'),
+        M(T, 'Assumes the missing category must simply change by the target rate.'),
+        ...o.map((i) => M((T - known) / (wp[i] / 100), `Divides by the weight of ${cats[i].toLowerCase()}.`)),
+      ],
+      hints: ['Work out how much the five known categories already contribute to inflation.', `The rest must come from ${cats[k].toLowerCase()}, in proportion to its weight.`],
+      solution: [`Contribution of a category = weight × price change.`,
+        `Known contributions: ${o.map((i) => `${g(wp[i], 1)}% × ${g(ch[i], 1)}%`).join(' + ')} ${ap(known, 3)} points.`,
+        `${cats[k]} must add ${g(T, 1)} − ${g(known, 3)} ${ap(T - known, 3)} points.`,
+        `Price change = ${g(T - known, 3)} ÷ ${g(wp[k], 1)}% ${ap(key, 2)}%.`],
+      explanation: 'Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight.',
+    };
+  }
+  return null;
+};
+
+HARD['Meeting point of two travellers'] = (R, v) => {
+  const kinds = ['Delivery van', 'Bus', 'Cyclist', 'E-scooter', 'Lorry'];
+  const rows = kinds.map((n) => (n === 'Cyclist' ? [R.f(14, 19, 1), R.f(18, 24, 1), R.f(20, 26, 1)] : n === 'E-scooter' ? [R.f(12, 17, 1), R.f(17, 22, 1), R.f(19, 24, 1)] : [R.f(24, 34, 1), R.f(38, 54, 1), R.f(70, 92, 1)]));
+  const fastI = [0, 1, 4][v % 3], slowI = [2, 3][v % 2], col = 1, L = R.pick([18, 24, 27, 30, 36, 42]);
+  const vf = rows[fastI][col], vs = rows[slowI][col], key = L * vf / (vf + vs);
+  return {
+    exhibits: [{ type: 'hbar', title: 'Average speeds by road type (fictional data)', unit: 'km/h', categories: ['Urban', 'Rural', 'Motorway or main road'],
+      series: kinds.map((n, i) => ({ name: n, values: rows[i] })), note: 'Both travellers keep their average speed for the road type throughout.' }],
+    stem: `A ${kinds[fastI].toLowerCase()} and a ${kinds[slowI].toLowerCase()} set off at the same time towards each other from the two ends of a ${L} km rural road. How far from the ${kinds[fastI].toLowerCase()}'s start do they meet (km)?`,
+    key, fmt: (x) => g(x, 2) + ' km',
+    mistakes: [
+      M(L / 2, 'Assumes they meet halfway.'),
+      M(L * vs / (vf + vs), `Gives the distance from the ${kinds[slowI].toLowerCase()}'s start.`),
+      M(L * rows[fastI][0] / (rows[fastI][0] + rows[slowI][0]), 'Uses the urban speeds.'),
+      M(L * rows[fastI][2] / (rows[fastI][2] + rows[slowI][2]), 'Uses the motorway or main-road speeds.'),
+      M(L * vf / (vf + rows[[2, 3].find((i) => i !== slowI)][col]), `Uses the speed of the ${kinds[[2, 3].find((i) => i !== slowI)].toLowerCase()}.`),
+      ...[0, 1, 4].filter((i) => i !== fastI).map((i) => M(L * rows[i][col] / (rows[i][col] + vs), `Uses the speed of the ${kinds[i].toLowerCase()}.`)),
+    ],
+    hints: ['Moving towards each other, the gap closes at the sum of the two speeds.', 'Each covers a share of the road in proportion to its speed.'],
+    solution: [`Rural speeds: ${kinds[fastI].toLowerCase()} ${g(vf, 1)} km/h, ${kinds[slowI].toLowerCase()} ${g(vs, 1)} km/h.`,
+      `They close the gap at ${g(vf, 1)} + ${g(vs, 1)} = ${g(vf + vs, 1)} km/h, so they meet after ${L} ÷ ${g(vf + vs, 1)} ${ap(L / (vf + vs), 4)} h.`,
+      `Distance from the ${kinds[fastI].toLowerCase()}'s start = ${g(vf, 1)} × ${g(L / (vf + vs), 4)} = ${L} × ${g(vf, 1)} ÷ ${g(vf + vs, 1)} ${ap(key, 2)} km.`],
+    explanation: 'Travelling towards each other, the closing speed is the sum of the speeds, and each covers a distance in proportion to its own speed.',
+  };
+};
+
+// Reviewed November 2026: these six models need little insight, so they serve as Medium questions.
+for (const name of ['Efficiency needed to keep a ratio', 'Population from an unchanged group', 'Missing value from a share of all types', 'Pension spending in euros', 'NO share of all eligible voters', 'Equivalent ticket price']) { MED[name] = HARD[name]; delete HARD[name]; }
+// Retired challenge and Hard models of borderline length are kept in their original slots instead of being replaced.
+const RESTORED = new Set(['Rates with changing base', 'Per-capita change', 'Market share in percentage points', 'Linked-index real per-capita change', 'Real pooled productivity', 'Reverse pooled success rate', 'Cross-currency landed cost']);
 
 /* ---------- option assembly ---------- */
 const parseNum = (s) => parseFloat(String(s).replace(/[−–]/g, '-').replace(/,/g, '').match(/-?\d+(\.\d+)?/)[0]);
@@ -832,10 +1200,15 @@ function shown(exhibits) {
 }
 // Returns the feasible key positions and a function building the options for a chosen position.
 function layout(t) {
-  if (t.category) {
-    const { names, key, notes } = t.category;
-    return { ks: [0, 1, 2, 3, 4], build: (k) => { const others = names.map((_, i) => i).filter((i) => i !== key); const ord = others.slice(0, k).concat([key], others.slice(k)); return { options: ord.map((i) => names[i]), answer: k, optionNotes: ord.map((i) => (i === key ? `Correct. ${names[key]} has the required rank by percentage increase.` : notes[i])) }; } };
+  if (t.category && t.category.build) {
+    const ks = [0, 1, 2, 3, 4].filter((k) => t.category.build(k));
+    return { ks, build: t.category.build };
   }
+  if (t.category) {
+    const { names, key, notes } = t.category, keyNote = t.category.keyNote || `Correct. ${names[key]} has the required rank by percentage increase.`;
+    return { ks: [0, 1, 2, 3, 4], build: (k) => { const others = names.map((_, i) => i).filter((i) => i !== key); const ord = others.slice(0, k).concat([key], others.slice(k)); return { options: ord.map((i) => names[i]), answer: k, optionNotes: ord.map((i) => (i === key ? keyNote : notes[i])) }; } };
+  }
+  const gap = t.minGap || 0.03;
   const { key, fmt } = t, ks = fmt(key), sh = shown(t.exhibits);
   if (!(key > 0) || fmt(key * (1 + 1e-7)) !== fmt(key * (1 - 1e-7))) return null;
   const pool = [];
@@ -843,8 +1216,10 @@ function layout(t) {
     if (!isFinite(m.v) || m.v <= 0) continue;
     const s = fmt(m.v), pv = parseNum(s);
     if (s === ks || sh.has(pv) || pv / parseNum(ks) < 0.7 || pv / parseNum(ks) > 1.4) continue;
-    if (Math.abs(m.v - key) / key < 0.03 || pool.some((p) => Math.abs(p.v - m.v) / key < 0.03)) continue;
-    pool.push({ ...m, s });
+    // Spacing is checked on the displayed values, which are what candidates compare.
+    const kv = parseNum(ks);
+    if (Math.abs(pv - kv) / kv < gap || pool.some((p) => Math.abs(p.pv - pv) / kv < gap)) continue;
+    pool.push({ ...m, s, pv });
   }
   const below = pool.filter((p) => p.v < key).sort((a, b) => b.v - a.v), above = pool.filter((p) => p.v > key).sort((a, b) => a.v - b.v);
   const res = [];
@@ -856,7 +1231,10 @@ function layout(t) {
 }
 
 /* ---------- placement ---------- */
-const MED_NAMES = Object.keys(MED), HARD_NAMES = Object.keys(HARD);
+const MED_NAMES = Object.keys(MED);
+// Category-answer models can take any key letter; spread them through the rotation so every set can balance its keys.
+const FLEX = ['Best overall rate despite the mix', 'Year one overtakes another', 'Estimate from an unlabelled chart', 'Largest change in tonnes from two pie charts'];
+const HARD_NAMES = (() => { const rest = Object.keys(HARD).filter((n) => !FLEX.includes(n)), out = []; rest.forEach((n, i) => { if (i % 3 === 0 && FLEX[i / 3]) out.push(FLEX[i / 3]); out.push(n); }); FLEX.forEach((n) => { if (!out.includes(n)) out.push(n); }); return out; })();
 const loadSet = (file) => { const sets = []; vm.runInNewContext(fs.readFileSync(file, 'utf8'), { EPSO_BANK: { registerSet: (s) => sets.push(s) } }); return sets[0]; };
 const contentHash = (q) => { const c = { ...q }; delete c.id; return crypto.createHash('sha256').update(JSON.stringify(c)).digest('hex'); };
 
@@ -899,14 +1277,17 @@ export function applyEuFormat(root) {
   const slots = [];
   // Challenge sets first: set s uses ten consecutive hard models (mod 14), so no model repeats inside a set.
   sets.forEach((set, si) => set.questions.forEach((q, qi) => {
-    if (q.difficulty === 2) return;
+    if (q.difficulty === 2 || RESTORED.has(q.topic)) return;
     slots.push({ si, qi, level: q.difficulty === 1 ? 2 : 3, challenge: !!set.challenge });
   }));
+  // November 2026: 40 of the 56 former Easy slots become Hard (five in every seven, spread through Sets 01–04).
+  slots.filter((s) => s.level === 2).forEach((s, j) => { if (j % 7 < 5) s.level = 3; });
   const chall = slots.filter((s) => s.challenge), hard0 = slots.filter((s) => !s.challenge && s.level === 3), med = slots.filter((s) => s.level === 2);
   const bySet = {};
   chall.forEach((s) => { (bySet[s.si] = bySet[s.si] || []).push(s); });
-  Object.values(bySet).forEach((list, n) => list.forEach((s, j) => { s.name = HARD_NAMES[(n * 10 + j) % HARD_NAMES.length]; }));
-  hard0.forEach((s, j) => { s.name = HARD_NAMES[j % HARD_NAMES.length]; });
+  let offset = 0;
+  Object.values(bySet).forEach((list) => { list.forEach((s, j) => { s.name = HARD_NAMES[(offset + j) % HARD_NAMES.length]; }); offset += list.length; });
+  hard0.forEach((s, j) => { s.name = HARD_NAMES[(offset + j) % HARD_NAMES.length]; });
   med.forEach((s, j) => { s.name = MED_NAMES[j % MED_NAMES.length]; });
   for (const s of [...chall, ...hard0, ...med]) { s.variant = used[s.name] = (used[s.name] ?? -1) + 1; s.attempt = 0; }
   // Build and place per set with balanced key letters.
@@ -914,11 +1295,11 @@ export function applyEuFormat(root) {
     const mine = slots.filter((s) => s.si === si);
     if (!mine.length) return;
     let targets;
-    if (set.challenge) targets = [2, 2, 2, 2, 2];
+    const counts = [0, 0, 0, 0, 0];
+    set.questions.forEach((q, qi) => { if (!mine.some((s) => s.qi === qi)) counts[q.answer]++; });
+    if (set.challenge) targets = counts.map((c) => 2 - c);
     else {
-      const counts = [0, 0, 0, 0, 0];
-      set.questions.forEach((q, qi) => { if (!mine.some((s) => s.qi === qi)) counts[q.answer]++; });
-      const total = set.questions.length, want = Math.ceil(total / 5) + 3;
+      const total = set.questions.length, want = Math.ceil(total / 5) + (total <= 10 ? 0 : 2);
       targets = counts.map((c) => Math.max(0, want - c));
       while (sum(targets) < mine.length) targets[targets.indexOf(Math.min(...targets))]++;
     }
@@ -937,7 +1318,16 @@ export function applyEuFormat(root) {
         if (alt) { x.built = alt; x.attempt = alt.attempt; done = true; }
       }
       if (!done) { const x = mine[round % mine.length]; x.attempt = x.built.attempt + 1; x.rebuild = true; }
-      if (round === 199) throw Error('cannot balance key letters in ' + set.id);
+      // Last resort for a hard set: swap the most constrained model for a flexible one not yet in the set.
+      if (round % 50 === 49) {
+        const x = mine.slice().sort((a, b) => a.built.lay.ks.length - b.built.lay.ks.length)[0];
+        const pool = (x.level === 3 ? HARD_NAMES : MED_NAMES).filter((n) => !mine.some((y) => y.name === n)).sort((a, b) => (used[a] ?? -1) - (used[b] ?? -1));
+        for (const name of pool) {
+          const alt = makeItem(name, x.level, (used[name] ?? -1) + 1, 0, need);
+          if (alt) { x.name = name; x.variant = used[name] = (used[name] ?? -1) + 1; x.built = alt; x.attempt = alt.attempt; break; }
+        }
+      }
+      if (round === 199) throw Error('cannot balance key letters in ' + set.id + ' targets ' + targets + ' ' + mine.map((x) => x.name + ':' + x.built.lay.ks.join('')).join(' / '));
     }
     mine.forEach((s) => {
       const old = set.questions[s.qi], { t, lay } = s.built, built = lay.build(s.k);
@@ -945,6 +1335,7 @@ export function applyEuFormat(root) {
       const q = { id: base + '-eu', supersedes: old.id, topic: s.name, difficulty: s.level };
       if (s.challenge) q.challenge = true;
       if (t.category) q.answerType = 'category';
+      if (!built) throw Error('no layout for ' + s.name);
       Object.assign(q, { exhibits: t.exhibits, stem: t.stem, options: built.options, answer: built.answer, hints: t.hints,
         solution: [...t.solution, `Answer: ${built.options[built.answer]}.`], optionNotes: built.optionNotes, explanation: t.explanation });
       if (numericalDifficulty(q) !== s.level) throw Error('rubric level mismatch for ' + s.name);
@@ -953,13 +1344,47 @@ export function applyEuFormat(root) {
     if (set.challenge) set.description = 'Ten hard data-interpretation questions in the EU Training style: short questions on tables and charts, with conditions in notes and physics included.';
     fs.writeFileSync(files[si], '/* Generated by scripts/generators/numerical.mjs (EU-format pass in numerical-eu.mjs). Edit the generators, not this file. */\nEPSO_BANK.registerSet(' + JSON.stringify(set, null, 2) + ');\n');
   });
-  // Fingerprints: new ids are immutable once recorded.
+  // Fingerprints: ids are immutable once recorded. Revised content (for example reworded worked solutions) is
+  // registered once with REGISTER_EU_REVISIONS=1 and then appears under a new id (<root>-eu2) that supersedes the old one.
   const printFile = path.join(root, 'scripts/generators/numerical-eu-fingerprints.json');
+  const revFile = path.join(root, 'scripts/generators/numerical-eu-revisions.json');
   const prints = fs.existsSync(printFile) ? JSON.parse(fs.readFileSync(printFile)) : null, fresh = {};
-  sets.forEach((set) => set.questions.forEach((q) => { if (/-eu$/.test(q.id)) fresh[q.id] = contentHash(q); }));
-  if (prints) Object.entries(fresh).forEach(([id, h]) => { if (prints[id] !== h) throw Error(`EU-format item ${id} changed: give revised content a new id`); });
-  else fs.writeFileSync(printFile, JSON.stringify(fresh, null, 2) + '\n');
-  console.log('numerical EU format:', Object.keys(fresh).length, 'items (', med.length, 'medium,', chall.length + hard0.length, 'hard )');
+  const revs = fs.existsSync(revFile) ? JSON.parse(fs.readFileSync(revFile)) : { revisions: {} };
+  let registered = 0;
+  sets.forEach((set, si) => {
+    let changed = false;
+    set.questions = set.questions.map((q) => {
+      if (!/-eu$/.test(q.id)) return q;
+      const h = contentHash(q);
+      if (!prints) { fresh[q.id] = h; return q; }
+      if (prints[q.id] === h) return q;
+      let entry = revs.revisions[q.id];
+      const { id, supersedes, ...rest } = q;
+      const nextId = id + '2', revised = { id: nextId, supersedes: id, ...rest };
+      if (!entry) {
+        if (!process.env.REGISTER_EU_REVISIONS) throw Error(`EU-format item ${id} changed: register the revision with REGISTER_EU_REVISIONS=1`);
+        entry = revs.revisions[id] = { id: nextId, replaces: supersedes, beforeSha256: prints[id], sha256: contentHash(revised) };
+        registered++;
+      }
+      if (entry.id !== nextId || entry.sha256 !== contentHash(revised)) throw Error(`EU-format revision ${entry.id} changed: give it a new id`);
+      changed = true;
+      return revised;
+    });
+    if (changed) fs.writeFileSync(files[si], '/* Generated by scripts/generators/numerical.mjs (EU-format pass in numerical-eu.mjs). Edit the generators, not this file. */\nEPSO_BANK.registerSet(' + JSON.stringify(set, null, 2) + ');\n');
+  });
+  // Restored retired items take back the slot that a published -eu item had held.
+  revs.restored = revs.restored || {};
+  sets.forEach((set) => set.questions.forEach((q) => {
+    if (q.difficulty !== 3 || !RESTORED.has(q.topic)) return;
+    const euId = q.id.replace(/-r\d+$/, '') + '-eu';
+    if (!prints || !prints[euId]) return;
+    if (revs.restored[euId] === q.id) return;
+    if (!process.env.REGISTER_EU_REVISIONS) throw Error(`restoring ${q.id} over ${euId}: register with REGISTER_EU_REVISIONS=1`);
+    revs.restored[euId] = q.id; registered++;
+  }));
+  if (!prints) fs.writeFileSync(printFile, JSON.stringify(fresh, null, 2) + '\n');
+  if (registered) fs.writeFileSync(revFile, JSON.stringify(revs, null, 2) + '\n');
+  console.log('numerical EU format:', med.length + chall.length + hard0.length, 'items (', med.length, 'medium,', chall.length + hard0.length, 'hard );', Object.keys(revs.revisions).length, 'revised');
 }
 
 // Diagnostic for authors: feasible key positions per model over the first variants.

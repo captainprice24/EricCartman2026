@@ -7,405 +7,410 @@ EPSO_BANK.registerSet({
   "version": 4,
   "questions": [
     {
-      "id": "n01-01-eu",
-      "supersedes": "n01-01-r3",
-      "topic": "Turnout and votes",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
-          "unit": "votes",
-          "categories": [
-            "District 1",
-            "District 2",
-            "District 3",
-            "District 4"
-          ],
-          "series": [
-            {
-              "name": "Voted YES",
-              "values": [
-                3727,
-                3348,
-                2313,
-                3542
-              ]
-            },
-            {
-              "name": "Voted NO",
-              "values": [
-                3190,
-                3018,
-                4209,
-                2857
-              ]
-            },
-            {
-              "name": "Turnout (%)",
-              "values": [
-                80.79,
-                78.41,
-                75.61,
-                74.27
-              ],
-              "line": true
-            }
-          ],
-          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
-        }
-      ],
-      "stem": "What percentage of the eligible voters of District 1 voted NO in the referendum?",
-      "options": [
-        "26.9%",
-        "34.9%",
-        "37.3%",
-        "43.5%",
-        "46.1%"
-      ],
-      "answer": 2,
-      "hints": [
-        "Turnout tells you what share of eligible voters voted at all.",
-        "NO voters as a share of eligible voters = NO share of votes cast × turnout."
-      ],
-      "solution": [
-        "Data needed: District 1 — YES 3,727, NO 3,190, turnout 80.79%.",
-        "NO share of votes cast = 3,190 ÷ (3,727 + 3,190) = 46.118%.",
-        "Share of eligible voters = 46.118% × 80.79% ≈ 37.26%.",
-        "Answer: 37.3%."
-      ],
-      "optionNotes": [
-        "Subtracts the non-voters' percentage points from the NO share of votes cast.",
-        "Applies the turnout of District 3 instead of District 1.",
-        "Correct. Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout.",
-        "Uses the YES votes instead of the NO votes.",
-        "Gives NO as a share of the votes cast, ignoring that only the turnout share of eligible voters voted."
-      ],
-      "explanation": "Only the turnout share of eligible voters took part, so the NO share of votes cast is scaled by turnout."
-    },
-    {
-      "id": "n01-02-eu",
-      "supersedes": "n01-02-r3",
-      "topic": "Funds raised per fundraiser",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Fundraising by NGO (fictional data)",
-          "columns": [
-            "NGO",
-            "Fundraisers Y1",
-            "Fundraisers Y2",
-            "Fundraising spending Y1 (EUR thousand)",
-            "Funds raised Y1 (EUR thousand)",
-            "Efficiency Y2 (EUR raised per EUR spent)"
-          ],
-          "rows": [
-            [
-              "Clean Rivers",
-              "31",
-              "34",
-              "26",
-              "138",
-              "4.24"
-            ],
-            [
-              "Bridge Builders",
-              "46",
-              "51",
-              "21",
-              "137",
-              "5.54"
-            ],
-            [
-              "Bright Start",
-              "39",
-              "42",
-              "28",
-              "136",
-              "4.99"
-            ],
-            [
-              "Open Doors",
-              "29",
-              "33",
-              "39",
-              "163",
-              "6.45"
-            ]
-          ]
-        }
-      ],
-      "stem": "If fundraising spending at Clean Rivers rose by 10% from Y1 to Y2, how much was raised per fundraiser at Clean Rivers in Y2 (EUR)?",
-      "options": [
-        "EUR 3,242",
-        "EUR 3,567",
-        "EUR 3,912",
-        "EUR 4,059",
-        "EUR 4,465"
-      ],
-      "answer": 1,
-      "hints": [
-        "First find Y2 spending, then what each euro spent raised in Y2.",
-        "Divide by the Y2 number of fundraisers."
-      ],
-      "solution": [
-        "Data needed: Clean Rivers — spending Y1 EUR 26 thousand, efficiency Y2 4.24, fundraisers Y2 34.",
-        "Spending Y2 = 26 × 1.10 = EUR 28.60 thousand.",
-        "Funds raised Y2 = 28.60 × 4.24 = EUR 121.264 thousand.",
-        "Per fundraiser = 121,264.0 ÷ 34 ≈ EUR 3,566.6.",
-        "Answer: EUR 3,567."
-      ],
-      "optionNotes": [
-        "Leaves out the 10% rise in spending.",
-        "Correct. Grow the spending, convert it into funds raised with the Y2 efficiency, then share it among the Y2 fundraisers.",
-        "Divides by the Y1 number of fundraisers.",
-        "Uses the Y1 funds raised with the Y2 fundraisers.",
-        "Grows the Y1 funds raised instead of using the Y2 efficiency."
-      ],
-      "explanation": "Grow the spending, convert it into funds raised with the Y2 efficiency, then share it among the Y2 fundraisers."
-    },
-    {
-      "id": "n01-03-eu",
-      "supersedes": "n01-03-r3",
-      "topic": "NO share of all eligible voters",
+      "id": "n01-01-eu2",
+      "supersedes": "n01-01-eu",
+      "topic": "Speed needed to win",
       "difficulty": 3,
       "exhibits": [
         {
-          "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
-          "unit": "votes",
-          "categories": [
-            "District 1",
-            "District 2",
-            "District 3",
-            "District 4"
-          ],
-          "series": [
-            {
-              "name": "Voted YES",
-              "values": [
-                2566,
-                3286,
-                3441,
-                3235
-              ]
-            },
-            {
-              "name": "Voted NO",
-              "values": [
-                2982,
-                2896,
-                2801,
-                3997
-              ]
-            },
-            {
-              "name": "Turnout (%)",
-              "values": [
-                71.01,
-                82.72,
-                63.76,
-                85.83
-              ],
-              "line": true
-            }
-          ],
-          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
-        }
-      ],
-      "stem": "What percentage of all eligible voters in the four districts voted NO?",
-      "options": [
-        "35.7%",
-        "37.8%",
-        "41.6%",
-        "43.2%",
-        "50.3%"
-      ],
-      "answer": 1,
-      "hints": [
-        "Rebuild each district's eligible voters from its own turnout.",
-        "Divide all NO votes by all eligible voters."
-      ],
-      "solution": [
-        "Data needed: YES, NO and turnout for each district.",
-        "District 1: eligible = (2,566 + 2,982) ÷ 71.01% = 7,812.98.",
-        "District 2: eligible = (3,286 + 2,896) ÷ 82.72% = 7,473.40.",
-        "District 3: eligible = (3,441 + 2,801) ÷ 63.76% = 9,789.84.",
-        "District 4: eligible = (3,235 + 3,997) ÷ 85.83% = 8,425.96.",
-        "All eligible = 33,502.18; all NO = 12,676.",
-        "Share = 12,676 ÷ 33,502.18 × 100 ≈ 37.84%.",
-        "Answer: 37.8%."
-      ],
-      "optionNotes": [
-        "Uses the turnout of District 1 for all four districts.",
-        "Correct. Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them.",
-        "Uses the turnout of District 2 for all four districts.",
-        "Uses the turnout of District 4 for all four districts.",
-        "Gives NO as a share of votes cast, ignoring turnout."
-      ],
-      "explanation": "Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them."
-    },
-    {
-      "id": "n01-04-eu",
-      "supersedes": "n01-04-r3",
-      "topic": "Population from per-capita change",
-      "difficulty": 2,
-      "exhibits": [
-        {
           "type": "table",
-          "title": "E-book sales and population (fictional data)",
+          "title": "400 m final: split and finishing times (seconds) (fictional data)",
           "columns": [
             "Country",
-            "Population 2016 (thousand)",
-            "Sales 2016 (thousand)",
-            "Sales 2017 (thousand)",
-            "Sales 2019 (thousand)"
+            "Time at 100 m",
+            "Time at 200 m",
+            "Finishing time"
           ],
           "rows": [
             [
-              "Fernland",
-              "8,521",
-              "55,344",
-              "58,222",
-              "60,657"
+              "Dunmark",
+              "12.51",
+              "24.42",
+              "47.17"
+            ],
+            [
+              "Jorvik",
+              "11.06",
+              "21.52",
+              "47.10"
             ],
             [
               "Norvale",
-              "3,393",
-              "10,308",
-              "10,638",
-              "11,432"
-            ],
-            [
-              "Marrow",
-              "13,532",
-              "49,284",
-              "51,748",
-              "51,452"
-            ],
-            [
-              "Istrada",
-              "17,271",
-              "86,079",
-              "88,661",
-              "92,879"
-            ],
-            [
-              "Sundra",
-              "18,184",
-              "115,087",
-              "119,806",
-              "123,603"
-            ]
-          ]
-        }
-      ],
-      "stem": "Assuming e-book sales per inhabitant in Fernland rose by 5% from 2016 to 2019, what was its population in 2019 (thousand)?",
-      "options": [
-        "8,115",
-        "8,537",
-        "8,894",
-        "9,339",
-        "9,831"
-      ],
-      "answer": 2,
-      "hints": [
-        "Find sales per inhabitant in 2016 first.",
-        "Population = sales ÷ sales per inhabitant."
-      ],
-      "solution": [
-        "Data needed: Fernland — population 8,521 thousand and sales 55,344 thousand in 2016; sales 60,657 thousand in 2019.",
-        "Sales per inhabitant 2016 = 55,344 ÷ 8,521 = 6.4950.",
-        "Sales per inhabitant 2019 = 6.4950 × 1.05 = 6.8198.",
-        "Population 2019 = 60,657 ÷ 6.8198 ≈ 8,894.3 thousand.",
-        "Answer: 8,894."
-      ],
-      "optionNotes": [
-        "Divides the 2016 population by the 5% rise.",
-        "Uses the 2017 sales instead of 2019.",
-        "Correct. Population follows from dividing the later sales by the later sales per inhabitant.",
-        "Leaves out the 5% rise in sales per inhabitant.",
-        "Applies the 5% change as a fall."
-      ],
-      "explanation": "Population follows from dividing the later sales by the later sales per inhabitant."
-    },
-    {
-      "id": "n01-05-eu",
-      "supersedes": "n01-05-r2",
-      "topic": "Constant annual increase",
-      "difficulty": 2,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Cinema admissions (fictional data)",
-          "columns": [
-            "Country",
-            "2017 (thousand)",
-            "2019 (thousand)",
-            "2022 (thousand)"
-          ],
-          "rows": [
-            [
-              "Galvia",
-              "54,867",
-              "58,653",
-              "81,528"
+              "12.42",
+              "24.23",
+              "46.82"
             ],
             [
               "Brevania",
-              "66,898",
-              "71,113",
-              "99,274"
+              "11.78",
+              "22.95",
+              "47.58"
             ],
             [
-              "Sundra",
-              "17,031",
-              "18,836",
-              "25,052"
-            ],
-            [
-              "Pellam",
-              "52,976",
-              "57,956",
-              "75,864"
-            ],
-            [
-              "Calmora",
-              "9,259",
-              "9,713",
-              "13,054"
+              "Istrada",
+              "10.87",
+              "21.14",
+              "48.82"
             ]
           ]
         }
       ],
-      "stem": "Admissions in Galvia grew by the same number each year between 2019 and 2022. If that continued, what would they be in 2024 (thousand)?",
+      "stem": "Over the second 200 m, what average speed (m/s) would Istrada's runner have needed to finish level with the winner?",
       "options": [
-        "89,153",
-        "92,966",
-        "96,778",
-        "104,403",
-        "112,028"
+        "7.23 m/s",
+        "7.79 m/s",
+        "8.13 m/s",
+        "8.54 m/s",
+        "8.85 m/s"
+      ],
+      "answer": 1,
+      "hints": [
+        "The winner has the lowest finishing time.",
+        "Istrada's runner has the winner's finishing time minus its own 200 m time left for the second half."
+      ],
+      "solution": [
+        "Winner: Norvale, 46.82 s. Istrada reached 200 m in 21.14 s.",
+        "Time available for the second 200 m = 46.82 − 21.14 = 25.68 s.",
+        "Speed needed = 200 ÷ 25.68 ≈ 7.788 m/s.",
+        "Answer: 7.79 m/s."
+      ],
+      "optionNotes": [
+        "Gives Istrada's actual second-half speed.",
+        "Correct. The time left is the winner's finishing time minus the runner's own split, not the winner's split.",
+        "Subtracts the winner's split from its own finishing time.",
+        "Gives the winner's average speed over the whole race.",
+        "Gives the winner's second-half speed."
+      ],
+      "explanation": "The time left is the winner's finishing time minus the runner's own split, not the winner's split."
+    },
+    {
+      "id": "n01-02-eu2",
+      "supersedes": "n01-02-eu",
+      "topic": "Speed for a target average",
+      "difficulty": 3,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "Cycling stages: distance and average speed (fictional data)",
+          "columns": [
+            "Stage",
+            "Distance (km)",
+            "Rider A (km/h)",
+            "Rider B (km/h)"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "40",
+              "45.1",
+              "46.5"
+            ],
+            [
+              "Stage 2",
+              "30",
+              "36.0",
+              "47.8"
+            ],
+            [
+              "Stage 3",
+              "40",
+              "45.1",
+              "38.9"
+            ],
+            [
+              "Stage 4",
+              "21",
+              "35.4",
+              "27.0"
+            ],
+            [
+              "Stage 5",
+              "22",
+              "—",
+              "27.6"
+            ]
+          ],
+          "note": "Rider A wants an average speed of exactly 39 km/h over all five stages."
+        }
+      ],
+      "stem": "What average speed (km/h) does Rider A need on stage 5?",
+      "options": [
+        "24.3 km/h",
+        "30.4 km/h",
+        "33.4 km/h",
+        "35.0 km/h",
+        "37.1 km/h"
+      ],
+      "answer": 1,
+      "hints": [
+        "Average speed = total distance ÷ total time.",
+        "Find the total time allowed, subtract the time already used, and divide stage 5 by what is left."
+      ],
+      "solution": [
+        "Total distance = 40 + 30 + 40 + 21 + 22 = 153 km; at 39 km/h the allowed time is 153 ÷ 39 ≈ 3.9231 h.",
+        "Time used on stages 1–4 = 40 ÷ 45.1 + 30 ÷ 36.0 + 40 ÷ 45.1 + 21 ÷ 35.4 ≈ 3.2004 h.",
+        "Time left for stage 5 = 3.9231 − 3.2004 ≈ 0.7227 h.",
+        "Speed needed = 22 ÷ 0.7227 ≈ 30.44 km/h.",
+        "Answer: 30.4 km/h."
+      ],
+      "optionNotes": [
+        "Weights the stage speeds by distance instead of working with time.",
+        "Correct. An average speed is total distance over total time; averaging the stage speeds gives the wrong answer.",
+        "Averages the five stage speeds instead of using total distance ÷ total time.",
+        "Uses the other rider's stage times.",
+        "Makes up the shortfall in speed one-for-one instead of in time."
+      ],
+      "explanation": "An average speed is total distance over total time; averaging the stage speeds gives the wrong answer."
+    },
+    {
+      "id": "n01-03-r3",
+      "supersedes": "n01-03-r2",
+      "topic": "Per-capita change",
+      "difficulty": 3,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "GDP and population (fictional countries)",
+          "columns": [
+            "Country",
+            "GDP 2020 (EUR billion)",
+            "GDP 2023 (EUR billion)",
+            "Population 2020 (million)",
+            "Population 2023 (million)"
+          ],
+          "rows": [
+            [
+              "Kestrel",
+              "552",
+              "646",
+              "33.4",
+              "34.4"
+            ],
+            [
+              "Calmora",
+              "227",
+              "277",
+              "24.6",
+              "24.1"
+            ],
+            [
+              "Tavel",
+              "351",
+              "390",
+              "8.2",
+              "8.3"
+            ],
+            [
+              "Rosmark",
+              "52",
+              "56",
+              "25.3",
+              "26.3"
+            ],
+            [
+              "Pellam",
+              "165",
+              "173",
+              "20.3",
+              "20.1"
+            ]
+          ]
+        }
+      ],
+      "stem": "By what percentage did GDP per inhabitant in Kestrel change between 2020 and 2023? Round only the final result to 1 decimal place.",
+      "options": [
+        "9.8%",
+        "12.0%",
+        "13.6%",
+        "14.0%",
+        "17.0%"
       ],
       "answer": 2,
       "hints": [
-        "Count the years between 2019 and 2022.",
-        "Add the annual increase once for every year after the last figure."
+        "Compute GDP per inhabitant for both years first.",
+        "Then calculate the percentage change between the two per-capita values."
       ],
       "solution": [
-        "Data needed: Galvia — 58,653 thousand in 2019 and 81,528 thousand in 2022.",
-        "Annual increase = (81,528 − 58,653) ÷ 3 = 7,625.000 thousand.",
-        "2024: 81,528 + 2 × 7,625.000 ≈ 96,778.0 thousand.",
-        "Answer: 96,778."
+        "Displayed intermediate decimals are approximations. Retain original expressions until the final rounding.",
+        "2020: 552 ÷ 33.4 = 16.527 (EUR thousand per person)",
+        "2023: 646 ÷ 34.4 = 18.779",
+        "Change = ((646 ÷ 34.4) ÷ (552 ÷ 33.4) − 1) × 100 ≈ 13.63%",
+        "Final answer: 13.6%."
       ],
       "optionNotes": [
-        "Projects only one year ahead, to 2023.",
-        "Counts four years between 2019 and 2022.",
-        "Correct. A constant number per year means a straight-line increase: divide the change by the number of years, then extend it.",
-        "Divides the 2019–2022 increase by 2 instead of 3 years.",
-        "Projects four years ahead, to 2026."
+        "This is the change for Tavel.",
+        "This divides the change by the 2023 value instead of the 2020 value.",
+        "Correct. Using the requested base and units, with rounding only at the end, gives 13.6%.",
+        "Subtracting the population change from the GDP change is only an approximation; divide per-capita values instead.",
+        "This is the change in total GDP; it ignores the change in population."
       ],
-      "explanation": "A constant number per year means a straight-line increase: divide the change by the number of years, then extend it."
+      "explanation": "Per-capita questions need both columns for both years. Using GDP alone ignores population growth."
+    },
+    {
+      "id": "n01-04-eu2",
+      "supersedes": "n01-04-eu",
+      "topic": "Average price under tiered rates",
+      "difficulty": 3,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "Electricity tariffs (EUR) (fictional data)",
+          "columns": [
+            "Supplier",
+            "Standing charge per month",
+            "First 200 kWh (per kWh)",
+            "Next 300 kWh (per kWh)",
+            "Above 500 kWh (per kWh)"
+          ],
+          "rows": [
+            [
+              "Delta Grid",
+              "12.29",
+              "0.220",
+              "0.266",
+              "0.355"
+            ],
+            [
+              "Fjord Electric",
+              "16.29",
+              "0.249",
+              "0.294",
+              "0.409"
+            ],
+            [
+              "Aurora Energy",
+              "16.84",
+              "0.247",
+              "0.322",
+              "0.419"
+            ],
+            [
+              "Evergreen Supply",
+              "13.44",
+              "0.198",
+              "0.255",
+              "0.342"
+            ]
+          ],
+          "note": "Each band price applies only to the kilowatt-hours inside that band."
+        }
+      ],
+      "stem": "A household uses 1,150 kWh in a month with Aurora Energy. What is its average cost per kWh, including the standing charge (EUR)?",
+      "options": [
+        "EUR 0.319",
+        "EUR 0.344",
+        "EUR 0.364",
+        "EUR 0.378",
+        "EUR 0.395"
+      ],
+      "answer": 3,
+      "hints": [
+        "Split the consumption into the three bands first.",
+        "Only the kWh above 500 are charged at the top price."
+      ],
+      "solution": [
+        "1,150 kWh = 200 (first band) + 300 (second band) + 650 (above 500 kWh).",
+        "Energy cost = 200 × 0.247 + 300 × 0.322 + 650 × 0.419 = 49.40 + 96.60 + 272.35 = EUR 418.35.",
+        "Total with the standing charge = 418.35 + 16.84 = EUR 435.19.",
+        "Average = 435.19 ÷ 1,150 ≈ EUR 0.3784 per kWh.",
+        "Answer: EUR 0.378."
+      ],
+      "optionNotes": [
+        "Uses Delta Grid's tariff.",
+        "Averages the three band prices instead of weighting them by the kWh in each band.",
+        "Leaves out the standing charge.",
+        "Correct. Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours.",
+        "Treats the second band as ending at 300 kWh."
+      ],
+      "explanation": "Band prices apply only within each band, as with income-tax bands; the standing charge is then spread over all kilowatt-hours."
+    },
+    {
+      "id": "n01-05-eu2",
+      "supersedes": "n01-05-eu",
+      "topic": "Currency round trip with fees",
+      "difficulty": 3,
+      "exhibits": [
+        {
+          "type": "line",
+          "title": "Exchange rates on the first day of each month (fictional data)",
+          "unit": "units of currency per EUR",
+          "categories": [
+            "1 Mar",
+            "1 Apr",
+            "1 May",
+            "1 Jun",
+            "1 Jul",
+            "1 Aug",
+            "1 Sep"
+          ],
+          "series": [
+            {
+              "name": "BRV",
+              "values": [
+                7.24,
+                7.16,
+                7.21,
+                6.99,
+                7.24,
+                7.17,
+                7.03
+              ]
+            },
+            {
+              "name": "HLN",
+              "values": [
+                12.97,
+                12.85,
+                13.21,
+                13.49,
+                13.15,
+                13.56,
+                12.98
+              ]
+            },
+            {
+              "name": "GLV",
+              "values": [
+                14.91,
+                15.51,
+                16.08,
+                16.58,
+                16.02,
+                15.88,
+                16.13
+              ]
+            }
+          ],
+          "note": "Each conversion costs a fee of 1.5% of the amount converted."
+        }
+      ],
+      "stem": "An investor converted EUR 5,000 into GLV on 1 March and converted all of it back into euros on 1 September. How many euros did the investor end with?",
+      "options": [
+        "EUR 4,484.21",
+        "EUR 4,621.82",
+        "EUR 4,847.39",
+        "EUR 4,996.04",
+        "EUR 5,248.06"
+      ],
+      "answer": 0,
+      "hints": [
+        "Rates are units of currency per euro: multiply going in, divide coming back.",
+        "The fee is charged on each of the two conversions."
+      ],
+      "solution": [
+        "1 March: 5,000 × (1 − 1.5%) = EUR 4,925.00 is converted at 14.91: 73,431.75 GLV.",
+        "1 September: the fee leaves 73,431.75 × (1 − 1.5%) ≈ 72,330.27 GLV to convert.",
+        "Back into euros: 72,330.27 ÷ 16.13 ≈ EUR 4,484.21.",
+        "Answer: EUR 4,484.21."
+      ],
+      "optionNotes": [
+        "Correct. With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice.",
+        "Leaves out both conversion fees.",
+        "Uses the HLN rates.",
+        "Uses the BRV rates.",
+        "Inverts the exchange-rate ratio (units per EUR must be divided on the way back)."
+      ],
+      "explanation": "With rates quoted per euro, the euro result depends on the ratio of the two rates, and the fee bites twice."
     },
     {
       "id": "n01-06-r3",
@@ -756,87 +761,82 @@ EPSO_BANK.registerSet({
       "explanation": "Apply the percentage to the right base: the budget being cut, not the one being increased."
     },
     {
-      "id": "n01-10-eu",
-      "supersedes": "n01-10-r3",
-      "topic": "Missing value from a known share",
-      "difficulty": 2,
+      "id": "n01-10-eu2",
+      "supersedes": "n01-10-eu",
+      "topic": "Price change needed for a target inflation",
+      "difficulty": 3,
       "exhibits": [
         {
           "type": "table",
-          "title": "Pianos owned (fictional data)",
+          "title": "Consumer prices (fictional data)",
           "columns": [
-            "Country",
-            "Population (thousand)",
-            "Upright",
-            "Grand",
-            "Electric"
+            "Category",
+            "Weight in the price index (%)",
+            "Price change (%)"
           ],
           "rows": [
             [
-              "Sundra",
-              "10,295",
-              "6,497",
-              "—",
-              "2,162"
+              "Food",
+              "18.7",
+              "0.0"
             ],
             [
-              "Galvia",
-              "8,488",
-              "3,485",
-              "1,808",
-              "2,547"
+              "Housing",
+              "11.3",
+              "−0.9"
             ],
             [
-              "Ostland",
-              "9,846",
-              "4,904",
-              "2,283",
-              "2,434"
+              "Transport",
+              "18.0",
+              "—"
             ],
             [
-              "Kestrel",
-              "11,014",
-              "3,891",
-              "1,971",
-              "1,547"
+              "Energy",
+              "18.0",
+              "6.0"
             ],
             [
-              "Norvale",
-              "7,661",
-              "2,698",
-              "3,787",
-              "1,500"
+              "Health",
+              "14.7",
+              "7.1"
+            ],
+            [
+              "Leisure",
+              "19.3",
+              "1.9"
             ]
-          ]
+          ],
+          "note": "Overall inflation is the weighted average of the category price changes."
         }
       ],
-      "stem": "Exactly 40% of all grand pianos in the five countries were in Sundra. How many pianos of all types were there in Sundra?",
+      "stem": "What price change (%) for transport would make overall inflation exactly 3.0%?",
       "options": [
-        "12,599",
-        "13,063",
-        "14,011",
-        "15,225",
-        "18,644"
+        "3.0%",
+        "3.2%",
+        "3.4%",
+        "3.9%",
+        "4.2%"
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
-        "The other four countries hold the remaining 60% of grand pianos.",
-        "Find the missing grand-piano figure, then add the other types for Sundra."
+        "Work out how much the five known categories already contribute to inflation.",
+        "The rest must come from transport, in proportion to its weight."
       ],
       "solution": [
-        "Data needed: grand pianos in the other four countries = 9,849; Sundra's upright 6,497 and electric 2,162.",
-        "60% = 9,849, so 40% = 9,849 × 40 ÷ 60 = 6,566.00.",
-        "All types = 6,497 + 6,566.00 + 2,162 ≈ 15,225.0.",
-        "Answer: 15,225."
+        "Contribution of a category = weight × price change.",
+        "Known contributions: 18.7% × 0.0% + 11.3% × −0.9% + 18.0% × 6.0% + 14.7% × 7.1% + 19.3% × 1.9% ≈ 2.389 points.",
+        "Transport must add 3.0 − 2.389 ≈ 0.611 points.",
+        "Price change = 0.611 ÷ 18.0% ≈ 3.40%.",
+        "Answer: 3.4%."
       ],
       "optionNotes": [
-        "Takes 40% of the other four countries' grand pianos.",
-        "Leaves out the electric pianos.",
-        "Applies the share to the electric column.",
-        "Correct. The other countries hold 60% of grand pianos, which gives the missing figure.",
-        "Applies the share to the upright column."
+        "Assumes the missing category must simply change by the target rate.",
+        "Divides by the weight of leisure.",
+        "Correct. Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight.",
+        "Treats overall inflation as a simple average of the six categories.",
+        "Divides by the weight of health."
       ],
-      "explanation": "The other countries hold 60% of grand pianos, which gives the missing figure."
+      "explanation": "Each category contributes its weight times its price change, so the missing change is the remaining contribution divided by its weight."
     }
   ]
 });

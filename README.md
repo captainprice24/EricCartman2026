@@ -68,13 +68,16 @@ The November 2026 medium sets are documented in [docs/research/medium-2026-11](d
   existing bank from the new blind review. The [research library](docs/research/verbal/README.md)
   preserves sources, rights decisions, licensed reference samples and review records.
 - **Numerical (16 sets):** 150 foundation/exam-practice items, **seven very hard sets of 10**
-  (Sets 5–11) and **five medium sets of 10** (Sets 12–16). Every former Easy and Hard item now follows
-  the EU Training format: a question of at most 45 words on a table or chart, conditions in a note under
-  the exhibit, options spaced so that no rounding instruction is needed, and physics questions on race
-  times. Charts include bars with a turnout line on a second scale, horizontal bars, stacked bars, pies
+  (Sets 5–11) and **five medium sets of 10** (Sets 12–16). Former Easy items and most Hard items now
+  follow the EU Training format: a question of at most 45 words on a table or chart, conditions in a note
+  under the exhibit, options spaced so that no rounding instruction is needed, and physics questions on
+  race times. Hard items turn on one insight each (a binding cap, compound growth crossing, case mix
+  reversing a ranking, base rates, reading an unlabelled chart, tiered prices, a fee charged twice,
+  closing speeds); 28 retired hard items of borderline length were restored, giving 27 hard models
+  used four or five times each. Charts include bars with a turnout line on a second scale, horizontal bars, stacked bars, pies
   and long line series. Choose **Numerical difficulty: Medium / Hard** in Coach or Practice (there is no
   Easy level). For a full challenge round, select Set 5–11, 10 questions and timed practice (20 minutes).
-  The bank contains 188 medium and 82 hard items, including 70 very hard challenge items. Levels follow
+  The bank contains 148 medium and 122 hard items, including 70 very hard challenge items. Levels follow
   a reviewed reasoning rubric and await learner calibration. Every key is independently re-solved by
   `tests/numerical-oracle.test.mjs`. The [numerical audit](docs/NUMERICAL_AUDIT.md) records every item;
   the [research library](docs/research/numerical/README.md) saves sources, rights evidence, licensed

@@ -96,18 +96,36 @@ topics(2, 2, "Two linked steps on one exhibit: a rate or share applied to the ri
 ]);
 // Hard: four dependent stages, with the conditions in a note under the exhibit rather than in a long question.
 [
-  ["NO share of all eligible voters", "Rebuild each district's eligible voters from its own turnout, add them and compare all NO votes with the total."],
   ["Per-capita gap after population change", "Update two populations, form both per-capita values and compare them on the correct base."],
   ["Average after two changes", "Recover the call mix from three averages, apply both changes and weight them by the mix."],
   ["Top speed from a race time", "Identify the athlete, model uniform acceleration as half top speed, split the time and solve for speed."],
   ["Catching up at constant speeds", "Convert two race times into speeds, form the closing speed, solve the catch-up time and the distance."],
-  ["Missing value from a share of all types", "Total the other countries, convert the share into a country total and remove the known types."],
   ["Change in a remainder group", "Derive the remainder share in two years, convert both into people with changing populations and compare."],
-  ["Population from an unchanged group", "Fix the unchanged group, solve the new population from its share and apply another share."],
   ["Projected share against a past amount", "Grow the total, add percentage points to the share, combine them and compare with a past amount."],
   ["Growth needed to hold a share", "Grow the other countries, convert the share into a target and solve the required growth."],
   ["Turnout needed to change the result", "Compute the overall lead, rebuild eligible voters from turnout, convert the lead into turnout points and add."],
-  ["Efficiency needed to keep a ratio", "Hold funds per fundraiser, grow fundraisers and spending separately and solve the efficiency."],
-  ["Equivalent ticket price", "Count groups and players, build table and entry income, add concert costs and divide by guests."],
-  ["Pension spending in euros", "Count pensioners, apply each country's pension and payments, convert each currency and add."],
+].forEach(([topic, reason]) => { NUMERICAL_RUBRIC[topic] = { level: 3, stages: 4, reason }; });
+
+// Reviewed after the EU-format rebuild: six models needing little insight are Medium; eight new Hard models each turn on one insight.
+topics(2, 2, "A short chain of familiar steps applied to the right rows; workload rather than insight.", [
+  "NO share of all eligible voters", "Missing value from a share of all types", "Population from an unchanged group",
+  "Efficiency needed to keep a ratio", "Equivalent ticket price", "Pension spending in euros"
+]);
+[
+  ["Capped proportional allocation", "Detect the binding cap, fix that amount, rebuild the population base without it and share the remainder."],
+  ["Year one overtakes another", "Compare compound growth factors, track the shrinking ratio year by year and identify the first crossing."],
+  ["Best overall rate despite the mix", "Turn category rates into resolved cases, pool them per office and see that case mix can reverse the ranking."],
+  ["True share of positive results", "Split the tested population by prevalence, apply detection and false-positive rates separately and form the posterior share."],
+  ["Estimate from an unlabelled chart", "Read the right extremes from gridlines, locate them in the right years and compare against the starting value."],
+  ["Speed needed to win", "Identify the winner, compute the time left from the runner's own split and convert it into a required speed."],
+  ["Speed for a target average", "Convert the target into a total time, subtract the time already used and solve the last stage's speed."],
+  ["Largest change in tonnes from two pie charts", "Convert both years' shares into tonnes with their own totals and compare the changes, not the shares."],
+].forEach(([topic, reason]) => { NUMERICAL_RUBRIC[topic] = { level: 3, stages: 4, reason }; });
+
+// Four further insight-based Hard models for the 40 former Medium slots made Hard.
+[
+  ["Average price under tiered rates", "Split consumption into bands, price each band separately, add the standing charge and spread it over all units."],
+  ["Currency round trip with fees", "Apply the fee twice, multiply by units per euro going in, divide coming back and compare the two rates."],
+  ["Price change needed for a target inflation", "Form the weighted contributions of known categories, find the shortfall and divide by the missing weight."],
+  ["Meeting point of two travellers", "Choose the right speeds, add them as a closing speed, solve the meeting time and convert it into a distance."],
 ].forEach(([topic, reason]) => { NUMERICAL_RUBRIC[topic] = { level: 3, stages: 4, reason }; });

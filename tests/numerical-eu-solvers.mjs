@@ -176,4 +176,69 @@ export const EU_SOLVERS = {
       return num(r[column(ex, 'Population')]) * num(r[column(ex, 'Pensioners')]) / 100 * num(r[column(ex, 'Average pension')]) * num(r[column(ex, 'Payments')]) / rate;
     }));
   },
+  'Capped proportional allocation': (q) => {
+    const ex = tableOf(q), n = notes(q), X = num(m1(/EUR (\d+) million is shared/, n)[1]), C = num(m1(/more than EUR (\d+) million/, n)[1]);
+    const pop = Object.fromEntries(ex.rows.map((r) => [r[0], num(r[1])])), capped = new Set();
+    for (;;) {
+      const free = Object.keys(pop).filter((r) => !capped.has(r)), budget = X - C * capped.size, base = total(free.map((r) => pop[r]));
+      const over = free.filter((r) => budget * pop[r] / base > C);
+      if (!over.length) { const r = m1(/does (\w+) receive/, q.stem)[1]; return capped.has(r) ? C : budget * pop[r] / base; }
+      over.forEach((r) => capped.add(r));
+    }
+  },
+  'Year one overtakes another': (q) => {
+    const ex = tableOf(q), [, a, b] = m1(/would (.+?)'s exports first exceed (.+?)'s\?/, q.stem);
+    const get = (name) => { const r = ex.rows.find((x) => x[0] === name); return [num(r[column(ex, 'Exports 2024')]), num(r[column(ex, 'growth')])]; };
+    const [va, ga] = get(a), [vb, gb] = get(b);
+    let n = 1; while (va * (1 + ga / 100) ** n <= vb * (1 + gb / 100) ** n) n++;
+    return String(2024 + n);
+  },
+  'Best overall rate despite the mix': (q) => {
+    const ex = tableOf(q), rate = (r) => (num(r[1]) * num(r[2]) + num(r[3]) * num(r[4])) / (num(r[1]) + num(r[3]));
+    return ex.rows.slice().sort((x, y) => rate(y) - rate(x))[0][0];
+  },
+  'True share of positive results': (q) => {
+    const ex = tableOf(q), r = ex.rows.find((x) => q.stem.includes(x[0] + ',')), [p, sn, f] = r.slice(1).map(num);
+    return 100 * p * sn / (p * sn + (100 - p) * f);
+  },
+  'Estimate from an unlabelled chart': (q) => {
+    const ex = chartOf(q, 'line'), v = ex.series[0].values, change = (o) => { const i = ex.categories.indexOf(o); return v[i] / v[i - 4] - 1; };
+    return q.options.slice().sort((a, b) => change(b) - change(a))[0];
+  },
+  'Speed needed to win': (q) => {
+    const ex = tableOf(q), fin = column(ex, 'Finishing'), half = column(ex, 'Time at 200 m');
+    const winner = Math.min(...ex.rows.map((r) => num(r[fin]))), r = firstRow(q, ex);
+    return 200 / (winner - num(r[half]));
+  },
+  'Speed for a target average': (q) => {
+    const ex = tableOf(q), [, rider, V] = m1(/(Rider [AB]) wants an average speed of exactly (\d+) km\/h/, notes(q));
+    const j = column(ex, rider), d = ex.rows.map((r) => num(r[1])), last = ex.rows.findIndex((r) => r[j] === '—');
+    const used = total(ex.rows.map((r, i) => (i === last ? 0 : d[i] / num(r[j]))));
+    return d[last] / (total(d) / num(V) - used);
+  },
+  'Largest change in tonnes from two pie charts': (q) => {
+    const [p1, p2] = q.exhibits.filter((e) => e.type === 'pie'), t = (p) => num(m1(/total ([\d.,]+) million/, p.title)[1]);
+    const change = (m) => t(p2) * p2.slices.find((s) => s.label === m).value / 100 - t(p1) * p1.slices.find((s) => s.label === m).value / 100;
+    return q.options.slice().sort((a, b) => change(b) - change(a))[0];
+  },
+  'Average price under tiered rates': (q) => {
+    const ex = tableOf(q), r = firstRow(q, ex), N = num(m1(/uses ([\d,]+) kWh/, q.stem)[1]);
+    const [F, a, b, c] = r.slice(1).map(num);
+    return (F + Math.min(N, 200) * a + Math.max(0, Math.min(N, 500) - 200) * b + Math.max(0, N - 500) * c) / N;
+  },
+  'Currency round trip with fees': (q) => {
+    const ex = chartOf(q, 'line'), A = num(m1(/converted EUR ([\d,]+) into/, q.stem)[1]), cur = m1(/ into (\w+) on 1 March/, q.stem)[1];
+    const f = num(m1(/fee of ([\d.]+)%/, notes(q))[1]) / 100, v = ex.series.find((x) => x.name === cur).values;
+    return A * (1 - f) * v[ex.categories.indexOf('1 Mar')] * (1 - f) / v[ex.categories.indexOf('1 Sep')];
+  },
+  'Price change needed for a target inflation': (q) => {
+    const ex = tableOf(q), T = num(m1(/inflation exactly ([\d.]+)%/, q.stem)[1]);
+    const missing = ex.rows.find((r) => r[2] === '—'), known = total(ex.rows.filter((r) => r !== missing).map((r) => num(r[1]) * num(r[2]) / 100));
+    return (T - known) / (num(missing[1]) / 100);
+  },
+  'Meeting point of two travellers': (q) => {
+    const ex = chartOf(q, 'hbar'), L = num(m1(/ends of a (\d+) km rural road/, q.stem)[1]), j = ex.categories.indexOf('Rural');
+    const [, a, b] = m1(/^A (.+?) and a (.+?) set off/, q.stem), sp = (n) => ex.series.find((x) => lc(x.name) === n).values[j];
+    return L * sp(a) / (sp(a) + sp(b));
+  },
 };

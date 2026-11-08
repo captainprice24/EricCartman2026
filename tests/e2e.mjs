@@ -109,7 +109,7 @@ async function run(engineName) {
     assert.equal(await p.inputValue('#opt-numerical-level'), '3');
     await p.locator('[data-act="practice"][data-k="numerical"]').click();
     const hardAll = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
-    assert.equal(hardAll.length, 82); assert.ok(hardAll.every(d => d === 3));
+    assert.equal(hardAll.length, 122); assert.ok(hardAll.every(d => d === 3));
     await p.goto(URL); await p.waitForSelector('.home');
     await p.selectOption('#opt-numerical-level', '2');
     await p.selectOption('#opt-set', 'numerical-05');

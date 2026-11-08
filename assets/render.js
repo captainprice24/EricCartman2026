@@ -216,6 +216,8 @@
     var cats = ex.categories, series = ex.series, all = [];
     series.forEach(function (s) { all = all.concat(s.values); });
     var scale = niceMax(Math.max.apply(null, all) * 1.12);
+    // An exhibit may fix the gridline step (charts read from gridlines without value labels).
+    if (ex.step) scale = { max: Math.ceil(Math.max.apply(null, all) * 1.05 / ex.step) * ex.step, step: ex.step };
     var W = 560, H = 290, L = 48, Rr = 24, T = 18, B = 34;
     var plotW = W - L - Rr, plotH = H - T - B;
     var x = function (i) { return L + 16 + (i * (plotW - 32)) / (cats.length - 1); };
@@ -228,7 +230,7 @@
       });
     });
     // Value labels above each point, pushed apart vertically where series run close together.
-    cats.forEach(function (c, i) {
+    if (ex.labels !== false) cats.forEach(function (c, i) {
       var pts = series.map(function (s, si) { return { si: si, v: s.values[i], ly: y(s.values[i]) - 7 }; }).sort(function (a, b) { return b.ly - a.ly; });
       for (var k = 1; k < pts.length; k++) if (pts[k - 1].ly - pts[k].ly < 12) pts[k].ly = pts[k - 1].ly - 12;
       pts.forEach(function (pt) {

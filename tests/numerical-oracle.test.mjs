@@ -303,6 +303,7 @@ test("seven challenge sets have ten distinct models, balanced keys and genuine m
       assert.ok(numericalRubric(q).stages >= 4);
       assert.ok(q.optionNotes.every(n => !/not derived from|recheck each step/i.test(n)));
       const answer = S[q.topic](q);
+      if (q.answerType === 'category') { assert.equal(answer, q.options[q.answer], q.id); continue; }
       const decimals = (q.options[q.answer].replace(/,/g, '').match(/\d+\.(\d+)/) || ['', ''])[1].length;
       const tolerance = .5 * 10 ** -decimals + 1e-9;
       assert.equal(q.options.filter(o => Math.abs(num(o) - answer) <= tolerance).length, 1, q.id + ' must have exactly one rounded answer');
@@ -332,7 +333,9 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
   const review=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-review-revisions.json')));
   const medium=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-medium-fingerprints.json')));
   const euPrints=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-fingerprints.json')));
-  assert.equal(Object.keys(euPrints).length,items.filter(q=>/-eu$/.test(q.id)).length);
+  const euFile=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-revisions.json'))),euRevs=euFile.revisions,restored=euFile.restored||{};
+  // Every recorded EU-format id is still in the bank, replaced by its registered revision, or gave its slot back to a restored item.
+  for(const id of Object.keys(euPrints))assert.ok(items.some(q=>q.id===id)||items.some(q=>q.id===euRevs[id]?.id&&q.supersedes===id)||items.some(q=>q.id===restored[id]),id);
   const hash=q=>{const content={...q};delete content.id;delete content.supersedes;return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');};
   for(const q of items){
     const entry=review.revisions[q.supersedes];
@@ -342,6 +345,10 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
       assert.equal(entry.beforeSha256,review.baseline[q.supersedes].sha256);
       const prior=Object.values(original).find(r=>r.id===q.supersedes);
       if(prior)assert.equal(prior.sha256,entry.beforeSha256);
+    }else if(/-eu\d+$/.test(q.id)){
+      const entry=euRevs[q.supersedes],{id,...content}=q;
+      assert.equal(entry.id,id);assert.equal(entry.beforeSha256,euPrints[q.supersedes],id);
+      assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),entry.sha256,id);
     }else if(/-eu$/.test(q.id)){
       const {id,...content}=q;assert.equal(crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'),euPrints[id],id);
     }else if(/^n1[2-6]-/.test(q.id)){
@@ -351,7 +358,7 @@ test('all numerical revisions preserve immutable old and new fingerprints', () =
     }
   }
   // Every registered review revision is either still in the bank or was itself replaced by an EU-format item.
-  const replaced=new Set(items.filter(q=>/-eu$/.test(q.id)).map(q=>q.supersedes));
+  const replaced=new Set([...items.filter(q=>/-eu$/.test(q.id)).map(q=>q.supersedes),...Object.values(euRevs).map(r=>r.replaces)]);
   for(const [old,entry] of Object.entries(review.revisions))assert.ok(items.some(q=>q.id===entry.id&&q.supersedes===old)||replaced.has(entry.id),old);
 });
 
@@ -370,7 +377,7 @@ test('worked numerical explanations preserve percentage conversion and avoid ear
       assert.match(q.stem,/do not round individual unit prices/);
       assert.ok(q.solution.some(step=>/×.*×.*×.*≈ EUR/.test(step)),q.id);
     }
-    if(!q.challenge && q.answerType!=='category' && !/-eu$/.test(q.id)){
+    if(!q.challenge && q.answerType!=='category' && !/-eu\d*$/.test(q.id)){
       assert.match(q.stem,/Round only the final result/);
       assert.ok(q.solution.at(-1).includes(q.options[q.answer]),q.id);
     }
@@ -390,7 +397,8 @@ test('threshold assumptions and dimensional units are explicit',()=>{
 });
 
 test('categorical numerical questions have a unique best candidate',()=>{
-  for(const q of items.filter(q=>q.answerType==='category'&&q.topic!=='Rank of percentage increases')){
+  const euCategory=['Rank of percentage increases','Year one overtakes another','Best overall rate despite the mix','Estimate from an unlabelled chart','Largest change in tonnes from two pie charts'];
+  for(const q of items.filter(q=>q.answerType==='category'&&!euCategory.includes(q.topic))){
     const ex=q.exhibits[0];
     const metric=name=>{
       if(q.topic==='Per-capita comparison'){
@@ -443,13 +451,15 @@ test('key base and omitted-stage distractors match their stated mistakes',()=>{
 });
 
 test('EU-format items: short stems, no rounding instruction, spaced options and Medium or Hard only',()=>{
-  const eu=items.filter(q=>/-eu$/.test(q.id));
-  assert.equal(eu.length,138);
+  const eu=items.filter(q=>/-eu\d*$/.test(q.id)),revs=JSON.parse(fs.readFileSync(path.join(root,'scripts/generators/numerical-eu-revisions.json'))).revisions;
+  assert.equal(eu.length,110);
   for(const q of eu){
     assert.ok([2,3].includes(q.difficulty),q.id);
     assert.ok(q.stem.split(/\s+/).length<=45,q.id+' stem too long');
     assert.doesNotMatch(q.stem,/Round only/,q.id);
-    assert.ok(q.supersedes&&!/-eu$/.test(q.supersedes),q.id);
+    assert.ok(q.supersedes&&(!/-eu/.test(q.supersedes)||revs[q.supersedes]?.id===q.id),q.id);
+    assert.doesNotMatch(q.solution.join(' '),/\d\.\d+ (fundraisers|players|people)/,q.id+' no fractional counts of people');
+    if(q.answerType==='category'&&q.topic!=='Rank of percentage increases')continue;
     if(q.answerType==='category'){
       const ex=table(q),[a,b]=q.stem.match(/(\d{4}) and (\d{4})/).slice(1);
       const ch=ex.rows.map(r=>num(r[ex.columns.indexOf(b)])/num(r[ex.columns.indexOf(a)])-1).sort((x,y)=>y-x);
@@ -457,9 +467,12 @@ test('EU-format items: short stems, no rounding instruction, spaced options and 
       continue;
     }
     const v=q.options.map(num),key=v[q.answer];
-    for(let i=1;i<v.length;i++)assert.ok((v[i]-v[i-1])/key>=0.029,q.id+' options must be at least 3% of the key apart');
+    for(let i=1;i<v.length;i++)assert.ok((v[i]-v[i-1])/Math.abs(key)>=0.029,q.id+' options must be at least 3% of the key apart');
   }
-  const physics=['Distance gap at the finish','Time to reach top speed','Top speed from a race time','Catching up at constant speeds'];
-  assert.ok(eu.filter(q=>physics.includes(q.topic)).length>=20,'physics items');
-  assert.ok(eu.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=55,'chart items');
+  const physics=['Distance gap at the finish','Time to reach top speed','Top speed from a race time','Catching up at constant speeds','Speed needed to win','Speed for a target average','Meeting point of two travellers'];
+  assert.ok(eu.filter(q=>physics.includes(q.topic)).length>=18,'physics items');
+  assert.ok(eu.filter(q=>q.exhibits.some(e=>e.type!=='table')).length>=35,'chart items');
+  // Hard practice should not lean on a few models: at most five items per hard model across the bank (most have three or four).
+  const hard={};items.filter(q=>q.difficulty===3).forEach(q=>{hard[q.topic]=(hard[q.topic]||0)+1;});
+  assert.ok(Object.keys(hard).length>=27,'hard models');assert.ok(Object.values(hard).every(n=>n<=5),JSON.stringify(hard));
 });

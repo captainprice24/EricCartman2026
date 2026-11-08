@@ -8,525 +8,89 @@ EPSO_BANK.registerSet({
   "challenge": true,
   "questions": [
     {
-      "id": "n09-01-eu",
-      "supersedes": "n09-01-r2",
-      "topic": "Equivalent ticket price",
+      "id": "n09-01-eu2",
+      "supersedes": "n09-01-eu",
+      "topic": "Year one overtakes another",
       "difficulty": 3,
       "challenge": true,
-      "exhibits": [
-        {
-          "type": "bar",
-          "title": "Billiard hall: groups by day (fictional data)",
-          "unit": "groups",
-          "categories": [
-            "Groups of 2",
-            "Groups of 3",
-            "Groups of 4",
-            "Groups of 5"
-          ],
-          "series": [
-            {
-              "name": "Friday",
-              "values": [
-                14,
-                11,
-                6,
-                6
-              ]
-            },
-            {
-              "name": "Saturday",
-              "values": [
-                12,
-                9,
-                5,
-                6
-              ]
-            },
-            {
-              "name": "Sunday",
-              "values": [
-                10,
-                6,
-                1,
-                5
-              ]
-            }
-          ],
-          "note": "Each group rents one table at EUR 7.50 per hour for an average of 3.5 hours. Every player also pays an entry fee of EUR 1.50."
-        }
-      ],
-      "stem": "The hall could instead host a concert on Saturday for 90 paying guests, with costs of EUR 180. What ticket price would give the same net income as the billiards?",
-      "options": [
-        "EUR 9.53",
-        "EUR 11.33",
-        "EUR 11.87",
-        "EUR 13.02",
-        "EUR 14.71"
-      ],
-      "answer": 3,
-      "hints": [
-        "Count groups for table income and players for entry fees.",
-        "Ticket income minus costs must equal the billiards income."
-      ],
-      "solution": [
-        "Data needed: Saturday groups 12, 9, 5, 6 (sizes 2, 3, 4, 5).",
-        "Groups = 32; players = 101.",
-        "Billiards income = 32 × 3.5 × 7.50 + 101 × 1.50 = EUR 991.50.",
-        "Ticket price = (991.50 + 180) ÷ 90 ≈ EUR 13.017.",
-        "Answer: EUR 13.02."
-      ],
-      "optionNotes": [
-        "Reads the Sunday bars.",
-        "Leaves out the players' entry fees.",
-        "Charges the entry fee per group instead of per player.",
-        "Correct. Table income depends on groups, entry fees on players; the concert must cover its costs on top.",
-        "Reads the Friday bars."
-      ],
-      "explanation": "Table income depends on groups, entry fees on players; the concert must cover its costs on top."
-    },
-    {
-      "id": "n09-02-eu",
-      "supersedes": "n09-02-r2",
-      "topic": "Pension spending in euros",
-      "difficulty": 3,
-      "challenge": true,
+      "answerType": "category",
       "exhibits": [
         {
           "type": "table",
-          "title": "Pensions (fictional data)",
+          "title": "Exports (fictional data)",
           "columns": [
             "Country",
-            "Population (million)",
-            "Pensioners (% of population)",
-            "Average pension per payment (national currency)",
-            "Payments per year"
+            "Exports 2019 (EUR billion)",
+            "Exports 2024 (EUR billion)",
+            "Annual growth from 2024 (%)"
           ],
           "rows": [
-            [
-              "Istrada",
-              "10.8",
-              "16.6",
-              "7,045 FRN",
-              "13"
-            ],
-            [
-              "Pellam",
-              "3.3",
-              "18.2",
-              "4,628 DNK",
-              "13"
-            ],
             [
               "Hollen",
-              "17.8",
-              "19.8",
-              "3,061 EST",
-              "12"
+              "58.7",
+              "73.4",
+              "2.0"
             ],
             [
-              "Marrow",
-              "14.2",
-              "24.0",
-              "643 ALD",
-              "12"
-            ]
-          ]
-        },
-        {
-          "type": "table",
-          "title": "Exchange rates (fictional data)",
-          "columns": [
-            "Currency",
-            "Units per EUR"
-          ],
-          "rows": [
-            [
-              "FRN",
-              "14.72"
+              "Aldoria",
+              "57.4",
+              "69.2",
+              "2.6"
             ],
             [
-              "DNK",
-              "35.80"
+              "Rosmark",
+              "39.1",
+              "45.5",
+              "5.2"
             ],
             [
-              "EST",
-              "32.73"
-            ],
-            [
-              "ALD",
-              "8.63"
-            ]
-          ]
-        }
-      ],
-      "stem": "What was the combined annual pension spending of Marrow and Pellam (EUR million)?",
-      "options": [
-        "EUR 4,056.4 million",
-        "EUR 4,232.7 million",
-        "EUR 4,378.1 million",
-        "EUR 4,641.9 million",
-        "EUR 4,921.6 million"
-      ],
-      "answer": 0,
-      "hints": [
-        "Pensioners = population × share; spending = pensioners × pension × payments.",
-        "Divide by units per euro to convert."
-      ],
-      "solution": [
-        "Data needed: both countries' population, pensioner share, pension, payments and exchange rate.",
-        "Marrow: 14.2 × 24.0% × 643 × 12 ÷ 8.63 = EUR 3,047.060 million.",
-        "Pellam: 3.3 × 18.2% × 4,628 × 13 ÷ 35.80 = EUR 1,009.344 million.",
-        "Total ≈ EUR 4,056.40 million.",
-        "Answer: EUR 4,056.4 million."
-      ],
-      "optionNotes": [
-        "Correct. Each country needs its own pensioner count, number of payments and exchange rate before the totals are added.",
-        "Swaps the numbers of payments.",
-        "Applies Marrow's pensioner share to both countries.",
-        "Assumes fourteen payments a year in both countries.",
-        "Swaps the two exchange rates."
-      ],
-      "explanation": "Each country needs its own pensioner count, number of payments and exchange rate before the totals are added."
-    },
-    {
-      "id": "n09-03-eu",
-      "supersedes": "n09-03-r2",
-      "topic": "NO share of all eligible voters",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "combo",
-          "title": "Referendum results: votes and turnout by district (fictional data)",
-          "unit": "votes",
-          "categories": [
-            "District 1",
-            "District 2",
-            "District 3",
-            "District 4"
-          ],
-          "series": [
-            {
-              "name": "Voted YES",
-              "values": [
-                3469,
-                4158,
-                3813,
-                2924
-              ]
-            },
-            {
-              "name": "Voted NO",
-              "values": [
-                2953,
-                2202,
-                4204,
-                2587
-              ]
-            },
-            {
-              "name": "Turnout (%)",
-              "values": [
-                86.89,
-                78.91,
-                62.03,
-                82.75
-              ],
-              "line": true
-            }
-          ],
-          "note": "Turnout = percentage of eligible voters who voted (YES or NO)."
-        }
-      ],
-      "stem": "What percentage of all eligible voters in the four districts voted NO?",
-      "options": [
-        "28.2%",
-        "34.1%",
-        "35.3%",
-        "37.6%",
-        "39.5%"
-      ],
-      "answer": 1,
-      "hints": [
-        "Rebuild each district's eligible voters from its own turnout.",
-        "Divide all NO votes by all eligible voters."
-      ],
-      "solution": [
-        "Data needed: YES, NO and turnout for each district.",
-        "District 1: eligible = (3,469 + 2,953) ÷ 86.89% = 7,390.95.",
-        "District 2: eligible = (4,158 + 2,202) ÷ 78.91% = 8,059.81.",
-        "District 3: eligible = (3,813 + 4,204) ÷ 62.03% = 12,924.39.",
-        "District 4: eligible = (2,924 + 2,587) ÷ 82.75% = 6,659.82.",
-        "All eligible = 35,034.98; all NO = 11,946.",
-        "Share = 11,946 ÷ 35,034.98 × 100 ≈ 34.10%.",
-        "Answer: 34.1%."
-      ],
-      "optionNotes": [
-        "Uses the turnout of District 3 for all four districts.",
-        "Correct. Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them.",
-        "Scales the NO share of votes by the simple average turnout.",
-        "Uses the turnout of District 4 for all four districts.",
-        "Uses the turnout of District 1 for all four districts."
-      ],
-      "explanation": "Each district has its own turnout, so eligible voters must be rebuilt district by district before the NO votes are compared with them."
-    },
-    {
-      "id": "n09-04-eu",
-      "supersedes": "n09-04-r2",
-      "topic": "Per-capita gap after population change",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Theatre tickets and population (fictional data)",
-          "columns": [
-            "Country",
-            "Population 2015 (thousand)",
-            "Population change 2015–2020 (%)",
-            "Tickets 2015 (thousand)",
-            "Tickets 2020 (thousand)"
-          ],
-          "rows": [
-            [
-              "Marrow",
-              "7,432",
-              "−3.9",
-              "37,353",
-              "47,700"
-            ],
-            [
-              "Fernland",
-              "20,270",
-              "−2.3",
-              "88,458",
-              "111,722"
-            ],
-            [
-              "Lunaria",
-              "16,013",
-              "+2.6",
-              "57,295",
-              "56,550"
-            ],
-            [
-              "Galvia",
-              "12,913",
-              "+4.2",
-              "49,237",
-              "55,490"
-            ],
-            [
-              "Hollen",
-              "11,681",
-              "+2.2",
-              "25,009",
-              "31,987"
-            ]
-          ]
-        }
-      ],
-      "stem": "By what percentage were tickets per inhabitant in Fernland higher than in Galvia in 2020?",
-      "options": [
-        "26.9%",
-        "28.3%",
-        "31.3%",
-        "33.6%",
-        "36.8%"
-      ],
-      "answer": 4,
-      "hints": [
-        "Update both populations to 2020 first.",
-        "Galvia is the base of the comparison."
-      ],
-      "solution": [
-        "Data needed: 2020 tickets, 2015 populations and the population changes for Fernland and Galvia.",
-        "Fernland: 111,722 ÷ (20,270 × 0.977) = 5.64145.",
-        "Galvia: 55,490 ÷ (12,913 × 1.042) = 4.12401.",
-        "Difference = (5.64145 ÷ 4.12401 − 1) × 100 ≈ 36.80%.",
-        "Answer: 36.8%."
-      ],
-      "optionNotes": [
-        "Divides the difference by Fernland's value instead of Galvia's.",
-        "Uses the 2015 populations without the change.",
-        "Updates only Fernland's population.",
-        "Updates only Galvia's population.",
-        "Correct. Both per-capita values need the later populations; the country after \"than\" is the base."
-      ],
-      "explanation": "Both per-capita values need the later populations; the country after \"than\" is the base."
-    },
-    {
-      "id": "n09-05-eu",
-      "supersedes": "n09-05-r2",
-      "topic": "Average after two changes",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "hbar",
-          "title": "Average response times of emergency services (fictional data)",
-          "unit": "minutes",
-          "categories": [
-            "Urban",
-            "Rural",
-            "Overall"
-          ],
-          "series": [
-            {
-              "name": "Sundra",
-              "values": [
-                14,
-                70,
-                21
-              ]
-            },
-            {
-              "name": "Calmora",
-              "values": [
-                12,
-                42,
-                17
-              ]
-            },
-            {
-              "name": "Dunmark",
-              "values": [
-                22,
-                58,
-                31
-              ]
-            },
-            {
-              "name": "Estoria",
-              "values": [
-                14,
-                30,
-                18
-              ]
-            }
-          ],
-          "note": "Overall = average over all calls (urban and rural). Call numbers do not change."
-        }
-      ],
-      "stem": "If Estoria's urban times rose by 5 minutes and its rural average fell to 16 minutes, what would its overall average be (minutes)?",
-      "options": [
-        "14.50",
-        "16.75",
-        "17.50",
-        "18.25",
-        "21.75"
-      ],
-      "answer": 3,
-      "hints": [
-        "Work out how many urban calls there are per rural call from the three averages.",
-        "Apply both changes, then weight them by the call mix."
-      ],
-      "solution": [
-        "Data needed: Estoria urban 14, rural 30, overall 18 minutes.",
-        "Urban calls per rural call = (30 − 18) ÷ (18 − 14) = 3.",
-        "New times: urban 19, rural 16.",
-        "Overall = (3 × 19 + 16) ÷ 4 ≈ 18.250 minutes.",
-        "Answer: 18.25."
-      ],
-      "optionNotes": [
-        "Leaves out the rise in urban times.",
-        "Puts the larger weight on the rural calls.",
-        "Assumes equal numbers of urban and rural calls.",
-        "Correct. The three averages reveal the mix of calls, which then weights the two new times.",
-        "Leaves out the fall in rural times."
-      ],
-      "explanation": "The three averages reveal the mix of calls, which then weights the two new times."
-    },
-    {
-      "id": "n09-06-eu",
-      "supersedes": "n09-06-r2",
-      "topic": "Top speed from a race time",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Athletics finals: times by country (seconds) (fictional data)",
-          "columns": [
-            "Country",
-            "100 m",
-            "200 m",
-            "400 m",
-            "800 m"
-          ],
-          "rows": [
-            [
-              "Istrada",
-              "10.74",
-              "20.22",
-              "47.07",
-              "106.1"
-            ],
-            [
-              "Calmora",
-              "10.04",
-              "20.38",
-              "45.69",
-              "103.6"
-            ],
-            [
-              "Lunaria",
-              "11.14",
-              "20.30",
-              "45.80",
-              "108.0"
+              "Estoria",
+              "126.2",
+              "141.8",
+              "2.6"
             ],
             [
               "Sundra",
-              "11.55",
-              "20.69",
-              "46.49",
-              "106.7"
-            ],
-            [
-              "Hollen",
-              "10.35",
-              "20.22",
-              "46.62",
-              "106.1"
+              "136.7",
+              "148.6",
+              "4.1"
             ]
           ],
-          "note": "Assume each sprinter accelerates uniformly from rest over the first 36 m of the 100 m, then runs at a constant top speed."
+          "note": "Assume each country keeps growing at its annual rate (compound growth)."
         }
       ],
-      "stem": "What was the top speed (m/s) of the second-placed athlete in the 100 m?",
+      "stem": "In which year would Rosmark's exports first exceed Hollen's?",
       "options": [
-        "11.40 m/s",
-        "12.66 m/s",
-        "13.14 m/s",
-        "13.55 m/s",
-        "16.62 m/s"
+        "2040",
+        "2041",
+        "2042",
+        "2043",
+        "2044"
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
-        "During uniform acceleration from rest, the average speed is half the top speed.",
-        "Write the race time as acceleration time + constant-speed time and solve for top speed."
+        "Growth compounds: each year multiplies by (1 + rate).",
+        "Compare the ratio of the two values with the ratio of their growth factors, year by year."
       ],
       "solution": [
-        "Data needed: second-placed Hollen, 10.35 s.",
-        "Acceleration time = 36 ÷ (v ÷ 2) = 72 ÷ v.",
-        "Constant-speed time = 64 ÷ v.",
-        "10.35 = (72 + 64) ÷ v, so v = 136 ÷ 10.35 ≈ 13.140 m/s.",
-        "Answer: 13.14 m/s."
+        "Rosmark: EUR 45.5 billion growing 5.2% a year; Hollen: EUR 73.4 billion growing 2.0% a year.",
+        "Each year the gap ratio Hollen ÷ Rosmark shrinks by the factor 1.020 ÷ 1.052 ≈ 0.9696.",
+        "Start ratio = 73.4 ÷ 45.5 ≈ 1.6132; it falls below 1 after 16 years.",
+        "2039: 97.3 against 98.8; 2040: 102.4 against 100.8, so the answer is 2040.",
+        "Answer: 2040."
       ],
       "optionNotes": [
-        "Takes the average speed while accelerating as two thirds of top speed.",
-        "Uses the next athlete's time.",
-        "Correct. Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator.",
-        "Uses the winner's time.",
-        "Doubles the acceleration distance."
+        "Correct. Rosmark first exceeds Hollen in 2040: EUR 102.4 billion against EUR 100.8 billion.",
+        "Rosmark has already overtaken Hollen in 2040.",
+        "Rosmark has already overtaken Hollen in 2040.",
+        "Rosmark has already overtaken Hollen in 2040.",
+        "Rosmark has already overtaken Hollen in 2040."
       ],
-      "explanation": "Uniform acceleration from rest covers the first stretch at half the top speed, which adds the acceleration distance once more to the numerator."
+      "explanation": "With compound growth the faster-growing country closes the gap by the ratio of the growth factors each year."
     },
     {
-      "id": "n09-07-eu",
-      "supersedes": "n09-07-r2",
+      "id": "n09-02-eu2",
+      "supersedes": "n09-02-eu",
       "topic": "Catching up at constant speeds",
       "difficulty": 3,
       "challenge": true,
@@ -542,46 +106,46 @@ EPSO_BANK.registerSet({
           ],
           "rows": [
             [
-              "Fernland",
-              "3:43.38",
-              "7:47.88",
-              "15:02.90"
+              "Hollen",
+              "3:45.83",
+              "8:02.08",
+              "14:57.09"
             ],
             [
-              "Brevania",
-              "3:52.28",
-              "7:48.86",
-              "15:21.56"
+              "Jorvik",
+              "3:47.97",
+              "7:49.35",
+              "14:43.52"
             ],
             [
               "Calmora",
-              "3:46.12",
-              "7:56.72",
-              "14:52.45"
+              "3:54.24",
+              "8:09.26",
+              "14:40.61"
             ],
             [
-              "Marrow",
-              "3:55.79",
-              "7:46.83",
-              "14:45.96"
+              "Rosmark",
+              "3:50.27",
+              "7:46.06",
+              "15:26.93"
             ],
             [
-              "Tavel",
-              "3:56.58",
-              "8:03.69",
-              "15:12.96"
+              "Galvia",
+              "3:52.16",
+              "8:00.47",
+              "15:20.52"
             ]
           ],
           "note": "In training, swimmers swim at their average race speed for the stated event."
         }
       ],
-      "stem": "In training, Marrow's swimmer starts 40 m ahead of Fernland's, both at their 400 m race speeds. How far (metres) does Fernland's swimmer swim before drawing level?",
+      "stem": "In training, Hollen's swimmer starts 30 m ahead of Rosmark's, both at their 800 m race speeds. How far (metres) does Rosmark's swimmer swim before drawing level?",
       "options": [
-        "720.0 m",
-        "760.0 m",
-        "800.0 m",
-        "975.3 m",
-        "1,044.0 m"
+        "872.8 m",
+        "902.8 m",
+        "932.8 m",
+        "1,000.3 m",
+        "1,136.1 m"
       ],
       "answer": 1,
       "hints": [
@@ -589,186 +153,25 @@ EPSO_BANK.registerSet({
         "Time to draw level = head start ÷ speed difference; distance = faster speed × that time."
       ],
       "solution": [
-        "Data needed: 400 m times — Fernland 3:43.38, Marrow 3:55.79.",
-        "Speeds: 400 ÷ 223.38 = 1.79067 m/s and 400 ÷ 235.79 = 1.69642 m/s.",
-        "Time to draw level = 40 ÷ 0.094246 = 424.422 s.",
-        "Distance = 1.79067 × 424.422 ≈ 760.00 m.",
-        "Answer: 760.0 m."
+        "Shown values are rounded; keep exact values until the end. 800 m times in seconds: Rosmark 7:46.06 = 466.06 s; Hollen 8:02.08 = 482.08 s.",
+        "Speeds: 800 ÷ 466.06 ≈ 1.7165 m/s and 800 ÷ 482.08 ≈ 1.6595 m/s; the gap closes at ≈ 0.0570 m/s.",
+        "Time to draw level = 30 ÷ 0.0570 ≈ 525.9 s.",
+        "Distance = 1.7165 × 525.9 ≈ 902.8 m.",
+        "Answer: 902.8 m."
       ],
       "optionNotes": [
-        "Gives the distance swum by Marrow's swimmer.",
+        "Gives the distance swum by Hollen's swimmer.",
         "Correct. The faster swimmer gains the speed difference every second; the head start sets how long that takes.",
         "Adds the head start to the distance swum.",
-        "Uses the second-fastest swimmer's time.",
-        "Uses the third-fastest swimmer's time."
+        "Uses the third-fastest swimmer's time.",
+        "Uses the second-fastest swimmer's time."
       ],
       "explanation": "The faster swimmer gains the speed difference every second; the head start sets how long that takes."
     },
     {
-      "id": "n09-08-eu",
-      "supersedes": "n09-08-r2",
-      "topic": "Missing value from a share of all types",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "table",
-          "title": "Instruments sold (fictional data)",
-          "columns": [
-            "Country",
-            "Upright pianos",
-            "Grand pianos",
-            "Digital pianos"
-          ],
-          "rows": [
-            [
-              "Tavel",
-              "1,291",
-              "3,939",
-              "1,850"
-            ],
-            [
-              "Pellam",
-              "1,497",
-              "5,410",
-              "1,240"
-            ],
-            [
-              "Galvia",
-              "2,229",
-              "6,483",
-              "1,017"
-            ],
-            [
-              "Rosmark",
-              "880",
-              "—",
-              "1,422"
-            ],
-            [
-              "Aldoria",
-              "2,163",
-              "3,830",
-              "2,095"
-            ]
-          ],
-          "note": "Rosmark accounted for exactly 18% of all pianos of all types sold in the five countries."
-        }
-      ],
-      "stem": "How many grand pianos were sold in Rosmark?",
-      "options": [
-        "4,060",
-        "4,316",
-        "4,952",
-        "5,832",
-        "6,374"
-      ],
-      "answer": 2,
-      "hints": [
-        "The other four countries account for 82% of all pianos.",
-        "Find Rosmark's total first, then remove the types you know."
-      ],
-      "solution": [
-        "Data needed: all pianos in the other four countries = 33,044; Rosmark upright 880, digital 1,422.",
-        "82% = 33,044, so Rosmark's total = 33,044 × 18 ÷ 82 = 7,253.56.",
-        "Known types in Rosmark = 880 + 1,422 = 2,302.",
-        "Grand pianos = 7,253.56 − 2,302 ≈ 4,951.6.",
-        "Answer: 4,952."
-      ],
-      "optionNotes": [
-        "Takes 18% of a total that leaves out the missing value.",
-        "Applies the share to grand pianos only.",
-        "Correct. The share is of all piano types, so rebuild the country total before isolating the missing type.",
-        "Forgets to subtract the upright pianos.",
-        "Forgets to subtract the digital pianos."
-      ],
-      "explanation": "The share is of all piano types, so rebuild the country total before isolating the missing type."
-    },
-    {
-      "id": "n09-09-eu",
-      "supersedes": "n09-09-r2",
+      "id": "n09-03-eu2",
+      "supersedes": "n09-03-eu",
       "topic": "Change in a remainder group",
-      "difficulty": 3,
-      "challenge": true,
-      "exhibits": [
-        {
-          "type": "line",
-          "title": "Survey: should the country introduce daylight saving time? (fictional data)",
-          "unit": "% of adults",
-          "categories": [
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021"
-          ],
-          "series": [
-            {
-              "name": "In favour",
-              "values": [
-                37,
-                36,
-                39,
-                42,
-                45,
-                45,
-                47,
-                47
-              ]
-            },
-            {
-              "name": "Against",
-              "values": [
-                54,
-                53,
-                50,
-                47,
-                42,
-                40,
-                36,
-                35
-              ]
-            }
-          ],
-          "note": "Adults who are neither in favour nor against have no opinion."
-        }
-      ],
-      "stem": "The adult population was 58.78 million in 2016 and 63.31 million in 2020. By what percentage did the number with no opinion change?",
-      "options": [
-        "46.9%",
-        "54.5%",
-        "58.7%",
-        "62.3%",
-        "66.5%"
-      ],
-      "answer": 4,
-      "hints": [
-        "No opinion = 100% − in favour − against.",
-        "Turn both shares into numbers of people before comparing."
-      ],
-      "solution": [
-        "Data needed: 2016 — 39% and 50%; 2020 — 47% and 36%.",
-        "No opinion: 11% and 17%.",
-        "People: 11% × 58.78 = 6.4658 million; 17% × 63.31 = 10.7627 million.",
-        "Change = (10.7627 ÷ 6.4658 − 1) × 100 ≈ 66.46%.",
-        "Answer: 66.5%."
-      ],
-      "optionNotes": [
-        "Reads the 2019 values.",
-        "Ignores the change in population.",
-        "Applies the later population to the change only.",
-        "Adds the two percentage changes instead of multiplying the factors.",
-        "Correct. The remainder share must be turned into people with each year's population before the change is measured."
-      ],
-      "explanation": "The remainder share must be turned into people with each year's population before the change is measured."
-    },
-    {
-      "id": "n09-10-eu",
-      "supersedes": "n09-10-r2",
-      "topic": "Population from an unchanged group",
       "difficulty": 3,
       "challenge": true,
       "exhibits": [
@@ -790,60 +193,679 @@ EPSO_BANK.registerSet({
             {
               "name": "In favour",
               "values": [
-                30,
-                30,
-                30,
+                33,
+                32,
+                32,
                 31,
                 31,
-                30,
-                29,
-                30
+                33,
+                35,
+                36
               ]
             },
             {
               "name": "Against",
               "values": [
-                43,
-                41,
-                40,
-                36,
-                37,
-                33,
-                30,
-                28
+                60,
+                59,
+                57,
+                57,
+                57,
+                54,
+                51,
+                48
               ]
+            }
+          ],
+          "note": "Adults who are neither in favour nor against have no opinion."
+        }
+      ],
+      "stem": "The adult population was 41.79 million in 2014 and 44.21 million in 2020. By what percentage did the number with no opinion change?",
+      "options": [
+        "100.0%",
+        "105.8%",
+        "111.6%",
+        "123.8%",
+        "141.8%"
+      ],
+      "answer": 2,
+      "hints": [
+        "No opinion = 100% − in favour − against.",
+        "Turn both shares into numbers of people before comparing."
+      ],
+      "solution": [
+        "No opinion = 100% − in favour − against: 2014 100 − 33 − 60 = 7%; 2020 100 − 35 − 51 = 14%.",
+        "People with no opinion: 2014 7% × 41.79 = 2.9253 million; 2020 14% × 44.21 = 6.1894 million.",
+        "Change = (6.1894 ÷ 2.9253 − 1) × 100 ≈ 111.58%.",
+        "Answer: 111.6%."
+      ],
+      "optionNotes": [
+        "Ignores the change in population.",
+        "Adds the two percentage changes instead of multiplying the factors.",
+        "Correct. The remainder share must be turned into people with each year's population before the change is measured.",
+        "Applies the population growth twice.",
+        "Reads the 2021 values."
+      ],
+      "explanation": "The remainder share must be turned into people with each year's population before the change is measured."
+    },
+    {
+      "id": "n09-04-eu2",
+      "supersedes": "n09-04-eu",
+      "topic": "Projected share against a past amount",
+      "difficulty": 3,
+      "challenge": true,
+      "exhibits": [
+        {
+          "type": "pie",
+          "title": "Municipal waste by material, 2022 (total 294.94 million tonnes; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Paper and card",
+              "value": 10.6
+            },
+            {
+              "label": "Food",
+              "value": 11.2
+            },
+            {
+              "label": "Garden waste",
+              "value": 21.5
+            },
+            {
+              "label": "Plastics",
+              "value": 20.6
+            },
+            {
+              "label": "Metals",
+              "value": 4.1
+            },
+            {
+              "label": "Wood",
+              "value": 6.9
+            },
+            {
+              "label": "Textiles",
+              "value": 2.7
+            },
+            {
+              "label": "Glass",
+              "value": 4.8
+            },
+            {
+              "label": "Rubber and leather",
+              "value": 6.1
+            },
+            {
+              "label": "Electronics",
+              "value": 4.9
+            },
+            {
+              "label": "Hazardous",
+              "value": 2.4
+            },
+            {
+              "label": "Other",
+              "value": 4.2
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Waste in 2020 (million tonnes) (fictional data)",
+          "columns": [
+            "Material",
+            "2020"
+          ],
+          "rows": [
+            [
+              "Paper and card",
+              "29.0"
+            ],
+            [
+              "Food",
+              "31.2"
+            ],
+            [
+              "Garden waste",
+              "58.7"
+            ],
+            [
+              "Plastics",
+              "54.9"
+            ],
+            [
+              "Metals",
+              "11.5"
+            ]
+          ]
+        }
+      ],
+      "stem": "In 2023, total waste grows by 2% and the paper and card share rises by 2.1 percentage points. By what percentage would paper and card waste then exceed its 2020 level?",
+      "options": [
+        "22.5%",
+        "24.1%",
+        "29.2%",
+        "31.7%",
+        "34.4%"
+      ],
+      "answer": 3,
+      "hints": [
+        "Build the 2023 total and the 2023 share separately.",
+        "Compare with the 2020 figure from the table."
+      ],
+      "solution": [
+        "2023 total = 294.94 × 1.02 ≈ 300.84 million tonnes.",
+        "2023 paper and card share = 10.6% + 2.1 points = 12.7%.",
+        "2023 paper and card = 300.84 × 12.7% ≈ 38.207 million tonnes; 2020 (table) = 29.0.",
+        "Change = (38.207 ÷ 29.0 − 1) × 100 ≈ 31.75%.",
+        "Answer: 31.7%."
+      ],
+      "optionNotes": [
+        "Reads the 2020 figure for Food.",
+        "Divides by the 2023 amount instead of the 2020 amount.",
+        "Leaves out the growth in total waste.",
+        "Correct. A percentage-point change in share and a percentage growth in the total must be applied as separate factors.",
+        "Applies the growth in total waste twice."
+      ],
+      "explanation": "A percentage-point change in share and a percentage growth in the total must be applied as separate factors."
+    },
+    {
+      "id": "n09-05-eu2",
+      "supersedes": "n09-05-eu",
+      "topic": "Estimate from an unlabelled chart",
+      "difficulty": 3,
+      "challenge": true,
+      "answerType": "category",
+      "exhibits": [
+        {
+          "type": "line",
+          "title": "Ostland exchange: price of cocoa (fictional data)",
+          "unit": "EUR per tonne",
+          "categories": [
+            "Q1 21",
+            "Q2 21",
+            "Q3 21",
+            "Q4 21",
+            "Q1 22",
+            "Q2 22",
+            "Q3 22",
+            "Q4 22",
+            "Q1 23",
+            "Q2 23",
+            "Q3 23",
+            "Q4 23"
+          ],
+          "labels": false,
+          "step": 500,
+          "series": [
+            {
+              "name": "Price",
+              "values": [
+                1750,
+                1750,
+                1250,
+                1250,
+                2250,
+                1500,
+                1750,
+                1500,
+                1750,
+                2750,
+                3000,
+                3000
+              ]
+            }
+          ],
+          "note": "Values are not labelled: read them from the gridlines (every EUR 500; points lie on or halfway between gridlines)."
+        }
+      ],
+      "stem": "On the Ostland exchange, which quarter had the largest percentage rise in the cocoa price compared with the same quarter a year earlier?",
+      "options": [
+        "Q3 22",
+        "Q1 22",
+        "Q2 22",
+        "Q4 22",
+        "Q1 23"
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare each quarter with the same quarter one year (four points) earlier.",
+        "A percentage rise depends on the starting price, not only on the size of the rise."
+      ],
+      "solution": [
+        "Read each price from the gridlines and compare it with the same quarter a year earlier.",
+        "Q1 22: (2,250 − 1,750) ÷ 1,750 ≈ 28.6%.",
+        "Q2 22: (1,500 − 1,750) ÷ 1,750 ≈ −14.3%.",
+        "Q3 22: (1,750 − 1,250) ÷ 1,250 = 40.0%.",
+        "Q4 22: (1,500 − 1,250) ÷ 1,250 = 20.0%.",
+        "Q1 23: (1,750 − 2,250) ÷ 2,250 ≈ −22.2%.",
+        "The largest percentage rise is in Q3 22.",
+        "Answer: Q3 22."
+      ],
+      "optionNotes": [
+        "Correct. Q3 22: 1,250 → 1,750 EUR per tonne, +40.0%, the largest year-on-year rise.",
+        "Q1 22 has the largest rise in euros (EUR 500), but only 28.6% on its higher starting price.",
+        "Q2 22: 1,750 → 1,500, −14.3%.",
+        "Q4 22: 1,250 → 1,500, +20.0%.",
+        "Q1 23: 2,250 → 1,750, −22.2%."
+      ],
+      "explanation": "The biggest rise in euros is not the biggest percentage rise when it starts from a higher price."
+    },
+    {
+      "id": "n09-06-eu2",
+      "supersedes": "n09-06-eu",
+      "topic": "Growth needed to hold a share",
+      "difficulty": 3,
+      "challenge": true,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "Rail freight (thousand tonnes) (fictional data)",
+          "columns": [
+            "Country",
+            "2010",
+            "2015",
+            "2020"
+          ],
+          "rows": [
+            [
+              "Aldoria",
+              "5,394",
+              "5,854",
+              "5,870"
+            ],
+            [
+              "Marrow",
+              "36,539",
+              "35,387",
+              "36,287"
+            ],
+            [
+              "Istrada",
+              "38,242",
+              "34,224",
+              "35,336"
+            ],
+            [
+              "Calmora",
+              "57,797",
+              "57,023",
+              "57,354"
+            ],
+            [
+              "Rosmark",
+              "37,800",
+              "38,230",
+              "39,559"
+            ]
+          ],
+          "note": "From 2020 to 2025, every other country's freight grows by 10%."
+        }
+      ],
+      "stem": "By what percentage would Marrow's freight have to grow from 2020 to 2025 for it to carry exactly one quarter of the five countries' total in 2025?",
+      "options": [
+        "28.3%",
+        "32.2%",
+        "36.9%",
+        "39.6%",
+        "43.1%"
+      ],
+      "answer": 3,
+      "hints": [
+        "If Marrow carries one quarter, the others carry the rest.",
+        "Grow the others first, then find the target and compare it with today's figure."
+      ],
+      "solution": [
+        "2020: Marrow 36,287; the other four 138,119.",
+        "Others in 2025 = 138,119 × 1.10 = 151,930.9.",
+        "One quarter of the total means 1 part for Marrow to 3 parts for the others: target = 151,930.9 ÷ 3 ≈ 50,643.6.",
+        "Required growth = (50,643.6 ÷ 36,287 − 1) × 100 ≈ 39.56%.",
+        "Answer: 39.6%."
+      ],
+      "optionNotes": [
+        "Divides the increase by the 2025 target instead of the current value.",
+        "Takes one quarter of the grown total, as if Marrow also grew by 10%.",
+        "Adds the others' growth to the required growth.",
+        "Correct. The target share is set against the others' grown freight, so their growth enters before the required growth is found.",
+        "Compares the target with Marrow's 2015 figure."
+      ],
+      "explanation": "The target share is set against the others' grown freight, so their growth enters before the required growth is found."
+    },
+    {
+      "id": "n09-07-eu2",
+      "supersedes": "n09-07-eu",
+      "topic": "Turnout needed to change the result",
+      "difficulty": 3,
+      "challenge": true,
+      "exhibits": [
+        {
+          "type": "combo",
+          "title": "Referendum results: votes and turnout by district (fictional data)",
+          "unit": "votes",
+          "categories": [
+            "District 1",
+            "District 2",
+            "District 3",
+            "District 4"
+          ],
+          "series": [
+            {
+              "name": "Voted YES",
+              "values": [
+                3909,
+                2652,
+                3381,
+                3148
+              ]
+            },
+            {
+              "name": "Voted NO",
+              "values": [
+                4043,
+                4077,
+                4150,
+                3216
+              ]
+            },
+            {
+              "name": "Turnout (%)",
+              "values": [
+                61.39,
+                60.46,
+                69.55,
+                70.94
+              ],
+              "line": true
+            }
+          ],
+          "note": "Turnout = percentage of eligible voters who voted (YES or NO). The side with more votes in all four districts combined wins."
+        }
+      ],
+      "stem": "If every additional voter in District 2 had voted YES, what turnout (%) in District 2 would have produced a tie overall?",
+      "options": [
+        "65.5%",
+        "71.2%",
+        "82.0%",
+        "96.1%",
+        "103.5%"
+      ],
+      "answer": 2,
+      "hints": [
+        "YES needs as many extra votes as the overall NO lead.",
+        "Turn those votes into percentage points of District 2's eligible voters."
+      ],
+      "solution": [
+        "Overall NO lead = (4,043 + 4,077 + 4,150 + 3,216) − (3,909 + 2,652 + 3,381 + 3,148) = 15,486 − 13,090 = 2,396.",
+        "District 2 eligible voters = (2,652 + 4,077) ÷ 60.46% ≈ 11,129.7.",
+        "2,396 extra YES votes = 2,396 ÷ 11,129.7 × 100 ≈ 21.53 points of turnout.",
+        "Required turnout = 60.46 + 21.53 ≈ 81.99%.",
+        "Answer: 82.0%."
+      ],
+      "optionNotes": [
+        "Spreads the NO lead over all four districts' eligible voters.",
+        "Halves the NO lead, as if each extra vote also removed a NO vote.",
+        "Correct. The extra YES votes must cover the overall NO lead, and each percentage point of turnout is one hundredth of the district's eligible voters.",
+        "Measures the extra votes against the votes cast instead of the eligible voters.",
+        "Doubles the NO lead."
+      ],
+      "explanation": "The extra YES votes must cover the overall NO lead, and each percentage point of turnout is one hundredth of the district's eligible voters."
+    },
+    {
+      "id": "n09-08-eu2",
+      "supersedes": "n09-08-eu",
+      "topic": "Capped proportional allocation",
+      "difficulty": 3,
+      "challenge": true,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "Population by region (thousand) (fictional data)",
+          "columns": [
+            "Region",
+            "Population (thousand)",
+            "Area (km²)",
+            "Schools"
+          ],
+          "rows": [
+            [
+              "North",
+              "1,363",
+              "8,411",
+              "267"
+            ],
+            [
+              "South",
+              "1,881",
+              "4,083",
+              "105"
+            ],
+            [
+              "East",
+              "1,509",
+              "2,995",
+              "68"
+            ],
+            [
+              "West",
+              "816",
+              "7,035",
+              "253"
+            ],
+            [
+              "Centre",
+              "3,630",
+              "4,365",
+              "142"
+            ]
+          ],
+          "note": "EUR 280 million is shared in proportion to population, but no region may receive more than EUR 94 million. Any excess is shared among the other regions in proportion to their populations."
+        }
+      ],
+      "stem": "How much does South receive (EUR million)?",
+      "options": [
+        "EUR 46.50 million",
+        "EUR 48.71 million",
+        "EUR 57.25 million",
+        "EUR 60.63 million",
+        "EUR 62.82 million"
+      ],
+      "answer": 4,
+      "hints": [
+        "Check first which region would exceed the cap.",
+        "That region gets exactly the cap; the rest of the money is shared among the others."
+      ],
+      "solution": [
+        "Total population = 1,363 + 1,881 + 1,509 + 816 + 3,630 = 9,199 thousand.",
+        "Centre would get 280 × 3,630 ÷ 9,199 ≈ 110.49, above the cap, so it receives EUR 94 million.",
+        "The other regions share 280 − 94 = EUR 186 million over 9,199 − 3,630 = 5,569 thousand people; none of them reaches the cap.",
+        "South = 186 × 1,881 ÷ 5,569 ≈ 62.82 EUR million.",
+        "Answer: EUR 62.82 million."
+      ],
+      "optionNotes": [
+        "Splits the remainder equally among the four other regions.",
+        "Scales the cap by the ratio of the two populations.",
+        "Ignores the cap.",
+        "Shares the excess among all five regions, including the capped one.",
+        "Correct. A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
+      ],
+      "explanation": "A binding cap fixes one region's amount; the remainder is then shared on a smaller population base."
+    },
+    {
+      "id": "n09-09-eu2",
+      "supersedes": "n09-09-eu",
+      "topic": "Largest change in tonnes from two pie charts",
+      "difficulty": 3,
+      "challenge": true,
+      "answerType": "category",
+      "exhibits": [
+        {
+          "type": "pie",
+          "title": "Dunmark: waste by material, 2018 (total 207.2 million tonnes; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Paper",
+              "value": 23.2
+            },
+            {
+              "label": "Food",
+              "value": 13.5
+            },
+            {
+              "label": "Plastics",
+              "value": 18.4
+            },
+            {
+              "label": "Metals",
+              "value": 11
+            },
+            {
+              "label": "Glass",
+              "value": 14
+            },
+            {
+              "label": "Other",
+              "value": 19.9
+            }
+          ]
+        },
+        {
+          "type": "pie",
+          "title": "Dunmark: waste by material, 2023 (total 260.9 million tonnes; fictional data)",
+          "unit": "%",
+          "slices": [
+            {
+              "label": "Paper",
+              "value": 11.8
+            },
+            {
+              "label": "Food",
+              "value": 13.2
+            },
+            {
+              "label": "Plastics",
+              "value": 12.2
+            },
+            {
+              "label": "Metals",
+              "value": 22.9
+            },
+            {
+              "label": "Glass",
+              "value": 25.9
+            },
+            {
+              "label": "Other",
+              "value": 14
             }
           ]
         }
       ],
-      "stem": "There were 85.81 million adults in 2016. If the number in favour did not change from 2016 to 2017, how many adults were against in 2017 (million)?",
+      "stem": "In Dunmark, which material increased the most in tonnes from 2018 to 2023?",
       "options": [
-        "29.90",
-        "30.89",
-        "31.92",
-        "33.22",
-        "34.32"
+        "Paper",
+        "Food",
+        "Plastics",
+        "Metals",
+        "Glass"
       ],
-      "answer": 0,
+      "answer": 4,
       "hints": [
-        "If the number in favour is fixed, the population changes in inverse proportion to the share in favour.",
-        "Find the 2017 population first."
+        "A share applies to its own year's total.",
+        "Convert both years' shares into tonnes before comparing."
       ],
       "solution": [
-        "Data needed: in favour 30% (2016) and 31% (2017); against 36% (2017).",
-        "In favour = 30% × 85.81 = 25.7430 million.",
-        "2017 population = 25.7430 ÷ 31% = 83.0419 million.",
-        "Against = 83.0419 × 36% ≈ 29.895 million.",
-        "Answer: 29.90."
+        "Tonnes = total × share, for each year separately.",
+        "Glass: 260.9 × 25.9% − 207.2 × 14.0% ≈ 38.57 million tonnes.",
+        "Metals: 260.9 × 22.9% − 207.2 × 11.0% ≈ 36.95 million tonnes.",
+        "Food: 260.9 × 13.2% − 207.2 × 13.5% ≈ 6.47 million tonnes.",
+        "Plastics: 260.9 × 12.2% − 207.2 × 18.4% ≈ −6.29 million tonnes.",
+        "Paper: 260.9 × 11.8% − 207.2 × 23.2% ≈ −17.28 million tonnes.",
+        "Glass has the largest increase in tonnes.",
+        "Answer: Glass."
       ],
       "optionNotes": [
-        "Correct. A fixed number with a changing share reveals the new population, which then gives the number against.",
-        "Uses the 2016 population.",
-        "Inverts the ratio of the two shares.",
-        "Uses the 2016 share against.",
-        "Keeps the number against unchanged instead of the number in favour."
+        "Paper changes by −17.28 million tonnes.",
+        "Food changes by 6.47 million tonnes.",
+        "Plastics changes by −6.29 million tonnes.",
+        "Metals has the largest rise in share (11.9 points), but its tonnage changes by only 36.95 million tonnes.",
+        "Correct. Glass rises by 38.57 million tonnes, the largest increase."
       ],
-      "explanation": "A fixed number with a changing share reveals the new population, which then gives the number against."
+      "explanation": "When the total changes, the largest rise in share is not necessarily the largest rise in tonnes."
+    },
+    {
+      "id": "n09-10-eu2",
+      "supersedes": "n09-10-eu",
+      "topic": "True share of positive results",
+      "difficulty": 3,
+      "challenge": true,
+      "exhibits": [
+        {
+          "type": "table",
+          "title": "Screening test results (fictional data)",
+          "columns": [
+            "Laboratory",
+            "People with the condition (%)",
+            "Detected when present (%)",
+            "Positive when absent (%)"
+          ],
+          "rows": [
+            [
+              "Lab 1",
+              "15.2",
+              "83.8",
+              "10.3"
+            ],
+            [
+              "Lab 2",
+              "11.7",
+              "96.5",
+              "6.4"
+            ],
+            [
+              "Lab 3",
+              "17.1",
+              "89.9",
+              "8.2"
+            ],
+            [
+              "Lab 4",
+              "14.4",
+              "82.8",
+              "8.2"
+            ]
+          ]
+        }
+      ],
+      "stem": "At Lab 2, what percentage of positive results come from people who have the condition?",
+      "options": [
+        "63.8%",
+        "66.6%",
+        "73.0%",
+        "75.7%",
+        "78.5%"
+      ],
+      "answer": 1,
+      "hints": [
+        "Imagine 10,000 people tested and split them into those with and without the condition.",
+        "Positives = true positives + false positives."
+      ],
+      "solution": [
+        "Out of 10,000 tested at Lab 2: 1,170 have the condition and 8,830 do not.",
+        "True positives = 1,170 × 96.5% ≈ 1,129.0; false positives = 8,830 × 6.4% ≈ 565.1.",
+        "All positives = 1,129.0 + 565.1 ≈ 1,694.2.",
+        "Share from people with the condition = 1,129.0 ÷ 1,694.2 × 100 ≈ 66.64%.",
+        "Answer: 66.6%."
+      ],
+      "optionNotes": [
+        "Applies the false-positive rate to everyone tested, not only to those without the condition.",
+        "Correct. Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones.",
+        "Uses the prevalence of Lab 1.",
+        "Uses the prevalence of Lab 3.",
+        "Uses the share missed when present instead of the false-positive rate."
+      ],
+      "explanation": "Positive results come from two groups, people with the condition and people without it; the larger the group without it, the more false positives dilute the true ones."
     }
   ]
 });
