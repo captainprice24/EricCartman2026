@@ -136,9 +136,9 @@ EPSO_BANK.registerSet({
         "False. They were written 'mainly in Hebrew' and date from the third century BC to the first century AD.",
         "Not supported. The text does not say what happened to the scrolls after they were found.",
         "Correct. Some texts 'existed in noticeably different versions'.",
-        "Overstated. Authorship 'remains debated'; many scholars link the scrolls to a group often identified with the Essenes, others disagree."
+        "False. Authorship 'remains debated': many scholars link the scrolls to a group often identified with the Essenes, while others argue that they came from several sources."
       ],
-      explanation: "The key restates a finding cautiously. The overstated option turns one side of a debate into proof."
+      explanation: "The key restates a finding cautiously. The false option claims proof where the text says authorship 'remains debated'."
     },
     {
       id: "v24-06",

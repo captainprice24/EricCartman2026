@@ -8,7 +8,8 @@ One independent reviewer per set answered from passages and options only (`set-N
 - Distractor labels: 142/150 agreed at first review. Six disagreements were settled by relabelling to the reviewer's
   label (each a case where the text contradicts the option). Two options were reworded and re-reviewed blind
   (`recheck-*`); the first recheck raised one further borderline option in v22-03, which was reworded and checked
-  again (`recheck2-*`). The final agreement is 150/150.
+  again (`recheck2-*`). The final agreement is 150/150. The whole-bank
+  [re-check of 9 November 2026](../recheck-2026-11-09/README.md) later relabelled v24-05 D from Overstated to False.
 - `final.json` records the final key, labels, review file and passage/option hashes for every item;
   `tests/verbal-bank.test.mjs` checks them.
 

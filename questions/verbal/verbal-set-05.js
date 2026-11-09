@@ -484,11 +484,11 @@ EPSO_BANK.registerSet({
       ],
       "optionNotes": [
         "Correct. A scientific theory 'rules out certain observable outcomes'; one compatible with every observation rules out nothing and 'explains nothing'.",
-        "Overstated. The text says he 'used' the criterion to criticise these theories, not that this was why he developed it.",
+        "Not supported. The text says he 'used' the criterion to criticise these theories but never says why he developed it.",
         "Not supported. Critics showed that a failed prediction does not single out the main theory, not that testing is impossible.",
         "Overstated. Kuhn said this tenacity 'has sometimes been productive', not always."
       ],
-      "explanation": "The key turns Popper's criterion around: a theory that forbids nothing cannot be falsified. Two traps inflate 'complications' and 'sometimes'.",
+      "explanation": "The key turns Popper's criterion around: a theory that forbids nothing cannot be falsified. Two traps inflate 'complications' and 'sometimes', and one adds a motive the text never gives.",
       "supersedes": "v05-18"
     },
     {

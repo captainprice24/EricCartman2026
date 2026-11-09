@@ -1,0 +1,553 @@
+{
+ "v03-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Tax stays unanimous, so each state keeps a veto."
+ },
+ "v03-02-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B borderline False (symbols dropped); C borderline False (protocol clarifies, not exempts)"
+  ],
+  "difficulty": 3,
+  "reasoning": "Double majority took effect 2014, Lisbon 2009."
+ },
+ "v03-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "France and others disagreed on whether discussion continues until unanimity."
+ },
+ "v03-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Laureates in prison could not travel yet were laureates."
+ },
+ "v03-05-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "On-call time at workplace counts as working time even when resting."
+ },
+ "v03-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Right extends to 12 months after the original period if not informed."
+ },
+ "v03-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Subscribers can access same content when temporarily abroad in EU."
+ },
+ "v03-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [
+   "D borderline Overstated (week part right, month part invented)"
+  ],
+  "difficulty": 2,
+  "reasoning": "Protected even if information later proves inaccurate."
+ },
+ "v03-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Must document assessment of disproportionate burden."
+ },
+ "v03-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [
+   "C borderline False"
+  ],
+  "difficulty": 2,
+  "reasoning": "Use-by food must not be sold after the date."
+ },
+ "v03-11-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [
+   "C borderline Not supported"
+  ],
+  "difficulty": 2,
+  "reasoning": "Two vs three years."
+ },
+ "v03-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "PGI needs only one stage in the area, so outside ingredients possible."
+ },
+ "v03-13-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [
+   "C borderline Not supported"
+  ],
+  "difficulty": 3,
+  "reasoning": "Radar sees through clouds; optical needs clear skies."
+ },
+ "v03-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "ERC grant holders can be of any nationality; research must be in a Member State."
+ },
+ "v03-15-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Recruitment AI is high-risk and requires human oversight."
+ },
+ "v03-16-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Common deposit insurance not agreed; national schemes protect deposits."
+ },
+ "v03-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Emergency 85% threshold means a holder of over 15% can block."
+ },
+ "v03-18-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Eurogroup adopts no legal acts; formal decisions are taken by the Council."
+ },
+ "v03-19-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B could be labelled False"
+  ],
+  "difficulty": 2,
+  "reasoning": "Different rail gauges named as a technical barrier."
+ },
+ "v03-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Two pump through gills, one through the rest of the body."
+ },
+ "v03-21-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Conditions determine methane versus CO2 release."
+ },
+ "v03-22-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "A borderline Overstated; D borderline False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Janis contrasted cohesive groups that decided well."
+ },
+ "v03-23-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Fixed foundations limit to shallow waters; deep sites are off southern Europe."
+ },
+ "v03-24-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Uneven coverage allows local outbreaks despite high national coverage."
+ },
+ "v03-25-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "One out, all out: failing one chemical element fails status."
+ },
+ "v04-01-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Split trade agreement is concluded by the Union alone."
+ },
+ "v04-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [
+   "A borderline Not supported"
+  ],
+  "difficulty": 4,
+  "reasoning": "Partners need not open markets to Turkish goods."
+ },
+ "v04-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Four conditions including Union interest are needed."
+ },
+ "v04-04-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "A borderline False"
+  ],
+  "difficulty": 3,
+  "reasoning": "QMV means a single government cannot block."
+ },
+ "v04-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "At least a third of policy-level staff from national ministries."
+ },
+ "v04-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D omits the one-third-of-states condition; could be labelled False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Defence decisions are always excluded from majority voting."
+ },
+ "v04-07-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Unanimous CFSP decision then QMV regulation."
+ },
+ "v04-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D borderline False"
+  ],
+  "difficulty": 2,
+  "reasoning": "Union action does not prevent member states from pursuing theirs."
+ },
+ "v04-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [
+   "A borderline False"
+  ],
+  "difficulty": 2,
+  "reasoning": "Impartiality means need alone."
+ },
+ "v04-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D borderline False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Each state decides voluntarily."
+ },
+ "v04-11-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "More for more: faster reformers get more."
+ },
+ "v04-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Only a limited part is EU grants."
+ },
+ "v04-13-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D partly defensible but overstated: common costs are pooled via EPF and passage says 'most' costs lie where they fall"
+  ],
+  "difficulty": 3,
+  "reasoning": "Military common costs cannot be charged to EU budget."
+ },
+ "v04-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [
+   "B Hungary not named, so Not supported"
+  ],
+  "difficulty": 3,
+  "reasoning": "Constructive abstainer contributes to non-lethal measures instead."
+ },
+ "v04-15-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Modular design versus battlegroups."
+ },
+ "v04-16-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "LDCs keep EBA until removed from UN list."
+ },
+ "v04-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [
+   "A borderline False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Works mainly between governments, unlike Article 222."
+ },
+ "v04-18-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Even less productive in all sectors gains; more productive also gains."
+ },
+ "v04-19-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Precedence by notification date, not state prestige."
+ },
+ "v04-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Longer voyages need more ships, reducing capacity and raising rates."
+ },
+ "v04-21-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "A is by inference; reviewer moderately confident"
+  ],
+  "difficulty": 4,
+  "reasoning": "Consultative Parties decide by consensus, so each can block; other parties cannot."
+ },
+ "v04-22-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Allowed provided they cover substantially all trade."
+ }
+}

@@ -1,0 +1,489 @@
+{
+ "v07-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Averaging over 2025-27 lets 2025 compliance be shown, so no premium arises; target depends only partly on mass; targets are fleet averages; reason for flexibility is not given."
+ },
+ "v07-02-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Own-staff strike is not extraordinary; 90 min late gives 25% of 80 = 20, above the EUR 4 threshold. Assistance still owed; aim not stated; exemptions only for parts and only urban/suburban/regional."
+ },
+ "v07-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Deduction of carbon price paid in country of production is stated. Comparable cost is not always exactly the same; simplification retained most emissions; revenue not mentioned."
+ },
+ "v07-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [
+   "C borderline: could be Not supported (invented evidence) instead of Overstated"
+  ],
+  "difficulty": 3,
+  "reasoning": "Wealthier states carry larger share via GDP per person. 40% is EU-wide only; groups warned rather than showed; larger share is not entire burden."
+ },
+ "v07-05-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Target binds EU as a whole not each state. 'In principle' not every procedure; no recommendations stated; location of areas not stated."
+ },
+ "v07-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Medium-sized firms are bound only from 2030, so 2027 destruction is no breach. Passport only for covered products; reason for textiles not given; ban concerns clothing/footwear only."
+ },
+ "v07-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": null,
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "45% to 73% is 28 points. Phones in principle with exemptions; import reliance not discussed; only some manufacturers doubt."
+ },
+ "v07-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D borderline False vs Overstated"
+  ],
+  "difficulty": 3,
+  "reasoning": "Clearing in 2019 precedes the 31 Dec 2020 cutoff. Share of deforestation not stated; rules apply equally inside EU; not every product containing wood/rubber/cocoa is listed."
+ },
+ "v07-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [
+   "B borderline False"
+  ],
+  "difficulty": 2,
+  "reasoning": "NO2 limit 20 vs WHO 10. Cause of tightening not stated; postponement needs modelling proof not mere cost; compliance of cities not stated."
+ },
+ "v07-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "A borderline Overstated"
+  ],
+  "difficulty": 3,
+  "reasoning": "Country may apply measures across whole territory. Derogations can exceed 170 so 'never' is contradicted; trend and rationale for threshold not stated."
+ },
+ "v07-11-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Passed only when a minister voted in favour against her head of government. Targets for urban space and rivers exist; brake covers agricultural ecosystems only; plan deadline not given."
+ },
+ "v07-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Large-capacity countries need not fill beyond 35% of consumption, so not all fill to 90%. Extension adds flexibility not freedom; price effects and compliance not stated."
+ },
+ "v07-13-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Routes longer than necessary and aim to cut emissions imply shorter routes help. 'Largely failed' not 'none'; SESAR structure not given; airlines say major cause not most."
+ },
+ "v07-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Drink cannot receive the label, so wine cannot. Independent check is required; ban covers generic claims lacking excellence or certification; sales effect not stated."
+ },
+ "v07-15-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Hierarchy lists disposal as the last option after recovery. Landfill prevalence not stated; departures allowed with life-cycle assessment; EPR purpose is paying for collection/treatment not plants."
+ },
+ "v07-16-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Euro 7 covers brake particles and tyre microplastics from all vehicles including electric. Cars/vans exhaust largely unchanged; comparison of brake vs exhaust and use of savings not stated."
+ },
+ "v07-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "First plant began production in 1913, before the 1914 war. 'Most' not all; half depend on it but hunger not stated; Nobel dates not given."
+ },
+ "v07-18-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Ceiling is about 33% so 36% exceeds it. Perovskite durability is only questioned; market reasons and predictions not stated."
+ },
+ "v07-19-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Greater tilt warms summers so smaller tilt cools them; cool northern summers let snow survive. Feedbacks amplify so orbit alone does not explain; interglacial length not stated; 'appears to matter most' is weaker."
+ },
+ "v07-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [
+   "B/D both Overstated; B could be argued False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Other factors also cut elk numbers, so a fall alone proves nothing. Purpose of reintroduction not stated; some studies found little evidence not never; account considered too simple, not disproved."
+ },
+ "v07-21-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Higher voltage reduces current and heat loss. Edison's effect on adoption not stated; HVDC used only where better; Tesla's employment not stated."
+ },
+ "v07-22-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": null,
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Concentration falls during growing season so lower at its end. Annual increase has not been steady; trend in seasonal size not stated; South Pole shows a smaller, not zero, swing."
+ },
+ "v08-01-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": null,
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Proclamation creates no legal obligations. Proclaimed in Gothenburg 2017; reason for poverty target not stated; target is 60% of adults."
+ },
+ "v08-02-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [
+   "C/D borderline False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Action-plan provision applies to every Member State whatever the model; 70% < 80%. Court reasons not given; 60% only indicative; action plan not mandatory 80% target."
+ },
+ "v08-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Starting-pay rights apply to all employers regardless of size. 100-249 report every three years; fines not mentioned; assessment needs unjustified, uncorrected gap in a category."
+ },
+ "v08-04-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Right to leave independent of tenure but payment may need six months, so may be unpaid. Take-up not stated; carers' leave pay left to states; employers may refuse with reasons."
+ },
+ "v08-05-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Once presumption applies platform must rebut it. Breakdown of the 28 million not given; no automatic reclassification; significant decisions need a human, not all decisions."
+ },
+ "v08-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Every Member State must devote at least 3% to material deprivation. YEI reason and child poverty/NEET link not stated; Commission directly manages a smaller strand."
+ },
+ "v08-07-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Target group is 15 to 29 since 2020. Recommendation is not binding; recovery not stated; ALMA is for disadvantaged NEETs only."
+ },
+ "v08-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "B borderline False/Not supported"
+  ],
+  "difficulty": 3,
+  "reasoning": "Work country normally governs, so Belgian resident working in NL insured in NL. Reason for 25% rule not stated; Switzerland covered but EEA reason not given; benefit exportable three months, extendable to six."
+ },
+ "v08-09-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "States decide on reimbursement, so systems may differ even for centrally approved cancer drugs. Commission authorises; valid only in EU plus three; most generics authorised nationally."
+ },
+ "v08-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "ECDC cannot impose measures such as school closures; they remain national. Reform reason is limits of model not criticism of assessments; deployment outside EU at request; speed not stated."
+ },
+ "v08-11-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "False",
+   "D": null
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Reimbursement capped at home cost. Contact points inform only; use pattern not stated; prior authorisation may be refused in some cases."
+ },
+ "v08-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Heated tobacco ban extended only in 2023. Warnings cover 65% of front and back; plain packaging effect not stated; plain packaging optional."
+ },
+ "v08-13-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Upper limit 30 except humanitarian aid up to 35. Costs covered are travel, accommodation, meals plus allowance; activities last from two weeks; no guaranteed place stated."
+ },
+ "v08-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "At most one site per country is recommended, so both cannot be. Participation voluntary; UNESCO overlap and funding not stated."
+ },
+ "v08-15-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "No legal sanctions for slow implementation. Process is intergovernmental; Supplement timing and degree length not stated."
+ },
+ "v08-16-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 1,
+  "reasoning": "Naming ink was slower when words named other colours. Reading not slowed; Stroop's conclusion and child comparison not stated."
+ },
+ "v08-17-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Handwashing cut mortality though cause unknown. Post loss not stated; mortality fell to near not zero; many not all colleagues rejected."
+ },
+ "v08-18-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Passage calls the water company comparison stronger evidence. Snow argued swallowed; brewery reason not given; some victims lived further away."
+ },
+ "v08-19-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Advantage vanished with a concurrent verbal task. Whorf's basis not given; green not discussed; weaker claim limited to certain kinds of thinking with small effects."
+ },
+ "v08-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Similarities without regular correspondences are suspect. Jones not the first; his study motive not stated; reconstructions are hypotheses."
+ },
+ "v08-21-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Stage two has death rates falling while births stay high. Origin of model not given; below 2.1 deaths 'may' exceed births; stage-three birth decline has several causes."
+ }
+}

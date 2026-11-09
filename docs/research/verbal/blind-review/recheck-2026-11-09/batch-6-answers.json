@@ -1,0 +1,662 @@
+{
+ "v14-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Nine weeks exceeds the six-week waiver, so an agreement was needed; the unlicensed parent cannot use the subsidiary licence, so property approval was needed; conversion cancelled the old approval and blocked remote review, so an in-person inspection by an independent verifier (not the mentor) was required."
+ },
+ "v14-02-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Change of use ended inherited eligibility and earlier consent; partnership was never formed so the listed-building route applies; roof work needs fresh consent, which requires a new report by an independent architect."
+ },
+ "v14-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Partner clearance not accepted, so Mara held another; former director cannot give permission and no liquidator permission existed, so the public-interest route was used, needing two assessors with unredacted access (files not published in full)."
+ },
+ "v14-04-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Nursery bars the exemption so a gauge study is needed, fresh after the intake move; broken seal means the manual log route, needing a second instrument calibrated after the move by an independent calibrator."
+ },
+ "v14-05-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Consortium lapsed so direct registration; notice delivered 14 days earlier so standing needed a timely objection, which Leto could only make via a representative with explicit appeal authority."
+ },
+ "v14-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "No recovery scan, repairer unaccredited, video insufficient, so a witnessed mobile visit seeing both stages was required, with a fresh repair record under the new serial number."
+ },
+ "v14-07-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Joint ownership excludes the state guarantee and the old policy excluded the destination, so adequate borrower cover was needed; lapsed carrier licence means an escort plan, two escorts for a two-city trip, trained after the latest standard."
+ },
+ "v14-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "External certificate lost by broken seal; local assay needs calibration after detector replacement, requiring a post-installation reference; deputy needs current own authorisation."
+ },
+ "v14-09-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Standstill applies (no danger); electronic delivery failed, so the postal receipt by the former director counts only if reappointed; standstill starts after the last effective delivery."
+ },
+ "v14-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Six-day outage fails the seven-day trigger, so insolvency was the trigger; expired subscription and pending payment mean the perpetual-access clause (final deposit); Veda's delegation lapsed at the legal-form change unless ratified."
+ },
+ "v15-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Entitlement ended on transfer so a temporary allocation via regional request (inland) needing two municipality approvals, one by an officer with delegated timetable power; new engine requires a fresh noise test."
+ },
+ "v15-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Order is for Q only, so consent route for P; recontact by own team needs amended consent with affirmative agreement; former custodian's accreditation expired, so a newly named accredited custodian."
+ },
+ "v15-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "First opening was on 12 June so the notebook was inside when seal R was applied; cover made on/after 6 June, seal visible 9 June; so packed 6-9 June; ledger dates only the crate."
+ },
+ "v15-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Regional delegation suspended so minister's declaration; new owner lacks licence so lease route; bank guarantee expired so parent guarantee with sufficient audited liquid assets."
+ },
+ "v15-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Resigned editor means guest mandate (ecology, publisher accepted); permission-only repository is not public, so controlled access with independent committee and a binding deadline."
+ },
+ "v15-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Witnesses merely repeat one message; fuse melting requires a surge under obstruction and is not expected under a disconnected-circuit fault except with a surge too, so neither flash reports nor fuse decide."
+ },
+ "v15-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Employment ended dependent route; residence needs continuity, so the 90-day placement needed prior approval; unaccredited course with changed curriculum needs a new independent assessor's report."
+ },
+ "v15-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Supplier change makes formulation changed; bridge wrong site; heat crystal change rules out accelerated, so full observation with calibrated chamber; recalibration needs a reference certified after its membrane replacement."
+ },
+ "v15-09-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Camera shows only exterior so observer needed; Tavi's training lapsed with the protocol change so a supplement was passed; receipt required matching the individual seal."
+ },
+ "v15-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Only two unconflicted directors and the alternate cannot replace attending conflicted director, so board consent impossible; Sera's delegation lapsed at the merger so must have been renewed."
+ },
+ "v16-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Keys mean not anonymised, so secure environment with an independent assessment after the export-function change; analysis-only permission is insufficient, so distribution was permitted."
+ },
+ "v16-02-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Buildings on Friday would put accounts on Thursday, barred; so contracts<data<equipment, buildings after accounts: only Mon accounts, Tue buildings, Wed contracts, Thu data, Fri equipment."
+ },
+ "v16-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "No site reference so a contemporaneous log with authorised officer; Ivo moved unit so authority needed written renewal before the move."
+ },
+ "v16-04-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "South banned, North needs a current label (lost after unapproved modification), so Central with officer authorisation and a seal by an accredited packer after reopening."
+ },
+ "v16-05-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Selection and definitions differ, so accurate shares cannot isolate a route effect; S, not R, is higher among completed projects."
+ },
+ "v16-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Released harbour files were inspected, so consent or order; no order survived, so consent, requiring independent mediation with full file read."
+ },
+ "v16-07-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Experimental batch needs a batch-named permit; logger gap means manual monitoring, needing recalibrated instruments after battery change and a custodian with refrigerant supplement."
+ },
+ "v16-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Vale and Tavi ineligible, so Neri and Sol; Neri's qualification expired so a waiver by an independent specialist assessing the exact field was needed."
+ },
+ "v16-09-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Sponsor-paid is commercial so no exemption; conversion needs new emissions assessment; permit ended on transfer so individual authorisation with verified appointment."
+ },
+ "v16-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Coral cannot be fifth (Birch cannot be fourth), so Elm below Amber below Dune; enumeration gives Elm last in every case, Dune above Amber, Birch directly above Coral."
+ },
+ "v17-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "1880 carrier makes it listed (not a reproduction); needs assay; lab unlicensed so supervision; supervisor needed a post-change supplement, not a briefing."
+ },
+ "v17-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Certificate invalid; one scale plus independent check weight needed, certified after resurfacing by a laboratory other than the scale's calibrator."
+ },
+ "v17-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Minors exclude delegation; investigator and alternate cannot count; two nonclinical members plus the clinician needed, who must attend by verified live link of the whole meeting."
+ },
+ "v17-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Extended charge is nonroutine; waiver defective so full notice; portal failed so postal needed an authorised recipient, the replaced secretary's authority needed renewal."
+ },
+ "v17-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Quarantined; warmed reserve disqualified so fresh sample after warming, taken with an instrument sterilised after its last use."
+ },
+ "v17-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Not wholly public so community lease with purchase restriction; 30-year lease excludes delegation so board; Pavo needed reactivation by the professional body with a post-consulting declaration."
+ },
+ "v17-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Crossing and out of range so approved corridor; firmware change needs a compatibility test with a key generated after the latest revocation, not a restored backup."
+ },
+ "v17-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Unlisted branch so individual decision; third-language transcript needs translation by Mira, whose registration needed confirmation based on an identity check after her name change."
+ },
+ "v17-09-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Foreign owner rules out domestic channel; bonded needs agent naming present owner and a cleared cash deposit since the insurer's licence was suspended."
+ },
+ "v17-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Waiver invalid, tool certification ended, so accredited processor needing a fresh site audit of production after the move."
+ },
+ "v18-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Owner refused so compulsory order; marker invalid, so independent survey; new lens required a passed test using a reference measured by an independent person."
+ },
+ "v18-02-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Open water needs operational endorsement; certificate wrong class so school assessment needing current clearance after surgery, which needs a new examination reviewing a post-surgery specialist report."
+ },
+ "v18-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Not intact and scan unverified, so a validated imaging model; algorithm changed so revalidation on a reference not used to train it."
+ },
+ "v18-04-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Indexed means structured; exemption does not pass; opinion lapsed on employer change; both routes need an independence declaration made after the lender was identified."
+ },
+ "v18-05-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Readable drive needs secure transport; courier unlicensed for class so vehicle; lockbox change needs lock test witnessed by officer whose clearance must have been ratified after transfer."
+ },
+ "v18-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Digital route withdrawn, former household member can receive only as a mail agent appointed after the move with verified identity."
+ },
+ "v18-07-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Anchor position inside polygon; concession fails; tracer release needs a dispersion model; rotor replacement needs comparison with an independent reference whose calibration excluded the meter."
+ },
+ "v18-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Source change makes meal changed; declaration doesn't cover; review by lead whose training lapsed, so supplement independently assessed, and verifying the preparation line."
+ },
+ "v18-09-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Replacement ended exception; copied mark not intact; so material testing with sample taken after treatment and location recorded before removal."
+ },
+ "v18-10-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Annex makes it classified; portal account lapsed on merger; Eno's authority lapsed on transfer, so the new director renewed it citing the new number."
+ },
+ "v19-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Reissue requires a quality officer's assessment after ownership change; supervisor route requires an assessment after revision; both are independent and after the revision."
+ },
+ "v19-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Every route (consent, new certificate, hearing) needs a contractor-independent inspection after the alteration; only the merger/hearing timing differs."
+ },
+ "v19-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Fresh mandate needs verification after revocation; guardian route needs verification after name change, itself after revocation; so some identity was independently verified after revocation either way."
+ },
+ "v19-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Annex accreditation does not extend; escape corridor not separate; so fire-pressure test with renewed meter compared against a reference independently calibrated after its repair."
+ },
+ "v19-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Every route requires a disease review published after the latest outbreak; only the habitat route needs one after the reclassification."
+ },
+ "v19-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Rector route, individual mandate and standing ratification all require a declaration made after the conflict arose, validated by an independent officer other than the signatory."
+ },
+ "v19-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Dealer route needs records after the control change, committee routes records after the seller's acquisition; both are after the acquisition."
+ },
+ "v19-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Merger voids agreement; module change needs supervised in-house test; supervisor's credential voided so a passed supplement, with independent identity verification after the name change."
+ },
+ "v19-09-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Design approval ended; every route examines the foundations after the change (survey after change, post-storm survey, or post-request inspection)."
+ },
+ "v19-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 5,
+  "reasoning": "Holder mandate route verifies the signing officer after the assignment; representative routes verify after the name change; all verifications are independent of the researcher."
+ }
+}

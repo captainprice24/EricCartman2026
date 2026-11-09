@@ -79,3 +79,9 @@ The [follow-up design and research record](../full-tests-2026-10/README.md) cove
 ## Supplied-book review (2 November 2026)
 
 The [detailed verbal review](../../VERBAL_BOOK_REVIEW.md) covers a new independent blind assessment of all 300 keys and 900 distractor labels. It repairs one missing-premise question and revises 97 items, including case-specific hints and nineteen worked reasoning paths. Fourteen passage/option revisions received a fresh blind review. Initial disagreements, reconciliations and difficulty concerns remain in [the review archive](blind-review/book-2026-11/README.md); the final record does not erase them. The supplied book was used for methods only, with no copied questions or passages.
+
+## Whole-bank blind re-check (9 November 2026)
+
+Seven fresh blind reviewers answered all 350 live items again. Every key agreed. Three distractor labels changed and
+three notes or explanations were corrected; the [re-check record](blind-review/recheck-2026-11-09/README.md) lists
+each decision.

@@ -429,7 +429,7 @@ EPSO_BANK.registerSet({
         "Compare 'minimal damage' with the wording of the options."
       ],
       "optionNotes": [
-        "Not supported. The text says atmospheric levels 'have varied over time' but gives no cause; weapons tests are outside knowledge.",
+        "Not supported. The text says the amount of carbon-14 in the atmosphere 'has varied over time' but gives no cause; weapons tests are outside knowledge.",
         "Correct. Charcoal is a suitable material, but 'after about 50,000 years' too little carbon-14 remains to be measured reliably.",
         "Not supported. The text says raw results 'must also be calibrated' because atmospheric levels varied; it does not say how large the error always is.",
         "Overstated. Accelerator mass spectrometry causes 'only minimal damage', which is not the same as none."

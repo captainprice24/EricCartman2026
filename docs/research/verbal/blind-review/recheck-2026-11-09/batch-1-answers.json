@@ -1,0 +1,519 @@
+{
+ "v01-01-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-04-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-07-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-09-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "B could be Not supported rather than False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-11-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B borderline Not supported"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-12-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [
+   "D relies on inference: passage does not explicitly say no reply is guaranteed in Basque"
+  ],
+  "difficulty": 4,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-13-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-14-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [
+   "C could be False (critics argued the opposite)"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-15-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "D could be Overstated"
+  ],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-16-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "False"
+  },
+  "issues": [
+   "D borderline Overstated"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-17-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B could be Overstated"
+  ],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-18-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-19-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [
+   "A could be False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v01-20-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [
+   "D could be False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-02-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-05-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-07-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-11-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-13-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-15-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-16-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-18-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-19-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-20-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [
+   "C borderline Overstated"
+  ],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-21-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-22-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-23-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-24-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D could be False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ },
+ "v02-25-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Answer is directly supported by the passage; other options labelled per passage."
+ }
+}

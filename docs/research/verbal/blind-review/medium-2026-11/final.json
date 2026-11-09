@@ -2,7 +2,7 @@
   "method": "One independent reviewer per set saw passages and options only (scripts/blind-review.mjs export). Disagreements were settled by relabelling or rewording; reworded options received a fresh blind recheck.",
   "keyAgreement": "50/50",
   "initialLabelAgreement": "142/150",
-  "finalLabelAgreement": "150/150",
+  "finalLabelAgreement": "149/150 (v24-05 D relabelled False after the 2026-11-09 re-check in ../recheck-2026-11-09/)",
   "items": [
     {
       "id": "v20-01",
@@ -643,12 +643,18 @@
       "labels": {
         "A": "False",
         "B": "Not supported",
-        "D": "Overstated"
+        "D": "False"
       },
       "reviewFile": "set-24-review.json",
       "passageSha256": "cfc836016df42d7c74b1c5be3ce36689acd8010275223e688a2b5dadae2e374b",
       "optionsSha256": "f939e53aeac01e4f32e7dfcf7a2827845ac792186f2c2048222c567aa46cbc4a",
-      "reconciliation": null
+      "reconciliation": {
+        "D": {
+          "from": "Overstated",
+          "reviewer": "Overstated, flagged as borderline False; 2026-11-09 re-check: False",
+          "how": "relabelled to False and note rewritten: 'remains debated' directly contradicts 'proved'"
+        }
+      }
     },
     {
       "id": "v24-06",

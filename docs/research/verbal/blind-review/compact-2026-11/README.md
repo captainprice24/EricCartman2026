@@ -36,3 +36,6 @@ labels, after an automated reviewer stopped on the original wording.
 membership: every slot now holds the condensed version of the item it held before.
 
 `tests/verbal-bank.test.mjs` checks that every live text still matches its blind-reviewed hash, key and labels.
+
+The whole-bank [re-check of 9 November 2026](../recheck-2026-11-09/README.md) confirmed every key again and
+restored the author's label for v01-17-c C (False) and v05-18-c B (Not supported).

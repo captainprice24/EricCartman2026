@@ -1,0 +1,558 @@
+{
+ "v20-01": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Directive harmonised dates to avoid a patchwork; the proposal revives that risk."
+ },
+ "v20-02-r2": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Most deaths came from famine and disease, so blast deaths alone miss most victims."
+ },
+ "v20-03": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [
+   "Option C borderline Overstated vs False"
+  ],
+  "difficulty": 3,
+  "reasoning": "Open-label trials challenge the assumption that deception is needed; only 'some' got relief."
+ },
+ "v20-04": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Light vanishes when switched off, so remedies act quickly; melatonin is only delayed."
+ },
+ "v20-05": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Fires hardened the tablets that would otherwise crumble."
+ },
+ "v20-06-r2": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Embargo option existed; Diet could not compel attendance."
+ },
+ "v20-07-r2": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Hieroglyphic text is incomplete, so the decree needed other copies."
+ },
+ "v20-08": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Late study at the expense of sleep may impair retention."
+ },
+ "v20-09": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "No fall in employment contradicts standard theory's prediction."
+ },
+ "v20-10": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Rewetting stops most emissions but may emit methane early."
+ },
+ "v21-01": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Slower Chinese demand and Russian ban also contributed to price fall."
+ },
+ "v21-02": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Virus infected only humans, so an animal reservoir would have let it return."
+ },
+ "v21-03": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "RO largely replaced thermal because it uses much less energy."
+ },
+ "v21-04": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Some towns resisted for years, so not all changed clocks at once."
+ },
+ "v21-05": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Historians found Mackay's ruin story more modest than told."
+ },
+ "v21-06-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Publication bias means published studies risk overstating the advantage."
+ },
+ "v21-07": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Filtering clears water but removes plankton fish larvae need."
+ },
+ "v21-08": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Activation rule for the control group made comparison harder."
+ },
+ "v21-09-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Only perhaps a thousand grew up with it at home, so not all speakers."
+ },
+ "v21-10": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "C": "Overstated"
+  },
+  "issues": [
+   "Option A label borderline: False vs Not supported (order of Nightjet launch vs 2016 not explicit)"
+  ],
+  "difficulty": 3,
+  "reasoning": "Austria bought part of the German fleet for Nightjet."
+ },
+ "v22-01-r2": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Lower of 3bn or 0.6% of 200bn = 1.2bn."
+ },
+ "v22-02": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Laws were hard to enforce and wages rose anyway."
+ },
+ "v22-03": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Disease may change the microbiome rather than the reverse."
+ },
+ "v22-04": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Dams supply most power; geothermal a quarter to a third."
+ },
+ "v22-05": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Manx lost its last native speaker yet is spoken again."
+ },
+ "v22-06": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Windows may become shorter as summers lengthen."
+ },
+ "v22-07": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Jikji of 1377 predates Gutenberg's 1455 Bible."
+ },
+ "v22-08": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [
+   "Option B relies on inference that miasma theory was later disproved; passage implies it"
+  ],
+  "difficulty": 3,
+  "reasoning": "Miasma fear drove Parliament, and the miasma theory is implied wrong by the Snow account."
+ },
+ "v22-09": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "AlphaZero taught itself from the rules alone, unlike Deep Blue."
+ },
+ "v22-10": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Only depositing gene banks can withdraw their seeds."
+ },
+ "v23-01": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Small national samples carry larger margins of error; Malta is among the smallest."
+ },
+ "v23-02-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Fresnel lens is thinner and lighter than a solid lens of equal power."
+ },
+ "v23-03": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Energy cost is the limit, so cheaper power could widen crop range."
+ },
+ "v23-04-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Lonely people can have many contacts, so a few-contacts survey misses them."
+ },
+ "v23-05": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Waves may arrive faster than alerts, so natural signs matter."
+ },
+ "v23-06": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Up to 65 percent from one country is allowed, so most may be Chinese."
+ },
+ "v23-07-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Embroidery made in England yet shows the Norman view."
+ },
+ "v23-08-r2": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Grafting joined European varieties to American roots; grapes stayed European."
+ },
+ "v23-09": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Movable gates cost more than a fixed dam due to environmental protest."
+ },
+ "v23-10": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Bombes tested settings faster than people."
+ },
+ "v24-01": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Non-EU partners usually finance their own share."
+ },
+ "v24-02": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Classification uses the last four seasons."
+ },
+ "v24-03-r2": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "70 percent means rain falls in seven of ten, so dry is possible."
+ },
+ "v24-04": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "No net land take allows balanced new building."
+ },
+ "v24-05": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Some texts existed in noticeably different versions."
+ },
+ "v24-06": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Women first took part in 1900, four years after 1896."
+ },
+ "v24-07": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Prizes first awarded 1901, five years after 1896."
+ },
+ "v24-08": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Grain and cattle were exported, so food production was not all lost."
+ },
+ "v24-09": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Studies suggest reputation shapes perception of the violins."
+ },
+ "v24-10": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "High charges meant mainly governments, businesses and agencies used it."
+ }
+}

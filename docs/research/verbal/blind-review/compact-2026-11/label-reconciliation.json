@@ -36,7 +36,7 @@
     "C": {
       "authorLabel": "False",
       "reviewerLabel": "Overstated",
-      "resolution": "relabelled to the reviewer label; note rewritten"
+      "resolution": "restored to the author label (False) after the 2026-11-09 re-check: Re-check of 2026-11-09 (recheck-2026-11-09/): a second blind reviewer chose False; the text says a third city is added only 'every third year', which contradicts 'every year three cities'"
     }
   },
   "v01-19-c": {
@@ -141,7 +141,7 @@
     "B": {
       "authorLabel": "Not supported",
       "reviewerLabel": "Overstated",
-      "resolution": "relabelled to the reviewer label"
+      "resolution": "restored to the author label (Not supported) after the 2026-11-09 re-check: Re-check of 2026-11-09 (recheck-2026-11-09/): a second blind reviewer chose Not supported; the text says how Popper used the criterion but gives no motive for devising it"
     }
   },
   "v07-01-c": {

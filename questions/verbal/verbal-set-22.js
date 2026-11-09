@@ -84,7 +84,7 @@ EPSO_BANK.registerSet({
         "Overstated. Bacteria break down 'dietary fibre that human enzymes cannot digest', not all foods.",
         "Correct. Associations 'do not show which comes first': a disease or its treatment 'may change the microbiome rather than the other way round'."
       ],
-      explanation: "Correlation is not causation, and the text says so directly. The distractors extend 'some vitamins', one effective treatment and the digestion of fibre beyond what is stated."
+      explanation: "Correlation is not causation, and the text says so directly. The distractors invent a finding about species, stretch the one well-established treatment to a different disease and widen the digestion of fibre to all foods."
     },
     {
       id: "v22-04",
@@ -109,7 +109,7 @@ EPSO_BANK.registerSet({
         "False. Homes are heated mostly by hot water from district networks, and aluminium smelters 'use the majority of the electricity generated'.",
         "Correct. 'Most of the country's power comes from hydroelectric dams', while geothermal plants supply 'roughly a quarter to a third'.",
         "Not supported. The gases are injected into basalt rock; nothing is said about selling them.",
-        "Not supported. The fishing fleet 'still depends largely on imported oil'; the text makes no prediction."
+        "Not supported. Transport and the fishing fleet 'still depend largely on imported oil'; the text makes no prediction."
       ],
       explanation: "A careful paraphrase requires keeping heating and electricity apart. Two distractors add an invented commercial use and an invented forecast."
     },

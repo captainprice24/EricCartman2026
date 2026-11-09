@@ -1,0 +1,691 @@
+{
+ "v09-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "West Germany joined NATO in 1955 with its own forces, the outcome Pleven wanted to avoid. Only French support is said to weaken; Italy's ratification is not mentioned; the political community collapsed."
+ },
+ "v09-02-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "C could be read as supported (report became basis for two treaties), but the passage does not say it proposed two"
+  ],
+  "difficulty": 2,
+  "reasoning": "Duties abolished 1968, ahead of the twelve-year schedule. Reluctance is stated for Euratom/France only; passage does not say Spaak proposed two communities; no expectation about most energy needs."
+ },
+ "v09-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [
+   "A borderline: two of four institutions shared, 'most' is arguable (labelled Overstated)"
+  ],
+  "difficulty": 3,
+  "reasoning": "Each Community had its own executive until 1967, so ECSC and Euratom never shared one. Only assembly and Court were shared (two of four); Merger Treaty did not create the Court; EEC's status today is not stated."
+ },
+ "v09-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Asylum was in the third pillar where Parliament and Court had a limited role. French referendum and UK role not mentioned; Commission shared or had no initiative, not always barred."
+ },
+ "v09-05-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Commission size was an 'Amsterdam leftover' before Nice. Unanimity remained for taxation; turnout was about a third so most of the electorate did not vote no; Charter not mentioned."
+ },
+ "v09-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [
+   "D Overstated vs Not supported borderline"
+  ],
+  "difficulty": 3,
+  "reasoning": "Restrictions applied to eight of the ten; Cyprus and Malta exempt. Bulgaria/Romania not mentioned; restrictions were up to seven years, many lifted earlier, three states opened at once; 'unanimously' not stated."
+ },
+ "v09-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [
+   "D borderline Overstated/False: 'entirely' contradicted by 'as well as objections to the text'"
+  ],
+  "difficulty": 2,
+  "reasoning": "Luxembourg voted in July 2005 after France (29 May) and the Netherlands (1 June) rejected. Dutch first referendum and campaign organisation not stated; French vote also reflected objections to the text."
+ },
+ "v09-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Over EUR 43bn mobilised, most expected from Member States and industry rather than the EU budget. Shortage cause not given; first strand is research and pilot lines; Court said 20% goal unlikely, not that all objectives failed."
+ },
+ "v09-09-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "TLD registries are covered whatever their size. Early warning content not specified; small firms generally outside; management bodies liable for compliance failures, not any incident."
+ },
+ "v09-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Reporting duty applies from Sept 2026, before most obligations in Dec 2027, and a connected toy is covered. Not all software (exclusions); open source excluded only if non-commercial; fines not mentioned."
+ },
+ "v09-11-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Wallet must be free of charge for individuals. Replacing ID cards and payments not mentioned; only public services, very large platforms and strong-authentication services must accept it."
+ },
+ "v09-12-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Gatekeepers are not eligible to receive data as third parties, so a car owner could not send data to one. Purpose unstated; default access only for products after Sept 2026 and where feasible; public bodies only in exceptional need."
+ },
+ "v09-13-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Access is free for users in EU and participating countries, allocated by merit; a Spanish scientist could apply for time on LUMI. Hydropower is LUMI only; JUPITER's ranking and funding shares not stated."
+ },
+ "v09-14-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "The period-luminosity relation gave only relative distances until calibrated, so alone it did not give a Cepheid's distance. Estimates doubled in the 1950s; reception of Leavitt not stated; 'any galaxy' too broad."
+ },
+ "v09-15-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Both methods favour large close planets, so small distant ones are under-represented. Kepler and telescope type not mentioned; transit requires near, not exact, edge-on alignment."
+ },
+ "v09-16-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Carbon-14 cannot be measured reliably beyond about 50,000 years, so 70,000-year-old charcoal is out of range. Bomb tests not mentioned; calibration error size not stated; AMS gives only minimal damage."
+ },
+ "v09-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [
+   "A could be labelled Overstated"
+  ],
+  "difficulty": 2,
+  "reasoning": "Most agents said the asking price played no part, so not all acknowledged it. Medians do not mean every participant; Nobel prize and payment incentives not mentioned."
+ },
+ "v09-18-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "A school selected after an unusually bad year would regress toward the mean even with ineffective help. Galton first read it biologically; feedback is said to be possibly ineffective, not shown so; extremes usually, not always, followed by less extreme."
+ },
+ "v09-19-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Maternal relatives can share sequences, so a match alone cannot identify the skeleton. Occasional mutations occur; radiocarbon dating not mentioned; recovery 'often', not whenever."
+ },
+ "v09-20-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [
+   "D Overstated (most vs some)"
+  ],
+  "difficulty": 2,
+  "reasoning": "Wegener died in 1930, acceptance came in the 1960s. Translation/readership not mentioned; 'most' (not all) rejected; only 'some' explained fossils by land bridges."
+ },
+ "v09-21-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Correct cards are E and 7; E, 4 and 7 is one extra. 'Many studies' not every; researchers disagree about why; training in logic not mentioned."
+ },
+ "v10-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "The old letter names the outdoor site but covers spring; the new covers autumn but names the indoor hall; so neither covers both site and dates. The extension excludes substantive revisions and no revision permission exists, so it cannot authorise a new site. Development support waives nothing; letters cannot be combined; cost not mentioned."
+ },
+ "v10-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Known tariff saving is on fixed consumption and share/repayment are separate, so the actual overall gain is not settled. Netting is not done; repayment timing not stated; actual consumption bill comparison not published."
+ },
+ "v10-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Replacements matched age bands, all six changed employment, and district balance on views/employment is unknown. Direction of employment change not given; reserve list is not a fresh random sample."
+ },
+ "v10-04-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "70 met threshold, 44 also had verified repair, so 26 met the threshold without repair; maker identities unknown. Dataset frozen so performance did not change; concentration and price behaviour not reported."
+ },
+ "v10-05-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Pine: 14 months, privacy cleared, appendix adds no personal fields so clearance survives. Cedar: new version lacks authorisation and clearance; abstract does not help. Authorisation names a version; appendix change does not restart the 12 months; sponsor request not mentioned."
+ },
+ "v10-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Recycled tonnage 0.40T vs 0.48*0.5T=0.24T, so it fell; cause not given. Commercial cardboard excluded from both terms; individual households not addressed; campaign share not estimated."
+ },
+ "v10-07-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Pine contains liquid so cannot use the paperwork route and must have used test-based route (pressure test and seal check). Cedar's classes P and Q say nothing about seal check or waiver. Non-liquid products can be waived without pressure testing; products can hold more than one class."
+ },
+ "v10-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Birch complex share: 4+8x=10 gives 75%; Alder: 5+8x=8 gives 37.5%. Equal weights give Birch 8 and Alder 9, so Birch ranks faster. Absolute counts unknown; Alder is slower in both categories; unchanged averages under a changed mix are not established."
+ },
+ "v10-09-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Chairs removal fixes the public route, but bolts into original stone remain outside the exception and no approval covers them. Clamp approval does not cover bolts; event permit alone does not approve signs; wind not mentioned."
+ },
+ "v10-10-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Renewal needs the academic threshold, none waived, so Sana's confirmed renewal shows it was met; Tavi's payment is conditional on renewal. Order of calculation, and Tavi's assessment timing, not stated; medical interruption explains Sana's timing."
+ },
+ "v11-01-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Equal weights: Birch 8 days, Alder 9, so Birch faster; actual overall averages and future performance not known. Birch mainly specialist so lower overall not guaranteed; Alder mainly standard so share claim contradicted; recombined averages differ."
+ },
+ "v11-02-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "23 positive sites in season two vs 14 in season one means at least 9 sites newly positive, but detection does not show occupancy. Repeat calls not guaranteed; all 30 sites could yield calls; number of birds not measured."
+ },
+ "v11-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Rowan's editor was assigned Monday so queue fixed; Hazel's entry records past documents, and no review decision exists. Missing web statement does not void Hazel's entry; acceptance rates unpublished."
+ },
+ "v11-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Elm did electrical repair so it has an endorsement, requiring a supervised assessment; partner so audit. Ash has no record of endorsement and attaches separately. Partner audits do not include assessments; route for Elm unknown."
+ },
+ "v11-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 2,
+  "reasoning": "Cedar has an approved certificate in place of the logger and passed inspection; Fern failed packages and logger cannot offset that. Acceptable logger alone is not enough; certificates can substitute; cause of failure not published."
+ },
+ "v11-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Conserved requires approved dossier, and approved dossiers are always marked, so genuinely unmarked dossiers cannot be approved, so those objects cannot be classed as conserved. A mark does not show treatment; only some loans have unmarked dossiers."
+ },
+ "v11-07-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Orla entered unsupervised, so not school permit; she used a keycard, hence identity check. Ren's document/identity check unknown. School permits need no identity check; children need a supervisor regardless of document; Orla may also hold a school permit."
+ },
+ "v11-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Rowan's certificate was valid at deadline, confirmed before decision; address fix does not change equipment, so not excluded. Hazel's equipment change makes a new bid after the deadline. Lower price waives nothing; other technical features not said; original bid not retained."
+ },
+ "v11-09-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Lea was admitted without the assessment so via an exemption from a Northern or Southern certificate, issued after supervised practice verified; which board unknown. She did not take the assessment; timing and assessment-route candidates' certificates not stated."
+ },
+ "v11-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "The seasonal project's approval excludes monthly status and the panel did not say annual outputs lift the restriction, so monthly inputs are unapproved. No transfer of approvals; reason for monthly data not given."
+ },
+ "v12-01-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "A has both signatures and is unchanged; B lacks translator signature (withdrawn) though publication was authorised. Signatures do not carry over; reason for withdrawal not given; reviser cannot replace translator."
+ },
+ "v12-02-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "K and L share the correction so descend from an amended exemplar, but no copying tree is given. Note may be added independently; dating concerns surviving copies, no date for L; descendants need not keep every amendment."
+ },
+ "v12-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B/C/D Not supported; C could be argued False"
+  ],
+  "difficulty": 4,
+  "reasoning": "Both labs used the same rod so possible shared bias; the manual check was a post hoc subset in one lab, not a third trial. Direction/size of error not given; blinding does not fix calibration; manufacturer motive not stated."
+ },
+ "v12-04-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Coefficient was independently checked but the idling reduction came from the supplier and the log lacks a comparison, so nothing isolates the scheduling effect. Coefficient check is only part; per-journey idling not published; consultant did check coefficient."
+ },
+ "v12-05-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Six non-panel votes against leave at most six votes, below the seven needed. Panel ballots are not needed to know it fails; panel not bound by advice; informal amendment not voted."
+ },
+ "v12-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "B: association needs at least one resident, so her account does not rule it out (False)"
+  ],
+  "difficulty": 4,
+  "reasoning": "Office accepted case under the rules, so service was in the district and (direct or association route) at least one resident used the procedure. Association needs only one resident; provider's address irrelevant; route unknown."
+ },
+ "v12-07-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "45 employed respondents are fewer than 50 first-year employees, so they cannot include all of them, while 20 nonrespondents may be employed. A net fall does not equal five losses; new entrants into work not excluded; employer attribution impossible."
+ },
+ "v12-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [
+   "A/B/C could carry other labels but all unsupported"
+  ],
+  "difficulty": 3,
+  "reasoning": "Randomisation compared assigned bundled policies (medium plus map link), so neither reading nor the map link is isolated. Analysis is by assignment, not reading; excluding failures would break randomisation; refusers not recruited."
+ },
+ "v12-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Original has digital permission and passed artwork check; crop has print permission and passed artwork check; permissions are medium- and photograph-specific. No borrowing; original has no print permission; crop's digital use is not granted."
+ },
+ "v12-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Excluded packages: 200+300-100=400, leaving 400 in neither; 150 confirmed unexpired, rest unresolved, so reserve between 150 and 400. Subtracting 500 double counts the overlap; expiry unresolved for 250; emergency purpose not mentioned."
+ },
+ "v13-01-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "The repair contract was signed Friday after the declaration ended, so lacked a valid route; the small construction grant needed no emergency route. Commitment is at signature; board's likely vote not stated."
+ },
+ "v13-02-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Supporters rose from 40 to 54 with the same 100 people, so at least 14 opponents switched; 54 is a majority of the full panel. At least 14, not exactly 14 or most of 60; attrition cannot create 54 supporters out of 40."
+ },
+ "v13-03-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "The Silver is a freight fuel carrier admitted per the rules, so it had no waiver and needed an active (inspected) sensor; no information on others. Priority certificates do not waive; non-fuel freight may hold waivers; fuel carrier share unknown."
+ },
+ "v13-04-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Access randomised separately from training, but use is not randomised and schools volunteered. Cannot generalise to every district school; intention-to-treat retains all schools; purchase decision not mentioned."
+ },
+ "v13-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "The two paired runs differ only in the campaign effect, isolating a modelled effect of about one million, not realised savings or the whole four-million revision. Population attribution unpublished; quarter of revision is modelled; households' behaviour not observed."
+ },
+ "v13-06-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Base 34; Elm +8 gives 42; Willow +6 gives 40; both 48. Willow adds six not eight; each room fails one check so single repair does not make all 48; order of work not stated."
+ },
+ "v13-07-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Neri has a scholarship so fieldwork credit and methods pass; no oral evaluation, so project route. Vale's bursary has different conditions so shows no fieldwork route. Placement requires oral evaluation; methods pass alone is insufficient."
+ },
+ "v13-08-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "All three updated articles rely on the supplier's single release/model and the monitor covers only one route, not displacement. Monitor does not confirm network-wide saving; observatory did not say the estimate was false."
+ },
+ "v13-09-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Same measured loss under old and new rules, so the seven lost flags are due to the rule only; the annual fall is not apportioned between rule, machinery or workforce. Workers not retested, so no improvement shown; machinery also plausible."
+ },
+ "v13-10-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Blue is cheaper only conditionally under the central model; flexibility and omitted effects are not priced. Likelihood of scenarios not stated; no valuation of disruption; Red cheaper in low-growth scenario so Blue not cheaper in every future."
+ }
+}

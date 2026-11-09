@@ -458,7 +458,7 @@ EPSO_BANK.registerSet({
       "optionNotes": [
         "Correct. The prize 'is paid if the city fulfils its commitments'.",
         "False. The benefits 'are uneven', and some cities 'struggled to maintain cultural activity once the year was over', so lasting benefits are not guaranteed.",
-        "Overstated. Two cities hold the title each year; a third city from outside the EU is added only 'every third year', not every year.",
+        "False. Two cities hold the title each year; a third city from outside the EU is added only 'every third year', not every year.",
         "Not supported. The text calls the prize 'modest' but gives no amount; any figure comes from outside knowledge."
       ],
       "explanation": "The key paraphrases a condition. The 'three cities every year' option contradicts the rule that a third city is added only every third year, a small change that is easy to miss on a fast read. The prize option adds a figure the text never gives, and the benefits option turns 'can boost' into a guarantee.",

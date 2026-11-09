@@ -1,0 +1,502 @@
+{
+ "v05-01-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Charter does not apply to measures unconnected with EU law, so protection comes from other sources. A invents a cause; B widens Fransson (VAT only); D contradicts the principles rule."
+ },
+ "v05-02-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Overstated",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "Option D is borderline False (decision is within ten days of consent, not of arrest; handover not mentioned)."
+  ],
+  "difficulty": 4,
+  "reasoning": "Double-criminality bar applies only to listed offences with max of at least three years; a two-year max leaves the check possible. B drops 'in principle'; C is invented; D mixes the ten days from consent with arrest."
+ },
+ "v05-03-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Passage says investigations and prosecutions remain with national authorities. A says 'every' where text says 'usually'; B is not stated; C overstates 'grown considerably'."
+ },
+ "v05-04-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Officers cannot arrest, so arrests must be made by others. A and C are not mentioned; D contradicts the need for the Member State's agreement."
+ },
+ "v05-05-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Visa criterion ranks above irregular entry, so a visa-issuing state can be responsible. A drops 'normally'/best-interests proviso; C not stated; D contradicts 'same basic logic'."
+ },
+ "v05-06-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Relocation is only one way to contribute; states must still contribute a fair share. A contradicts 'no state can be obliged to relocate'; B contradicts the two opposed critic camps; C is invented."
+ },
+ "v05-07-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Directive went unused for over twenty years until March 2022. B and C are not stated; D overstates education 'same terms' to every respect."
+ },
+ "v05-08-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "For certain ICT jobs three years' recent experience can replace a degree. A not stated; B contradicts parallel national schemes; D widens 'certain ICT occupations' to all."
+ },
+ "v05-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [
+   "Option C borderline False (family rights are derived from the citizen's)."
+  ],
+  "difficulty": 3,
+  "reasoning": "Permanent residence after five years removes the resource conditions, so six years suffices. A invents an EU-fixed income; B turns 'may require' into 'every'; C attaches ten years (expulsion) to permanent residence."
+ },
+ "v05-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "Option B borderline Overstated."
+  ],
+  "difficulty": 3,
+  "reasoning": "Assisting state may ask the citizen's own state to reimburse. B contradicted by the unrepresented-only limit; C passports not mentioned; D 'can include' emergency documents, not 'every'."
+ },
+ "v05-11-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Agency cannot examine individual complaints, so redress lies elsewhere. A bindingness not stated; B 'only source' overstates 'frequently the main'; D motive invented."
+ },
+ "v05-12-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Since Lisbon, non-notification of transposition allows penalties in the first judgment. A contradicts that; C not stated; D overstates 'most cases closed before referral'."
+ },
+ "v05-13-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Second-stage proposal may come only from one third of Member States or the Commission, so Parliament cannot propose it. B contradicts that suspension needs a second-stage finding; C invented; D turns 'many observers attribute' into proof."
+ },
+ "v05-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Breaches with no sufficiently direct link to the budget fall outside the regulation. A and B not stated; C ignores the budget-link and proportionality limits."
+ },
+ "v05-15-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Executing authority may use a less intrusive measure achieving the same result. A and B not stated (Denmark/Ireland not mentioned); D contradicts refusal only on listed grounds."
+ },
+ "v05-16-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "False",
+   "D": "Overstated"
+  },
+  "issues": [
+   "Option D borderline Not supported/Overstated (scope limited to public authorities)."
+  ],
+  "difficulty": 3,
+  "reasoning": "Directives are minimum standards, states may go higher. A witnesses not mentioned; C contradicts minimum standards; D ignores that the ban is on public authorities."
+ },
+ "v05-17-c": {
+  "answer": "D",
+  "labels": {
+   "A": "False",
+   "B": "Overstated",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Religion is covered only by the Employment directive, only in employment, so shopper has no EU protection. A contradicts shifted burden; B ignores housing coverage limited to race; C not stated."
+ },
+ "v05-18-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Overstated",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "A theory explaining everything is unfalsifiable and so not scientific for Popper. B motive not stated; C widens critics' 'complications'; D 'sometimes productive' became 'always'."
+ },
+ "v05-19-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Registered reports give in-principle acceptance on design before results, so results cannot sway it. A contradicts 'did not show originals wrong'; C not stated; D 'reduce' becomes 'eliminate'."
+ },
+ "v05-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "False",
+   "B": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [
+   "Option A could also be labelled Overstated."
+  ],
+  "difficulty": 3,
+  "reasoning": "The 1225 version, not the 1215 one, became definitive. A contradicts 'practical settlement' and later reinterpretation; B and D are not stated."
+ },
+ "v05-21-c": {
+  "answer": "A",
+  "labels": {
+   "B": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Monastery faults seen as venial would cause the same scandal. B and C not stated; D widens 'may prepare change' to every crime."
+ },
+ "v05-22-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Difference principle permits inequality only if it benefits the least advantaged, so worse-off-than-equality fails. A treats 'some others' and 'could' as all critics; B not stated; C widens 'fruits of their work' to everything owned."
+ },
+ "v06-01-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Overstated",
+   "C": "Not supported",
+   "D": "False"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "GBER and de minimis aid need no prior Commission approval and can be lawful. A turns 'some' into 'all'; C not stated; D contradicts 'not to punish'."
+ },
+ "v06-02-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [
+   "Option B borderline Overstated."
+  ],
+  "difficulty": 3,
+  "reasoning": "Prohibitions are rare, remedies more common. A motive invented; B contradicted by rarity of prohibitions; C not stated."
+ },
+ "v06-03-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Victims can sue; immune firm remains liable to its own purchasers or providers. B contradicted by 'up to 20% for any others'; C and D not stated."
+ },
+ "v06-04-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Platform meets users test but misses turnover/value test (needs 7.5bn or 75bn), so no presumption. A compensation not stated; B not stated; D widens ban on more favourable ranking."
+ },
+ "v06-05-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Businesses deduct input VAT and collect for the state, so the final consumer bears it. A 'partly' becomes 'mainly'; B 'limited number' becomes any goods; D not stated."
+ },
+ "v06-06-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Nationality-based conditions are banned outright. B contradicts dropped home-country principle; C invented; D 'partly' becomes 'mainly'."
+ },
+ "v06-07-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "False",
+   "C": "False"
+  },
+  "issues": [],
+  "difficulty": 4,
+  "reasoning": "Beyond 18 months most host labour law applies, but social security stays home up to 24 months. A not stated; B contradicted (core terms, then host law only after 12 months); C ignores listed exceptions."
+ },
+ "v06-08-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Court said a label was a less restrictive means. A motive not stated; C not stated; D ignores mandatory-requirement exceptions."
+ },
+ "v06-09-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Goods from anywhere must carry it where legislation applies. A 'certain machinery' becomes all; B contradicts 'must not carry it'; C not stated."
+ },
+ "v06-10-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "200 staff under 250, balance sheet \u20ac40m within \u20ac43m, so medium-sized despite \u20ac70m turnover. B ignores financial ceilings; C widens 'many programmes'; D not stated."
+ },
+ "v06-11-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Milestones must be completed by end of August 2026, so October is late. A contradicted (338 of 723.8); C not stated; D 'several' becomes 'every'."
+ },
+ "v06-12-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Progress tends to be greater over several years. A and B not stated; D 'tends to be greater' becomes full implementation."
+ },
+ "v06-13-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Authorities can weigh price against quality, so lowest price is not the only way. B contradicted by thresholds; C 'large share' becomes most; D not stated."
+ },
+ "v06-14-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "False",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Country weights differ, so identical item price changes can yield different HICP rates. A overstates 'do not always allow'; B contradicts national offices compiling; C not stated."
+ },
+ "v06-15-c": {
+  "answer": "B",
+  "labels": {
+   "A": "Not supported",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [
+   "Option D borderline False (the relaunch envisages EU-level supervision)."
+  ],
+  "difficulty": 3,
+  "reasoning": "Insolvency law remains national, so rules differ. A and C not stated; D overstates 'largely national'."
+ },
+ "v06-16-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Overstated",
+   "B": "Overstated",
+   "D": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "EIB usually covers up to half, so others also finance. A 'broadly' becomes 'exactly'; B 'most' becomes 'entirely'; D comparison not made."
+ },
+ "v06-17-c": {
+  "answer": "B",
+  "labels": {
+   "A": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Dominance is not unlawful itself; winning on merit with cheaper products is fine. A contradicts upheld ruling; C not stated; D 'strong indication' becomes proof."
+ },
+ "v06-18-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Not supported",
+   "B": "Overstated",
+   "C": "Overstated"
+  },
+  "issues": [
+   "Option D is an inference from 'governments sometimes make insurance compulsory' rather than a direct statement."
+  ],
+  "difficulty": 3,
+  "reasoning": "Compulsory insurance can prevent low-risk customers leaving, in line with the passage. A reason not stated; B 'extreme case' becomes always; C 'reduce' becomes solved."
+ },
+ "v06-19-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "1944 to 1971 is 27 years. B contradicts 'IMF survived'; C cause not stated; D 'only to correct' becomes 'whenever'."
+ },
+ "v06-20-c": {
+  "answer": "C",
+  "labels": {
+   "A": "Not supported",
+   "B": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Workers stayed at lower defaults, so a low default can reduce saving. A and B not stated; D 'rose sharply' becomes all joined."
+ },
+ "v06-21-c": {
+  "answer": "A",
+  "labels": {
+   "B": "False",
+   "C": "Not supported",
+   "D": "Overstated"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Village rules plus graduated sanctions match Ostrom's features. B contradicts self-management findings; C not stated; D ignores documented failures."
+ },
+ "v06-22-c": {
+  "answer": "D",
+  "labels": {
+   "A": "Overstated",
+   "B": "Not supported",
+   "C": "Not supported"
+  },
+  "issues": [],
+  "difficulty": 3,
+  "reasoning": "Unemployment rose while revenue from gas grew. A ignores sectors that gain; B and C not stated."
+ }
+}

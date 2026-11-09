@@ -2532,7 +2532,7 @@
       "answer": "A",
       "labels": {
         "B": "False",
-        "C": "Overstated",
+        "C": "False",
         "D": "Not supported"
       },
       "reviewFile": "set-01-review.json",
@@ -2549,7 +2549,7 @@
         "C": {
           "authorLabel": "False",
           "reviewerLabel": "Overstated",
-          "resolution": "relabelled to the reviewer label; note rewritten"
+          "resolution": "restored to the author label (False) after the 2026-11-09 re-check: Re-check of 2026-11-09 (recheck-2026-11-09/): a second blind reviewer chose False; the text says a third city is added only 'every third year', which contradicts 'every year three cities'"
         }
       },
       "reviewerDifficulty": 2
@@ -4486,7 +4486,7 @@
       "set": "verbal-05",
       "answer": "A",
       "labels": {
-        "B": "Overstated",
+        "B": "Not supported",
         "C": "Not supported",
         "D": "Overstated"
       },
@@ -4499,7 +4499,7 @@
         "B": {
           "authorLabel": "Not supported",
           "reviewerLabel": "Overstated",
-          "resolution": "relabelled to the reviewer label"
+          "resolution": "restored to the author label (Not supported) after the 2026-11-09 re-check: Re-check of 2026-11-09 (recheck-2026-11-09/): a second blind reviewer chose Not supported; the text says how Popper used the criterion but gives no motive for devising it"
         }
       },
       "reviewerDifficulty": 2
