@@ -10,7 +10,7 @@ import {abstractBlind} from '../lib/blind.mjs';
 const clone=x=>JSON.parse(JSON.stringify(x)),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const mod=(v,n)=>(v%n+n)%n;
 const hash=q=>crypto.createHash('sha256').update(JSON.stringify(q)).digest('hex');
-function alternatives(q,index){
+export function alternatives(q,index){
  let seed=31771+index*7919;
  const rnd=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/2**32;};
  const pick=a=>a[Math.floor(rnd()*a.length)];

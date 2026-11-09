@@ -171,7 +171,7 @@
     if (sec.usedMs == null) sec.usedMs = C.elapsedMs(sec, Date.now());
   }
 
-  // Difficulty levels that exist in a section; the numerical bank has no Easy items.
+  // Only offer levels present in the selected section; stale preferences fall back to All.
   var LEVEL_NAMES = { "1": "Easy", "2": "Medium", "3": "Hard" };
   function levelsIn(key) {
     var seen = {};
@@ -776,7 +776,8 @@
       qs.forEach(function (q) { var e = stats[q.id]; if (e) { seen += e.seen; correct += e.correct; if (e.last === false) wrongNow++; } else unseen++; });
       var acc = seen ? Math.round((correct / seen) * 100) : null;
       var S = SECTIONS[k];
-      var levelCounts = '<span class="muted small">' + [1, 2, 3].map(function (d) {
+      var levelCounts = '<span class="muted small">' + levelsIn(k).map(function (level) {
+        var d = +level;
         return qs.filter(function (q) { return q.difficulty === d; }).length + " " + ["", "easy", "medium", "hard"][d];
       }).join(" · ") + "</span>";
       return '<div class="trow">' +

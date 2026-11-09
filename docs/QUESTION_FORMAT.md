@@ -43,6 +43,8 @@ order can change. Describe the option instead ("the 'always' option…") **(enfo
 
 ### Difficulty rubric
 
+The abstract bank now offers Medium and Hard only. The Easy rubric remains as a rejection criterion: strengthen an Easy item under a fresh ID rather than relabelling unchanged content. Verbal levels are unchanged.
+
 | Level | Verbal | Numerical | Abstract |
 |---|---|---|---|
 | 1 easy | Key paraphrases one sentence; traps are visible on a careful read | One direct arithmetic model; see numerical rubric | Two familiar independent transformations |
@@ -178,6 +180,8 @@ Figure shapes (100 × 100 canvas; `fill` is `black`, `grey`, `white`, `none` or 
 `circle {x,y,r}`, `rect {x,y,w,h}`, `poly {x,y,r,n,rot}`, `polygon {points:[[x,y],...],fill}`, `star {x,y,r,rot}`, `arrow {x,y,r,rot}`
 (points up at `rot: 0`, turns clockwise), `line {x1,y1,x2,y2,arrowEnd?}`, `wedge {x,y,r,a0,a1}` (a sector,
 angles clockwise from 12 o'clock).
+
+A final generation pass, `abstract-no-easy.mjs`, replaces all 141 formerly Easy foundation slots with 71 Medium spatial-pattern items and 70 Hard dependent-rule items, under fresh `-r4` IDs. Nine Medium foundations remain. The current abstract totals are 160 Medium and 140 Hard; the historical foundation descriptions above document the generator input. See `docs/ABSTRACT_NO_EASY_REVIEW.md`.
 
 Sets 17–19 add six original transfer families through `abstract-transfer.mjs`. Their independent geometry solver handles irrelevant details and invisible orientations semantically. Each single meaningful feature leaves multiple choices, and container indicators cannot bypass count transfer. `abstract-transfer-review.mjs` post-processes historical generator outputs into fresh IDs and strengthened alternatives; fingerprints forbid silent content changes.
 

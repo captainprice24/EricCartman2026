@@ -35,7 +35,7 @@ function panels(s) {
   return out;
 }
 
-export function generateHardAbstract(root) {
+export function generateHardAbstract(root, upgrade = null) {
   const itemSeeds = JSON.parse(fs.readFileSync(path.join(root, "scripts/generators/abstract-hard-seeds.json")));
   let seed = 20261019;
   const random = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
@@ -122,6 +122,8 @@ export function generateHardAbstract(root) {
     // A simple alternative explaining every visible transition must not imply a conflicting continuation.
     if (simpler && ['p','a'].some(k=>simpler[k].some(fit=>fit.next!==key[k]))) return null;
     const independent = simpler && simpler.p.length && simpler.a.length;
+    if (upgrade && independent) return null;
+    if (upgrade && !upgrade.accept(rows.slice(0,6).map(draw), draw(key))) return null;
     const signature = JSON.stringify(rows.slice(0, 6).map(draw));
     if (used.has(signature)) return null;
     const atom = [];
@@ -176,6 +178,20 @@ export function generateHardAbstract(root) {
       };
     }
     return null;
+  }
+  if (upgrade) {
+    seed = 202611092;
+    const items = [];
+    // Independent-orbit models are excluded; each retained key needs the dependency.
+    const models = [...MODELS, ...NEW_MODELS].filter(m => !['accelerating-relative-angle'].includes(m));
+    for (let i = 0; i < upgrade.count; i++) {
+      let item;
+      const model = models[i % models.length];
+      for (let attempt = 0; attempt < 3000 && !item; attempt++) item = build(model, [1,2,3,4,2][i % 5]);
+      if (!item) throw Error('Cannot build upgraded Hard ' + i + ': ' + model);
+      items.push(item);
+    }
+    return items;
   }
   for (let set = 5; set <= 11; set++) {
     const id = String(set).padStart(2, '0'), targets = [...shuffle([1, 2, 3, 4, 1, 2, 3, 4]), 2, 2];

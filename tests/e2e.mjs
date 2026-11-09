@@ -198,31 +198,33 @@ async function run(engineName) {
   });
 
   for (const [label, vp, dark] of [['desktop', desktop, false], ['phone dark', phone, true]]) {
-    await check(`abstract difficulty, challenge rounds and all 80 revised/new patterned items work at ${label} width`, async () => {
+    await check(`abstract Medium/Hard filters, all 150 upgraded-set items and challenge rounds work at ${label} width`, async () => {
       const p = await newPage(vp, { dark });
-      await p.selectOption('#opt-abstract-level', '1');
+      assert.deepEqual(await p.$$eval('#opt-abstract-level option', o=>o.map(x=>x.value)), ['all','2','3']);
+      await p.evaluate(()=>{const key='ad5trainer.prefs.v1',prefs=JSON.parse(localStorage.getItem(key)||'{}');prefs.abstractLevel='1';localStorage.setItem(key,JSON.stringify(prefs));});
+      await p.reload(); await p.waitForSelector('.home');
+      assert.equal(await p.inputValue('#opt-abstract-level'),'all','retired Easy preference falls back safely');
+      await p.selectOption('#opt-abstract-level', '2');
       await p.selectOption('#opt-count', 'all');
       await p.reload(); await p.waitForSelector('.home');
-      assert.equal(await p.inputValue('#opt-abstract-level'), '1');
+      assert.equal(await p.inputValue('#opt-abstract-level'), '2');
       await p.locator('[data-act="practice"][data-k="abstract"]').click();
-      const easy = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
-      assert.ok(easy.length > 0); assert.ok(easy.every(d => d === 1));
+      const medium = await p.evaluate(() => window.EPSO_APP.state.session.sections[0].items.map(it => it.q.difficulty));
+      assert.equal(medium.length,160); assert.ok(medium.every(d=>d===2));
       await p.goto(URL); await p.waitForSelector('.home');
-      await p.selectOption('#opt-set', 'abstract-05');
-      await p.locator('[data-act="practice"][data-k="abstract"]').click();
-      assert.match(await p.locator('#toast').textContent(), /No abstract reasoning questions match/);
-      for (const id of ['05', '06', '07', '08', '12', '13', '14', '15', '16', '17', '18', '19']) {
+      for (const id of ['01', '02', '03', '04', '05', '06', '07', '08', '12', '13', '14', '15', '16', '17', '18', '19']) {
         await p.selectOption('#opt-set', 'abstract-' + id);
         await p.selectOption('#opt-abstract-level', 'all');
-        await p.selectOption('#opt-count', '10');
+        await p.selectOption('#opt-count', Number(id)<=4?'all':'10');
         await p.check('#opt-timed');
         await p.locator('[data-act="practice"][data-k="abstract"]').click();
         const round = await p.evaluate(() => {
           const s = window.EPSO_APP.state.session.sections[0];
           return { n: s.items.length, limit: s.limitMs, hard: s.items.every(it => [2,3].includes(it.q.difficulty)) };
         });
-        assert.deepEqual(round, { n: 10, limit: 600000, hard: true });
-        for (let i = 0; i < 10; i++) {
+        const expectedCount=Number(id)<=4?(Number(id)===1?10:Number(id)===4?40:50):10;
+        assert.deepEqual(round, { n: expectedCount, limit: expectedCount*60000, hard: true });
+        for (let i = 0; i < expectedCount; i++) {
           const expectedFrames=await p.evaluate(()=>{const s=window.EPSO_APP.state.session;return s.sections[s.si].items[s.qi].q.sequence.length;});
           assert.ok([5,6].includes(expectedFrames));assert.equal(await p.locator('.series .fig').count(),expectedFrames);
           if(Number(id)>=17){
@@ -237,7 +239,7 @@ async function run(engineName) {
           await p.locator('[data-act="check"]').click();
           assert.ok(await p.locator('#feedback').isVisible());
           if (i === 0 && ['05','17','18','19'].includes(id)) await axe(p, label + ' abstract challenge feedback');
-          if (i < 9) await p.locator('[data-act="next"]').click();
+          if (i < expectedCount-1) await p.locator('[data-act="next"]').click();
         }
         await p.goto(URL); await p.waitForSelector('.home');
       }

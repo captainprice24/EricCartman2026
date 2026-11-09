@@ -1,3 +1,4 @@
+import {upgradeEasyAbstract} from './abstract-no-easy.mjs';
 import { reviewedAbstract } from './abstract-review-revision.mjs';
 import {applyAbstractTransferReview} from './abstract-transfer-review.mjs';
 import {generateTransferSets} from './abstract-transfer.mjs';
@@ -485,3 +486,5 @@ generateHardAbstract(root);
 generatePatternSets(root);
 applyAbstractTransferReview(root);
 generateTransferSets(root);
+
+upgradeEasyAbstract(root);

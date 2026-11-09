@@ -1,17 +1,17 @@
 # Abstract bank audit
 
-**300 questions: 141 Easy, 89 Medium, 70 Hard.** Editorial bands; first-exposure learner calibration pending.
+**300 questions: 0 Easy, 160 Medium, 140 Hard.** Editorial bands; first-exposure learner calibration pending.
 
-The November commercial-sample follow-up preserves all 270 existing stimuli, gives 200 substantive revisions fresh IDs, strengthens all 50 patterned answer sets, and adds 30 original items across six families. See [ABSTRACT_TRANSFER_REVIEW.md](ABSTRACT_TRANSFER_REVIEW.md). The earlier [book review](ABSTRACT_BOOK_REVIEW.md) and its evidence remain historical records.
+At the owner’s request, all 141 Easy abstract items were replaced under fresh IDs: 71 Medium and 70 Hard. The other 159 questions are unchanged. Verbal and numerical content is unchanged by this revision. See [ABSTRACT_NO_EASY_REVIEW.md](ABSTRACT_NO_EASY_REVIEW.md).
 
-Foundation bands now follow the shortest sufficient feature subset, rather than all rules mentioned in the explanation. Familiar one/two-track elimination is Easy; a necessary nonuniform count phase remains Medium. Patterned grid/ring/row transformations are spatially composite tracks; each now requires multiple features, and the supporting cues alone leave at least two options. New identity and container tasks require previous-frame relationships; other pilot families are Medium.
+Medium replacements use alternating grid shifts, opposed conveyors and counter-rotating patterned regions. Their options require the main spatial transformation; no single visible feature selects the key. Hard replacements use necessary delayed, conditional or composed transformations. Simple independent orbit continuations are excluded, and supporting cycles cannot select the key.
 
 | Set | Easy | Medium | Hard | Most central | Outlier | Element majority |
 |---|---:|---:|---:|---:|---:|---:|
-| abstract-01 | 9 | 1 | 0 | 10.0% | 20.0% | 10.0% |
-| abstract-02 | 48 | 2 | 0 | 13.5% | 20.0% | 13.3% |
-| abstract-03 | 48 | 2 | 0 | 15.7% | 20.0% | 12.7% |
-| abstract-04 | 36 | 4 | 0 | 16.3% | 20.0% | 11.9% |
+| abstract-01 | 0 | 6 | 4 | 20.0% | 10.0% | 20.0% |
+| abstract-02 | 0 | 26 | 24 | 16.0% | 4.0% | 10.8% |
+| abstract-03 | 0 | 26 | 24 | 20.7% | 2.0% | 18.7% |
+| abstract-04 | 0 | 22 | 18 | 16.3% | 2.5% | 11.3% |
 | abstract-05 | 0 | 3 | 7 | 8.3% | 0.0% | 8.3% |
 | abstract-06 | 0 | 1 | 9 | 15.0% | 0.0% | 15.0% |
 | abstract-07 | 0 | 1 | 9 | 20.0% | 0.0% | 5.0% |
@@ -30,12 +30,12 @@ Foundation bands now follow the shortest sufficient feature subset, rather than 
 
 ## Coverage and verification
 
-- Foundation: 150 visible-geometry predictions. Patterned: 50 independent grid/ring/conveyor predictions plus feature-subset checks. Challenge: 70 coupled/panel predictions plus checks against simpler independent rules. Transfer: 30 independent geometry predictions, semantic distractor checks and damaged-relation regressions.
-- New families: identity handoff, inside/outside inequalities, boundary continuation with irrelevant count, persistent irregular objects, reversible coverage, and conserved container transfers. Five original variants per family, interleaved in sets 17–19. These sets supplement practice; the fifteen fixed exam forms retain their prior membership through revision lineage.
-- All 300 items appear in reproducible contact sheets in light and dark themes. The irregular polygons distinguish reflection from rotation; boundary fragments reconnect at opposite edges; coverage reaches visible bounds. No commercial figures are registered.
-- All named option-only strategies stay at or below 30% per set. Geometry and feature checks do not prove resistance to every human shortcut or every invented finite-series rule.
-- Revision hashes preserve published content and original stimuli; rerunning the generator must reproduce current fingerprints. Historical book-review fixtures remain tested separately.
+- Current solver coverage: 9 retained foundation items, 121 patterned items, 140 orbit/panel items and 30 transfer items. Each is solved from visible geometry without author labels or parameters. The historical 270-item transfer-review baseline remains tested separately.
+- All 141 replacements have different stimuli and alternatives from their retired Easy versions. Their new IDs preserve the fifteen fixed forms through revision lineage. Current fingerprints reject silent edits on regeneration.
+- All 300 items appear in reproducible light/dark contact sheets. Browser checks traverse all 150 items in Sets 01–04 at desktop and phone widths, including feedback and overflow, alongside existing challenge and transfer checks.
+- Medoid, outlier and element-majority guessing rates must stay at or below 30% per set. Single-feature and supporting-cue checks cover each replacement. These bounded checks do not prove resistance to every possible human shortcut.
+- The earlier [commercial-sample follow-up](ABSTRACT_TRANSFER_REVIEW.md) and [book review](ABSTRACT_BOOK_REVIEW.md) are historical records; their then-current difficulty totals are superseded here.
 
-## Refresh and learner calibration
+## Refresh and calibration
 
-Run `node scripts/generators/abstract.mjs`, `npm run audit:abstract`, the independent tests, and `node scripts/render-abstract-contact-sheets.mjs`. The complete audit includes per-item shortest-path diagnostics. Follow the first-exposure protocol in the transfer review before claiming measured AD-equivalent difficulty.
+Run `node scripts/generators/abstract.mjs`, `npm run audit:abstract`, the independent tests and `node scripts/render-abstract-contact-sheets.mjs`. Pilot first attempts at 60 seconds per question and record accuracy, time, confidence and the actual solving route. Keep repeat exposure separate before adjusting editorial levels.

@@ -193,6 +193,7 @@ for (const set of ctx.window.EPSO_BANK.sets) {
 
     /* ---- abstract (E6) ---- */
     if (set.section === "abstract") {
+      if (![2, 3].includes(q.difficulty)) err(where, "abstract bank accepts Medium and Hard only; strengthen Easy items under fresh IDs");
       if (!Array.isArray(q.sequence) || q.sequence.length < 3 || q.sequence.length > 6) err(where, "sequence must contain 3–6 figures");
       else {
         q.sequence.forEach((f, fi) => checkFigure(`${where} › sequence[${fi}]`, f));

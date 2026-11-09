@@ -44,3 +44,11 @@ New checks and corrections:
 - All repaired pattern options remain visibly different. Grey/black/white, the fixed black sector, clockwise/anticlockwise changes and patterned tiles retain their meanings in dark mode.
 
 The browser suite now traverses all 80 repaired/new items at desktop and 390px phone widths, checks answer feedback and overflow, and compares actual option raster images for all 30 new items. Accessibility scans cover the new rounds. This remains an author visual review and independent-code check, not an independent human blind trial or measured AD difficulty calibration.
+
+## 9 November: remove Easy from abstract practice
+
+Regenerated all 300 current items in **35 groups / 70 light-dark PNGs**. Visually inspected every one of the 141 replacements and all five alternatives on the light sheets: 24 grid, 24 quadrant, 23 conveyor, 56 orbit and 14 binary-panel questions. Dark samples cover all five replacement layouts; the fixed figure palette preserves the colour names and patterned fills.
+
+Grid markers remain separated from the patterned cells; quadrant boundaries and the stationary black segment remain visible. Opposed rows have distinct pattern sequences and clear pointers. Orbit markers, arrows, ring anchors and bottom counts do not overlap. All three binary panels retain visible gutters and cell outlines. No clipping or duplicate-looking alternatives were observed. Existing Medium/Hard figures are unchanged, as verified against the archived bank.
+
+The browser suite now visits all 150 questions in Sets 01–04 at desktop and 390px phone widths, in addition to existing rounds. It checks the Medium/Hard selector, safe fallback from a saved Easy preference, exact item counts, timing, feedback and horizontal overflow. Geometry solvers independently verify every key; visual checks alone do not establish a unique rule or a measured difficulty level.

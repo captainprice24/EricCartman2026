@@ -284,3 +284,20 @@ export function generatePatternSets(root) {
   const pc = (x) => Math.round((x / items.length) * 100) + "%";
   console.log(`abstract medium sets 12–16: ${items.length} patterned items; blind solvers: most central ${pc(mo)}, odd one out ${pc(ou)}, majority ${pc(ma)}`);
 }
+
+// Separate deterministic stream: published Sets 12–16 remain byte-for-byte reproducible.
+export function generateUpgradePatterns(count) {
+  seed = 202611091;
+  const items = [], seen = new Set();
+  for (let i = 0; i < count; i++) {
+    const family = FAMILIES[i % 3]; let item;
+    for (let attempt = 0; attempt < 1000 && !item; attempt++) {
+      const candidate = build(family, family === quadFamily ? 3 : 4, 1 + i % 5);
+      if (candidate && !seen.has(JSON.stringify(candidate.sequence))) item = candidate;
+    }
+    if (!item) throw Error('Cannot build upgraded Medium ' + i);
+    seen.add(JSON.stringify(item.sequence));
+    items.push({...item, difficulty: 2, options: item.options.map(o=>o.fig), optionNotes: item.options.map(o=>o.note), answer: 0});
+  }
+  return items;
+}
